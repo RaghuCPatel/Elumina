@@ -40,6 +40,8 @@ export class EluminaCandidatePage {
    readonly inceaseSize:Locator;
    readonly decreaseSize:Locator;
 
+   readonly verifyContentSectionTime:Locator;
+
  
 
     constructor(page: Page, context: BrowserContext) {
@@ -79,11 +81,13 @@ export class EluminaCandidatePage {
         this.inceaseSize=page.locator('//em[@title="Increase Font Size"]');
         this.decreaseSize=page.locator('//em[@title="Decrease Font Size"]');
 
+        this.verifyContentSectionTime=page.locator('//div[@class="clock-text timer-icon-red"]');
+
 
     }
 
     async candidateNavigateToURL(): Promise<void> {
-        await this.page.goto('https://sandboxcandidate.assessapp.com.au/');
+        await this.page.goto(testConfig.cadidateURL);
     }
 
     async candidateLoginToApplication(): Promise<void> {
@@ -210,6 +214,21 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(5000);
     }
 
+    async clickOnContentSectionCheckBox(){
+        await this.clickOnTermAndCondition.click();
+    }
+
+    async candidateContentSectionValidation(){
+        console.log('Exam Name-'+await this.verifyExamName.textContent());
+        await expect(this.verifyCandidateName).toBeVisible();
+        console.log('Candidate Name-'+await this.verifyCandidateName.textContent());
+        await expect(this.verifyCandidateID).toBeVisible();
+        console.log('Candidate ID-'+await this.verifyCandidateID.textContent());
+        await expect(this.verifyClientID).toBeVisible();
+        console.log('Client ID-'+await this.verifyClientID.textContent());
+
+    }
+
     async candidateContentSection(){
         await this.clickOnTermAndCondition.click();
         await this.page.waitForTimeout(60000);
@@ -237,6 +256,13 @@ export class EluminaCandidatePage {
        console.log('Exam Timer-'+await this.verifyExamTimer.textContent());
     }
   
+    async verifyContentSectionTimer(){
+        await this.page.waitForTimeout(5000);
+        await expect(this.verifyContentSectionTime).toBeVisible();
+        await this.page.waitForTimeout(5000);
+        console.log('Exam Timer-'+await this.verifyContentSectionTime.textContent());
+     }
+
     async navigateBack(){
         await this.page.goBack();
         console.log("Clicked on Back Navigation icon");
@@ -323,7 +349,7 @@ export class EluminaCandidatePage {
            await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
            await this.ClickOnRevieweBtn.click();
            await this.ClickOnSubmitBtn.click();
-           await this.page.waitForTimeout(5000);
+           await this.page.waitForTimeout(20000);
     }
    
     async clickonPrevious(){

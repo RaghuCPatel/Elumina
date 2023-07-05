@@ -36,6 +36,8 @@ export class EluminaInvPage {
       readonly ClickOnExam1:Locator;
       readonly verifyCandNAme:Locator;
 
+      readonly verifyErrorMessage:Locator;
+
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
         this.context = context;
@@ -70,18 +72,28 @@ export class EluminaInvPage {
         this.ClickOnExam1=page.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]');
         this.verifyCandNAme=page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[6]//span');
 
+        this.verifyErrorMessage=page.locator('//div[text()="Invalid username or password."]');
+
         
     }
 
     async invigilatorLogin():Promise<void>{
         await this.page.goto("/");
-        await this.InvUsername.type('divyashree.r@igsindia.net');
-        await this.page.waitForTimeout(10000);
-        await this.InvPssword.type('Aa6!2M#y');
-        await this.page.waitForTimeout(10000);
+        await this.InvUsername.type(testConfig.invigilatorUsername);
+        await this.InvPssword.type(testConfig.invigilatorPassword);
+        await this.page.waitForTimeout(1000);
         await this.InvLoginBtn.click();
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(2000);
     }
+
+    async invalidInvigilatorLogin():Promise<void>{
+      await this.page.goto("/");
+      await this.InvUsername.type('divyashree.r@igsindia.net');
+      await this.InvPssword.type('Aac#009');
+      await this.InvLoginBtn.click();
+      await expect(this.verifyErrorMessage).toBeVisible();
+      console.log(await this.verifyErrorMessage.textContent());
+  }
 
     async iAuthorPageNavigation() {
         const [newPage] = await Promise.all([
