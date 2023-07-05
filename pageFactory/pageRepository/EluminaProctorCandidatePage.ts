@@ -82,7 +82,7 @@ export class EluminaProctorCandidatePage {
     }
 
     async candidateNavigateToURL(): Promise<void> {
-        await this.page.goto("https://sandboxcandidate.assessapp.com.au/");
+        await this.page.goto(testConfig.cadidateURL);
         //await this.page2.goto("/");
     }
 
