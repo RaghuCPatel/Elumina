@@ -34,7 +34,7 @@ export class EluminaLoginPage {
     async loginToApplication(): Promise<void> {
         const decipherPassword = await webActions.decipherPassword();
         await this.USERNAME_EDITBOX.fill(testConfig.username);
-        await this.PASSWORD_EDITBOX.fill(decipherPassword);
+        await this.PASSWORD_EDITBOX.fill(testConfig.password);
         await this.LOGIN_BUTTON.click();
     }
 

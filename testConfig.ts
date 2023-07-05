@@ -16,6 +16,6 @@ export const testConfig = {
     dbName: ``,
 
     cadidateURL:'https://sandboxcandidate.assessapp.com.au/',
-    invigilatorUsername:'divyashree.r@igsindia.net',
-    invigilatorPassword:'Aa6!2M#y'
+    invigilatorUsername:'examincharge2@yopmail.com',
+    invigilatorPassword:'YX!%5t8z'
 }

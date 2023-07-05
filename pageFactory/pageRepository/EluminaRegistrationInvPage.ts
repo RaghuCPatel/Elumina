@@ -86,7 +86,7 @@ export class EluminaRegistrationInvPage {
         this.SelectExBookingStatus=page.locator('//input[@placeholder="Select Booking Status"]');
         this.SelectInvBookingStatus=page.locator('//span[text()="Booked"]');
         this.AssignUsersToCand=page.locator('//input[@placeholder="Select User(s)"]');
-        this.AssignInvToCand=page.locator('//span[text()="Dinesh B"]');
+        this.AssignInvToCand=page.locator('//span[text()="Incharge Exam"]');
         this.ClickOnInvSaveBtn=page.locator('(//button[text()="Save"])[2]');
         
         
