@@ -1,0 +1,134 @@
+import { Page, BrowserContext, Locator, expect } from '@playwright/test';
+import { WebActions } from "@lib/WebActions";
+import { testConfig } from '../../testConfig';
+
+let webActions: WebActions;
+
+export class EluminaInvPage {
+
+    readonly page: Page;
+    readonly context: BrowserContext;
+    readonly InvUsername:Locator;
+    readonly InvPssword:Locator;
+    readonly InvLoginBtn:Locator;
+    readonly AUTHOR: Locator;
+    readonly verifyDashboardTitle:Locator;
+    readonly ClickOnExam:Locator;
+    readonly CheckExamStatus:Locator;
+
+    readonly verifyExamIDMenue:Locator;
+    readonly verifyExamNameMenue:Locator;
+    readonly verifyExamStartDateMenue:Locator;
+    readonly verifyExamEndDateMenue:Locator;
+    readonly verifyExamStatusMenue:Locator;
+    readonly verifyExamDurationMenue:Locator;
+    readonly verifyExamVenueMenue:Locator;
+
+    readonly verifyExamID:Locator;
+    readonly verifyExamName:Locator;
+    readonly verifyExamStartDate:Locator;
+    readonly verifyExamEndDate:Locator;
+    readonly verifyExamStatus:Locator;
+    readonly verifyExamDuration:Locator;
+    readonly verifyExamVenue:Locator;
+
+
+      readonly ClickOnExam1:Locator;
+      readonly verifyCandNAme:Locator;
+
+    constructor(page: Page, context: BrowserContext) {
+        this.page = page;
+        this.context = context;
+        webActions = new WebActions(this.page, this.context);
+        this.InvUsername=page.locator('(//input)[1]');
+        this.InvPssword=page.locator('(//input)[2]');
+        this.InvLoginBtn=page.locator('//*[@class="submit-butn"]');
+        this.AUTHOR = page.locator('//div[text()="iAuthor"]');
+        this.ClickOnExam=page.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]');
+        this.CheckExamStatus=page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[11]//span');
+
+        this.verifyDashboardTitle=page.locator('//h4[text()="Dashboard"]');
+
+        this.verifyExamIDMenue=page.locator('//table[@class="table"]//thead//tr//th[1]');
+        this.verifyExamNameMenue=page.locator('//table[@class="table"]//thead//tr//th[2]');
+        this.verifyExamStartDateMenue=page.locator('//table[@class="table"]//thead//tr//th[3]');
+        this.verifyExamEndDateMenue=page.locator('//table[@class="table"]//thead//tr//th[4]');
+        this.verifyExamStatusMenue=page.locator('//table[@class="table"]//thead//tr//th[5]');
+        this.verifyExamDurationMenue=page.locator('//table[@class="table"]//thead//tr//th[6]');
+        this.verifyExamVenueMenue=page.locator('//table[@class="table"]//thead//tr//th[7]');
+
+        this.verifyExamID=page.locator('(//table[@class="table"]//tbody//tr[1]//td[1]//span)[1]');
+        this.verifyExamName=page.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]');
+        this.verifyExamStartDate=page.locator('(//table[@class="table"]//tbody//tr[1]//td[3]//span)[1]');
+        this.verifyExamEndDate=page.locator('(//table[@class="table"]//tbody//tr[1]//td[4]//span)[1]');
+        this.verifyExamStatus=page.locator('(//table[@class="table"]//tbody//tr[1]//td[5]//span)[1]');
+        this.verifyExamDuration=page.locator('(//table[@class="table"]//tbody//tr[1]//td[6]//span)[1]');
+        this.verifyExamVenue=page.locator('(//table[@class="table"]//tbody//tr[1]//td[7]//span)[1]');
+
+
+
+        this.ClickOnExam1=page.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]');
+        this.verifyCandNAme=page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[6]//span');
+
+        
+    }
+
+    async invigilatorLogin():Promise<void>{
+        await this.page.goto("/");
+        await this.InvUsername.type('divyashree.r@igsindia.net');
+        await this.page.waitForTimeout(10000);
+        await this.InvPssword.type('Aa6!2M#y');
+        await this.page.waitForTimeout(10000);
+        await this.InvLoginBtn.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    async iAuthorPageNavigation() {
+        const [newPage] = await Promise.all([
+            this.context.waitForEvent('page'),
+            await this.AUTHOR.click()
+          ]);
+          await newPage.waitForLoadState();
+          return new exports.EluminaInvPage(newPage);
+    }
+
+    async iAuthorPageVerification() {
+          await expect(this.verifyDashboardTitle).toBeVisible();
+          console.log("Invigilator-"+await this.verifyDashboardTitle.textContent())
+          //await this.ClickOnExam.click();
+    }
+
+    async invDashboardValidations() {
+      await this.page.waitForTimeout(5000);
+      await expect(this.verifyExamIDMenue).toBeVisible();
+      console.log(await this.verifyExamIDMenue.textContent()+"-"+await this.verifyExamID.textContent());
+      await expect(this.verifyExamNameMenue).toBeVisible();
+      console.log(await this.verifyExamNameMenue.textContent()+"-"+await this.verifyExamName.textContent());
+      await expect(this.verifyExamStartDateMenue).toBeVisible();
+      console.log(await this.verifyExamStartDateMenue.textContent()+"-"+await this.verifyExamStartDate.textContent());
+      await expect(this.verifyExamEndDateMenue).toBeVisible();
+      console.log(await this.verifyExamEndDateMenue.textContent()+"-"+await this.verifyExamEndDate.textContent());
+      await expect(this.verifyExamStatusMenue).toBeVisible();
+      console.log(await this.verifyExamStatusMenue.textContent()+"-"+await this.verifyExamStatus.textContent());
+      await expect(this.verifyExamDurationMenue).toBeVisible();
+      console.log(await this.verifyExamDurationMenue.textContent()+"-"+await this.verifyExamDuration.textContent());
+      await expect(this.verifyExamVenueMenue).toBeVisible();
+      console.log(await this.verifyExamVenueMenue.textContent()+"-"+await this.verifyExamVenue.textContent());
+
+  }
+
+    async validateExamStatus(){
+       let Examstatus=await this.CheckExamStatus.textContent();
+       console.log(Examstatus);
+       await this.CheckExamStatus.isVisible();
+    }
+
+
+  async invClickOnExam() {
+    await this.ClickOnExam1.click();
+    let CandNAme=await this.verifyCandNAme.textContent();
+       console.log(CandNAme);
+  
+    }
+
+}
