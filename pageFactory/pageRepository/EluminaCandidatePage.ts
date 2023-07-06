@@ -381,6 +381,15 @@ export class EluminaCandidatePage {
            await this.page.waitForTimeout(20000);
     }
    
+ //**Method to Confirmation Submit popup */
+ async confirmationOkBtn(){
+    await this.ConfirmationToSubmit.click();
+}
+//**Method to Candidate  Logout */
+async clickOnLogoutBtn(){
+    await this.CandidateLogout.click();
+}
+
     async clickonPrevious(){
         await this.clickOnPreviousBtn.click();
         await this.page.waitForTimeout(2000);
