@@ -116,13 +116,16 @@ export class EluminaRegistrationInvPage {
        await this.ChooseTitle.selectOption('Mr');
        await this.TypeUsername.type('rahulrcb'+Math.floor(Math.random()*89+10));
        await this.TypeFirstName.type('Rahul');
+       await this.page.waitForTimeout(5000);
        await this.TypeLastName.type('Ka');
        await this.TypeEmail.type('rahulrcb'+Math.floor(Math.random()*899+100)+'@gmail.com');
        await this.TypePhone.type('6'+Math.floor(Math.random()*899999999+100));
        await this.SelectRole.click();
        await this.SelectRole.selectOption('Candidate');
+       await this.page.waitForTimeout(5000);
        await this.SelectEligible.click();
        await this.SelectEligible.selectOption('Yes');
+       await this.page.waitForTimeout(5000);
        await this.SelectVenue.click();
        await this.SelectVenue.type('Elumina Chennai');
        await this.SelectBookingStatus.click();

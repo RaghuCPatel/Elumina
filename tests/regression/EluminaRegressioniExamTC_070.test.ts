@@ -3,6 +3,8 @@ import { testConfig } from '../../testConfig';
 
 import { chromium } from '@playwright/test';
 
+//Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)
+
 
 test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -39,7 +41,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
 });      
 
-test(`@ Verify Validation of "Lock Exam" from Live monitor Proctor `, async ({eluminaCandPage, eluminaCadInvPage,webActions }) => {
+test(`@Regression Verify Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)`, async ({eluminaCandPage, eluminaCadInvPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });
@@ -49,7 +51,6 @@ test(`@ Verify Validation of "Lock Exam" from Live monitor Proctor `, async ({el
         
     });   
     await test.step('Candidate start the exam',async ()=> {
-       //await eluminaCadInvPage.candidateStartExamsValidationInv();
        await eluminaCandPage.verifyExamDashboardTimer();
 
         const browser = await chromium.launch();
@@ -69,9 +70,7 @@ test(`@ Verify Validation of "Lock Exam" from Live monitor Proctor `, async ({el
           await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
        
           await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//input').click();
-          
           await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[5]').click();
-  
           await newPage.locator('(//button[text()="Yes"])[2]').click();
           await newPage.waitForTimeout(5000);
         
@@ -82,14 +81,15 @@ test(`@ Verify Validation of "Lock Exam" from Live monitor Proctor `, async ({el
          await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
          await newPage.locator('//div[@title="Resume Exam for all Candidates"]').click();
          await newPage.locator('(//button[text()="Yes"])[2]').click();
-
-        await eluminaCandPage.candidateStartMCQAndSubmit();
-        await newPage.close();
+         await newPage.waitForTimeout(3000);
+       //await eluminaCandPage.candidateStartMCQAndSubmit();
+         await newPage.close();
         await page1.close();
 
     });
+    await test.step(`Inv Login to Elumina application`, async () => {
+        await eluminaCandPage.candidateStartMCQAndSubmit();
+    });
 
-
-   
 
 });

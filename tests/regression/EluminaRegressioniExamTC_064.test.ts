@@ -1,8 +1,8 @@
 import test from '@lib/BaseTest';
 
-//Validation of Exam content section page contents and details
+//Validation of Exam content page - Scroll bar
 
-test(`@Regression Create a Exam and add MCQ Questions`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`@Regression Create a Exam,Content section and add MCQ Questions`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -17,15 +17,12 @@ test(`@Regression Create a Exam and add MCQ Questions`, async ({ eluminaLoginPag
         await newtab.examTabNavigation();
         await newtab.createExam();
         await newtab.createContentSection();
-        await newtab.createContentPage();
+        await newtab.createContentPageWithMoreDescription();
         await newtab.createSection();
         await newtab.addMCQQuestions();
-       
     });
 });
-
-
-test(`@Regression add user and download user details`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression add user in Registration and download credential`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -38,9 +35,9 @@ test(`@Regression add user and download user details`, async ({ eluminaLoginPage
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});    
+});     
 
-test(`@Regression Verify Validation of Exam content section page contents and details`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+test(`@Regression Verify Validation of Exam content page - Scroll bar`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.candidateLoginToApplication();

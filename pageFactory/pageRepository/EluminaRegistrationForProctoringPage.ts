@@ -96,7 +96,7 @@ export class EluminaRegistrationForProctoringPage {
 
 
     }
-
+      //**Method to navogate new Tab */
     async iAuthorPageNavigations() {
         const [newPage] = await Promise.all([
             this.context.waitForEvent('page'),
@@ -106,6 +106,7 @@ export class EluminaRegistrationForProctoringPage {
           return new exports.EluminaRegistrationForProctoringPage(newPage);
     }
 
+        //**Method to click on Registration Menu,click on Created Exam and click on Add new users */
     async registrationTabNavigation():Promise<void> {
         await this.RegistrationMenu.click();
         await this.ClickOnCreatedExam.click();
@@ -158,7 +159,7 @@ export class EluminaRegistrationForProctoringPage {
     async addExistingUsers():Promise<void>{
         await this.ClickOnAddExistingUser.click();
         await this.SearchUsers.click();
-        await this.SearchUsers.type('Dinesh');
+        await this.SearchUsers.type('Incharge Exam');
         await this.page.waitForTimeout(7000);
         await this.CLickOnUser.click();
         await this.ChooseExistingRole.click();

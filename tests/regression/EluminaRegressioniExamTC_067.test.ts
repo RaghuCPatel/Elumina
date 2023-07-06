@@ -1,5 +1,8 @@
 import test from '@lib/BaseTest';
-test(`@Smoke Verify Validation of Invigilator Dashboard Proctor`, async ({ eluminaInvPage, webActions }) => {
+
+//Validation of login for invigilator for valid credential
+
+test(`@Smoke Verify Validation of login for invigilator for valid credential`, async ({ eluminaInvPage, webActions }) => {
    
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaInvPage.invigilatorLogin();
@@ -7,9 +10,7 @@ test(`@Smoke Verify Validation of Invigilator Dashboard Proctor`, async ({ elumi
     
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaInvPage.iAuthorPageNavigation();
-        //await newtab.iAuthorPageVerification();
         await newtab.invDashboardValidations();
-        //await newtab.validateExamStatus();
         
     });
 });
