@@ -150,7 +150,7 @@ export class EluminaRegistrationInvPage {
     async addExistingUsers():Promise<void>{
        await this.ClickOnAddExistingUser.click();
        await this.SearchUsers.click();
-       await this.SearchUsers.type('Dinesh');
+       await this.SearchUsers.type('Incharge Exam');
        await this.page.waitForTimeout(6000);
        await this.CLickOnUser.click();
        await this.ChooseExistingRole.click();
