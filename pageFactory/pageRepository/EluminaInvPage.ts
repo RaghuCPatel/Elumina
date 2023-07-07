@@ -67,16 +67,12 @@ export class EluminaInvPage {
         this.verifyExamDuration=page.locator('(//table[@class="table"]//tbody//tr[1]//td[6]//span)[1]');
         this.verifyExamVenue=page.locator('(//table[@class="table"]//tbody//tr[1]//td[7]//span)[1]');
 
-
-
         this.ClickOnExam1=page.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]');
         this.verifyCandNAme=page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[6]//span');
-
-        this.verifyErrorMessage=page.locator('//div[text()="Invalid username or password."]');
-
-        
+        this.verifyErrorMessage=page.locator('//div[text()="Invalid username or password."]'); 
     }
 
+    /**Method to login as invigilator */
     async invigilatorLogin():Promise<void>{
         await this.page.goto("/");
         await this.InvUsername.type(testConfig.invigilatorUsername);
@@ -86,6 +82,7 @@ export class EluminaInvPage {
         await this.page.waitForTimeout(2000);
     }
 
+    /**Method to check with invaild Invigilator login */
     async invalidInvigilatorLogin():Promise<void>{
       await this.page.goto("/");
       await this.InvUsername.type('divyashree.r@igsindia.net');
@@ -95,6 +92,7 @@ export class EluminaInvPage {
       console.log(await this.verifyErrorMessage.textContent());
   }
 
+  /**Method for page navigation */
     async iAuthorPageNavigation() {
         const [newPage] = await Promise.all([
             this.context.waitForEvent('page'),
@@ -104,12 +102,14 @@ export class EluminaInvPage {
           return new exports.EluminaInvPage(newPage);
     }
 
+    /**Method for iAuthor Page Verification */
     async iAuthorPageVerification() {
           await expect(this.verifyDashboardTitle).toBeVisible();
           console.log("Invigilator-"+await this.verifyDashboardTitle.textContent())
           //await this.ClickOnExam.click();
     }
 
+    /**Method for Invigilator Dashboard Validation */
     async invDashboardValidations() {
       await this.page.waitForTimeout(5000);
       await expect(this.verifyExamIDMenue).toBeVisible();
@@ -129,18 +129,19 @@ export class EluminaInvPage {
 
   }
 
+  /**Method to Verify Exam status */
     async validateExamStatus(){
        let Examstatus=await this.CheckExamStatus.textContent();
        console.log(Examstatus);
        await this.CheckExamStatus.isVisible();
     }
 
-
+  /**Method to verify candidate name */
   async invClickOnExam() {
     await this.ClickOnExam1.click();
     let CandNAme=await this.verifyCandNAme.textContent();
-       console.log(CandNAme);
+    console.log(CandNAme);
   
-    }
+  }
 
 }

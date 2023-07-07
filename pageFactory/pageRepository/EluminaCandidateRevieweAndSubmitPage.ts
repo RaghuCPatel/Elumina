@@ -13,17 +13,14 @@ export class EluminaCandidateRevieweAndSubmitPage{
     readonly LOGIN_BUTTON: Locator;
     readonly ClickStartExamLink:Locator;
     readonly ClickOnStartExamBtn:Locator;
-   // readonly NumberOfQutns:Locator;
-   //readonly ClickOnLastQutn:Locator;
-   readonly ClickOnNextBtn:Locator;
-   readonly ClickOnRevieweBtn:Locator;
-   readonly ClickOnSubmitBtn:Locator;
-
-   readonly verifyExamName:Locator;
-   readonly verifyCandidateName:Locator;
-   readonly verifyCandidateID:Locator;
-   readonly verifyClientID:Locator;
-   readonly verifyExamTimer:Locator;
+    readonly ClickOnNextBtn:Locator;
+    readonly ClickOnRevieweBtn:Locator;
+    readonly ClickOnSubmitBtn:Locator;
+    readonly verifyExamName:Locator;
+    readonly verifyCandidateName:Locator;
+    readonly verifyCandidateID:Locator;
+    readonly verifyClientID:Locator;
+    readonly verifyExamTimer:Locator;
  
 
     constructor(page: Page, context: BrowserContext) {
@@ -35,8 +32,6 @@ export class EluminaCandidateRevieweAndSubmitPage{
         this.LOGIN_BUTTON = page.locator('//div[text()=" Login "]');
         this.ClickStartExamLink=page.locator('//table[@class="table-container"]//tr[2]//td[6]');
         this.ClickOnStartExamBtn=page.locator('//div[@class="btn parent-body-container btn-primary"]');
-       // this.NumberOfQutns=page.$$('//div[@class="question-number-container"]//div//p');
-        //this.ClickOnLastQutn=page.locator('//div[@class="question-number-container"]//div//p').last();
         this.ClickOnNextBtn=page.locator('(//div[text()=" Next "])[1]');
         this.ClickOnRevieweBtn=page.locator('(//div[text()=" Review "])[1]');
         this.ClickOnSubmitBtn=page.locator('(//div[text()=" Submit "])[1]');
@@ -49,17 +44,17 @@ export class EluminaCandidateRevieweAndSubmitPage{
 
     }
 
+    /**Method to Navigate to Candidate URL */
     async candidateNavigateToURL(): Promise<void> {
         await this.page.goto("https://sandboxcandidate.assessapp.com.au/");
     }
 
+    /**Metgod to Login to Candidate Apllication */
     async candidateLoginToApplication(): Promise<void> {
 
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();
         const fileName = './download/User_details.xlsx';
-        //const fileName = './User_details (30).xlsx';
-
         wb.xlsx.readFile(fileName).then(async () => {
             let data: any;
           const ws = wb.getWorksheet('Worksheet');
@@ -74,14 +69,13 @@ export class EluminaCandidateRevieweAndSubmitPage{
               }
               await this.ClickOnStartExamBtn.click();
         })
-
         await this.page.waitForTimeout(5000);
         await this.LOGIN_BUTTON.click();
     }
 
+    /**Method to Validate Candidate DashBorad and Click on Review and Submit */
     async candidateRevieweAndSubmitExam(): Promise<void>{
-        
-        //await expect(this.verifyExamName).toBeVisible();
+
         console.log('Exam Name-'+await this.verifyExamName.textContent());
         await expect(this.verifyCandidateName).toBeVisible();
         console.log('Candidate Name-'+await this.verifyCandidateName.textContent());
@@ -89,9 +83,7 @@ export class EluminaCandidateRevieweAndSubmitPage{
         console.log('Candidate ID-'+await this.verifyCandidateID.textContent());
         await expect(this.verifyClientID).toBeVisible();
         console.log('Client ID-'+await this.verifyClientID.textContent());
-        //await expect(this.verifyExamTimer).toBeVisible();
         console.log('Exam Timer-'+await this.verifyExamTimer.textContent());
-
 
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
         const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');
@@ -100,16 +92,13 @@ export class EluminaCandidateRevieweAndSubmitPage{
         for(let i=0;i<=qutns.length-2;i++)
         {
             await qutns[i].click();
-          
             await this.ClickOnNextBtn.click();
 
-           }
+        }
            await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
            await this.ClickOnRevieweBtn.click();
            await this.ClickOnSubmitBtn.click();
            await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
-
-        
         }
 
      async validationOfReview():Promise<void>{

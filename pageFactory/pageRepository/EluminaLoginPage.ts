@@ -27,17 +27,20 @@ export class EluminaLoginPage {
 
     }
 
+    /**Navigate to login URL */
     async navigateToURL(): Promise<void> {
         await this.page.goto("/");
     }
 
+    /**Navigate to Login Application */
     async loginToApplication(): Promise<void> {
         const decipherPassword = await webActions.decipherPassword();
-        await this.USERNAME_EDITBOX.fill(testConfig.username);
-        await this.PASSWORD_EDITBOX.fill(testConfig.password);
+        await this.USERNAME_EDITBOX.fill(testConfig.username1);
+        await this.PASSWORD_EDITBOX.fill(testConfig.password1);
         await this.LOGIN_BUTTON.click();
     }
 
+    /**Method to Verify Profile page */
     async verifyProfilePage(): Promise<void> {
         await expect(this.HOMEPAGE).toBeVisible();
     }

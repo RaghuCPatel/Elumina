@@ -82,8 +82,7 @@ export class EluminaExamInvPage{
     readonly ClickOnAddBtn:Locator;
     readonly ClickOnSubmitAndApproveBtn:Locator;
 
-    
-
+  
     constructor(page: Page, context: BrowserContext ) {
         this.page = page;
         this.context = context;
@@ -103,16 +102,12 @@ export class EluminaExamInvPage{
         this.BooingStartMins=page.getByRole('spinbutton').nth(1);
         this.ChooseBookingStartSession=page.getByLabel(period);
         this.BookingOK=page.locator('.dtpc-ok-svg');
-
         this.BookingEndCalender=page.locator('#exam_booking_end_date_time i');
         this.BookingEndDate=page.locator('#exam_booking_end_date_time').getByText(StartBookingDate, { exact: true });
-
         this.ExamStartCalender=page.locator('#exam_start_date_time i');
         this.ExamStartDate=page.locator('#exam_start_date_time').getByText(StartBookingDate, { exact: true });
- 
         this.ExamEndCalender=page.locator('#exam_end_date_time i');
         this.ExamEndDate=page.locator('#exam_end_date_time').getByText(EndExamDatea, { exact: true });
-
         this.ClickOnExamVenue=page.getByPlaceholder('Select Exam Venue');
         this.ChooseExamVenue=page.getByRole('listitem').filter({ hasText: 'Elumina Chennai' }).locator('div');
         this.ClickOnAdd=page.getByRole('button', { name: 'Add' });
@@ -140,10 +135,9 @@ export class EluminaExamInvPage{
         this.ClickOnNextBtn=page.locator('//button[normalize-space()="Next"]');
         this.ClickOnSubmitAndApproveBtn=page.locator('//button[normalize-space()="Submit & Approve"]');
 
-
-
     }
 
+    /**Method for Page Navigation */
     async iAuthorPageNavigationss() {
         const [newPage] = await Promise.all([
             this.context.waitForEvent('page'),
@@ -157,6 +151,7 @@ export class EluminaExamInvPage{
         await this.EXAMSMENU.click();
   }
 
+  /**Method to Create Exam for Invigilator */
   async createInvExam(): Promise<void> {
 
         let currentDate=new Date();
@@ -178,11 +173,8 @@ export class EluminaExamInvPage{
     await this.SELECTBANK.click();
     await this.TESTBANK.click();
     await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
-    //await newPage.locator('//div[normalize-space()="Proctoring Exam"]//div[@id="Crm_Leads_COMPANY_label"]').scrollIntoViewIfNeeded();
     await this.EXAMCODE.type('De'+Math.floor(Math.random())*89+100);
-    //await this.page.waitForTimeout(5000);
     await this.BookingStartCalender.click();
-   // await this.page.waitForTimeout(5000);
     await this.BookingStartDate.click();
     await this.BookingStartHrs.click();
     await this.BookingStartHrs.clear();
@@ -225,7 +217,6 @@ export class EluminaExamInvPage{
     await this.BooingStartMins.type(EndExamMin.toString());
     await this.ChooseBookingStartSession.check();
     await this.BookingOK.click();
-
     await this.ClickOnExamVenue.click();
     await this.ChooseExamVenue.click();
     await this.ClickOnAdd.click();
@@ -234,10 +225,8 @@ export class EluminaExamInvPage{
     await this.EnterNoOfCandidates.type('01');
     await this.ClickOnAdd.click();
     await this.EnterInvigilatorPswd.click();
-    //await this.page.waitForTimeout(5000);
     await this.EnterInvigilatorPswd.type('ABC09');
     await this.page.waitForTimeout(5000);
-
     await this.ClickOnNextBtn.click();
     await expect(this.VerifyExam_details).toBeVisible();
     await expect(this.VerifyChoose_Question).toBeVisible();
@@ -245,6 +234,7 @@ export class EluminaExamInvPage{
     await expect(this.VerifyChoose_Confirmation).toBeVisible();
 }
 
+/**Method to Create Exam Section */
 async createSections(): Promise<void>{
   await this.CliCKOnCreateSection.click();
   await this.ClickOnCreateExamSection.click();
@@ -259,17 +249,18 @@ async createSections(): Promise<void>{
 
 }
 
+/**Method to Add Questions to Invigilator Exam */
 async addQuestionsInInvExam(): Promise<void>{
-  await this.ClickOnAddQuestion.click();
-  await this.ClickOnSearchQuestion.click();
-  await this.ClickOnSelectAllCheckBox.click();
-  await this.ClickOnAddBtn.click();
-  await this.ClickOnSave.click();
-  await this.ClickOnNextBtn.click();
-  await this.page.waitForTimeout(5000);
-  await this.ClickOnSubmitAndApproveBtn.click();
-  await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
-  //await this.page.waitForTimeout(5000);
-}
+    await this.ClickOnAddQuestion.click();
+    await this.ClickOnSearchQuestion.click();
+    await this.ClickOnSelectAllCheckBox.click();
+    await this.ClickOnAddBtn.click();
+    await this.ClickOnSave.click();
+    await this.ClickOnNextBtn.click();
+    await this.page.waitForTimeout(5000);
+    await this.ClickOnSubmitAndApproveBtn.click();
+    await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+
+  }
 
 }
