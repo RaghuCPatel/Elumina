@@ -1,3 +1,4 @@
+
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
 import { testConfig } from '../../testConfig';
@@ -8,6 +9,7 @@ let webActions: WebActions;
 
 let currentDate=new Date();
 let StartBookingDate=currentDate.getDate().toString();
+let EndExamDate=currentDate.getDate().toString();
 let hour = currentDate.getHours();
 let period = '';
 
@@ -100,7 +102,7 @@ export class EluminaMinimalTimeExamPage {
         this.ExamStartCalender=page.locator('#exam_start_date_time i');
         this.ExamStartDate=page.locator('#exam_start_date_time').getByText(StartBookingDate, { exact: true });
         this.ExamEndCalender=page.locator('#exam_end_date_time i');
-        this.ExamEndDate=page.locator('#exam_end_date_time').getByText(StartBookingDate, { exact: true });
+        this.ExamEndDate=page.locator('#exam_end_date_time').getByText(EndExamDate, { exact: true });
         this.ClickOnExamVenue=page.getByPlaceholder('Select Exam Venue');
         this.ChooseExamVenue=page.getByRole('listitem').filter({ hasText: 'Elumina Chennai' }).locator('div');
         this.ClickOnAdd=page.getByRole('button', { name: 'Add' });

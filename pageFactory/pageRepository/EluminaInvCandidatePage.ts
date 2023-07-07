@@ -38,7 +38,7 @@ export class EluminaInvCandidatePage {
 
     /**Method to Navigate to Candidate URL */
     async candidateNavigateToURL(): Promise<void> {
-        await this.page.goto("https://sandboxcandidate.assessapp.com.au/");
+        await this.page.goto(testConfig.cadidateURL);        
     }
 
     /**Method to navigate to Candidate application */
@@ -125,5 +125,15 @@ export class EluminaInvCandidatePage {
     async candidateStartExamsValidationInv(): Promise<void>{
         await this.ClickStartExamLink.click();
     }
+
+    async enterInvgilatorPaswordAndClickOnNext(){
+        await this.ClickStartExamLink.click();
+        await this.EnterExaPassword.click();
+        await this.page.waitForTimeout(5000);
+        await this.EnterExaPassword.type('ABC09');
+        await this.ClickOnStartExamBtn.click();
+    }
+   
+
 
 }

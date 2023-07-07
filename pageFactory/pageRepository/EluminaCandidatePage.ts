@@ -42,6 +42,12 @@ export class EluminaCandidatePage {
     readonly verifyContentSectionTime:Locator;
     readonly inProgressColor:Locator;
 
+   readonly ConfirmationToSubmit:Locator;
+
+   readonly CandidateLogout:Locator;
+
+   readonly clickOnAutoOkPopup:Locator;
+
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
         this.context = context;
@@ -78,6 +84,9 @@ export class EluminaCandidatePage {
         this.saveButton=page.locator('//div[@class="action-btn-container"]//div[text()="Save"]');
         this.noteQuestions=page.locator('//p[@class="parent-body-container menuColor1 menuColor5"]');
         this.verifyContentSectionTime=page.locator('//div[@class="clock-text timer-icon-red"]');
+        this.ConfirmationToSubmit=page.locator('//div[text()="OK"]');
+        this.CandidateLogout=page.locator('//label[text()="Logout"]');
+        this.clickOnAutoOkPopup=page.locator('//div[@title="OK"]');
         this.inProgressColor=page.locator('//p[@class="parent-body-container menuActive menuColor1"]');
     }
 
@@ -168,6 +177,7 @@ export class EluminaCandidatePage {
         })
         await this.page.waitForTimeout(5000);
         await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(3000);
     }
 
     /**Method to Click on Start Exam */
@@ -207,7 +217,18 @@ export class EluminaCandidatePage {
         console.log('Client ID-'+await this.verifyClientID.textContent());
     }
 
+    async HorizontalScrollAction(){
+        let hor=await this.page.locator('//div[@class="contentWrapper"]'); 
+         await hor.click();
+         for(let i=1;i<=100;i++){
+         await this.page.keyboard.press("ArrowRight")[i];
+         }
+         await this.page.waitForTimeout(3000);
+  
+      }
+
     /**Method to Verify the the Candidate content section */
+
     async candidateContentSection(){
         await this.clickOnTermAndCondition.click();
         await this.page.waitForTimeout(60000);
@@ -273,6 +294,15 @@ export class EluminaCandidatePage {
         {
             await qutns[i].click();
             await this.ClickOnNextBtn.click();
+           }
+           await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
+           await this.ClickOnRevieweBtn.click();
+           await this.ClickOnSubmitBtn.click();
+    }
+
+    async clickOnAutoSubmitOKPopup(){
+        await this.clickOnAutoOkPopup.click();
+        await this.page.waitForTimeout(5000);
         }
     }
 
@@ -317,6 +347,16 @@ export class EluminaCandidatePage {
            await this.page.waitForTimeout(20000);
     }
    
+
+ //**Method to Confirmation Submit popup */
+ async confirmationOkBtn(){
+    await this.ConfirmationToSubmit.click();
+}
+//**Method to Candidate  Logout */
+async clickOnLogoutBtn(){
+    await this.CandidateLogout.click();
+}
+
     /**Method to navigate from review page to candidate exam page */
     async clickonPrevious(){
         await this.clickOnPreviousBtn.click();

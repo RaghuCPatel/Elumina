@@ -47,7 +47,6 @@ const test = baseTest.extend<{
     eluminaMultipleExamsForAMPage:EluminaMultipleExamsForAMPage;
     eluminaMultipleExamsForPMPage:EluminaMultipleExamsForPMPage;
     eluminaMinimalTimeExamPage:EluminaMinimalTimeExamPage;
-
 }>({
     webActions: async ({ page, context }, use) => {
         await use(new WebActions(page, context));
@@ -117,7 +116,7 @@ const test = baseTest.extend<{
     },
     eluminaMinimalTimeExamPage: async ({ page, context }, use) => {
         await use(new EluminaMinimalTimeExamPage(page, context));
-    },
+    }
 })
 
 export default test;

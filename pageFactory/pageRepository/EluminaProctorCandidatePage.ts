@@ -107,6 +107,8 @@ export class EluminaProctorCandidatePage {
         console.log('Candidate ID-'+await this.verifyCandidateID.textContent());
         await expect(this.verifyClientID).toBeVisible();
         console.log('Client ID-'+await this.verifyClientID.textContent());
+        await expect(this.verifyExamTimer).toBeVisible();
+        console.log('Exam Timer-'+await this.verifyExamTimer.textContent());
         await expect(this.verifyRecord).toBeVisible();
         console.log('REC text-'+await this.verifyRecord.textContent())
     }

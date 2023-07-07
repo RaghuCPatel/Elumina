@@ -28,6 +28,21 @@ if (hour >= 12) {
 }
 // console.log(`${period}`);
 
+
+
+function makeid(length) {
+  let result = '';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  let counter = 0;
+  while (counter < length) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    counter += 1;
+  }
+  return result;
+}
+
+
 export class EluminaExamPage {
     readonly page: Page;
     readonly context: BrowserContext;
@@ -297,6 +312,21 @@ export class EluminaExamPage {
 
     }
 
+
+    async createContentPageWithMoreDescription():Promise<void>{
+      await this.ClickonCreateContentPage.click();
+      await this.ClickOnAddContent.click();
+      await this.enterContentTitle.type('Content-A'+Math.floor(Math.random())*89+10);
+      await this.page.waitForTimeout(5000);
+      await this.DescriptionMessage.click();
+      await this.DescriptionMessage.type(makeid(5000));
+      await this.page.waitForTimeout(5000);
+      await this.ClickOnContentLayout.click();
+      await this.ClickOnTermAndCondition.click();
+      await this.ClickOnSave.click();
+
+    }
+
     /**Create Exam Section */
     async createSection(): Promise<void>{
       await this.CliCKOnCreateSection.click();
@@ -307,7 +337,6 @@ export class EluminaExamPage {
       await this.DescriptionMessage.type('Hello World.....');
       await this.page.waitForTimeout(5000);
       await this.Choosehrs.selectOption('1');
-     
       await this.SelectTime.selectOption('30');
       await this.ClickOnSave.click();
       await this.page.waitForTimeout(5000);

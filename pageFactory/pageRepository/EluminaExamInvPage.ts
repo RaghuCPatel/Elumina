@@ -137,7 +137,9 @@ export class EluminaExamInvPage{
 
     }
 
+
     /**Method for Page Navigation */
+  
     async iAuthorPageNavigationss() {
         const [newPage] = await Promise.all([
             this.context.waitForEvent('page'),
@@ -147,11 +149,13 @@ export class EluminaExamInvPage{
           return new exports.EluminaExamInvPage(newPage);
     }
 
+      //** Method to click on Exam Menu*/
     async examTabNavigations(): Promise<void> {
         await this.EXAMSMENU.click();
   }
 
-  /**Method to Create Exam for Invigilator */
+
+        //**Methods to create Exam with invigilator password */
   async createInvExam(): Promise<void> {
 
         let currentDate=new Date();
@@ -234,6 +238,7 @@ export class EluminaExamInvPage{
     await expect(this.VerifyChoose_Confirmation).toBeVisible();
 }
 
+
 /**Method to Create Exam Section */
 async createSections(): Promise<void>{
   await this.CliCKOnCreateSection.click();
@@ -248,8 +253,8 @@ async createSections(): Promise<void>{
   await this.ClickOnSave.click();
 
 }
-
-/**Method to Add Questions to Invigilator Exam */
+  
+//**Methods to add All Questions in Exam Section page */
 async addQuestionsInInvExam(): Promise<void>{
     await this.ClickOnAddQuestion.click();
     await this.ClickOnSearchQuestion.click();
@@ -262,5 +267,27 @@ async addQuestionsInInvExam(): Promise<void>{
     await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
 
   }
+
+//**Methods to add MCQ Questions in Exam Section page */
+async addMCQQuestions():Promise<void>{
+  await this.ClickOnAddQuestion.click();
+  await this.ClickOnSearchQuestion.click()
+  await this.ClickOnSearchQuestion.type('MCQ');
+  await this.page.waitForTimeout(5000);
+  await this.page.waitForSelector('//div[@class="eqc-question-info"]//input',{timeout:10000});
+  const McqQuestions=await this.page.$$('//div[@class="eqc-question-info"]//input');
+  for(let i=0;i<=McqQuestions.length-22;i++)
+  {
+    await McqQuestions[i].click();
+  }
+  await this.ClickOnAddBtn.click()
+  await this.ClickOnSave.click();
+  await this.ClickOnNextBtn.click();
+  await this.page.waitForTimeout(5000);
+  await this.ClickOnSubmitAndApproveBtn.click();
+  await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+  await this.page.waitForTimeout(5000);
+
+}
 
 }
