@@ -114,10 +114,10 @@ export class EluminaRegistrationInvPage {
        await this.ChooseTitle.click();
        await this.page.waitForTimeout(5000);
        await this.ChooseTitle.selectOption('Mr');
-       await this.TypeUsername.type('rahulrcb'+Math.floor(Math.random()*89+10));
-       await this.TypeFirstName.type('Rahul');
-       await this.TypeLastName.type('Ka');
-       await this.TypeEmail.type('rahulrcb'+Math.floor(Math.random()*899+100)+'@gmail.com');
+       await this.TypeUsername.type('shershahsid'+Math.floor(Math.random()*89+10));
+       await this.TypeFirstName.type('shershah');
+       await this.TypeLastName.type('sid');
+       await this.TypeEmail.type('shershah'+Math.floor(Math.random()*899+100)+'@gmail.com');
        await this.TypePhone.type('6'+Math.floor(Math.random()*899999999+100));
        await this.SelectRole.click();
        await this.SelectRole.selectOption('Candidate');
@@ -170,10 +170,31 @@ export class EluminaRegistrationInvPage {
        await this.AssignInvToCand.click();
        await this.ClickOnInvSaveBtn.click();
        await this.page.waitForTimeout(5000);
-
-
-
-
     }
+
+    async addExistingUsers1():Promise<void>{
+        await this.ClickOnAddExistingUser.click();
+        await this.SearchUsers.click();
+        await this.SearchUsers.type('Roopam Chopra');
+        await this.page.waitForTimeout(6000);
+        await this.CLickOnUser.click();
+        await this.ChooseExistingRole.click();
+        await this.SelectInvRole.click();
+        await this.SelectExVenue.click();
+        await this.SelectInvVenue.click();
+        await this.SelectExEligible.click();
+        await this.SelectInvEligible.click();
+        await this.SelectExBookingStatus.click();
+        await this.SelectInvBookingStatus.click();
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(6000);
+        await this.LeftArrow.click();
+        await this.ClickOnDropdown2.click();
+        await this.ClickOnAssignInv.click();
+        await this.AssignUsersToCand.click();
+        await this.AssignInvToCand.click();
+        await this.ClickOnInvSaveBtn.click();
+        await this.page.waitForTimeout(5000);
+     }
 
 }

@@ -74,7 +74,7 @@ export class EluminaRegistrationPage {
     }
 
     async addUserDetails():Promise<void>{
-       await this.EnterClientID.type('Dee'+Math.floor(Math.random()*899+100));
+       await this.EnterClientID.type('Deem'+Math.floor(Math.random()*899+100));
        await this.page.waitForTimeout(8000);
        await this.ChooseTitle.click();
        await this.ChooseTitle.selectOption('Mr');
@@ -181,6 +181,5 @@ export class EluminaRegistrationPage {
         await this.page.waitForTimeout(2000);
      }
     }
-
 
 }
