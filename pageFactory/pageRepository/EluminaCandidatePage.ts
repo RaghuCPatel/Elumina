@@ -304,7 +304,6 @@ export class EluminaCandidatePage {
         await this.clickOnAutoOkPopup.click();
         await this.page.waitForTimeout(5000);
         }
-    }
 
     /**Method to Answer the MCQ questions and click on review button */
     async candidateStartMCQ(){

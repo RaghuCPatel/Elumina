@@ -94,15 +94,17 @@ export class EluminaMultipleExamsForAMPage {
         this.EXAMNAME = page.locator('(//input[@name="inputbox"])[1]')
         this.EXAMCODE = page.locator('(//input[@name="inputbox"])[2]')
         this.BookingStartCalender = page.locator('//div[@id="exam_booking_start_date_time"]//i[@class="glyphicon glyphicon-calendar"]');
-        this.BookingStartDate= page.locator('#exam_booking_start_date_time').getByText(StartBookingDate, { exact: true });
+        this.BookingStartDate= page.locator('#exam_booking_start_date_time').getByText(EndExamDate, { exact: true });
         this.BookingStartHrs=page.getByRole('spinbutton').first();
         this.BooingStartMins=page.getByRole('spinbutton').nth(1);
+
         this.ChooseBookingStartSession=page.getByLabel('AM');
+        
         this.BookingOK=page.locator('.dtpc-ok-svg');
         this.BookingEndCalender=page.locator('#exam_booking_end_date_time i');
-        this.BookingEndDate=page.locator('#exam_booking_end_date_time').getByText(StartBookingDate, { exact: true });
+        this.BookingEndDate=page.locator('#exam_booking_end_date_time').getByText(EndExamDate, { exact: true });
         this.ExamStartCalender=page.locator('#exam_start_date_time i');
-        this.ExamStartDate=page.locator('#exam_start_date_time').getByText(StartBookingDate, { exact: true });
+        this.ExamStartDate=page.locator('#exam_start_date_time').getByText(EndExamDate, { exact: true });
         this.ExamEndCalender=page.locator('#exam_end_date_time i');
         this.ExamEndDate=page.locator('#exam_end_date_time').getByText(EndExamDate, { exact: true });
         this.ClickOnExamVenue=page.getByPlaceholder('Select Exam Venue');
@@ -271,8 +273,8 @@ export class EluminaMultipleExamsForAMPage {
       await this.DescriptionMessage.click();
       await this.DescriptionMessage.type('Hello World.....');
       await this.page.waitForTimeout(5000);
-      await this.Choosehrs.selectOption('1');
-      await this.SelectTime.selectOption('30');
+      await this.Choosehrs.selectOption('0');
+      await this.SelectTime.selectOption('6');
       await this.ClickOnSave.click();
       await this.page.waitForTimeout(5000);
     }
