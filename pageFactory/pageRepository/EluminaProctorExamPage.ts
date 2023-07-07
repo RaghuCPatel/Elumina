@@ -9,9 +9,8 @@ let webActions: WebActions;
 let currentDate=new Date();
 let StartBookingDate=currentDate.getDate().toString();
 let EndExamDate=(currentDate.getDate()+1).toString();
-console.log(StartBookingDate);
-console.log(EndExamDate);
-
+// console.log(StartBookingDate);
+// console.log(EndExamDate);
 
 let hour = currentDate.getHours();
 let period = '';
@@ -28,7 +27,7 @@ if (hour >= 12) {
   }
 }
 
-console.log(`${period}`);
+//console.log(`${period}`);
 
 export class EluminaProctorExamPage {
     readonly page: Page;
@@ -165,6 +164,7 @@ export class EluminaProctorExamPage {
 
     }
 
+    /**Method of Page Navigation */
     async iAuthorPageNavigation() {
         const [newPage] = await Promise.all([
             this.context.waitForEvent('page'),
@@ -174,10 +174,12 @@ export class EluminaProctorExamPage {
           return new exports.EluminaProctorExamPage(newPage);
     }
 
+    /**Method for Exam Tab Navigation */
     async examTabNavigation(): Promise<void> {
           await this.EXAMSMENU.click();
     }
 
+    /**Method to create exam */
     async createExam(): Promise<void> {
 
         let currentDate=new Date();
@@ -188,9 +190,7 @@ export class EluminaProctorExamPage {
           hour12 += 12;
         let minute = currentDate.getMinutes();
         console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
-        //console.log(localDate.)
-        //let Hours=currentDate.getHours();
-        //console.log(Hours);
+     
         let StartBookingMin=currentDate.getMinutes()+1;
         let EndBookingMin=currentDate.getMinutes()+2;
         let StartExamMin=currentDate.getMinutes()+3;
@@ -202,18 +202,16 @@ export class EluminaProctorExamPage {
         await this.SELECTBANK.click();
         await this.TESTBANK.click();
         await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
-        //await newPage.locator('//div[normalize-space()="Proctoring Exam"]//div[@id="Crm_Leads_COMPANY_label"]').scrollIntoViewIfNeeded();
+      
         await this.EXAMCODE.type('D'+Math.floor(Math.random()*89+100));
-
         await this.ProctoringExam.click();
-        //await this.page.waitForTimeout(5000);
         await this.BookingStartCalender.click();
-       // await this.page.waitForTimeout(5000);
+
         await this.BookingStartDate.click();
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
         await this.BookingStartHrs.type(hour12.toString());
-       // await this.BookingStartHrs.type(StartBookingMin.toString());
+
         await this.BooingStartMins.click();
         await this.BooingStartMins.clear();
         await this.BooingStartMins.type(StartBookingMin.toString());
@@ -261,7 +259,6 @@ export class EluminaProctorExamPage {
         await this.EnterNoOfCandidates.type('0100');
         await this.ClickOnAdd.click();
         await this.EnterInvigilatorPswd.click();
-        //await this.page.waitForTimeout(5000);
         await this.EnterInvigilatorPswd.type('ABC09');
         await this.page.waitForTimeout(5000);
 
@@ -273,6 +270,7 @@ export class EluminaProctorExamPage {
         await this.page.waitForTimeout(5000);
     }
 
+    /**Method to create content section */
     async createContentSection():Promise<void>{
       await this.CliCKOnCreateSection.click();
       await this.ClickOnCreateContentSection.click();
@@ -286,7 +284,6 @@ export class EluminaProctorExamPage {
     }
 
     //Creatr a Content Section Page
-
     async createContentPage():Promise<void>{
       await this.ClickonCreateContentPage.click();
       await this.ClickOnAddContent.click();
@@ -301,6 +298,7 @@ export class EluminaProctorExamPage {
 
     }
 
+    /**Method to create exam section */
     async createSection(): Promise<void>{
       await this.CliCKOnCreateSection.click();
       await this.ClickOnCreateExamSection.click();
@@ -315,6 +313,7 @@ export class EluminaProctorExamPage {
 
     }
 
+    /**Method to Add All Questions in Exam */
     async addQuestionsInExam(): Promise<void>{
       await this.ClickOnAddQuestion.click();
       await this.ClickOnSearchQuestion.click();
@@ -328,6 +327,7 @@ export class EluminaProctorExamPage {
       await this.page.waitForTimeout(5000);
     }
 
+    /**Method to Add MCQ Questions in Exam */
     async addMCQQuestions():Promise<void>{
       await this.ClickOnAddQuestion.click();
       await this.ClickOnSearchQuestion.click()
@@ -346,9 +346,6 @@ export class EluminaProctorExamPage {
       await this.ClickOnSubmitAndApproveBtn.click();
       await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
       await this.page.waitForTimeout(5000);
-
-
     }
-   
     
 }

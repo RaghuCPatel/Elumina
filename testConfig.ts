@@ -8,6 +8,8 @@ export const testConfig = {
     // password: `U2FsdGVkX18/eMdsOJpvI4hJZ/w7hNgwSRFaDvAcZx4=`,
     username: `rajakumar.nayak@igsindia.net`,
     password: `UjR!8f3&`,
+    username1: `divyashree.r@igsindia.net`,
+    password1: `XEy!37#z`,
     waitForElement: 120000,
     dbUsername: ``,
     dbPassword: ``,

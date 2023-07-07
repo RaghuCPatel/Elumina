@@ -1,7 +1,7 @@
 import test from '@lib/BaseTest';
 
-/**Validation of Empty Field validation */
-test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+/**Validation of "Time Remaining" pop-up when the just before the exam time runs out */
+test(`@Regression Validation of "Time Remaining" pop-up when the just before the exam time runs out`, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -12,7 +12,7 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
         await eluminaLoginPage.verifyProfilePage();
     });
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminaExamPage.iAuthorPageNavigation();
+        const newtab = await eluminaMinimalTimeExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExam();
         await newtab.createSection();
@@ -32,7 +32,6 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
         await newtab.registrationTabNavigation();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
     });
 });
 
@@ -40,7 +39,10 @@ test(`@Regression Validation of Empty Field validation`, async ({ eluminaCandPag
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
-    await test.step(`Click on Login without Username and Password`, async () => {
-        await eluminaCandPage.logintoAppwithoutUserPwd();
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+    });
+    await test.step('Candidate start the exam',async ()=> {
+        await eluminaCandPage.candidateStartExam();
     });
 });

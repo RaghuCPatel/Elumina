@@ -7933,18 +7933,3 @@
 {"level":"info","message":"Executing Step : Candidate start the exam"}
 {"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login and Create Exam"}
 {"level":"info","message":"Executing Step : Navigate to Application"}
-{"level":"info","message":"Executing Step : Login to Elumina application"}
-{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
-{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
-{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login and Create Exam Status : failed"}
-{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login and Create Exam"}
-{"level":"info","message":"Executing Step : Navigate to Application"}
-{"level":"info","message":"Executing Step : Login to Elumina application"}
-{"level":"info","message":"Test Case Started : @Smoke Verify The candidate should be able to \"Review\" at any point of the exam time"}
-{"level":"info","message":"Executing Step : Navigate to Application"}
-{"level":"info","message":"Executing Step : Candidate Login to application"}
-{"level":"info","message":"Executing Step : Candidate start the exam"}
-{"level":"info","message":"Test Case Completed : @Smoke Verify The candidate should be able to \"Review\" at any point of the exam time Status : failed"}
-{"level":"info","message":"Test Case Started : @Smoke Verify The candidate should be able to \"Review\" at any point of the exam time"}
-{"level":"info","message":"Executing Step : Navigate to Application"}
-{"level":"info","message":"Executing Step : Candidate Login to application"}

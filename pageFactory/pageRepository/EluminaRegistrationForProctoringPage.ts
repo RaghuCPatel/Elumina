@@ -32,7 +32,6 @@ export class EluminaRegistrationForProctoringPage {
     readonly ClickOnDownloadUserDeatils:Locator; 
     readonly ClickProfileImage:Locator;
 
-    
     readonly ClickOnAddExistingUser:Locator;
     readonly SearchUsers:Locator;
     readonly CLickOnUser:Locator;
@@ -77,7 +76,6 @@ export class EluminaRegistrationForProctoringPage {
         this.ClickOnDropdown2=page.locator('(//a[@class="icon dropdown-toggle"])[2]');
         this.ClickOnDownloadUserDeatils=page.locator('(//p[text()="Download User details"])[1]');
         this.ClickOnAssignInv=page.locator('(//p[text()="Assign Invigilator"])[1]');
-        //this.ClickProfileImage=page.locator('(//img[@class="profileImage"])[1]').setInputFiles("C:/Users/Divyashree/Downloads/Divya_img.jpg");
 
         this.ClickOnAddExistingUser=page.locator('//a[normalize-space()="Add Existing Users"]');
         this.SearchUsers=page.locator('//input[@placeholder="Search User(s)"]');
@@ -93,9 +91,8 @@ export class EluminaRegistrationForProctoringPage {
         this.AssignUsersToCand=page.locator('//input[@placeholder="Select User(s)"]');
         this.AssignInvToCand=page.locator('//span[text()="Incharge Exam"]');
         this.ClickOnInvSaveBtn=page.locator('(//button[text()="Save"])[2]');
-
-
     }
+
       //**Method to navogate new Tab */
     async iAuthorPageNavigations() {
         const [newPage] = await Promise.all([
@@ -106,6 +103,7 @@ export class EluminaRegistrationForProctoringPage {
           return new exports.EluminaRegistrationForProctoringPage(newPage);
     }
 
+
         //**Method to click on Registration Menu,click on Created Exam and click on Add new users */
     async registrationTabNavigation():Promise<void> {
         await this.RegistrationMenu.click();
@@ -113,6 +111,7 @@ export class EluminaRegistrationForProctoringPage {
         await this.ClickOnAddNewUsers.click();
     }
 
+    /**Method to Add User Details */
     async addUserDetails():Promise<void>{
        await this.EnterClientID.type('Dee'+Math.floor(Math.random()*899+100));
        await this.ChooseTitle.click();
@@ -143,6 +142,7 @@ export class EluminaRegistrationForProctoringPage {
        await this.ClickOnDropdown.click();
     }
 
+    /**Method to Download the User Details */
     async downloadUserDetails():Promise<void>{
         const downloadPromise = this.page.waitForEvent('download');
         await this.ClickOnDownloadUserDeatils.click();
@@ -156,6 +156,7 @@ export class EluminaRegistrationForProctoringPage {
        await this.page.waitForTimeout(4000);
     }
 
+    /**Method to Add invigilator to the exam */
     async addExistingUsers():Promise<void>{
         await this.ClickOnAddExistingUser.click();
         await this.SearchUsers.click();

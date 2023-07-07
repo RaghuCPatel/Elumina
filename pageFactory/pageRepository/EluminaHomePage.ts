@@ -21,6 +21,7 @@ export class EluminaHomePage {
         this.Registraion=page.locator('//a[text()="Registration"]');
     }
 
+    /**Method for Page Navigation */
     async iAuthorPageNavigation() {
         const [newPage] = await Promise.all([
             this.context.waitForEvent('page'),
@@ -30,6 +31,7 @@ export class EluminaHomePage {
           return new exports.EluminaHomePage(newPage);
     }
 
+    /**Method for Page Verification */
     async iAuthorPageVerification() {
           await expect(this.EXAMSMENU).toBeVisible();
           await expect(this.Registraion).toBeVisible();
