@@ -22,14 +22,17 @@ export class LoginPage {
         this.BOOKS_SEARCH_BOX = page.getByPlaceholder('Type to search');
     }
 
+    /**Navigate to the URL */
     async navigateToURL(): Promise<void> {
         await this.page.goto("/");
     }
 
+    /**To click on login button*/
     async clickOnLoginMainButton(): Promise<void> {
         await this.LOGIN_BUTTON.click();
     }
 
+    /**To enter username password */
     async loginToApplication(): Promise<void> {
         const decipherPassword = await webActions.decipherPassword();
         await this.USERNAME_EDITBOX.fill(testConfig.username);

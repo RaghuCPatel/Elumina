@@ -88,12 +88,9 @@ export class EluminaRegistrationInvPage {
         this.AssignUsersToCand=page.locator('//input[@placeholder="Select User(s)"]');
         this.AssignInvToCand=page.locator('//span[text()="Incharge Exam"]');
         this.ClickOnInvSaveBtn=page.locator('(//button[text()="Save"])[2]');
-        
-        
-
     }
 
-
+    /**Method for Page Navigation */
     async iAuthorPageNavigations() {
         const [newPage] = await Promise.all([
             this.context.waitForEvent('page'),
@@ -102,13 +99,15 @@ export class EluminaRegistrationInvPage {
           await newPage.waitForLoadState();
           return new exports.EluminaRegistrationInvPage(newPage);
     }
-
+    
+    /**Method to register for the exam */
     async registrationTabNavigation():Promise<void> {
         await this.RegistrationMenu.click();
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
     }
 
+    /**Method to Add User Details */
     async addUserDetails():Promise<void>{
        await this.EnterClientID.type('Deem'+Math.floor(Math.random()*899+100));
        await this.ChooseTitle.click();
@@ -134,6 +133,7 @@ export class EluminaRegistrationInvPage {
        await this.ClickOnDropdown.click();
     }
 
+    /**Method to Download the User Details */
     async downloadUserDetails():Promise<void>{
         const downloadPromise = this.page.waitForEvent('download');
         await this.ClickOnDownloadUserDeatils.click();
@@ -147,6 +147,7 @@ export class EluminaRegistrationInvPage {
        await this.page.waitForTimeout(20000);
     }
 
+    /**Method to Add invigilator to the exam */
     async addExistingUsers():Promise<void>{
        await this.ClickOnAddExistingUser.click();
        await this.SearchUsers.click();
@@ -172,6 +173,7 @@ export class EluminaRegistrationInvPage {
        await this.page.waitForTimeout(5000);
     }
 
+    /**Method to Add existing candidate to the exam */
     async addExistingUsers1():Promise<void>{
         await this.ClickOnAddExistingUser.click();
         await this.SearchUsers.click();

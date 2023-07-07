@@ -55,9 +55,9 @@ export class EluminaRegistrationPage {
         this.ClickOnDropdown=page.locator('(//a[@class="icon dropdown-toggle"])[1]');
         this.ClickOnDownloadUserDeatils=page.locator('(//p[text()="Download User details"])[1]');
 
-
     }
 
+    /**Method for Page Navigation */
     async iAuthorPageNavigations() {
         const [newPage] = await Promise.all([
             this.context.waitForEvent('page'),
@@ -67,12 +67,14 @@ export class EluminaRegistrationPage {
           return new exports.EluminaRegistrationPage(newPage);
     }
 
+    /**Method to register for the exam */
     async registrationTabNavigation():Promise<void> {
         await this.RegistrationMenu.click();
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
     }
 
+    /**Method to Add User Details */
     async addUserDetails():Promise<void>{
        await this.EnterClientID.type('Deem'+Math.floor(Math.random()*899+100));
        await this.page.waitForTimeout(8000);
@@ -102,6 +104,7 @@ export class EluminaRegistrationPage {
        await this.ClickOnDropdown.click();
     }
 
+    /**Method to Download the User Details */
     async downloadUserDetails():Promise<void>{
         const downloadPromise = this.page.waitForEvent('download');
         await this.ClickOnDownloadUserDeatils.click();
@@ -115,6 +118,7 @@ export class EluminaRegistrationPage {
        await this.page.waitForTimeout(20000);
     }
 
+    /**Method to Add Multiple User Details */
     async addMultipleUserDetails():Promise<void>{
         await this.page.waitForSelector('//table[@class="table"]//tbody//tr',{timeout:10000});
         let rowss=await this.page.$$('//table[@class="table"]//tbody//tr');
@@ -160,12 +164,10 @@ export class EluminaRegistrationPage {
         await this.page.waitForTimeout(5000);
        
         }
-       // await this.ClickOnSaveBtn.click();
-       // await this.page.waitForTimeout(8000);
         await this.LeftArrow.click();
-        //await this.ClickOnDropdown.click();
      }
 
+     /**Method to Download the Multiple User Details */
      async downloadMyltipleUserDetails():Promise<void>{
         for(let i=0;i<=2;i++){
         await this.ClickOnDropdown.click();
