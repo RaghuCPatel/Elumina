@@ -46,6 +46,7 @@ test(`@Regression Validation of Invigilator Dashboard after the Exam Completion 
     });
     await test.step('Candidate start the exam',async ()=> {
         await eluminaCandPage.examSectionValidation();
+        await eluminaCandPage.waitforTime();
         await eluminaCandPage.clickOnAutoSubmitOKPopup();
     
     });

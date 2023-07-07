@@ -17,10 +17,9 @@ test(`@Regression Create a Exam and add MCQ Questions`, async ({ eluminaLoginPag
         await newtab.examTabNavigation();
         await newtab.createExam();
         await newtab.createContentSection();
-        await newtab.createContentPage();
+        await newtab.createContentPageWithMoreDescription();
         await newtab.createSection();
         await newtab.addMCQQuestions();
-       
     });
 });
 
