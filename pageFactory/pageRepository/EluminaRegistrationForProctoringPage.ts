@@ -4,6 +4,8 @@ import { testConfig } from '../../testConfig';
 import { EluminaHomePage } from './EluminaHomePage';
 
 let webActions: WebActions;
+let candClientID;
+
 const image_path='C:/Users/Divyashree/Downloads/Divya_img.jpg';
 
 export class EluminaRegistrationForProctoringPage {
@@ -49,6 +51,9 @@ export class EluminaRegistrationForProctoringPage {
     readonly ClickOnDropdown2:Locator;
     readonly ClickOnAssignInv:Locator;
 
+    readonly captureUserClientID:Locator;
+
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -92,6 +97,9 @@ export class EluminaRegistrationForProctoringPage {
        // this.AssignInvToCand=page.locator('//span[text()="Incharge Exam"]');
         this.AssignInvToCand=page.locator('(//span[@class="open"])[5]');
         this.ClickOnInvSaveBtn=page.locator('(//button[text()="Save"])[2]');
+
+        this.captureUserClientID=page.locator('//table[@class="table"]//tbody//tr[1]//td[5]//div//div//span');
+
     }
 
       //**Method to navogate new Tab */
@@ -140,6 +148,8 @@ export class EluminaRegistrationForProctoringPage {
        await this.ClickOnSaveBtn.click();
        await this.page.waitForTimeout(8000);
        await this.LeftArrow.click();
+       candClientID=await this.captureUserClientID.textContent();
+       console.log("Cand-ID :"+candClientID);
        await this.ClickOnDropdown.click();
     }
 
@@ -162,6 +172,32 @@ export class EluminaRegistrationForProctoringPage {
         await this.ClickOnAddExistingUser.click();
         await this.SearchUsers.click();
         await this.SearchUsers.type(testConfig.invigilatorName);
+        await this.page.waitForTimeout(7000);
+        await this.CLickOnUser.click();
+        await this.ChooseExistingRole.click();
+        await this.SelectInvRole.click();
+        await this.SelectExVenue.click();
+        await this.SelectInvVenue.click();
+        await this.SelectExEligible.click();
+        await this.SelectInvEligible.click();
+        await this.SelectExBookingStatus.click();
+        await this.SelectInvBookingStatus.click();
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(7000);
+        await this.LeftArrow.click();
+        await this.ClickOnDropdown2.click();
+        await this.ClickOnAssignInv.click();
+        await this.AssignUsersToCand.click();
+        await this.AssignInvToCand.click();
+        await this.ClickOnInvSaveBtn.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    /**add Existing Cadidate In Diff Time Zone */
+    async addExistingUsers1():Promise<void>{
+        await this.ClickOnAddExistingUser.click();
+        await this.SearchUsers.click();
+        await this.SearchUsers.type(candClientID);
         await this.page.waitForTimeout(7000);
         await this.CLickOnUser.click();
         await this.ChooseExistingRole.click();

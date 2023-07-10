@@ -54,7 +54,6 @@ export class EluminaRegistrationPage {
         this.LeftArrow=page.locator('//i[@class="iconBg leftArrow"]');
         this.ClickOnDropdown=page.locator('(//a[@class="icon dropdown-toggle"])[1]');
         this.ClickOnDownloadUserDeatils=page.locator('(//p[text()="Download User details"])[1]');
-
     }
 
     /**Method for Page Navigation */

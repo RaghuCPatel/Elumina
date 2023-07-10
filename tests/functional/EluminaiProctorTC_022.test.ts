@@ -1,5 +1,6 @@
 import test from '@lib/Fixtures';
 import { chromium } from '@playwright/test';
+import { testConfig } from '../../testConfig';
 
 //Validation of "Start Exam" (All Candidates) (Proctor)
 
@@ -20,8 +21,8 @@ test(`@Smoke Verify Validation of "Start Exam" (All Candidates) Proctor `, async
         const page1 = await context1.newPage();
         await page1.goto('/');
         await page1.waitForLoadState();
-        await page1.locator('(//input)[1]').type('divyashree.r@igsindia.net');
-        await page1.locator('(//input)[2]').type('Aa6!2M#y');
+        await page1.locator('(//input)[1]').type(testConfig.invigilatorUsername);
+        await page1.locator('(//input)[2]').type(testConfig.invigilatorPassword);
         await page1.locator('//*[@class="submit-butn"]').click();
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),

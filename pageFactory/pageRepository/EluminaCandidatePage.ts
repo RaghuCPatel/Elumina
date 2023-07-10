@@ -31,6 +31,7 @@ export class EluminaCandidatePage {
     readonly InvalidDetailsAlert:Locator;
     readonly inceaseSize:Locator;
     readonly decreaseSize:Locator;
+    readonly decreaseSizePro:Locator;
     readonly signOutBtn:Locator;
     readonly ViewResult:Locator;
     readonly flagForReviewColor:Locator;
@@ -47,6 +48,7 @@ export class EluminaCandidatePage {
    readonly CandidateLogout:Locator;
 
    readonly clickOnAutoOkPopup:Locator;
+   readonly cloudUpdatedIcon:Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -75,6 +77,7 @@ export class EluminaCandidatePage {
         this.InvalidDetailsAlert=page.locator('//*[@class="container error-bg"]//div[text()="Invalid User Id and Password."]');
         this.inceaseSize=page.locator('//em[@title="Increase Font Size"]');
         this.decreaseSize=page.locator('//em[@title="Decrease Font Size"]');
+        this.decreaseSizePro=page.locator('//div[@class="font-container"]//em[@class="textfont fontSmall"]');
         this.signOutBtn=page.locator('//div[@class="signout"]');
         this.ViewResult=page.locator('//div[@class="logout practiceBtn parent-body-container"]//label');
         this.flagForReviewColor=page.locator('//p[@class="parent-body-container menuColor3"]');
@@ -88,6 +91,8 @@ export class EluminaCandidatePage {
         this.CandidateLogout=page.locator('//label[text()="Logout"]');
         this.clickOnAutoOkPopup=page.locator('//div[@title="OK"]');
         this.inProgressColor=page.locator('//p[@class="parent-body-container menuActive menuColor1"]');
+
+        this.cloudUpdatedIcon=page.locator('//div[@class="cloud"]//div');
     }
 
     /**Method to Navigate to candidate dashboard */
@@ -198,7 +203,15 @@ export class EluminaCandidatePage {
         await this.decreaseSize.click();
         await this.decreaseSize.click();
         await this.decreaseSize.click();
+        await this.page.waitForTimeout(1000);
+    }
+    /**Methods to decrease font size in proctor */
+    async decreaseFontSizePro(){
         await this.page.waitForTimeout(5000);
+        await this.decreaseSizePro.click();
+        await this.decreaseSizePro.click();
+        await this.decreaseSizePro.click();
+        await this.page.waitForTimeout(1000);
     }
 
     /**Method to click on content section checkbox */
@@ -250,6 +263,12 @@ export class EluminaCandidatePage {
  
     async waitforTime(){
         await this.page.waitForTimeout(60000);
+    }
+
+    async updatedCloudIcon(){
+        await this.page.waitForTimeout(5000);
+        await expect(this.cloudUpdatedIcon).toBeVisible();
+        console.log("Status Updated")
     }
 
     /**Method to Verify the the Dashboard timer */
