@@ -217,6 +217,7 @@ export class EluminaCandidatePage {
         console.log('Client ID-'+await this.verifyClientID.textContent());
     }
 
+    /**Method to do horizontal scroll action */
     async HorizontalScrollAction(){
         let hor=await this.page.locator('//div[@class="contentWrapper"]'); 
          await hor.click();
@@ -245,6 +246,10 @@ export class EluminaCandidatePage {
         console.log('Candidate ID-'+await this.verifyCandidateID.textContent());
         await expect(this.verifyClientID).toBeVisible();
         console.log('Client ID-'+await this.verifyClientID.textContent());
+    }
+ 
+    async waitforTime(){
+        await this.page.waitForTimeout(60000);
     }
 
     /**Method to Verify the the Dashboard timer */
@@ -304,6 +309,7 @@ export class EluminaCandidatePage {
         await this.clickOnAutoOkPopup.click();
         await this.page.waitForTimeout(5000);
         }
+    
 
     /**Method to Answer the MCQ questions and click on review button */
     async candidateStartMCQ(){
