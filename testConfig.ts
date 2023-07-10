@@ -19,5 +19,7 @@ export const testConfig = {
 
     cadidateURL:'https://sandboxcandidate.assessapp.com.au/',
     invigilatorUsername:'examincharge2@yopmail.com',
-    invigilatorPassword:'YX!%5t8z'
+    invigilatorPassword:'YX!%5t8z',
+
+    invigilatorName:'Incharge Exam'
 }

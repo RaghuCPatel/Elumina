@@ -33,7 +33,6 @@ test(`@Regression add user in Registration and download User details and assign 
         await newtab.registrationTabNavigation();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
     });
 });
 

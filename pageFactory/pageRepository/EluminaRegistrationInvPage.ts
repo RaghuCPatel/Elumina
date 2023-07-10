@@ -86,7 +86,8 @@ export class EluminaRegistrationInvPage {
         this.SelectExBookingStatus=page.locator('//input[@placeholder="Select Booking Status"]');
         this.SelectInvBookingStatus=page.locator('//span[text()="Booked"]');
         this.AssignUsersToCand=page.locator('//input[@placeholder="Select User(s)"]');
-        this.AssignInvToCand=page.locator('//span[text()="Incharge Exam"]');
+       // this.AssignInvToCand=page.locator('//span[text()="Incharge Exam"]');
+        this.AssignInvToCand=page.locator('(//span[@class="open"])[5]');
         this.ClickOnInvSaveBtn=page.locator('(//button[text()="Save"])[2]');
     }
 
@@ -154,7 +155,7 @@ export class EluminaRegistrationInvPage {
     async addExistingUsers():Promise<void>{
        await this.ClickOnAddExistingUser.click();
        await this.SearchUsers.click();
-       await this.SearchUsers.type('Incharge Exam');
+       await this.SearchUsers.type(testConfig.invigilatorName);
        await this.page.waitForTimeout(6000);
        await this.CLickOnUser.click();
        await this.ChooseExistingRole.click();
