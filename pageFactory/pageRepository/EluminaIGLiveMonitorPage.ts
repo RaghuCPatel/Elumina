@@ -107,9 +107,9 @@ import { testConfig } from 'testConfig';
 
                 await this.page.goto("/");
 
-                await this.InvUsername.type('divyashree.r@igsindia.net');
+                await this.InvUsername.type(testConfig.invigilatorUsername);
 
-                await this.InvPssword.type('Aa6!2M#y');
+                await this.InvPssword.type(testConfig.invigilatorPassword);
 
                 await this.InvLoginBtn.click();
 
@@ -192,34 +192,11 @@ import { testConfig } from 'testConfig';
 
                 let markattd1=this.page.locator('(//table[@class="table table-spacing"]//tbody//tr//td[3]//select)[1]');
 
-
-
-
                 await markattd1.click();
-
-
-
-
                 await markattd1.selectOption('Yes');
-
-
-
-
                 let markattd2=this.page.locator('(//table[@class="table table-spacing"]//tbody//tr//td[3]//select)[1]');
-
-
-
-
                 await markattd2.click();
-
-
-
-
                 await markattd2.selectOption('Yes');
-
-
-
-
                 await this.page.waitForTimeout(2000);
 
                 // await this.page.waitForSelector('//table[@class="table table-spacing"]//tbody//tr//td[3]//select',{timeout:5000});
