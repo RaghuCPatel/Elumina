@@ -8559,3 +8559,293 @@
 {"level":"info","message":"Executing Step : Inv Login to Elumina application"}
 {"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
 {"level":"info","message":"Test Case Completed : @Smoke Verify Validation of Invigilator Dashboard Proctor Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of user authentication by invalid Candidate Creadentials"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with inactive user"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of user authentication by invalid Candidate Creadentials Status : passed"}
+{"level":"error","message":"File not found: C:\\Users\\Divyashree\\Desktop\\githubMerge\\latestpull\\Elumina\\html-report"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of user authentication by invalid Candidate Creadentials"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with inactive user"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of user authentication by invalid Candidate Creadentials Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Validation of Candidate App Dashboard"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Validation of Candidate App Dashboard Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Validation of Candidate App Dashboard"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Validation of Candidate App Dashboard Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Validation of Candidate App Dashboard"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Validation of Candidate App Dashboard Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Validation of Candidate App Dashboard"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Validation of Candidate App Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Validation of Candidate App Dashboard"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Validation of Candidate App Dashboard Status : failed"}
+{"level":"error","message":"No tests found"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of user authentication by invalid Candidate Creadentials"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with inactive user"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of user authentication by invalid Candidate Creadentials Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of user authentication by invalid Candidate Creadentials"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with inactive user"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of user authentication by invalid Candidate Creadentials Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : failed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of user authentication by invalid Candidate Creadentials"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of user authentication by invalid Candidate Creadentials Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Registration Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of user authentication by invalid Candidate Creadentials"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with inactive user"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of user authentication by invalid Candidate Creadentials Status : passed"}

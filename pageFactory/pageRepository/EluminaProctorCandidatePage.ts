@@ -32,6 +32,7 @@ export class EluminaProctorCandidatePage {
     readonly verifyClientID:Locator;
     readonly verifyExamTimer:Locator;
     readonly verifyRecord:Locator;
+    readonly examTimer:Locator;
 
     readonly ansMCQQuestions:Locator;
     readonly flagForReviewQuestions:Locator;
@@ -65,6 +66,7 @@ export class EluminaProctorCandidatePage {
         this.verifyCandidateID=page.locator('(//div[@class="txt"])[2]//label[3]');
         this.verifyClientID=page.locator('(//div[@class="txt"])[2]//label[4]');
         this.verifyExamTimer=page.locator('//div[@class="clock-text timer-icon-red"]');
+        this.examTimer=page.locator('//div[@class="clock-text"]');
         this.verifyRecord=page.locator('//div[@id="cameraRecIcon"]');
 
         this.ansMCQQuestions=page.locator('(//label[@class="labelEmpty"])[1]');
@@ -196,6 +198,28 @@ export class EluminaProctorCandidatePage {
 
            }
            await this.page.locator('//div[@class="question-number-container"]//div//p').last().click(); 
+    }
+
+        /**Method to Verify the the Dashboard timer */
+        async verifyExamDashboardTimer(){
+            await this.page.waitForTimeout(5000);
+            await expect(this.examTimer).toBeVisible();
+            await this.page.waitForTimeout(5000);
+            console.log('Exam Timer-'+await this.examTimer.textContent());
+            await this.page.waitForTimeout(2000);
+         }
+
+     /**Method to Navigate to back */
+     async navigateBack(){
+        await this.page.goBack();
+        console.log("Clicked on Back Navigation icon");
+    }
+
+     /**Method to click on refresh page */
+     async refreshPage(){
+        await this.page.reload();
+        console.log("Page Refreshed");
+        await this.page.waitForTimeout(5000);
     }
 
 }

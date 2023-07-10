@@ -12,6 +12,4 @@ test(`@Regression Verify Validation of the "Timer" - After clicking on "Start Ex
     await test.step('Candidate start the exam',async ()=> {
         await eluminaCandPage.verifyExamDashboardTimer();
     });
-    
-    
 });
