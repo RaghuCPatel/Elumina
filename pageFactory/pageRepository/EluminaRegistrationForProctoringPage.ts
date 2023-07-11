@@ -153,12 +153,12 @@ export class EluminaRegistrationForProctoringPage {
        await this.SelectBookingStatus.click();
        await this.SelectBookingStatus.selectOption('Booked');
        await this.page.waitForTimeout(5000);
-       await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles("C:/Users/Rajakumar/Downloads/Rajkumar Image.jpg");
+       await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles('./lib/Image.png');
        await this.page.waitForTimeout(8000);
        await this.ClickOnSaveBtn.click();
        await this.page.waitForTimeout(8000);
        await this.LeftArrow.click();
-       candClientID=await this.captureUserClientID.textContent();
+       candClientID=await this.captureUserClientID.textContent()
        console.log("Cand-ID :"+candClientID);
        await this.ClickOnDropdown.click();
     }
