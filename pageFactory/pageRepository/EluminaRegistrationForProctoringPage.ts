@@ -39,8 +39,10 @@ export class EluminaRegistrationForProctoringPage {
     readonly CLickOnUser:Locator;
     readonly ChooseExistingRole:Locator;
     readonly SelectInvRole:Locator;
+    readonly SelectCandRole:Locator;
     readonly SelectExVenue:Locator;
     readonly SelectInvVenue:Locator;
+    readonly SelectCadVenue:Locator;
     readonly SelectExEligible:Locator;
     readonly SelectInvEligible:Locator;
     readonly SelectExBookingStatus:Locator;
@@ -87,8 +89,10 @@ export class EluminaRegistrationForProctoringPage {
         this.CLickOnUser=page.locator('//tbody/tr[1]/td[2]/input[1]');
         this.ChooseExistingRole=page.locator('//div[@class="btn-selected-list"]//div//ul');
         this.SelectInvRole=page.locator('//span[text()="Examiner-in-Charge"]');
+        this.SelectCandRole=page.locator('//span[text()="Candidate"]');
         this.SelectExVenue=page.locator('//input[@placeholder="Select Venue"]');
         this.SelectInvVenue=page.locator('//span[text()="Elumina Chennai"]');
+        this.SelectCadVenue=page.locator('//span[text()="Practice Venue, Melbourne"]')
         this.SelectExEligible=page.locator('//input[@placeholder="Select Eligible"]');
         this.SelectInvEligible=page.locator('//span[text()="Yes"]');
         this.SelectExBookingStatus=page.locator('//input[@placeholder="Select Booking Status"]');
@@ -118,6 +122,12 @@ export class EluminaRegistrationForProctoringPage {
         await this.RegistrationMenu.click();
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
+    }
+
+        //**Method to click on Registration Menu and click on Created Exam  */
+        async registrationTabNavigationByClickCreateExam(){
+        await this.RegistrationMenu.click();
+        await this.ClickOnCreatedExam.click();
     }
 
     /**Method to Add User Details */
@@ -201,9 +211,9 @@ export class EluminaRegistrationForProctoringPage {
         await this.page.waitForTimeout(7000);
         await this.CLickOnUser.click();
         await this.ChooseExistingRole.click();
-        await this.SelectInvRole.click();
+        await this.SelectCandRole.click();
         await this.SelectExVenue.click();
-        await this.SelectInvVenue.click();
+        await this.SelectCadVenue.click();
         await this.SelectExEligible.click();
         await this.SelectInvEligible.click();
         await this.SelectExBookingStatus.click();
@@ -211,11 +221,11 @@ export class EluminaRegistrationForProctoringPage {
         await this.ClickOnSaveBtn.click();
         await this.page.waitForTimeout(7000);
         await this.LeftArrow.click();
-        await this.ClickOnDropdown2.click();
-        await this.ClickOnAssignInv.click();
-        await this.AssignUsersToCand.click();
-        await this.AssignInvToCand.click();
-        await this.ClickOnInvSaveBtn.click();
+        // await this.ClickOnDropdown2.click();
+        // await this.ClickOnAssignInv.click();
+        // await this.AssignUsersToCand.click();
+        // await this.AssignInvToCand.click();
+        // await this.ClickOnInvSaveBtn.click();
         await this.page.waitForTimeout(5000);
     }
 

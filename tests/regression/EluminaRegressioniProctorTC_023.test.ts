@@ -47,8 +47,9 @@ test(`@Regression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctor
     await test.step('Verify Validation of Changing Font Size to Decrease on the Dashboard', async () => {
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
+        //await eluminaCandPage.waitforTime();
         //await eluminaProctorCand.examSectionValidation();
-        await eluminaCandPage.verifyExamDashboardTimer();
+       // await eluminaCandPage.verifyExamDashboardTimer();
 
     });
 

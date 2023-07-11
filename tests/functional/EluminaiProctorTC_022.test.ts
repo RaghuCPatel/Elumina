@@ -39,7 +39,8 @@ test(`@Smoke Verify Validation of "Start Exam" (All Candidates) Proctor `, async
         await newPage.waitForTimeout(1000);
         
         await eluminaProctorCand.againCandidateLogin();
-
+        
+        await newPage.waitForTimeout(1000);
         await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click()
         await newPage.waitForTimeout(8000);
         await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
