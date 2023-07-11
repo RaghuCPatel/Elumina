@@ -73,6 +73,7 @@ import { testConfig } from 'testConfig';
 
             async markAllAttendance() {
                 let markattd1=this.page.locator('(//table[@class="table table-spacing"]//tbody//tr//td[3]//select)[1]');
+
                 await markattd1.click();
                 await markattd1.selectOption('Yes');
                 let markattd2=this.page.locator('(//table[@class="table table-spacing"]//tbody//tr//td[3]//select)[1]');

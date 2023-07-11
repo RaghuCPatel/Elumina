@@ -132,13 +132,13 @@ export class EluminaRegistrationForProctoringPage {
 
     /**Method to Add User Details */
     async addUserDetails():Promise<void>{
-       await this.EnterClientID.type('Dee'+Math.floor(Math.random()*899+100));
+       await this.EnterClientID.type('test'+Math.floor(Math.random()*899+100));
        await this.ChooseTitle.click();
-       await this.ChooseTitle.selectOption('Ms');
-       await this.TypeUsername.type('jadeja'+Math.floor(Math.random()*89+10));
-       await this.TypeFirstName.type('Jadeja');
-       await this.TypeLastName.type('Bhaiu');
-       await this.TypeEmail.type('jaddu'+Math.floor(Math.random()*899+100)+'@gmail.com');
+       await this.ChooseTitle.selectOption('Mr');
+       await this.TypeUsername.type('Narendra'+Math.floor(Math.random()*89+10));
+       await this.TypeFirstName.type('Narendra');
+       await this.TypeLastName.type('Modi');
+       await this.TypeEmail.type('Narendra'+Math.floor(Math.random()*899+100)+'@gmail.com');
        await this.TypePhone.type('6'+Math.floor(Math.random()*899999999+100));
        await this.page.waitForTimeout(5000);
        await this.SelectRole.click();
@@ -153,7 +153,7 @@ export class EluminaRegistrationForProctoringPage {
        await this.SelectBookingStatus.click();
        await this.SelectBookingStatus.selectOption('Booked');
        await this.page.waitForTimeout(5000);
-       await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles("C:/Users/Rajakumar/Downloads/Rajkumar Image.jpg");
+       await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles("C:/Users/Divyashree/Downloads/NarendraModi.png");
        await this.page.waitForTimeout(8000);
        await this.ClickOnSaveBtn.click();
        await this.page.waitForTimeout(8000);

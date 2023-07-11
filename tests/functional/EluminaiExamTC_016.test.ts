@@ -1,6 +1,8 @@
 import test from '@lib/BaseTest';
 import { chromium } from '@playwright/test';
+
 import { testConfig } from '../../testConfig';
+
 
 test(`@Smoke Verify Validation of "Lock Exam" from Live monitor Proctor `, async ({eluminaCandPage, eluminaCadInvPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
