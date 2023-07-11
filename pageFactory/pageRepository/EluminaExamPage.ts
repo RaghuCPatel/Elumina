@@ -316,7 +316,7 @@ export class EluminaExamPage {
 
     }
 
-
+     /**Method to add more description in content page */
     async createContentPageWithMoreDescription():Promise<void>{
       await this.ClickonCreateContentPage.click();
       await this.ClickOnAddContent.click();

@@ -7,6 +7,7 @@ import { EluminaCandidatePage } from '@pages/EluminaCandidatePage';
 import { EluminaLoginPage } from '@pages/EluminaLoginPage';
 import { EluminaHomePage } from '@pages/EluminaHomePage';
 import { EluminaExamPage } from '@pages/EluminaExamPage';
+import { EluminaRegistrationPage } from '@pages/EluminaRegistrationPage';
 import { EluminaRegistrationForProctoringPage } from '@pages/EluminaRegistrationForProctoringPage';
 import { EluminaProctorExamPage } from '@pages/EluminaProctorExamPage';
 import { EluminaCandidateRevieweAndSubmitPage } from '@pages/EluminaCandidateRevieweAndSubmitPage';
@@ -23,6 +24,7 @@ export const test = base.extend<{
   eluminaLoginPage: EluminaLoginPage;
   eluminaHomePage: EluminaHomePage;
   eluminaExamPage: EluminaExamPage;
+  eluminaRegPage: EluminaRegistrationPage;
   eluminaProctorReg:EluminaRegistrationForProctoringPage;
   eluminaProctorExam:EluminaProctorExamPage;
   eluminaCandidateRevieweAndSubmitPage:EluminaCandidateRevieweAndSubmitPage;
@@ -90,6 +92,9 @@ eluminaProctorExam: async ({ page, context }, use) => {
 },
 eluminaCandidateRevieweAndSubmitPage: async ({ page, context }, use) => {
   await use(new EluminaCandidateRevieweAndSubmitPage(page, context));
+},
+eluminaRegPage: async ({ page, context }, use) => {
+  await use(new EluminaRegistrationPage(page, context));
 }
 
 });

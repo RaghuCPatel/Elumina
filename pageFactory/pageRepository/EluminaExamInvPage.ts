@@ -237,6 +237,22 @@ export class EluminaExamInvPage{
     await expect(this.VerifyChoose_Workflow).toBeVisible();
     await expect(this.VerifyChoose_Confirmation).toBeVisible();
 }
+
+
+/**Method to Create Exam Section */
+async createSections(): Promise<void>{
+  await this.CliCKOnCreateSection.click();
+  await this.ClickOnCreateExamSection.click();
+  await this.EnterSectionName.type('Exam-'+Math.floor(Math.random()*89+10));
+  await this.page.waitForTimeout(5000);
+  await this.DescriptionMessage.click();
+  await this.DescriptionMessage.type('Hello World......!');
+  await this.page.waitForTimeout(5000);
+  await this.SelectTime.selectOption('0');
+  await this.SelectTime.selectOption('30');
+  await this.ClickOnSave.click();
+
+}
   
 //**Methods to add All Questions in Exam Section page */
 async addQuestionsInInvExam(): Promise<void>{
