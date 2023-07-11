@@ -2,6 +2,19 @@ import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
 import { testConfig } from '../../testConfig';
 
+function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+  
+    }
+    return result;
+  
+  }
 
 let webActions: WebActions;
 
@@ -22,6 +35,28 @@ export class EluminaCandidatePage {
     readonly verifyClientID:Locator;
     readonly verifyExamTimer:Locator;
     readonly verifyRecord:Locator;
+
+    readonly verifyCloud:Locator;
+   readonly ansVSAQQuestion:Locator;
+   readonly ansISAWEQuestion:Locator;
+   readonly ans2ISAWEQuestion:Locator;
+   readonly ansTypeXQuestion:Locator;
+   readonly ans2TypeXQuestion:Locator;
+
+   readonly ansTypeBQuestion:Locator;
+   readonly ansSAQQuestion:Locator;
+   readonly ansSJTQuestion:Locator;
+   
+   readonly ClickOnCalculator:Locator;
+   readonly ClickOnHighlighter:Locator;
+   readonly HighlightQuestion:Locator;
+  
+   readonly EnternumberOne:Locator;
+   readonly EnterPlus:Locator;
+   readonly EnternumberTwo:Locator;
+   readonly EnterEqualto:Locator;
+   readonly CloseCalculator:Locator;
+   readonly CloseNotepad:Locator;
     readonly ansMCQQuestions:Locator;
     readonly flagForReviewQuestions:Locator;
     readonly clickOnTermAndCondition:Locator;
@@ -41,12 +76,10 @@ export class EluminaCandidatePage {
     readonly noteQuestions:Locator;
     readonly verifyContentSectionTime:Locator;
     readonly inProgressColor:Locator;
-
    readonly ConfirmationToSubmit:Locator;
-
    readonly CandidateLogout:Locator;
-
    readonly clickOnAutoOkPopup:Locator;
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -66,7 +99,16 @@ export class EluminaCandidatePage {
         this.verifyClientID=page.locator('(//div[@class="txt"])[2]//label[4]');
         this.verifyExamTimer=page.locator('//div[@class="clock-text"]');
         this.verifyRecord=page.locator('id="cameraRecIcon"');
+        this.verifyCloud=page.locator('//div[@title="All data updated."]');
         this.ansMCQQuestions=page.locator('(//label[@class="labelEmpty"])[1]');
+        this.ansVSAQQuestion=page.frameLocator('iframe[class="tox-edit-area__iframe"]').locator('html');
+        this.ansISAWEQuestion=page.frameLocator('(//iframe[@class="tox-edit-area__iframe"])[1]').locator('//html[@data-mce-style="height: auto;"]');
+       this.ans2ISAWEQuestion=page.frameLocator('(//iframe[@class="tox-edit-area__iframe"])[2]').locator('//html[@data-mce-style="height: auto;"]');
+       this.ansTypeXQuestion=page.locator('(//div[@class="inputGroup question-preview--mc"]//label[@class="labelEmpty"])[1]');
+       this.ans2TypeXQuestion=page.locator('(//div[@class="inputGroup question-preview--mc"]//label[@class="labelEmpty"])[4]');
+       this.ansTypeBQuestion=page.locator('//label[@for="radio0-319"]');
+       this.ansSAQQuestion=page.frameLocator('iframe[class="tox-edit-area__iframe"]').locator('html');
+       this.ansSJTQuestion=page.locator('//label[@for="radio0-321-0"]');
         this.flagForReviewQuestions=page.locator('//div[text()="Flag for Review"]');
         this.clickOnTermAndCondition=page.locator('//input[@id="terms"]');
         this.popupOK=page.locator('//div[text()="OK"]');
@@ -80,7 +122,16 @@ export class EluminaCandidatePage {
         this.flagForReviewColor=page.locator('//p[@class="parent-body-container menuColor3"]');
         this.notAnweredQuestion=page.locator('//p[@class="parent-body-container menuColor1"]');
         this.ClickOnNotepad=page.locator('//div[@class="toolIcon"]');
+        this.ClickOnCalculator=page.locator('//div[@class="toolIcon"]');
+        this.ClickOnHighlighter=page.locator('//div[@class="toolIcon"]');
+        this.HighlightQuestion=page.locator('//span[@class="CSkcDe"]');
         this.textareafill=page.locator('//div[@class="notepad-content"]//textarea');
+        this.EnternumberOne=page.locator('//button[@value="7"]');
+        this.EnterPlus=page.locator('//button[@value="+"]');
+        this.EnternumberTwo=page.locator('//button[@value="7"]');
+        this.EnterEqualto=page.locator('//button[@value="="]');
+        this.CloseCalculator=page.locator('//label[@class="closeIcon"]');
+        this.CloseNotepad=page.locator('//label[@class="closeIcon"]');
         this.saveButton=page.locator('//div[@class="action-btn-container"]//div[text()="Save"]');
         this.noteQuestions=page.locator('//p[@class="parent-body-container menuColor1 menuColor5"]');
         this.verifyContentSectionTime=page.locator('//div[@class="clock-text timer-icon-red"]');
@@ -247,10 +298,12 @@ export class EluminaCandidatePage {
         await expect(this.verifyClientID).toBeVisible();
         console.log('Client ID-'+await this.verifyClientID.textContent());
     }
+
  
     async waitforTime(){
         await this.page.waitForTimeout(60000);
     }
+
 
     /**Method to Verify the the Dashboard timer */
     async verifyExamDashboardTimer(){
@@ -286,6 +339,11 @@ export class EluminaCandidatePage {
         await this.page.keyboard.press('F3');
         console.log("Key Pressed");
         await this.page.waitForTimeout(5000);
+    }
+    async examSectionCloudValidation(){
+        await this.page.waitForTimeout(15000);
+        await expect(this.verifyCloud).toBeVisible();
+        console.log('cloud symbol is Updated');
     }
    
     /**Method to Navigate to all questions without answering*/
@@ -351,6 +409,192 @@ export class EluminaCandidatePage {
            await this.ClickOnSubmitBtn.click();
            await this.page.waitForTimeout(20000);
     }
+
+    async candidateStartTwoMCQ(){
+        // if(this.ClickStartExamLink.isVisible())
+        // {
+        //     await this.ClickStartExamLink.click();
+        // }
+        //await this.ClickStartExamLink.click();
+        // await this.ClickOnStartExamBtn.click();
+
+        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+        const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');
+        console.log('Number of questions-'+qutns.length);
+        const Ttl=qutns.length;
+        for(let i=0;i<=qutns.length-3;i++)
+        {
+            await qutns[i].click();
+            await this.ansMCQQuestions.click();
+          
+            //await this.page.close();
+           }
+            //await this.page.locator('(//div[@class="question-number-container"]//div//p)[3]').click();
+           //await this.flagForReviewQuestions.click();
+          // await this.ClickOnNextBtn.click();
+          await this.page.close();
+           //await this.context.close();
+          // await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
+          // await this.ClickOnRevieweBtn.click();
+           //await this.ClickOnSubmitBtn.click();
+
+    }
+
+    async candidateStartVSAQ(){
+        // if(this.ClickStartExamLink.isVisible())
+        // {
+        //     await this.ClickStartExamLink.click();
+        // }
+        //await this.ClickStartExamLink.click();
+        // await this.ClickOnStartExamBtn.click();
+
+        //await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+        //const qutns=await this.page.locator('//div[@class="question-number-container"]//div//p');
+        
+        
+            await this.page.waitForTimeout(5000);
+            await this.ansVSAQQuestion.click();
+            await this.ansVSAQQuestion.type(makeid(100));
+            await this.page.waitForTimeout(5000);
+            await this.ClickOnRevieweBtn.click();
+            await this.ClickOnSubmitBtn.click();
+           
+            
+
+    }
+
+    async candidateStartISAWE(){
+        // if(this.ClickStartExamLink.isVisible())
+        // {
+        //     await this.ClickStartExamLink.click();
+        // }
+        //await this.ClickStartExamLink.click();
+        // await this.ClickOnStartExamBtn.click();
+
+        //await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+        //const qutns=await this.page.locator('//div[@class="question-number-container"]//div//p');
+        
+        
+            await this.page.waitForTimeout(5000);
+            await this.ansISAWEQuestion.click();
+            await this.ansISAWEQuestion.type(makeid(100));
+            await this.ans2ISAWEQuestion.click();
+            await this.ans2ISAWEQuestion.type(makeid(100));
+            await this.page.waitForTimeout(5000);
+            await this.ClickOnNextBtn.click();
+
+
+    }
+
+    async candidateStartTypeX(){
+        // if(this.ClickStartExamLink.isVisible())
+        // {
+        //     await this.ClickStartExamLink.click();
+        // }
+        //await this.ClickStartExamLink.click();
+        // await this.ClickOnStartExamBtn.click();
+
+        //await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+        //const qutns=await this.page.locator('//div[@class="question-number-container"]//div//p');
+        
+        
+            await this.page.waitForTimeout(5000);
+            await this.ansTypeXQuestion.click();
+            await this.ans2TypeXQuestion.click();
+            await this.page.waitForTimeout(5000);
+            await this.ClickOnNextBtn.click();
+
+
+    }
+
+    async candidateStartTypeB(){
+        // if(this.ClickStartExamLink.isVisible())
+        // {
+        //     await this.ClickStartExamLink.click();
+        // }
+        //await this.ClickStartExamLink.click();
+        // await this.ClickOnStartExamBtn.click();
+
+        //await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+        //const qutns=await this.page.locator('//div[@class="question-number-container"]//div//p');
+        
+            await this.page.waitForTimeout(5000);
+            await this.ansTypeBQuestion.click();
+            await this.page.waitForTimeout(5000);
+            await this.ClickOnNextBtn.click();
+
+
+    }
+
+    async candidateStartSAQ(){
+        // if(this.ClickStartExamLink.isVisible())
+        // {
+        //     await this.ClickStartExamLink.click();
+        // }
+        //await this.ClickStartExamLink.click();
+        // await this.ClickOnStartExamBtn.click();
+
+        //await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+        //const qutns=await this.page.locator('//div[@class="question-number-container"]//div//p');
+        
+        
+            await this.page.waitForTimeout(5000);
+            await this.ansSAQQuestion.click();
+            await this.ansSAQQuestion.type(makeid(100));
+            await this.page.waitForTimeout(5000);
+            await this.ClickOnNextBtn.click();
+
+
+    }
+
+    async candidateStartSJT(){
+        // if(this.ClickStartExamLink.isVisible())
+        // {
+        //     await this.ClickStartExamLink.click();
+        // }
+        //await this.ClickStartExamLink.click();
+        // await this.ClickOnStartExamBtn.click();
+
+        //await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+        //const qutns=await this.page.locator('//div[@class="question-number-container"]//div//p');
+        
+            await this.page.waitForTimeout(5000);
+            await this.ansSJTQuestion.click();
+            await this.page.waitForTimeout(5000);
+            await this.ClickOnRevieweBtn.click();
+            await this.ClickOnSubmitBtn.click();
+
+
+    }
+
+    async candidateFlagForReviewAllQuestions(){
+        // if(this.ClickStartExamLink.isVisible())
+        // {
+        //     await this.ClickStartExamLink.click();
+        // }
+        //await this.ClickStartExamLink.click();
+        // await this.ClickOnStartExamBtn.click();
+
+        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+        const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');
+        console.log('Number of questions-'+qutns.length);
+        const Ttl=qutns.length-1;
+        for(let i=0;i<=qutns.length-3;i++)
+        {
+            await qutns[i].click();
+           // await this.ansMCQQuestions.click();
+            await this.flagForReviewQuestions.click();
+            await this.ClickOnNextBtn.click();
+           }
+            await this.page.locator('(//div[@class="question-number-container"]//div//p)[3]').click();
+           await this.flagForReviewQuestions.click();
+           await this.ClickOnNextBtn.click();
+           await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
+           await this.flagForReviewQuestions.click();
+           await this.ClickOnRevieweBtn.click();
+           //await this.ClickOnSubmitBtn.click();
+
+    }
    
 
  //**Method to Confirmation Submit popup */
@@ -367,6 +611,57 @@ async clickOnLogoutBtn(){
         await this.clickOnPreviousBtn.click();
         await this.page.waitForTimeout(2000);
     }
+
+
+    async  againCandidateLogin():Promise<void>{
+        await this.page.bringToFront();
+        await this.page.waitForTimeout(10000);
+        //await this.page.close();
+     }
+
+     async AddingNotesToQuestion(){
+        {
+            await this.ansVSAQQuestion.click();
+            await this.ClickOnNotepad.click();
+            await this.page.waitForTimeout(1000);
+            await this.textareafill.type('abc');
+            await this.page.waitForTimeout(1000);
+            await this.saveButton.click();
+            await this.page.waitForTimeout(1000);
+            await this.CloseNotepad.click();
+        }
+       
+    }
+
+    async UsingCalculatorForQuestions(){
+        {
+    
+            await this.ClickOnCalculator.click();
+            await this.page.waitForTimeout(1000);
+            await this.EnternumberOne.click();
+            await this.page.waitForTimeout(1000);
+            await this.EnterPlus.click();
+            await this.page.waitForTimeout(1000);
+            await this.EnternumberTwo.click();
+            await this.page.waitForTimeout(1000);
+            await this.EnterEqualto.click();
+            await this.page.waitForTimeout(1000);
+            await this.CloseCalculator.click();
+        }
+    }
+
+    async UsingHighlighterForQuestions(){
+
+        {
+    
+            await this.ansVSAQQuestion.click();
+            await this.ClickOnHighlighter.click();
+            await this.page.waitForTimeout(1000);
+            await this.HighlightQuestion.dblclick();
+            await this.page.waitForTimeout(1000);
+        }
+    }
+
 
     /**Method to Login to candidate app without vaild username and pwd */
     async logintoAppwithoutUserPwd(): Promise<void> {
@@ -504,7 +799,26 @@ async clickOnLogoutBtn(){
            console.log("Pink Color is Displayed When added Notes to the Questions")
     }
 
-    /**Method to check if Orange colour is displayed for questions when it is in progress */
+
+    async NotAnsweringQuestion(){
+        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+        const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');
+        console.log('Number of questions-'+qutns.length);
+        const Ttl=qutns.length-1;
+        for(let i=0;i<=qutns.length-3;i++)
+        {
+            await qutns[i].click();
+            await this.ClickOnNextBtn.click();
+        }
+            await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
+            await this.ClickOnRevieweBtn.click();
+            await this.ClickOnSubmitBtn.click();
+            await this.notAnweredQuestion.isVisible();
+            await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+           console.log("Exam is submitted When Questions are Not Answered")
+    }
+  
+  /**Method to check if Orange colour is displayed for questions when it is in progress */
     async InProgressQuestions(){
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
         const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');
@@ -520,6 +834,6 @@ async clickOnLogoutBtn(){
            await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
            console.log("Orange Color is Displayed When Questions are in Progress")
     }
-
+           
 
 }
