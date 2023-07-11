@@ -3,8 +3,7 @@ import { chromium } from '@playwright/test';
 import { testConfig } from '../../testConfig';
 
 
-
-test(`@Smoke Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand, webActions }) => {
+test(`@Regression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
 
@@ -15,7 +14,7 @@ test(`@Smoke Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand,
 
     await test.step('Invigilator  logging into Application', async () => {
 
-        await eluminaProctorCand.clickOnAllLink();
+        await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -32,7 +31,6 @@ test(`@Smoke Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand,
             await page1.locator('//div[text()="iAuthor"]').click()
 
           ]);
-
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
@@ -40,18 +38,16 @@ test(`@Smoke Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand,
         await newPage.locator('(//button[text()="Yes"])[1]').click();
         await newPage.waitForTimeout(3000);
 
-
         await newPage.close();
         await page1.close();
-
     });
    
-
-    await test.step('Invigilator marks attendance for all candidate', async () => {
+    await test.step('Verify Validation of Changing Font Size to Decrease on the Dashboard', async () => {
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
-        await eluminaProctorCand.candidateStartMCQ();
-
+        await eluminaProctorCand.candidateStartFlagForReviewMCQ();
+        //await eluminaProctorCand.clickonPrevious();
     });
 
 });
+

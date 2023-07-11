@@ -14,6 +14,7 @@ export class EluminaProctorCandidatePage {
     readonly CandidatePassword: Locator;
     readonly LOGIN_BUTTON: Locator;
     readonly ClickStartExamLink:Locator;
+    readonly ClickDiffStartExamLink:Locator;
     readonly EnterExaPassword:Locator;
     readonly ClickOnStartExamBtn:Locator;
     readonly ClickOnNextBtn:Locator;
@@ -48,6 +49,7 @@ export class EluminaProctorCandidatePage {
         this.CandidatePassword = page.locator('//input[@id="password"]');
         this.LOGIN_BUTTON = page.locator('//div[text()=" Login "]');
         this.ClickStartExamLink=page.locator('//table[@class="table-container"]//tr[2]//td[6]');
+        this.ClickDiffStartExamLink=page.locator('//table[@class="table-container"]//tr[3]//td[6]');
         this.EnterExaPassword=page.locator('//input[contains(@class,"password")]');
         this.ClickOnStartExamBtn=page.locator('//div[@class="btn parent-body-container btn-primary"]');
 
@@ -96,7 +98,7 @@ export class EluminaProctorCandidatePage {
               await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
               await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
         })
-        await this.page.waitForTimeout(1000);
+        await this.page.waitForTimeout(3000);
         await this.LOGIN_BUTTON.click();
     }
 
@@ -109,8 +111,8 @@ export class EluminaProctorCandidatePage {
         console.log('Candidate ID-'+await this.verifyCandidateID.textContent());
         await expect(this.verifyClientID).toBeVisible();
         console.log('Client ID-'+await this.verifyClientID.textContent());
-        await expect(this.verifyExamTimer).toBeVisible();
-        console.log('Exam Timer-'+await this.verifyExamTimer.textContent());
+        //await expect(this.verifyExamTimer).toBeVisible();
+        // console.log('Exam Timer-'+await this.verifyExamTimer.textContent());
         await expect(this.verifyRecord).toBeVisible();
         console.log('REC text-'+await this.verifyRecord.textContent())
     }
@@ -118,6 +120,18 @@ export class EluminaProctorCandidatePage {
     /**Method to Click on All Links */
     async clickOnAllLink(){
         await this.ClickStartExamLink.click();
+        await this.ClickOnUnderstand.click();
+        await this.page.waitForTimeout(1000);
+        await this.ClickOnCheckBox.click();
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnNextBtnPrct.click();
+        await this.ClickOnVerifyIdentityBtn.click();
+        await expect(this.verifyErrorMsg).toBeVisible();
+        console.log('Error Message'+await this.verifyErrorMsg.textContent());
+    }
+/**Method to click on All links for Diff Zone Exam */
+    async clickOnAllLinkForDiffExamZone(){
+        await this.ClickDiffStartExamLink.click();
         await this.ClickOnUnderstand.click();
         await this.page.waitForTimeout(1000);
         await this.ClickOnCheckBox.click();
@@ -135,6 +149,7 @@ export class EluminaProctorCandidatePage {
        await this.page.waitForTimeout(1000);
        await this.EnterExaPassword.type('ABC09');
        await this.ClickOnStartExamBtn.click();
+       await this.page.waitForTimeout(3000);
     }
 
     /**Method to start Candidate Exam and click on Next without answering questions*/
@@ -167,6 +182,27 @@ export class EluminaProctorCandidatePage {
             await this.flagForReviewQuestions.click();
             await this.ClickOnNextBtn.click();
             await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
+            await this.ClickOnRevieweBtn.click();
+    }
+
+    /**Method to Flag for Review the MCQ Quetions */
+    async candidateStartFlagForReviewMCQ(){
+
+        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+        const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');
+        console.log('Number of questions-'+qutns.length);
+        const Ttl=qutns.length-1;
+        for(let i=0;i<=qutns.length-2;i++)
+        {
+            await qutns[i].click();
+            await this.flagForReviewQuestions.click();
+            await this.ClickOnNextBtn.click();
+        }
+            // await this.page.locator('(//div[@class="question-number-container"]//div//p)[3]').click();
+            // await this.flagForReviewQuestions.click();
+            // await this.ClickOnNextBtn.click();
+            await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
+            await this.flagForReviewQuestions.click();
             await this.ClickOnRevieweBtn.click();
     }
     

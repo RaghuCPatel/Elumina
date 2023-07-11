@@ -31,6 +31,7 @@ test(`@Regression Verify Validation of "Pause Exam" from Live monitor`, async ({
           ]);
        
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
+        await newPage.waitForTimeout(3000);
         await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
         await newPage.locator('//div[@class="action-item control-item pause-exam"]').click();
         await newPage.locator('(//button[text()="Yes"])[3]').click();

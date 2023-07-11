@@ -287,7 +287,6 @@ export class EluminaExamPage {
         await expect(this.VerifyChoose_Confirmation).toBeVisible();
         await this.page.waitForTimeout(5000);
     }
-
  
     /** Method to Create Content Section */
     async createContentSection():Promise<void>{

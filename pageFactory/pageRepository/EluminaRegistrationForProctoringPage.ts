@@ -4,6 +4,8 @@ import { testConfig } from '../../testConfig';
 import { EluminaHomePage } from './EluminaHomePage';
 
 let webActions: WebActions;
+let candClientID;
+
 const image_path='C:/Users/Divyashree/Downloads/Divya_img.jpg';
 
 export class EluminaRegistrationForProctoringPage {
@@ -37,8 +39,10 @@ export class EluminaRegistrationForProctoringPage {
     readonly CLickOnUser:Locator;
     readonly ChooseExistingRole:Locator;
     readonly SelectInvRole:Locator;
+    readonly SelectCandRole:Locator;
     readonly SelectExVenue:Locator;
     readonly SelectInvVenue:Locator;
+    readonly SelectCadVenue:Locator;
     readonly SelectExEligible:Locator;
     readonly SelectInvEligible:Locator;
     readonly SelectExBookingStatus:Locator;
@@ -48,6 +52,9 @@ export class EluminaRegistrationForProctoringPage {
     readonly ClickOnInvSaveBtn:Locator;
     readonly ClickOnDropdown2:Locator;
     readonly ClickOnAssignInv:Locator;
+
+    readonly captureUserClientID:Locator;
+
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -82,8 +89,10 @@ export class EluminaRegistrationForProctoringPage {
         this.CLickOnUser=page.locator('//tbody/tr[1]/td[2]/input[1]');
         this.ChooseExistingRole=page.locator('//div[@class="btn-selected-list"]//div//ul');
         this.SelectInvRole=page.locator('//span[text()="Examiner-in-Charge"]');
+        this.SelectCandRole=page.locator('//span[text()="Candidate"]');
         this.SelectExVenue=page.locator('//input[@placeholder="Select Venue"]');
         this.SelectInvVenue=page.locator('//span[text()="Elumina Chennai"]');
+        this.SelectCadVenue=page.locator('//span[text()="Practice Venue, Melbourne"]')
         this.SelectExEligible=page.locator('//input[@placeholder="Select Eligible"]');
         this.SelectInvEligible=page.locator('//span[text()="Yes"]');
         this.SelectExBookingStatus=page.locator('//input[@placeholder="Select Booking Status"]');
@@ -92,6 +101,9 @@ export class EluminaRegistrationForProctoringPage {
        // this.AssignInvToCand=page.locator('//span[text()="Incharge Exam"]');
         this.AssignInvToCand=page.locator('(//span[@class="open"])[5]');
         this.ClickOnInvSaveBtn=page.locator('(//button[text()="Save"])[2]');
+
+        this.captureUserClientID=page.locator('//table[@class="table"]//tbody//tr[1]//td[5]//div//div//span');
+
     }
 
       //**Method to navogate new Tab */
@@ -110,6 +122,12 @@ export class EluminaRegistrationForProctoringPage {
         await this.RegistrationMenu.click();
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
+    }
+
+        //**Method to click on Registration Menu and click on Created Exam  */
+        async registrationTabNavigationByClickCreateExam(){
+        await this.RegistrationMenu.click();
+        await this.ClickOnCreatedExam.click();
     }
 
     /**Method to Add User Details */
@@ -140,6 +158,8 @@ export class EluminaRegistrationForProctoringPage {
        await this.ClickOnSaveBtn.click();
        await this.page.waitForTimeout(8000);
        await this.LeftArrow.click();
+       candClientID=await this.captureUserClientID.textContent();
+       console.log("Cand-ID :"+candClientID);
        await this.ClickOnDropdown.click();
     }
 
@@ -180,6 +200,32 @@ export class EluminaRegistrationForProctoringPage {
         await this.AssignUsersToCand.click();
         await this.AssignInvToCand.click();
         await this.ClickOnInvSaveBtn.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    /**add Existing Cadidate In Diff Time Zone */
+    async addExistingUsers1():Promise<void>{
+        await this.ClickOnAddExistingUser.click();
+        await this.SearchUsers.click();
+        await this.SearchUsers.type(candClientID);
+        await this.page.waitForTimeout(7000);
+        await this.CLickOnUser.click();
+        await this.ChooseExistingRole.click();
+        await this.SelectCandRole.click();
+        await this.SelectExVenue.click();
+        await this.SelectCadVenue.click();
+        await this.SelectExEligible.click();
+        await this.SelectInvEligible.click();
+        await this.SelectExBookingStatus.click();
+        await this.SelectInvBookingStatus.click();
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(7000);
+        await this.LeftArrow.click();
+        // await this.ClickOnDropdown2.click();
+        // await this.ClickOnAssignInv.click();
+        // await this.AssignUsersToCand.click();
+        // await this.AssignInvToCand.click();
+        // await this.ClickOnInvSaveBtn.click();
         await this.page.waitForTimeout(5000);
     }
 

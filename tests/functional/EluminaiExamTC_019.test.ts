@@ -10,7 +10,6 @@ test(`@Smoke Verify Elumina Invigilator Dashboard`, async ({ eluminaLiveMonitorP
         const newtab = await eluminaLiveMonitorPage.iAuthorPageNavigation();
         await newtab.iAuthorPageVerification();
         await newtab.markAllAttendance();
-        //await newtab.isPresentYes();
 
     });
 });

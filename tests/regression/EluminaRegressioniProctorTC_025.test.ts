@@ -7,41 +7,6 @@ import { testConfig } from '../../testConfig';
 
 
 
-test(`@Smoke Verify Create Exam With Content Section and Content Section Page`, async ({ eluminaLoginPage,eluminaProctorExam,webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-      await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-     const newtab = await eluminaProctorExam.iAuthorPageNavigation();
-     await newtab.examTabNavigation();
-     await newtab.createExam();
-     await newtab.createContentSection();
-     await newtab.createContentPage();
-     await newtab.createSection();
-     await newtab.addMCQQuestions();
-    });
-});
-
-test(`@Smoke Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-
-    await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaProctorReg.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
-    });
-});       
-
  test(`@Smoke Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
         await test.step('Candidate logging into application', async () => {
             await eluminaProctorCand.candidateNavigateToURL();
@@ -62,24 +27,24 @@ test(`@Smoke Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProc
                 context1.waitForEvent('page'),
                 await page1.locator('//div[text()="iAuthor"]').click()
               ]);
-              
+             
             
             await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
             await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
             await newPage.locator('//a[@class="dropdown-toggle"]').click();
             await newPage.locator('//p[text()="Verify Identity"]').click();
             await newPage.locator('(//button[text()="Yes"])[1]').click();
-            await newPage.waitForTimeout(2000);
-          
+            await newPage.waitForTimeout(3000);
+    
             await newPage.close();
             await page1.close();
         });
         await test.step('Validation of Time Remaining pop-up when the just before the exam time runs out', async () => {
             await eluminaProctorCand.againCandidateLogin();
             await eluminaProctorCand.enterInvigilatorPassword();
-            await eluminaCandPage.candidateContentSection();
-            await eluminaCandPage.candidateStartMCQ();
-            await eluminaCandPage.clickonPrevious();
+            await eluminaCandPage.waitforTime();
+            await eluminaCandPage.updatedCloudIcon();
+          
         });
 
 });
