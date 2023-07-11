@@ -10,10 +10,6 @@ test(`@Smoke Verify The candidate should be able to "Review" at any point of the
     await test.step(`Candidate Login to application`, async () => {
         await eluminaProctorCand.candidateLoginToApplications();
     });
-    // await test.step('Candidate start the exam',async ()=> {
-    //     await eluminaProctorCand.candidateStartExams();
-    // });
-    
     await test.step('Candidate start the exam',async ()=> {
         await eluminaProctorCand.clickOnAllLink();
         // await eluminaCadInvPage.candidateStartExamsValidationInv();

@@ -122,10 +122,12 @@ export class EluminaInvCandidatePage {
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
     }
 
+    /**Method to start */
     async candidateStartExamsValidationInv(): Promise<void>{
         await this.ClickStartExamLink.click();
     }
 
+    /**Method to enter Invigilator password */
     async enterInvgilatorPaswordAndClickOnNext(){
         await this.ClickStartExamLink.click();
         await this.EnterExaPassword.click();
@@ -133,7 +135,4 @@ export class EluminaInvCandidatePage {
         await this.EnterExaPassword.type('ABC09');
         await this.ClickOnStartExamBtn.click();
     }
-   
-
-
 }

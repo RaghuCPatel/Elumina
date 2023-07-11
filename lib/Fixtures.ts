@@ -33,7 +33,7 @@ export const test = base.extend<{
 
   
 
-  context: async ({ }, use) => {
+  context: async ({ }, use) => {                              
     const pathToExtension = path.join(__dirname, '/extensions/agjngcdfhdplchpgmalcfjhgginnljdc/1.0.2_0');
     const context = await chromium.launchPersistentContext('', {
       headless: false,
