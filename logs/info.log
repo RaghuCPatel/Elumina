@@ -1,0 +1,518 @@
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Verify Validation of Changing Font Size to Decrease on the Dashboard"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : passed"}
+{"level":"error","message":"File not found: C:\\Elumina\\11-7-2023\\html-report"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Verify Validation of Changing Font Size to Decrease on the Dashboard"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Invigilator Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Validation of Time Remaining pop-up when the just before the exam time runs out"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Invigilator Dashboard Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Validation of Time Remaining pop-up when the just before the exam time runs out"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Invigilator Dashboard Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Invigilator Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Validation of Time Remaining pop-up when the just before the exam time runs out"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Invigilator Dashboard Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Validation of Time Remaining pop-up when the just before the exam time runs out"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Invigilator Dashboard Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login1 Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login1 Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login1 Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration1 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Verify Validation of Changing Font Size to Decrease on the Dashboard"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Verify Validation of Changing Font Size to Decrease on the Dashboard"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Verify Validation of Changing Font Size to Decrease on the Dashboard"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Verify Validation of Changing Font Size to Decrease on the Dashboard"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Verify Validation of Changing Font Size to Decrease on the Dashboard"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Verify Validation of Changing Font Size to Decrease on the Dashboard"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Verify Validation of Changing Font Size to Decrease on the Dashboard"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Verify Validation of Changing Font Size to Decrease on the Dashboard"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Verify Validation of Changing Font Size to Decrease on the Dashboard"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login1 Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration1 Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Verify Validation of Changing Font Size to Decrease on the Dashboard"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Verify Validation of Changing Font Size to Decrease on the Dashboard"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : passed"}

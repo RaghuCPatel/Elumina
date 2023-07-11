@@ -42,7 +42,7 @@ import { testConfig } from '../../testConfig';
         await test.step('Validation of Time Remaining pop-up when the just before the exam time runs out', async () => {
             await eluminaProctorCand.againCandidateLogin();
             await eluminaProctorCand.enterInvigilatorPassword();
-            await eluminaCandPage.waitforTime();
+            await eluminaCandPage.waitforTime1();
             await eluminaCandPage.updatedCloudIcon();
           
         });

@@ -317,6 +317,10 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(60000);
     }
 
+    async waitforTime1(){
+        await this.page.waitForTimeout(17000);
+    }
+
     async updatedCloudIcon(){
         await this.page.waitForTimeout(5000);
         await expect(this.cloudUpdatedIcon).toBeVisible();
@@ -798,6 +802,7 @@ async clickOnLogoutBtn(){
 
     /**Method to Add notes to the question during exam */
     async AddingNotesToQuestions(){
+        await this.page.waitForTimeout(2000);
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
         const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');
         console.log('Number of questions-'+qutns.length);
@@ -816,6 +821,17 @@ async clickOnLogoutBtn(){
            await this.noteQuestions.isVisible();
            await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
            console.log("Pink Color is Displayed When added Notes to the Questions")
+    }
+
+    async AddingNotesToQuestionSingle(){
+            await this.ansVSAQQuestion.click();
+            await this.ClickOnNotepad.click();
+            await this.page.waitForTimeout(1000);
+            await this.textareafill.type('abc');
+            await this.page.waitForTimeout(1000);
+            await this.saveButton.click();
+            await this.page.waitForTimeout(1000);
+            await this.CloseNotepad.click();
     }
 
 
