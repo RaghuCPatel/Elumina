@@ -258,4 +258,11 @@ export class EluminaProctorCandidatePage {
         await this.page.waitForTimeout(5000);
     }
 
+    /**Method to click on function keys */
+    async functionKey(){
+        await this.page.keyboard.press('F3');
+        console.log("Key Pressed");
+        await this.page.waitForTimeout(5000);
+    }
+
 }

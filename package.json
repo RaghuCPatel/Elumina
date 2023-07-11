@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:single": "npx playwright test EluminaRegressioniProctorTC_023.test.ts --project=Chrome",
+    "test:single": "npx playwright test EluminaRegressioniProctorTC_017.test.ts --project=Chrome",
     "test:elumina": "npx playwright test Elumina.test.ts --project=Chrome",
     "test:parallel": "npx playwright test --grep @Smoke --project=Chrome",
     "test:serial": "npx playwright test --grep @Smoke --workers=1 --project=Chrome",
