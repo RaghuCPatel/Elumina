@@ -19,6 +19,9 @@ import { EluminaProctorExamPage } from '@pages/EluminaProctorExamPage';
 import { EluminaRegistrationForProctoringPage } from '@pages/EluminaRegistrationForProctoringPage';
 import { EluminaProctorCandidatePage } from '@pages/EluminaProctorCandidatePage';
 import { EluminaIGLiveMonitorPage } from '@pages/EluminaIGLiveMonitorPage';
+import { EluminaMultipleExamsForAMPage } from '@pages/EluminaMultipleExamsForAMPage';
+import { EluminaMultipleExamsForPMPage } from '@pages/EluminaMultipleExamsForPMPage';
+import { EluminaMinimalTimeExamPage } from '@pages/EluminaMinimalTimeExamPage';
 
 const test = baseTest.extend<{
     webActions: WebActions;
@@ -41,6 +44,9 @@ const test = baseTest.extend<{
     eluminaProctorReg:EluminaRegistrationForProctoringPage;
     eluminaProctorCand:EluminaProctorCandidatePage;
     eluminaLiveMonitorPage:EluminaIGLiveMonitorPage;
+    eluminaMultipleExamsForAMPage:EluminaMultipleExamsForAMPage;
+    eluminaMultipleExamsForPMPage:EluminaMultipleExamsForPMPage;
+    eluminaMinimalTimeExamPage:EluminaMinimalTimeExamPage;
 }>({
     webActions: async ({ page, context }, use) => {
         await use(new WebActions(page, context));
@@ -101,6 +107,15 @@ const test = baseTest.extend<{
     },
     eluminaLiveMonitorPage: async ({ page, context }, use) => {
         await use(new EluminaIGLiveMonitorPage(page, context));
+    },
+    eluminaMultipleExamsForAMPage: async ({ page, context }, use) => {
+        await use(new EluminaMultipleExamsForAMPage(page, context));
+    },
+    eluminaMultipleExamsForPMPage: async ({ page, context }, use) => {
+        await use(new EluminaMultipleExamsForPMPage(page, context));
+    },
+    eluminaMinimalTimeExamPage: async ({ page, context }, use) => {
+        await use(new EluminaMinimalTimeExamPage(page, context));
     }
 })
 

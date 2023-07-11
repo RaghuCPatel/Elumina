@@ -1,8 +1,7 @@
 import test from '@lib/BaseTest';
 
-//Validation of Exam content section page contents and details
-
-test(`@Regression Create a Exam and add MCQ Questions`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+/**Validation of "Time Remaining" pop-up when the just before the exam time runs out */
+test(`@Regression Validation of "Time Remaining" pop-up when the just before the exam time runs out`, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -12,19 +11,16 @@ test(`@Regression Create a Exam and add MCQ Questions`, async ({ eluminaLoginPag
     await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
         await eluminaLoginPage.verifyProfilePage();
     });
-    await test.step(`Navigate to exam Tab and Create New Exam and add MCQ Questions`, async () => {
-        const newtab = await eluminaExamPage.iAuthorPageNavigation();
+    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
+        const newtab = await eluminaMinimalTimeExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExam();
-        await newtab.createContentSection();
-        await newtab.createContentPageWithMoreDescription();
         await newtab.createSection();
-        await newtab.addMCQQuestions();
+        await newtab.addQuestionsInExam();
     });
 });
 
-
-test(`@Regression add user and download user details`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegInvPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -32,22 +28,21 @@ test(`@Regression add user and download user details`, async ({ eluminaLoginPage
         await eluminaLoginPage.loginToApplication();
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaRegPage.iAuthorPageNavigations();
+        const newtab = await eluminaRegInvPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});    
+});
 
-test(`@Regression Verify Validation of Exam content section page contents and details`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
-    await test.step('Candidate logging into application', async () => {
-        await eluminaProctorCand.candidateNavigateToURL();
+test(`@Regression Validation of Empty Field validation`, async ({ eluminaCandPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam',async ()=> {
-       await eluminaCandPage.candidateContentSectionValidation();
-       
+        await eluminaCandPage.candidateStartExam();
     });
-    
-    
 });

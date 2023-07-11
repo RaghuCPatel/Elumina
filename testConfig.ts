@@ -7,7 +7,9 @@ export const testConfig = {
     // username: `demouat@gmail.com`,
     // password: `U2FsdGVkX18/eMdsOJpvI4hJZ/w7hNgwSRFaDvAcZx4=`,
     username: `rajakumar.nayak@igsindia.net`,
-    password: `U2FsdGVkX1+lFCrLjNgU2FivHABoWmMTf202w4i9EB0=`,
+    password: `UjR!8f3&`,
+    username1: `divyashree.r@igsindia.net`,
+    password1: `XEy!37#z`,
     waitForElement: 120000,
     dbUsername: ``,
     dbPassword: ``,
@@ -17,5 +19,7 @@ export const testConfig = {
 
     cadidateURL:'https://sandboxcandidate.assessapp.com.au/',
     invigilatorUsername:'examincharge2@yopmail.com',
-    invigilatorPassword:'YX!%5t8z'
+    invigilatorPassword:'YX!%5t8z',
+
+    invigilatorName:'Incharge Exam'
 }

@@ -9,8 +9,8 @@ let webActions: WebActions;
 let currentDate=new Date();
 let StartBookingDate=currentDate.getDate().toString();
 let EndExamDate=(currentDate.getDate()+1).toString();
-console.log(StartBookingDate);
-console.log(EndExamDate);
+// console.log(StartBookingDate);
+// console.log(EndExamDate);
 
 let hour = currentDate.getHours();
 let period = '';
@@ -26,7 +26,22 @@ if (hour >= 12) {
     hour = 12;
   }
 }
-console.log(`${period}`);
+// console.log(`${period}`);
+
+
+
+function makeid(length) {
+  let result = '';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  let counter = 0;
+  while (counter < length) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    counter += 1;
+  }
+  return result;
+}
+
 
 export class EluminaExamPage {
     readonly page: Page;
@@ -166,8 +181,10 @@ export class EluminaExamPage {
         this.SelectCalculator=page.locator('(//div[@class="dropdown-main"])[6]//ul//li[1]//span[text()="Calculator"]');
         this.SelectHighlighter=page.locator('(//div[@class="dropdown-main"])[6]//ul//li[3]//span[text()="Highlighter"]');
 
+
     }
 
+    /**Method for Page Navigation */
     async iAuthorPageNavigation() {
         const [newPage] = await Promise.all([
             this.context.waitForEvent('page'),
@@ -177,11 +194,12 @@ export class EluminaExamPage {
           return new exports.EluminaExamPage(newPage);
     }
 
+    /**Method for Exam Tab Navigation */
     async examTabNavigation(): Promise<void> {
           await this.EXAMSMENU.click();
     }
 
-    //Create a Exam
+    /*Create a Exam*/
     async createExam(): Promise<void> {
 
         let currentDate=new Date();
@@ -193,9 +211,7 @@ export class EluminaExamPage {
           hour12 += 12;
         let minute = currentDate.getMinutes();
         console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
-        //console.log(localDate.)
-        //let Hours=currentDate.getHours();
-        //console.log(Hours);
+   
         let StartBookingMin=currentDate.getMinutes()+1;
         let EndBookingMin=currentDate.getMinutes()+2;
         let StartExamMin=currentDate.getMinutes()+3;
@@ -207,16 +223,16 @@ export class EluminaExamPage {
         await this.SELECTBANK.click();
         await this.TESTBANK.click();
         await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
-        //await newPage.locator('//div[normalize-space()="Proctoring Exam"]//div[@id="Crm_Leads_COMPANY_label"]').scrollIntoViewIfNeeded();
+       
         await this.EXAMCODE.type('D'+Math.floor(Math.random()*89+100));
-        //await this.page.waitForTimeout(5000);
+ 
         await this.BookingStartCalender.click();
-       // await this.page.waitForTimeout(5000);
+
         await this.BookingStartDate.click();
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
         await this.BookingStartHrs.type(hour12.toString());
-       // await this.BookingStartHrs.type(StartBookingMin.toString());
+
         await this.BooingStartMins.click();
         await this.BooingStartMins.clear();
         await this.BooingStartMins.type(StartBookingMin.toString());
@@ -272,8 +288,8 @@ export class EluminaExamPage {
         await this.page.waitForTimeout(5000);
     }
 
-    //Create Content Section
-
+ 
+    /** Method to Create Content Section */
     async createContentSection():Promise<void>{
       await this.CliCKOnCreateSection.click();
       await this.ClickOnCreateContentSection.click();
@@ -286,8 +302,7 @@ export class EluminaExamPage {
       await this.ClickOnSave.click();
     }
 
-    //Creatr a Content Section Page
-
+    /**Method to Create a Content Section Page*/
     async createContentPage():Promise<void>{
       await this.ClickonCreateContentPage.click();
       await this.ClickOnAddContent.click();
@@ -302,8 +317,22 @@ export class EluminaExamPage {
 
     }
 
-    //Create Exam Section
 
+    async createContentPageWithMoreDescription():Promise<void>{
+      await this.ClickonCreateContentPage.click();
+      await this.ClickOnAddContent.click();
+      await this.enterContentTitle.type('Content-A'+Math.floor(Math.random())*89+10);
+      await this.page.waitForTimeout(5000);
+      await this.DescriptionMessage.click();
+      await this.DescriptionMessage.type(makeid(5000));
+      await this.page.waitForTimeout(5000);
+      await this.ClickOnContentLayout.click();
+      await this.ClickOnTermAndCondition.click();
+      await this.ClickOnSave.click();
+
+    }
+
+    /**Create Exam Section */
     async createSection(): Promise<void>{
       await this.CliCKOnCreateSection.click();
       await this.ClickOnCreateExamSection.click();
@@ -313,7 +342,6 @@ export class EluminaExamPage {
       await this.DescriptionMessage.type('Hello World.....');
       await this.page.waitForTimeout(5000);
       await this.Choosehrs.selectOption('1');
-      //await this.SelectTime.selectOption('0');
       await this.SelectTime.selectOption('30');
       await this.ClickOnSave.click();
       await this.page.waitForTimeout(5000);
@@ -321,8 +349,7 @@ export class EluminaExamPage {
 
     }
 
-    //Add all Questions in an Exam
-
+    /*Add all Questions in an Exam*/
     async addQuestionsInExam(): Promise<void>{
       await this.ClickOnAddQuestion.click();
       await this.ClickOnSearchQuestion.click();
@@ -336,8 +363,7 @@ export class EluminaExamPage {
       await this.page.waitForTimeout(5000);
     }
 
-      //Add MCQ Questions in an Exam
-
+    /*Add MCQ Questions in an Exam*/
     async addMCQQuestions():Promise<void>{
       await this.ClickOnAddQuestion.click();
       await this.ClickOnSearchQuestion.click()
@@ -478,7 +504,7 @@ await this.ClickOnSubmitAndApproveBtn.click();
 
 }
    
-     //Create a Exam with Note option
+     /*Create a Exam with Note option*/
      async createExamWithNotepad(): Promise<void> {
 
       let currentDate=new Date();
@@ -502,16 +528,16 @@ await this.ClickOnSubmitAndApproveBtn.click();
       await this.SELECTBANK.click();
       await this.TESTBANK.click();
       await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
-      //await newPage.locator('//div[normalize-space()="Proctoring Exam"]//div[@id="Crm_Leads_COMPANY_label"]').scrollIntoViewIfNeeded();
+    
       await this.EXAMCODE.type('D'+Math.floor(Math.random()*89+100));
-      //await this.page.waitForTimeout(5000);
+     
       await this.BookingStartCalender.click();
-     // await this.page.waitForTimeout(5000);
+    
       await this.BookingStartDate.click();
       await this.BookingStartHrs.click();
       await this.BookingStartHrs.clear();
       await this.BookingStartHrs.type(hour12.toString());
-     // await this.BookingStartHrs.type(StartBookingMin.toString());
+ 
       await this.BooingStartMins.click();
       await this.BooingStartMins.clear();
       await this.BooingStartMins.type(StartBookingMin.toString());
@@ -571,6 +597,7 @@ await this.ClickOnSubmitAndApproveBtn.click();
       await this.page.waitForTimeout(5000);
   }
 
+  /**Method to Add SAQ Questions */
   async addSAQQuestions():Promise<void>{
     await this.ClickOnAddQuestion.click();
     await this.ClickOnSearchQuestion.click()
@@ -592,6 +619,7 @@ await this.ClickOnSubmitAndApproveBtn.click();
 
   }
 
+  /**Method to Create Multiple Candidates */
   async createExamforMultipleCandidates(): Promise<void> {
 
     let currentDate=new Date();
@@ -615,16 +643,16 @@ await this.ClickOnSubmitAndApproveBtn.click();
     await this.SELECTBANK.click();
     await this.TESTBANK.click();
     await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
-    //await newPage.locator('//div[normalize-space()="Proctoring Exam"]//div[@id="Crm_Leads_COMPANY_label"]').scrollIntoViewIfNeeded();
+   
     await this.EXAMCODE.type('D'+Math.floor(Math.random()*89+100));
-    //await this.page.waitForTimeout(5000);
+
     await this.BookingStartCalender.click();
-   // await this.page.waitForTimeout(5000);
+
     await this.BookingStartDate.click();
     await this.BookingStartHrs.click();
     await this.BookingStartHrs.clear();
     await this.BookingStartHrs.type(hour12.toString());
-   // await this.BookingStartHrs.type(StartBookingMin.toString());
+
     await this.BooingStartMins.click();
     await this.BooingStartMins.clear();
     await this.BooingStartMins.type(StartBookingMin.toString());
@@ -679,6 +707,7 @@ await this.ClickOnSubmitAndApproveBtn.click();
     await expect(this.VerifyChoose_Confirmation).toBeVisible();
     await this.page.waitForTimeout(5000);
 }
+
 
 //**Methods to create exam with calculator */
 
@@ -865,6 +894,7 @@ async createExamWithHighlighter(): Promise<void> {
   await expect(this.VerifyChoose_Confirmation).toBeVisible();
   await this.page.waitForTimeout(5000);
 }
+
 
     
 }

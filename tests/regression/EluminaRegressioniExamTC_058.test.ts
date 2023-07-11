@@ -1,8 +1,8 @@
 import test from '@lib/BaseTest';
 
-//Validation of Browser Reload option after Exam Starts
+/**Validate the Exam sheet where the Question numbers are displayed in Orange when In Progress*/
 
-test(`@Regression Verify Validation of Browser Reload option after Exam Starts`, async ({ eluminaCandPage,webActions }) => {
+test(`@Regression Validate the Exam sheet where the Question numbers are displayed in Orange when In Progress`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -10,9 +10,7 @@ test(`@Regression Verify Validation of Browser Reload option after Exam Starts`,
         await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam',async ()=> {
-        await eluminaCandPage.verifyExamDashboardTimer();
-        await eluminaCandPage.refreshPage();
+        await eluminaCandPage.InProgressQuestions();
     });
-    
     
 });

@@ -1,12 +1,10 @@
 import test from '@lib/BaseTest';
-import { testConfig } from '../../testConfig';
-
 import { chromium } from '@playwright/test';
+import { testConfig } from 'testConfig';
 
-//Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)
+/**Candidate Attend practice exam*/
 
-
-test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`@Regression Candidate Attend practice exam`, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -21,7 +19,7 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
         await newtab.examTabNavigation();
         await newtab.createExam();
         await newtab.createSection();
-        await newtab.addMCQQuestions();
+        await newtab.addQuestionsInExam();
     });
 });
 
@@ -39,19 +37,18 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});      
+});
 
-test(`@Regression Verify Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)`, async ({eluminaCandPage, eluminaCadInvPage,webActions }) => {
+test(`@Regression Verify Validation of "Terminate Exam"  `, async ({eluminaCandPage, eluminaCadInvPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
-
         
-    });   
+    });
     await test.step('Candidate start the exam',async ()=> {
-       await eluminaCandPage.verifyExamDashboardTimer();
+        await eluminaCandPage.candidateStartExam();
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -65,31 +62,29 @@ test(`@Regression Verify Validation of Invigilator Dashboard after the Exam Comp
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
           ]);
-          
         
-          await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
-       
-          await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//input').click();
-          await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[5]').click();
-          await newPage.locator('(//button[text()="Yes"])[2]').click();
-          await newPage.waitForTimeout(5000);
-        
-        await eluminaCadInvPage.againCandidateLogin();
-
-        await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click()
-        await newPage.waitForTimeout(8000);
-         await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
-         await newPage.locator('//div[@title="Resume Exam for all Candidates"]').click();
-         await newPage.locator('(//button[text()="Yes"])[2]').click();
-         await newPage.waitForTimeout(3000);
-       //await eluminaCandPage.candidateStartMCQAndSubmit();
-         await newPage.close();
+        await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
+        await newPage.waitForTimeout(5000);
+        await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//input').click();;
+        await newPage.locator('//div[@class="action-item control-item terminate-exam"]').click();;
+  
+        await newPage.locator('(//button[text()="Yes"])[2]').click();
+        await newPage.waitForTimeout(5000);
+        await newPage.close();
         await page1.close();
 
     });
-    await test.step(`Inv Login to Elumina application`, async () => {
-        await eluminaCandPage.candidateStartMCQAndSubmit();
-    });
 
+    await test.step(`Redirected to Candidate page`, async () => {
+        //await eluminaCadInvPage.againCandidateLogin();
+        await test.step(`Navigate to Application`, async () => {
+            await eluminaCadInvPage.candidateNavigateToURL();
+        });
+        await test.step(`Candidate Login to application`, async () => {
+            await eluminaCandPage.candidateLoginToApplication();
+            
+        });
+
+    });
 
 });

@@ -7931,7 +7931,4 @@
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Executing Step : Candidate Login to application"}
 {"level":"info","message":"Executing Step : Candidate start the exam"}
-{"level":"info","message":"Test Case Started : @Smoke Validation of Questions answered / Inprogress on the RHS of the Candidate page"}
-{"level":"info","message":"Executing Step : Navigate to Application"}
-{"level":"info","message":"Executing Step : Candidate Login to application"}
-{"level":"info","message":"Executing Step : Candidate start the exam"}
+

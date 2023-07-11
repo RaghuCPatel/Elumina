@@ -1,8 +1,8 @@
 import test from '@lib/BaseTest';
 
-//Create the Exams, Users and Invigilators with the combinations mentioned in Summary tab 
+//Validation of Browser back button on Candidate Dashboard
 
-test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`@Regression Verify Elumina Login and Create Exam and add MCQ`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -19,9 +19,9 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
         await newtab.createSection();
         await newtab.addMCQQuestions();
     });
-});
+});    
 
-test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegInvPage,webActions }) => {
+test(`@Regression add user in Registration and download User details and assign Invigilator`, async ({ eluminaLoginPage,eluminaRegInvPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -33,12 +33,10 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
         await newtab.registrationTabNavigation();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
     });
 });
 
-test(`@Regression Verify Validation of the following in the Exam Section
-Exam name, Candidate name, Exam timer, no of questions as per exam created`, async ({ eluminaCandPage,webActions }) => {
+test(`@Regression Verify Validation of Browser back button on Candidate Dashboard`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

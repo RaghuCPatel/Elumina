@@ -1,9 +1,8 @@
 import test from '@lib/BaseTest';
 
-//Validation of Browser back button after Exam Starts
+//Validation of Invigilator Dashboard after the Exam Completion by candidate (once the time exceeds)
 
-
-test(`@Regression Verify Elumina Login and Create Exam and add MCQ`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`@Regression Validation of "Time Remaining" pop-up when the just before the exam time runs out`, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -14,15 +13,15 @@ test(`@Regression Verify Elumina Login and Create Exam and add MCQ`, async ({ el
         await eluminaLoginPage.verifyProfilePage();
     });
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminaExamPage.iAuthorPageNavigation();
+        const newtab = await eluminaMinimalTimeExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExam();
         await newtab.createSection();
-        await newtab.addMCQQuestions();
+        await newtab.addQuestionsInExam();
     });
-});    
+});
 
-test(`@Regression add user in Registration and download User details and assign Invigilator`, async ({ eluminaLoginPage,eluminaRegInvPage,webActions }) => {
+test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegInvPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -34,11 +33,11 @@ test(`@Regression add user in Registration and download User details and assign 
         await newtab.registrationTabNavigation();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
-       
+        await newtab.addExistingUsers();
     });
-});
+});    
 
-test(`@Regression Verify Validation of Browser back button after Exam Starts`, async ({ eluminaCandPage,webActions }) => {
+test(`@Regression Validation of Invigilator Dashboard after the Exam Completion by candidate (once the time exceeds)`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -46,9 +45,23 @@ test(`@Regression Verify Validation of Browser back button after Exam Starts`, a
         await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam',async ()=> {
-        await eluminaCandPage.verifyExamDashboardTimer();
-        await eluminaCandPage.navigateBack();
+        await eluminaCandPage.examSectionValidation();
+        await eluminaCandPage.waitforTime();
+        await eluminaCandPage.clickOnAutoSubmitOKPopup();
+    
+    });
+});     
+
+test(`@Smoke Verify Validation of Invigilator Dashboard Proctor`, async ({ eluminaInvPage, webActions }) => {
+   
+    await test.step(`Inv Login to Elumina application`, async () => {
+        await eluminaInvPage.invigilatorLogin();
     });
     
-    
+    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
+        const newtab = await eluminaInvPage.iAuthorPageNavigation();
+        await newtab.invDashboardValidations();
+        
+        
+    });
 });
