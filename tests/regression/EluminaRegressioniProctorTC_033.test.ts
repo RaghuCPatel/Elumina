@@ -2,7 +2,7 @@ import test from '@lib/Fixtures';
 import { chromium } from '@playwright/test';
 import { testConfig } from '../../testConfig';
 
-//Validation of candidate/s taking exam from different timezones.
+//Validation of Calculator
 
 test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -17,11 +17,11 @@ test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomeP
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createExam();
+        await newtab.createExamWithCalculator();
         await newtab.createSection();
-        await newtab.addMCQQuestions();
+        await newtab.addVSAQQuestions();
     });
-});     
+});   
 
 test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -37,54 +37,19 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});         
-                
+});
 
-test(`@Regression Verify Elumina Login with diff venu`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
-        await eluminaLoginPage.verifyProfilePage();
-    });
-    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminaProctorExam.iAuthorPageNavigation();
-        await newtab.examTabNavigation();
-        await newtab.createExamwithDiffZone();
-        await newtab.createSection();
-        await newtab.addMCQQuestions();
-    });
-});   
-
-test(`@Regression Verify Elumina Registration and adding existing user`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaProctorReg.iAuthorPageNavigations();
-        await newtab.registrationTabNavigationByClickCreateExam();
-        await newtab.addExistingUsers1();
-    });
-});         
-
-test(`@Regression Validation of candidate/s taking exam from different timezones.`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
-
+test(`@RegressionValidation of Calculator`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
     await test.step('Candidate logging into application', async () => {
 
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
 
-    });
+    });   
 
     await test.step('Invigilator  logging into Application', async () => {
 
-        await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+        await eluminaProctorCand.clickOnAllLink();
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -110,14 +75,13 @@ test(`@Regression Validation of candidate/s taking exam from different timezones
 
         await newPage.close();
         await page1.close();
-    });
+    });   
    
-    await test.step('Verify Validation of Changing Font Size to Decrease on the Dashboard', async () => {
+    await test.step('Candidate start the exam',async ()=> {
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
-        await eluminaProctorCand.candidateStartMCQ();
-        await eluminaProctorCand.clickonPrevious();
+        await eluminaCandPage.UsingCalculatorForQuestions();
+        console.log("Candidate is able to use Calculator")
     });
-
+    
 });
-

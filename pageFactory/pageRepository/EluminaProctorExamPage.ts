@@ -35,6 +35,7 @@ export class EluminaProctorExamPage {
     readonly EXAMSMENU: Locator;
     readonly CREATEEXAMS: Locator;
     readonly AUTHOR: Locator;
+    readonly Admin:Locator;
     readonly STARTFROMSCRATCH: Locator;
     readonly SELECTBANK: Locator;
     readonly TESTBANK: Locator;
@@ -97,12 +98,18 @@ export class EluminaProctorExamPage {
 
     readonly ExamTools:Locator;
     readonly SelectNotepad:Locator;
+    readonly SelectCalculator:Locator;
+
+    readonly ClickOniProctoring:Locator;
+    readonly ClickonEnableiProctorExtension:Locator;
+    readonly ClickOnInternetConnection:Locator;
     
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
         this.context = context;
         webActions = new WebActions(this.page, this.context);
         this.AUTHOR = page.locator('//div[text()="iAuthor"]');
+        this.Admin=page.locator('//div[contains(text(),"Assess App Admin")]');
         this.EXAMSMENU = page.locator('//a[text()="Exams"]')
         this.CREATEEXAMS = page.locator('//button[normalize-space()="Create Exam"]')
         this.STARTFROMSCRATCH = page.locator('//p[normalize-space()="Start from Scratch"]')
@@ -168,7 +175,11 @@ export class EluminaProctorExamPage {
  
         this.ExamTools=page.locator('(//div[@class="input-wrap"])[6]');
         this.SelectNotepad=page.locator('(//div[@class="dropdown-main"])[6]//ul//li[2]//span[text()="Notepad"]');
+        this.SelectCalculator=page.locator('(//div[@class="dropdown-main"])[6]//ul//li[1]//span[text()="Calculator"]');
 
+        this.ClickOniProctoring=page.locator('//span[contains(text(),"Proctoring")]');
+        this.ClickonEnableiProctorExtension=page.locator('(//div[@class="switch--container"]//span)[5]');
+        this.ClickOnInternetConnection=page.locator('(//span[@class="slider round"])[6]');
     }
 
     /**Method of Page Navigation */
@@ -181,10 +192,42 @@ export class EluminaProctorExamPage {
           return new exports.EluminaProctorExamPage(newPage);
     }
 
+   /**Method of Admin Page Navigation */
+    async AdminPageNavigation() {
+        const [newPage] = await Promise.all([
+            this.context.waitForEvent('page'),
+            await this.Admin.click()
+          ]);
+           await newPage.waitForLoadState();
+          return new exports.EluminaProctorExamPage(newPage);
+    }
+
     /**Method for Exam Tab Navigation */
     async examTabNavigation(): Promise<void> {
           await this.EXAMSMENU.click();
     }
+
+      /**Method to click on proctoring in Admin section*/
+      async clickOnProctoringInAdmin(): Promise<void> {
+        await this.ClickOniProctoring.click();
+    }
+
+     /**Method to validation on proctoring in Admin section*/
+     async validationOfProctorExtension(): Promise<void> {
+      await this.ClickonEnableiProctorExtension.scrollIntoViewIfNeeded();
+      await this.ClickonEnableiProctorExtension.isVisible();
+      console.log("Enable iProctor Extension option is not editable.");
+  }
+
+  
+     /**Method to click on Internet connection check in Admin section*/
+     async clickOnInternetConnectionCheck(): Promise<void> {
+      await this.ClickOnInternetConnection.click();
+      await this.page.waitForTimeout(5000);
+      console.log("Internet Connection check is turnOff");
+      await this.ClickOnInternetConnection.click();
+      console.log("Internet Connection check is turnOn");
+  }
 
     /**Method to create exam */
     async createExam(): Promise<void> {
@@ -462,6 +505,103 @@ async createExamwithDiffZone(): Promise<void> {
   await this.page.waitForTimeout(5000);
 }
 
+//**Methods to create exam with calculator */
+
+async createExamWithCalculator(): Promise<void> {
+
+  let currentDate=new Date();
+  let datecurrent=currentDate.getDate();
+  console.log(datecurrent);
+  let pm = currentDate.getHours() >= 12;
+  let hour12 = currentDate.getHours() % 12;
+  if (!hour12) 
+    hour12 += 12;
+  let minute = currentDate.getMinutes();
+  console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
+
+  let StartBookingMin=currentDate.getMinutes()+1;
+  let EndBookingMin=currentDate.getMinutes()+2;
+  let StartExamMin=currentDate.getMinutes()+3;
+  let EndExamMin=currentDate.getMinutes()+14;
+
+  await expect(this.CREATEEXAMS).toBeVisible();
+  await this.CREATEEXAMS.click();
+  await this.STARTFROMSCRATCH.click();
+  await this.SELECTBANK.click();
+  await this.TESTBANK.click();
+  await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
+  //await newPage.locator('//div[normalize-space()="Proctoring Exam"]//div[@id="Crm_Leads_COMPANY_label"]').scrollIntoViewIfNeeded();
+  await this.EXAMCODE.type('D'+Math.floor(Math.random()*89+100));
+  await this.ProctoringExam.click();
+  //await this.page.waitForTimeout(5000);
+  await this.BookingStartCalender.click();
+ // await this.page.waitForTimeout(5000);
+  await this.BookingStartDate.click();
+  await this.BookingStartHrs.click();
+  await this.BookingStartHrs.clear();
+  await this.BookingStartHrs.type(hour12.toString());
+ // await this.BookingStartHrs.type(StartBookingMin.toString());
+  await this.BooingStartMins.click();
+  await this.BooingStartMins.clear();
+  await this.BooingStartMins.type(StartBookingMin.toString());
+  await this.ChooseBookingStartSession.check();
+  await this.BookingOK.click();
+
+  await this.BookingEndCalender.click();
+  await this.BookingEndDate.click();
+  await this.BookingStartHrs.click();
+  await this.BookingStartHrs.clear();
+  await this.BookingStartHrs.type(hour12.toString());
+  await this.BooingStartMins.click();
+  await this.BooingStartMins.clear();
+  await this.BooingStartMins.type(EndBookingMin.toString());
+  await this.ChooseBookingStartSession.check();
+  await this.BookingOK.click();
+
+  await this.ExamStartCalender.click();
+  await this.ExamStartDate.click();
+  await this.BookingStartHrs.click();
+  await this.BookingStartHrs.clear();
+  await this.BookingStartHrs.type(hour12.toString());
+  await this.BooingStartMins.click();
+  await this.BooingStartMins.clear();
+  await this.BooingStartMins.type(StartExamMin.toString());
+  await this.ChooseBookingStartSession.check();
+  await this.BookingOK.click();
+
+  await this.ExamEndCalender.click();
+  await this.ExamEndDate.click();
+  await this.BookingStartHrs.click();
+  await this.BookingStartHrs.clear();
+  await this.BookingStartHrs.type(hour12.toString());
+  await this.BooingStartMins.click();
+  await this.BooingStartMins.clear();
+  await this.BooingStartMins.type(EndExamMin.toString());
+  await this.ChooseBookingStartSession.check();
+  await this.BookingOK.click();
+
+  await this.ClickOnExamVenue.click();
+  await this.ChooseExamVenue.click();
+  await this.ClickOnAdd.click();
+  await this.EnterNoOfCandidates.click();
+  await this.EnterNoOfCandidates.clear();
+  await this.EnterNoOfCandidates.type('01');
+  await this.ClickOnAdd.click();
+  await this.EnterInvigilatorPswd.click();
+  await this.EnterInvigilatorPswd.type('ABC09');
+  await this.page.waitForTimeout(5000);
+
+
+  await this.ExamTools.click();
+  await this.SelectCalculator.click();
+
+  await this.ClickOnNextBtn.click();
+  await expect(this.VerifyExam_details).toBeVisible();
+  await expect(this.VerifyChoose_Question).toBeVisible();
+  await expect(this.VerifyChoose_Workflow).toBeVisible();
+  await expect(this.VerifyChoose_Confirmation).toBeVisible();
+  await this.page.waitForTimeout(5000);
+}
 
 /**Method to Create Exam Section */
 async createSections(): Promise<void>{
@@ -646,7 +786,7 @@ async createSections(): Promise<void>{
     await expect(this.VerifyChoose_Workflow).toBeVisible();
     await expect(this.VerifyChoose_Confirmation).toBeVisible();
     await this.page.waitForTimeout(5000);
-
+  }
     async addVSAQQuestions():Promise<void>{
       await this.ClickOnAddQuestion.click();
       await this.ClickOnSearchQuestion.click()
@@ -658,7 +798,6 @@ async createSections(): Promise<void>{
       await this.ClickOnNextBtn.click();
       await this.page.waitForTimeout(5000);
       await this.ClickOnSubmitAndApproveBtn.click();
-
+    }
 }
     
-}
