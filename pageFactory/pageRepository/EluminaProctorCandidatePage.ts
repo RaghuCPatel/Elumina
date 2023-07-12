@@ -198,9 +198,6 @@ export class EluminaProctorCandidatePage {
             await this.flagForReviewQuestions.click();
             await this.ClickOnNextBtn.click();
         }
-            // await this.page.locator('(//div[@class="question-number-container"]//div//p)[3]').click();
-            // await this.flagForReviewQuestions.click();
-            // await this.ClickOnNextBtn.click();
             await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
             await this.flagForReviewQuestions.click();
             await this.ClickOnRevieweBtn.click();

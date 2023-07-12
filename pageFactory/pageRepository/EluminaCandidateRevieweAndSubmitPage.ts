@@ -46,7 +46,7 @@ export class EluminaCandidateRevieweAndSubmitPage{
 
     /**Method to Navigate to Candidate URL */
     async candidateNavigateToURL(): Promise<void> {
-        await this.page.goto("https://sandboxcandidate.assessapp.com.au/");
+        await this.page.goto(testConfig.cadidateURL);
     }
 
     /**Metgod to Login to Candidate Apllication */
