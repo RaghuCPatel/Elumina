@@ -790,11 +790,13 @@ async clickOnLogoutBtn(){
         const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');
         console.log('Number of questions-'+qutns.length);
         const Ttl=qutns.length-1;
-        for(let i=0;i<=qutns.length-3;i++)
+        for(let i=0;i<=qutns.length-4;i++)
         {
             await qutns[i].click();
             await this.ClickOnNextBtn.click();
         }
+        await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
+        await this.ClickOnRevieweBtn.click();
            await this.notAnweredQuestion.isVisible();
            await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
            console.log("Gray Color is Displayed When Questions are Not Answered")

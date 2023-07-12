@@ -6,8 +6,6 @@ import { EluminaHomePage } from './EluminaHomePage';
 let webActions: WebActions;
 let candClientID:string;
 
-const image_path='C:/Users/Divyashree/Downloads/Divya_img.jpg';
-
 export class EluminaRegistrationForProctoringPage {
 
     readonly page: Page;
@@ -154,9 +152,7 @@ export class EluminaRegistrationForProctoringPage {
        await this.SelectBookingStatus.selectOption('Booked');
        await this.page.waitForTimeout(5000);
 
-       await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles(testConfig.ImagePath);
-
-       await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles('./lib/Image.png');
+       await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles('C:/Users/Arish/Downloads/Arish.png');
 
        await this.page.waitForTimeout(8000);
        await this.ClickOnSaveBtn.click();
