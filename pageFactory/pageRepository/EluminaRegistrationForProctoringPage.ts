@@ -132,14 +132,14 @@ export class EluminaRegistrationForProctoringPage {
 
     /**Method to Add User Details */
     async addUserDetails():Promise<void>{
-       await this.EnterClientID.type('test'+Math.floor(Math.random()*899+100));
+       await this.EnterClientID.type(testConfig.clientId+Math.floor(Math.random()*899+100));
        await this.ChooseTitle.click();
        await this.ChooseTitle.selectOption('Mr');
-       await this.TypeUsername.type('Narendra'+Math.floor(Math.random()*89+10));
-       await this.TypeFirstName.type('Narendra');
-       await this.TypeLastName.type('Modi');
-       await this.TypeEmail.type('Narendra'+Math.floor(Math.random()*899+100)+'@gmail.com');
-       await this.TypePhone.type('6'+Math.floor(Math.random()*899999999+100));
+       await this.TypeUsername.type(testConfig.clientUsername+Math.floor(Math.random()*89+10));
+       await this.TypeFirstName.type(testConfig.clientFirstname);
+       await this.TypeLastName.type(testConfig.clientLastname);
+       await this.TypeEmail.type(testConfig.clientEmail+Math.floor(Math.random()*899+100)+'@gmail.com');
+       await this.TypePhone.type(testConfig.clientPhone+Math.floor(Math.random()*899999999+100));
        await this.page.waitForTimeout(5000);
        await this.SelectRole.click();
        await this.SelectRole.selectOption('Candidate');
@@ -148,12 +148,16 @@ export class EluminaRegistrationForProctoringPage {
        await this.SelectEligible.selectOption('Yes');
        await this.page.waitForTimeout(5000);
        await this.SelectVenue.click();
-       await this.SelectVenue.type('Elumina Chennai');
+       await this.SelectVenue.type(testConfig.clientVenue);
        await this.page.waitForTimeout(5000);
        await this.SelectBookingStatus.click();
        await this.SelectBookingStatus.selectOption('Booked');
        await this.page.waitForTimeout(5000);
+
+       await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles(testConfig.ImagePath);
+
        await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles('./lib/Image.png');
+
        await this.page.waitForTimeout(8000);
        await this.ClickOnSaveBtn.click();
        await this.page.waitForTimeout(8000);
@@ -223,12 +227,83 @@ export class EluminaRegistrationForProctoringPage {
         await this.ClickOnSaveBtn.click();
         await this.page.waitForTimeout(3000);
         await this.LeftArrow.click();
+
+        await this.page.waitForTimeout(5000);
+
         // await this.ClickOnDropdown2.click();
         // await this.ClickOnAssignInv.click();
         // await this.AssignUsersToCand.click();
         // await this.AssignInvToCand.click();
         // await this.ClickOnInvSaveBtn.click();
         await this.page.waitForTimeout(2000);
+
     }
 
+    /**Method to Add Multiple User Details */
+    async addMultipleUserDetails():Promise<void>{
+        await this.page.waitForSelector('//table[@class="table"]//tbody//tr',{timeout:10000});
+        let rowss=await this.page.$$('//table[@class="table"]//tbody//tr');
+        for(let i=0;i<=2;i++)
+        {
+        
+        await rowss[i].isVisible()
+        await this.EnterClientID.clear();
+        await this.EnterClientID.type(testConfig.clientId+Math.floor(Math.random()*899+100));
+        await this.page.waitForTimeout(1000);
+        await this.ChooseTitle.click();
+        await this.ChooseTitle.selectOption('Mr');
+
+        await this.TypeUsername.clear();
+        await this.TypeUsername.type(testConfig.clientUsername+Math.floor(Math.random()*89+10));
+
+        await this.TypeFirstName.clear();
+        await this.TypeFirstName.type(testConfig.clientFirstname);
+
+        await this.TypeLastName.clear();
+        await this.TypeLastName.type(testConfig.clientLastname);
+
+        await this.TypeEmail.clear();
+        await this.TypeEmail.type(testConfig.clientEmail+Math.floor(Math.random()*899+100)+'@gmail.com');
+
+        await this.TypePhone.clear();
+        await this.TypePhone.type(testConfig.clientPhone+Math.floor(Math.random()*899999999+100));
+
+        await this.page.waitForTimeout(1000);
+        await this.SelectRole.click();
+        await this.SelectRole.selectOption('Candidate');
+        await this.page.waitForTimeout(1000);
+        await this.SelectEligible.click();
+        await this.SelectEligible.selectOption('Yes');
+        await this.page.waitForTimeout(1000);
+        await this.SelectVenue.click();
+        await this.SelectVenue.type(testConfig.clientVenue);
+        await this.page.waitForTimeout(1000);
+        await this.SelectBookingStatus.click();
+        await this.SelectBookingStatus.selectOption('Booked');
+        await this.page.waitForTimeout(1000);
+        await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles(testConfig.ImagePath);
+        await this.page.waitForTimeout(1000);
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(2000);
+       
+        }
+        await this.LeftArrow.click();
+     }
+
+     /**Method to Download the Multiple User Details */
+    async downloadMultipleUserDetails():Promise<void>{
+        for(let i=0;i<=2;i++){
+        await this.ClickOnDropdown.click();
+        const downloadPromise = this.page.waitForEvent('download');
+        await this.ClickOnDownloadUserDeatils.click();
+        const download = await downloadPromise;
+        // Wait for the download process to complete.
+        console.log(await download.path());
+        const suggestedFileName = download.suggestedFilename();
+        const filePath = 'download/' + suggestedFileName
+        await download.saveAs(filePath)
+        await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+        await this.page.waitForTimeout(4000);
+        }
+    }
 }

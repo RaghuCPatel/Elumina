@@ -556,6 +556,97 @@ async createSections(): Promise<void>{
       await this.page.waitForTimeout(5000);
     }
 
+  
+  /**Method to Create Multiple Candidates */
+  async createExamforMultipleCandidates(): Promise<void> {
+
+    let currentDate=new Date();
+    let datecurrent=currentDate.getDate();
+    console.log(datecurrent);
+    let pm = currentDate.getHours() >= 12;
+    let hour12 = currentDate.getHours() % 12;
+    if (!hour12) 
+      hour12 += 12;
+    let minute = currentDate.getMinutes();
+    console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
+
+    let StartBookingMin=currentDate.getMinutes()+1;
+    let EndBookingMin=currentDate.getMinutes()+2;
+    let StartExamMin=currentDate.getMinutes()+3;
+    let EndExamMin=currentDate.getMinutes()+14;
+
+    await expect(this.CREATEEXAMS).toBeVisible();
+    await this.CREATEEXAMS.click();
+    await this.STARTFROMSCRATCH.click();
+    await this.SELECTBANK.click();
+    await this.TESTBANK.click();
+    await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
+   
+    await this.EXAMCODE.type('D'+Math.floor(Math.random()*89+100));
+
+    await this.BookingStartCalender.click();
+
+    await this.BookingStartDate.click();
+    await this.BookingStartHrs.click();
+    await this.BookingStartHrs.clear();
+    await this.BookingStartHrs.type(hour12.toString());
+
+    await this.BooingStartMins.click();
+    await this.BooingStartMins.clear();
+    await this.BooingStartMins.type(StartBookingMin.toString());
+    await this.ChooseBookingStartSession.check();
+    await this.BookingOK.click();
+
+    await this.BookingEndCalender.click();
+    await this.BookingEndDate.click();
+    await this.BookingStartHrs.click();
+    await this.BookingStartHrs.clear();
+    await this.BookingStartHrs.type(hour12.toString());
+    await this.BooingStartMins.click();
+    await this.BooingStartMins.clear();
+    await this.BooingStartMins.type(EndBookingMin.toString());
+    await this.ChooseBookingStartSession.check();
+    await this.BookingOK.click();
+
+    await this.ExamStartCalender.click();
+    await this.ExamStartDate.click();
+    await this.BookingStartHrs.click();
+    await this.BookingStartHrs.clear();
+    await this.BookingStartHrs.type(hour12.toString());
+    await this.BooingStartMins.click();
+    await this.BooingStartMins.clear();
+    await this.BooingStartMins.type(StartExamMin.toString());
+    await this.ChooseBookingStartSession.check();
+    await this.BookingOK.click();
+
+    await this.ExamEndCalender.click();
+    await this.ExamEndDate.click();
+    await this.BookingStartHrs.click();
+    await this.BookingStartHrs.clear();
+    await this.BookingStartHrs.type(hour12.toString());
+    await this.BooingStartMins.click();
+    await this.BooingStartMins.clear();
+    await this.BooingStartMins.type(EndExamMin.toString());
+    await this.ChooseBookingStartSession.check();
+    await this.BookingOK.click();
+
+    await this.ClickOnExamVenue.click();
+    await this.ChooseExamVenue.click();
+    await this.ClickOnAdd.click();
+    await this.EnterNoOfCandidates.click();
+    await this.EnterNoOfCandidates.clear();
+    await this.EnterNoOfCandidates.type('03');
+    await this.ClickOnAdd.click();
+    await this.EnterInvigilatorPswd.click();
+    await this.EnterInvigilatorPswd.type('ABC09');
+    await this.page.waitForTimeout(2000);
+    await this.ClickOnNextBtn.click();
+    await expect(this.VerifyExam_details).toBeVisible();
+    await expect(this.VerifyChoose_Question).toBeVisible();
+    await expect(this.VerifyChoose_Workflow).toBeVisible();
+    await expect(this.VerifyChoose_Confirmation).toBeVisible();
+    await this.page.waitForTimeout(5000);
+
     async addVSAQQuestions():Promise<void>{
       await this.ClickOnAddQuestion.click();
       await this.ClickOnSearchQuestion.click()
@@ -567,8 +658,7 @@ async createSections(): Promise<void>{
       await this.ClickOnNextBtn.click();
       await this.page.waitForTimeout(5000);
       await this.ClickOnSubmitAndApproveBtn.click();
-      
-    
+
 }
     
 }

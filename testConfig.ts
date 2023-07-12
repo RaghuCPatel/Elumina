@@ -20,6 +20,14 @@ export const testConfig = {
     cadidateURL:'https://sandboxcandidate.assessapp.com.au/',
     invigilatorUsername:'examincharge2@yopmail.com',
     invigilatorPassword:'YX!%5t8z',
+    invigilatorName:'Incharge Exam',
 
-    invigilatorName:'Incharge Exam'
+    clientId:'test',
+    clientUsername:'Narendra6',
+    clientFirstname:'Narendra',
+    clientLastname:'Modi',
+    clientEmail:'narendra',
+    clientPhone:'6',
+    clientVenue:'Elumina Chennai',
+    ImagePath:'C:/Users/Divyashree/Downloads/NarendraModi.png'
 }
