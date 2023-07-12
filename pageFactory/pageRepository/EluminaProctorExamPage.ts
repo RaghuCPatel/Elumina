@@ -646,7 +646,7 @@ async createSections(): Promise<void>{
     await expect(this.VerifyChoose_Workflow).toBeVisible();
     await expect(this.VerifyChoose_Confirmation).toBeVisible();
     await this.page.waitForTimeout(5000);
-
+  }
     async addVSAQQuestions():Promise<void>{
       await this.ClickOnAddQuestion.click();
       await this.ClickOnSearchQuestion.click()

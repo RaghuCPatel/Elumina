@@ -28,6 +28,5 @@ export const testConfig = {
     clientLastname:'Modi',
     clientEmail:'narendra',
     clientPhone:'6',
-    clientVenue:'Elumina Chennai',
-    ImagePath:'C:/Users/Divyashree/Downloads/NarendraModi.png'
+    clientVenue:'Elumina Chennai'
 }
