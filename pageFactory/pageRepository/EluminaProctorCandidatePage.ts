@@ -1,9 +1,33 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
-import { testConfig } from '../../testConfig';
 
+const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
+const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
+const productionTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/production/testData.json')));
+const qaTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/qa/testData.json')));
+const sandboxTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/sandbox/testData.json')));
+const stagingTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/staging/testData.json')));
 
 let webActions: WebActions;
+let testData = qaTestData;
+if (process.env.ENV == 'dev') {
+    testData = devTestData;
+}
+else if(process.env.ENV == 'p7'){
+    testData = p7TestData;
+} 
+else if(process.env.ENV == 'production'){
+    testData = productionTestData;
+} 
+else if(process.env.ENV == 'qa'){
+    testData = qaTestData;
+} 
+else if(process.env.ENV == 'sandbox'){
+    testData = sandboxTestData;
+} 
+else if(process.env.ENV == 'staging'){
+    testData = stagingTestData;
+}
 
 export class EluminaProctorCandidatePage {
     readonly page: Page;
@@ -39,6 +63,9 @@ export class EluminaProctorCandidatePage {
     readonly flagForReviewQuestions:Locator;
     readonly clickOnPreviousBtn:Locator;
     readonly timeRemainingclock:Locator;
+    readonly SIGNOUT_BUTTON: Locator;
+    readonly USERNAME_EDITBOX: Locator;
+    readonly PASSWORD_EDITBOX: Locator;
  
 
     constructor(page: Page, context: BrowserContext/*page1:Page,context1: BrowserContext*/) {
@@ -79,7 +106,7 @@ export class EluminaProctorCandidatePage {
 
     /**Method to Navigate to Candidate URL */
     async candidateNavigateToURL(): Promise<void> {
-        await this.page.goto(testConfig.cadidateURL);
+        await this.page.goto(testData.cadidateURL);
     }
 
     /**Method to for Candidate to Login to Application */

@@ -1,0 +1,21 @@
+{
+    "UserEmail": "raghu.p@igsindia.net",
+    "UserPassword": "t5N%xAfG$z",
+    "Api":"",
+    "dbUsername":"",
+    "dbPassword":"",
+    "dbServerName":"",
+    "dbPort":null,
+    "dbName":"",
+    "cadidateURL":"https://sandboxcandidate.assessapp.com.au/",
+    "invigilatorUsername":"examincharge2@yopmail.com",
+    "invigilatorPassword":"YX!%5t8z",
+    "invigilatorName":"Incharge Exam",
+    "clientId":"test",
+    "clientUsername":"Narendra6",
+    "clientFirstname":"Narendra",
+    "clientLastname":"Modi",
+    "clientEmail":"narendra",
+    "clientPhone":"6",
+    "clientVenue":"Elumina Chennai"
+}
