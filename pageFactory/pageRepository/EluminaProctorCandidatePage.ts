@@ -102,6 +102,24 @@ export class EluminaProctorCandidatePage {
         await this.LOGIN_BUTTON.click();
     }
 
+
+    async candidateSignOut(){
+        await this.page.waitForTimeout(5000);
+        await this.SIGNOUT_BUTTON.click();
+
+    }
+
+    /**Method to do Invalid Login */
+    async InvalidCandidatelogin(): Promise<void> {
+        const decipherPassword = await webActions.decipherPassword();
+        await this.USERNAME_EDITBOX.fill('anonymouslogin@gmail.com');
+        await this.PASSWORD_EDITBOX.fill('mrinvalid');
+        await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(3000);
+        await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+
+    }
+
     /**Method to do Exam Validation */
     async examSectionValidation(){
         console.log('Exam Name-'+await this.verifyExamName.textContent());

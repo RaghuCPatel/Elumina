@@ -103,6 +103,8 @@ export class EluminaProctorExamPage {
     readonly ClickOniProctoring:Locator;
     readonly ClickonEnableiProctorExtension:Locator;
     readonly ClickOnInternetConnection:Locator;
+    readonly ClickonPromptCandidate:Locator;
+    readonly ClickOnAdminSaveBtn:Locator;
     
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -180,6 +182,8 @@ export class EluminaProctorExamPage {
         this.ClickOniProctoring=page.locator('//span[contains(text(),"Proctoring")]');
         this.ClickonEnableiProctorExtension=page.locator('(//div[@class="switch--container"]//span)[5]');
         this.ClickOnInternetConnection=page.locator('(//span[@class="slider round"])[6]');
+        this.ClickonPromptCandidate=page.locator('(//div[@class="labelVal-Create reqLabel"])[6]//input');
+        this.ClickOnAdminSaveBtn=page.locator('//button[@class="btn primarybtn"]');
     }
 
     /**Method of Page Navigation */
@@ -218,6 +222,16 @@ export class EluminaProctorExamPage {
       await this.ClickonEnableiProctorExtension.isVisible();
       console.log("Enable iProctor Extension option is not editable.");
   }
+
+   /**Method to add prompt candidate message*/
+   async validationOfPromptCandidateMessage(): Promise<void> {
+    await this.ClickonPromptCandidate.scrollIntoViewIfNeeded();
+    await this.ClickonPromptCandidate.click();
+    await this.ClickonPromptCandidate.clear();
+    await this.ClickonPromptCandidate.type('Please avoid using mobilephone while attending exam');
+    await this.ClickOnAdminSaveBtn.click();
+    console.log("Admin is able to setup prompt candidate message.");
+}
 
   
      /**Method to click on Internet connection check in Admin section*/
