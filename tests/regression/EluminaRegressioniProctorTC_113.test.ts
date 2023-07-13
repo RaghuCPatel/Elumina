@@ -2,10 +2,10 @@ import test from '@lib/Fixtures';
 import { chromium } from '@playwright/test';
 import { testConfig } from 'testConfig';
 
-/**Validation of "Time Remaining" on Right top corner of the Candidate page */
+/**Validation of Candidate ( i-Exam ) > Manual authentication */
 
 
-test(`@Regression Validation of "Time Remaining" on Right top corner of the Candidate page`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+test(`@Regression Validation of Candidate (i-Exam) > Manual authentication`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -80,7 +80,5 @@ test(`@Regression Validation of "Time Remaining"`, async ({ eluminaProctorCand,w
         await test.step('time remaining check and start attending exam', async () => {
             await eluminaProctorCand.againCandidateLogin();
             await eluminaProctorCand.enterInvigilatorPassword();
-            await eluminaProctorCand.verifyExamDashboardTimer();
-            await eluminaProctorCand.candidateStartMCQ();
         });
 });
