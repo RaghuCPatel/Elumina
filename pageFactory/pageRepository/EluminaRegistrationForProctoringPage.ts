@@ -51,10 +51,15 @@ export class EluminaRegistrationForProctoringPage {
     readonly ClickOnDropdown2:Locator;
     readonly ClickOnAssignInv:Locator;
     readonly captureUserClientID:Locator;
+    readonly clcikOnLiveMonitor:Locator;
+    readonly clickOnProImage:Locator;
+    readonly clickOnCadidateName:Locator;
+    readonly verifyCadStatusAsAdmin:Locator;
     readonly liveMonitor:Locator;
     readonly liveMonitorIcon:Locator;
     readonly candidateCard:Locator;
     readonly hardwareInternetcheck:Locator;
+
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -103,10 +108,15 @@ export class EluminaRegistrationForProctoringPage {
         this.ClickOnInvSaveBtn=page.locator('(//button[text()="Save"])[2]');
 
         this.captureUserClientID=page.locator('//table[@class="table"]//tbody//tr[1]//td[5]//div//div//span');
+        this.clcikOnLiveMonitor=page.locator('//a[normalize-space()="Live Monitor"]');
+        this.clickOnProImage=page.locator('//*[@class="proctoringImg"]');
+        this.clickOnCadidateName=page.locator('(//div[@class="candidate-name"]//div[1])[1]');
+        this.verifyCadStatusAsAdmin=page.locator('//div[@class="status"]');
         this.liveMonitor=page.locator('//a[text()="Live Monitor"]');
         this.liveMonitorIcon=page.locator('//img[@class="proctoringImg"]');
         this.candidateCard=page.locator('(//div[@class="candidate-name"]//div[1])[1]');
         this.hardwareInternetcheck=page.locator('//div[contains(text(),"Hardware / Internet Check Pass")]');
+
 
     }
 
@@ -132,7 +142,38 @@ export class EluminaRegistrationForProctoringPage {
     async registrationTabNavigationByClickCreateExam(){
         await this.RegistrationMenu.click();
         await this.ClickOnCreatedExam.click();
+        }
+
+        /**Metods to click on Live Monitor as a Admin */
+    async clickOnLiveMonitorAdmin(){
+        await this.clcikOnLiveMonitor.click();
     }
+
+      /**Metods to click on Image and candidateName Monitor as a Admin */
+      async clickOnImageandCadidate(){
+        await this.clickOnProImage.click();
+        await this.clickOnCadidateName.click();
+    }
+  
+    async verifyCadStatus(){
+       let status=await this.verifyCadStatusAsAdmin.textContent();
+       console.log("Cadidate status:"+status);
+    }
+
+    /**Methods to fetch events as admin */
+      async fetchEvents()
+      {
+        await this.page.waitForSelector('//div[@class="event-item"]',{timeout:10000});
+        let events=await this.page.$$('//div[@class="event-item"]');
+        const Ttl=events.length-1;
+        for(let i=0;i<=events.length-1;i++)
+        {
+           let event=await events[i].textContent();
+           console.log(event);
+
+        }
+      }
+    
 
     /**Method to Add User Details */
     async addUserDetails():Promise<void>{
