@@ -3,11 +3,10 @@ import { chromium } from '@playwright/test';
 import { testConfig } from '../../testConfig';
 
 
-//Validation of "Time Remaining" pop-up when the just before the exam time runs out(Proctor)
+//Validation of Questions, Videos & audio being downloaded as soon as the Exam Started
 
 
-
- test(`@Smoke Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
+ test(`@Smoke Validation of Questions, Videos & audio being downloaded as soon as the Exam Started`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
         await test.step('Candidate logging into application', async () => {
             await eluminaProctorCand.candidateNavigateToURL();
             await eluminaProctorCand.candidateLoginToApplications();

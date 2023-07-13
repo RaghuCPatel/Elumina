@@ -1,10 +1,11 @@
 import test from '@lib/Fixtures';
 import { chromium } from '@playwright/test';
-import { testConfig } from '../../testConfig';
+import { testConfig } from 'testConfig';
 
-//Validation of Adding & Saving notes
+/**Validation of "Mark Attendance" (Individual Candidates) */
 
-test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+
+test(`@Regression Validation of "Mark Attendance" (Individual Candidates)`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -17,11 +18,11 @@ test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomeP
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createExamWithNotepad();
+        await newtab.createExam();
         await newtab.createSection();
-        await newtab.addVSAQQuestions();
+        await newtab.addMCQQuestions();
     });
-});    
+});
 
 test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -37,19 +38,18 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});              
+});
 
-test(`@Regression Validation of Adding & Saving notes`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
+test(`@Regression Validation of "Pause-Exam"`, async ({ eluminaProctorCand,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        eluminaProctorCand.candidateNavigateToURL();
+        });
+    await test.step(`Candidate Login to application`, async () => {
+            await eluminaProctorCand.candidateLoginToApplications();
+        });
 
-    await test.step('Candidate logging into application', async () => {
-
-        await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
-
-    });   
-
-    await test.step('Invigilator  logging into Application', async () => {
-
+    await test.step('Candidate start the exam',async ()=> {
+      
         await eluminaProctorCand.clickOnAllLink();
 
         const browser = await chromium.launch();
@@ -60,29 +60,22 @@ test(`@Regression Validation of Adding & Saving notes`, async ({ eluminaProctorC
         await page1.locator('(//input)[1]').type(testConfig.invigilatorUsername);
         await page1.locator('(//input)[2]').type(testConfig.invigilatorPassword);
         await page1.locator('//*[@class="submit-butn"]').click();
-
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
-
             await page1.locator('//div[text()="iAuthor"]').click()
-
           ]);
-        await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
-        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-        await newPage.locator('//a[@class="dropdown-toggle"]').click();
-        await newPage.locator('//p[text()="Verify Identity"]').click();
-        await newPage.locator('(//button[text()="Yes"])[1]').click();
+          await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
+       
+          await newPage.waitForSelector('//select[1]',{timeout:10000});
+          const attendance=await newPage.$$('//select[1]');
+          console.log(attendance.length)
+          for(let i=0;i<=attendance.length-1;i++)
+          {
+             await attendance[i].click();
+              await attendance[i].selectOption('Yes');
+          }
         await newPage.waitForTimeout(3000);
-
         await newPage.close();
         await page1.close();
-    });   
-   
-    await test.step('Verify Validation of Changing Font Size to Decrease on the Dashboard', async () => {
-        await eluminaProctorCand.againCandidateLogin();
-        await eluminaProctorCand.enterInvigilatorPassword();
-        await eluminaCandPage.AddingNotesToQuestionSingle();
     });
-
 });
-

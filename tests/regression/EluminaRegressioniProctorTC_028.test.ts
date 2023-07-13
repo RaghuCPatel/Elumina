@@ -2,8 +2,9 @@ import test from '@lib/Fixtures';
 import { chromium } from '@playwright/test';
 import { testConfig } from '../../testConfig';
 
+//Validation of "Flag for Review" option
 
-test(`@Regression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
+test(`@Regression Validation of "Flag for Review" option`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
 
@@ -46,7 +47,6 @@ test(`@Regression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctor
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaProctorCand.candidateStartFlagForReviewMCQ();
-        //await eluminaProctorCand.clickonPrevious();
     });
 
 });

@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 import { chromium } from '@playwright/test';
 import { testConfig } from 'testConfig';
 
-/**Candidate Attend practice exam*/
+/**Validate When exam terminated  for candidate*/
 
 test(`@Regression Candidate Attend practice exam`, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {

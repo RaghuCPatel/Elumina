@@ -2,16 +2,15 @@ import test from '@lib/Fixtures';
 import { chromium } from '@playwright/test';
 import { testConfig } from '../../testConfig';
 
-//Validation of the "Timer" - After clicking on "Start Exam" Button
+//Validation of  Cloud indication -  (Status is Complted)
 
-test(`@Regression Validation of the "Timer" - After clicking on "Start Exam" Button`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
-
+test(`@Regression Validation of  Cloud indication -  (Status is Complted)`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
     await test.step('Candidate logging into application', async () => {
 
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
 
-    });
+    });   
 
     await test.step('Invigilator  logging into Application', async () => {
 
@@ -41,12 +40,13 @@ test(`@Regression Validation of the "Timer" - After clicking on "Start Exam" But
 
         await newPage.close();
         await page1.close();
-    });
+    });   
    
-    await test.step('Verify Validation of Changing Font Size to Decrease on the Dashboard', async () => {
+    await test.step('Candidate start the exam',async ()=> {
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
+        await eluminaCandPage.waitforTime1();
+        await eluminaCandPage.updatedCloudIcon();
     });
-
+    
 });
-
