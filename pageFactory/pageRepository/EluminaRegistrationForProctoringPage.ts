@@ -149,10 +149,8 @@ export class EluminaRegistrationForProctoringPage {
        await this.SelectBookingStatus.click();
        await this.SelectBookingStatus.selectOption('Booked');
        await this.page.waitForTimeout(5000);
-
        await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles('lib/Images/kohli.jpeg');
-
-       await this.page.waitForTimeout(8000);
+      await this.page.waitForTimeout(8000);
        await this.ClickOnSaveBtn.click();
        await this.page.waitForTimeout(8000);
        await this.LeftArrow.click();

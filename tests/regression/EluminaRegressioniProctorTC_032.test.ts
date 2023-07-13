@@ -2,6 +2,7 @@ import test from '@lib/Fixtures';
 import { chromium } from '@playwright/test';
 import { testConfig } from '../../testConfig';
 
+//Validation of Adding & Saving notes
 
 test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -38,7 +39,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });              
 
-test(`@Regression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
+test(`@Regression Validation of Adding & Saving notes`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
 
@@ -81,7 +82,6 @@ test(`@Regression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctor
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaCandPage.AddingNotesToQuestionSingle();
-        //await eluminaProctorCand.clickonPrevious();
     });
 
 });
