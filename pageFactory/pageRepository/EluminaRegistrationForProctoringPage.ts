@@ -6,8 +6,6 @@ import { EluminaHomePage } from './EluminaHomePage';
 let webActions: WebActions;
 let candClientID:string;
 
-const image_path='C:/Users/Divyashree/Downloads/Divya_img.jpg';
-
 export class EluminaRegistrationForProctoringPage {
 
     readonly page: Page;
@@ -52,9 +50,7 @@ export class EluminaRegistrationForProctoringPage {
     readonly ClickOnInvSaveBtn:Locator;
     readonly ClickOnDropdown2:Locator;
     readonly ClickOnAssignInv:Locator;
-
     readonly captureUserClientID:Locator;
-
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -153,9 +149,8 @@ export class EluminaRegistrationForProctoringPage {
        await this.SelectBookingStatus.click();
        await this.SelectBookingStatus.selectOption('Booked');
        await this.page.waitForTimeout(5000);
-       await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles("C:/Users/Rajakumar/Downloads/Rajkumar Image.jpg");
-
-       await this.page.waitForTimeout(8000);  
+       await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles('lib/Images/kohli.jpeg');
+      await this.page.waitForTimeout(8000);
        await this.ClickOnSaveBtn.click();
        await this.page.waitForTimeout(8000);
        await this.LeftArrow.click();
@@ -224,14 +219,7 @@ export class EluminaRegistrationForProctoringPage {
         await this.ClickOnSaveBtn.click();
         await this.page.waitForTimeout(3000);
         await this.LeftArrow.click();
-
         await this.page.waitForTimeout(5000);
-
-        // await this.ClickOnDropdown2.click();
-        // await this.ClickOnAssignInv.click();
-        // await this.AssignUsersToCand.click();
-        // await this.AssignInvToCand.click();
-        // await this.ClickOnInvSaveBtn.click();
         await this.page.waitForTimeout(2000);
 
     }
@@ -278,7 +266,7 @@ export class EluminaRegistrationForProctoringPage {
         await this.SelectBookingStatus.click();
         await this.SelectBookingStatus.selectOption('Booked');
         await this.page.waitForTimeout(1000);
-        await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles(testConfig.ImagePath);
+        await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles('./lib/Image.png');
         await this.page.waitForTimeout(1000);
         await this.ClickOnSaveBtn.click();
         await this.page.waitForTimeout(2000);

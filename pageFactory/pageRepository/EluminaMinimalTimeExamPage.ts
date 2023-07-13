@@ -256,7 +256,6 @@ export class EluminaMinimalTimeExamPage {
       await this.ClickOnSave.click();
       await this.page.waitForTimeout(5000);
 
-
     }
 
     /*Add all Questions in an Exam*/

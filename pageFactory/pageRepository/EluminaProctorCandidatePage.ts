@@ -98,7 +98,7 @@ export class EluminaProctorCandidatePage {
               await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
               await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
         })
-        await this.page.waitForTimeout(3000);
+        await this.page.waitForTimeout(5000);
         await this.LOGIN_BUTTON.click();
     }
 

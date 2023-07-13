@@ -11,8 +11,9 @@ import { EluminaRegistrationPage } from '@pages/EluminaRegistrationPage';
 import { EluminaRegistrationForProctoringPage } from '@pages/EluminaRegistrationForProctoringPage';
 import { EluminaProctorExamPage } from '@pages/EluminaProctorExamPage';
 import { EluminaCandidateRevieweAndSubmitPage } from '@pages/EluminaCandidateRevieweAndSubmitPage';
-
-
+import { EluminaMultipleExamsForAMPage } from '@pages/EluminaMultipleExamsForAMPage';
+import { EluminaMultipleExamsForPMPage } from '@pages/EluminaMultipleExamsForPMPage';
+import { EluminaMinimalTimeExamPage } from '@pages/EluminaMinimalTimeExamPage';
 
 export const test = base.extend<{
   context: BrowserContext;
@@ -28,9 +29,10 @@ export const test = base.extend<{
   eluminaProctorReg:EluminaRegistrationForProctoringPage;
   eluminaProctorExam:EluminaProctorExamPage;
   eluminaCandidateRevieweAndSubmitPage:EluminaCandidateRevieweAndSubmitPage;
+  eluminaMultipleExamsForAMPage:EluminaMultipleExamsForAMPage;
+  eluminaMultipleExamsForPMPage:EluminaMultipleExamsForPMPage;
+  eluminaMinimalTimeExamPage:EluminaMinimalTimeExamPage;
   
-
-
 }>({
 
   
@@ -95,6 +97,15 @@ eluminaCandidateRevieweAndSubmitPage: async ({ page, context }, use) => {
 },
 eluminaRegPage: async ({ page, context }, use) => {
   await use(new EluminaRegistrationPage(page, context));
+},
+eluminaMultipleExamsForAMPage: async ({ page, context }, use) => {
+  await use(new EluminaMultipleExamsForAMPage(page, context));
+},
+eluminaMultipleExamsForPMPage: async ({ page, context }, use) => {
+  await use(new EluminaMultipleExamsForPMPage(page, context));
+},
+eluminaMinimalTimeExamPage: async ({ page, context }, use) => {
+  await use(new EluminaMinimalTimeExamPage(page, context));
 }
 
 });

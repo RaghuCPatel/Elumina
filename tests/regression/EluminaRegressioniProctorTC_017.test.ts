@@ -6,7 +6,7 @@ import { testConfig } from 'testConfig';
 /**Validation of multiple Exams on the dashboard for different time (Say one in AM & another in PM)*/
 
 /**AM */
-test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage,eluminaMultipleExamsForAMPage, eluminaProctorExam, webActions }) => {
+test(`@Regression Verify Elumina Login fpr AM`, async ({ eluminaLoginPage,eluminaMultipleExamsForAMPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -19,13 +19,13 @@ test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage,eluminaMultip
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaMultipleExamsForAMPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createExam();
+        await newtab.createExamforProctoring();
         await newtab.createSection();
         await newtab.addMCQQuestions();
     });
 });
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(`@Regression Verify Elumina Registration for AM`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -42,7 +42,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 });
 
 
-test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, async ({ eluminaProctorCand,webActions }) => {
+test(`@Regression Validation of Browser Reload option on Candidate Dashboard for AM`, async ({ eluminaProctorCand,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         eluminaProctorCand.candidateNavigateToURL();
         });
@@ -78,13 +78,15 @@ test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, a
          });
          await test.step('Candidate start the exam',async ()=> {
            // await eluminaProctorCand.enterInvigilatorPassword();
+            await eluminaProctorCand.againCandidateLogin(); 
+            await eluminaProctorCand.enterInvigilatorPassword();
             await eluminaProctorCand.candidateStartMCQ();
         });
     });
 
     /**PM */
 
-    test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage,eluminaMultipleExamsForPMPage, eluminaProctorExam, webActions }) => {
+    test(`@Regression Verify Elumina Login for PM`, async ({ eluminaLoginPage,eluminaMultipleExamsForPMPage, eluminaProctorExam, webActions }) => {
         await test.step(`Navigate to Application`, async () => {
             await eluminaLoginPage.navigateToURL();
         });
@@ -97,13 +99,13 @@ test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, a
         await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
             const newtab = await eluminaMultipleExamsForPMPage.iAuthorPageNavigation();
             await newtab.examTabNavigation();
-            await newtab.createExam();
+            await newtab.createExamforProctoring();
             await newtab.createSection();
             await newtab.addMCQQuestions();
         });
     });
     
-    test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+    test(`@Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
         await test.step(`Navigate to Application`, async () => {
             await eluminaLoginPage.navigateToURL();
         });
@@ -120,7 +122,7 @@ test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, a
     });
     
     
-    test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, async ({ eluminaProctorCand,webActions }) => {
+    test(`@Regression Validation of Browser Reload option on Candidate Dashboard for PM`, async ({ eluminaProctorCand,webActions }) => {
         await test.step(`Navigate to Application`, async () => {
             eluminaProctorCand.candidateNavigateToURL();
             });
@@ -156,6 +158,8 @@ test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, a
              });
              await test.step('Candidate start the exam',async ()=> {
                // await eluminaProctorCand.enterInvigilatorPassword();
-                await eluminaProctorCand.candidateStartMCQ();
+               await eluminaProctorCand.againCandidateLogin(); 
+               await eluminaProctorCand.enterInvigilatorPassword();
+               await eluminaProctorCand.candidateStartMCQ();
             });
         });
