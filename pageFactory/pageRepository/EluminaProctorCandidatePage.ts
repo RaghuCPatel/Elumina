@@ -128,7 +128,7 @@ export class EluminaProctorCandidatePage {
     }
 
     async candidateSignOut(){
-        await this.page.waitForTimeout(3000);
+        await this.page.waitForTimeout(5000);
         await this.SIGNOUT_BUTTON.click();
 
     }

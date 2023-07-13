@@ -2,7 +2,7 @@ import test from '@lib/Fixtures';
 import { chromium } from '@playwright/test';
 import { testConfig } from '../../testConfig';
 
-/**Validate When exam terminated  for candidate*/
+/**Validate When exam terminated for candidate*/
 
 test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -80,17 +80,20 @@ test(`@Regression Verify Elumina Invigilator terminating exam for candidate`, as
         await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//input').click();;
         await newPage.locator('//div[@class="action-item control-item terminate-exam"]').click();;
         await newPage.locator('(//button[text()="Yes"])[2]').click();
+        await newPage.waitForTimeout(5000);
 
 
         await newPage.close();
         await page1.close();
-    });   
-   
-    await test.step('Verify Validation of exam terminated for candidate ', async () => {
+
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-        await eluminaProctorCand.candidateSignOut();
+        await eluminaCandPage.waitforTime1();
+
+        // await eluminaProctorCand.candidateSignOut();
        
-    });
+    });   
+   
+   
 
 });
