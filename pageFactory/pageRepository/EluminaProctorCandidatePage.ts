@@ -13,7 +13,6 @@ export class EluminaProctorCandidatePage {
     readonly CandidateUsername: Locator;
     readonly CandidatePassword: Locator;
     readonly LOGIN_BUTTON: Locator;
-    readonly SIGNOUT_BUTTON: Locator;
     readonly ClickStartExamLink:Locator;
     readonly ClickDiffStartExamLink:Locator;
     readonly EnterExaPassword:Locator;
@@ -37,20 +36,9 @@ export class EluminaProctorCandidatePage {
     readonly examTimer:Locator;
 
     readonly ansMCQQuestions:Locator;
-
-    readonly ansVSAQQuestion:Locator;
-    readonly ClickOnNotepad:Locator;
-    readonly textareafill:Locator;
-    readonly saveButton:Locator;
-    readonly CloseNotepad:Locator;
-
     readonly flagForReviewQuestions:Locator;
     readonly clickOnPreviousBtn:Locator;
-
-    readonly USERNAME_EDITBOX: Locator;
-    readonly PASSWORD_EDITBOX: Locator;
-    readonly INVALIDLOGINBUTTON: Locator;
-   
+    readonly timeRemainingclock:Locator;
  
 
     constructor(page: Page, context: BrowserContext/*page1:Page,context1: BrowserContext*/) {
@@ -60,9 +48,6 @@ export class EluminaProctorCandidatePage {
         this.CandidateUsername = page.locator('//input[@id="username"]');
         this.CandidatePassword = page.locator('//input[@id="password"]');
         this.LOGIN_BUTTON = page.locator('//div[text()=" Login "]');
-
-        this.SIGNOUT_BUTTON = page.locator('//div[@class="signout"]');
-
         this.ClickStartExamLink=page.locator('//table[@class="table-container"]//tr[2]//td[6]');
         this.ClickDiffStartExamLink=page.locator('//table[@class="table-container"]//tr[3]//td[6]');
         this.EnterExaPassword=page.locator('//input[contains(@class,"password")]');
@@ -89,17 +74,7 @@ export class EluminaProctorCandidatePage {
         this.ansMCQQuestions=page.locator('(//label[@class="labelEmpty"])[1]');
         this.flagForReviewQuestions=page.locator('//div[text()="Flag for Review"]');
         this.clickOnPreviousBtn=page.locator('//div[@class="btn parent-body-container btn-primary"][normalize-space()="Previous"]');
-
-        this.USERNAME_EDITBOX = page.locator('(//input)[1]');
-        this.PASSWORD_EDITBOX = page.locator('(//input)[2]');
-        this.INVALIDLOGINBUTTON = page.locator('//*[@class="submit-butn"]');
-
-        this.ansVSAQQuestion=page.frameLocator('iframe[class="tox-edit-area__iframe"]').locator('html');
-        this.ClickOnNotepad=page.locator('//div[@class="toolIcon"]');
-        this.textareafill=page.locator('//div[@class="notepad-content"]//textarea');
-        this.CloseNotepad=page.locator('//label[@class="closeIcon"]');
-        this.saveButton=page.locator('//div[@class="action-btn-container"]//div[text()="Save"]');
-
+        this.timeRemainingclock=page.locator('//div[@class="clock-text"]');
     }
 
     /**Method to Navigate to Candidate URL */
@@ -126,6 +101,7 @@ export class EluminaProctorCandidatePage {
         await this.page.waitForTimeout(5000);
         await this.LOGIN_BUTTON.click();
     }
+
 
     async candidateSignOut(){
         await this.page.waitForTimeout(5000);
@@ -257,13 +233,6 @@ export class EluminaProctorCandidatePage {
         await this.page.waitForTimeout(3000);
     }
 
-    async  redirectedToCandidatePageAndTerminate():Promise<void>{
-        await this.page.bringToFront();
-        await this.page.waitForTimeout(3000);
-        await this.page.close();
-    }
-
-
     /**Method to Enter Invaild Exam Password */
     async enterInvalidExamPassword():Promise<void>{
         await this.ClickStartExamLink.click();
@@ -279,7 +248,8 @@ export class EluminaProctorCandidatePage {
             await this.ClickOnNextBtn.click();
 
            }
-           await this.page.locator('//div[@class="question-number-container"]//div//p').last().click(); 
+           await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
+           await this.page.waitForTimeout(2000); 
     }
 
         /**Method to Verify the the Dashboard timer */
@@ -311,22 +281,15 @@ export class EluminaProctorCandidatePage {
         await this.page.waitForTimeout(5000);
     }
 
-     /**Method to validate notes added in the question */
-     async AddingNotesToQuestion(){
-        
-        await this.ClickOnStartExamBtn.click();
-        await this.ansVSAQQuestion.click();
-        await this.ClickOnNotepad.click();
+    /**Method to click on exam and I understand checkbox */
+    async clickOnLink(){
+        await this.ClickStartExamLink.click();
+        await this.ClickOnUnderstand.click();
         await this.page.waitForTimeout(1000);
-        await this.textareafill.type('abc');
-        await this.page.waitForTimeout(1000);
-        await this.saveButton.click();
-        await this.page.waitForTimeout(1000);
-        await this.CloseNotepad.click();
-        await this.ClickOnRevieweBtn.click();
-    
-   
-}
-
+        await this.ClickOnCheckBox.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnNextBtnPrct.click();
+        await this.page.waitForTimeout(10000);
+    }
 
 }

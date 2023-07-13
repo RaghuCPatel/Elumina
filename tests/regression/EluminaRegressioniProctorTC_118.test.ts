@@ -2,10 +2,9 @@ import test from '@lib/Fixtures';
 import { chromium } from '@playwright/test';
 import { testConfig } from 'testConfig';
 
-/**Validation of "Time Remaining" on Right top corner of the Candidate page */
+/**Validation of Proctoring Exam Events > Internet Connection Verified*/
 
-
-test(`@Regression Validation of "Time Remaining" on Right top corner of the Candidate page`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+test(`@Regression Validation of Proctoring Exam Events > Internet Connection Verified`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -40,7 +39,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });
 
-test(`@Regression Validation of "Time Remaining"`, async ({ eluminaProctorCand,webActions }) => {
+test(`@Regression Validation of Internet Connection Verified`, async ({ eluminaProctorCand,eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         eluminaProctorCand.candidateNavigateToURL();
         });
@@ -48,16 +47,16 @@ test(`@Regression Validation of "Time Remaining"`, async ({ eluminaProctorCand,w
             await eluminaProctorCand.candidateLoginToApplications();
         });
 
-        await test.step('Invigilator  logging into Application', async () => {
+        await test.step('Admin logging into Application', async () => {
 
-            await eluminaProctorCand.clickOnAllLink();
+            await eluminaProctorCand.clickOnLink();
             const browser = await chromium.launch();
             const context1 = await browser.newContext();
             const page1 = await context1.newPage();
             await page1.goto('/');
             await page1.waitForLoadState();
-            await page1.locator('(//input)[1]').type(testConfig.invigilatorUsername);
-            await page1.locator('(//input)[2]').type(testConfig.invigilatorPassword);
+            await page1.locator('(//input)[1]').type(testConfig.username1);
+            await page1.locator('(//input)[2]').type(testConfig.password1);
             await page1.locator('//*[@class="submit-butn"]').click();
     
             const [newPage] = await Promise.all([
@@ -65,22 +64,17 @@ test(`@Regression Validation of "Time Remaining"`, async ({ eluminaProctorCand,w
                 await page1.locator('//div[text()="iAuthor"]').click()
     
               ]);
-    
-            await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
-            await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-            await newPage.locator('//a[@class="dropdown-toggle"]').click();
-            await newPage.locator('//p[text()="Verify Identity"]').click();
-            await newPage.locator('(//button[text()="Yes"])[1]').click();
+            await newPage.locator('//a[text()="Registration"]').click();
+            await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+            await newPage.locator('//a[text()="Live Monitor"]').click();
+            await newPage.locator('//img[@class="proctoringImg"]').click();
+            await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();
+            await newPage.locator('//div[contains(text(),"Hardware / Internet Check Pass")]').isVisible();
+            let hardwareInternet=await newPage.locator('//div[contains(text(),"Hardware / Internet Check Pass")]').textContent();
+            console.log(hardwareInternet);
             await newPage.waitForTimeout(3000);
             await newPage.close();
             await page1.close();
     
         });
-       
-        await test.step('time remaining check and start attending exam', async () => {
-            await eluminaProctorCand.againCandidateLogin();
-            await eluminaProctorCand.enterInvigilatorPassword();
-            await eluminaProctorCand.verifyExamDashboardTimer();
-            await eluminaProctorCand.candidateStartMCQ();
-        });
-});
+    });
