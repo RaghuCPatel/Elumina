@@ -12,10 +12,14 @@
     "invigilatorPassword":"YX!%5t8z",
     "invigilatorName":"Incharge Exam",
     "clientId":"test",
+    "clientGender":"Mr",
     "clientUsername":"Narendra6",
     "clientFirstname":"Narendra",
     "clientLastname":"Modi",
     "clientEmail":"narendra",
     "clientPhone":"6",
-    "clientVenue":"Elumina Chennai"
+    "clientRole":"Candidate",
+    "clientEligableOption":"Yes",
+    "clientVenue":"Elumina Chennai",
+    "clientBookingStatus":"Booked"
 }
