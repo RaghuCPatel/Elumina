@@ -1,6 +1,6 @@
 {
-    "UserEmail": "raghu.p@igsindia.net",
-    "UserPassword": "t5N%xAfG$z",
+    "UserEmail": "rajakumar.nayak@igsindia.net",
+    "UserPassword": "UjR!8f3&",
     "Api":"",
     "dbUsername":"",
     "dbPassword":"",
@@ -11,11 +11,11 @@
     "invigilatorUsername":"examincharge2@yopmail.com",
     "invigilatorPassword":"YX!%5t8z",
     "invigilatorName":"Incharge Exam",
-    "clientId":"test",
-    "clientUsername":"Narendra6",
-    "clientFirstname":"Narendra",
-    "clientLastname":"Modi",
-    "clientEmail":"narendra",
+    "clientId":"testsand",
+    "clientUsername":"igs",
+    "clientFirstname":"IGS",
+    "clientLastname":"India",
+    "clientEmail":"igsindia",
     "clientPhone":"6",
     "clientVenue":"Elumina Chennai"
 }

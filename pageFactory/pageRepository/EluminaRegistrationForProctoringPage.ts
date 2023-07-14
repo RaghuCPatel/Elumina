@@ -84,9 +84,7 @@ export class EluminaRegistrationForProctoringPage {
     readonly liveMonitor:Locator;
     readonly liveMonitorIcon:Locator;
     readonly candidateCard:Locator;
-    readonly hardwareInternetcheck:Locator;
-
-
+    readonly hardwareInternetcheck:Locator;    
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -142,7 +140,6 @@ export class EluminaRegistrationForProctoringPage {
         this.liveMonitorIcon=page.locator('//img[@class="proctoringImg"]');
         this.candidateCard=page.locator('(//div[@class="candidate-name"]//div[1])[1]');
         this.hardwareInternetcheck=page.locator('//div[contains(text(),"Hardware / Internet Check Pass")]');
-
 
     }
 

@@ -8,7 +8,7 @@ test(`@Regression Validation of Candidate App Dashboard Details`, async ({ elumi
     });
     await test.step(`Candidate Login to application with inactive user`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
-        await eluminaCandPage.candidateStartExam();
+        await eluminaCandPage.candidateContentSectionValidation();
     });
     
 });

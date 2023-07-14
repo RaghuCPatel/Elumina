@@ -1,5 +1,6 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
+import { testConfig } from '../../testConfig';
 import { EluminaHomePage } from './EluminaHomePage';
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
@@ -100,15 +101,15 @@ export class EluminaRegistrationPage {
 
     /**Method to Add User Details */
     async addUserDetails():Promise<void>{
-       await this.EnterClientID.type('Deem'+Math.floor(Math.random()*899+100));
+       await this.EnterClientID.type(testData.clientId+Math.floor(Math.random()*899+100));
        await this.page.waitForTimeout(8000);
        await this.ChooseTitle.click();
        await this.ChooseTitle.selectOption('Mr');
-       await this.TypeUsername.type('veer'+Math.floor(Math.random()*89+10));
-       await this.TypeFirstName.type('Virat');
-       await this.TypeLastName.type('sing');
-       await this.TypeEmail.type('veer'+Math.floor(Math.random()*899+100)+'@gmail.com');
-       await this.TypePhone.type('6'+Math.floor(Math.random()*899999999+100));
+       await this.TypeUsername.type(testData.clientUsername+Math.floor(Math.random()*89+10));
+       await this.TypeFirstName.type(testData.clientFirstname);
+       await this.TypeLastName.type(testData.clientLastname);
+       await this.TypeEmail.type(testData.clientEmail+Math.floor(Math.random()*899+100)+'@gmail.com');
+       await this.TypePhone.type(testData.clientPhone+Math.floor(Math.random()*899999999+100));
        await this.page.waitForTimeout(8000);
        await this.SelectRole.click();
        await this.SelectRole.selectOption('Candidate');
@@ -157,16 +158,16 @@ export class EluminaRegistrationPage {
         await this.ChooseTitle.selectOption('Mr');
 
         await this.TypeUsername.clear();
-        await this.TypeUsername.type('Sharukh'+Math.floor(Math.random()*89+10));
+        await this.TypeUsername.type('Sharuk'+Math.floor(Math.random()*89+10));
 
         await this.TypeFirstName.clear();
-        await this.TypeFirstName.type('Sharukh');
+        await this.TypeFirstName.type('Sharuk');
 
         await this.TypeLastName.clear();
-        await this.TypeLastName.type('Khan');
+        await this.TypeLastName.type('Kha');
 
         await this.TypeEmail.clear();
-        await this.TypeEmail.type('Sharukh'+Math.floor(Math.random()*899+100)+'@gmail.com');
+        await this.TypeEmail.type('Sharuk'+Math.floor(Math.random()*899+100)+'@gmail.com');
 
         await this.TypePhone.clear();
         await this.TypePhone.type('6'+Math.floor(Math.random()*899999999+100));

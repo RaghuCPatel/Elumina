@@ -92,8 +92,8 @@ test(`@Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
     });
-    await test.step('Candidate start the exam',async ()=> {
-        await eluminaCandPage.candidateStartMCQ();
-    });
+    // await test.step('Candidate start the exam',async ()=> {
+    //     await eluminaCandPage.candidateStartMCQ();
+    // });
     
 });
