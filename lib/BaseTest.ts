@@ -22,9 +22,11 @@ import { EluminaIGLiveMonitorPage } from '@pages/EluminaIGLiveMonitorPage';
 import { EluminaMultipleExamsForAMPage } from '@pages/EluminaMultipleExamsForAMPage';
 import { EluminaMultipleExamsForPMPage } from '@pages/EluminaMultipleExamsForPMPage';
 import { EluminaMinimalTimeExamPage } from '@pages/EluminaMinimalTimeExamPage';
+import { commonPages } from '@pages/commonPages';
 
 const test = baseTest.extend<{
     webActions: WebActions;
+    commonPages: commonPages;
     loginPage: LoginPage;
     elementsPage: ElementsPage;
     alertsFrameWindowsPage: AlertsFrameWindowsPage;
@@ -50,6 +52,9 @@ const test = baseTest.extend<{
 }>({
     webActions: async ({ page, context }, use) => {
         await use(new WebActions(page, context));
+    },
+    commonPages: async ({ page, context }, use) => {
+        await use(new commonPages(page, context));
     },
     loginPage: async ({ page, context }, use) => {
         await use(new LoginPage(page, context));

@@ -17,5 +17,8 @@
     "clientLastname":"India",
     "clientEmail":"igsindia",
     "clientPhone":"6",
-    "clientVenue":"Elumina Chennai"
+    "clientRole":"Candidate",
+    "clientEligableOption":"Yes",
+    "clientVenue":"Elumina Chennai",
+    "clientBookingStatus":"Booked"
 }
