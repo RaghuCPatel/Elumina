@@ -1,8 +1,33 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
-import { testConfig } from '../../testConfig';
+
+const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
+const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
+const productionTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/production/testData.json')));
+const qaTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/qa/testData.json')));
+const sandboxTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/sandbox/testData.json')));
+const stagingTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/staging/testData.json')));
 
 let webActions: WebActions;
+let testData = qaTestData;
+if (process.env.ENV == 'dev') {
+    testData = devTestData;
+}
+else if(process.env.ENV == 'p7'){
+    testData = p7TestData;
+} 
+else if(process.env.ENV == 'production'){
+    testData = productionTestData;
+} 
+else if(process.env.ENV == 'qa'){
+    testData = qaTestData;
+} 
+else if(process.env.ENV == 'sandbox'){
+    testData = sandboxTestData;
+} 
+else if(process.env.ENV == 'staging'){
+    testData = stagingTestData;
+}
 
 export class EluminaInvPage {
 
@@ -75,8 +100,8 @@ export class EluminaInvPage {
     /**Method to login as invigilator */
     async invigilatorLogin():Promise<void>{
         await this.page.goto("/");
-        await this.InvUsername.type(testConfig.invigilatorUsername);
-        await this.InvPssword.type(testConfig.invigilatorPassword);
+        await this.InvUsername.type(testData.invigilatorUsername);
+        await this.InvPssword.type(testData.invigilatorPassword);
         await this.page.waitForTimeout(1000);
         await this.InvLoginBtn.click();
         await this.page.waitForTimeout(2000);

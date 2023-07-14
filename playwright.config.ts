@@ -2,8 +2,8 @@ import { PlaywrightTestConfig, devices } from '@playwright/test';
 import { testConfig } from './testConfig';
 const ENV = process.env.ENV;
 
-if (!ENV || ![`qa`, `dev`, `qaApi`, `devApi`].includes(ENV)) {
-  console.log(`Please provide a correct environment value like "npx cross-env ENV=qa|dev|qaApi|devApi"`);
+if (!ENV || ![`dev`,`p7`,`production`,'qa','sandbox','staging'].includes(ENV)) {
+  console.log(`Please provide a correct environment value like "npx cross-env ENV= dev|p7|production|qa|sandbox|staging"`);
   process.exit();
 }
 

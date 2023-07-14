@@ -1,9 +1,35 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
-import { testConfig } from '../../testConfig';
 import { EluminaHomePage } from './EluminaHomePage';
 
+const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
+const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
+const productionTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/production/testData.json')));
+const qaTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/qa/testData.json')));
+const sandboxTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/sandbox/testData.json')));
+const stagingTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/staging/testData.json')));
+
 let webActions: WebActions;
+let testData = qaTestData;
+if (process.env.ENV == 'dev') {
+    testData = devTestData;
+}
+else if(process.env.ENV == 'p7'){
+    testData = p7TestData;
+} 
+else if(process.env.ENV == 'production'){
+    testData = productionTestData;
+} 
+else if(process.env.ENV == 'qa'){
+    testData = qaTestData;
+} 
+else if(process.env.ENV == 'sandbox'){
+    testData = sandboxTestData;
+} 
+else if(process.env.ENV == 'staging'){
+    testData = stagingTestData;
+}
+
 let candClientID:string;
 
 export class EluminaRegistrationForProctoringPage {
@@ -177,14 +203,14 @@ export class EluminaRegistrationForProctoringPage {
 
     /**Method to Add User Details */
     async addUserDetails():Promise<void>{
-       await this.EnterClientID.type(testConfig.clientId+Math.floor(Math.random()*899+100));
+       await this.EnterClientID.type(testData.clientId+Math.floor(Math.random()*899+100));
        await this.ChooseTitle.click();
        await this.ChooseTitle.selectOption('Mr');
-       await this.TypeUsername.type(testConfig.clientUsername+Math.floor(Math.random()*89+10));
-       await this.TypeFirstName.type(testConfig.clientFirstname);
-       await this.TypeLastName.type(testConfig.clientLastname);
-       await this.TypeEmail.type(testConfig.clientEmail+Math.floor(Math.random()*899+100)+'@gmail.com');
-       await this.TypePhone.type(testConfig.clientPhone+Math.floor(Math.random()*899999999+100));
+       await this.TypeUsername.type(testData.clientUsername+Math.floor(Math.random()*89+10));
+       await this.TypeFirstName.type(testData.clientFirstname);
+       await this.TypeLastName.type(testData.clientLastname);
+       await this.TypeEmail.type(testData.clientEmail+Math.floor(Math.random()*899+100)+'@gmail.com');
+       await this.TypePhone.type(testData.clientPhone+Math.floor(Math.random()*899999999+100));
        await this.page.waitForTimeout(5000);
        await this.SelectRole.click();
        await this.SelectRole.selectOption('Candidate');
@@ -193,7 +219,7 @@ export class EluminaRegistrationForProctoringPage {
        await this.SelectEligible.selectOption('Yes');
        await this.page.waitForTimeout(5000);
        await this.SelectVenue.click();
-       await this.SelectVenue.type(testConfig.clientVenue);
+       await this.SelectVenue.type(testData.clientVenue);
        await this.page.waitForTimeout(5000);
        await this.SelectBookingStatus.click();
        await this.SelectBookingStatus.selectOption('Booked');
@@ -226,7 +252,7 @@ export class EluminaRegistrationForProctoringPage {
     async addExistingUsers():Promise<void>{
         await this.ClickOnAddExistingUser.click();
         await this.SearchUsers.click();
-        await this.SearchUsers.type(testConfig.invigilatorName);
+        await this.SearchUsers.type(testData.invigilatorName);
         await this.page.waitForTimeout(7000);
         await this.CLickOnUser.click();
         await this.ChooseExistingRole.click();
@@ -282,25 +308,25 @@ export class EluminaRegistrationForProctoringPage {
         
         await rowss[i].isVisible()
         await this.EnterClientID.clear();
-        await this.EnterClientID.type(testConfig.clientId+Math.floor(Math.random()*899+100));
+        await this.EnterClientID.type(testData.clientId+Math.floor(Math.random()*899+100));
         await this.page.waitForTimeout(1000);
         await this.ChooseTitle.click();
         await this.ChooseTitle.selectOption('Mr');
 
         await this.TypeUsername.clear();
-        await this.TypeUsername.type(testConfig.clientUsername+Math.floor(Math.random()*89+10));
+        await this.TypeUsername.type(testData.clientUsername+Math.floor(Math.random()*89+10));
 
         await this.TypeFirstName.clear();
-        await this.TypeFirstName.type(testConfig.clientFirstname);
+        await this.TypeFirstName.type(testData.clientFirstname);
 
         await this.TypeLastName.clear();
-        await this.TypeLastName.type(testConfig.clientLastname);
+        await this.TypeLastName.type(testData.clientLastname);
 
         await this.TypeEmail.clear();
-        await this.TypeEmail.type(testConfig.clientEmail+Math.floor(Math.random()*899+100)+'@gmail.com');
+        await this.TypeEmail.type(testData.clientEmail+Math.floor(Math.random()*899+100)+'@gmail.com');
 
         await this.TypePhone.clear();
-        await this.TypePhone.type(testConfig.clientPhone+Math.floor(Math.random()*899999999+100));
+        await this.TypePhone.type(testData.clientPhone+Math.floor(Math.random()*899999999+100));
 
         await this.page.waitForTimeout(1000);
         await this.SelectRole.click();
@@ -310,7 +336,7 @@ export class EluminaRegistrationForProctoringPage {
         await this.SelectEligible.selectOption('Yes');
         await this.page.waitForTimeout(1000);
         await this.SelectVenue.click();
-        await this.SelectVenue.type(testConfig.clientVenue);
+        await this.SelectVenue.type(testData.clientVenue);
         await this.page.waitForTimeout(1000);
         await this.SelectBookingStatus.click();
         await this.SelectBookingStatus.selectOption('Booked');
@@ -353,17 +379,5 @@ export class EluminaRegistrationForProctoringPage {
         console.log(hardwareInternet);
         
     }
-
-      /**Methods to fetch events as admin */
-    async fetchEvents()
-    {
-        await this.page.waitForSelector('//div[@class="event-item"]',{timeout:10000});
-        let events=await this.page.$$('//div[@class="event-item"]');
-        const Ttl=events.length-1;
-        for(let i=0;i<=events.length-1;i++)
-        {
-           let event=await events[i].textContent();
-           console.log(event);
-        }
-    }
+  
 }
