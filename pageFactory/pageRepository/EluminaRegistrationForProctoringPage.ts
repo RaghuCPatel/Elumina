@@ -84,9 +84,7 @@ export class EluminaRegistrationForProctoringPage {
     readonly liveMonitor:Locator;
     readonly liveMonitorIcon:Locator;
     readonly candidateCard:Locator;
-    readonly hardwareInternetcheck:Locator;
-
-
+    readonly hardwareInternetcheck:Locator;    
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;

@@ -58,7 +58,7 @@ test(`@Regression Verify Validation of abrupt closure of browser`, async ({ elum
     });
 });   
 
-/*test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaCandPage,webActions }) => {
+test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator1`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Candidate Login to application`, async () => {
 
         await eluminaCandPage.candidateNavigateToURL();
@@ -68,4 +68,3 @@ test(`@Regression Verify Validation of abrupt closure of browser`, async ({ elum
 
     });
 });
-*/

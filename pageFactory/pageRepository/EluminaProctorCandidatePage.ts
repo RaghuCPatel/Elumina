@@ -196,6 +196,11 @@ export class EluminaProctorCandidatePage {
        await this.ClickOnStartExamBtn.click();
        await this.page.waitForTimeout(3000);
     }
+        /**Method to Click On Start Exam Button*/
+    async clickOnStartExamBtn(){
+        await this.ClickOnStartExamBtn.click();
+       await this.page.waitForTimeout(3000);
+    }
 
     /**Method to start Candidate Exam and click on Next without answering questions*/
     async candidateStartExams(): Promise<void>{
@@ -228,6 +233,12 @@ export class EluminaProctorCandidatePage {
             await this.ClickOnNextBtn.click();
             await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
             await this.ClickOnRevieweBtn.click();
+    }
+
+      /**Method to Click on single  MCQ Quetions */
+      async candidateCliclkOnSingleMCQ(){
+        await this.page.locator('//div[@class="question-number-container"]//div//p').first().click()
+        await this.page.waitForTimeout(3000);
     }
 
     /**Method to Flag for Review the MCQ Quetions */
