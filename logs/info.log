@@ -2207,3 +2207,7 @@
 {"level":"info","message":"Executing Step : Candidate logging into application"}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Test Case Completed : @Regression Validation of Proctoring Exam Event > Awaiting Exam Start Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam Status : interrupted"}
+{"level":"error","message":"File not found: D:\\Elumina\\Github\\Eperiment\\New folder\\html-report"}
