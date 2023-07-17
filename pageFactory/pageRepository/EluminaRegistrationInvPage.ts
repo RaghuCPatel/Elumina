@@ -31,6 +31,18 @@ else if(process.env.ENV == 'staging'){
     testData = stagingTestData;
 }
 
+function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
+
 export class EluminaRegistrationInvPage {
 
     readonly page: Page;
@@ -136,15 +148,15 @@ export class EluminaRegistrationInvPage {
 
     /**Method to Add User Details */
     async addUserDetails():Promise<void>{
-       await this.EnterClientID.type(testData.clientId+Math.floor(Math.random()*899+100));
-       await this.ChooseTitle.click();
-       await this.page.waitForTimeout(5000);
-       await this.ChooseTitle.selectOption('Mr');
-       await this.TypeUsername.type(testData.clientUsername+Math.floor(Math.random()*89+10));
-       await this.TypeFirstName.type(testData.clientFirstname);
-       await this.page.waitForTimeout(5000);
-       await this.TypeLastName.type(testData.clientLastname);
-       await this.TypeEmail.type(testData.clientEmail+Math.floor(Math.random()*899+100)+'@gmail.com');
+        await this.EnterClientID.type(makeid(testData.clientId)+Math.floor(Math.random()*899+100));
+        await this.ChooseTitle.click();
+        await this.page.waitForTimeout(5000);
+        await this.ChooseTitle.selectOption('Mr');
+        await this.TypeUsername.type(makeid(testData.clientUsername)+Math.floor(Math.random()*89+10));
+        await this.TypeFirstName.type(makeid(testData.clientFirstname));
+        await this.page.waitForTimeout(5000);
+        await this.TypeLastName.type(makeid(testData.clientLastname));
+        await this.TypeEmail.type(makeid(testData.clientEmail)+Math.floor(Math.random()*899+100)+'@gmail.com');
        await this.TypePhone.type(testData.clientPhone+Math.floor(Math.random()*899999999+100));
        await this.SelectRole.click();
        await this.SelectRole.selectOption('Candidate');

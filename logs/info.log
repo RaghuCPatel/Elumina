@@ -2211,3 +2211,24 @@
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam Status : interrupted"}
 {"level":"error","message":"File not found: D:\\Elumina\\Github\\Eperiment\\New folder\\html-report"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Started : @Regression Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Proctoring Exam Events > Status > Exam Paused"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
