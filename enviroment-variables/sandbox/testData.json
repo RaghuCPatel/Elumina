@@ -20,5 +20,7 @@
     "clientRole":"Candidate",
     "clientEligableOption":"Yes",
     "clientVenue":"Elumina Chennai",
-    "clientBookingStatus":"Booked"
+    "clientBookingStatus":"Booked",
+    "invaildInvigilatorUsername":"divyashree.r@igsindia.net",
+    "invaildInvigilatorPassword":"Aac#009"
 }

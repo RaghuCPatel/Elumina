@@ -66,6 +66,11 @@ export class EluminaProctorCandidatePage {
     readonly SIGNOUT_BUTTON: Locator;
     readonly USERNAME_EDITBOX: Locator;
     readonly PASSWORD_EDITBOX: Locator;
+    readonly inceaseSize:Locator;
+    readonly iProctorExtension:Locator;
+    readonly cameraEnabled:Locator;
+    readonly microphoneEnabled:Locator;
+    readonly screenCaptureEnabled:Locator;
  
 
     constructor(page: Page, context: BrowserContext/*page1:Page,context1: BrowserContext*/) {
@@ -102,6 +107,11 @@ export class EluminaProctorCandidatePage {
         this.flagForReviewQuestions=page.locator('//div[text()="Flag for Review"]');
         this.clickOnPreviousBtn=page.locator('//div[@class="btn parent-body-container btn-primary"][normalize-space()="Previous"]');
         this.timeRemainingclock=page.locator('//div[@class="clock-text"]');
+        this.inceaseSize=page.locator('//em[@title="Increase Font Size"]');
+        this.iProctorExtension=page.locator('//div[@class="list-item"]//p[text()="iProctor Extension"]');
+        this.cameraEnabled=page.locator('//div[@class="list-item"]//p[text()="Camera"]');
+        this.microphoneEnabled=page.locator('//div[@class="list-item"]//p[text()="Microphone"]');
+        this.screenCaptureEnabled=page.locator('//div[@class="list-item"]//p[text()="Screen Capture"]');
     }
 
     /**Method to Navigate to Candidate URL */
@@ -134,6 +144,23 @@ export class EluminaProctorCandidatePage {
         await this.page.waitForTimeout(5000);
         await this.SIGNOUT_BUTTON.click();
 
+    }
+    async startExam(){
+        await this.ClickStartExamLink.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnUnderstand.click();
+        await this.page.waitForTimeout(2000);
+
+        console.log(await this.iProctorExtension.textContent());
+        await this.iProctorExtension.isVisible();
+        console.log(await this.cameraEnabled.textContent());
+        await this.cameraEnabled.isVisible();
+        console.log(await this.microphoneEnabled.textContent());
+        await this.microphoneEnabled.isVisible();
+        console.log(await this.screenCaptureEnabled.textContent());
+        await this.screenCaptureEnabled.isVisible();
+        await this.page.waitForTimeout(3000);
+        await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
     }
 
     /**Method to do Invalid Login */
@@ -196,11 +223,6 @@ export class EluminaProctorCandidatePage {
        await this.ClickOnStartExamBtn.click();
        await this.page.waitForTimeout(3000);
     }
-        /**Method to Click On Start Exam Button*/
-    async clickOnStartExamBtn(){
-        await this.ClickOnStartExamBtn.click();
-       await this.page.waitForTimeout(3000);
-    }
 
     /**Method to start Candidate Exam and click on Next without answering questions*/
     async candidateStartExams(): Promise<void>{
@@ -233,12 +255,6 @@ export class EluminaProctorCandidatePage {
             await this.ClickOnNextBtn.click();
             await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
             await this.ClickOnRevieweBtn.click();
-    }
-
-      /**Method to Click on single  MCQ Quetions */
-      async candidateCliclkOnSingleMCQ(){
-        await this.page.locator('//div[@class="question-number-container"]//div//p').first().click()
-        await this.page.waitForTimeout(3000);
     }
 
     /**Method to Flag for Review the MCQ Quetions */
@@ -328,6 +344,14 @@ export class EluminaProctorCandidatePage {
         await this.page.waitForTimeout(2000);
         await this.ClickOnNextBtnPrct.click();
         await this.page.waitForTimeout(10000);
+    }
+
+    /**Method to Increase Font Size */
+    async increaseFontSize(){
+        await this.inceaseSize.click();
+        await this.inceaseSize.click();
+        await this.inceaseSize.click();
+        await this.page.waitForTimeout(5000);
     }
 
 }
