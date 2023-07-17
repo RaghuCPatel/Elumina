@@ -151,13 +151,13 @@ export class EluminaRegistrationPage {
         
         await rowss[i].isVisible()
         await this.EnterClientID.clear();
-        await this.EnterClientID.type('Dee'+Math.floor(Math.random()*899+100));
+        await this.EnterClientID.type('Vijay'+Math.floor(Math.random()*899+100));
         await this.page.waitForTimeout(1000);
         await this.ChooseTitle.click();
         await this.ChooseTitle.selectOption('Mr');
 
         await this.TypeUsername.clear();
-        await this.TypeUsername.type('Sharukh'+Math.floor(Math.random()*89+10));
+        await this.TypeUsername.type('Kumar'+Math.floor(Math.random()*89+10));
 
         await this.TypeFirstName.clear();
         await this.TypeFirstName.type('Sharukh');
@@ -166,7 +166,7 @@ export class EluminaRegistrationPage {
         await this.TypeLastName.type('Khan');
 
         await this.TypeEmail.clear();
-        await this.TypeEmail.type('Sharukh'+Math.floor(Math.random()*899+100)+'@gmail.com');
+        await this.TypeEmail.type('Ajith'+Math.floor(Math.random()*899+100)+'@gmail.com');
 
         await this.TypePhone.clear();
         await this.TypePhone.type('6'+Math.floor(Math.random()*899999999+100));

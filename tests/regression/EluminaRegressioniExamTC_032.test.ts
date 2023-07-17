@@ -36,31 +36,21 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
 });
 
-
 test(`@Regression Verify Validation of abrupt closure of browser`, async ({ eluminaCandPage,webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
-
         await eluminaCandPage.candidateNavigateToURL();
-
     });
-
     await test.step(`Candidate Login to application`, async () => {
-
         await eluminaCandPage.candidateLoginToApplication();
-
     });
-
     await test.step('Candidate starts and closes the page after attending two questions in the exam',async ()=> {
-
-        await eluminaCandPage.candidateStartTwoMCQ();
-        
+        await eluminaCandPage.candidateStartTwoMCQ();        
     });
 });   
 
-/*test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaCandPage,webActions }) => {
+test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Candidate Login to application`, async () => {
-
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.candidateLoginToApplication();
         await eluminaCandPage.candidateStartMCQ();
@@ -68,4 +58,3 @@ test(`@Regression Verify Validation of abrupt closure of browser`, async ({ elum
 
     });
 });
-*/

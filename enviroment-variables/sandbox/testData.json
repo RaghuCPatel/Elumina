@@ -17,5 +17,8 @@
     "clientLastname":"Modi",
     "clientEmail":"narendra",
     "clientPhone":"6",
-    "clientVenue":"Elumina Chennai"
+    "clientVenue":"Elumina Chennai",
+
+    "InvalidUsername":"anonymouslogin@gmail.com",
+    "InvalidPassword":"mrinvalid"
 }
