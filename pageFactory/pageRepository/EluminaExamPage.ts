@@ -109,6 +109,10 @@ export class EluminaExamPage {
 
     readonly CliCKOnCreateSection:Locator;
     readonly ClickOnCreateExamSection:Locator;
+
+    readonly ClickOnCreateSurveySection:Locator;
+    readonly ClickOnAddSurveyQuestion:Locator;
+
     readonly EnterSectionName:Locator;
     readonly DescriptionMessage:Locator;
     readonly SelectTime:Locator;
@@ -191,6 +195,10 @@ export class EluminaExamPage {
         this.enterContentTitle=page.locator('//input[@name="inputbox"]');
         this.ClickOnContentLayout=page.locator('//input[@placeholder="Select Content Layout"]');
         this.ClickOnTermAndCondition=page.locator('//span[text()="Terms & Conditions"]');
+
+        this.ClickOnCreateSurveySection=page.getByText('Create Survey Section');
+        this.ClickOnAddSurveyQuestion=page.locator('//i[@title="Create Survey Question"]');
+
 
 
         this.ClickOnAddQuestion=page.locator('//i[@title="Create Exam Question"]');
@@ -368,6 +376,38 @@ export class EluminaExamPage {
       await this.Choosehrs.selectOption('1');
       await this.SelectTime.selectOption('30');
       await this.ClickOnSave.click();
+      await this.page.waitForTimeout(5000);
+
+
+    }
+
+     //Create Survey Section
+     async createSurveySection(){
+      await this.page.waitForTimeout(5000);
+      await this.CliCKOnCreateSection.click();
+      await this.page.waitForTimeout(5000);
+      await this.ClickOnCreateSurveySection.click();
+      await this.EnterSectionName.type('Survey-'+Math.floor(Math.random())*89+10);
+      await this.page.waitForTimeout(5000);
+      await this.DescriptionMessage.click();
+      await this.DescriptionMessage.type('Hello World.....');
+      await this.page.waitForTimeout(5000);
+      await this.selectMinutes.selectOption('10');
+      await this.ClickOnSave.click();
+
+    }
+
+    async createSurveyPage():Promise<void>{
+      await this.ClickOnAddSurveyQuestion.click();
+      await this.ClickOnSearchQuestion.click()
+      await this.ClickOnSearchQuestion.type('MCQ');
+      await this.page.waitForTimeout(5000);
+      await this.page.waitForTimeout(3000);
+      await this.page.locator('(//input[@type="checkbox"])[2]').click();
+      await this.ClickOnAddBtn.click()
+      await this.ClickOnSave.click();
+      await this.ClickOnNextBtn.click();
+      await this.ClickOnSubmitAndApproveBtn.click();
       await this.page.waitForTimeout(5000);
 
 

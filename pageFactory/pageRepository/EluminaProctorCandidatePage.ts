@@ -201,6 +201,18 @@ export class EluminaProctorCandidatePage {
         await expect(this.verifyErrorMsg).toBeVisible();
         console.log('Error Message'+await this.verifyErrorMsg.textContent());
     }
+/**Method to Click on Start Exam Link */
+    async clickOnStartExamLink(){
+        await this.ClickStartExamLink.click();
+
+    }
+
+    /**Method to Click on Understand Button */
+    async clickOnUnderstandBtn(){
+        await this.ClickOnUnderstand.click();
+
+    }
+
 /**Method to click on All links for Diff Zone Exam */
     async clickOnAllLinkForDiffExamZone(){
         await this.ClickDiffStartExamLink.click();

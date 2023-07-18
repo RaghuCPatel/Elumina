@@ -127,7 +127,7 @@ export class EluminaCandidatePage {
         this.verifyRecord=page.locator('id="cameraRecIcon"');
         this.verifyCloud=page.locator('//div[@title="All data updated."]');
         this.ansMCQQuestions=page.locator('(//label[@class="labelEmpty"])[1]');
-        this.ansVSAQQuestion=page.frameLocator('iframe[class="tox-edit-area__iframe"]').locator('html');
+        this.ansVSAQQuestion=page.frameLocator('//iframe[@class="tox-edit-area__iframe"]').locator('html');
         this.ansISAWEQuestion=page.frameLocator('(//iframe[@class="tox-edit-area__iframe"])[1]').locator('//html[@data-mce-style="height: auto;"]');
        this.ans2ISAWEQuestion=page.frameLocator('(//iframe[@class="tox-edit-area__iframe"])[2]').locator('//html[@data-mce-style="height: auto;"]');
        this.ansTypeXQuestion=page.locator('(//div[@class="inputGroup question-preview--mc"]//label[@class="labelEmpty"])[1]');
@@ -487,140 +487,103 @@ export class EluminaCandidatePage {
 
     }
 
-    async candidateStartVSAQ(){
-        // if(this.ClickStartExamLink.isVisible())
-        // {
-        //     await this.ClickStartExamLink.click();
-        // }
-        //await this.ClickStartExamLink.click();
-        // await this.ClickOnStartExamBtn.click();
+    async candidateStartOneMCQ(){       
+            await this.page.waitForTimeout(2000);
+            await this.ansMCQQuestions.click();
+            await this.page.waitForTimeout(2000);            
+            await this.ClickOnNextBtn.click();
 
-        //await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
-        //const qutns=await this.page.locator('//div[@class="question-number-container"]//div//p');
-        
-        
-            await this.page.waitForTimeout(5000);
-            await this.ansVSAQQuestion.click();
-            await this.ansVSAQQuestion.type(makeid(100));
-            await this.page.waitForTimeout(5000);
-            await this.ClickOnRevieweBtn.click();
-            await this.ClickOnSubmitBtn.click();
-           
-            
 
     }
 
-    async candidateStartISAWE(){
-        // if(this.ClickStartExamLink.isVisible())
-        // {
-        //     await this.ClickStartExamLink.click();
-        // }
-        //await this.ClickStartExamLink.click();
-        // await this.ClickOnStartExamBtn.click();
+    async candidateSurveyStartOneMCQ(){
+                
+            await this.page.waitForTimeout(2000);
+            await this.ansMCQQuestions.click();
+            await this.page.waitForTimeout(2000);            
+            await this.ClickOnRevieweBtn.click();
+            await this.ClickOnSubmitBtn.click();
+    }
 
-        //await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
-        //const qutns=await this.page.locator('//div[@class="question-number-container"]//div//p');
-        
-        
-            await this.page.waitForTimeout(5000);
+    async candidateAnsSurveyQuestion(){
+            
+            await this.page.waitForTimeout(2000);
+            await this.ansMCQQuestions.click();
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnSubmitBtn.click();
+
+
+    }
+
+    async candidateStartVSAQ(){        
+            await this.page.waitForTimeout(2000);
+            await this.ansVSAQQuestion.click();
+            await this.ansVSAQQuestion.type(makeid(100));
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnRevieweBtn.click();
+            await this.ClickOnSubmitBtn.click();
+           
+    }
+
+    async candidateAttendsAllQVSAQ(){
+         
+            await this.page.waitForTimeout(2000);
+            await this.ansVSAQQuestion.click();
+            await this.ansVSAQQuestion.type(makeid(100));
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnNextBtn.click();
+                       
+    }
+
+    async candidateStartISAWE(){
+          await this.page.waitForTimeout(2000);
             await this.ansISAWEQuestion.click();
             await this.ansISAWEQuestion.type(makeid(100));
             await this.ans2ISAWEQuestion.click();
             await this.ans2ISAWEQuestion.type(makeid(100));
-            await this.page.waitForTimeout(5000);
+            await this.page.waitForTimeout(2000);
             await this.ClickOnNextBtn.click();
-
 
     }
 
     async candidateStartTypeX(){
-        // if(this.ClickStartExamLink.isVisible())
-        // {
-        //     await this.ClickStartExamLink.click();
-        // }
-        //await this.ClickStartExamLink.click();
-        // await this.ClickOnStartExamBtn.click();
 
-        //await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
-        //const qutns=await this.page.locator('//div[@class="question-number-container"]//div//p');
-        
-        
-            await this.page.waitForTimeout(5000);
+            await this.page.waitForTimeout(2000);
             await this.ansTypeXQuestion.click();
             await this.ans2TypeXQuestion.click();
-            await this.page.waitForTimeout(5000);
+            await this.page.waitForTimeout(2000);
             await this.ClickOnNextBtn.click();
-
 
     }
 
     async candidateStartTypeB(){
-        // if(this.ClickStartExamLink.isVisible())
-        // {
-        //     await this.ClickStartExamLink.click();
-        // }
-        //await this.ClickStartExamLink.click();
-        // await this.ClickOnStartExamBtn.click();
-
-        //await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
-        //const qutns=await this.page.locator('//div[@class="question-number-container"]//div//p');
-        
-            await this.page.waitForTimeout(5000);
+    
+            await this.page.waitForTimeout(2000);
             await this.ansTypeBQuestion.click();
-            await this.page.waitForTimeout(5000);
+            await this.page.waitForTimeout(2000);
             await this.ClickOnNextBtn.click();
-
 
     }
 
     async candidateStartSAQ(){
-        // if(this.ClickStartExamLink.isVisible())
-        // {
-        //     await this.ClickStartExamLink.click();
-        // }
-        //await this.ClickStartExamLink.click();
-        // await this.ClickOnStartExamBtn.click();
-
-        //await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
-        //const qutns=await this.page.locator('//div[@class="question-number-container"]//div//p');
-        
-        
-            await this.page.waitForTimeout(5000);
+            await this.page.waitForTimeout(2000);
             await this.ansSAQQuestion.click();
             await this.ansSAQQuestion.type(makeid(100));
-            await this.page.waitForTimeout(5000);
+            await this.page.waitForTimeout(2000);
             await this.ClickOnNextBtn.click();
-
 
     }
 
-    async candidateStartSJT(){
-        // if(this.ClickStartExamLink.isVisible())
-        // {
-        //     await this.ClickStartExamLink.click();
-        // }
-        //await this.ClickStartExamLink.click();
-        // await this.ClickOnStartExamBtn.click();
-
-        //await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
-        //const qutns=await this.page.locator('//div[@class="question-number-container"]//div//p');
-        
-            await this.page.waitForTimeout(5000);
+    async candidateStartSJT(){   
+            await this.page.waitForTimeout(2000);
             await this.ansSJTQuestion.click();
-            await this.page.waitForTimeout(5000);
+            await this.page.waitForTimeout(2000);
             await this.ClickOnRevieweBtn.click();
             await this.ClickOnSubmitBtn.click();
-
 
     }
 
     async candidateFlagForReviewAllQuestions(){
-        // if(this.ClickStartExamLink.isVisible())
-        // {
-        //     await this.ClickStartExamLink.click();
-        // }
-        //await this.ClickStartExamLink.click();
-        // await this.ClickOnStartExamBtn.click();
 
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
         const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');

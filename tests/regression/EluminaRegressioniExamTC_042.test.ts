@@ -52,15 +52,13 @@ test(`@Regression Verify Validation of Candidate attends All Question type`, asy
     await test.step(`Candidate Login to application`, async () => {
 
         await eluminaCandPage.candidateLoginToApplication();
-        await eluminaCandPage.candidateStartMCQ();
-        await eluminaCandPage.candidateStartVSAQ();
+        await eluminaCandPage.candidateStartOneMCQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ();
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
         await eluminaCandPage.candidateStartSAQ();
         await eluminaCandPage.candidateStartSJT();
-
-
 
     });
 
