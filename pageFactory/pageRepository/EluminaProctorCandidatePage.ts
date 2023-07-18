@@ -264,6 +264,11 @@ export class EluminaProctorCandidatePage {
          await this.clickOnPreviousBtn.click();
          await this.page.waitForTimeout(1000);
     }
+
+    /**Method to close the page */
+    async closeCadPage(){
+        await this.page.close();
+    }
     
     /**Method to Login from Invigilator to Candidate  */
     async  againCandidateLogin():Promise<void>{
