@@ -29,7 +29,6 @@ else if(process.env.ENV == 'staging'){
 
 /**Validation of Candidate ( i-Exam ) > Manual authentication */
 
-
 test(`@Regression Validation of Candidate (i-Exam) > Manual authentication`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();

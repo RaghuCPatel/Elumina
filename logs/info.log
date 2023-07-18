@@ -2232,3 +2232,26 @@
 {"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
 {"level":"info","message":"Test Case Started : @Regression Validation of Proctoring Exam Events > Status > Exam Paused"}
 {"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"error","message":"C:\\Users\\Divyashree\\Desktop\\githubMerge\\18-July-2023\\Elumina\\enviroment-variables\\sandbox\\testData.json: Unexpected string in JSON at position 693"}
+{"level":"error","message":"No tests found"}
+{"level":"error","message":"File not found: C:\\Users\\Divyashree\\Desktop\\githubMerge\\18-July-2023\\Elumina\\html-report"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Candidate > Peripheral verification screen > Terms and Conditions"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Candidate > Peripheral verification screen > Terms and Conditions Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Candidate > Peripheral verification screen > Terms and Conditions"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Candidate > Peripheral verification screen > Terms and Conditions Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Invigilator Dashboard Status : passed"}

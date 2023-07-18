@@ -139,12 +139,13 @@ export class EluminaProctorCandidatePage {
         await this.LOGIN_BUTTON.click();
     }
 
-
+    /**Method to click on sign out */
     async candidateSignOut(){
         await this.page.waitForTimeout(5000);
         await this.SIGNOUT_BUTTON.click();
-
     }
+
+    /**Method to click on start exam */
     async startExam(){
         await this.ClickStartExamLink.click();
         await this.page.waitForTimeout(2000);
@@ -162,6 +163,14 @@ export class EluminaProctorCandidatePage {
         await this.page.waitForTimeout(3000);
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
     }
+
+    /**Method to validate on terms and condtions */
+    async termsandConditions(){
+        await this.ClickOnCheckBox.click();
+        await this.page.waitForTimeout(3000);
+        await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+    }
+
 
     /**Method to do Invalid Login */
     async InvalidCandidatelogin(): Promise<void> {
