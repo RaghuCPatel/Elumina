@@ -56,12 +56,15 @@ export class EluminaInvPage {
     readonly verifyExamStatus:Locator;
     readonly verifyExamDuration:Locator;
     readonly verifyExamVenue:Locator;
+    readonly ClickOnExam1:Locator;
+    readonly verifyCandNAme:Locator;
+    readonly verifyErrorMessage:Locator;
+    readonly SelectLocation:Locator;
+    readonly LocationDrop:Locator;
+    readonly LocationSubmit:Locator;
+    readonly SelectAll:Locator;
+    readonly dropDown:Locator;
 
-
-      readonly ClickOnExam1:Locator;
-      readonly verifyCandNAme:Locator;
-
-      readonly verifyErrorMessage:Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -95,6 +98,11 @@ export class EluminaInvPage {
         this.ClickOnExam1=page.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]');
         this.verifyCandNAme=page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[6]//span');
         this.verifyErrorMessage=page.locator('//div[text()="Invalid username or password."]'); 
+        this.SelectLocation=page.locator('//input[@placeholder="Select Location"]');
+        this.LocationDrop=page.locator('(//span[@class="open"][text()="Elumina Chennai"])[1]');
+        this.LocationSubmit=page.locator('//div[@title="Submit"]');
+        this.SelectAll=page.locator('//span[@class="thtext"]//input[@type="checkbox"]');
+        this.dropDown=page.locator('(//div[@class="msdd-triangle open msdd-triangle-down"])[2]');
     }
 
     /**Method to login as invigilator */
@@ -110,8 +118,8 @@ export class EluminaInvPage {
     /**Method to check with invaild Invigilator login */
     async invalidInvigilatorLogin():Promise<void>{
       await this.page.goto("/");
-      await this.InvUsername.type('divyashree.r@igsindia.net');
-      await this.InvPssword.type('Aac#009');
+      await this.InvUsername.type(testData.invaildInvigilatorUsername);
+      await this.InvPssword.type(testData.invaildInvigilatorPassword);
       await this.InvLoginBtn.click();
       await expect(this.verifyErrorMessage).toBeVisible();
       console.log(await this.verifyErrorMessage.textContent());
@@ -151,7 +159,8 @@ export class EluminaInvPage {
       console.log(await this.verifyExamDurationMenue.textContent()+"-"+await this.verifyExamDuration.textContent());
       await expect(this.verifyExamVenueMenue).toBeVisible();
       console.log(await this.verifyExamVenueMenue.textContent()+"-"+await this.verifyExamVenue.textContent());
-
+      await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+      await this.page.waitForTimeout(2000);
   }
 
   /**Method to Verify Exam status */
@@ -166,7 +175,17 @@ export class EluminaInvPage {
     await this.ClickOnExam1.click();
     let CandNAme=await this.verifyCandNAme.textContent();
     console.log(CandNAme);
-  
+    await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+    await this.page.waitForTimeout(3000);
   }
+
+  async selectLocation() {
+    await this.ClickOnExam1.click();
+    await this.SelectAll.check();
+    await this.dropDown.click();
+    await this.LocationDrop.click();
+    await this.LocationSubmit.click();
+    await this.page.waitForTimeout(5000);
+ }
 
 }
