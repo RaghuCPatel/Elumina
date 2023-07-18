@@ -2232,3 +2232,248 @@
 {"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
 {"level":"info","message":"Test Case Started : @Regression Validation of Proctoring Exam Events > Status > Exam Paused"}
 {"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"error","message":"C:\\Users\\Arish\\Elumina\\18-07-2023\\enviroment-variables\\sandbox\\testData.json: Unexpected string in JSON at position 693"}
+{"level":"error","message":"No tests found"}
+{"level":"error","message":"File not found: C:\\Users\\Arish\\Elumina\\18-07-2023\\html-report"}
+{"level":"error","message":"C:\\Users\\Arish\\Elumina\\18-07-2023\\enviroment-variables\\sandbox\\testData.json: Unexpected string in JSON at position 693"}
+{"level":"error","message":"No tests found"}
+{"level":"error","message":"C:\\Users\\Arish\\Elumina\\18-07-2023\\enviroment-variables\\sandbox\\testData.json: Unexpected string in JSON at position 693"}
+{"level":"error","message":"No tests found"}
+{"level":"error","message":"C:\\Users\\Arish\\Elumina\\18-07-2023\\enviroment-variables\\sandbox\\testData.json: Unexpected string in JSON at position 693"}
+{"level":"error","message":"No tests found"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Proctoring Exam > Completed"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Proctoring Exam > Completed Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Proctoring Exam > Completed"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify CandidatesExam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify CandidatesExam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Candidate attends All Question type"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Candidate attends All Question type Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Proctoring Exam > Completed"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Proctoring Exam > Completed Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Proctoring Exam > Completed"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Proctoring Exam Event > Awaiting Exam Start"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Proctoring Exam Event > Awaiting Exam Start Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Proctoring Exam Event > Awaiting Exam Start"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Create Exam with survey section - TC_084"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam with survey section"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Create Exam with survey section - TC_084 Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Candidate answering survey questions - TC_085 "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Candidate answering survey questions - TC_085  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Candidate answering survey questions - TC_085 "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Candidate answering survey questions - TC_085  Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Create Exam with survey section - TC_084"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam with survey section"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Create Exam with survey section - TC_084 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Create Exam with survey section - TC_084"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam with survey section"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Create Exam with survey section - TC_084 Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Live monitor > Proctoring View"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Live monitor > Proctoring View Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Live monitor > Proctoring View"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Live monitor > Proctoring View"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Live monitor > Proctoring View Status : passed"}
+{"level":"error","message":"ENOENT: no such file or directory, open 'C:\\Users\\Arish\\Elumina\\18-07-2023\\test-results\\.playwright-artifacts-1\\traces\\4770fc028d564701cea4-923ec93f000b224abecb-1.network'\n\n\u001b[31mFailed worker ran 3 tests:\u001b[39m\n[Chrome] › tests\\regression\\EluminaRegressioniProctorTC_099.test.ts:32:5 › @Regression Verify Elumina Login\n[Chrome] › tests\\regression\\EluminaRegressioniProctorTC_099.test.ts:51:5 › @Regression Verify Elumina Registration\n[Chrome] › tests\\regression\\EluminaRegressioniProctorTC_099.test.ts:66:5 › @Regression Validation of Live monitor > Proctoring View"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Live monitor > Proctoring View"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Live monitor > Proctoring View Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Live monitor > Proctoring View"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Live monitor > Proctoring View Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Live monitor > Proctoring View"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Live monitor > Proctoring View Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Live monitor > Proctoring View"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Live monitor > Proctoring View Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Live monitor > Proctoring View"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Live monitor > Proctoring View Status : passed"}

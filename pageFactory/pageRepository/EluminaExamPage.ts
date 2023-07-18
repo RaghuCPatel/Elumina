@@ -408,7 +408,7 @@ export class EluminaExamPage {
       await this.ClickOnSave.click();
       await this.ClickOnNextBtn.click();
       await this.ClickOnSubmitAndApproveBtn.click();
-      await this.page.waitForTimeout(5000);
+      // await this.page.waitForTimeout(5000);
 
 
     }

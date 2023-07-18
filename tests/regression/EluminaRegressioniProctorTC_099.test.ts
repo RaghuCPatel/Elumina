@@ -7,7 +7,6 @@ const qaTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables
 const sandboxTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/sandbox/testData.json')));
 const stagingTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/staging/testData.json')));
 
-
 let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
@@ -26,9 +25,9 @@ else if(process.env.ENV == 'sandbox'){
 } 
 else if(process.env.ENV == 'staging'){
     testData = stagingTestData;
-} 
+}
 
-/**Validate the Exam sheet where the Question numbers are displayed in Orange when InProgress*/
+//Validation of Live monitor > Proctoring View
 
 test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -61,51 +60,51 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.registrationTabNavigation();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
     });
-});    
+});
 
-
-test(`@Regression Verify Validation of Question numbers are displayed in Orange when InProgress`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
-
+test(`@Regression Validation of Live monitor > Proctoring View`, async ({ eluminaCandPage,eluminaLoginPage,eluminaProctorCand,eluminaProctorReg,webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-    });   
+        });   
+        await test.step(`Navigate to Application`, async () => {
+            await eluminaProctorCand.clickOnAllLink();
+            const browser = await chromium.launch();
+            const context1 = await browser.newContext();
+            const page1 = await context1.newPage();
+            await page1.goto('/');
+            await page1.waitForLoadState();
+            await page1.locator('(//input)[1]').type(testData.UserEmail);
+            await page1.locator('(//input)[2]').type(testData.UserPassword);
+            await page1.locator('//*[@class="submit-butn"]').click();
+            const [newPage] = await Promise.all([
+                context1.waitForEvent('page'),
+                await page1.locator('//div[text()="iAuthor"]').click()
+              ]);
+            await newPage.locator('//a[text()="Registration"]').click();
+            await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+            await newPage.locator('//a[text()="Live Monitor"]').click();
+            await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click();
+            await newPage.waitForTimeout(3000);
+            await newPage.locator('//img[@class="proctoringImg"]').click();
+            await newPage.waitForSelector('//div[@class="msdd-label button-main-half"]',{timeout:10000});
+            let filter=await newPage.$$('//div[@class="msdd-label button-main-half"]');
+            for(let i=0;i<=filter.length-1;i++)
+           {
+            console.log(await filter[i].textContent());
+           }
 
-    await test.step('Invigilator  logging into Application', async () => {
-        await eluminaProctorCand.clickOnAllLink();
-        const browser = await chromium.launch();
-        const context1 = await browser.newContext();
-        const page1 = await context1.newPage();
-        await page1.goto('/');
-        await page1.waitForLoadState();
-        await page1.locator('(//input)[1]').type(testData.invigilatorUsername);
-        await page1.locator('(//input)[2]').type(testData.invigilatorPassword);
-        await page1.locator('//*[@class="submit-butn"]').click();
+           await newPage.locator('//div[@class="labelTab-Create switch-det"]').isVisible();
 
-        const [newPage] = await Promise.all([
-            context1.waitForEvent('page'),
+            await newPage.waitForSelector('//div[@class="action-list"]//div',{timeout:10000});
+           let actions=await newPage.$$('//div[@class="action-list"]//div');
+           for(let i=0;i<=actions.length-1;i++)
+           {
+            console.log(await actions[i].textContent());
+           }
 
-            await page1.locator('//div[text()="iAuthor"]').click()
 
-          ]);
-        await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
-        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-        await newPage.locator('//a[@class="dropdown-toggle"]').click();
-        await newPage.locator('//p[text()="Verify Identity"]').click();
-        await newPage.locator('(//button[text()="Yes"])[1]').click();
-        await newPage.waitForTimeout(3000);
+        });
 
-        await newPage.close();
-        await page1.close();
-    });   
-   
-    await test.step('Verify Validation of Question numbers are displayed in Orange when InProgress', async () => {
-        await eluminaProctorCand.againCandidateLogin();
-        await eluminaProctorCand.enterInvigilatorPassword();
-        await eluminaCandPage.InProgressQuestions();
-        //await eluminaProctorCand.clickonPrevious();
     });
-
-});
