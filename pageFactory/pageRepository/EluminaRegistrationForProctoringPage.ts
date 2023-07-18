@@ -217,13 +217,13 @@ export class EluminaRegistrationForProctoringPage {
         await this.clickOnProImage.click();
         await this.clickOnCadidateName.click();
     }
-  
+      /**Metthods to verify Cadidate status */
     async verifyCadStatus(){
        let status=await this.verifyCadStatusAsAdmin.textContent();
        await this.page.waitForTimeout(3000);
        console.log("Cadidate status:"+status);
     }
-
+        /**Methods to verify Videos fragment */
     async verifyTimeVideofragment(){
         await this.page.waitForSelector('//div[@class="fragment-item"]//div[@class="time"]',{timeout:10000});
        let videos=await this.page.$$('//div[@class="fragment-item"]//div[@class="time"]');
@@ -233,7 +233,7 @@ export class EluminaRegistrationForProctoringPage {
         console.log("Video fragment time:"+videotime);
       }
      }
-
+    /**Methods to verify Screenshots */
      async verifyTimeScreenshotst(){
         await this.page.waitForSelector('//div[@class="screenshot-item"]//div[@class="time"]',{timeout:10000});
        let screenshots=await this.page.$$('//div[@class="screenshot-item"]//div[@class="time"]');

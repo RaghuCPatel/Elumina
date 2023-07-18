@@ -14,6 +14,7 @@ import { EluminaCandidateRevieweAndSubmitPage } from '@pages/EluminaCandidateRev
 import { EluminaMultipleExamsForAMPage } from '@pages/EluminaMultipleExamsForAMPage';
 import { EluminaMultipleExamsForPMPage } from '@pages/EluminaMultipleExamsForPMPage';
 import { EluminaMinimalTimeExamPage } from '@pages/EluminaMinimalTimeExamPage';
+import { EluminaRegistrationInvPage } from '@pages/EluminaRegistrationInvPage';
 
 export const test = base.extend<{
   context: BrowserContext;
@@ -32,7 +33,7 @@ export const test = base.extend<{
   eluminaMultipleExamsForAMPage:EluminaMultipleExamsForAMPage;
   eluminaMultipleExamsForPMPage:EluminaMultipleExamsForPMPage;
   eluminaMinimalTimeExamPage:EluminaMinimalTimeExamPage;
-  
+  eluminaRegInvPage: EluminaRegistrationInvPage;
 }>({
 
   
@@ -106,6 +107,9 @@ eluminaMultipleExamsForPMPage: async ({ page, context }, use) => {
 },
 eluminaMinimalTimeExamPage: async ({ page, context }, use) => {
   await use(new EluminaMinimalTimeExamPage(page, context));
+},
+eluminaRegInvPage: async ({ page, context }, use) => {
+  await use(new EluminaRegistrationInvPage(page, context));
 }
 
 });
