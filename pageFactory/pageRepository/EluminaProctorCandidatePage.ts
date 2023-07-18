@@ -71,6 +71,11 @@ export class EluminaProctorCandidatePage {
     readonly cameraEnabled:Locator;
     readonly microphoneEnabled:Locator;
     readonly screenCaptureEnabled:Locator;
+
+    readonly ClickOnCameraTroubleshoot:Locator;
+    readonly ClickOnMicrophoneTroubleshoot:Locator;
+    readonly ClickOnBrowserTroubleshoot:Locator;
+    readonly CliclOnTermAndConditin:Locator;
  
 
     constructor(page: Page, context: BrowserContext/*page1:Page,context1: BrowserContext*/) {
@@ -112,6 +117,12 @@ export class EluminaProctorCandidatePage {
         this.cameraEnabled=page.locator('//div[@class="list-item"]//p[text()="Camera"]');
         this.microphoneEnabled=page.locator('//div[@class="list-item"]//p[text()="Microphone"]');
         this.screenCaptureEnabled=page.locator('//div[@class="list-item"]//p[text()="Screen Capture"]');
+
+        this.ClickOnCameraTroubleshoot=page.locator('//div[@class="hardware-list"]//div[2]//p[2]');
+        this.ClickOnMicrophoneTroubleshoot=page.locator('//div[@class="hardware-list"]//div[3]//p[2]');
+        this.ClickOnBrowserTroubleshoot=page.locator('//div[@class="hardware-list"]//div[4]//p[2]');
+        this.CliclOnTermAndConditin=page.locator('//span[contains(text(),"terms and conditions.")]');
+   
     }
 
     /**Method to Navigate to Candidate URL */
@@ -162,6 +173,38 @@ export class EluminaProctorCandidatePage {
         await this.page.waitForTimeout(3000);
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
     }
+
+     /**Methods to click on Start Exam Link */
+     async clickOnStartExamLink1(){
+        await this.ClickStartExamLink.click();
+        await this.ClickOnUnderstand.click();
+        await this.page.waitForTimeout(1000);
+    }
+    /**Methods to click on Camera Link */
+    async troubleshootCamera()
+    {
+        await this.ClickOnCameraTroubleshoot.click();
+        await this.page.waitForTimeout(3000);
+    }
+    /**Methods to click on Microphone Link */
+    async troubleshootMicroPhone()
+    {
+        await this.ClickOnMicrophoneTroubleshoot.click();
+        await this.page.waitForTimeout(3000);
+    }
+    /**Methods to click on Browser Link */
+    async troubleshootBrowserLink()
+    {
+        await this.CliclOnTermAndConditin.click();
+        await this.page.waitForTimeout(3000);
+    }
+    /**Methods to click on Term and Condition Link */
+    async ClickOnTermAndConditionLink()
+    {
+        await this.CliclOnTermAndConditin.click();
+        await this.page.waitForTimeout(3000);
+    }
+
 
     /**Method to do Invalid Login */
     async InvalidCandidatelogin(): Promise<void> {
@@ -303,6 +346,18 @@ export class EluminaProctorCandidatePage {
         await this.page.bringToFront();
         await this.page.waitForTimeout(3000);
     }
+
+        /**Method to Click On Start Exam Button*/
+        async clickOnStartExamBtn(){
+            await this.ClickOnStartExamBtn.click();
+           await this.page.waitForTimeout(3000);
+        }
+
+      /**Method to Click on single  MCQ Quetions */
+      async candidateCliclkOnSingleMCQ(){
+        await this.page.locator('//div[@class="question-number-container"]//div//p').first().click()
+        await this.page.waitForTimeout(3000);
+    }    
 
     /**Method to Enter Invaild Exam Password */
     async enterInvalidExamPassword():Promise<void>{
