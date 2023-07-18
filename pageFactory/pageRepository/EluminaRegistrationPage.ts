@@ -1,5 +1,6 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
+import { testConfig } from '../../testConfig';
 import { EluminaHomePage } from './EluminaHomePage';
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
@@ -28,6 +29,18 @@ else if(process.env.ENV == 'sandbox'){
 } 
 else if(process.env.ENV == 'staging'){
     testData = stagingTestData;
+}
+
+function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
 }
 
 export class EluminaRegistrationPage {
@@ -100,15 +113,15 @@ export class EluminaRegistrationPage {
 
     /**Method to Add User Details */
     async addUserDetails():Promise<void>{
-       await this.EnterClientID.type('Deem'+Math.floor(Math.random()*899+100));
-       await this.page.waitForTimeout(8000);
-       await this.ChooseTitle.click();
-       await this.ChooseTitle.selectOption('Mr');
-       await this.TypeUsername.type('veer'+Math.floor(Math.random()*89+10));
-       await this.TypeFirstName.type('Virat');
-       await this.TypeLastName.type('sing');
-       await this.TypeEmail.type('veer'+Math.floor(Math.random()*899+100)+'@gmail.com');
-       await this.TypePhone.type('6'+Math.floor(Math.random()*899999999+100));
+        await this.EnterClientID.type(makeid(testData.clientId)+Math.floor(Math.random()*899+100));
+        await this.page.waitForTimeout(8000);
+        await this.ChooseTitle.click();
+        await this.ChooseTitle.selectOption('Mr');
+        await this.TypeUsername.type(makeid(testData.clientUsername)+Math.floor(Math.random()*89+10));
+        await this.TypeFirstName.type(makeid(testData.clientFirstname));
+        await this.TypeLastName.type(makeid(testData.clientLastname));
+        await this.TypeEmail.type(makeid(testData.clientEmail)+Math.floor(Math.random()*899+100)+'@gmail.com');
+       await this.TypePhone.type(testData.clientPhone+Math.floor(Math.random()*899999999+100));
        await this.page.waitForTimeout(8000);
        await this.SelectRole.click();
        await this.SelectRole.selectOption('Candidate');
@@ -151,26 +164,20 @@ export class EluminaRegistrationPage {
         
         await rowss[i].isVisible()
         await this.EnterClientID.clear();
-        await this.EnterClientID.type('Vijay'+Math.floor(Math.random()*899+100));
+        await this.EnterClientID.type(makeid(testData.clientId)+Math.floor(Math.random()*899+100));
         await this.page.waitForTimeout(1000);
         await this.ChooseTitle.click();
         await this.ChooseTitle.selectOption('Mr');
-
         await this.TypeUsername.clear();
-        await this.TypeUsername.type('Kumar'+Math.floor(Math.random()*89+10));
-
+        await this.TypeUsername.type(makeid(testData.clientUsername)+Math.floor(Math.random()*89+10));
         await this.TypeFirstName.clear();
-        await this.TypeFirstName.type('Sharukh');
-
+        await this.TypeFirstName.type(makeid(testData.clientFirstname));
         await this.TypeLastName.clear();
-        await this.TypeLastName.type('Khan');
-
+        await this.TypeLastName.type(makeid(testData.clientLastname));
         await this.TypeEmail.clear();
-        await this.TypeEmail.type('Ajith'+Math.floor(Math.random()*899+100)+'@gmail.com');
-
+        await this.TypeEmail.type(makeid(testData.clientEmail)+Math.floor(Math.random()*899+100)+'@gmail.com');
         await this.TypePhone.clear();
         await this.TypePhone.type('6'+Math.floor(Math.random()*899999999+100));
-
         await this.page.waitForTimeout(1000);
         await this.SelectRole.click();
         await this.SelectRole.selectOption('Candidate');
@@ -185,8 +192,7 @@ export class EluminaRegistrationPage {
         await this.SelectBookingStatus.selectOption('Booked');
         await this.page.waitForTimeout(1000);
         await this.ClickOnSaveBtn.click();
-        await this.page.waitForTimeout(5000);
-       
+        await this.page.waitForTimeout(5000); 
         }
         await this.LeftArrow.click();
      }

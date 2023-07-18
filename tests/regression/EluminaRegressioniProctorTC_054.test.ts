@@ -69,16 +69,12 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 test(`@Regression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
-
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-
     });   
 
     await test.step('Invigilator  logging into Application', async () => {
-
         await eluminaProctorCand.clickOnAllLink();
-
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
         const page1 = await context1.newPage();

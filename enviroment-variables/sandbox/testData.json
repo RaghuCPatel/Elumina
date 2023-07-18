@@ -1,6 +1,6 @@
 {
-    "UserEmail": "raghu.p@igsindia.net",
-    "UserPassword": "t5N%xAfG$z",
+    "UserEmail": "rajakumar.nayak@igsindia.net",
+    "UserPassword": "UjR!8f3&",
     "Api":"",
     "dbUsername":"",
     "dbPassword":"",
@@ -11,14 +11,19 @@
     "invigilatorUsername":"examincharge2@yopmail.com",
     "invigilatorPassword":"YX!%5t8z",
     "invigilatorName":"Incharge Exam",
-    "clientId":"test",
-    "clientUsername":"Narendra6",
-    "clientFirstname":"Narendra",
-    "clientLastname":"Modi",
-    "clientEmail":"narendra",
+    "clientId":"5",
+    "clientGender":"Mr",
+    "clientUsername":"7",
+    "clientFirstname":"8",
+    "clientLastname":"4",
+    "clientEmail":"10",
     "clientPhone":"6",
+    "InvalidCandidateUsername":"anonymouslogin@gmail.com",
+    "InvalidCandidatePassword":"mrinvalid"
+    "clientRole":"Candidate",
+    "clientEligableOption":"Yes",
     "clientVenue":"Elumina Chennai",
-
-    "InvalidUsername":"anonymouslogin@gmail.com",
-    "InvalidPassword":"mrinvalid"
+    "clientBookingStatus":"Booked",
+    "invaildInvigilatorUsername":"divyashree.r@igsindia.net",
+    "invaildInvigilatorPassword":"Aac#009"
 }

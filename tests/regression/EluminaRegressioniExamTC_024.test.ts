@@ -1,6 +1,5 @@
 import test from '@lib/BaseTest';
 
-//Put this TC after few more tc done(TC_24)
 //Validation of Candidate dashboard - Exam scheduled Date / Time is over.  
 
 test(`@Regression Verify Validation of Candidate dashboard - Exam scheduled Date / Time is over`, async ({ eluminaCandPage,webActions }) => {
