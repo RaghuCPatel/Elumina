@@ -132,6 +132,11 @@ export class EluminaProctorExamPage {
     readonly ClickOnAdminSaveBtn:Locator;
 
     readonly fectchExamID:Locator;
+
+    readonly CameraLink:Locator; 
+    readonly MicrophoneLink:Locator;
+    readonly BrowserCheckLink:Locator;   
+
     
 
     constructor(page: Page, context: BrowserContext) {
@@ -214,6 +219,10 @@ export class EluminaProctorExamPage {
         this.ClickOnAdminSaveBtn=page.locator('//button[@class="btn primarybtn"]');
 
         this.fectchExamID=page.locator('//div[@class="label-text"]');
+        this.CameraLink=page.locator('//div[@id="camera_link"]//input[@name="inputbox"]');
+        this.MicrophoneLink=page.locator('//div[@id="microphone_link"]//input[@name="inputbox"]');
+        this.BrowserCheckLink=page.locator('//div[@id="browsercheck_link"]//input[@name="inputbox"]');
+   
     }
 
     /**Method of Page Navigation */
@@ -251,6 +260,40 @@ export class EluminaProctorExamPage {
       await this.ClickonEnableiProctorExtension.scrollIntoViewIfNeeded();
       await this.ClickonEnableiProctorExtension.isVisible();
       console.log("Enable iProctor Extension option is not editable.");
+  }
+
+  /**Methods to enter Camera Link  */
+  async enterCameraLink(){
+    await this.CameraLink.click();
+    await this.CameraLink.clear();
+    await this.page.waitForTimeout(3000);
+    await this.CameraLink.type('https://www.google.com/')
+    await this.ClickOnSave.click();
+  }
+
+  /**Methods to enter Microphone Link  */
+  async enterMicrophoneLink(){
+    await this.MicrophoneLink.click();
+    await this.MicrophoneLink.clear();
+    await this.page.waitForTimeout(3000);
+    await this.MicrophoneLink.type('https://www.facebook.com/')
+    await this.ClickOnSave.click();
+  }
+
+  /**Method to enter descriptions */
+  async enterTermAndCondition(){
+    await this.DescriptionMessage.click();  
+    await this.page.waitForTimeout(3000);
+    await this.DescriptionMessage.type('All the best!!!');
+    await this.ClickOnSave.click();
+  }
+
+  async enterBrowserLink(){
+    await this.BrowserCheckLink.click();
+    await this.BrowserCheckLink.clear();
+    await this.page.waitForTimeout(3000);
+    await this.BrowserCheckLink.type('https://linkedin.com/')
+    await this.ClickOnSave.click();
   }
 
    /**Method to add prompt candidate message*/
