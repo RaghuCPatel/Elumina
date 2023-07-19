@@ -1,5 +1,6 @@
 import test from '@lib/BaseTest';
 
+/**Validation of "Flag for Review" option */
 test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
@@ -34,26 +35,16 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
 });
 
-
 test(`@Regression Verify Validation of Flag for Review`, async ({ eluminaCandPage,webActions }) => {
-
     await test.step(`Navigate to Application`, async () => {
-
         await eluminaCandPage.candidateNavigateToURL();
-
     });
 
     await test.step(`Candidate Login to application`, async () => {
-
         await eluminaCandPage.candidateLoginToApplication();
-
     });
-
     await test.step('Candidate marks flag for review to all questions in the exam',async ()=> {
-        
         await eluminaCandPage.candidateFlagForReviewAllQuestions();
-        
-
     });
 
 });    

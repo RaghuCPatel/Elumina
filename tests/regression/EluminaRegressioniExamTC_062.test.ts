@@ -49,5 +49,4 @@ test(`@Regression Verify Validation of Exam content section page contents and de
        
     });
     
-    
 });

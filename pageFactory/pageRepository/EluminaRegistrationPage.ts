@@ -1,7 +1,7 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
 import { testConfig } from '../../testConfig';
-import { EluminaHomePage } from './EluminaHomePage';
+import { EluminaExamPage } from './EluminaExamPage';
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
 const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
@@ -67,6 +67,10 @@ export class EluminaRegistrationPage {
     readonly LeftArrow:Locator;
     readonly ClickOnDropdown:Locator;
     readonly ClickOnDownloadUserDeatils:Locator; 
+    readonly searchExam:Locator;
+    readonly clickbulkdropdown:Locator;
+    readonly clickonbulkdownload:Locator;
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -90,8 +94,15 @@ export class EluminaRegistrationPage {
         this.SelectBookingStatus=page.locator('//table[@class="table"]//tbody//tr[1]//td[12]//select');
         this.ClickOnSaveBtn=page.locator('//button[@class="theme-btn theme-primary-btn"]');
         this.LeftArrow=page.locator('//i[@class="iconBg leftArrow"]');
-        this.ClickOnDropdown=page.locator('(//a[@class="icon dropdown-toggle"])[1]');
+        this.ClickOnDropdown=page.locator('//a[@class="icon dropdown-toggle"]');
         this.ClickOnDownloadUserDeatils=page.locator('(//p[text()="Download User details"])[1]');
+        this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
+
+        this.clickbulkdropdown=page.locator('//button[@class="btn dotbutton btn-default"]');
+        this.clickonbulkdownload=page.locator('//a[text()="Bulk Download User Details"]');
+
+        const examId:string=String(EluminaExamPage.examID);
+        console.log(examId);
     }
 
     /**Method for Page Navigation */
@@ -104,13 +115,16 @@ export class EluminaRegistrationPage {
           return new exports.EluminaRegistrationPage(newPage);
     }
 
-    /**Method to register for the exam */
-    async registrationTabNavigation():Promise<void> {
+     /**Method to register for the exam */
+     async registrationTabNavigation():Promise<void> {
         await this.RegistrationMenu.click();
+        let examid= EluminaExamPage.examID;
+        console.log(EluminaExamPage.examID);
+        await this.searchExam.type(examid);
+        await this.page.waitForTimeout(5000);
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
     }
-
     /**Method to Add User Details */
     async addUserDetails():Promise<void>{
         await this.EnterClientID.type(makeid(testData.clientId)+Math.floor(Math.random()*899+100));
@@ -121,24 +135,24 @@ export class EluminaRegistrationPage {
         await this.TypeFirstName.type(makeid(testData.clientFirstname));
         await this.TypeLastName.type(makeid(testData.clientLastname));
         await this.TypeEmail.type(makeid(testData.clientEmail)+Math.floor(Math.random()*899+100)+'@gmail.com');
-       await this.TypePhone.type(testData.clientPhone+Math.floor(Math.random()*899999999+100));
-       await this.page.waitForTimeout(8000);
-       await this.SelectRole.click();
-       await this.SelectRole.selectOption('Candidate');
-       await this.page.waitForTimeout(8000);
-       await this.SelectEligible.click();
-       await this.SelectEligible.selectOption('Yes');
-       await this.page.waitForTimeout(8000);
-       await this.SelectVenue.click();
-       await this.SelectVenue.type('Elumina Chennai');
-       await this.page.waitForTimeout(7000);
-       await this.SelectBookingStatus.click();
-       await this.SelectBookingStatus.selectOption('Booked');
-       await this.page.waitForTimeout(7000);
-       await this.ClickOnSaveBtn.click();
-       await this.page.waitForTimeout(8000);
-       await this.LeftArrow.click();
-       await this.ClickOnDropdown.click();
+        await this.TypePhone.type(testData.clientPhone+Math.floor(Math.random()*899999999+100));
+        await this.page.waitForTimeout(8000);
+        await this.SelectRole.click();
+        await this.SelectRole.selectOption('Candidate');
+        await this.page.waitForTimeout(8000);
+        await this.SelectEligible.click();
+        await this.SelectEligible.selectOption('Yes');
+        await this.page.waitForTimeout(8000);
+        await this.SelectVenue.click();
+        await this.SelectVenue.type('Elumina Chennai');
+        await this.page.waitForTimeout(7000);
+        await this.SelectBookingStatus.click();
+        await this.SelectBookingStatus.selectOption('Booked');
+        await this.page.waitForTimeout(7000);
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(8000);
+        await this.LeftArrow.click();
+        await this.ClickOnDropdown.click();
     }
 
     /**Method to Download the User Details */
@@ -197,21 +211,50 @@ export class EluminaRegistrationPage {
         await this.LeftArrow.click();
      }
 
-     /**Method to Download the Multiple User Details */
-     async downloadMyltipleUserDetails():Promise<void>{
-        for(let i=0;i<=2;i++){
-        await this.ClickOnDropdown.click();
+    /**Method to Download the Multiple User Details */
+    async downloadMultipleUserDetails():Promise<void>{
+       
+        await this.clickbulkdropdown.click();
         const downloadPromise = this.page.waitForEvent('download');
-        await this.ClickOnDownloadUserDeatils.click();
+        await this.clickonbulkdownload.click();
         const download = await downloadPromise;
-       // Wait for the download process to complete.
+        // Wait for the download process to complete.
         console.log(await download.path());
         const suggestedFileName = download.suggestedFilename();
         const filePath = 'download/' + suggestedFileName
         await download.saveAs(filePath)
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
-        await this.page.waitForTimeout(2000);
-     }
+        await this.page.waitForTimeout(15000);
+        
     }
+    //  /**Method to Download the Multiple User Details */
+    //  async downloadMyltipleUserDetails():Promise<void>{
+    //     await this.page.waitForSelector('//a[@class="icon dropdown-toggle"]');
+    //     let clickdropdown = await this.page.$$('//a[@class="icon dropdown-toggle"]'); 
+
+    //     for(let i=0;i<=clickdropdown.length-1;i++)  {
+    //     await clickdropdown[i].click();
+    //     console.log(clickdropdown.length-1);
+
+    //     const downloadPromise = this.page.waitForEvent('download');
+    //     await this.page.waitForSelector('(//p[text()="Download User details"])');
+
+    //     let clickonUserdropdown = await this.page.$$('(//p[text()="Download User details"])')
+
+    //         for(let i=0;i<=clickonUserdropdown.length-1;i++){
+
+    //             console.log(clickonUserdropdown.length-1);
+    //             //const downloadPromise = this.page.waitForEvent('download');
+    //             await clickonUserdropdown[i].click();
+    //             const download = await downloadPromise;
+    //             // Wait for the download process to complete.
+    //             console.log(await download.path());
+    //             const suggestedFileName = download.suggestedFilename();
+    //             const filePath = 'download/' + suggestedFileName
+    //             await download.saveAs(filePath)
+    //     }
+    // }
+    // await this.page.waitForTimeout(8000);
+    // }
 
 }

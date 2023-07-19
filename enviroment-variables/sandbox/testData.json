@@ -27,5 +27,14 @@
     "invaildInvigilatorUsername":"divyashree.r@igsindia.net",
     "invaildInvigilatorPassword":"Aac#009",
     "DescriptionMessage":"Hello World.....",
-    "EnterInvigilatorPassword":"ABC09"
+    "EnterInvigilatorPassword":"ABC09",
+    "StartBookingHr":"9",
+    "EndBookingmin":"31",
+    "EndBookingmins":"32",
+    "StartExamMin":"33",
+    "EndExamhr":"10",
+    "EndExamMin":"45",
+    "StartBookingHrPM":"2",
+    "EndExamhrPM":"3"
+
 }

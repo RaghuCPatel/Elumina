@@ -1,7 +1,6 @@
 import test from '@lib/BaseTest';
 
-//Validation of Exam content page - Scroll bar
-
+/**Validation of Exam content page - Scroll bar*/
 
 test(`@Regression Verify Validation of Exam content page - Scroll bar`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
     await test.step('Candidate logging into application', async () => {
@@ -13,6 +12,4 @@ test(`@Regression Verify Validation of Exam content page - Scroll bar`, async ({
        await eluminaCandPage.HorizontalScrollAction();
        
     });
-    
-    
 });

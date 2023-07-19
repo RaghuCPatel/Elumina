@@ -9,6 +9,4 @@ test(`@Regression Verify Validation of Exam content page  - Check box`, async ({
     await test.step('Candidate start the exam',async ()=> {
        await eluminaCandPage.clickOnContentSectionCheckBox();
     });
-    
-    
 });

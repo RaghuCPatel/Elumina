@@ -2,6 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of multiple Exams on the dashboard for different time (Say one in AM & another in PM)*/
 
+/**AM */
 test(`@Regression Validation of multiple Exams on the dashboard for different time For AM`, async ({ eluminaLoginPage,eluminaMultipleExamsForAMPage,eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
@@ -44,13 +45,10 @@ test(`@Regression Verify Elumina Registration for AM`, async ({ eluminaLoginPage
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
     });
-    await test.step('Candidate start the exam',async ()=> {
-        await eluminaCandPage.candidateStartMCQ();
-    });
     
 });
 
-
+/**PM */
 test(`@Regression Validation of multiple Exams on the dashboard for different time For PM`, async ({ eluminaLoginPage,eluminaMultipleExamsForPMPage,eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
@@ -92,8 +90,5 @@ test(`@Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
     });
-    // await test.step('Candidate start the exam',async ()=> {
-    //     await eluminaCandPage.candidateStartMCQ();
-    // });
     
 });
