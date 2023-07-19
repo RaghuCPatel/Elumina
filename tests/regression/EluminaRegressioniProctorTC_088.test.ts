@@ -1,36 +1,10 @@
 import test from '@lib/BaseTest';
 import { chromium } from '@playwright/test';
+import { testConfig } from '../../testConfig';
 
-const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
-const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
-const productionTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/production/testData.json')));
-const qaTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/qa/testData.json')));
-const sandboxTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/sandbox/testData.json')));
-const stagingTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/staging/testData.json')));
+//Validation of Admin > Proctoring > Camera Link
 
-let testData = qaTestData;
-if (process.env.ENV == 'dev') {
-    testData = devTestData;
-}
-else if(process.env.ENV == 'p7'){
-    testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
-    testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
-    testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
-    testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
-    testData = stagingTestData;
-} 
-
-/** Validation of Candidate> Enforce Hardware Check > False */
-
-test(`@Regression Validation of Candidate> Enforce Hardware Check > False`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+test(`@Regression Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -61,16 +35,32 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.registrationTabNavigation();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
     });
 });
 
-test(`@Regression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
+test(`@Regression Validation of Enable iProctor Extension`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Elumina application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
+        await eluminaLoginPage.verifyProfilePage();
+    });
+    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
+        const newtab = await eluminaProctorExam.AdminPageNavigation();
+        await newtab.clickOnProctoringInAdmin();
+        await newtab.enterCameraLink();
+    });
+});  
 
+test(`@Regression Validation of Admin > Proctoring > Camera Link`, async ({ eluminaLoginPage,eluminaProctorReg,eluminaProctorCand,webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-        await eluminaProctorCand.startExam();
-    });   
-
+        await eluminaProctorCand.clickOnStartExamLink1();
+        await eluminaProctorCand.troubleshootCamera();
+        });  
+    
 });

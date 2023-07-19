@@ -1,7 +1,5 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
-import { EluminaHomePage } from './EluminaHomePage';
-import { properties } from 'properties';
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
 const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
@@ -35,22 +33,8 @@ let currentDate=new Date();
 let StartBookingDate=currentDate.getDate().toString();
 let EndExamDate=(currentDate.getDate()+1).toString();
 
-let hour = currentDate.getHours();
-let period = '';
-
-if (hour >= 12) {
-  period = 'PM';
-  if (hour > 12) {
-    hour -= 12;
-  }
-} else {
-  period = 'AM';
-  if (hour === 0) {
-    hour = 12;
-  }
-}
-
 export class EluminaMultipleExamsForPMPage {
+    static examID:string;
     readonly page: Page;
     readonly context: BrowserContext;
     readonly EXAMSMENU: Locator;
@@ -119,15 +103,15 @@ export class EluminaMultipleExamsForPMPage {
         this.EXAMNAME = page.locator('(//input[@name="inputbox"])[1]')
         this.EXAMCODE = page.locator('(//input[@name="inputbox"])[2]')
         this.BookingStartCalender = page.locator('//div[@id="exam_booking_start_date_time"]//i[@class="glyphicon glyphicon-calendar"]');
-        this.BookingStartDate= page.locator('#exam_booking_start_date_time').getByText(StartBookingDate, { exact: true });
+        this.BookingStartDate= page.locator('#exam_booking_start_date_time').getByText(EndExamDate, { exact: true });
         this.BookingStartHrs=page.getByRole('spinbutton').first();
         this.BooingStartMins=page.getByRole('spinbutton').nth(1);
         this.ChooseBookingStartSession=page.getByLabel('PM');
         this.BookingOK=page.locator('.dtpc-ok-svg');
         this.BookingEndCalender=page.locator('#exam_booking_end_date_time i');
-        this.BookingEndDate=page.locator('#exam_booking_end_date_time').getByText(StartBookingDate, { exact: true });
+        this.BookingEndDate=page.locator('#exam_booking_end_date_time').getByText(EndExamDate, { exact: true });
         this.ExamStartCalender=page.locator('#exam_start_date_time i');
-        this.ExamStartDate=page.locator('#exam_start_date_time').getByText(StartBookingDate, { exact: true });
+        this.ExamStartDate=page.locator('#exam_start_date_time').getByText(EndExamDate, { exact: true });
         this.ExamEndCalender=page.locator('#exam_end_date_time i');
         this.ExamEndDate=page.locator('#exam_end_date_time').getByText(EndExamDate, { exact: true });
         this.ClickOnExamVenue=page.getByPlaceholder('Select Exam Venue');
@@ -184,20 +168,6 @@ export class EluminaMultipleExamsForPMPage {
     /**Method to Create Exam */
     async createExam(): Promise<void> {
 
-        let currentDate=new Date();
-        let datecurrent=currentDate.getDate();
-        console.log(datecurrent);
-        let pm = currentDate.getHours() >= 12;
-        let hour12 = currentDate.getHours() % 12;
-        if (!hour12) 
-          hour12 += 12;
-        let minute = currentDate.getMinutes();
-        console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
-        let StartBookingMin=currentDate.getMinutes()+1;
-        let EndBookingMin=currentDate.getMinutes()+2;
-        let StartExamMin=currentDate.getMinutes()+3;
-        let EndExamMin=currentDate.getMinutes()+14;
-
         await expect(this.CREATEEXAMS).toBeVisible();
         await this.CREATEEXAMS.click();
         await this.STARTFROMSCRATCH.click();
@@ -209,40 +179,40 @@ export class EluminaMultipleExamsForPMPage {
         await this.BookingStartDate.click();
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
-        await this.BookingStartHrs.type(hour12.toString());
+        await this.BookingStartHrs.type('2');
         await this.BooingStartMins.click();
         await this.BooingStartMins.clear();
-        await this.BooingStartMins.type(StartBookingMin.toString());
+        await this.BooingStartMins.type('30');
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
         await this.BookingEndCalender.click();
         await this.BookingEndDate.click();
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
-        await this.BookingStartHrs.type(hour12.toString());
+        await this.BookingStartHrs.type('2');
         await this.BooingStartMins.click();
         await this.BooingStartMins.clear();
-        await this.BooingStartMins.type(EndBookingMin.toString());
+        await this.BooingStartMins.type('31');
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
         await this.ExamStartCalender.click();
         await this.ExamStartDate.click();
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
-        await this.BookingStartHrs.type(hour12.toString());
+        await this.BookingStartHrs.type('2');
         await this.BooingStartMins.click();
         await this.BooingStartMins.clear();
-        await this.BooingStartMins.type(StartExamMin.toString());
+        await this.BooingStartMins.type('32');
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
         await this.ExamEndCalender.click();
         await this.ExamEndDate.click();
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
-        await this.BookingStartHrs.type(hour12.toString());
+        await this.BookingStartHrs.type('3');
         await this.BooingStartMins.click();
         await this.BooingStartMins.clear();
-        await this.BooingStartMins.type(EndExamMin.toString());
+        await this.BooingStartMins.type('30');
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
         await this.ClickOnExamVenue.click();
@@ -268,7 +238,7 @@ export class EluminaMultipleExamsForPMPage {
       await this.EnterSectionName.type('Content-'+Math.floor(Math.random())*89+10);
       await this.page.waitForTimeout(5000);
       await this.DescriptionMessage.click();
-      await this.DescriptionMessage.type('Hello World.....');
+      await this.DescriptionMessage.type(testData.DescriptionMessage);
       await this.page.waitForTimeout(5000);
       await this.selectMinutes.selectOption('1');
       await this.ClickOnSave.click();
@@ -281,7 +251,7 @@ export class EluminaMultipleExamsForPMPage {
       await this.enterContentTitle.type('Content-A'+Math.floor(Math.random())*89+10);
       await this.page.waitForTimeout(5000);
       await this.DescriptionMessage.click();
-      await this.DescriptionMessage.type('Hello World.....');
+      await this.DescriptionMessage.type(testData.DescriptionMessage);
       await this.page.waitForTimeout(5000);
       await this.ClickOnContentLayout.click();
       await this.ClickOnTermAndCondition.click();
@@ -296,10 +266,10 @@ export class EluminaMultipleExamsForPMPage {
       await this.EnterSectionName.type('Exam-'+Math.floor(Math.random())*89+10);
       await this.page.waitForTimeout(5000);
       await this.DescriptionMessage.click();
-      await this.DescriptionMessage.type('Hello World.....');
+      await this.DescriptionMessage.type(testData.DescriptionMessage);
       await this.page.waitForTimeout(5000);
-      await this.Choosehrs.selectOption('1');
-      await this.SelectTime.selectOption('30');
+      await this.Choosehrs.selectOption('0');
+      await this.SelectTime.selectOption('58');
       await this.ClickOnSave.click();
       await this.page.waitForTimeout(5000);
 
@@ -345,20 +315,6 @@ export class EluminaMultipleExamsForPMPage {
     /**Method to create exam */
     async createExamforProctoring(): Promise<void> {
 
-      let currentDate=new Date();
-      console.log(currentDate.getDate());
-      let pm = currentDate.getHours() >= 12;
-      let hour12 = currentDate.getHours() % 12;
-      if (!hour12) 
-        hour12 += 12;
-      let minute = currentDate.getMinutes();
-      console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
-   
-      let StartBookingMin=currentDate.getMinutes()+1;
-      let EndBookingMin=currentDate.getMinutes()+2;
-      let StartExamMin=currentDate.getMinutes()+3;
-      let EndExamMin=currentDate.getMinutes()+13;
-
       await expect(this.CREATEEXAMS).toBeVisible();
       await this.CREATEEXAMS.click();
       await this.STARTFROMSCRATCH.click();
@@ -373,11 +329,11 @@ export class EluminaMultipleExamsForPMPage {
       await this.BookingStartDate.click();
       await this.BookingStartHrs.click();
       await this.BookingStartHrs.clear();
-      await this.BookingStartHrs.type(hour12.toString());
+      await this.BookingStartHrs.type('2');
 
       await this.BooingStartMins.click();
       await this.BooingStartMins.clear();
-      await this.BooingStartMins.type(StartBookingMin.toString());
+      await this.BooingStartMins.type('30');
       await this.ChooseBookingStartSession.check();
       await this.BookingOK.click();
 
@@ -385,10 +341,10 @@ export class EluminaMultipleExamsForPMPage {
       await this.BookingEndDate.click();
       await this.BookingStartHrs.click();
       await this.BookingStartHrs.clear();
-      await this.BookingStartHrs.type(hour12.toString());
+      await this.BookingStartHrs.type('2');
       await this.BooingStartMins.click();
       await this.BooingStartMins.clear();
-      await this.BooingStartMins.type(EndBookingMin.toString());
+      await this.BooingStartMins.type('31');
       await this.ChooseBookingStartSession.check();
       await this.BookingOK.click();
 
@@ -396,10 +352,10 @@ export class EluminaMultipleExamsForPMPage {
       await this.ExamStartDate.click();
       await this.BookingStartHrs.click();
       await this.BookingStartHrs.clear();
-      await this.BookingStartHrs.type(hour12.toString());
+      await this.BookingStartHrs.type('2');
       await this.BooingStartMins.click();
       await this.BooingStartMins.clear();
-      await this.BooingStartMins.type(StartExamMin.toString());
+      await this.BooingStartMins.type('32');
       await this.ChooseBookingStartSession.check();
       await this.BookingOK.click();
 
@@ -407,10 +363,10 @@ export class EluminaMultipleExamsForPMPage {
       await this.ExamEndDate.click();
       await this.BookingStartHrs.click();
       await this.BookingStartHrs.clear();
-      await this.BookingStartHrs.type(hour12.toString());
+      await this.BookingStartHrs.type('3');
       await this.BooingStartMins.click();
       await this.BooingStartMins.clear();
-      await this.BooingStartMins.type(EndExamMin.toString());
+      await this.BooingStartMins.type('30');
       await this.ChooseBookingStartSession.check();
       await this.BookingOK.click();
 
