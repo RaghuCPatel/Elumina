@@ -71,11 +71,14 @@ export class EluminaProctorCandidatePage {
     readonly cameraEnabled:Locator;
     readonly microphoneEnabled:Locator;
     readonly screenCaptureEnabled:Locator;
-
+    readonly candidateCameraTick:Locator;
+    readonly candidateMicTick:Locator;
+    readonly candidateScreenCaptureTick:Locator;
     readonly ClickOnCameraTroubleshoot:Locator;
     readonly ClickOnMicrophoneTroubleshoot:Locator;
     readonly ClickOnBrowserTroubleshoot:Locator;
     readonly CliclOnTermAndConditin:Locator;
+
  
 
     constructor(page: Page, context: BrowserContext/*page1:Page,context1: BrowserContext*/) {
@@ -117,12 +120,14 @@ export class EluminaProctorCandidatePage {
         this.cameraEnabled=page.locator('//div[@class="list-item"]//p[text()="Camera"]');
         this.microphoneEnabled=page.locator('//div[@class="list-item"]//p[text()="Microphone"]');
         this.screenCaptureEnabled=page.locator('//div[@class="list-item"]//p[text()="Screen Capture"]');
-
+        this.candidateCameraTick=page.locator('//img[@class="tick camera-tick"and@src="assets/hardware/images/tick.png"]');
+        this.candidateMicTick=page.locator('//img[@class="tick mic-tick"and@src="assets/hardware/images/tick.png"]');
+        this.candidateScreenCaptureTick=page.locator('//img[@class="tick Screencapture-tick"and@src="assets/hardware/images/tick.png"]');
         this.ClickOnCameraTroubleshoot=page.locator('//div[@class="hardware-list"]//div[2]//p[2]');
         this.ClickOnMicrophoneTroubleshoot=page.locator('//div[@class="hardware-list"]//div[3]//p[2]');
         this.ClickOnBrowserTroubleshoot=page.locator('//div[@class="hardware-list"]//div[4]//p[2]');
         this.CliclOnTermAndConditin=page.locator('//span[contains(text(),"terms and conditions.")]');
-   
+
     }
 
     /**Method to Navigate to Candidate URL */
@@ -216,9 +221,9 @@ export class EluminaProctorCandidatePage {
 
     /**Method to do Invalid Login */
     async InvalidCandidatelogin(): Promise<void> {
-        const decipherPassword = await webActions.decipherPassword();
-        await this.USERNAME_EDITBOX.fill('anonymouslogin@gmail.com');
-        await this.PASSWORD_EDITBOX.fill('mrinvalid');
+        //const decipherPassword = await webActions.decipherPassword();
+        await this.CandidateUsername.type(testData.InvalidCandidateUsername);
+        await this.CandidatePassword.type(testData.InvalidCandidatePassword);
         await this.LOGIN_BUTTON.click();
         await this.page.waitForTimeout(3000);
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
@@ -261,6 +266,30 @@ export class EluminaProctorCandidatePage {
     /**Method to Click on Understand Button */
     async clickOnUnderstandBtn(){
         await this.ClickOnUnderstand.click();
+
+    }
+
+    /**Method to Validate Camera verification check done */
+    async validateCameraTick(){
+        await this.candidateCameraTick.isVisible();
+        console.log('Camera verification check done successfully');
+
+
+    }
+
+    /**Method to Validate Mic verification check done */
+    async validateMicTick(){
+        await this.candidateMicTick.isVisible();
+        console.log('Mic verification check done successfully');
+
+
+    }
+
+    /**Method to Validate Screen Capture verification check done */
+    async validateScreenCaptureTick(){
+        await this.candidateScreenCaptureTick.isVisible();
+        console.log('Screen Capture verification check done successfully');
+
 
     }
 
