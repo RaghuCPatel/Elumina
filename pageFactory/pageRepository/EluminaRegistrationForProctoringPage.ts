@@ -1,6 +1,8 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
-import { EluminaHomePage } from './EluminaHomePage';
+import { EluminaProctorExamPage } from './EluminaProctorExamPage';
+import { EluminaMultipleExamsForAMPage }from './EluminaMultipleExamsForAMPage';
+import { EluminaMultipleExamsForPMPage } from './EluminaMultipleExamsForPMPage';
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
 const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
@@ -97,6 +99,7 @@ export class EluminaRegistrationForProctoringPage {
     readonly liveMonitorIcon:Locator;
     readonly candidateCard:Locator;
     readonly hardwareInternetcheck:Locator;    
+    readonly searchExam:Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -152,6 +155,9 @@ export class EluminaRegistrationForProctoringPage {
         this.liveMonitorIcon=page.locator('//img[@class="proctoringImg"]');
         this.candidateCard=page.locator('(//div[@class="candidate-name"]//div[1])[1]');
         this.hardwareInternetcheck=page.locator('//div[contains(text(),"Hardware / Internet Check Pass")]');
+        this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
+        const examId:string=String(EluminaProctorExamPage.examID);
+        console.log(examId);
     }
 
       //**Method to navogate new Tab */
@@ -168,6 +174,29 @@ export class EluminaRegistrationForProctoringPage {
     /**Method to click on Registration Menu,click on Created Exam and click on Add new users */
     async registrationTabNavigation():Promise<void> {
         await this.RegistrationMenu.click();
+        let examid= EluminaProctorExamPage.examID;
+        console.log(EluminaProctorExamPage.examID);
+        await this.searchExam.fill(examid);
+        await this.ClickOnCreatedExam.click();
+        await this.ClickOnAddNewUsers.click();
+    }
+
+    /**Method to click on Registration Menu,click on Created Exam and click on Add new users */
+    async registrationTabNavigationforAM():Promise<void> {
+        await this.RegistrationMenu.click();
+        let examid= EluminaMultipleExamsForAMPage.examID;
+        console.log(EluminaMultipleExamsForAMPage.examID);
+        await this.searchExam.fill(examid);
+        await this.ClickOnCreatedExam.click();
+        await this.ClickOnAddNewUsers.click();
+    }
+
+    /**Method to click on Registration Menu,click on Created Exam and click on Add new users */
+    async registrationTabNavigationforPM():Promise<void> {
+        await this.RegistrationMenu.click();
+        let examid= EluminaMultipleExamsForPMPage.examID;
+        console.log(EluminaMultipleExamsForPMPage.examID);
+        await this.searchExam.fill(examid);
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
     }

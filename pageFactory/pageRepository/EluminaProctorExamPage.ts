@@ -51,10 +51,10 @@ if (hour >= 12) {
     hour = 12;
   }
 }
-let examID:string;
 
 //console.log(`${period}`);
 export class EluminaProctorExamPage {
+    static examID:string;
     readonly page: Page;
     readonly context: BrowserContext;
     readonly EXAMSMENU: Locator;
@@ -217,7 +217,6 @@ export class EluminaProctorExamPage {
         this.ClickOnInternetConnection=page.locator('(//span[@class="slider round"])[6]');
         this.ClickonPromptCandidate=page.locator('(//div[@class="labelVal-Create reqLabel"])[6]//input');
         this.ClickOnAdminSaveBtn=page.locator('//button[@class="btn primarybtn"]');
-
         this.fectchExamID=page.locator('//div[@class="label-text"]');
         this.CameraLink=page.locator('//div[@id="camera_link"]//input[@name="inputbox"]');
         this.MicrophoneLink=page.locator('//div[@id="microphone_link"]//input[@name="inputbox"]');
@@ -396,7 +395,7 @@ export class EluminaProctorExamPage {
         await this.EnterNoOfCandidates.type('0100');
         await this.ClickOnAdd.click();
         await this.EnterInvigilatorPswd.click();
-        await this.EnterInvigilatorPswd.type('ABC09');
+        await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
         await this.page.waitForTimeout(5000);
 
         await this.ClickOnNextBtn.click();
@@ -666,7 +665,7 @@ async createExamwithDiffZone(): Promise<void> {
   await this.EnterNoOfCandidates.type('01');
   await this.ClickOnAdd.click();
   await this.EnterInvigilatorPswd.click();
-  await this.EnterInvigilatorPswd.type('ABC09');
+  await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
 
 
   await this.ExamTools.click();
@@ -763,7 +762,7 @@ async createExamWithCalculator(): Promise<void> {
   await this.EnterNoOfCandidates.type('01');
   await this.ClickOnAdd.click();
   await this.EnterInvigilatorPswd.click();
-  await this.EnterInvigilatorPswd.type('ABC09');
+  await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
   await this.page.waitForTimeout(5000);
 
 
@@ -778,20 +777,20 @@ async createExamWithCalculator(): Promise<void> {
   await this.page.waitForTimeout(5000);
 }
 
-/**Method to Create Exam Section */
-async createSections(): Promise<void>{
-  const examID=await this.fectchExamID.textContent();
-  console.log("Exam ID:"+examID);
+async createSections(): Promise<string>{
+  EluminaProctorExamPage.examID=await this.fectchExamID.textContent();
+  console.log("Exam ID:"+EluminaProctorExamPage.examID);
   await this.CliCKOnCreateSection.click();
   await this.ClickOnCreateExamSection.click();
   await this.EnterSectionName.type('Exam-'+Math.floor(Math.random()*89+10));
   await this.page.waitForTimeout(5000);
   await this.DescriptionMessage.click();
-  await this.DescriptionMessage.type('Hello World......!');
+  await this.DescriptionMessage.type(testData.DescriptionMessage);
   await this.page.waitForTimeout(5000);
   await this.SelectTime.selectOption('0');
   await this.SelectTime.selectOption('30');
   await this.ClickOnSave.click();
+  return EluminaProctorExamPage.examID;
 
 }
 
@@ -802,7 +801,7 @@ async createSections(): Promise<void>{
       await this.EnterSectionName.type('Content-'+Math.floor(Math.random())*89+10);
       await this.page.waitForTimeout(5000);
       await this.DescriptionMessage.click();
-      await this.DescriptionMessage.type('Hello World.....');
+      await this.DescriptionMessage.type(testData.DescriptionMessage);
       await this.page.waitForTimeout(5000);
       await this.selectMinutes.selectOption('1');
       await this.ClickOnSave.click();
@@ -815,7 +814,7 @@ async createSections(): Promise<void>{
       await this.enterContentTitle.type('Content-A'+Math.floor(Math.random())*89+10);
       await this.page.waitForTimeout(5000);
       await this.DescriptionMessage.click();
-      await this.DescriptionMessage.type('Hello World.....');
+      await this.DescriptionMessage.type(testData.DescriptionMessage);
       await this.page.waitForTimeout(5000);
       await this.ClickOnContentLayout.click();
       await this.ClickOnTermAndCondition.click();
@@ -830,7 +829,7 @@ async createSections(): Promise<void>{
       await this.EnterSectionName.type('Exam-'+Math.floor(Math.random())*89+10);
       await this.page.waitForTimeout(5000);
       await this.DescriptionMessage.click();
-      await this.DescriptionMessage.type('Hello World.....');
+      await this.DescriptionMessage.type(testData.DescriptionMessage);
       await this.page.waitForTimeout(5000);
       await this.SelectTime.selectOption('1');
       await this.SelectTime.selectOption('30');
@@ -955,7 +954,7 @@ async createSections(): Promise<void>{
     await this.EnterNoOfCandidates.type('03');
     await this.ClickOnAdd.click();
     await this.EnterInvigilatorPswd.click();
-    await this.EnterInvigilatorPswd.type('ABC09');
+    await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
     await this.page.waitForTimeout(2000);
     await this.ClickOnNextBtn.click();
     await expect(this.VerifyExam_details).toBeVisible();

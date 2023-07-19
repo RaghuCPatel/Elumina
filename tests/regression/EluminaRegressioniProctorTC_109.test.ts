@@ -1,4 +1,4 @@
-import test from '@lib/BaseTest';
+import test from '@lib/Fixtures';
 import { chromium } from '@playwright/test';
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
@@ -28,9 +28,9 @@ else if(process.env.ENV == 'staging'){
     testData = stagingTestData;
 } 
 
-/** Validation of Candidate> Enforce Hardware Check > False */
+/** Validation of Candidate > Peripheral verification screen > Terms and Conditions */
 
-test(`@Regression Validation of Candidate> Enforce Hardware Check > False`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+test(`@Regression Validation of Candidate > Peripheral verification screen > Terms and Conditions`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -44,7 +44,7 @@ test(`@Regression Validation of Candidate> Enforce Hardware Check > False`, asyn
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExam();
-        await newtab.createSection();
+        await newtab.createSections();
         await newtab.addMCQQuestions();
     });
 });
@@ -71,6 +71,7 @@ test(`@Regression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctor
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
         await eluminaProctorCand.startExam();
+        await eluminaProctorCand.termsandConditions();
     });   
 
 });
