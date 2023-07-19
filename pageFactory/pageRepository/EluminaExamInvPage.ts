@@ -54,7 +54,7 @@ if (hour >= 12) {
 console.log(`${period}`);
 
 export class EluminaExamInvPage{
-
+    static examID:string;
     readonly page: Page;
     readonly context: BrowserContext;
     readonly AUTHOR: Locator;
@@ -106,7 +106,7 @@ export class EluminaExamInvPage{
     readonly ClickOnSelectAllCheckBox:Locator;
     readonly ClickOnAddBtn:Locator;
     readonly ClickOnSubmitAndApproveBtn:Locator;
-
+    readonly fectchExamID:Locator;
   
     constructor(page: Page, context: BrowserContext ) {
         this.page = page;
@@ -159,7 +159,7 @@ export class EluminaExamInvPage{
         this.ClickOnSave=page.locator('//button[normalize-space()="Save"]');
         this.ClickOnNextBtn=page.locator('//button[normalize-space()="Next"]');
         this.ClickOnSubmitAndApproveBtn=page.locator('//button[normalize-space()="Submit & Approve"]');
-
+        this.fectchExamID=page.locator('//div[@class="label-text"]');
     }
 
 
@@ -265,7 +265,9 @@ export class EluminaExamInvPage{
 
 
 /**Method to Create Exam Section */
-async createSections(): Promise<void>{
+async createSections(): Promise<string>{
+  EluminaExamInvPage.examID=await this.fectchExamID.textContent();
+  console.log("Exam ID:"+EluminaExamInvPage.examID);
   await this.CliCKOnCreateSection.click();
   await this.ClickOnCreateExamSection.click();
   await this.EnterSectionName.type('Exam-'+Math.floor(Math.random()*89+10));
@@ -276,7 +278,7 @@ async createSections(): Promise<void>{
   await this.SelectTime.selectOption('0');
   await this.SelectTime.selectOption('30');
   await this.ClickOnSave.click();
-
+  return EluminaExamInvPage.examID;
 }
   
 //**Methods to add All Questions in Exam Section page */

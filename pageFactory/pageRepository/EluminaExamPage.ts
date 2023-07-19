@@ -69,6 +69,7 @@ function makeid(length) {
 
 
 export class EluminaExamPage {
+  static examID:string;
     readonly page: Page;
     readonly context: BrowserContext;
     readonly EXAMSMENU: Locator;
@@ -138,6 +139,7 @@ export class EluminaExamPage {
     readonly SelectHighlighter:Locator;
     
     readonly Choosehrs:Locator;
+    readonly fectchExamID:Locator;
 
     readonly ProctoringExam:Locator;
     readonly EnterInvigilatorPswd:Locator;
@@ -218,6 +220,7 @@ export class EluminaExamPage {
         this.SelectNotepad=page.locator('(//div[@class="dropdown-main"])[6]//ul//li[2]//span[text()="Notepad"]');
         this.SelectCalculator=page.locator('(//div[@class="dropdown-main"])[6]//ul//li[1]//span[text()="Calculator"]');
         this.SelectHighlighter=page.locator('(//div[@class="dropdown-main"])[6]//ul//li[3]//span[text()="Highlighter"]');
+        this.fectchExamID=page.locator('//div[@class="label-text"]');
 
 
     }
@@ -461,7 +464,9 @@ export class EluminaExamPage {
     }
 
     /**Create Exam Section */
-    async createSection(): Promise<void>{
+    async createSection(): Promise<string>{
+      EluminaExamPage.examID=await this.fectchExamID.textContent();
+      console.log("Exam ID:"+EluminaExamPage.examID);
       await this.CliCKOnCreateSection.click();
       await this.ClickOnCreateExamSection.click();
       await this.EnterSectionName.type('Exam-'+Math.floor(Math.random())*89+10);
@@ -473,6 +478,7 @@ export class EluminaExamPage {
       await this.SelectTime.selectOption('30');
       await this.ClickOnSave.click();
       await this.page.waitForTimeout(5000);
+      return EluminaExamPage.examID;
 
 
     }
@@ -492,7 +498,6 @@ export class EluminaExamPage {
       await this.ClickOnSave.click();
 
     }
-
     async createSurveyPage():Promise<void>{
       await this.ClickOnAddSurveyQuestion.click();
       await this.ClickOnSearchQuestion.click()
@@ -502,13 +507,10 @@ export class EluminaExamPage {
       await this.ClickOnAddBtn.click()
       await this.ClickOnSave.click();
       await this.ClickOnNextBtn.click();
-      await this.ClickOnSubmitAndApproveBtn.click();
-      // await this.page.waitForTimeout(5000);
-      await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
       await this.page.waitForTimeout(5000);
-
-
-
+      await this.ClickOnSubmitAndApproveBtn.click();
+      //await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+      await this.page.waitForTimeout(5000);
     }
 
     /*Add all Questions in an Exam*/
