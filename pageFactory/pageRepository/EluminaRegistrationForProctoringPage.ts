@@ -177,7 +177,6 @@ export class EluminaRegistrationForProctoringPage {
         await this.RegistrationMenu.click();
         let examid= EluminaProctorExamPage.examID;
         console.log(EluminaProctorExamPage.examID);
-        await this.searchExam.type(examid);
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
     }

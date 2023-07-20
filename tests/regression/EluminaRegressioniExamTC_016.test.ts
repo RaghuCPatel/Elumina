@@ -33,7 +33,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
         await newtab.addMultipleUserDetails();
-        await newtab.downloadMyltipleUserDetails();
+        await newtab.downloadMultipleUserDetails();
     });
 
     test(`@Regression Verify Login Application`, async ({ eluminaCandPage,webActions }) => {

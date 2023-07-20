@@ -3,6 +3,8 @@ import { WebActions } from "@lib/WebActions";
 import { testConfig } from '../../testConfig';
 import { EluminaHomePage } from './EluminaHomePage';
 import { EluminaExamInvPage } from './EluminaExamInvPage';
+import { EluminaExamPage } from './EluminaExamPage';
+
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
 const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
@@ -130,9 +132,11 @@ export class EluminaRegistrationInvPage {
        // this.AssignInvToCand=page.locator('//span[text()="Incharge Exam"]');
         this.AssignInvToCand=page.locator('(//span[@class="open"])[5]');
         this.ClickOnInvSaveBtn=page.locator('(//button[text()="Save"])[2]');
-
         this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
         const examId:string=String(EluminaExamInvPage.examID);
+        this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
+        const examId:string=String(EluminaExamPage.examID);
+        console.log(examId);
     }
 
     /**Method for Page Navigation */
@@ -148,7 +152,6 @@ export class EluminaRegistrationInvPage {
     /**Method to register for the exam */
     async registrationTabNavigation():Promise<void> {
         await this.RegistrationMenu.click();
-        await this.RegistrationMenu.click();
         let examid= EluminaExamInvPage.examID;
         console.log(EluminaExamInvPage.examID);
         await this.searchExam.type(examid);
@@ -156,6 +159,7 @@ export class EluminaRegistrationInvPage {
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
     }
+
 
     /**Method to Add User Details */
     async addUserDetails():Promise<void>{

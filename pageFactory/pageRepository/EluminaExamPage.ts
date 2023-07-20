@@ -69,7 +69,7 @@ function makeid(length) {
 
 
 export class EluminaExamPage {
-  static examID:string;
+    static examID:string;
     readonly page: Page;
     readonly context: BrowserContext;
     readonly EXAMSMENU: Locator;
@@ -137,12 +137,10 @@ export class EluminaExamPage {
     readonly SelectNotepad:Locator;
     readonly SelectCalculator:Locator;
     readonly SelectHighlighter:Locator;
-    
     readonly Choosehrs:Locator;
-    readonly fectchExamID:Locator;
-
     readonly ProctoringExam:Locator;
     readonly EnterInvigilatorPswd:Locator;
+    readonly fectchExamID:Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -221,8 +219,6 @@ export class EluminaExamPage {
         this.SelectCalculator=page.locator('(//div[@class="dropdown-main"])[6]//ul//li[1]//span[text()="Calculator"]');
         this.SelectHighlighter=page.locator('(//div[@class="dropdown-main"])[6]//ul//li[3]//span[text()="Highlighter"]');
         this.fectchExamID=page.locator('//div[@class="label-text"]');
-
-
     }
 
     /**Method for Page Navigation */
@@ -431,6 +427,7 @@ export class EluminaExamPage {
       await this.page.waitForTimeout(5000);
       await this.selectMinutes.selectOption('1');
       await this.ClickOnSave.click();
+      
     }
 
     /**Method to Create a Content Section Page*/
@@ -472,15 +469,13 @@ export class EluminaExamPage {
       await this.EnterSectionName.type('Exam-'+Math.floor(Math.random())*89+10);
       await this.page.waitForTimeout(5000);
       await this.DescriptionMessage.click();
-      await this.DescriptionMessage.type('Hello World.....');
+      await this.DescriptionMessage.type(testData.DescriptionMessage);
       await this.page.waitForTimeout(5000);
       await this.Choosehrs.selectOption('1');
       await this.SelectTime.selectOption('30');
       await this.ClickOnSave.click();
       await this.page.waitForTimeout(5000);
       return EluminaExamPage.examID;
-
-
     }
 
      //Create Survey Section
