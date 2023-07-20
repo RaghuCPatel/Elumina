@@ -276,7 +276,6 @@ export class EluminaMinimalTimeExamPage {
       await this.DescriptionMessage.type('Hello World.....');
       await this.page.waitForTimeout(5000);
       await this.Choosehrs.selectOption('0');
-
       await this.SelectTime.selectOption('1');
       await this.ClickOnSave.click();
       await this.page.waitForTimeout(5000);

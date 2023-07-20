@@ -1,7 +1,6 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
-import { testConfig } from '../../testConfig';
-import { EluminaHomePage } from './EluminaHomePage';
+
 import { EluminaExamInvPage } from './EluminaExamInvPage';
 import { EluminaExamPage } from './EluminaExamPage';
 
@@ -129,13 +128,11 @@ export class EluminaRegistrationInvPage {
         this.SelectExBookingStatus=page.locator('//input[@placeholder="Select Booking Status"]');
         this.SelectInvBookingStatus=page.locator('//span[text()="Booked"]');
         this.AssignUsersToCand=page.locator('//input[@placeholder="Select User(s)"]');
-       // this.AssignInvToCand=page.locator('//span[text()="Incharge Exam"]');
         this.AssignInvToCand=page.locator('(//span[@class="open"])[5]');
         this.ClickOnInvSaveBtn=page.locator('(//button[text()="Save"])[2]');
+        
         this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
         const examId:string=String(EluminaExamInvPage.examID);
-        this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
-        const examId:string=String(EluminaExamPage.examID);
         console.log(examId);
     }
 
@@ -159,8 +156,7 @@ export class EluminaRegistrationInvPage {
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
     }
-
-
+    
     /**Method to Add User Details */
     async addUserDetails():Promise<void>{
         await this.EnterClientID.type(makeid(testData.clientId)+Math.floor(Math.random()*899+100));
