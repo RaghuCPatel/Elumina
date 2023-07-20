@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of multiple candidate trying to login to same Exam*/
 
-test(`@Regression Validation of multiple candidate trying to login to same Exam`, async ({ eluminaLoginPage,eluminaExamPage,eluminaCandPage,webActions }) => {
+test(`@Regression Validation of multiple candidate trying to login to same Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -12,17 +12,16 @@ test(`@Regression Validation of multiple candidate trying to login to same Exam`
     await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
         await eluminaLoginPage.verifyProfilePage();
     });
-    await test.step(`Navigate to exam Tab and Create New Exam and add MCQ Questions`, async () => {
+    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createExamforMultipleCandidates();
+        await newtab.createExam();
         await newtab.createSection();
         await newtab.addMCQQuestions();
     });
 });
 
-
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegInvPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -30,12 +29,12 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await eluminaLoginPage.loginToApplication();
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaRegPage.iAuthorPageNavigations();
+        const newtab = await eluminaRegInvPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
         await newtab.addMultipleUserDetails();
-        await newtab.downloadMultipleUserDetails();
+        await newtab.downloadUserDetails();
     });
-
+});
     test(`@Regression Verify Login Application`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
@@ -47,5 +46,4 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await eluminaCandPage.candidateStartMCQ();
     });
     
-});
 });

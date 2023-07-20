@@ -70,6 +70,23 @@ export class EluminaRegistrationPage {
     readonly searchExam:Locator;
     readonly clickbulkdropdown:Locator;
     readonly clickonbulkdownload:Locator;
+    readonly ClickOnDropdown2:Locator;
+    readonly ClickOnAssignInv:Locator;
+    readonly ClickOnAddExistingUser:Locator;
+    readonly SearchUsers:Locator;
+    readonly CLickOnUser:Locator;
+    readonly ChooseExistingRole:Locator;
+    readonly SelectInvRole:Locator;
+    readonly SelectExVenue:Locator;
+    readonly SelectInvVenue:Locator;
+    readonly SelectExEligible:Locator;
+    readonly SelectInvEligible:Locator;
+    readonly SelectExBookingStatus:Locator;
+    readonly SelectInvBookingStatus:Locator;
+    readonly AssignUsersToCand:Locator;
+    readonly AssignInvToCand:Locator;
+    readonly ClickOnInvSaveBtn:Locator;
+    
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -94,13 +111,32 @@ export class EluminaRegistrationPage {
         this.SelectBookingStatus=page.locator('//table[@class="table"]//tbody//tr[1]//td[12]//select');
         this.ClickOnSaveBtn=page.locator('//button[@class="theme-btn theme-primary-btn"]');
         this.LeftArrow=page.locator('//i[@class="iconBg leftArrow"]');
-        this.ClickOnDropdown=page.locator('//a[@class="icon dropdown-toggle"]');
-        this.ClickOnDownloadUserDeatils=page.locator('(//p[text()="Download User details"])[1]');
         this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
 
         this.clickbulkdropdown=page.locator('//button[@class="btn dotbutton btn-default"]');
         this.clickonbulkdownload=page.locator('//a[text()="Bulk Download User Details"]');
 
+        this.ClickOnDropdown=page.locator('(//a[@class="icon dropdown-toggle"])[1]');
+        this.ClickOnDropdown2=page.locator('(//a[@class="icon dropdown-toggle"])[2]');
+        this.ClickOnDownloadUserDeatils=page.locator('(//p[text()="Download User details"])[1]');
+        this.ClickOnAssignInv=page.locator('(//p[text()="Assign Invigilator"])[1]');
+
+        this.ClickOnAddExistingUser=page.locator('//a[normalize-space()="Add Existing Users"]');
+        this.SearchUsers=page.locator('//input[@placeholder="Search User(s)"]');
+        this.CLickOnUser=page.locator('//tbody/tr[1]/td[2]/input[1]');
+        this.ChooseExistingRole=page.locator('//div[@class="btn-selected-list"]//div//ul');
+        this.SelectInvRole=page.locator('//span[text()="Examiner-in-Charge"]');
+        this.SelectExVenue=page.locator('//input[@placeholder="Select Venue"]');
+        this.SelectInvVenue=page.locator('//span[text()="Elumina Chennai"]');
+        this.SelectExEligible=page.locator('//input[@placeholder="Select Eligible"]');
+        this.SelectInvEligible=page.locator('//span[text()="Yes"]');
+        this.SelectExBookingStatus=page.locator('//input[@placeholder="Select Booking Status"]');
+        this.SelectInvBookingStatus=page.locator('//span[text()="Booked"]');
+        this.AssignUsersToCand=page.locator('//input[@placeholder="Select User(s)"]');
+        this.AssignInvToCand=page.locator('(//span[@class="open"])[5]');
+        this.ClickOnInvSaveBtn=page.locator('(//button[text()="Save"])[2]');
+
+        this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
         const examId:string=String(EluminaExamPage.examID);
         console.log(examId);
     }
@@ -125,6 +161,7 @@ export class EluminaRegistrationPage {
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
     }
+
     /**Method to Add User Details */
     async addUserDetails():Promise<void>{
         await this.EnterClientID.type(makeid(testData.clientId)+Math.floor(Math.random()*899+100));
@@ -211,50 +248,55 @@ export class EluminaRegistrationPage {
         await this.LeftArrow.click();
      }
 
-    /**Method to Download the Multiple User Details */
-    async downloadMultipleUserDetails():Promise<void>{
-       
-        await this.clickbulkdropdown.click();
-        const downloadPromise = this.page.waitForEvent('download');
-        await this.clickonbulkdownload.click();
-        const download = await downloadPromise;
-        // Wait for the download process to complete.
-        console.log(await download.path());
-        const suggestedFileName = download.suggestedFilename();
-        const filePath = 'download/' + suggestedFileName
-        await download.saveAs(filePath)
-        await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
-        await this.page.waitForTimeout(15000);
-        
-    }
-    //  /**Method to Download the Multiple User Details */
-    //  async downloadMyltipleUserDetails():Promise<void>{
-    //     await this.page.waitForSelector('//a[@class="icon dropdown-toggle"]');
-    //     let clickdropdown = await this.page.$$('//a[@class="icon dropdown-toggle"]'); 
-
-    //     for(let i=0;i<=clickdropdown.length-1;i++)  {
-    //     await clickdropdown[i].click();
-    //     console.log(clickdropdown.length-1);
-
-    //     const downloadPromise = this.page.waitForEvent('download');
-    //     await this.page.waitForSelector('(//p[text()="Download User details"])');
-
-    //     let clickonUserdropdown = await this.page.$$('(//p[text()="Download User details"])')
-
-    //         for(let i=0;i<=clickonUserdropdown.length-1;i++){
-
-    //             console.log(clickonUserdropdown.length-1);
-    //             //const downloadPromise = this.page.waitForEvent('download');
-    //             await clickonUserdropdown[i].click();
-    //             const download = await downloadPromise;
-    //             // Wait for the download process to complete.
-    //             console.log(await download.path());
-    //             const suggestedFileName = download.suggestedFilename();
-    //             const filePath = 'download/' + suggestedFileName
-    //             await download.saveAs(filePath)
-    //     }
-    // }
-    // await this.page.waitForTimeout(8000);
-    // }
-
+      /**Method to Add invigilator to the exam */
+    async addExistingUsers():Promise<void>{
+        await this.ClickOnAddExistingUser.click();
+        await this.SearchUsers.click();
+        await this.SearchUsers.type(testData.invigilatorName);
+        await this.page.waitForTimeout(6000);
+        await this.CLickOnUser.click();
+        await this.ChooseExistingRole.click();
+        await this.SelectInvRole.click();
+        await this.SelectExVenue.click();
+        await this.SelectInvVenue.click();
+        await this.SelectExEligible.click();
+        await this.SelectInvEligible.click();
+        await this.SelectExBookingStatus.click();
+        await this.SelectInvBookingStatus.click();
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(6000);
+        await this.LeftArrow.click();
+        await this.ClickOnDropdown2.click();
+        await this.ClickOnAssignInv.click();
+        await this.AssignUsersToCand.click();
+        await this.AssignInvToCand.click();
+        await this.ClickOnInvSaveBtn.click();
+        await this.page.waitForTimeout(5000);
+     }
+ 
+     /**Method to Add existing candidate to the exam */
+     async addExistingUsers1():Promise<void>{
+         await this.ClickOnAddExistingUser.click();
+         await this.SearchUsers.click();
+         await this.SearchUsers.type('Roopam Chopra');
+         await this.page.waitForTimeout(6000);
+         await this.CLickOnUser.click();
+         await this.ChooseExistingRole.click();
+         await this.SelectInvRole.click();
+         await this.SelectExVenue.click();
+         await this.SelectInvVenue.click();
+         await this.SelectExEligible.click();
+         await this.SelectInvEligible.click();
+         await this.SelectExBookingStatus.click();
+         await this.SelectInvBookingStatus.click();
+         await this.ClickOnSaveBtn.click();
+         await this.page.waitForTimeout(6000);
+         await this.LeftArrow.click();
+         await this.ClickOnDropdown2.click();
+         await this.ClickOnAssignInv.click();
+         await this.AssignUsersToCand.click();
+         await this.AssignInvToCand.click();
+         await this.ClickOnInvSaveBtn.click();
+         await this.page.waitForTimeout(5000);
+      }
 }

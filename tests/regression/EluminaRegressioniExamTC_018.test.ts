@@ -21,7 +21,7 @@ test(`@Regression Verify Elumina Login and Create Exam and add MCQ`, async ({ el
     });
 });    
 
-test(`@Regression add user in Registration and download User details and assign Invigilator`, async ({ eluminaLoginPage,eluminaRegInvPage,webActions }) => {
+test(`@Regression add user in Registration and download User details and assign Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -29,7 +29,7 @@ test(`@Regression add user in Registration and download User details and assign 
         await eluminaLoginPage.loginToApplication();
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaRegInvPage.iAuthorPageNavigations();
+        const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();

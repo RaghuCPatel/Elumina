@@ -174,7 +174,7 @@ export class EluminaExamInvPage{
           return new exports.EluminaExamInvPage(newPage);
     }
 
-      //** Method to click on Exam Menu*/
+  //** Method to click on Exam Menu*/
     async examTabNavigations(): Promise<void> {
         await this.EXAMSMENU.click();
   }
