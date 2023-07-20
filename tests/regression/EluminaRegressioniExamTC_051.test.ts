@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Candidate Exam section - exam name, candidate name, exam timer and no of questions in the exam as per exam settings.*/
 
-test(`@Regression Validation of Candidate Exam section - exam name, candidate name, exam timer and no of questions in the exam as per exam settings.`, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
+test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

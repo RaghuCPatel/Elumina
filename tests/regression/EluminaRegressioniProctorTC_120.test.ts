@@ -50,27 +50,11 @@ test(`@RegressionValidation of Proctoring Exam Event > Candidate Authentication 
             await newPage.locator('//a[text()="Registration"]').click();
             await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
             await newPage.locator('//a[text()="Live Monitor"]').click();
-
             await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
             await newPage.locator('//a[@class="dropdown-toggle"]').click();
             await newPage.locator('//p[text()="Verify Identity"]').click();
             await newPage.locator('(//button[text()="Yes"])[1]').click();
              await newPage.waitForTimeout(3000);
-
-            //  await eluminaProctorCand.againCandidateLogin();
-            //  await eluminaProctorCand.enterInvigilatorPassword();
-            //  await eluminaCandPage.candidateStartMCQAndSubmit();
-            //  await eluminaCandPage.clickOnAutoSubmitOKPopup();
-
-
-            // await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click();
-            // await newPage.waitForTimeout(3000);
-            // await newPage.locator('//img[@class="proctoringImg"]').click();
-            // await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();
-            // await newPage.waitForTimeout(3000);
-            // let status=await newPage.locator('//div[@class="status"]').textContent();
-            // await newPage.waitForTimeout(3000);
-            // console.log("Candidate status:"+status);
 
             await newPage.close();
             await page1.close();

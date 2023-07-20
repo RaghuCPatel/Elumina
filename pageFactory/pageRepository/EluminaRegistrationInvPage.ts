@@ -134,8 +134,6 @@ export class EluminaRegistrationInvPage {
         this.ClickOnInvSaveBtn=page.locator('(//button[text()="Save"])[2]');
         this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
         const examId:string=String(EluminaExamInvPage.examID);
-        this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
-        const examId:string=String(EluminaExamPage.examID);
         console.log(examId);
     }
 

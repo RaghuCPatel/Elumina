@@ -59,5 +59,4 @@ test(`@Regression Verify Validation of Candidate attends All Question type`, asy
 
     });
 
-
 });

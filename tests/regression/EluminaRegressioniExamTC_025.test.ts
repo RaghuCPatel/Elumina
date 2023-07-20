@@ -2,7 +2,6 @@ import test from '@lib/BaseTest';
 
 //Validation of Browser back button after Exam Starts
 
-
 test(`@Regression Verify Elumina Login and Create Exam and add MCQ`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();

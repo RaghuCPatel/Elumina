@@ -104,7 +104,6 @@ test(`@Regression Validation of Live monitor > Proctoring View`, async ({ elumin
             console.log(await actions[i].textContent());
            }
 
-
         });
 
     });

@@ -1,7 +1,7 @@
 import test from '@lib/BaseTest';
 
 /**Validation of "Time Remaining" pop-up when the just before the exam time runs out */
-test(`@Regression Validation of "Time Remaining" pop-up when the just before the exam time runs out`, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, webActions }) => {
+test(`@Regression Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -35,7 +35,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
 });
 
-test(`@Regression Validation of Empty Field validation`, async ({ eluminaCandPage, webActions }) => {
+test(`@Regression Validation of "Time Remaining" pop-up when the just before the exam time runs out`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

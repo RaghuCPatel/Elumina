@@ -1,6 +1,9 @@
 import test from '@lib/BaseTest';
+import { EluminaIGLiveMonitorPage } from '@pages/EluminaIGLiveMonitorPage';
+import { testConfig } from '../../testConfig';
 
-/** Validate candidate attending VSAQ Question type */
+/** Validation of Invigilator marks attendance for All candidates */
+
 test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
@@ -16,7 +19,7 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
         await newtab.examTabNavigation();
         await newtab.createExam();
         await newtab.createSection();
-        await newtab.addVSAQQuestions();
+        await newtab.addMCQQuestions();
     });
 });
 
@@ -32,17 +35,20 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
         await newtab.registrationTabNavigation();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
+        await newtab.addExistingUsers();
     });
 });
 
-test(`@Regression Verify Validation of VSAQ Question type`, async ({ eluminaCandPage,webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaCandPage.candidateNavigateToURL();
+test(`@Regression Verify Invigilator marks attendance for All candidates`, async ({ eluminaLiveMonitorPage, webActions }) => {
+    await test.step('Invigilator logging into application', async () => {
+        await eluminaLiveMonitorPage.invigilatorLogin();
     });
 
-    await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
-        await eluminaCandPage.candidateStartVSAQ();
-    });
+    await test.step('Invigilator marks attendance for all candidate', async () => {
+        const newtab = await eluminaLiveMonitorPage.iAuthorPageNavigation();
+        await newtab.iAuthorPageVerification();
+        await newtab.markAllAttendance();
+        //await newtab.isPresentYes();
 
+    });
 });

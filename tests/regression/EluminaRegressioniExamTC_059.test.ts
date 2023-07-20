@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering */
 
-test(`@Regression Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering `, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
+test(`@Regression Verify Elumina Login and create exam `, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -37,8 +37,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });
 
-test(`@Regression Verify Validation of the following in the Exam Section
-Exam name, Candidate name, Exam timer, no of questions as per exam created`, async ({ eluminaCandPage,webActions }) => {
+test(`@Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering `, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

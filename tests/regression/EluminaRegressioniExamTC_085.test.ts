@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 import { chromium } from '@playwright/test';
 import { testConfig } from '../../testConfig';
 
-/** Validate Survey screen*/
+/** Validate Survey screen where candidate can provide feedback in comment section*/
 test(`@Regression Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
@@ -40,7 +40,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         });
     });
     
-    test(`@Regression Verify Validation of Survey screen`, async ({ eluminaCandPage,webActions }) => {
+    test(`@Regression Verify Validation of Candidate answering survey questions`, async ({ eluminaCandPage,webActions }) => {
         await test.step(`Navigate to Application`, async () => {
             await eluminaCandPage.candidateNavigateToURL();
         });
@@ -48,6 +48,8 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
             await eluminaCandPage.candidateLoginToApplication();
             await eluminaCandPage.candidateSurveyStartOneMCQ();
             await eluminaCandPage.examSectionValidation();
+            await eluminaCandPage.candidateAnsSurveyQuestion();
+
        
         });
         

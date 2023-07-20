@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of multiple candidate trying to login to same Exam*/
 
-test(`@Regression Validation of multiple candidate trying to login to same Exam`, async ({ eluminaLoginPage,eluminaExamPage,eluminaCandPage,webActions }) => {
+test(`@Regression Verify Elumina Login and create exam `, async ({ eluminaLoginPage,eluminaExamPage,eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -36,7 +36,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadMultipleUserDetails();
     });
 
-    test(`@Regression Verify Login Application`, async ({ eluminaCandPage,webActions }) => {
+    test(`@Regression Validation of multiple candidate trying to login to same Exam`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
