@@ -1,13 +1,14 @@
 import test from '@lib/BaseTest';
 
-/**Validation of Candidate Start Practice Exam*/
+/**Validation of Candidate Start Exam without Invigilator Password*/
 
 test(`@Regression Validation of Candidate Start Practice Exam`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
-    await test.step(`Candidate Login to application with inactive user`, async () => {
-        await eluminaCandPage.candidateLoginToAppStartExamandSignout();
+    await test.step(`Candidate Login to application with and start exam`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateStartMCQ();
     });
     
 });

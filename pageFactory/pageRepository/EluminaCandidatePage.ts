@@ -210,8 +210,8 @@ export class EluminaCandidatePage {
               console.log(ws.actualRowCount)
               console.log(ws.getRow(2).getCell(1).value)
               console.log(ws.getRow(2).getCell(4).value)
-              await this.CandidateUsername.fill('Abcf12');
-              await this.CandidatePassword.fill('shgadhjdgk');
+              await this.CandidateUsername.fill(testData.InvalidCandidateUsername);
+              await this.CandidatePassword.fill(testData.InvalidCandidatePassword);
         })
 
         await this.page.waitForTimeout(5000);

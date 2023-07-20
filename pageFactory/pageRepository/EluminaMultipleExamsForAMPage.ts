@@ -185,40 +185,40 @@ export class EluminaMultipleExamsForAMPage {
         await this.BookingStartDate.click();
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
-        await this.BookingStartHrs.type('09');
+        await this.BookingStartHrs.type(testData.StartBookingHr);
         await this.BooingStartMins.click();
         await this.BooingStartMins.clear();
-        await this.BooingStartMins.type('30');
+        await this.BooingStartMins.type(testData.EndBookingmin);
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
         await this.BookingEndCalender.click();
         await this.BookingEndDate.click();
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
-        await this.BookingStartHrs.type('09');
+        await this.BookingStartHrs.type(testData.StartBookingHr);
         await this.BooingStartMins.click();
         await this.BooingStartMins.clear();
-        await this.BooingStartMins.type('31');
+        await this.BooingStartMins.type(testData.EndBookingmins);
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
         await this.ExamStartCalender.click();
         await this.ExamStartDate.click();
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
-        await this.BookingStartHrs.type('09');
+        await this.BookingStartHrs.type(testData.StartBookingHr);
         await this.BooingStartMins.click();
         await this.BooingStartMins.clear();
-        await this.BooingStartMins.type('32');
+        await this.BooingStartMins.type(testData.StartExamMin);
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
         await this.ExamEndCalender.click();
         await this.ExamEndDate.click();
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
-        await this.BookingStartHrs.type('10');
+        await this.BookingStartHrs.type(testData.EndExamhr);
         await this.BooingStartMins.click();
         await this.BooingStartMins.clear();
-        await this.BooingStartMins.type('45');
+        await this.BooingStartMins.type(testData.EndExamMin);
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
         await this.ClickOnExamVenue.click();
@@ -336,11 +336,11 @@ export class EluminaMultipleExamsForAMPage {
       await this.BookingStartDate.click();
       await this.BookingStartHrs.click();
       await this.BookingStartHrs.clear();
-      await this.BookingStartHrs.type('09');
+      await this.BookingStartHrs.type(testData.StartBookingHr);
 
       await this.BooingStartMins.click();
       await this.BooingStartMins.clear();
-      await this.BooingStartMins.type('30');
+      await this.BooingStartMins.type(testData.EndBookingmin);
       await this.ChooseBookingStartSession.check();
       await this.BookingOK.click();
 
@@ -348,10 +348,10 @@ export class EluminaMultipleExamsForAMPage {
       await this.BookingEndDate.click();
       await this.BookingStartHrs.click();
       await this.BookingStartHrs.clear();
-      await this.BookingStartHrs.type('09');
+      await this.BookingStartHrs.type(testData.StartBookingHr);
       await this.BooingStartMins.click();
       await this.BooingStartMins.clear();
-      await this.BooingStartMins.type('31');
+      await this.BooingStartMins.type(testData.EndBookingmins);
       await this.ChooseBookingStartSession.check();
       await this.BookingOK.click();
 
@@ -359,10 +359,10 @@ export class EluminaMultipleExamsForAMPage {
       await this.ExamStartDate.click();
       await this.BookingStartHrs.click();
       await this.BookingStartHrs.clear();
-      await this.BookingStartHrs.type('09');
+      await this.BookingStartHrs.type(testData.StartBookingHr);
       await this.BooingStartMins.click();
       await this.BooingStartMins.clear();
-      await this.BooingStartMins.type('32');
+      await this.BooingStartMins.type(testData.StartExamMin);
       await this.ChooseBookingStartSession.check();
       await this.BookingOK.click();
 
@@ -370,10 +370,10 @@ export class EluminaMultipleExamsForAMPage {
       await this.ExamEndDate.click();
       await this.BookingStartHrs.click();
       await this.BookingStartHrs.clear();
-      await this.BookingStartHrs.type('10');
+      await this.BookingStartHrs.type(testData.EndExamhr);
       await this.BooingStartMins.click();
       await this.BooingStartMins.clear();
-      await this.BooingStartMins.type('45');
+      await this.BooingStartMins.type(testData.EndExamMin);
       await this.ChooseBookingStartSession.check();
       await this.BookingOK.click();
 
@@ -385,7 +385,7 @@ export class EluminaMultipleExamsForAMPage {
       await this.EnterNoOfCandidates.type('0100');
       await this.ClickOnAdd.click();
       await this.EnterInvigilatorPswd.click();
-      await this.EnterInvigilatorPswd.type('ABC09');
+      await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
       await this.page.waitForTimeout(5000);
 
       await this.ClickOnNextBtn.click();

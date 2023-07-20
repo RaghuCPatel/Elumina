@@ -185,6 +185,7 @@ export class EluminaProctorCandidatePage {
         await this.ClickOnCheckBox.click();
         await this.page.waitForTimeout(3000);
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+    }
 
      /**Methods to click on Start Exam Link */
      async clickOnStartExamLink1(){
