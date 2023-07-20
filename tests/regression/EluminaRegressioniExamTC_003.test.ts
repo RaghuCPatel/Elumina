@@ -16,7 +16,7 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
         await newtab.examTabNavigation();
         await newtab.createExam();
         await newtab.createSection();
-        await newtab.addQuestionsInExam();
+        await newtab.addMCQQuestions();
     });
 });
 
@@ -29,7 +29,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegInvPage.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
+        await newtab.registrationTabNavigationEluminaExamPage();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();

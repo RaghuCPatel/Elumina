@@ -4,6 +4,7 @@ import { testConfig } from '../../testConfig';
 import { EluminaHomePage } from './EluminaHomePage';
 import { EluminaExamInvPage } from './EluminaExamInvPage';
 import { EluminaExamPage } from './EluminaExamPage';
+import { EluminaMinimalTimeExamPage } from './EluminaMinimalTimeExamPage';
 
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
@@ -134,9 +135,9 @@ export class EluminaRegistrationInvPage {
         this.ClickOnInvSaveBtn=page.locator('(//button[text()="Save"])[2]');
         this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
         const examId:string=String(EluminaExamInvPage.examID);
-        this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
-        const examId:string=String(EluminaExamPage.examID);
         console.log(examId);
+        const examId1:string=String(EluminaExamPage.examID);
+        const examId2:string=String(EluminaMinimalTimeExamPage.examID);
     }
 
     /**Method for Page Navigation */
@@ -149,11 +150,32 @@ export class EluminaRegistrationInvPage {
           return new exports.EluminaRegistrationInvPage(newPage);
     }
     
-    /**Method to register for the exam */
+    /**Method to register for the EluminaExamInvPage */
     async registrationTabNavigation():Promise<void> {
         await this.RegistrationMenu.click();
         let examid= EluminaExamInvPage.examID;
         console.log(EluminaExamInvPage.examID);
+        await this.searchExam.type(examid);
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnCreatedExam.click();
+        await this.ClickOnAddNewUsers.click();
+    }
+
+      /**Method to register for the EluminaExamPage */
+      async registrationTabNavigationEluminaExamPage():Promise<void> {
+        await this.RegistrationMenu.click();
+        let examid= EluminaExamPage.examID;
+        console.log(EluminaExamPage.examID);
+        await this.searchExam.type(examid);
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnCreatedExam.click();
+        await this.ClickOnAddNewUsers.click();
+    }
+
+    async registrationTabNavigationEluminaMinimalExamPage():Promise<void> {
+        await this.RegistrationMenu.click();
+        let examid= EluminaMinimalTimeExamPage.examID;
+        console.log(EluminaMinimalTimeExamPage.examID);
         await this.searchExam.type(examid);
         await this.page.waitForTimeout(5000);
         await this.ClickOnCreatedExam.click();

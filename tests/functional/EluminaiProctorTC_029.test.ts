@@ -72,7 +72,8 @@ test(`@Smoke Validation of Questions answered / Inprogress on the RHS of the Can
     
         await newPage.waitForTimeout(5000);
         await newPage.screenshot({ path: 'screenshot.png', fullPage: true });
-        
+        await newPage.close();
+        await page1.close();
     });
 
 });

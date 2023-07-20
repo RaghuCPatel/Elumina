@@ -2,6 +2,8 @@ import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
 import { testConfig } from '../../testConfig';
 import { EluminaExamPage } from './EluminaExamPage';
+import { EluminaMultipleExamsForPMPage } from './EluminaMultipleExamsForPMPage';
+import { EluminaMultipleExamsForAMPage } from './EluminaMultipleExamsForAMPage';
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
 const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
@@ -103,6 +105,10 @@ export class EluminaRegistrationPage {
 
         const examId:string=String(EluminaExamPage.examID);
         console.log(examId);
+        const examId1:string=String(EluminaMultipleExamsForPMPage.examID);
+        const examId2:string=String(EluminaMultipleExamsForAMPage.examID);
+
+
     }
 
     /**Method for Page Navigation */
@@ -125,6 +131,28 @@ export class EluminaRegistrationPage {
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
     }
+
+/**Method to register for the exam */
+    async registrationTabNavigationPMExamPage():Promise<void> {
+    await this.RegistrationMenu.click();
+    let examid= EluminaMultipleExamsForPMPage.examID;
+    console.log(EluminaMultipleExamsForPMPage.examID);
+    await this.searchExam.type(examid);
+    await this.page.waitForTimeout(5000);
+    await this.ClickOnCreatedExam.click();
+    await this.ClickOnAddNewUsers.click();
+}
+
+async registrationTabNavigationAMExamPage():Promise<void> {
+    await this.RegistrationMenu.click();
+    let examid= EluminaMultipleExamsForAMPage.examID;
+    console.log(EluminaMultipleExamsForAMPage.examID);
+    await this.searchExam.type(examid);
+    await this.page.waitForTimeout(5000);
+    await this.ClickOnCreatedExam.click();
+    await this.ClickOnAddNewUsers.click();
+}
+
     /**Method to Add User Details */
     async addUserDetails():Promise<void>{
         await this.EnterClientID.type(makeid(testData.clientId)+Math.floor(Math.random()*899+100));

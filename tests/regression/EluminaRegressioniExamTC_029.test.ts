@@ -1,8 +1,8 @@
 import test from '@lib/BaseTest';
 
-//Create the Exams, Users and Invigilators with the combinations mentioned in Summary tab
+//Validation of Questions, Videos & audio being downloaded as soon as the Exam Started - Cloud Symbol Validation
 
-test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+/*test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
         await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -44,7 +44,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
         await newtab.downloadUserDetails();
     });
 
-});
+});     */
 
 test(`@Regression Verify Validation of Updated cloud symbol`, async ({ eluminaCandPage,webActions }) => {
 
