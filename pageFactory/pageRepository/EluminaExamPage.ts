@@ -219,7 +219,6 @@ export class EluminaExamPage {
         this.SelectCalculator=page.locator('(//div[@class="dropdown-main"])[6]//ul//li[1]//span[text()="Calculator"]');
         this.SelectHighlighter=page.locator('(//div[@class="dropdown-main"])[6]//ul//li[3]//span[text()="Highlighter"]');
         this.fectchExamID=page.locator('//div[@class="label-text"]');
-
     }
 
     /**Method for Page Navigation */
@@ -494,7 +493,6 @@ export class EluminaExamPage {
       await this.ClickOnSave.click();
 
     }
-
     async createSurveyPage():Promise<void>{
       await this.ClickOnAddSurveyQuestion.click();
       await this.ClickOnSearchQuestion.click()
@@ -504,13 +502,10 @@ export class EluminaExamPage {
       await this.ClickOnAddBtn.click()
       await this.ClickOnSave.click();
       await this.ClickOnNextBtn.click();
-      await this.ClickOnSubmitAndApproveBtn.click();
-      // await this.page.waitForTimeout(5000);
-      await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
       await this.page.waitForTimeout(5000);
-
-
-
+      await this.ClickOnSubmitAndApproveBtn.click();
+      //await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+      await this.page.waitForTimeout(5000);
     }
 
     /*Add all Questions in an Exam*/

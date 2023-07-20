@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 //Create the Exams, Users and Invigilators with the combinations mentioned in Summary tab 
 
-test(`@Smoke Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`@Smoke Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage,eluminExamianvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -13,11 +13,12 @@ test(`@Smoke Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, e
         await eluminaLoginPage.verifyProfilePage();
     });
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminaExamPage.iAuthorPageNavigation();
-        await newtab.examTabNavigation();
-        await newtab.createExam();
-        await newtab.createSection();
-        await newtab.addQuestionsInExam();
+        const newtab = await eluminExamianvPage.iAuthorPageNavigationss();
+        await newtab.examTabNavigations();
+        await newtab.createInvExam();
+        await newtab.createSections();
+        await newtab.addMCQQuestions();
+        
     });
 });
 
