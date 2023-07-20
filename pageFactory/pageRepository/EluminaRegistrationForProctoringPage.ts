@@ -177,6 +177,7 @@ export class EluminaRegistrationForProctoringPage {
         await this.RegistrationMenu.click();
         let examid= EluminaProctorExamPage.examID;
         console.log(EluminaProctorExamPage.examID);
+        await this.searchExam.type(examid);
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
     }
@@ -268,6 +269,20 @@ export class EluminaRegistrationForProctoringPage {
 
         }
       }
+
+        /**Methods to fetch answers as admin */
+        async fetchAnswers()
+        {
+          await this.page.waitForSelector('//div[@class="question-list scroll"]//div[contains(@style,"background-color: ")]',{timeout:10000});
+          let events=await this.page.$$('//div[@class="question-list scroll"]//div[contains(@style,"background-color: ")]');
+          const Ttl=events.length-1;
+          for(let i=0;i<=events.length-1;i++)
+          {
+             let event=await events[i].textContent();
+             console.log("Questions:"+event);
+  
+          }
+        }
     
 
     /**Method to Add User Details */
