@@ -30,17 +30,19 @@ else if(process.env.ENV == 'staging'){
     testData = stagingTestData;
 }
 
+//Validation of "Lock Exam" from Live monitor Proctor
+
 test(`@Smoke Verify Validation of "Lock Exam" from Live monitor Proctor `, async ({eluminaCandPage, eluminaCadInvPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
-
-        
+        await eluminaCadInvPage.candidateLoginToApplications();
     });
     await test.step('Candidate start the exam',async ()=> {
-       // await eluminaCadInvPage.candidateStartExamsValidationInv();
+        await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
+    });
+    await test.step('Candidate start the exam',async ()=> {
         await eluminaCandPage.candidateStartMCQ();
 
         const browser = await chromium.launch();
@@ -59,7 +61,6 @@ test(`@Smoke Verify Validation of "Lock Exam" from Live monitor Proctor `, async
           await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
           await newPage.waitForTimeout(5000);
           await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//input').click();
-          //await newPage.waitForTimeout(5000);
           await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[5]').click();
           await newPage.locator('(//button[text()="Yes"])[2]').click();
           await newPage.waitForTimeout(5000);
@@ -72,11 +73,6 @@ test(`@Smoke Verify Validation of "Lock Exam" from Live monitor Proctor `, async
     await test.step(`Redirected to Candidate page`, async () => {
         await eluminaCadInvPage.againCandidateLogin();
 
-    });
-
-
-
-
-   
+    }); 
 
 });

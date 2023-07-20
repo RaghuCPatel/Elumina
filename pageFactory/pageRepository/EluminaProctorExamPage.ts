@@ -777,22 +777,22 @@ async createExamWithCalculator(): Promise<void> {
   await this.page.waitForTimeout(5000);
 }
 
-async createSections(): Promise<string>{
-  EluminaProctorExamPage.examID=await this.fectchExamID.textContent();
-  console.log("Exam ID:"+EluminaProctorExamPage.examID);
-  await this.CliCKOnCreateSection.click();
-  await this.ClickOnCreateExamSection.click();
-  await this.EnterSectionName.type('Exam-'+Math.floor(Math.random()*89+10));
-  await this.page.waitForTimeout(5000);
-  await this.DescriptionMessage.click();
-  await this.DescriptionMessage.type(testData.DescriptionMessage);
-  await this.page.waitForTimeout(5000);
-  await this.SelectTime.selectOption('0');
-  await this.SelectTime.selectOption('30');
-  await this.ClickOnSave.click();
-  return EluminaProctorExamPage.examID;
+  async createSections(): Promise<string>{
+    EluminaProctorExamPage.examID=await this.fectchExamID.textContent();
+    console.log("Exam ID:"+EluminaProctorExamPage.examID);
+    await this.CliCKOnCreateSection.click();
+    await this.ClickOnCreateExamSection.click();
+    await this.EnterSectionName.type('Exam-'+Math.floor(Math.random()*89+10));
+    await this.page.waitForTimeout(5000);
+    await this.DescriptionMessage.click();
+    await this.DescriptionMessage.type(testData.DescriptionMessage);
+    await this.page.waitForTimeout(5000);
+    await this.SelectTime.selectOption('0');
+    await this.SelectTime.selectOption('30');
+    await this.ClickOnSave.click();
+    return EluminaProctorExamPage.examID;
 
-}
+  }
 
     /**Method to create content section */
     async createContentSection():Promise<void>{

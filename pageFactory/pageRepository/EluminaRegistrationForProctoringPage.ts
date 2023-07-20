@@ -3,6 +3,7 @@ import { WebActions } from "@lib/WebActions";
 import { EluminaProctorExamPage } from './EluminaProctorExamPage';
 import { EluminaMultipleExamsForAMPage }from './EluminaMultipleExamsForAMPage';
 import { EluminaMultipleExamsForPMPage } from './EluminaMultipleExamsForPMPage';
+import { EluminaExamPage } from './EluminaExamPage';
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
 const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
@@ -176,7 +177,18 @@ export class EluminaRegistrationForProctoringPage {
         await this.RegistrationMenu.click();
         let examid= EluminaProctorExamPage.examID;
         console.log(EluminaProctorExamPage.examID);
-        //await this.searchExam.type(examid);
+        await this.searchExam.type(examid);
+        await this.ClickOnCreatedExam.click();
+        await this.ClickOnAddNewUsers.click();
+    }
+
+     /**Method to click on Registration Menu,click on Created Exam and click on Add new users */
+     async registrationTabNavigationforEluminaExamPage():Promise<void> {
+        await this.RegistrationMenu.click();
+        let examid= EluminaExamPage.examID;
+        console.log(EluminaExamPage.examID);
+        await this.searchExam.type(examid);
+        await this.page.waitForTimeout(5000);
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
     }
@@ -186,7 +198,7 @@ export class EluminaRegistrationForProctoringPage {
         await this.RegistrationMenu.click();
         let examid= EluminaMultipleExamsForAMPage.examID;
         console.log(EluminaMultipleExamsForAMPage.examID);
-        await this.searchExam.fill(examid);
+        await this.searchExam.type(examid);
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
     }
@@ -196,7 +208,7 @@ export class EluminaRegistrationForProctoringPage {
         await this.RegistrationMenu.click();
         let examid= EluminaMultipleExamsForPMPage.examID;
         console.log(EluminaMultipleExamsForPMPage.examID);
-        await this.searchExam.fill(examid);
+        await this.searchExam.type(examid);
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
     }

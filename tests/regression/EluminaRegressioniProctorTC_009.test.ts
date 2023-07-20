@@ -45,7 +45,7 @@ test(`@Smoke Verify Elumina Login`, async ({ eluminaLoginPage, eluminaProctorExa
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExamforMultipleCandidates();
-        await newtab.createSection();
+        await newtab.createSections();
         await newtab.addMCQQuestions();
     });
 });
