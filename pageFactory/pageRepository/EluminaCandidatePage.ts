@@ -500,7 +500,7 @@ export class EluminaCandidatePage {
                 
             await this.page.waitForTimeout(2000);
             await this.ansMCQQuestions.click();
-            await this.page.waitForTimeout(2000);            
+            await this.page.waitForTimeout(8000);            
             await this.ClickOnRevieweBtn.click();
             await this.ClickOnSubmitBtn.click();
     }
