@@ -21,7 +21,7 @@ test(`@Regression Validation of "Time Remaining" pop-up when the just before the
     });
 });
 
-test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegInvPage,webActions }) => {
+test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -30,7 +30,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegInvPage.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
+        await newtab.registrationTabNavigationEluminaMinimalExamPage();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();

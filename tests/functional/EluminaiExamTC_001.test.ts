@@ -1,4 +1,5 @@
 import test from '@lib/BaseTest';
+import { commonPages } from '@pages/commonPages';
 
 //Create the Exams, Users and Invigilators with the combinations mentioned in Summary tab 
 
@@ -13,16 +14,15 @@ test(`@Smoke Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, e
         await eluminaLoginPage.verifyProfilePage();
     });
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminExamianvPage.iAuthorPageNavigationss();
-        await newtab.examTabNavigations();
-        await newtab.createInvExam();
-        await newtab.createSections();
+        const newtab = await eluminaExamPage.iAuthorPageNavigation();
+        await newtab.createExam();
+        await newtab.createSection();
         await newtab.addMCQQuestions();
         
     });
 });
 
-test(`@Smoke Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegInvPage,webActions }) => {
+test(`@Smoke Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -30,7 +30,7 @@ test(`@Smoke Verify Elumina RegistrationInv and add User and Invigilator`, async
         await eluminaLoginPage.loginToApplication();
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaRegInvPage.iAuthorPageNavigations();
+        const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();

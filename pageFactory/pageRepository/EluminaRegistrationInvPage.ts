@@ -1,9 +1,9 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
-import { testConfig } from '../../testConfig';
-import { EluminaHomePage } from './EluminaHomePage';
+
 import { EluminaExamInvPage } from './EluminaExamInvPage';
 import { EluminaExamPage } from './EluminaExamPage';
+import { EluminaMinimalTimeExamPage } from './EluminaMinimalTimeExamPage';
 
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
@@ -129,12 +129,14 @@ export class EluminaRegistrationInvPage {
         this.SelectExBookingStatus=page.locator('//input[@placeholder="Select Booking Status"]');
         this.SelectInvBookingStatus=page.locator('//span[text()="Booked"]');
         this.AssignUsersToCand=page.locator('//input[@placeholder="Select User(s)"]');
-       // this.AssignInvToCand=page.locator('//span[text()="Incharge Exam"]');
         this.AssignInvToCand=page.locator('(//span[@class="open"])[5]');
         this.ClickOnInvSaveBtn=page.locator('(//button[text()="Save"])[2]');
+        
         this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
         const examId:string=String(EluminaExamInvPage.examID);
         console.log(examId);
+        const examId1:string=String(EluminaExamPage.examID);
+        const examId2:string=String(EluminaMinimalTimeExamPage.examID);
     }
 
     /**Method for Page Navigation */
@@ -147,7 +149,7 @@ export class EluminaRegistrationInvPage {
           return new exports.EluminaRegistrationInvPage(newPage);
     }
     
-    /**Method to register for the exam */
+    /**Method to register for the EluminaExamInvPage */
     async registrationTabNavigation():Promise<void> {
         await this.RegistrationMenu.click();
         let examid= EluminaExamInvPage.examID;
@@ -158,7 +160,27 @@ export class EluminaRegistrationInvPage {
         await this.ClickOnAddNewUsers.click();
     }
 
+      /**Method to register for the EluminaExamPage */
+      async registrationTabNavigationEluminaExamPage():Promise<void> {
+        await this.RegistrationMenu.click();
+        let examid= EluminaExamPage.examID;
+        console.log(EluminaExamPage.examID);
+        await this.searchExam.type(examid);
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnCreatedExam.click();
+        await this.ClickOnAddNewUsers.click();
+    }
 
+    async registrationTabNavigationEluminaMinimalExamPage():Promise<void> {
+        await this.RegistrationMenu.click();
+        let examid= EluminaMinimalTimeExamPage.examID;
+        console.log(EluminaMinimalTimeExamPage.examID);
+        await this.searchExam.type(examid);
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnCreatedExam.click();
+        await this.ClickOnAddNewUsers.click();
+    }
+    
     /**Method to Add User Details */
     async addUserDetails():Promise<void>{
         await this.EnterClientID.type(makeid(testData.clientId)+Math.floor(Math.random()*899+100));

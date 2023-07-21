@@ -61,26 +61,26 @@ export class EluminaCandidatePage {
     readonly verifyRecord:Locator;
 
     readonly verifyCloud:Locator;
-   readonly ansVSAQQuestion:Locator;
-   readonly ansISAWEQuestion:Locator;
-   readonly ans2ISAWEQuestion:Locator;
-   readonly ansTypeXQuestion:Locator;
-   readonly ans2TypeXQuestion:Locator;
+    readonly ansVSAQQuestion:Locator;
+    readonly ansISAWEQuestion:Locator;
+    readonly ans2ISAWEQuestion:Locator;
+    readonly ansTypeXQuestion:Locator;
+    readonly ans2TypeXQuestion:Locator;
 
-   readonly ansTypeBQuestion:Locator;
-   readonly ansSAQQuestion:Locator;
-   readonly ansSJTQuestion:Locator;
-   
-   readonly ClickOnCalculator:Locator;
-   readonly ClickOnHighlighter:Locator;
-   readonly HighlightQuestion:Locator;
-  
-   readonly EnternumberOne:Locator;
-   readonly EnterPlus:Locator;
-   readonly EnternumberTwo:Locator;
-   readonly EnterEqualto:Locator;
-   readonly CloseCalculator:Locator;
-   readonly CloseNotepad:Locator;
+    readonly ansTypeBQuestion:Locator;
+    readonly ansSAQQuestion:Locator;
+    readonly ansSJTQuestion:Locator;
+    
+    readonly ClickOnCalculator:Locator;
+    readonly ClickOnHighlighter:Locator;
+    readonly HighlightQuestion:Locator;
+    
+    readonly EnternumberOne:Locator;
+    readonly EnterPlus:Locator;
+    readonly EnternumberTwo:Locator;
+    readonly EnterEqualto:Locator;
+    readonly CloseCalculator:Locator;
+    readonly CloseNotepad:Locator;
     readonly ansMCQQuestions:Locator;
     readonly flagForReviewQuestions:Locator;
     readonly clickOnTermAndCondition:Locator;
@@ -101,10 +101,10 @@ export class EluminaCandidatePage {
     readonly noteQuestions:Locator;
     readonly verifyContentSectionTime:Locator;
     readonly inProgressColor:Locator;
-   readonly ConfirmationToSubmit:Locator;
-   readonly CandidateLogout:Locator;
-   readonly clickOnAutoOkPopup:Locator;
-   readonly cloudUpdatedIcon:Locator;
+    readonly ConfirmationToSubmit:Locator;
+    readonly CandidateLogout:Locator;
+    readonly clickOnAutoOkPopup:Locator;
+    readonly cloudUpdatedIcon:Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -129,12 +129,12 @@ export class EluminaCandidatePage {
         this.ansMCQQuestions=page.locator('(//label[@class="labelEmpty"])[1]');
         this.ansVSAQQuestion=page.frameLocator('//iframe[@class="tox-edit-area__iframe"]').locator('html');
         this.ansISAWEQuestion=page.frameLocator('(//iframe[@class="tox-edit-area__iframe"])[1]').locator('//html[@data-mce-style="height: auto;"]');
-       this.ans2ISAWEQuestion=page.frameLocator('(//iframe[@class="tox-edit-area__iframe"])[2]').locator('//html[@data-mce-style="height: auto;"]');
-       this.ansTypeXQuestion=page.locator('(//div[@class="inputGroup question-preview--mc"]//label[@class="labelEmpty"])[1]');
-       this.ans2TypeXQuestion=page.locator('(//div[@class="inputGroup question-preview--mc"]//label[@class="labelEmpty"])[4]');
-       this.ansTypeBQuestion=page.locator('//label[@for="radio0-319"]');
-       this.ansSAQQuestion=page.frameLocator('iframe[class="tox-edit-area__iframe"]').locator('html');
-       this.ansSJTQuestion=page.locator('//label[@for="radio0-321-0"]');
+        this.ans2ISAWEQuestion=page.frameLocator('(//iframe[@class="tox-edit-area__iframe"])[2]').locator('//html[@data-mce-style="height: auto;"]');
+        this.ansTypeXQuestion=page.locator('(//div[@class="inputGroup question-preview--mc"]//label[@class="labelEmpty"])[1]');
+        this.ans2TypeXQuestion=page.locator('(//div[@class="inputGroup question-preview--mc"]//label[@class="labelEmpty"])[4]');
+        this.ansTypeBQuestion=page.locator('//label[@for="radio0-319"]');
+        this.ansSAQQuestion=page.frameLocator('iframe[class="tox-edit-area__iframe"]').locator('html');
+        this.ansSJTQuestion=page.locator('//label[@for="radio0-321-0"]');
         this.flagForReviewQuestions=page.locator('//div[text()="Flag for Review"]');
         this.clickOnTermAndCondition=page.locator('//input[@id="terms"]');
         this.popupOK=page.locator('//div[text()="OK"]');
@@ -166,7 +166,6 @@ export class EluminaCandidatePage {
         this.CandidateLogout=page.locator('//label[text()="Logout"]');
         this.clickOnAutoOkPopup=page.locator('//div[@title="OK"]');
         this.inProgressColor=page.locator('//p[@class="parent-body-container menuActive menuColor1"]');
-
         this.cloudUpdatedIcon=page.locator('//div[@class="cloud"]//div');
     }
 
@@ -716,10 +715,9 @@ async clickOnLogoutBtn(){
         {
             await qutns[i].click();
             await this.ansMCQQuestions.click();
-          
             await this.ClickOnNextBtn.click();
-           }
-            await this.page.locator('(//div[@class="question-number-container"]//div//p)[3]').click();
+        }
+           await this.page.locator('(//div[@class="question-number-container"]//div//p)[3]').click();
            await this.flagForReviewQuestions.click();
            await this.ClickOnNextBtn.click();
            await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
@@ -858,6 +856,4 @@ async clickOnLogoutBtn(){
            await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
            console.log("Orange Color is Displayed When Questions are in Progress")
     }
-           
-
 }

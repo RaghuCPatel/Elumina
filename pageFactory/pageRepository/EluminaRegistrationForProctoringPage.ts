@@ -4,6 +4,7 @@ import { EluminaProctorExamPage } from './EluminaProctorExamPage';
 import { EluminaMultipleExamsForAMPage }from './EluminaMultipleExamsForAMPage';
 import { EluminaMultipleExamsForPMPage } from './EluminaMultipleExamsForPMPage';
 import { EluminaExamPage } from './EluminaExamPage';
+import { EluminaExamInvPage } from './EluminaExamInvPage';
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
 const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
@@ -158,6 +159,7 @@ export class EluminaRegistrationForProctoringPage {
         this.hardwareInternetcheck=page.locator('//div[contains(text(),"Hardware / Internet Check Pass")]');
         this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
         const examId:string=String(EluminaProctorExamPage.examID);
+        const examId1:string=String(EluminaExamInvPage.examID);
         console.log(examId);
     }
 
@@ -187,6 +189,16 @@ export class EluminaRegistrationForProctoringPage {
         await this.RegistrationMenu.click();
         let examid= EluminaExamPage.examID;
         console.log(EluminaExamPage.examID);
+        await this.searchExam.type(examid);
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnCreatedExam.click();
+        await this.ClickOnAddNewUsers.click();
+    }
+
+    async registrationTabNavigationforEluminaInvExamPage():Promise<void> {
+        await this.RegistrationMenu.click();
+        let examid= EluminaExamInvPage.examID;
+        console.log(EluminaExamInvPage.examID);
         await this.searchExam.type(examid);
         await this.page.waitForTimeout(5000);
         await this.ClickOnCreatedExam.click();

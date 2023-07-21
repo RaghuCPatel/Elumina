@@ -98,6 +98,7 @@ test(`@Smoke Verify Validation of "Start Exam" (All Candidates) Proctor `, async
     });
     await test.step(`Redirected to Candidate page`, async () => {
         await eluminaProctorCand.againCandidateLogin();
+        await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaProctorCand.examSectionValidation();
        // await eluminaProctorCand.examSectionValidation();
 

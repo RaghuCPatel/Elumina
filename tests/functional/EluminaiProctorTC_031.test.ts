@@ -44,7 +44,7 @@ test(`@Smoke Verify Create Exam With Content Section and Content Section Page`, 
      await newtab.createExam();
      await newtab.createContentSection();
      await newtab.createContentPage();
-     await newtab.createSection();
+     await newtab.createSections();
      await newtab.addMCQQuestions();
     });
 });
@@ -93,7 +93,7 @@ test(`@Smoke Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProc
             await newPage.locator('//a[@class="dropdown-toggle"]').click();
             await newPage.locator('//p[text()="Verify Identity"]').click();
             await newPage.locator('(//button[text()="Yes"])[1]').click();
-            await newPage.waitForTimeout(2000);
+            await newPage.waitForTimeout(3000);
           
             await newPage.close();
             await page1.close();

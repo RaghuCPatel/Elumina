@@ -71,7 +71,8 @@ test(`@Smoke Verify Validation of "Start Exam" (All Candidates)`, async ({ elumi
     
         await newPage.waitForTimeout(5000);
         await newPage.screenshot({ path: 'screenshot.png', fullPage: true });
-        
+        await newPage.close();
+        await page1.close();
     });
 
 });

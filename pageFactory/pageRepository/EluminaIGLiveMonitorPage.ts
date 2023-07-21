@@ -30,25 +30,25 @@ else if(process.env.ENV == 'staging'){
     testData = stagingTestData;
 } 
 
-     export class EluminaIGLiveMonitorPage {
-            readonly page: Page;
-            readonly context: BrowserContext;
-            readonly InvUsername:Locator;
-            readonly InvPssword:Locator;
-            readonly InvLoginBtn:Locator;
-            readonly AUTHOR: Locator;
-            readonly ClickOnExam:Locator;
-            readonly CheckExamStatus:Locator;
-            readonly AllCandCheckbox:Locator;
-            readonly OneCandCheckbox:Locator;
-            readonly IsPresentYes:Locator;
-            readonly IsPresentNo:Locator;
-            readonly LockExam:Locator;
-            readonly SelectLocation:Locator;
-            readonly LocationDrop:Locator;
-            readonly LocationSubmit:Locator;
-            readonly SelectAll:Locator;
-            readonly dropDown:Locator;
+export class EluminaIGLiveMonitorPage {
+    readonly page: Page;
+    readonly context: BrowserContext;
+    readonly InvUsername:Locator;
+    readonly InvPssword:Locator;
+    readonly InvLoginBtn:Locator;
+    readonly AUTHOR: Locator;
+    readonly ClickOnExam:Locator;
+    readonly CheckExamStatus:Locator;
+    readonly AllCandCheckbox:Locator;
+    readonly OneCandCheckbox:Locator;
+    readonly IsPresentYes:Locator;
+    readonly IsPresentNo:Locator;
+    readonly LockExam:Locator;
+    readonly SelectLocation:Locator;
+    readonly LocationDrop:Locator;
+    readonly LocationSubmit:Locator;
+    readonly SelectAll:Locator;
+    readonly dropDown:Locator;        
 
             constructor(page: Page, context: BrowserContext) {
                 this.page = page;
@@ -72,16 +72,12 @@ else if(process.env.ENV == 'staging'){
                 this.dropDown=page.locator('(//div[@class="msdd-triangle open msdd-triangle-down"])[2]');
 
             }
-
             async invigilatorLogin():Promise<void>{
                 await this.page.goto("/");
                 await this.InvUsername.type(testData.invigilatorUsername);
                 await this.InvPssword.type(testData.invigilatorPassword);
                 await this.InvLoginBtn.click();
             }
-
-       
-
             async iAuthorPageNavigation() {
                 const [newPage] = await Promise.all([
                     this.context.waitForEvent('page'),
@@ -95,10 +91,8 @@ else if(process.env.ENV == 'staging'){
                await this.ClickOnExam.click();
           
             }
-
             async markAllAttendance() {
                 let markattd1=this.page.locator('(//table[@class="table table-spacing"]//tbody//tr//td[3]//select)[1]');
-
                 await markattd1.click();
                 await markattd1.selectOption('Yes');
                 let markattd2=this.page.locator('(//table[@class="table table-spacing"]//tbody//tr//td[3]//select)[1]');
@@ -138,8 +132,8 @@ else if(process.env.ENV == 'staging'){
             }  
 
           async validateExamStatus(){
-            let Examstatus=await this.CheckExamStatus.textContent();
-             console.log(Examstatus);
+                let Examstatus=await this.CheckExamStatus.textContent();
+                console.log(Examstatus);
                 await this.CheckExamStatus.isVisible();
           }
       }

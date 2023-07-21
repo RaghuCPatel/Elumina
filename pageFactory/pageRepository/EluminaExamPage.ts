@@ -80,54 +80,42 @@ export class EluminaExamPage {
     readonly TESTBANK: Locator;
     readonly EXAMNAME: Locator;
     readonly EXAMCODE: Locator;
-
     readonly BookingStartCalender: Locator;
     readonly BookingStartDate:Locator;
     readonly BookingStartHrs:Locator;
     readonly BooingStartMins:Locator;
     readonly ChooseBookingStartSession:Locator;
     readonly BookingOK:Locator;
-
     readonly BookingEndCalender:Locator;
     readonly BookingEndDate:Locator;
-
     readonly ExamStartCalender:Locator;
     readonly ExamStartDate:Locator;
-
     readonly ExamEndCalender:Locator;
     readonly ExamEndDate:Locator;
-
     readonly ClickOnExamVenue:Locator;
     readonly ChooseExamVenue:Locator;
     readonly ClickOnAdd:Locator;
     readonly EnterNoOfCandidates:Locator;
-
     readonly ClickOnNextBtn:Locator;
     readonly VerifyExam_details:Locator;
     readonly VerifyChoose_Question:Locator;
     readonly VerifyChoose_Workflow:Locator;
     readonly VerifyChoose_Confirmation:Locator;
-
     readonly CliCKOnCreateSection:Locator;
     readonly ClickOnCreateExamSection:Locator;
-
     readonly ClickOnCreateSurveySection:Locator;
     readonly ClickOnAddSurveyQuestion:Locator;
-
     readonly EnterSectionName:Locator;
     readonly DescriptionMessage:Locator;
     readonly SelectTime:Locator;
     readonly ClickOnSave:Locator;
-
     readonly ClickOnAddQuestion:Locator;
     readonly ClickOnSearchQuestion:Locator;
     readonly ClickOnSelectAllCheckBox:Locator;
     readonly ClickOnAddBtn:Locator;
     readonly ClickOnSubmitAndApproveBtn:Locator;
-
     readonly ClickOnCreateContentSection:Locator;
     readonly selectMinutes:Locator;
-
     readonly ClickonCreateContentPage:Locator;
     readonly ClickOnAddContent:Locator;
     readonly enterContentTitle:Locator;
@@ -194,18 +182,13 @@ export class EluminaExamPage {
 
         this.ClickOnCreateContentSection=page.getByText('Create Content Section');
         this.selectMinutes=page.getByRole('combobox').nth(1);
-
         this.ClickonCreateContentPage=page.locator('//i[@title="Create Content Page"]');
         this.ClickOnAddContent=page.locator('//div[@class="add_content"]');
         this.enterContentTitle=page.locator('//input[@name="inputbox"]');
         this.ClickOnContentLayout=page.locator('//input[@placeholder="Select Content Layout"]');
         this.ClickOnTermAndCondition=page.locator('//span[text()="Terms & Conditions"]');
-
         this.ClickOnCreateSurveySection=page.getByText('Create Survey Section');
         this.ClickOnAddSurveyQuestion=page.locator('//i[@title="Create Survey Question"]');
-
-
-
         this.ClickOnAddQuestion=page.locator('//i[@title="Create Exam Question"]');
         this.ClickOnSearchQuestion=page.locator('//input[@placeholder="Search Question(s)"]');
         this.ClickOnSelectAllCheckBox=page.locator('//input[@id="selectall"]');
@@ -233,11 +216,11 @@ export class EluminaExamPage {
 
     /**Method for Exam Tab Navigation */
     async examTabNavigation(): Promise<void> {
-          await this.EXAMSMENU.click();
+      await this.EXAMSMENU.click();
     }
 
     /*Create a Exam*/
-    async createExam(): Promise<void> {
+    async createCommonExam(): Promise<void> {
 
         let currentDate=new Date();
         let datecurrent=currentDate.getDate();
@@ -254,6 +237,7 @@ export class EluminaExamPage {
         let StartExamMin=currentDate.getMinutes()+3;
         let EndExamMin=currentDate.getMinutes()+14;
 
+        await this.EXAMSMENU.click();
         await expect(this.CREATEEXAMS).toBeVisible();
         await this.CREATEEXAMS.click();
         await this.STARTFROMSCRATCH.click();
@@ -314,108 +298,24 @@ export class EluminaExamPage {
         await this.ClickOnAdd.click();
         await this.EnterNoOfCandidates.click();
         await this.EnterNoOfCandidates.clear();
-        await this.EnterNoOfCandidates.type('01');
+        await this.EnterNoOfCandidates.type('10');
         await this.ClickOnAdd.click();
-
-        await this.ClickOnNextBtn.click();
-        await expect(this.VerifyExam_details).toBeVisible();
-        await expect(this.VerifyChoose_Question).toBeVisible();
-        await expect(this.VerifyChoose_Workflow).toBeVisible();
-        await expect(this.VerifyChoose_Confirmation).toBeVisible();
-        await this.page.waitForTimeout(5000);
     }
 
-       /**Method to create Proctor exam */
-       async createProctorExam(): Promise<void> {
+    async createExam(): Promise<void> {
+      await this.createCommonExam();
+      await this.EnterInvigilatorPswd.click();
+      await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
+      await this.page.waitForTimeout(5000);
 
-        let currentDate=new Date();
-        console.log(currentDate.getDate());
-        let pm = currentDate.getHours() >= 12;
-        let hour12 = currentDate.getHours() % 12;
-        if (!hour12) 
-          hour12 += 12;
-        let minute = currentDate.getMinutes();
-        console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
-     
-        let StartBookingMin=currentDate.getMinutes()+1;
-        let EndBookingMin=currentDate.getMinutes()+2;
-        let StartExamMin=currentDate.getMinutes()+3;
-        let EndExamMin=currentDate.getMinutes()+13;
+      await this.ClickOnNextBtn.click();
+      await expect(this.VerifyExam_details).toBeVisible();
+      await expect(this.VerifyChoose_Question).toBeVisible();
+      await expect(this.VerifyChoose_Workflow).toBeVisible();
+      await expect(this.VerifyChoose_Confirmation).toBeVisible();
+      await this.page.waitForTimeout(5000);
+  }
 
-        await expect(this.CREATEEXAMS).toBeVisible();
-        await this.CREATEEXAMS.click();
-        await this.STARTFROMSCRATCH.click();
-        await this.SELECTBANK.click();
-        await this.TESTBANK.click();
-        await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
-      
-        await this.EXAMCODE.type('D'+Math.floor(Math.random()*89+100));
-        await this.ProctoringExam.click();
-        await this.BookingStartCalender.click();
-
-        await this.BookingStartDate.click();
-        await this.BookingStartHrs.click();
-        await this.BookingStartHrs.clear();
-        await this.BookingStartHrs.type(hour12.toString());
-
-        await this.BooingStartMins.click();
-        await this.BooingStartMins.clear();
-        await this.BooingStartMins.type(StartBookingMin.toString());
-        await this.ChooseBookingStartSession.check();
-        await this.BookingOK.click();
-
-        await this.BookingEndCalender.click();
-        await this.BookingEndDate.click();
-        await this.BookingStartHrs.click();
-        await this.BookingStartHrs.clear();
-        await this.BookingStartHrs.type(hour12.toString());
-        await this.BooingStartMins.click();
-        await this.BooingStartMins.clear();
-        await this.BooingStartMins.type(EndBookingMin.toString());
-        await this.ChooseBookingStartSession.check();
-        await this.BookingOK.click();
-
-        await this.ExamStartCalender.click();
-        await this.ExamStartDate.click();
-        await this.BookingStartHrs.click();
-        await this.BookingStartHrs.clear();
-        await this.BookingStartHrs.type(hour12.toString());
-        await this.BooingStartMins.click();
-        await this.BooingStartMins.clear();
-        await this.BooingStartMins.type(StartExamMin.toString());
-        await this.ChooseBookingStartSession.check();
-        await this.BookingOK.click();
-
-        await this.ExamEndCalender.click();
-        await this.ExamEndDate.click();
-        await this.BookingStartHrs.click();
-        await this.BookingStartHrs.clear();
-        await this.BookingStartHrs.type(hour12.toString());
-        await this.BooingStartMins.click();
-        await this.BooingStartMins.clear();
-        await this.BooingStartMins.type(EndExamMin.toString());
-        await this.ChooseBookingStartSession.check();
-        await this.BookingOK.click();
-
-        await this.ClickOnExamVenue.click();
-        await this.ChooseExamVenue.click();
-        await this.ClickOnAdd.click();
-        await this.EnterNoOfCandidates.click();
-        await this.EnterNoOfCandidates.clear();
-        await this.EnterNoOfCandidates.type('0100');
-        await this.ClickOnAdd.click();
-        await this.EnterInvigilatorPswd.click();
-        await this.EnterInvigilatorPswd.type('ABC09');
-        await this.page.waitForTimeout(5000);
-
-        await this.ClickOnNextBtn.click();
-        await expect(this.VerifyExam_details).toBeVisible();
-        await expect(this.VerifyChoose_Question).toBeVisible();
-        await expect(this.VerifyChoose_Workflow).toBeVisible();
-        await expect(this.VerifyChoose_Confirmation).toBeVisible();
-        await this.page.waitForTimeout(5000);
-    }
- 
     /** Method to Create Content Section */
     async createContentSection():Promise<void>{
       await this.CliCKOnCreateSection.click();
@@ -504,7 +404,6 @@ export class EluminaExamPage {
       await this.ClickOnNextBtn.click();
       await this.page.waitForTimeout(5000);
       await this.ClickOnSubmitAndApproveBtn.click();
-      //await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
       await this.page.waitForTimeout(5000);
     }
 
@@ -554,99 +453,69 @@ export class EluminaExamPage {
       await this.ClickOnSave.click();
       await this.ClickOnNextBtn.click();
       await this.page.waitForTimeout(5000);
-      await this.ClickOnSubmitAndApproveBtn.click();
-      
-    
-}
+      await this.ClickOnSubmitAndApproveBtn.click();   
+    }
 
-async addMCQQuestion():Promise<void>{
-  await this.ClickOnAddQuestion.click();
-  await this.ClickOnSearchQuestion.click()
-  await this.ClickOnSearchQuestion.type('MCQ');
-  await this.page.waitForTimeout(3000);
-  await this.page.locator('(//input[@type="checkbox"])[2]').click();
-  await this.ClickOnAddBtn.click()
-  await this.ClickOnSave.click();
-  // await this.ClickOnNextBtn.click();
-  // await this.page.waitForTimeout(5000);
-  // await this.ClickOnSubmitAndApproveBtn.click();
+  async addMCQQuestion():Promise<void>{
+    await this.ClickOnAddQuestion.click();
+    await this.ClickOnSearchQuestion.click()
+    await this.ClickOnSearchQuestion.type('MCQ');
+    await this.page.waitForTimeout(3000);
+    await this.page.locator('(//input[@type="checkbox"])[2]').click();
+    await this.ClickOnAddBtn.click()
+    await this.ClickOnSave.click();
+  }
 
-}
+  async addVSAQQuestion():Promise<void>{
+      await this.ClickOnAddQuestion.click();
+      await this.ClickOnSearchQuestion.click()
+      await this.ClickOnSearchQuestion.type('VSAQ');
+      await this.page.waitForTimeout(3000);
+      await this.page.locator('(//input[@type="checkbox"])[2]').click();
+      await this.ClickOnAddBtn.click()
+      await this.ClickOnSave.click();
+  }
 
-async addVSAQQuestion():Promise<void>{
-  await this.ClickOnAddQuestion.click();
-  await this.ClickOnSearchQuestion.click()
-  await this.ClickOnSearchQuestion.type('VSAQ');
-  await this.page.waitForTimeout(3000);
-  await this.page.locator('(//input[@type="checkbox"])[2]').click();
-  await this.ClickOnAddBtn.click()
-  await this.ClickOnSave.click();
-  // await this.ClickOnNextBtn.click();
-  // await this.page.waitForTimeout(5000);
-  // await this.ClickOnSubmitAndApproveBtn.click();
-  
+  async addISAWEQuestion():Promise<void>{
+      await this.ClickOnAddQuestion.click();
+      await this.ClickOnSearchQuestion.click()
+      await this.ClickOnSearchQuestion.type('ISAWE');
+      await this.page.waitForTimeout(3000);
+      await this.page.locator('(//input[@type="checkbox"])[2]').click();
+      await this.ClickOnAddBtn.click()
+      await this.ClickOnSave.click();
+  }
 
-}
+  async addTypeXQuestion():Promise<void>{
+    await this.ClickOnAddQuestion.click();
+    await this.ClickOnSearchQuestion.click()
+    await this.ClickOnSearchQuestion.type('Type X');
+    await this.page.waitForTimeout(3000);
+    await this.page.locator('(//input[@type="checkbox"])[2]').click();
+    await this.ClickOnAddBtn.click()
+    await this.ClickOnSave.click();
+  }
 
-async addISAWEQuestion():Promise<void>{
-await this.ClickOnAddQuestion.click();
-await this.ClickOnSearchQuestion.click()
-await this.ClickOnSearchQuestion.type('ISAWE');
-await this.page.waitForTimeout(3000);
-await this.page.locator('(//input[@type="checkbox"])[2]').click();
-await this.ClickOnAddBtn.click()
-await this.ClickOnSave.click();
-// await this.ClickOnNextBtn.click();
-// await this.page.waitForTimeout(5000);
-// await this.ClickOnSubmitAndApproveBtn.click();
+  async addTypeBQuestion():Promise<void>{
+    await this.ClickOnAddQuestion.click();
+    await this.ClickOnSearchQuestion.click()
+    await this.ClickOnSearchQuestion.type('Type B');
+    await this.page.waitForTimeout(3000);
+    await this.page.locator('(//input[@type="checkbox"])[2]').click();
+    await this.ClickOnAddBtn.click()
+    await this.ClickOnSave.click();
+  }
 
+  async addSAQQuestion():Promise<void>{
+    await this.ClickOnAddQuestion.click();
+    await this.ClickOnSearchQuestion.click()
+    await this.ClickOnSearchQuestion.type('SAQ');
+    await this.page.waitForTimeout(3000);
+    await this.page.locator('(//input[@type="checkbox"])[2]').click();
+    await this.ClickOnAddBtn.click()
+    await this.ClickOnSave.click();
 
-}
-
-async addTypeXQuestion():Promise<void>{
-await this.ClickOnAddQuestion.click();
-await this.ClickOnSearchQuestion.click()
-await this.ClickOnSearchQuestion.type('Type X');
-await this.page.waitForTimeout(3000);
-await this.page.locator('(//input[@type="checkbox"])[2]').click();
-await this.ClickOnAddBtn.click()
-await this.ClickOnSave.click();
-// await this.ClickOnNextBtn.click();
-// await this.page.waitForTimeout(5000);
-// await this.ClickOnSubmitAndApproveBtn.click();
-
-
-}
-
-async addTypeBQuestion():Promise<void>{
-await this.ClickOnAddQuestion.click();
-await this.ClickOnSearchQuestion.click()
-await this.ClickOnSearchQuestion.type('Type B');
-await this.page.waitForTimeout(3000);
-await this.page.locator('(//input[@type="checkbox"])[2]').click();
-await this.ClickOnAddBtn.click()
-await this.ClickOnSave.click();
-// await this.ClickOnNextBtn.click();
-// await this.page.waitForTimeout(5000);
-// await this.ClickOnSubmitAndApproveBtn.click();
-
-
-}
-
-async addSAQQuestion():Promise<void>{
-await this.ClickOnAddQuestion.click();
-await this.ClickOnSearchQuestion.click()
-await this.ClickOnSearchQuestion.type('SAQ');
-await this.page.waitForTimeout(3000);
-await this.page.locator('(//input[@type="checkbox"])[2]').click();
-await this.ClickOnAddBtn.click()
-await this.ClickOnSave.click();
-// await this.ClickOnNextBtn.click();
-// await this.page.waitForTimeout(5000);
-// await this.ClickOnSubmitAndApproveBtn.click();
-
-
-}
+  }
 
 async addSJTQuestion():Promise<void>{
 await this.ClickOnAddQuestion.click();
@@ -665,89 +534,12 @@ await this.ClickOnSubmitAndApproveBtn.click();
    
      /*Create a Exam with Note option*/
      async createExamWithNotepad(): Promise<void> {
-
-      let currentDate=new Date();
-      let datecurrent=currentDate.getDate();
-      console.log(datecurrent);
-      let pm = currentDate.getHours() >= 12;
-      let hour12 = currentDate.getHours() % 12;
-      if (!hour12) 
-        hour12 += 12;
-      let minute = currentDate.getMinutes();
-      console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
-
-      let StartBookingMin=currentDate.getMinutes()+1;
-      let EndBookingMin=currentDate.getMinutes()+2;
-      let StartExamMin=currentDate.getMinutes()+3;
-      let EndExamMin=currentDate.getMinutes()+14;
-
-      await expect(this.CREATEEXAMS).toBeVisible();
-      await this.CREATEEXAMS.click();
-      await this.STARTFROMSCRATCH.click();
-      await this.SELECTBANK.click();
-      await this.TESTBANK.click();
-      await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
-    
-      await this.EXAMCODE.type('D'+Math.floor(Math.random()*89+100));
-     
-      await this.BookingStartCalender.click();
-    
-      await this.BookingStartDate.click();
-      await this.BookingStartHrs.click();
-      await this.BookingStartHrs.clear();
-      await this.BookingStartHrs.type(hour12.toString());
- 
-      await this.BooingStartMins.click();
-      await this.BooingStartMins.clear();
-      await this.BooingStartMins.type(StartBookingMin.toString());
-      await this.ChooseBookingStartSession.check();
-      await this.BookingOK.click();
-
-      await this.BookingEndCalender.click();
-      await this.BookingEndDate.click();
-      await this.BookingStartHrs.click();
-      await this.BookingStartHrs.clear();
-      await this.BookingStartHrs.type(hour12.toString());
-      await this.BooingStartMins.click();
-      await this.BooingStartMins.clear();
-      await this.BooingStartMins.type(EndBookingMin.toString());
-      await this.ChooseBookingStartSession.check();
-      await this.BookingOK.click();
-
-      await this.ExamStartCalender.click();
-      await this.ExamStartDate.click();
-      await this.BookingStartHrs.click();
-      await this.BookingStartHrs.clear();
-      await this.BookingStartHrs.type(hour12.toString());
-      await this.BooingStartMins.click();
-      await this.BooingStartMins.clear();
-      await this.BooingStartMins.type(StartExamMin.toString());
-      await this.ChooseBookingStartSession.check();
-      await this.BookingOK.click();
-
-      await this.ExamEndCalender.click();
-      await this.ExamEndDate.click();
-      await this.BookingStartHrs.click();
-      await this.BookingStartHrs.clear();
-      await this.BookingStartHrs.type(hour12.toString());
-      await this.BooingStartMins.click();
-      await this.BooingStartMins.clear();
-      await this.BooingStartMins.type(EndExamMin.toString());
-      await this.ChooseBookingStartSession.check();
-      await this.BookingOK.click();
-
-      await this.ClickOnExamVenue.click();
-      await this.ChooseExamVenue.click();
-      await this.ClickOnAdd.click();
-      await this.EnterNoOfCandidates.click();
-      await this.EnterNoOfCandidates.clear();
-      await this.EnterNoOfCandidates.type('01');
-      await this.ClickOnAdd.click();
-
-
+      await this.createCommonExam();
+      await this.EnterInvigilatorPswd.click();
+      await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
+      await this.page.waitForTimeout(5000);
       await this.ExamTools.click();
       await this.SelectNotepad.click();
-
       await this.ClickOnNextBtn.click();
       await expect(this.VerifyExam_details).toBeVisible();
       await expect(this.VerifyChoose_Question).toBeVisible();
@@ -780,86 +572,10 @@ await this.ClickOnSubmitAndApproveBtn.click();
 
   /**Method to Create Multiple Candidates */
   async createExamforMultipleCandidates(): Promise<void> {
-
-    let currentDate=new Date();
-    let datecurrent=currentDate.getDate();
-    console.log(datecurrent);
-    let pm = currentDate.getHours() >= 12;
-    let hour12 = currentDate.getHours() % 12;
-    if (!hour12) 
-      hour12 += 12;
-    let minute = currentDate.getMinutes();
-    console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
-
-    let StartBookingMin=currentDate.getMinutes()+1;
-    let EndBookingMin=currentDate.getMinutes()+2;
-    let StartExamMin=currentDate.getMinutes()+3;
-    let EndExamMin=currentDate.getMinutes()+14;
-
-    await expect(this.CREATEEXAMS).toBeVisible();
-    await this.CREATEEXAMS.click();
-    await this.STARTFROMSCRATCH.click();
-    await this.SELECTBANK.click();
-    await this.TESTBANK.click();
-    await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
-   
-    await this.EXAMCODE.type('D'+Math.floor(Math.random()*89+100));
-
-    await this.BookingStartCalender.click();
-
-    await this.BookingStartDate.click();
-    await this.BookingStartHrs.click();
-    await this.BookingStartHrs.clear();
-    await this.BookingStartHrs.type(hour12.toString());
-
-    await this.BooingStartMins.click();
-    await this.BooingStartMins.clear();
-    await this.BooingStartMins.type(StartBookingMin.toString());
-    await this.ChooseBookingStartSession.check();
-    await this.BookingOK.click();
-
-    await this.BookingEndCalender.click();
-    await this.BookingEndDate.click();
-    await this.BookingStartHrs.click();
-    await this.BookingStartHrs.clear();
-    await this.BookingStartHrs.type(hour12.toString());
-    await this.BooingStartMins.click();
-    await this.BooingStartMins.clear();
-    await this.BooingStartMins.type(EndBookingMin.toString());
-    await this.ChooseBookingStartSession.check();
-    await this.BookingOK.click();
-
-    await this.ExamStartCalender.click();
-    await this.ExamStartDate.click();
-    await this.BookingStartHrs.click();
-    await this.BookingStartHrs.clear();
-    await this.BookingStartHrs.type(hour12.toString());
-    await this.BooingStartMins.click();
-    await this.BooingStartMins.clear();
-    await this.BooingStartMins.type(StartExamMin.toString());
-    await this.ChooseBookingStartSession.check();
-    await this.BookingOK.click();
-
-    await this.ExamEndCalender.click();
-    await this.ExamEndDate.click();
-    await this.BookingStartHrs.click();
-    await this.BookingStartHrs.clear();
-    await this.BookingStartHrs.type(hour12.toString());
-    await this.BooingStartMins.click();
-    await this.BooingStartMins.clear();
-    await this.BooingStartMins.type(EndExamMin.toString());
-    await this.ChooseBookingStartSession.check();
-    await this.BookingOK.click();
-
-    await this.ClickOnExamVenue.click();
-    await this.ChooseExamVenue.click();
-    await this.ClickOnAdd.click();
-    await this.EnterNoOfCandidates.click();
-    await this.EnterNoOfCandidates.clear();
-    await this.EnterNoOfCandidates.type('03');
-    await this.ClickOnAdd.click();
-
-    await this.ClickOnNextBtn.click();
+    await this.createCommonExam();
+    await this.EnterInvigilatorPswd.click();
+    await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
+    await this.page.waitForTimeout(5000);
     await expect(this.VerifyExam_details).toBeVisible();
     await expect(this.VerifyChoose_Question).toBeVisible();
     await expect(this.VerifyChoose_Workflow).toBeVisible();

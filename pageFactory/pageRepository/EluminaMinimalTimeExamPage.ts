@@ -51,6 +51,7 @@ if (hour >= 12) {
 }
 
 export class EluminaMinimalTimeExamPage {
+  static examID:string;
     readonly page: Page;
     readonly context: BrowserContext;
     readonly EXAMSMENU: Locator;
@@ -103,6 +104,7 @@ export class EluminaMinimalTimeExamPage {
     readonly ExamTools:Locator;
     readonly SelectNotepad:Locator;
     readonly Choosehrs:Locator;
+    readonly fectchExamID:Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -162,6 +164,7 @@ export class EluminaMinimalTimeExamPage {
         this.ClickOnSubmitAndApproveBtn=page.locator('//button[normalize-space()="Submit & Approve"]');
         this.ExamTools=page.locator('(//div[@class="input-wrap"])[6]');
         this.SelectNotepad=page.locator('(//div[@class="dropdown-main"])[6]//ul//li[2]//span[text()="Notepad"]');
+        this.fectchExamID=page.locator('//div[@class="label-text"]');
 
 
     }
@@ -267,7 +270,9 @@ export class EluminaMinimalTimeExamPage {
     }
 
     /**Create Exam Section */
-    async createSection(): Promise<void>{
+    async createSection(): Promise<String>{
+      EluminaMinimalTimeExamPage.examID=await this.fectchExamID.textContent();
+      console.log("Exam ID:"+EluminaMinimalTimeExamPage.examID);
       await this.CliCKOnCreateSection.click();
       await this.ClickOnCreateExamSection.click();
       await this.EnterSectionName.type('Exam-'+Math.floor(Math.random())*89+10);
@@ -276,11 +281,10 @@ export class EluminaMinimalTimeExamPage {
       await this.DescriptionMessage.type('Hello World.....');
       await this.page.waitForTimeout(5000);
       await this.Choosehrs.selectOption('0');
-
       await this.SelectTime.selectOption('1');
       await this.ClickOnSave.click();
       await this.page.waitForTimeout(5000);
-
+      return EluminaMinimalTimeExamPage.examID;
     }
 
     /*Add all Questions in an Exam*/
