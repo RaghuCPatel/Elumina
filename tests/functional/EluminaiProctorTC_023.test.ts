@@ -59,6 +59,9 @@ test(`@Smoke Validation of Navigating to an exam from the dashboard to invigilat
         await newPage.locator('//*[@class="proctoringImg"]').click();
         await newPage.screenshot({ path: 'screenshot.png', fullPage: true });
         
+        await newPage.close();
+        await page1.close();
+        
     });
 
 });

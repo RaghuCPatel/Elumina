@@ -90,6 +90,7 @@ export class EluminaMultipleExamsForPMPage {
     readonly Choosehrs:Locator;
     readonly ProctoringExam:Locator;
     readonly EnterInvigilatorPswd:Locator;
+    readonly fectchExamID:Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -149,6 +150,8 @@ export class EluminaMultipleExamsForPMPage {
         this.SelectNotepad=page.locator('(//div[@class="dropdown-main"])[6]//ul//li[2]//span[text()="Notepad"]');
         this.ProctoringExam = page.locator('(//span[@class="slider round"])[2]');
         this.EnterInvigilatorPswd=page.locator('//input[@name="examInviglator"]');
+        this.fectchExamID=page.locator('//div[@class="label-text"]');
+
     }
 
      /**Method for iAuthor Page Navigation */
@@ -261,7 +264,9 @@ export class EluminaMultipleExamsForPMPage {
     }
 
     /*Create Exam Section*/
-    async createSection(): Promise<void>{
+    async createSection(): Promise<string>{
+      EluminaMultipleExamsForPMPage.examID=await this.fectchExamID.textContent();
+      console.log("Exam ID:"+EluminaMultipleExamsForPMPage.examID);
       await this.CliCKOnCreateSection.click();
       await this.ClickOnCreateExamSection.click();
       await this.EnterSectionName.type('Exam-'+Math.floor(Math.random())*89+10);
@@ -273,7 +278,7 @@ export class EluminaMultipleExamsForPMPage {
       await this.SelectTime.selectOption('58');
       await this.ClickOnSave.click();
       await this.page.waitForTimeout(5000);
-
+      return EluminaMultipleExamsForPMPage.examID;
 
     }
 

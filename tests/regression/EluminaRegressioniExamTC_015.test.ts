@@ -8,7 +8,7 @@ test(`@Regression Password will not be asked after clicking on "Start Exam"`, as
     });
     await test.step(`Candidate Login to application with inactive user`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
-        await eluminaCandPage.candidateStartExam();
+        await eluminaCandPage.candidateStartMCQ();
     });
     
 });

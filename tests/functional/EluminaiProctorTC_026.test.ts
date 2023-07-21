@@ -64,7 +64,8 @@ test(`@Smoke Verify Validation of "Mark Attendance" (All Candidates) Proctor`, a
            await attendance[i].click();
             await attendance[i].selectOption('Yes');
         }
-       
+        await newPage.close();
+        await page1.close();
 
     });
    

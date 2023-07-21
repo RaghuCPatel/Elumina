@@ -28,8 +28,8 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
         await eluminaLoginPage.loginToApplication();
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaRegPage.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
+        const newtab = await eluminaRegInvPage.iAuthorPageNavigations();
+        await newtab.registrationTabNavigationEluminaExamPage();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });

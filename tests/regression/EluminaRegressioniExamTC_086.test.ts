@@ -35,36 +35,30 @@ test(`@Regression Verify Elumina Login and create exam`, async ({ eluminaLoginPa
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
-
     await test.step(`Login to Elumina application`, async () => {
         await eluminaLoginPage.loginToApplication();
     });
-
     await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
         await eluminaLoginPage.verifyProfilePage();
     });
-
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminExamianvPage.iAuthorPageNavigationss();
         await newtab.examTabNavigations();
         await newtab.createInvExam();
         await newtab.createSections();
         await newtab.addMCQQuestions();
-
     });
 });
 
-test(`@Regression add user in Registration and download User details and assign Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
-
+test(`@Regression add user in Registration and download User details and assign Invigilator`, async ({ eluminaLoginPage,eluminaRegInvPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
-
     await test.step(`Login to Elumina application`, async () => {
         await eluminaLoginPage.loginToApplication();
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaRegPage.iAuthorPageNavigations();
+        const newtab = await eluminaRegInvPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
@@ -73,15 +67,12 @@ test(`@Regression add user in Registration and download User details and assign 
 });
 
 test(`@Regression Validation of invigilator remotely start the Exam for candidate `, async ({ eluminaCandPage,eluminaCadInvPage,eluminaProctorCand,webActions }) => {
-
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });
-
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCadInvPage.candidateLoginToApplications();
     });
-
     await test.step('Candidate start the exam',async ()=> {
         await eluminaCadInvPage.candidateStartExamsValidationInv();
         const browser = await chromium.launch();
@@ -107,15 +98,9 @@ test(`@Regression Validation of invigilator remotely start the Exam for candidat
         await newPage.waitForTimeout(3000);
         await newPage.close();
         await page1.close();
-
     });
-
     await test.step(`Redirected to Candidate page`, async () => {
         await eluminaProctorCand.againCandidateLogin();
         await eluminaCandPage.examSectionValidation();        
-
     });
-
-   
-
 });
