@@ -73,9 +73,7 @@ test(`@Regression Validation of Validation of Mic verification check done`, asyn
             await eluminaProctorCand.clickOnUnderstandBtn();
             await eluminaProctorCand.validateMicTick();
             await eluminaCandPage.waitforTime1();
-            
-
-        
+                   
     });
 
 });

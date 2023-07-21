@@ -3,7 +3,7 @@ import test from '@lib/BaseTest';
 
 /**Verification of Timer Expires Alert Box  in Exam Content page */
 
-test(`@Regression Verification of Timer Expires Alert Box  in Exam Content page`, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
+test(`@Regression Verify Elumina Login and create exam `, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -40,8 +40,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });
 
-test(`@Regression Verify Validation of the following in the Exam Section
-Exam name, Candidate name, Exam timer, no of questions as per exam created`, async ({ eluminaCandPage,webActions }) => {
+test(`@Regression Verify Timer Expires Alert Box  in Exam Content page`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

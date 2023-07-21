@@ -67,13 +67,11 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
 test(`@Regression Verify Validation of Resume Exam`, async ({ eluminaCandPage,webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
-
         await eluminaCandPage.candidateNavigateToURL();
 
     });
 
     await test.step(`Candidate Login to application`, async () => {
-
         await eluminaCandPage.candidateLoginToApplication();
 
     });
@@ -117,7 +115,6 @@ test(`@Regression Verify Validation of Resume Exam`, async ({ eluminaCandPage,we
         await eluminaCandPage.againCandidateLogin();
         console.log("Candidate is able to attend the exam after invigilator resumes the exam")
         
-
         });
 
     });

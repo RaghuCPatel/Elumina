@@ -1,6 +1,6 @@
 import test from '@lib/BaseTest';
 
-/**Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering */
+/**Validation of Adding & Saving notes */
 
 test(`@Regression Validation of creating Exam`, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {

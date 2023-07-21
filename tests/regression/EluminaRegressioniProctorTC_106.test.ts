@@ -67,7 +67,7 @@ test(`@Regression Validation of Validation of Screen Capture verification check 
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-        });   
+    });   
         await test.step(`Navigate to Application`, async () => {
             await eluminaProctorCand.clickOnStartExamLink();
             await eluminaProctorCand.clickOnUnderstandBtn();

@@ -35,17 +35,14 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
 });
 
-
 test(`@Regression Verify Validation of VSAQ Question type`, async ({ eluminaCandPage,webActions }) => {
-
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
+
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
         await eluminaCandPage.candidateStartVSAQ();
-
     });
-
 
 });

@@ -1,6 +1,8 @@
 import test from '@lib/BaseTest';
+import { EluminaIGLiveMonitorPage } from '@pages/EluminaIGLiveMonitorPage';
+import { testConfig } from '../../testConfig';
 
-/** Validate candidate attending All Question type */
+/** Validation of Invigilator marks attendance for All candidates */
 
 test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -17,17 +19,11 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
         await newtab.examTabNavigation();
         await newtab.createExam();
         await newtab.createSection();
-        await newtab.addMCQQuestion();
-        await newtab.addVSAQQuestion();
-        await newtab.addISAWEQuestion();
-        await newtab.addTypeXQuestion();
-        await newtab.addTypeBQuestion();
-        await newtab.addSAQQuestion();
-        await newtab.addSJTQuestion();
+        await newtab.addMCQQuestions();
     });
 });
 
-test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegInvPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -36,27 +32,23 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegInvPage.iAuthorPageNavigations();
-        await newtab.registrationTabNavigationEluminaExamPage();
+        await newtab.registrationTabNavigation();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
+        await newtab.addExistingUsers();
     });
 });
 
-test(`@Regression Verify Validation of Candidate attends All Question type`, async ({ eluminaCandPage,webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaCandPage.candidateNavigateToURL();
+test(`@Regression Verify Invigilator marks attendance for All candidates`, async ({ eluminaLiveMonitorPage, webActions }) => {
+    await test.step('Invigilator logging into application', async () => {
+        await eluminaLiveMonitorPage.invigilatorLogin();
     });
 
-    await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
-        await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.candidateAttendsAllQVSAQ();
-        await eluminaCandPage.candidateStartISAWE();
-        await eluminaCandPage.candidateStartTypeX();
-        await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ();
-        await eluminaCandPage.candidateStartSJT();
+    await test.step('Invigilator marks attendance for all candidate', async () => {
+        const newtab = await eluminaLiveMonitorPage.iAuthorPageNavigation();
+        await newtab.iAuthorPageVerification();
+        await newtab.markAllAttendance();
+        //await newtab.isPresentYes();
 
     });
-
 });

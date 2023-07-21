@@ -27,7 +27,7 @@ else if(process.env.ENV == 'staging'){
     testData = stagingTestData;
 }
 
-/*Validation of Candidate Exam Disclaimer Page*/ 
+/*Validation of Candidate > Peripheral verification screen Validation*/ 
 
 test(`@Smoke Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -55,9 +55,6 @@ test(`@Smoke Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProc
     await test.step(`Login to Elumina application`, async () => {
         await eluminaLoginPage.loginToApplication();
     });
-    // await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
-    //     await eluminaLoginPage.verifyProfilePage();
-    // });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaProctorReg.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
@@ -66,7 +63,7 @@ test(`@Smoke Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProc
     });
 });
 
-test(`@Smoke Verify CandidatesExam`, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
+test(`@Smoke Verify Candidate > Peripheral verification screen Validation`, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
         await test.step(`Navigate to Application`, async () => {
         eluminaProctorCand.candidateNavigateToURL();
     });
@@ -75,7 +72,6 @@ test(`@Smoke Verify CandidatesExam`, async ({ eluminaProctorCand,eluminaCandPage
         await eluminaProctorCand.clickOnStartExamLink();
         await eluminaProctorCand.clickOnUnderstandBtn();
         await eluminaCandPage.waitforTime1();
-
 
     });
 

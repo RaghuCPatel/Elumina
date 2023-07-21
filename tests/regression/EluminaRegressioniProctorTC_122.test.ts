@@ -30,16 +30,12 @@ else if(process.env.ENV == 'staging'){
 //Validation of Proctoring Exam Event > Viewed Exam instruction .
 test(`@Regression Validation of Proctoring Exam Event > Viewed Exam instruction.`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
     await test.step('Candidate logging into application', async () => {
-
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-
     });   
 
     await test.step('Invigilator  logging into Application', async () => {
-
         await eluminaProctorCand.clickOnAllLink();
-
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
         const page1 = await context1.newPage();
@@ -51,9 +47,7 @@ test(`@Regression Validation of Proctoring Exam Event > Viewed Exam instruction.
 
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
-
             await page1.locator('//div[text()="iAuthor"]').click()
-
           ]);
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();

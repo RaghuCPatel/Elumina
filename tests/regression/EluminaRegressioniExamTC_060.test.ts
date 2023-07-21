@@ -29,7 +29,7 @@ else if(process.env.ENV == 'staging'){
     testData = stagingTestData;
 } 
 
-/**Validate When exam terminated  for candidate*/
+/**Validate When exam terminated for candidate*/
 
 test(`@Regression Candidate Attend practice exam`, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {

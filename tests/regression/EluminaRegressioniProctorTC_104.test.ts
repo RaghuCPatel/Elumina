@@ -73,9 +73,7 @@ test(`@Regression Validation of Validation Camera verification check done`, asyn
             await eluminaProctorCand.clickOnUnderstandBtn();
             await eluminaProctorCand.validateCameraTick();
             await eluminaCandPage.waitforTime1();
-            
-
-        
+                    
     });
 
 });

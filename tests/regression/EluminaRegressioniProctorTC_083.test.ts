@@ -29,8 +29,8 @@ else if(process.env.ENV == 'staging'){
     testData = stagingTestData;
 }
 
-/** Validation of Creating survey section in Exam */
-test(`@Regression Verify Elumina Create Exam with survey section - TC_084`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+/** Validation Validate Survey screen */
+test(`@Regression Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -52,7 +52,6 @@ test(`@Regression Verify Elumina Create Exam with survey section - TC_084`, asyn
     });
 });   
 
-
 test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
@@ -69,8 +68,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });          
     
-    /**Validate Survey screen where candidate can provide feedback in comment section */
-    test(`@Regression Verify Validation of Candidate answering survey questions - TC_085 `, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+    test(`@Regression Verify Validation of Survey screen`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
         await test.step(`Navigate to Application`, async () => {
             eluminaProctorCand.candidateNavigateToURL();
             });
@@ -78,8 +76,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
                 await eluminaProctorCand.candidateLoginToApplications();
             });
     
-        await test.step('Candidate start the exam',async ()=> {
-          
+        await test.step('Candidate start the exam',async ()=> {          
             await eluminaProctorCand.clickOnAllLink();
     
             const browser = await chromium.launch();
