@@ -31,7 +31,7 @@ else if(process.env.ENV == 'staging'){
 
 //Validation of "Start Exam" (All Candidates)
 
-test(`@Regression Verify Elumina Login and create exam`, async ({ eluminaLoginPage, eluminExamianvPage, eluminaProctorExam, webActions }) => {
+test(`@Regression Verify Elumina Login and create exam`, async ({ eluminaLoginPage, eluminaExamPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -42,10 +42,11 @@ test(`@Regression Verify Elumina Login and create exam`, async ({ eluminaLoginPa
         await eluminaLoginPage.verifyProfilePage();
     });
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminExamianvPage.iAuthorPageNavigationss();
-        await newtab.examTabNavigations();
-        await newtab.createInvExam();
-        await newtab.createSections();
+        const newtab = await eluminaExamPage.iAuthorPageNavigation();
+        await newtab.examTabNavigation();
+        await newtab.createCommonExam();
+        await newtab.clickonNextBtnInExam();
+        await newtab.createSection();
         await newtab.addMCQQuestions();
     });
 });

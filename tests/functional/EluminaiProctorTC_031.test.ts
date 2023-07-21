@@ -70,6 +70,7 @@ test(`@Smoke Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProc
         await test.step('Candidate logging into application', async () => {
             await eluminaProctorCand.candidateNavigateToURL();
             await eluminaProctorCand.candidateLoginToApplications();
+            await eluminaCandPage.waitforTime1();
         });
         await test.step('Invigilator  logging into Application', async () => {
             await eluminaProctorCand.clickOnAllLink();

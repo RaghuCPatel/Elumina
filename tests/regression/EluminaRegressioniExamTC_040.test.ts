@@ -15,7 +15,8 @@ test(`@Regression Validation of creating Exam`, async ({ eluminaLoginPage,elumin
     await test.step(`Navigate to exam Tab and Create New Exam and add MCQ Questions`, async () => {
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createExamWithHighlighter();
+        await newtab.createCommonExam();
+        await newtab.selctHighlighterTool();
         await newtab.createSection();
         await newtab.addVSAQQuestions();
     });
