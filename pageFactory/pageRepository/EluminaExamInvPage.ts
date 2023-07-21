@@ -276,7 +276,7 @@ async createSections(): Promise<string>{
   await this.DescriptionMessage.type('Hello World......!');
   await this.page.waitForTimeout(5000);
   await this.SelectTime.selectOption('0');
-  await this.SelectTime.selectOption('30');
+  await this.SelectTime.selectOption('45');
   await this.ClickOnSave.click();
   return EluminaExamInvPage.examID;
 }

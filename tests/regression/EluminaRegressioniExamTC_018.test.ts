@@ -15,7 +15,8 @@ test(`@Regression Verify Elumina Login and Create Exam and add MCQ`, async ({ el
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createExam();
+        await newtab.createCommonExam();
+        await newtab.clickonNextBtnInExam();
         await newtab.createSection();
         await newtab.addMCQQuestions();
     });

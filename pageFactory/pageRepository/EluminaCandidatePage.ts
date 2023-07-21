@@ -344,6 +344,10 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(17000);
     }
 
+    async waitforTime2(){
+        await this.page.waitForTimeout(5000);
+    }
+
     async updatedCloudIcon(){
         await this.page.waitForTimeout(5000);
         await expect(this.cloudUpdatedIcon).toBeVisible();

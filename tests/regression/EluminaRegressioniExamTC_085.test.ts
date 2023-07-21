@@ -16,7 +16,8 @@ test(`@Regression Verify Elumina Create Exam with survey section`, async ({ elum
     await test.step(`Navigate to exam Tab and Create New Exam with survey section`, async () => {
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createExam();
+        await newtab.createCommonExam();
+        await newtab.clickonNextBtnInExam();
         await newtab.createSection();
         await newtab.addMCQQuestion();
         await newtab.createSurveySection();

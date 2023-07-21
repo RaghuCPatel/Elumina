@@ -302,6 +302,15 @@ export class EluminaExamPage {
         await this.ClickOnAdd.click();
     }
 
+    async clickonNextBtnInExam(){
+      await this.ClickOnNextBtn.click();
+      await expect(this.VerifyExam_details).toBeVisible();
+      await expect(this.VerifyChoose_Question).toBeVisible();
+      await expect(this.VerifyChoose_Workflow).toBeVisible();
+      await expect(this.VerifyChoose_Confirmation).toBeVisible();
+      await this.page.waitForTimeout(5000);
+    }
+
     async createExam(): Promise<void> {
       await this.createCommonExam();
       await this.EnterInvigilatorPswd.click();
@@ -532,21 +541,49 @@ await this.ClickOnSubmitAndApproveBtn.click();
 
 }
    
-     /*Create a Exam with Note option*/
+     /*Create a Exam with Inv password*/
      async createExamWithNotepad(): Promise<void> {
       await this.createCommonExam();
       await this.EnterInvigilatorPswd.click();
       await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
       await this.page.waitForTimeout(5000);
-      await this.ExamTools.click();
-      await this.SelectNotepad.click();
-      await this.ClickOnNextBtn.click();
-      await expect(this.VerifyExam_details).toBeVisible();
-      await expect(this.VerifyChoose_Question).toBeVisible();
-      await expect(this.VerifyChoose_Workflow).toBeVisible();
-      await expect(this.VerifyChoose_Confirmation).toBeVisible();
-      await this.page.waitForTimeout(5000);
+     
   }
+     /*Create a Exam with select Note pad*/
+  async selectNotepadTool(){
+    await this.ExamTools.click();
+    await this.SelectNotepad.click();
+    await this.ClickOnNextBtn.click();
+    await expect(this.VerifyExam_details).toBeVisible();
+    await expect(this.VerifyChoose_Question).toBeVisible();
+    await expect(this.VerifyChoose_Workflow).toBeVisible();
+    await expect(this.VerifyChoose_Confirmation).toBeVisible();
+    await this.page.waitForTimeout(5000);
+  }
+
+     /*Create a Exam with select Calculator*/
+  async selctCalculatorTool(){
+   await this.ExamTools.click();
+  await this.SelectCalculator.click();
+  await this.ClickOnNextBtn.click();
+  await expect(this.VerifyExam_details).toBeVisible();
+  await expect(this.VerifyChoose_Question).toBeVisible();
+  await expect(this.VerifyChoose_Workflow).toBeVisible();
+  await expect(this.VerifyChoose_Confirmation).toBeVisible();
+  await this.page.waitForTimeout(5000);
+  }
+
+     /*Create a Exam with select Highlighter*/
+     async selctHighlighterTool(){
+      await this.ExamTools.click();
+      await this.SelectHighlighter.click();
+      await this.ClickOnNextBtn.click();
+     await expect(this.VerifyExam_details).toBeVisible();
+     await expect(this.VerifyChoose_Question).toBeVisible();
+     await expect(this.VerifyChoose_Workflow).toBeVisible();
+     await expect(this.VerifyChoose_Confirmation).toBeVisible();
+     await this.page.waitForTimeout(5000);
+     }
 
   /**Method to Add SAQ Questions */
   async addSAQQuestions():Promise<void>{

@@ -32,7 +32,7 @@ else if(process.env.ENV == 'staging'){
 
 //Validation of "Start Exam" (All Candidates)
 
-test(`@Regression Verify Elumina Login and create exam`, async ({ eluminaLoginPage, eluminExamianvPage, eluminaProctorExam, webActions }) => {
+test(`@Regression Verify Elumina Login and create exam`, async ({ eluminaLoginPage, eluminaExamPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -43,15 +43,16 @@ test(`@Regression Verify Elumina Login and create exam`, async ({ eluminaLoginPa
         await eluminaLoginPage.verifyProfilePage();
     });
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminExamianvPage.iAuthorPageNavigationss();
-        await newtab.examTabNavigations();
-        await newtab.createInvExam();
-        await newtab.createSections();
+        const newtab = await eluminaExamPage.iAuthorPageNavigation();
+        await newtab.examTabNavigation();
+        await newtab.createCommonExam();
+        await newtab.clickonNextBtnInExam();
+        await newtab.createSection();
         await newtab.addMCQQuestions();
     });
 });
 
-test(`@Regression Verify Elumina Registration and user and invigilator`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(`@Regression Verify Elumina Registration and user and invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -59,8 +60,8 @@ test(`@Regression Verify Elumina Registration and user and invigilator`, async (
         await eluminaLoginPage.loginToApplication();
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaProctorReg.iAuthorPageNavigations();
-        await newtab.registrationTabNavigationforEluminaInvExamPage();
+        const newtab = await eluminaRegPage.iAuthorPageNavigations();
+        await newtab.registrationTabNavigation();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();

@@ -15,14 +15,15 @@ test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLogin
     await test.step(`Navigate to exam Tab and Create New Exam and add MCQ Questions`, async () => {
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createExam();
+        await newtab.createCommonExam();
+        await newtab.clickonNextBtnInExam();
         await newtab.createSection();
         await newtab.addMCQQuestions();
     });
 });
 
 
-test(`@Smoke Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -37,7 +38,7 @@ test(`@Smoke Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaRegP
     });
 });
 
-test(`@Smoke Verify Validation of the following in the Exam Section
+test(`@Regression Verify Validation of the following in the Exam Section
 Exam name, Candidate name, Exam timer, no of questions as per exam created`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
