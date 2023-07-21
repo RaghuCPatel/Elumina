@@ -86,7 +86,6 @@ export class EluminaInvCandidatePage {
 
     /**Method to candidate Login To Applications By Entering Username*/
     async candidateLoginToApplicationsByEnteringUsername(): Promise<void> {
-
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();
         const fileName = './download/User_details.xlsx';
@@ -118,9 +117,9 @@ export class EluminaInvCandidatePage {
            }
            await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
            await this.ClickOnRevieweBtn.click();
-        }
+    }
 
-        async  againCandidateLogin():Promise<void>{
+    async  againCandidateLogin():Promise<void>{
             await this.page.bringToFront();
             await this.page.waitForTimeout(10000);
      }

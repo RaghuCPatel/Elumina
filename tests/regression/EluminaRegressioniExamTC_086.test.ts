@@ -48,7 +48,6 @@ test(`@Regression Verify Elumina Login and create exam`, async ({ eluminaLoginPa
         await newtab.createSections();
         await newtab.addMCQQuestions();
     });
-
 });
 
 test(`@Regression add user in Registration and download User details and assign Invigilator`, async ({ eluminaLoginPage,eluminaRegInvPage,webActions }) => {
@@ -97,7 +96,6 @@ test(`@Regression Validation of invigilator remotely start the Exam for candidat
         await newPage.locator('//div[@title="Start Exam for all Candidates"]').click();
         await newPage.locator('(//button[text()="Yes"])[2]').click();
         await newPage.waitForTimeout(3000);
-
         await newPage.close();
         await page1.close();
     });
