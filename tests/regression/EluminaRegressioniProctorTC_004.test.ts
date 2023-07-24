@@ -3,7 +3,7 @@ import test from '@lib/BaseTest';
 /**Validation of user authentication by invalid Candidate Creadentials */
 
 
-test(`@Smoke Verify Elumina Login`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -22,7 +22,7 @@ test(`@Smoke Verify Elumina Login`, async ({ eluminaLoginPage, eluminaProctorExa
     });
 });
 
-test(`@Smoke Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
