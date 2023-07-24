@@ -1,5 +1,7 @@
-import { Page, BrowserContext, Locator, expect } from '@playwright/test';
+import { Page, BrowserContext, Locator, expect, ElementHandle } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
+import { EluminaProctorExamPage } from "./EluminaProctorExamPage";
+import { EluminaExamPage } from "./EluminaExamPage";
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
 const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
@@ -172,7 +174,34 @@ export class EluminaInvPage {
 
   /**Method to verify candidate name */
   async invClickOnExam() {
-    await this.ClickOnExam1.click();
+    
+    let examid= EluminaExamPage.examID;
+    console.log("From Registeration"+EluminaExamPage.examID);
+
+    let examIdProc=EluminaProctorExamPage.examID;
+    console.log("exam-id Proc"+EluminaProctorExamPage.examID)
+
+    await this.page.waitForSelector('//table[@class="table"]//tbody//tr//td[2]//span//span//span')
+    let exam=await this.page.$$('//table[@class="table"]//tbody//tr//td[2]//span//span//span');
+
+    console.log("Exam list:"+exam);
+    for(let i=0;i<=exam.length-1;i++){
+
+            let ex=await exam[i].textContent();
+            console.log("exam:"+ex);
+            if(examid==ex)
+            {   
+                console.log("Examid inside:"+examid);
+                const clickableExam: ElementHandle<Element> = exam[i] as ElementHandle<Element>;
+                await clickableExam.click();
+            }
+            else if(examIdProc==ex){
+                console.log("Examid inside proc:"+examIdProc);
+                const clickableExamProc: ElementHandle<Element> = exam[i] as ElementHandle<Element>;
+                await clickableExamProc.click();
+            }
+    }
+
     let CandNAme=await this.verifyCandNAme.textContent();
     console.log(CandNAme);
     await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
