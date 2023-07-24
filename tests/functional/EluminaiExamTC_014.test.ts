@@ -1,8 +1,8 @@
 import test from '@lib/BaseTest';
 
-//Validation of Invigilator Dashboard (Proctor)
+//Validation of Invigilator Dashboard
 
-test(`@Smoke Verify Validation of Invigilator Dashboard Proctor`, async ({ eluminaInvPage, webActions }) => {
+test(`@Smoke Verify Validation of Invigilator Dashboard`, async ({ eluminaInvPage, webActions }) => {
    
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaInvPage.invigilatorLogin();
