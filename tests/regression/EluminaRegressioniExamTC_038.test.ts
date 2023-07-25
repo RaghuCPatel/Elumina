@@ -16,7 +16,9 @@ test(`@Regression Validation of creating Exam`, async ({ eluminaLoginPage,elumin
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
-        await newtab.selectNotepadTool();
+        await newtab.selectAllTools();
+        // await newtab.selectNotepadTool();
+        // await newtab.selctHighlighterTool();
         await newtab.createSection();
         await newtab.addVSAQQuestions();
     });
@@ -45,7 +47,7 @@ test(`@Regression Verify candidate adds and saves Notes`, async ({ eluminaCandPa
         await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam',async ()=> {
-        await eluminaCandPage.AddingNotesToQuestions();
+        await eluminaCandPage.AddingNotesToQuestionSingle();
         console.log("Candidate is able to use Notepad")
     });
     

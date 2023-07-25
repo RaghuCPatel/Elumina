@@ -1,7 +1,7 @@
 import test from '@lib/BaseTest';
 
-
-    test(`@Smoke Verify Elumina Invigilator Dashboard`, async ({ eluminaInvPage, webActions }) => {
+/**Validation of Entering an exam from the invigilator dashboard to invigilate */
+    test(`@Smoke Verify Entering an exam from the invigilator dashboard to invigilate`, async ({ eluminaInvPage, webActions }) => {
         await test.step('Invigilator logging into application', async () => {
             await eluminaInvPage.invigilatorLogin();
         });
