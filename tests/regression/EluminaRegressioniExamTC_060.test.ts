@@ -31,7 +31,7 @@ else if(process.env.ENV == 'staging'){
 
 /**Validate When exam terminated for candidate*/
 
-test(`@Regression Candidate Attend practice exam`, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
+test(`@Regression Elumina Create exam`, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -47,7 +47,7 @@ test(`@Regression Candidate Attend practice exam`, async ({ eluminaLoginPage,elu
         await newtab.createCommonExam();
         await newtab.clickonNextBtnInExam();
         await newtab.createSection();
-        await newtab.addQuestionsInExam();
+        await newtab.addMCQQuestions();
     });
 });
 
@@ -76,7 +76,7 @@ test(`@Regression Verify Validation of "Terminate Exam"  `, async ({eluminaCandP
         
     });
     await test.step('Candidate start the exam',async ()=> {
-        await eluminaCandPage.candidateStartExam();
+        await eluminaCandPage.candidateStartMCQ();
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
