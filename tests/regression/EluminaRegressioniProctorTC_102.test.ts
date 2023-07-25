@@ -29,7 +29,7 @@ else if(process.env.ENV == 'staging'){
 
 /*Validation of Candidate > Peripheral verification screen Validation*/ 
 
-test(`@Smoke Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -48,7 +48,7 @@ test(`@Smoke Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, 
     });
 });
 
-test(`@Smoke Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -63,7 +63,7 @@ test(`@Smoke Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProc
     });
 });
 
-test(`@Smoke Verify Candidate > Peripheral verification screen Validation`, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
+test(`@Regression Verify Candidate > Peripheral verification screen Validation`, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
         await test.step(`Navigate to Application`, async () => {
         eluminaProctorCand.candidateNavigateToURL();
     });

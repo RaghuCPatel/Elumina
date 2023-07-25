@@ -174,7 +174,7 @@ export class EluminaInvPage {
 
   /**Method to verify candidate name */
   async invClickOnExam() {
-    
+
     let examid= EluminaExamPage.examID;
     console.log("From Registeration"+EluminaExamPage.examID);
 

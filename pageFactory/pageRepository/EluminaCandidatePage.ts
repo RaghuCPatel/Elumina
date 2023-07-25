@@ -860,4 +860,12 @@ async clickOnLogoutBtn(){
            await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
            console.log("Orange Color is Displayed When Questions are in Progress")
     }
+
+    /**Method to click on start exam for Minial time */
+    async candidateStartExamforMinimalTime(): Promise<void>{
+        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+        const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');
+        await this.page.waitForTimeout(5000);
+        await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+    }
 }
