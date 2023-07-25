@@ -43,8 +43,9 @@ test(`@Regression Validation of "Pause Exam" from Live monitor`, async ({ elumin
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
+        await newtab.createCommonExam();
         await newtab.createExam();
-        await newtab.createSection();
+        await newtab.createSections();
         await newtab.addMCQQuestions();
     });
 });
@@ -103,5 +104,7 @@ test(`@Regression Validation of "Pause-Exam"`, async ({ eluminaProctorCand,webAc
     });
     await test.step(`Redirected to Candidate page`, async () => {
         await eluminaProctorCand.againCandidateLogin();
+        await eluminaProctorCand.enterInvigilatorPassword();
+
     });
 });

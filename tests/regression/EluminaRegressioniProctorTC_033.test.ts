@@ -43,7 +43,7 @@ test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomeP
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExamWithCalculator();
-        await newtab.createSection();
+        await newtab.createSections();
         await newtab.addVSAQQuestions();
     });
 });   
@@ -64,7 +64,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });
 
-test(`@RegressionValidation of Calculator`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+test(`@Regression Validation of Calculator`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
     await test.step('Candidate logging into application', async () => {
 
         await eluminaProctorCand.candidateNavigateToURL();

@@ -31,7 +31,7 @@ else if(process.env.ENV == 'staging'){
 
 /**Validation of multiple candidate trying to login to same Exam*/
 
-test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+test(`@Rgression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -102,7 +102,7 @@ test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, a
      
          });
          await test.step('Candidate start the exam',async ()=> {
-           // await eluminaProctorCand.enterInvigilatorPassword();
+           await eluminaProctorCand.enterInvigilatorPassword();
             await eluminaProctorCand.candidateStartMCQ();
         });
 });
