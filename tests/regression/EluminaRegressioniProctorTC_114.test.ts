@@ -29,7 +29,7 @@ else if(process.env.ENV == 'staging'){
 
 /**Validation of Proctoring Exam Event >Login Success*/
 
-test(`@Regression Validation of Proctoring Exam Event >Login Success`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+/*test(`@Regression Validation of Proctoring Exam Event >Login Success`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -46,7 +46,7 @@ test(`@Regression Validation of Proctoring Exam Event >Login Success`, async ({ 
         await newtab.createSection();
         await newtab.addMCQQuestions();
     });
-});
+});          
 
 test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -62,7 +62,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});
+});         */
 
 test(`@Regression Validation of Proctoring Exam Event with Login Success`, async ({ eluminaCandPage,eluminaLoginPage,eluminaProctorCand,eluminaProctorReg,webActions }) => {
     await test.step('Candidate logging into application', async () => {

@@ -43,7 +43,8 @@ test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomeP
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createExamWithNotepad();
+        await newtab.createCommonExam();
+        await newtab.selectAllTools();
         await newtab.createSections();
         await newtab.addVSAQQuestions();
     });

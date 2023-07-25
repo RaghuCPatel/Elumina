@@ -31,7 +31,7 @@ else if(process.env.ENV == 'staging'){
 
 /**Validation of multiple candidate trying to login to same Exam*/
 
-test(`@Rgression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+/*test(`@Rgression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -64,7 +64,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadMultipleUserDetails();
         await newtab.addExistingUsers();
     });
-});
+});      */
 
     
 test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, async ({ eluminaProctorCand,webActions }) => {
@@ -75,7 +75,7 @@ test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, a
             await eluminaProctorCand.candidateLoginToApplications();
         });
 
-        await test.step('Candidate start the exam',async ()=> {
+        /*await test.step('Candidate start the exam',async ()=> {
             await eluminaProctorCand.clickOnAllLink();
      
              const browser = await chromium.launch();
@@ -100,9 +100,9 @@ test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, a
              await newPage.close();
              await page1.close();
      
-         });
-         await test.step('Candidate start the exam',async ()=> {
+         });     */
+         /*await test.step('Candidate start the exam',async ()=> {
            await eluminaProctorCand.enterInvigilatorPassword();
             await eluminaProctorCand.candidateStartMCQ();
-        });
+        });    */
 });

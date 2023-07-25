@@ -42,7 +42,6 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createCommonExam();
         await newtab.createExam();
         await newtab.createSections();
         await newtab.addMCQQuestions();
@@ -64,7 +63,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
         await newtab.addExistingUsers();
 
     });
-});
+});                       
 
 
 test(`@Regression Verify Validation of abrupt closure of browser`, async ({ eluminaProctorCand, eluminaCandPage,webActions }) => {

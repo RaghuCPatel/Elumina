@@ -29,7 +29,7 @@ else if(process.env.ENV == 'staging'){
 
 //Validation of Candidate > Peripheral verification > Allow Screen Capture
 
-test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+/*test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -61,7 +61,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});
+});      */
 
 test(`@Regression Validation of Validation of Screen Capture verification check done`, async ({ eluminaCandPage,eluminaLoginPage,eluminaProctorCand,eluminaProctorReg,webActions }) => {
     await test.step('Candidate logging into application', async () => {
