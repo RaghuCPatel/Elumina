@@ -174,6 +174,7 @@ export class EluminaInvPage {
 
   /**Method to verify candidate name */
   async invClickOnExam() {
+
     let examid= EluminaExamPage.examID;
     console.log("From Registeration"+EluminaExamPage.examID);
 
@@ -201,7 +202,6 @@ export class EluminaInvPage {
             }
     }
 
-    //await this.ClickOnExam1.click();
     let CandNAme=await this.verifyCandNAme.textContent();
     console.log(CandNAme);
     await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
