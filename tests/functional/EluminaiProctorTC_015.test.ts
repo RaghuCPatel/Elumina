@@ -28,7 +28,7 @@ else if(process.env.ENV == 'staging'){
     testData = stagingTestData;
 }
 
-
+/**Validation of "Review" Section */
 test(`@Smoke Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand, webActions }) => {
         await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
@@ -63,7 +63,7 @@ test(`@Smoke Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand,
 
     });
    
-    await test.step('Invigilator marks attendance for all candidate', async () => {
+    await test.step('Validation of Review Section', async () => {
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaProctorCand.candidateStartMCQ();

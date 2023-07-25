@@ -6,7 +6,7 @@ test(`@Smoke Verify CandidatesInvExam`, async ({ eluminaCadInvPage,webActions })
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });
-    await test.step(`Candidate Login to application with wrong password`, async () => {
+    await test.step(`Candidate Login to application with valid password`, async () => {
         await eluminaCadInvPage.candidateLoginToApplications();
     });
 });

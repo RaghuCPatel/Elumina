@@ -457,7 +457,7 @@ export class EluminaExamPage {
       await this.ClickOnSearchQuestion.click()
       await this.ClickOnSearchQuestion.type('VSAQ');
       await this.page.waitForTimeout(3000);
-      await this.page.locator('(//input[@type="checkbox"])[2]').click();
+      await this.page.locator('(//input[@type="checkbox"])[3]').click();
       await this.ClickOnAddBtn.click()
       await this.ClickOnSave.click();
       await this.ClickOnNextBtn.click();
@@ -554,7 +554,7 @@ export class EluminaExamPage {
   async selectNotepadTool(){
     await this.ExamTools.click();
     await this.SelectNotepad.click();
-    await this.ClickOnNextBtn.click();
+    //await this.ClickOnNextBtn.click();
     await expect(this.VerifyExam_details).toBeVisible();
     await expect(this.VerifyChoose_Question).toBeVisible();
     await expect(this.VerifyChoose_Workflow).toBeVisible();
@@ -562,16 +562,19 @@ export class EluminaExamPage {
     await this.page.waitForTimeout(5000);
   }
 
-  /*Create a Exam with select Calculator*/
-  async selctCalculatorTool(){
-    await this.ExamTools.click();
-    await this.SelectCalculator.click();
-    await this.ClickOnNextBtn.click();
-    await expect(this.VerifyExam_details).toBeVisible();
-    await expect(this.VerifyChoose_Question).toBeVisible();
-    await expect(this.VerifyChoose_Workflow).toBeVisible();
-    await expect(this.VerifyChoose_Confirmation).toBeVisible();
-    await this.page.waitForTimeout(5000);
+
+     /*Create a Exam with All Tools*/
+  async selectAllTools(){
+   await this.ExamTools.click();
+  await this.SelectCalculator.click();
+  await this.SelectNotepad.click();
+  await this.SelectHighlighter.click();
+  await this.ClickOnNextBtn.click();
+  await expect(this.VerifyExam_details).toBeVisible();
+  await expect(this.VerifyChoose_Question).toBeVisible();
+  await expect(this.VerifyChoose_Workflow).toBeVisible();
+  await expect(this.VerifyChoose_Confirmation).toBeVisible();
+  await this.page.waitForTimeout(5000);
   }
 
      /*Create a Exam with select Highlighter*/

@@ -28,6 +28,8 @@ else if(process.env.ENV == 'staging'){
     testData = stagingTestData;
 }
 
+/**Verify the candidate should be able to "Review" at any point of the exam time */
+
 test(`@Smoke Verify The candidate should be able to "Review" at any point of the exam time`, async ({ eluminaProctorCand,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
    

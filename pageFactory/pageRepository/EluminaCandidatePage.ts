@@ -148,9 +148,9 @@ export class EluminaCandidatePage {
         this.ViewResult=page.locator('//div[@class="logout practiceBtn parent-body-container"]//label');
         this.flagForReviewColor=page.locator('//p[@class="parent-body-container menuColor3"]');
         this.notAnweredQuestion=page.locator('//p[@class="parent-body-container menuColor1"]');
-        this.ClickOnNotepad=page.locator('//div[@class="toolIcon"]');
-        this.ClickOnCalculator=page.locator('//div[@class="toolIcon"]');
-        this.ClickOnHighlighter=page.locator('//div[@class="toolIcon"]');
+        this.ClickOnNotepad=page.locator('//div[@class="toolIcon"][2]');
+        this.ClickOnCalculator=page.locator('//div[@class="toolIcon"][1]');
+        this.ClickOnHighlighter=page.locator('//div[@class="toolIcon"][3]');
         this.HighlightQuestion=page.locator('//span[@class="CSkcDe"]');
         this.textareafill=page.locator('//div[@class="notepad-content"]//textarea');
         this.EnternumberOne=page.locator('//button[@value="7"]');

@@ -3,7 +3,7 @@ import { EluminaIGLiveMonitorPage } from '@pages/EluminaIGLiveMonitorPage';
 
 //Invigilator marks attendance for all candidate
 
-test(`@Smoke Verify Elumina Invigilator Dashboard`, async ({ eluminaLiveMonitorPage, webActions }) => {
+test(`@Smoke Verify Elumina Invigilator marks attendance for all candidate`, async ({ eluminaLiveMonitorPage, webActions }) => {
     await test.step('Invigilator logging into application', async () => {
         await eluminaLiveMonitorPage.invigilatorLogin();
     });

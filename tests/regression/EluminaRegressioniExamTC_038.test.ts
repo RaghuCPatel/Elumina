@@ -16,9 +16,7 @@ test(`@Regression Validation of creating Exam`, async ({ eluminaLoginPage,elumin
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
-        await newtab.selctCalculatorTool();
-        await newtab.selectNotepadTool();
-        await newtab.selctHighlighterTool();
+        await newtab.selectAllTools();
         await newtab.createSection();
         await newtab.addVSAQQuestions();
     });
