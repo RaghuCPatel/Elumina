@@ -4,6 +4,7 @@ import { testConfig } from '../../testConfig';
 import { EluminaExamPage } from './EluminaExamPage';
 import { EluminaMultipleExamsForPMPage } from './EluminaMultipleExamsForPMPage';
 import { EluminaMultipleExamsForAMPage } from './EluminaMultipleExamsForAMPage';
+import { EluminaMinimalTimeExamPage } from './EluminaMinimalTimeExamPage';
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
 const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
@@ -184,6 +185,17 @@ async registrationTabNavigationAMExamPage():Promise<void> {
     await this.RegistrationMenu.click();
     let examid= EluminaMultipleExamsForAMPage.examID;
     console.log(EluminaMultipleExamsForAMPage.examID);
+    await this.searchExam.type(examid);
+    await this.page.waitForTimeout(5000);
+    await this.ClickOnCreatedExam.click();
+    await this.ClickOnAddNewUsers.click();
+}
+
+  /**Method to register for the exam */
+  async registrationTabNavigationforMinimaltime():Promise<void> {
+    await this.RegistrationMenu.click();
+    let examid= EluminaMinimalTimeExamPage.examID;
+    console.log(EluminaMinimalTimeExamPage.examID);
     await this.searchExam.type(examid);
     await this.page.waitForTimeout(5000);
     await this.ClickOnCreatedExam.click();

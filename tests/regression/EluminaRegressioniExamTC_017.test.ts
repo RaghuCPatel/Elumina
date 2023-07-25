@@ -23,7 +23,7 @@ test(`@Regression Validation of multiple Exams on the dashboard for different ti
 });
 
 
-test(`@Regression Verify Elumina Registration for AM`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression Verify Elumina RegistrationInv and add User for AM`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -32,7 +32,7 @@ test(`@Regression Verify Elumina Registration for AM`, async ({ eluminaLoginPage
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
-        await newtab.registrationTabNavigationPMExamPage();
+        await newtab.registrationTabNavigationAMExamPage();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
@@ -43,7 +43,7 @@ test(`@Regression Verify Elumina Registration for AM`, async ({ eluminaLoginPage
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToAndValidateDashboard();
     });
     
 });
@@ -68,7 +68,7 @@ test(`@Regression Validation of multiple Exams on the dashboard for different ti
     });
 });
 
-test(`@Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression Verify Elumina RegistrationInv and add User for PM`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -77,18 +77,17 @@ test(`@Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
+        await newtab.registrationTabNavigationPMExamPage();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
 });
-
     test(`@Regression Verify Login Application for PM`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToAndValidateDashboard();
     });
     
 });
