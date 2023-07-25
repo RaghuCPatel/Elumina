@@ -52,7 +52,7 @@ test(`@Regression Validation of Invigilator Dashboard after the Exam Completion 
     });
 });     
 
-test(`@Regression Verify Validation of Invigilator Dashboard Proctor`, async ({ eluminaInvPage, webActions }) => {
+test(`@Smoke Verify Validation of Invigilator Dashboard Proctor`, async ({ eluminaInvPage, webActions }) => {
    
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaInvPage.invigilatorLogin();

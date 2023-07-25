@@ -17,8 +17,6 @@ test(`@Regression Validation of creating Exam`, async ({ eluminaLoginPage,elumin
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.selectAllTools();
-        // await newtab.selectNotepadTool();
-        // await newtab.selctHighlighterTool();
         await newtab.createSection();
         await newtab.addVSAQQuestions();
     });
@@ -37,7 +35,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});
+});       
 
 test(`@Regression Verify candidate adds and saves Notes`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
