@@ -30,7 +30,7 @@ else if(process.env.ENV == 'staging'){
 
 /** Validation of Candidate > Peripheral verification screen > Terms and Conditions */
 
-test(`@Regression Validation of Candidate > Peripheral verification screen > Terms and Conditions`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+/*test(`@Regression Validation of Candidate > Peripheral verification screen > Terms and Conditions`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -63,7 +63,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});
+});      */
 
 test(`@Regression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
 

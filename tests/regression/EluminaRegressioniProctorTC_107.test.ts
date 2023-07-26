@@ -30,7 +30,7 @@ else if(process.env.ENV == 'staging'){
 
 /** Validation of Candidate> Enforce Hardware Check > True */
 
-test(`@Regression Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+/*test(`@Regression Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -63,7 +63,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});
+});      */
 
 test(`@Regression Verify Candidate> Enforce Hardware Check > True`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
 

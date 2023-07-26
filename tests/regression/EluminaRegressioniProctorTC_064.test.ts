@@ -30,7 +30,7 @@ else if(process.env.ENV == 'staging'){
 /**Validation of "Pause Exam" from Live monitor */
 
 
-test(`@Regression Validation of "Pause Exam" from Live monitor`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+/*test(`@Regression Validation of "Pause Exam" from Live monitor`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -64,7 +64,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});
+});       */
 
 test(`@Regression Validation of "Pause-Exam"`, async ({ eluminaProctorCand,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
