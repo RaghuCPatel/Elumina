@@ -222,7 +222,7 @@ export class EluminaRegistrationForProctoringPage {
         console.log(EluminaMultipleExamsForPMPage.examID);
         await this.searchExam.type(examid);
         await this.ClickOnCreatedExam.click();
-        await this.ClickOnAddNewUsers.click();
+        //await this.ClickOnAddNewUsers.click();
     }
 
     /**Method to click on Registration Menu and click on Created Exam  */
@@ -308,26 +308,26 @@ export class EluminaRegistrationForProctoringPage {
         await this.TypeEmail.type(makeid(testData.clientEmail)+Math.floor(Math.random()*899+100)+'@gmail.com');
         await this.TypePhone.type(testData.clientPhone+Math.floor(Math.random()*899999999+100));
         await this.page.waitForTimeout(5000);
-       await this.SelectRole.click();
-       await this.SelectRole.selectOption(testData.clientRole);
-       await this.page.waitForTimeout(5000);
-       await this.SelectEligible.click();
-       await this.SelectEligible.selectOption(testData.clientEligableOption);
-       await this.page.waitForTimeout(5000);
-       await this.SelectVenue.click();
-       await this.SelectVenue.type(testData.clientVenue);
-       await this.page.waitForTimeout(5000);
-       await this.SelectBookingStatus.click();
-       await this.SelectBookingStatus.selectOption(testData.clientBookingStatus);
-       await this.page.waitForTimeout(5000);
-       await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles('lib/Images/kohli.jpeg');
-       await this.page.waitForTimeout(8000);
-       await this.ClickOnSaveBtn.click();
-       await this.page.waitForTimeout(8000);
-       await this.LeftArrow.click();
-       candClientID=await this.captureUserClientID.textContent()
-       console.log("Cand-ID :"+candClientID);
-       await this.ClickOnDropdown.click();
+        await this.SelectRole.click();
+        await this.SelectRole.selectOption(testData.clientRole);
+        await this.page.waitForTimeout(5000);
+        await this.SelectEligible.click();
+        await this.SelectEligible.selectOption(testData.clientEligableOption);
+        await this.page.waitForTimeout(5000);
+        await this.SelectVenue.click();
+        await this.SelectVenue.type(testData.clientVenue);
+        await this.page.waitForTimeout(5000);
+        await this.SelectBookingStatus.click();
+        await this.SelectBookingStatus.selectOption(testData.clientBookingStatus);
+        await this.page.waitForTimeout(5000);
+        await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles('lib/Images/kohli.jpeg');
+        await this.page.waitForTimeout(8000);
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(8000);
+        await this.LeftArrow.click();
+        candClientID=await this.captureUserClientID.textContent()
+        console.log("Cand-ID :"+candClientID);
+        await this.ClickOnDropdown.click();
     }
 
     /**Method to Download the User Details */
@@ -393,6 +393,30 @@ export class EluminaRegistrationForProctoringPage {
         await this.page.waitForTimeout(5000);
         await this.page.waitForTimeout(2000);
 
+    }
+
+     /**add Existing Candid */
+     async addExistingUsersforMultiple():Promise<void>{
+        await this.ClickOnAddExistingUser.click();
+        await this.page.waitForTimeout(2000);
+        await this.SearchUsers.click();
+        await this.page.waitForTimeout(2000);
+        await this.SearchUsers.type(candClientID);
+        await this.page.waitForTimeout(4000);
+        await this.CLickOnUser.click();
+        await this.ChooseExistingRole.click();
+        await this.SelectCandRole.click();
+        await this.SelectExVenue.click();
+        await this.SelectInvVenue.click();
+        await this.SelectExEligible.click();
+        await this.SelectInvEligible.click();
+        await this.SelectExBookingStatus.click();
+        await this.SelectInvBookingStatus.click();
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(7000);
+        await this.LeftArrow.click();
+        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(2000);
     }
 
     /**Method to Add Multiple User Details */

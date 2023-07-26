@@ -148,9 +148,9 @@ export class EluminaCandidatePage {
         this.ViewResult=page.locator('//div[@class="logout practiceBtn parent-body-container"]//label');
         this.flagForReviewColor=page.locator('//p[@class="parent-body-container menuColor3"]');
         this.notAnweredQuestion=page.locator('//p[@class="parent-body-container menuColor1"]');
-        this.ClickOnNotepad=page.locator('//div[@class="toolIcon"][2]');
-        this.ClickOnCalculator=page.locator('//div[@class="toolIcon"][1]');
-        this.ClickOnHighlighter=page.locator('//div[@class="toolIcon"][3]');
+        this.ClickOnNotepad=page.locator('//div[@class="toolIcon"]');
+        this.ClickOnCalculator=page.locator('//div[@class="toolIcon"]');
+        this.ClickOnHighlighter=page.locator('//div[@class="toolIcon"]');
         this.HighlightQuestion=page.locator('//span[@class="CSkcDe"]');
         this.textareafill=page.locator('//div[@class="notepad-content"]//textarea');
         this.EnternumberOne=page.locator('//button[@value="7"]');
@@ -354,7 +354,6 @@ export class EluminaCandidatePage {
         console.log("Status Updated")
     }
 
-
     /**Method to Verify the the Dashboard timer */
     async verifyExamDashboardTimer(){
        await this.page.waitForTimeout(5000);
@@ -461,13 +460,6 @@ export class EluminaCandidatePage {
     }
 
     async candidateStartTwoMCQ(){
-        // if(this.ClickStartExamLink.isVisible())
-        // {
-        //     await this.ClickStartExamLink.click();
-        // }
-        //await this.ClickStartExamLink.click();
-        // await this.ClickOnStartExamBtn.click();
-
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
         const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');
         console.log('Number of questions-'+qutns.length);
@@ -477,17 +469,8 @@ export class EluminaCandidatePage {
             await qutns[i].click();
             await this.ansMCQQuestions.click();
           
-            //await this.page.close();
-           }
-            //await this.page.locator('(//div[@class="question-number-container"]//div//p)[3]').click();
-           //await this.flagForReviewQuestions.click();
-          // await this.ClickOnNextBtn.click();
-          await this.page.close();
-           //await this.context.close();
-          // await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
-          // await this.ClickOnRevieweBtn.click();
-           //await this.ClickOnSubmitBtn.click();
-
+        }
+        await this.page.close();
     }
 
     async candidateStartOneMCQ(){       
@@ -495,12 +478,9 @@ export class EluminaCandidatePage {
             await this.ansMCQQuestions.click();
             await this.page.waitForTimeout(2000);            
             await this.ClickOnNextBtn.click();
-
-
     }
 
     async candidateSurveyStartOneMCQ(){
-                
             await this.page.waitForTimeout(2000);
             await this.ansMCQQuestions.click();
             await this.page.waitForTimeout(8000);            
@@ -509,7 +489,6 @@ export class EluminaCandidatePage {
     }
 
     async candidateAnsSurveyQuestion(){
-            
             await this.page.waitForTimeout(2000);
             await this.ansMCQQuestions.click();
             await this.page.waitForTimeout(2000);
@@ -525,21 +504,18 @@ export class EluminaCandidatePage {
             await this.page.waitForTimeout(2000);
             await this.ClickOnRevieweBtn.click();
             await this.ClickOnSubmitBtn.click();
-           
     }
 
     async candidateAttendsAllQVSAQ(){
-         
             await this.page.waitForTimeout(2000);
             await this.ansVSAQQuestion.click();
             await this.ansVSAQQuestion.type(makeid(100));
             await this.page.waitForTimeout(2000);
-            await this.ClickOnNextBtn.click();
-                       
+            await this.ClickOnNextBtn.click();            
     }
 
     async candidateStartISAWE(){
-          await this.page.waitForTimeout(2000);
+            await this.page.waitForTimeout(2000);
             await this.ansISAWEQuestion.click();
             await this.ansISAWEQuestion.type(makeid(100));
             await this.ans2ISAWEQuestion.click();
@@ -587,7 +563,6 @@ export class EluminaCandidatePage {
     }
 
     async candidateFlagForReviewAllQuestions(){
-
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
         const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');
         console.log('Number of questions-'+qutns.length);
@@ -610,14 +585,14 @@ export class EluminaCandidatePage {
     }
    
 
- //**Method to Confirmation Submit popup */
- async confirmationOkBtn(){
-    await this.ConfirmationToSubmit.click();
-}
-//**Method to Candidate  Logout */
-async clickOnLogoutBtn(){
-    await this.CandidateLogout.click();
-}
+    /**Method to Confirmation Submit popup */
+    async confirmationOkBtn(){
+        await this.ConfirmationToSubmit.click();
+    }
+    /**Method to Candidate  Logout */
+    async clickOnLogoutBtn(){
+        await this.CandidateLogout.click();
+    }
 
     /**Method to navigate from review page to candidate exam page */
     async clickonPrevious(){
@@ -664,9 +639,7 @@ async clickOnLogoutBtn(){
     }
 
     async UsingHighlighterForQuestions(){
-
         {
-    
             await this.ansVSAQQuestion.click();
             await this.ClickOnHighlighter.click();
             await this.page.waitForTimeout(1000);

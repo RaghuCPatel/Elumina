@@ -43,6 +43,17 @@ export class EluminaInvPage {
     readonly ClickOnExam:Locator;
     readonly CheckExamStatus:Locator;
 
+    readonly AllCandCheckbox:Locator;
+    readonly OneCandCheckbox:Locator;
+    readonly IsPresentYes:Locator;
+    readonly IsPresentNo:Locator;
+    readonly LockExam:Locator;
+    readonly SelectLocation:Locator;
+    readonly LocationDrop:Locator;
+    readonly LocationSubmit:Locator;
+    readonly SelectAll:Locator;
+    readonly dropDown:Locator;   
+
     readonly verifyExamIDMenue:Locator;
     readonly verifyExamNameMenue:Locator;
     readonly verifyExamStartDateMenue:Locator;
@@ -61,12 +72,6 @@ export class EluminaInvPage {
     readonly ClickOnExam1:Locator;
     readonly verifyCandNAme:Locator;
     readonly verifyErrorMessage:Locator;
-    readonly SelectLocation:Locator;
-    readonly LocationDrop:Locator;
-    readonly LocationSubmit:Locator;
-    readonly SelectAll:Locator;
-    readonly dropDown:Locator;
-
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -208,13 +213,73 @@ export class EluminaInvPage {
     await this.page.waitForTimeout(3000);
   }
 
-  async selectLocation() {
-    await this.ClickOnExam1.click();
-    await this.SelectAll.check();
-    await this.dropDown.click();
-    await this.LocationDrop.click();
-    await this.LocationSubmit.click();
-    await this.page.waitForTimeout(5000);
- }
+    /**Method to select Location */  
+    async selectLocation() {
+        await this.ClickOnExam1.click();
+        await this.SelectAll.check();
+        await this.dropDown.click();
+        await this.LocationDrop.click();
+        await this.LocationSubmit.click();
+        await this.page.waitForTimeout(5000);
+    }
 
+    /**Method to click on exam link */  
+    async ClickOnExamLink() {
+        await this.ClickOnExam.click();
+
+    }
+
+    /**Method to Mark all attendence */
+    async markAllAttendance() {
+        let markattd1=this.page.locator('(//table[@class="table table-spacing"]//tbody//tr//td[3]//select)[1]');
+        await markattd1.click();
+        await markattd1.selectOption('Yes');
+        let markattd2=this.page.locator('(//table[@class="table table-spacing"]//tbody//tr//td[3]//select)[1]');
+        await markattd2.click();
+        await markattd2.selectOption('Yes');
+        await this.page.waitForTimeout(2000);
+        
+    }
+
+    async oneCandCheckbox() {
+        await this.OneCandCheckbox.click();
+    }
+
+    /**Method to mark attendence with yes */
+    async isPresentYes() {
+        let markattd1=this.page.locator('(//table[@class="table table-spacing"]//tbody//tr//td[3]//select)[1]');
+        await markattd1.click();
+        await markattd1.selectOption('Yes');
+        await this.page.waitForTimeout(5000);
+    }
+
+     /**Method to mark attendence with No */
+    async isPresentNo() {
+        await this.IsPresentNo.click();
+    }
+
+    /**Method to click on Lock Exam Button */
+    async lockExamBtn() {
+        await this.LockExam.click();
+    }
+
+    /**Method to select location */
+    async selectLocation1() {
+        await this.SelectAll.check();
+        await this.dropDown.click();
+        await this.LocationDrop.click();
+        await this.LocationSubmit.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    /**Method to click on loction drop down */
+    async locationDrop() {
+        await this.LocationDrop.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    /**Method to click on location submit */
+    async locationSubmit() {
+            await this.LocationSubmit.click();
+    }  
 }

@@ -153,6 +153,8 @@ export class EluminaProctorCandidatePage {
         })
         await this.page.waitForTimeout(5000);
         await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(5000);
+        await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
     }
 
     /**Method to click on sign out */
