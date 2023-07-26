@@ -31,7 +31,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
+        await newtab.addMultipleUserDetails();
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });

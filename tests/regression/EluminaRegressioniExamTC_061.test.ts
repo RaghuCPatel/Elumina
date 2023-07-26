@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Candidate Attend practice exam*/
 
-test(`@Regression Candidate Attend practice exam`, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
+test(`@Regression Create practice exam`, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

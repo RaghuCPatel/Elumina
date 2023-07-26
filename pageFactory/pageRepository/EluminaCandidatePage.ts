@@ -62,6 +62,7 @@ export class EluminaCandidatePage {
 
     readonly verifyCloud:Locator;
     readonly ansVSAQQuestion:Locator;
+    readonly ansSingleVSAQQuestion:Locator;
     readonly ansISAWEQuestion:Locator;
     readonly ans2ISAWEQuestion:Locator;
     readonly ansTypeXQuestion:Locator;
@@ -128,6 +129,7 @@ export class EluminaCandidatePage {
         this.verifyCloud=page.locator('//div[@title="All data updated."]');
         this.ansMCQQuestions=page.locator('(//label[@class="labelEmpty"])[1]');
         this.ansVSAQQuestion=page.frameLocator('//iframe[@class="tox-edit-area__iframe"]').locator('html');
+        this.ansSingleVSAQQuestion=page.locator('(//div[@class="question-number-container"]//div//p)[2]');
         this.ansISAWEQuestion=page.frameLocator('(//iframe[@class="tox-edit-area__iframe"])[1]').locator('//html[@data-mce-style="height: auto;"]');
         this.ans2ISAWEQuestion=page.frameLocator('(//iframe[@class="tox-edit-area__iframe"])[2]').locator('//html[@data-mce-style="height: auto;"]');
         this.ansTypeXQuestion=page.locator('(//div[@class="inputGroup question-preview--mc"]//label[@class="labelEmpty"])[1]');
@@ -501,6 +503,7 @@ export class EluminaCandidatePage {
 
     async candidateStartVSAQ(){        
             await this.page.waitForTimeout(2000);
+            await this.ansSingleVSAQQuestion.click();
             await this.ansVSAQQuestion.click();
             await this.ansVSAQQuestion.type(makeid(100));
             await this.page.waitForTimeout(2000);
@@ -560,7 +563,7 @@ export class EluminaCandidatePage {
             await this.ansSJTQuestion.click();
             await this.page.waitForTimeout(2000);
             await this.ClickOnRevieweBtn.click();
-            await this.ClickOnSubmitBtn.click();
+            //await this.ClickOnSubmitBtn.click();
 
     }
 
@@ -645,7 +648,7 @@ export class EluminaCandidatePage {
             await this.ansVSAQQuestion.click();
             await this.ClickOnHighlighter.click();
             await this.page.waitForTimeout(1000);
-            await this.HighlightQuestion.dblclick();
+            await this.HighlightQuestion.click();
             await this.page.waitForTimeout(1000);
         }
     }

@@ -286,6 +286,8 @@ async registrationTabNavigationAMExamPage():Promise<void> {
         await this.page.waitForTimeout(5000); 
         }
         await this.LeftArrow.click();
+        await this.ClickOnDropdown.click();
+
      }
 
       /**Method to Add invigilator to the exam */
