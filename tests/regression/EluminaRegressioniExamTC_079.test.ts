@@ -40,14 +40,14 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
 });
 
-test(`@Regression Verify Invigilator marks attendance for All candidates`, async ({ eluminaLiveMonitorPage, webActions }) => {
+test(`@Regression Verify Invigilator marks attendance for All candidates`, async ({ eluminaInvPage, webActions }) => {
     await test.step('Invigilator logging into application', async () => {
-        await eluminaLiveMonitorPage.invigilatorLogin();
+        await eluminaInvPage.invigilatorLogin();
     });
 
     await test.step('Invigilator marks attendance for all candidate', async () => {
-        const newtab = await eluminaLiveMonitorPage.iAuthorPageNavigation();
-        await newtab.iAuthorPageVerification();
+        const newtab = await eluminaInvPage.iAuthorPageNavigation();
+        await newtab.ClickOnExamLink();
         await newtab.markAllAttendance();
         //await newtab.isPresentYes();
 
