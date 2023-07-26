@@ -95,14 +95,14 @@ test(`@Regression Verify Validation of Resume Exam`, async ({ eluminaCandPage,we
           //await newPage.waitForLoadState();
 
           await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
-        await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click();
-        await newPage.waitForTimeout(8000);
-        await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
-        await newPage.locator('//div[@title="Pause Exam for all Candidates"]').click();
-        await newPage.locator('(//button[@class="theme-btn theme-primary-btn"])').click();
-        await newPage.waitForTimeout(3000);
+        // await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click();
+        // await newPage.waitForTimeout(8000);
+        // await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
+        // await newPage.locator('//div[@title="Pause Exam for all Candidates"]').click();
+        // await newPage.locator('(//button[@class="theme-btn theme-primary-btn"])').click();
+        // await newPage.waitForTimeout(3000);
 
-        await eluminaCandPage.againCandidateLogin();
+        //await eluminaCandPage.againCandidateLogin();
 
         await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click();
         await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();

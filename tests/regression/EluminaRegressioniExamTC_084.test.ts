@@ -41,7 +41,8 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         });
     });
     
-    test(`@Regression Verify Validation of Survey screen`, async ({ eluminaCandPage,webActions }) => {
+    test(`@Regression Verify Validation of Survey screen and Validate Survey screen where candidate
+    can provide feedback in comment section TC-084 and TC-085`, async ({ eluminaCandPage,webActions }) => {
         await test.step(`Navigate to Application`, async () => {
             await eluminaCandPage.candidateNavigateToURL();
         });
@@ -49,6 +50,8 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
             await eluminaCandPage.candidateLoginToApplication();
             await eluminaCandPage.candidateSurveyStartOneMCQ();
             await eluminaCandPage.examSectionValidation();
+            await eluminaCandPage.candidateAnsSurveyQuestion();
+
        
         });
         

@@ -34,12 +34,12 @@ test(`@Regression Verify Validation of "Pause Exam" from Live monitor`, async ({
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaCandPage.candidateLoginToApplication();
 
         
     });
     await test.step('Candidate start the exam',async ()=> {
-        await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
+        //await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
         await eluminaCandPage.examSectionValidation();        
 
         const browser = await chromium.launch();
