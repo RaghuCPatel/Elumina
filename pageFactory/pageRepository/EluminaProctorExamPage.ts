@@ -581,11 +581,14 @@ async createExamwithDiffZone(): Promise<void> {
 
      /*Create a Exam with All Tools*/
      async selectAllTools(){
+      await this.EnterInvigilatorPswd.click();
+      await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
       await this.ExamTools.click();
      await this.SelectCalculator.click();
      await this.SelectNotepad.click();
-     await this.EnterInvigilatorPswd.click();
-     await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
+     await this.page.waitForTimeout(3000);
+    //  await this.EnterInvigilatorPswd.click();
+    //  await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
      await this.ClickOnNextBtn.click();
      await expect(this.VerifyExam_details).toBeVisible();
      await expect(this.VerifyChoose_Question).toBeVisible();
@@ -723,7 +726,16 @@ async createExamWithCalculator(): Promise<void> {
       await this.page.waitForTimeout(5000);
     }
 
-  
+    async addMCQQuestion():Promise<void>{
+      await this.ClickOnAddQuestion.click();
+      await this.ClickOnSearchQuestion.click()
+      await this.ClickOnSearchQuestion.type('MCQ');
+      await this.page.waitForTimeout(3000);
+      await this.page.locator('(//input[@type="checkbox"])[2]').click();
+      await this.ClickOnAddBtn.click()
+      await this.ClickOnSave.click();
+    }
+
   /**Method to Create Multiple Candidates */
   async createExamforMultipleCandidates(): Promise<void> {
     await this.createCommonExam();
@@ -743,12 +755,79 @@ async createExamWithCalculator(): Promise<void> {
       await this.ClickOnSearchQuestion.click()
       await this.ClickOnSearchQuestion.type('VSAQ');
       await this.page.waitForTimeout(3000);
-      await this.page.locator('(//input[@type="checkbox"])[2]').click();
+      await this.page.locator('(//input[@type="checkbox"])[1]').click();
       await this.ClickOnAddBtn.click()
       await this.ClickOnSave.click();
       await this.ClickOnNextBtn.click();
       await this.page.waitForTimeout(5000);
       await this.ClickOnSubmitAndApproveBtn.click();
     }
+
+    async addVSAQQuestion():Promise<void>{
+      await this.ClickOnAddQuestion.click();
+      await this.ClickOnSearchQuestion.click()
+      await this.ClickOnSearchQuestion.type('VSAQ');
+      await this.page.waitForTimeout(3000);
+      await this.page.locator('(//input[@type="checkbox"])[1]').click();
+      await this.ClickOnAddBtn.click()
+      await this.ClickOnSave.click();
+  }
+
+  async addISAWEQuestion():Promise<void>{
+    await this.ClickOnAddQuestion.click();
+    await this.ClickOnSearchQuestion.click()
+    await this.ClickOnSearchQuestion.type('ISAWE');
+    await this.page.waitForTimeout(3000);
+    await this.page.locator('(//input[@type="checkbox"])[1]').click();
+    await this.ClickOnAddBtn.click()
+    await this.ClickOnSave.click();
+}
+
+async addTypeXQuestion():Promise<void>{
+  await this.ClickOnAddQuestion.click();
+  await this.ClickOnSearchQuestion.click()
+  await this.ClickOnSearchQuestion.type('Type X');
+  await this.page.waitForTimeout(3000);
+  await this.page.locator('(//input[@type="checkbox"])[1]').click();
+  await this.ClickOnAddBtn.click()
+  await this.ClickOnSave.click();
+}
+
+async addTypeBQuestion():Promise<void>{
+  await this.ClickOnAddQuestion.click();
+  await this.ClickOnSearchQuestion.click()
+  await this.ClickOnSearchQuestion.type('Type B');
+  await this.page.waitForTimeout(3000);
+  await this.page.locator('(//input[@type="checkbox"])[1]').click();
+  await this.ClickOnAddBtn.click()
+  await this.ClickOnSave.click();
+}
+
+async addSAQQuestion():Promise<void>{
+  await this.ClickOnAddQuestion.click();
+  await this.ClickOnSearchQuestion.click()
+  await this.ClickOnSearchQuestion.type('SAQ');
+  await this.page.waitForTimeout(3000);
+  await this.page.locator('(//input[@type="checkbox"])[1]').click();
+  await this.ClickOnAddBtn.click()
+  await this.ClickOnSave.click();
+
+}
+
+async addSJTQuestion():Promise<void>{
+  await this.ClickOnAddQuestion.click();
+  await this.ClickOnSearchQuestion.click()
+  await this.ClickOnSearchQuestion.type('SJT');
+  await this.page.waitForTimeout(3000);
+  await this.page.locator('(//input[@type="checkbox"])[21').click();
+  await this.ClickOnAddBtn.click()
+  await this.ClickOnSave.click();
+  await this.ClickOnNextBtn.click();
+  await this.page.waitForTimeout(5000);
+  await this.ClickOnSubmitAndApproveBtn.click();
+
+
+}
+
 }
     

@@ -59,8 +59,16 @@ test(`@Smoke Verify Validation of "Start Exam" (All Candidates)`, async ({ elumi
         await newPage.locator('//*[@class="proctoringImg"]').click();
         await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();
      
-        const events=  newPage.locator('(//*[@class="title"])[6]');
-        console.log(await events.textContent());
+        const event=  newPage.locator('(//*[@class="title"])[6]');
+        console.log(await event.textContent());
+        await newPage.waitForSelector('//div[@class="event-item"]',{timeout:10000});
+        let events=await newPage.$$('//div[@class="event-item"]');
+        const Ttl=events.length-1;
+        for(let i=0;i<=events.length-1;i++)
+        {
+           let event=await events[i].textContent();
+           console.log(event);
+        }
 
         /* for(let i=0;i<=events.length;i++)
         {

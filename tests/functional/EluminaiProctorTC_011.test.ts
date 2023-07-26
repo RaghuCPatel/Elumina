@@ -31,15 +31,17 @@ else if(process.env.ENV == 'staging'){
 //Validation of the following in the Exam Section Exam name, Candidate name, REC Symbol blinking, Exam timer, no of questions as per exam created(Proctor)
 
 
-test(`@Smoke Verify CandidatesExam`, async ({ eluminaProctorCand,webActions }) => {
+test(`@Smoke Verify CandidatesExam`, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
     eluminaProctorCand.candidateNavigateToURL();
 
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaProctorCand.candidateLoginToApplications();
+
     });
     await test.step('Candidate start the exam',async ()=> {
+        await eluminaCandPage.waitforTime2();
         await eluminaProctorCand.clickOnAllLink();
 
         const browser = await chromium.launch();

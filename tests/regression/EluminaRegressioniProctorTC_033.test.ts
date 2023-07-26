@@ -156,7 +156,7 @@ test(`@Regression Validation of  Cloud indication -  (Status is Complted) Regres
         await eluminaCandPage.updatedCloudIcon();
     });
     
-});
+});    
 
 test(`@Regression Verify Validation of adding notes in the Exam RegressioniProctorTC_055`, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -191,6 +191,7 @@ test(`@Regression Verify Validation of adding notes in the Exam RegressioniProct
     });
 
     await test.step('Candidate start the exam',async ()=> {
+        await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaCandPage.AddingNotesToQuestionSingle();
 
 
