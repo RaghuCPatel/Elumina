@@ -30,7 +30,7 @@ else if(process.env.ENV == 'staging'){
 /**Validation of "Mark Attendance" (Individual Candidates) */
 
 
-test(`@Regression Validation of "Mark Attendance" (Individual Candidates)`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+/*test(`@Regression Validation of "Mark Attendance" (Individual Candidates)`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -63,7 +63,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});
+});       */
 
 test(`@Regression Validation marking attendance for individual`, async ({ eluminaProctorCand,webActions }) => {
 

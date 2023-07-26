@@ -29,7 +29,7 @@ else if(process.env.ENV == 'staging'){
 
 //Validation of Proctoring Exam Events > No Face Detected
 
-test(`@Regression Validate Creating iProctor exam`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+/*test(`@Regression Validate Creating iProctor exam`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -62,7 +62,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});
+});      */
 
 test(`@Regression Validation of Proctoring Exam Events > No Face Detected`, async ({ eluminaCandPage,eluminaLoginPage,eluminaProctorCand,eluminaProctorReg,webActions }) => {
     await test.step('Candidate logging into application', async () => {

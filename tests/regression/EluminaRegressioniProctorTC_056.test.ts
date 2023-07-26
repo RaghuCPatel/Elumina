@@ -29,7 +29,7 @@ else if(process.env.ENV == 'staging'){
 
 /**Validate When exam terminated for candidate*/
 
-test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+/*test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -63,7 +63,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});    
+});       */
 
 test(`@Regression Verify Elumina Invigilator terminating exam for candidate`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
 

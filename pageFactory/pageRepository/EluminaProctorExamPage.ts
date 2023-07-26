@@ -579,6 +579,21 @@ async createExamwithDiffZone(): Promise<void> {
   await this.page.waitForTimeout(5000);
 }
 
+     /*Create a Exam with All Tools*/
+     async selectAllTools(){
+      await this.ExamTools.click();
+     await this.SelectCalculator.click();
+     await this.SelectNotepad.click();
+     await this.EnterInvigilatorPswd.click();
+     await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
+     await this.ClickOnNextBtn.click();
+     await expect(this.VerifyExam_details).toBeVisible();
+     await expect(this.VerifyChoose_Question).toBeVisible();
+     await expect(this.VerifyChoose_Workflow).toBeVisible();
+     await expect(this.VerifyChoose_Confirmation).toBeVisible();
+     await this.page.waitForTimeout(5000);
+     }
+
 
  /*Create a Exam with Note option*/
  async createExamWithNotepad(): Promise<void> {

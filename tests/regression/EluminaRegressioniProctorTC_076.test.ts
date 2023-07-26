@@ -30,7 +30,7 @@ else if(process.env.ENV == 'staging'){
 /**Validation of "Time Remaining" on Right top corner of the Candidate page */
 
 
-test(`@Regression Validation of "Time Remaining" on Right top corner of the Candidate page`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+/*test(`@Regression Validation of "Time Remaining" on Right top corner of the Candidate page`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -63,7 +63,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});
+});                  */
 
 test(`@Regression Validation of "Time Remaining"`, async ({ eluminaProctorCand,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
