@@ -18,7 +18,7 @@ test(`@Regression Create iProctor exam with password`, async ({ eluminaLoginPage
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExam();
-        await newtab.createSection();
+        await newtab.createSections();
         await newtab.addMCQQuestions();
     });
 });

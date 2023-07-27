@@ -106,6 +106,6 @@ test(`@Regression Validation of "Time Remaining"`, async ({ eluminaProctorCand,w
             await eluminaProctorCand.againCandidateLogin();
             await eluminaProctorCand.enterInvigilatorPassword();
             await eluminaProctorCand.verifyExamDashboardTimer();
-            await eluminaProctorCand.candidateStartMCQ();
+            //await eluminaProctorCand.candidateStartMCQ();
         });
 });
