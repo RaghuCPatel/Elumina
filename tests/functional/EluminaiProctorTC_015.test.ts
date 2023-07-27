@@ -29,7 +29,7 @@ else if(process.env.ENV == 'staging'){
 }
 
 /**Validation of "Review" Section */
-test(`@Smoke Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand, webActions }) => {
+test(`@iProctorlink Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand, webActions }) => {
         await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

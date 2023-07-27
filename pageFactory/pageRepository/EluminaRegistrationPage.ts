@@ -45,6 +45,7 @@ function makeid(length) {
     }
     return result;
 }
+let candClientID:string;
 
 export class EluminaRegistrationPage {
 
@@ -89,8 +90,8 @@ export class EluminaRegistrationPage {
     readonly AssignUsersToCand:Locator;
     readonly AssignInvToCand:Locator;
     readonly ClickOnInvSaveBtn:Locator;
-    
-
+    readonly captureUserClientID:Locator;
+    readonly SelectCandRole:Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -139,6 +140,8 @@ export class EluminaRegistrationPage {
         this.AssignInvToCand=page.locator('(//span[@class="open"])[5]');
         this.ClickOnInvSaveBtn=page.locator('(//button[text()="Save"])[2]');
 
+        this.SelectCandRole=page.locator('//span[text()="Candidate"]');
+        this.captureUserClientID=page.locator('//table[@class="table"]//tbody//tr[1]//td[5]//div//div//span');
         this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
         const examId:string=String(EluminaExamPage.examID);
         console.log(examId);
@@ -229,7 +232,10 @@ async registrationTabNavigationAMExamPage():Promise<void> {
         await this.ClickOnSaveBtn.click();
         await this.page.waitForTimeout(8000);
         await this.LeftArrow.click();
+        candClientID=await this.captureUserClientID.textContent()
+        console.log("Cand-ID :"+candClientID);
         await this.ClickOnDropdown.click();
+
     }
 
     /**Method to Download the User Details */
@@ -341,4 +347,29 @@ async registrationTabNavigationAMExamPage():Promise<void> {
          await this.ClickOnInvSaveBtn.click();
          await this.page.waitForTimeout(5000);
       }
+
+      /**add Existing Candid */
+     async addExistingUsersforMultiple():Promise<void>{
+        await this.ClickOnAddExistingUser.click();
+        await this.page.waitForTimeout(2000);
+        await this.SearchUsers.click();
+        await this.page.waitForTimeout(2000);
+        await this.SearchUsers.type(candClientID);
+        await this.page.waitForTimeout(4000);
+        await this.CLickOnUser.click();
+        await this.ChooseExistingRole.click();
+        await this.SelectCandRole.click();
+        await this.SelectExVenue.click();
+        await this.SelectInvVenue.click();
+        await this.SelectExEligible.click();
+        await this.SelectInvEligible.click();
+        await this.SelectExBookingStatus.click();
+        await this.SelectInvBookingStatus.click();
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(7000);
+        await this.LeftArrow.click();
+        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnDropdown.click();
+    }
 }

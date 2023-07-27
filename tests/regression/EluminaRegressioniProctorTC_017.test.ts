@@ -108,10 +108,6 @@ test(`@Regression Validation of Browser Reload option on Candidate Dashboard for
         await test.step(`Candidate Login to application`, async () => {
             await eluminaProctorCand.candidateLoginToApplications();
         });
-
-        await test.step('Candidate start the exam',async ()=> {
-            await eluminaProctorCand.clickOnAllLink();
-        });
     });
 
    

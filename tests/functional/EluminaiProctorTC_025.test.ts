@@ -30,7 +30,7 @@ else if(process.env.ENV == 'staging'){
 
 //Validation of "Resume Exam" from Live monitor (Proctor)
 
-test(`@Smoke Verify Validation of "Resume Exam" from Live monitor Proctor`, async ({ eluminaProctorCand,webActions }) => {
+test(`@iProctorlink Verify Validation of "Resume Exam" from Live monitor Proctor`, async ({ eluminaProctorCand,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });

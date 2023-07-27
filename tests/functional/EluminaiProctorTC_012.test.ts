@@ -30,7 +30,7 @@ else if(process.env.ENV == 'staging'){
 
 //Validation of Candidate able to answer the Question and the answer being saved(Proctor)
 
-test(`@Smoke Verify CandidatesExam`, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
+test(`@iProctorlink Verify CandidatesExam`, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
     eluminaProctorCand.candidateNavigateToURL();
 
