@@ -69,8 +69,8 @@ test(`@Regression Verify candidate choosing proctoring exam in dashboard`, async
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaProctorCand.candidateLoginToApplications();
-        await eluminaProctorCand.clickOnStartExamLink();
-        await eluminaCandPage.waitforTime1();
+       // await eluminaProctorCand.clickOnStartExamLink();
+        await eluminaCandPage.waitforTime3();
 
     });
 

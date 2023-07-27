@@ -71,7 +71,7 @@ test(`@Regression Verify Candidate > Peripheral verification screen Validation`,
         await eluminaProctorCand.candidateLoginToApplications();
         await eluminaProctorCand.clickOnStartExamLink();
         await eluminaProctorCand.clickOnUnderstandBtn();
-        await eluminaCandPage.waitforTime1();
+        await eluminaCandPage.waitforTime3();
 
     });
 

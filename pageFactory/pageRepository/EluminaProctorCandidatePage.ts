@@ -203,7 +203,7 @@ export class EluminaProctorCandidatePage {
     }
     /**Methods to click on Microphone Link */
     async troubleshootMicroPhone()
-    {
+    {    
         await this.ClickOnMicrophoneTroubleshoot.click();
         await this.page.waitForTimeout(3000);
     }

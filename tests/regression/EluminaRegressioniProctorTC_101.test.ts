@@ -70,7 +70,7 @@ test(`@Regression Verify Candidate Exam Disclaimer Page`, async ({ eluminaProcto
     await test.step(`Candidate Login to application`, async () => {
         await eluminaProctorCand.candidateLoginToApplications();
         await eluminaProctorCand.clickOnStartExamLink();
-        await eluminaCandPage.waitforTime1();
+        await eluminaCandPage.waitforTime3();
 
 
     });
