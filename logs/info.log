@@ -3812,3 +3812,957 @@
 {"level":"info","message":"Executing Step : Candidate Login to application"}
 {"level":"info","message":"Executing Step : Candidate start the exam"}
 {"level":"info","message":"Test Case Completed : @Smoke Verify Validation of \"Start Exam\" (All Candidates) Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Empty Field validation"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Click on Login without Username and Password"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Empty Field validation Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of user authentication by valid Candidate Creadentials"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of user authentication by valid Candidate Creadentials Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validate login with inactive user"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with inactive user"}
+{"level":"info","message":"Test Case Completed : @Regression Validate login with inactive user Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Sign out at Candidate Dashboard Page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with inactive user"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Sign out at Candidate Dashboard Page Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Sign out at Exam Start Page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with inactive user"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Sign out at Exam Start Page Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Candidate Start Exam without Invigilator Password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with and start exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Candidate Start Exam without Invigilator Password Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Candidate App Dashboard Details"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with inactive user"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Candidate App Dashboard Details Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Password will not be asked after clicking on \"Start Exam\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with inactive user"}
+{"level":"info","message":"Test Case Completed : @Regression Password will not be asked after clicking on \"Start Exam\" Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of multiple candidate trying to login to same Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of multiple candidate trying to login to same Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of multiple Exams on the dashboard for different time For AM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of multiple Exams on the dashboard for different time For AM Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration for AM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration for AM Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration for AM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration for AM Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Login Application for AM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Empty Field validation"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Click on Login without Username and Password"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Empty Field validation Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of user authentication by valid Candidate Creadentials"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of user authentication by valid Candidate Creadentials Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validate login with inactive user"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with inactive user"}
+{"level":"info","message":"Test Case Completed : @Regression Validate login with inactive user Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Sign out at Candidate Dashboard Page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with inactive user"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Sign out at Candidate Dashboard Page Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Sign out at Exam Start Page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with inactive user"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Sign out at Exam Start Page Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Candidate Start Exam without Invigilator Password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with and start exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Candidate Start Exam without Invigilator Password Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Candidate App Dashboard Details"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with inactive user"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Candidate App Dashboard Details Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Password will not be asked after clicking on \"Start Exam\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application with inactive user"}
+{"level":"info","message":"Test Case Completed : @Regression Password will not be asked after clicking on \"Start Exam\" Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of multiple candidate trying to login to same Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of multiple candidate trying to login to same Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of multiple Exams on the dashboard for different time For AM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of multiple Exams on the dashboard for different time For AM Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration for AM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration for AM Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration for AM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration for AM Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Login Application for AM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Login Application for AM Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of multiple Exams on the dashboard for different time For PM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of multiple Exams on the dashboard for different time For PM Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration for PM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration for PM Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration for PM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration for PM Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Login Application for PM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Login Application for PM Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam and add MCQ"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam and add MCQ Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam and add MCQ"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam and add MCQ Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression add user in Registration and download User details and assign Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression add user in Registration and download User details and assign Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Browser back button on Candidate Dashboard"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Browser back button on Candidate Dashboard Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Browser Reload option on Candidate Dashboard"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Browser Reload option on Candidate Dashboard Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of  function keys on Candidate Dashboard"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of  function keys on Candidate Dashboard Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Changing Font Size to increase on the Dashboard"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Changing Font Size to increase on the Dashboard Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Changing Font Size to Decrease on the Dashboard"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Changing Font Size to Decrease on the Dashboard Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the \"Timer\" - After clicking on \"Start Exam\" Button Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Candidate dashboard - Exam scheduled Date / Time is over"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Navigate to Application again"}
+{"level":"info","message":"Executing Step : Candidate Login to application again"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Candidate dashboard - Exam scheduled Date / Time is over Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam and add MCQ"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam and add MCQ Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression add user in Registration and download User details and assign Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression add user in Registration and download User details and assign Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Browser back button after Exam Starts"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Browser back button after Exam Starts Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Browser Reload option after Exam Starts"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Browser Reload option after Exam Starts Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of  function keys after Exam Starts"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of  function keys after Exam Starts Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Updated cloud symbol"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Updated cloud symbol Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of abrupt closure of browser"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate starts and closes the page after attending two questions in the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of abrupt closure of browser Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Candidate is able to close the broswer and answered questions are saved after logging in again"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Candidate is able to close the broswer and answered questions are saved after logging in again Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Flag for Review"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate marks flag for review to all questions in the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Flag for Review Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of creating Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of creating Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify candidate adds and saves Notes"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify candidate adds and saves Notes Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of using Calculator "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of using Calculator  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of using Highlighter "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of using Highlighter  Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of using Highlighter "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of using Highlighter  Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Candidate attends All Question type"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Candidate attends All Question type Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Candidate attends All Question type"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Candidate attends All Question type Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of VSAQ Question type"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of VSAQ Question type Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of VSAQ Question type"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of VSAQ Question type Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Validation of candidate able to submit the exam when not answering all questions"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of candidate able to submit the exam when not answering all questions Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of candidate able to submit the exam when not answering all questions"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of candidate able to submit the exam when not answering all questions Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Validation of \"Time Remaining\" pop-up when the just before the exam time runs out"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of \"Time Remaining\" pop-up when the just before the exam time runs out Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of \"Time Remaining\" pop-up when the just before the exam time runs out"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of \"Time Remaining\" pop-up when the just before the exam time runs out Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of the following in the Exam Section\nExam name, Candidate name, Exam timer, no of questions as per exam created"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of the following in the Exam Section\nExam name, Candidate name, Exam timer, no of questions as per exam created Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Timer Expires Alert Box  in Exam Content page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Timer Expires Alert Box  in Exam Content page Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Timer Expires Alert Box  in Exam Content page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Timer Expires Alert Box  in Exam Content page Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected\nVerification of Timer Expires Alert Box  in Exam Content page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected\nVerification of Timer Expires Alert Box  in Exam Content page Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected\nVerification of Timer Expires Alert Box  in Exam Content page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected\nVerification of Timer Expires Alert Box  in Exam Content page Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validate the Exam sheet where the Question numbers are displayed are Gray by Default"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validate the Exam sheet where the Question numbers are displayed are Gray by Default Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validate the Exam sheet where the Question numbers are displayed are Gray by Default"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validate the Exam sheet where the Question numbers are displayed are Gray by Default Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validate the Exam sheet where the Question numbers are displayed in Orange when In Progress"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validate the Exam sheet where the Question numbers are displayed in Orange when In Progress Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validate the Exam sheet where the Question numbers are displayed in Orange when In Progress"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validate the Exam sheet where the Question numbers are displayed in Orange when In Progress Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Elumina Create exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Elumina Create exam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Elumina Create exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Elumina Create exam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of \"Terminate Exam\"  "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of \"Terminate Exam\"   Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of \"Terminate Exam\"  "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of \"Terminate Exam\"   Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Create practice exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Create practice exam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Create practice exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Create practice exam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Candidate attend Practice Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Candidate attend Practice Exam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Candidate attend Practice Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Candidate attend Practice Exam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Create a Exam and add MCQ Questions"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Create a Exam and add MCQ Questions Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Create a Exam and add MCQ Questions"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Create a Exam and add MCQ Questions Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression add user and download user details"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression add user and download user details Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression add user and download user details"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression add user and download user details Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Exam content section page contents and details"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Exam content section page contents and details Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Exam content page - Timer Validation (Before Timer Expires)"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Exam content page - Timer Validation (Before Timer Expires) Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Exam content page - Scroll bar"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Exam content page - Scroll bar Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Exam content page - Scroll bar"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Exam content page - Scroll bar Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Exam content page  - Check box"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Exam content page  - Check box Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Exam content page  - Check box"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Exam content page  - Check box Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of login for invigilator for valid credential"}
+{"level":"info","message":"Executing Step : Inv Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of login for invigilator for valid credential Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of login for invigilator for Invalid credential"}
+{"level":"info","message":"Executing Step : Inv Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of login for invigilator for Invalid credential Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Inv Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line) Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of \"Time Remaining\" pop-up when the just before the exam time runs out"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of \"Time Remaining\" pop-up when the just before the exam time runs out Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of \"Time Remaining\" pop-up when the just before the exam time runs out"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of \"Time Remaining\" pop-up when the just before the exam time runs out Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Invigilator Dashboard after the Exam Completion by candidate (once the time exceeds)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Invigilator Dashboard after the Exam Completion by candidate (once the time exceeds) Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Invigilator Dashboard after the Exam Completion by candidate (once the time exceeds)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Invigilator Dashboard after the Exam Completion by candidate (once the time exceeds) Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Invigilator Dashboard Proctor"}
+{"level":"info","message":"Executing Step : Inv Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Invigilator Dashboard Proctor Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration and user and invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration and user and invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of \"Start Exam\" (All Candidates) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Redirected to Candidate page"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of \"Start Exam\" (All Candidates)  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of \"Pause Exam\" from Live monitor"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of \"Pause Exam\" from Live monitor Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of \"Pause Exam\" from Live monitor"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of \"Pause Exam\" from Live monitor Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Resume Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Resume Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Invigilator marks attendance for All candidates"}
+{"level":"info","message":"Executing Step : Invigilator logging into application"}
+{"level":"info","message":"Executing Step : Invigilator marks attendance for all candidate"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Invigilator marks attendance for All candidates Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Extending Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Extending Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Reset Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Reset Login Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Inv Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Invigilator Dashboard Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Create Exam with survey section"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam with survey section"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Create Exam with survey section Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Survey screen"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Survey screen Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Create Exam with survey section"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam with survey section"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Create Exam with survey section Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of Candidate answering survey questions"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of Candidate answering survey questions Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression add user in Registration and download User details and assign Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression add user in Registration and download User details and assign Invigilator Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression add user in Registration and download User details and assign Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected\nVerification of Timer Expires Alert Box  in Exam Content page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected\nVerification of Timer Expires Alert Box  in Exam Content page Status : passed"}
+{"level":"error","message":"File not found: C:\\Users\\Arish\\Elumina\\26-07-2023\\Elumina\\html-report"}
+{"level":"info","message":"Test Case Started : @Regression Validate the Exam sheet where the Question numbers are displayed are Gray by Default"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validate the Exam sheet where the Question numbers are displayed are Gray by Default Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validate the Exam sheet where the Question numbers are displayed in Orange when In Progress"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validate the Exam sheet where the Question numbers are displayed in Orange when In Progress Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering  Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering  Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering  Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering  Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering  Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of \"Terminate Exam\"  "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam  Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected\nVerification of Timer Expires Alert Box  in Exam Content page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected\nVerification of Timer Expires Alert Box  in Exam Content page Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected\nVerification of Timer Expires Alert Box  in Exam Content page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected\nVerification of Timer Expires Alert Box  in Exam Content page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected\nVerification of Timer Expires Alert Box  in Exam Content page Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Validation of \"Terminate Exam\"  "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Validation of \"Terminate Exam\"   Status : failed"}

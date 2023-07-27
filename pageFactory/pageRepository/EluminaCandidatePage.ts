@@ -97,6 +97,7 @@ export class EluminaCandidatePage {
     readonly flagForReviewColor:Locator;
     readonly notAnweredQuestion:Locator;
     readonly ClickOnNotepad:Locator;
+    readonly ClickOnNotepadOne:Locator;
     readonly textareafill:Locator;
     readonly saveButton:Locator;
     readonly noteQuestions:Locator;
@@ -154,6 +155,9 @@ export class EluminaCandidatePage {
         this.ClickOnNotepad=page.locator('(//div[@class="toolIcon"])[2]');
         this.ClickOnCalculator=page.locator('(//div[@class="toolIcon"])[1]');
         this.ClickOnHighlighter=page.locator('(//div[@class="toolIcon"])[3]');
+
+        this.ClickOnNotepadOne=page.locator('(//div[@class="toolIcon"])[1]');
+
 
         this.HighlightQuestion=page.locator('//span[@class="CSkcDe"]');
         this.textareafill=page.locator('//div[@class="notepad-content"]//textarea');
@@ -802,6 +806,17 @@ export class EluminaCandidatePage {
             await this.page.waitForTimeout(1000);
             await this.CloseNotepad.click();
     }
+
+    async AddingNotesValidate(){
+        await this.ansMCQQuestions.click();
+        await this.ClickOnNotepadOne.click();
+        await this.page.waitForTimeout(1000);
+        await this.textareafill.type('abc');
+        await this.page.waitForTimeout(1000);
+        await this.saveButton.click();
+        await this.page.waitForTimeout(1000);
+        await this.CloseNotepad.click();
+}
 
 
     async NotAnsweringQuestion(){
