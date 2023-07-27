@@ -417,6 +417,7 @@ export class EluminaRegistrationForProctoringPage {
         await this.LeftArrow.click();
         await this.page.waitForTimeout(5000);
         await this.page.waitForTimeout(2000);
+        await this.ClickOnDropdown.click();
     }
 
     /**Method to Add Multiple User Details */

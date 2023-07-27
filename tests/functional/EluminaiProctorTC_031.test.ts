@@ -31,7 +31,7 @@ else if(process.env.ENV == 'staging'){
 
 //Validation of "Time Remaining" pop-up when the just before the exam time runs out(Proctor)
 
-test(`@Smoke Verify Create Exam With Content Section and Content Section Page`, async ({ eluminaLoginPage,eluminaProctorExam,webActions }) => {
+test(`@iProctorlink Verify Create Exam With Content Section and Content Section Page`, async ({ eluminaLoginPage,eluminaProctorExam,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -49,7 +49,7 @@ test(`@Smoke Verify Create Exam With Content Section and Content Section Page`, 
     });
 });
 
-test(`@Smoke Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(`@iProctorlink Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -66,7 +66,7 @@ test(`@Smoke Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProc
     });
 });       
 
- test(`@Smoke Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
+ test(`@iProctorlink Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
         await test.step('Candidate logging into application', async () => {
             await eluminaProctorCand.candidateNavigateToURL();
             await eluminaProctorCand.candidateLoginToApplications();

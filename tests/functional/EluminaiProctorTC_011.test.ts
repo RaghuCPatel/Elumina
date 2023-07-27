@@ -31,7 +31,7 @@ else if(process.env.ENV == 'staging'){
 //Validation of the following in the Exam Section Exam name, Candidate name, REC Symbol blinking, Exam timer, no of questions as per exam created(Proctor)
 
 
-test(`@Smoke Verify CandidatesExam`, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
+test(`@iProctorlink Verify CandidatesExam`, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
     eluminaProctorCand.candidateNavigateToURL();
 
