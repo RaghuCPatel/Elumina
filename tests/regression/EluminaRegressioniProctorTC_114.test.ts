@@ -94,7 +94,7 @@ test(`@Regression Validation of Proctoring Exam Event with Login Success`, async
              await newPage.waitForTimeout(3000);
 
              await eluminaProctorCand.againCandidateLogin();
-             await eluminaCandPage.waitforTime1();
+             //await eluminaCandPage.waitforTime3();
 
             await newPage.locator('//img[@class="proctoringImg"]').click();
             await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();

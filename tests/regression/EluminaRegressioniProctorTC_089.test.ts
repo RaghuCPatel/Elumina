@@ -24,7 +24,7 @@ test(`@Regression Validation of Admin > Proctoring > Microphone Link`, async ({ 
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-        await eluminaProctorCand.clickOnStartExamLink();
+        await eluminaProctorCand.clickOnStartExamLink1();
         await eluminaProctorCand.troubleshootMicroPhone();
         });  
     

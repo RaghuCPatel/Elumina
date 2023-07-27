@@ -72,7 +72,7 @@ test(`@Regression Validation of Validation of Screen Capture verification check 
             await eluminaProctorCand.clickOnStartExamLink();
             await eluminaProctorCand.clickOnUnderstandBtn();
             await eluminaProctorCand.validateScreenCaptureTick();
-            await eluminaCandPage.waitforTime1();
+            await eluminaCandPage.waitforTime3();
             
 
         
