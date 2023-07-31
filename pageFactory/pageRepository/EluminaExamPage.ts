@@ -454,7 +454,7 @@ export class EluminaExamPage {
         }
         else{
         await this.BooingStartMins.type(EndExamMin.toString());
-        }
+      }
   await this.ChooseBookingStartSession.check();
   await this.BookingOK.click();
 

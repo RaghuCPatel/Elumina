@@ -92,6 +92,8 @@ export class EluminaMultipleExamsForAMPage {
     readonly ProctoringExam:Locator;
     readonly EnterInvigilatorPswd:Locator;
     readonly fectchExamID:Locator;
+    readonly nextButton:Locator;
+    readonly Oneclick:Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -154,6 +156,8 @@ export class EluminaMultipleExamsForAMPage {
         this.ProctoringExam = page.locator('(//span[@class="slider round"])[2]');
         this.EnterInvigilatorPswd=page.locator('//input[@name="examInviglator"]');
         this.fectchExamID=page.locator('//div[@class="label-text"]');
+        this.nextButton=page.locator('//li[@class="next"]');
+        this.Oneclick=page.locator('(//li//span[text()="1"])[1]');
     }
 
     /**Method for iAuthor Page Navigation */
@@ -182,6 +186,15 @@ export class EluminaMultipleExamsForAMPage {
         await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
         await this.EXAMCODE.type('D'+Math.floor(Math.random()*89+100));
         await this.BookingStartCalender.click();
+        if(EndExamDate=='31'|| '30'||'32')
+        {   
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else{
+          await this.BookingStartDate.click();
+        }
         await this.BookingStartDate.click();
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
@@ -192,7 +205,15 @@ export class EluminaMultipleExamsForAMPage {
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
         await this.BookingEndCalender.click();
-        await this.BookingEndDate.click();
+        if(EndExamDate=='31'|| '30'||'32')
+        {   
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else{
+          await this.BookingEndDate.click();
+        }
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
         await this.BookingStartHrs.type(testData.StartBookingHr);
@@ -202,7 +223,15 @@ export class EluminaMultipleExamsForAMPage {
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
         await this.ExamStartCalender.click();
+        if(EndExamDate=='31'|| '30'||'32')
+        {   
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else{
         await this.ExamStartDate.click();
+        }
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
         await this.BookingStartHrs.type(testData.StartBookingHr);
@@ -212,7 +241,15 @@ export class EluminaMultipleExamsForAMPage {
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
         await this.ExamEndCalender.click();
+        if(EndExamDate=='31'|| '30'||'32')
+        {   
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else{
         await this.ExamEndDate.click();
+        }
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
         await this.BookingStartHrs.type(testData.EndExamhr);
