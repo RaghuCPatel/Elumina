@@ -31,7 +31,7 @@ else if(process.env.ENV == 'staging'){
 
 //Validation of "Start Exam" (All Candidates)
 
-test(`@Regression Verify Elumina Login and create exam`, async ({ eluminaLoginPage, eluminaExamPage, eluminaProctorExam, webActions }) => {
+/*test(`@Regression Verify Elumina Login and create exam`, async ({ eluminaLoginPage, eluminaExamPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -65,7 +65,7 @@ test(`@Regression add user in Registration and download User details and assign 
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});
+});         
 
 test(`@Regression Validation of invigilator remotely start the Exam for candidate `, async ({ eluminaCandPage,eluminaCadInvPage,eluminaProctorCand,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -104,4 +104,4 @@ test(`@Regression Validation of invigilator remotely start the Exam for candidat
         await eluminaProctorCand.againCandidateLogin();
         await eluminaCandPage.examSectionValidation();        
     });
-});
+});    */

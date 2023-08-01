@@ -15,9 +15,10 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
-        await newtab.clickonNextBtnInExam();
+        await newtab.selectAllTools();
         await newtab.createSection();
-        await newtab.addMCQQuestions();
+        await newtab.addMCQQuestionswithoutSave();
+        await newtab.addVSAQQuestions();
     });
 });
 

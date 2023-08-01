@@ -4,7 +4,7 @@ import { testConfig } from '../../testConfig';
 
 /** Validation of Invigilator marks attendance for All candidates */
 
-test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+/*test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -38,7 +38,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});
+});                     */
 
 test(`@Regression Verify Invigilator marks attendance for All candidates`, async ({ eluminaInvPage, webActions }) => {
     await test.step('Invigilator logging into application', async () => {

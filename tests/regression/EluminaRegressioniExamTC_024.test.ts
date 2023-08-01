@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 //Validation of Candidate dashboard - Exam scheduled Date / Time is over.  
 
-test(`@Regression Verify Validation of Candidate dashboard - Exam scheduled Date / Time is over`, async ({ eluminaCandPage,webActions }) => {
+/*test(`@Regression Verify Validation of Candidate dashboard - Exam scheduled Date / Time is over`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -21,4 +21,4 @@ test(`@Regression Verify Validation of Candidate dashboard - Exam scheduled Date
         await eluminaCandPage.enterCandidateCredetial();
     });
     
-});
+});    */

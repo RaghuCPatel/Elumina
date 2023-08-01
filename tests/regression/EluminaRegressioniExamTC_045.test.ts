@@ -37,6 +37,21 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
 });
 
+/**Validation of Candidate Exam section - exam name, candidate name, exam timer and no of questions in the exam as per exam settings.*/
+test(`@Regression Verify Validation of the following in the Exam Section
+Exam name, Candidate name, Exam timer, no of questions as per exam created EluminaRegressioniExamTC_051`, async ({ eluminaCandPage,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+    });
+    await test.step('Candidate start the exam',async ()=> {
+        await eluminaCandPage.examSectionValidation();
+    });
+    
+});
+
 test(`@Regression Validation of candidate able to submit the exam when not answering all questions`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();

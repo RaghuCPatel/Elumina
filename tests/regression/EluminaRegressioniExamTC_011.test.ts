@@ -8,7 +8,7 @@ test(`@Regression Validation of Candidate Start Exam without Invigilator Passwor
     });
     await test.step(`Candidate Login to application with and start exam`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
-        await eluminaCandPage.candidateStartMCQ();
+        await eluminaCandPage.candidateStartMCQwithoutReviewe();
     });
     
 });

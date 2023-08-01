@@ -10,7 +10,7 @@ import test from '@lib/BaseTest';
         await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam',async ()=> {
-        await eluminaCandPage.candidateStartMCQ();
+        await eluminaCandPage.candidateStartMCQwithoutReviewe();
     });
     
 });
