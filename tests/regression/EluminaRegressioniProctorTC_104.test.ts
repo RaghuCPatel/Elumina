@@ -69,8 +69,7 @@ test(`@Regression Validation of Validation Camera verification check done`, asyn
         await eluminaProctorCand.candidateLoginToApplications();
         });   
         await test.step(`Navigate to Application`, async () => {
-            await eluminaProctorCand.clickOnStartExamLink();
-            await eluminaProctorCand.clickOnUnderstandBtn();
+            await eluminaProctorCand.clickOnStartExamLink1();
             await eluminaProctorCand.validateCameraTick();
             await eluminaCandPage.waitforTime3();
                     

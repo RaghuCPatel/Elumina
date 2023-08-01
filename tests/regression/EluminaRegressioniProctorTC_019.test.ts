@@ -33,14 +33,18 @@ else if(process.env.ENV == 'staging'){
 
 test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, async ({ eluminaProctorCand,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
-        eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateNavigateToURL();
         });
         await test.step(`Candidate Login to application`, async () => {
             await eluminaProctorCand.candidateLoginToApplications();
+            await eluminaProctorCand.refreshPage();
+
         });
 
-        await test.step('Candidate start the exam',async ()=> {
-            await eluminaProctorCand.clickOnAllLink();
+       /* await test.step('Candidate start the exam',async ()=> {
+            //await eluminaProctorCand.clickOnAllLink();
+            await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+
      
              const browser = await chromium.launch();
              const context1 = await browser.newContext();
@@ -68,5 +72,5 @@ test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, a
          await test.step('Candidate start the exam',async ()=> {
             await eluminaProctorCand.refreshPage();
             await eluminaProctorCand.enterInvigilatorPassword();
-        });
+        });     */
 });

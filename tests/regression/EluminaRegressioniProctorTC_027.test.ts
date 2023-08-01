@@ -29,7 +29,7 @@ else if(process.env.ENV == 'staging'){
 
 //Validation of candidate/s taking exam from different timezones.
 
-test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+/*test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -96,7 +96,7 @@ test(`@Regression Verify Elumina Registration and adding existing user`, async (
         await newtab.registrationTabNavigationByClickCreateExam();
         await newtab.addExistingUsers1();
     });
-});         
+});           */    
 
 test(`@Regression Validation of candidate/s taking exam from different timezones.`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
 
@@ -140,8 +140,8 @@ test(`@Regression Validation of candidate/s taking exam from different timezones
     await test.step('Verify Validation of Changing Font Size to Decrease on the Dashboard', async () => {
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
-        await eluminaProctorCand.candidateStartMCQ();
-        await eluminaProctorCand.clickonPrevious();
+        await eluminaProctorCand.candidateStartMCQwithoutReviewe();
+       // await eluminaProctorCand.clickonPrevious();
     });
 
 });

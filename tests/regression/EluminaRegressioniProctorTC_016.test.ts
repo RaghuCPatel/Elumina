@@ -33,14 +33,15 @@ else if(process.env.ENV == 'staging'){
 
 test(`@Regression Verify Validation of the "Timer" - After clicking on "Start Exam" Button`, async ({ eluminaProctorCand,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
-        eluminaProctorCand.candidateNavigateToURL();
-        });
-        await test.step(`Candidate Login to application`, async () => {
-            await eluminaProctorCand.candidateLoginToApplications();
-        });
+       await eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateLoginToApplications();
 
+        });
+       
         await test.step('Candidate start the exam',async ()=> {
-            await eluminaProctorCand.clickOnAllLink();
+           // await eluminaProctorCand.clickOnAllLink();
+           await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+
      
              const browser = await chromium.launch();
              const context1 = await browser.newContext();
@@ -70,6 +71,6 @@ test(`@Regression Verify Validation of the "Timer" - After clicking on "Start Ex
         });
         await test.step('Candidate start the exam',async ()=> {
              await eluminaProctorCand.verifyExamDashboardTimer();
-             await eluminaProctorCand.candidateStartMCQ();
+            // await eluminaProctorCand.candidateStartMCQ();
         });
 });

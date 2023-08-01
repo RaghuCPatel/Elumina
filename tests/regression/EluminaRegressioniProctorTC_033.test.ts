@@ -74,7 +74,9 @@ test(`@Regression Validation of Calculator`, async ({ eluminaCandPage,eluminaPro
 
     await test.step('Invigilator  logging into Application', async () => {
 
-        await eluminaProctorCand.clickOnAllLink();
+        //await eluminaProctorCand.clickOnAllLink();
+        await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -121,7 +123,9 @@ test(`@Regression Validation of  Cloud indication -  (Status is Complted) Regres
 
     await test.step('Invigilator  logging into Application', async () => {
 
-        await eluminaProctorCand.clickOnAllLink();
+       // await eluminaProctorCand.clickOnAllLink();
+       await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -157,14 +161,17 @@ test(`@Regression Validation of  Cloud indication -  (Status is Complted) Regres
     });
     
 });    
-
+         
 test(`@Regression Verify Validation of adding notes in the Exam RegressioniProctorTC_055`, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-    });
-    await test.step(`Candidate Login to application`, async () => {
         await eluminaProctorCand.candidateLoginToApplications();
-        await eluminaProctorCand.clickOnAllLink();
+
+    });  
+    await test.step(`Candidate Login to application`, async () => {
+      //  await eluminaProctorCand.clickOnAllLink();
+      await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+
         
         const browser = await chromium.launch();
         const context1 = await browser.newContext();

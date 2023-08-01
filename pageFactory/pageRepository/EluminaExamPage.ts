@@ -37,6 +37,7 @@ let EndExamDate=(currentDate.getDate()+1).toString();
 // console.log(StartBookingDate);
 // console.log(EndExamDate);
 
+
 let hour = currentDate.getHours();
 let period = '';
 
@@ -129,6 +130,8 @@ export class EluminaExamPage {
     readonly ProctoringExam:Locator;
     readonly EnterInvigilatorPswd:Locator;
     readonly fectchExamID:Locator;
+    readonly nextButton:Locator;
+    readonly Oneclick:Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -202,6 +205,8 @@ export class EluminaExamPage {
         this.SelectCalculator=page.locator('(//div[@class="dropdown-main"])[6]//ul//li[1]//span[text()="Calculator"]');
         this.SelectHighlighter=page.locator('(//div[@class="dropdown-main"])[6]//ul//li[3]//span[text()="Highlighter"]');
         this.fectchExamID=page.locator('//div[@class="label-text"]');
+        this.nextButton=page.locator('//li[@class="next"]');
+        this.Oneclick=page.locator('(//li//span[text()="1"])[1]');
     }
 
     /**Method for Page Navigation */
@@ -283,7 +288,16 @@ export class EluminaExamPage {
         await this.BookingOK.click();
 
         await this.ExamEndCalender.click();
-        await this.ExamEndDate.click();
+        
+        if(EndExamDate=='31'|| '30'||'32')
+        {  
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else{
+          await this.ExamEndDate.click();
+        }        
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
         await this.BookingStartHrs.type(hour12.toString());

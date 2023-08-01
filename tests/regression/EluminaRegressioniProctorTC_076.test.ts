@@ -67,15 +67,15 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 
 test(`@Regression Validation of "Time Remaining"`, async ({ eluminaProctorCand,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
-        eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateLoginToApplications();
         });
-    await test.step(`Candidate Login to application`, async () => {
-            await eluminaProctorCand.candidateLoginToApplications();
-        });
-
+    
         await test.step('Invigilator  logging into Application', async () => {
+           // await eluminaProctorCand.clickOnAllLink();
+           await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
-            await eluminaProctorCand.clickOnAllLink();
+
             const browser = await chromium.launch();
             const context1 = await browser.newContext();
             const page1 = await context1.newPage();

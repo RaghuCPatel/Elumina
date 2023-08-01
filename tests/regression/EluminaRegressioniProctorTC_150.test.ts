@@ -29,7 +29,7 @@ else if(process.env.ENV == 'staging'){
     testData = stagingTestData;
 }
 
-/** Validation Validate Survey screen */
+/** Validate Survey screen where candidate can provide feedback in comment section EluminaRegressioniProctorTC_084*/
 test(`@Regression Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
@@ -52,6 +52,7 @@ test(`@Regression Verify Elumina Create Exam with survey section`, async ({ elum
     });
 });   
 
+
 test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
@@ -68,7 +69,8 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });          
     
-    test(`@Regression Verify Validation of Survey screen`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+/**Validate Survey screen where candidate can provide feedback in comment section EluminaRegressioniProctorTC_084*/
+    test(`@Regression Verify Validation of Candidate answering survey questions`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
         await test.step(`Navigate to Application`, async () => {
             eluminaProctorCand.candidateNavigateToURL();
             });
@@ -107,7 +109,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
             await eluminaProctorCand.enterInvigilatorPassword();
             await eluminaCandPage.candidateSurveyStartOneMCQ();
             await eluminaProctorCand.examSectionValidation();
-    
+            await eluminaCandPage.candidateAnsSurveyQuestion();
         });
         
     });

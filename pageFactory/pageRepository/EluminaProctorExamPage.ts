@@ -120,7 +120,9 @@ export class EluminaProctorExamPage {
     readonly fectchExamID:Locator;
     readonly CameraLink:Locator; 
     readonly MicrophoneLink:Locator;
-    readonly BrowserCheckLink:Locator;   
+    readonly BrowserCheckLink:Locator; 
+    readonly nextButton:Locator;
+    readonly Oneclick:Locator;  
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -192,6 +194,8 @@ export class EluminaProctorExamPage {
         this.CameraLink=page.locator('//div[@id="camera_link"]//input[@name="inputbox"]');
         this.MicrophoneLink=page.locator('//div[@id="microphone_link"]//input[@name="inputbox"]');
         this.BrowserCheckLink=page.locator('//div[@id="browsercheck_link"]//input[@name="inputbox"]');
+        this.nextButton=page.locator('//li[@class="next"]');
+        this.Oneclick=page.locator('(//li//span[text()="1"])[1]');
     }
 
     /**Method of Page Navigation */
@@ -352,7 +356,15 @@ export class EluminaProctorExamPage {
     await this.BookingOK.click();
 
     await this.ExamEndCalender.click();
-    await this.ExamEndDate.click();
+    if(EndExamDate=='31'|| '30'||'32')
+    {  
+        await this.page.waitForSelector('//li[@class="next"]');
+        await this.nextButton.click();
+        await this.Oneclick.click();
+    }
+    else{
+      await this.ExamEndDate.click();
+    }   
     await this.BookingStartHrs.click();
     await this.BookingStartHrs.clear();
     await this.BookingStartHrs.type(hour12.toString());
@@ -444,8 +456,16 @@ export class EluminaProctorExamPage {
     await this.BookingOK.click();
 
     await this.ExamEndCalender.click();
-    await this.ExamEndDate.click();
-    await this.BookingStartHrs.click();
+    if(EndExamDate=='31'|| '30'||'32')
+    {  
+        await this.page.waitForSelector('//li[@class="next"]');
+        await this.nextButton.click();
+        await this.Oneclick.click();
+    }
+    else{
+      await this.ExamEndDate.click();
+    } 
+   await this.BookingStartHrs.click();
     await this.BookingStartHrs.clear();
     await this.BookingStartHrs.type(hour12.toString());
     await this.BooingStartMins.click();
@@ -553,7 +573,15 @@ async createExamwithDiffZone(): Promise<void> {
   await this.BookingOK.click();
 
   await this.ExamEndCalender.click();
-  await this.ExamEndDate.click();
+  if(EndExamDate=='31'|| '30'||'32')
+  {  
+      await this.page.waitForSelector('//li[@class="next"]');
+      await this.nextButton.click();
+      await this.Oneclick.click();
+  }
+  else{
+    await this.ExamEndDate.click();
+  }  
   await this.BookingStartHrs.click();
   await this.BookingStartHrs.clear();
   await this.BookingStartHrs.type(hour12.toString());
@@ -705,7 +733,7 @@ async createExamWithCalculator(): Promise<void> {
       await this.page.waitForTimeout(5000);
     }
 
-    /**Method to Add MCQ Questions in Exam */
+    /**Method to Add MCQ Questions and save in Exam */
     async addMCQQuestions():Promise<void>{
       await this.ClickOnAddQuestion.click();
       await this.ClickOnSearchQuestion.click()
@@ -724,6 +752,28 @@ async createExamWithCalculator(): Promise<void> {
       await this.ClickOnSubmitAndApproveBtn.click();
       await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
       await this.page.waitForTimeout(5000);
+    }
+
+    
+    /**Method to Add MCQ Questions in Exam */
+    async addMCQQuestionswithoutSave():Promise<void>{
+      await this.ClickOnAddQuestion.click();
+      await this.ClickOnSearchQuestion.click()
+      await this.ClickOnSearchQuestion.type('MCQ');
+      await this.page.waitForTimeout(5000);
+      await this.page.waitForSelector('//div[@class="eqc-question-info"]//input',{timeout:10000});
+      const McqQuestions=await this.page.$$('//div[@class="eqc-question-info"]//input');
+      for(let i=0;i<=McqQuestions.length-22;i++)
+      {
+        await McqQuestions[i].click();
+      }
+      await this.ClickOnAddBtn.click()
+      await this.ClickOnSave.click();
+      // await this.ClickOnNextBtn.click();
+      // await this.page.waitForTimeout(5000);
+      // await this.ClickOnSubmitAndApproveBtn.click();
+      // await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+      // await this.page.waitForTimeout(5000);
     }
 
     async addMCQQuestion():Promise<void>{
@@ -755,7 +805,7 @@ async createExamWithCalculator(): Promise<void> {
       await this.ClickOnSearchQuestion.click()
       await this.ClickOnSearchQuestion.type('VSAQ');
       await this.page.waitForTimeout(3000);
-      await this.page.locator('(//input[@type="checkbox"])[1]').click();
+      await this.page.locator('(//input[@type="checkbox"])[2]').click();
       await this.ClickOnAddBtn.click()
       await this.ClickOnSave.click();
       await this.ClickOnNextBtn.click();

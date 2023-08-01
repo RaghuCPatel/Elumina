@@ -68,15 +68,13 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 
 test(`@Regression Validation of "Pause-Exam"`, async ({ eluminaProctorCand,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
-        eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateLoginToApplications();
         });
-    await test.step(`Candidate Login to application`, async () => {
-            await eluminaProctorCand.candidateLoginToApplications();
-        });
-
     await test.step('Candidate start the exam',async ()=> {
       
-        await eluminaProctorCand.clickOnAllLink();
+        //await eluminaProctorCand.clickOnAllLink();
+        await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();

@@ -76,7 +76,9 @@ test(`@Regression Verify Elumina Invigilator terminating exam for candidate`, as
 
     await test.step('Invigilator  logging into Application', async () => {
 
-        await eluminaProctorCand.clickOnAllLink();
+        //await eluminaProctorCand.clickOnAllLink();
+        await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -114,7 +116,7 @@ test(`@Regression Verify Elumina Invigilator terminating exam for candidate`, as
 
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-        await eluminaCandPage.waitforTime1();
+        await eluminaCandPage.waitforTime2();
 
         // await eluminaProctorCand.candidateSignOut();
        

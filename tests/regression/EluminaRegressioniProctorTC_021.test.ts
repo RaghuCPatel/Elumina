@@ -40,7 +40,10 @@ test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, a
         });
 
         await test.step('Candidate start the exam',async ()=> {
-            await eluminaProctorCand.clickOnAllLink();
+            //await eluminaProctorCand.clickOnAllLink();
+            await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+
+
              const browser = await chromium.launch();
              const context1 = await browser.newContext();
              const page1 = await context1.newPage();

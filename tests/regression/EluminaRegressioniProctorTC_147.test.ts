@@ -27,7 +27,7 @@ else if(process.env.ENV == 'staging'){
     testData = stagingTestData;
 }
 
-/*Elumina login page with create exam with Practice exam button and attending practice exam*/ 
+/*Elumina login page with create exam with Practice exam button and attending practice exam  EluminaRegressioniProctorTC_057*/ 
 
 test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -67,7 +67,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });
 
-test(`@Regression Verify CandidatesExam`, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
+test(`@Regression Verify CandidatesExam EluminaRegressioniProctorTC_057`, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
         await test.step(`Navigate to Application`, async () => {
         eluminaProctorCand.candidateNavigateToURL();
     });

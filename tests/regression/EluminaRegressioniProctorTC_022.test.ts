@@ -77,7 +77,9 @@ test(`@Regression Validation of Changing Font Size to Decrease on the Dashboard`
 
     await test.step('Invigilator  logging into Application', async () => {
 
-        await eluminaProctorCand.clickOnAllLink();
+        //await eluminaProctorCand.clickOnAllLink();
+        await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();

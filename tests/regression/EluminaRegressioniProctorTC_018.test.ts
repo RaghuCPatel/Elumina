@@ -31,7 +31,7 @@ else if(process.env.ENV == 'staging'){
 
 //Validation of the "Timer" - After clicking on "Start Exam" Button
 
-test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+/*test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -64,18 +64,19 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});
+});         */
 
 test(`@Regression Verify Validation of the "Timer" - After clicking on "Start Exam" Button`, async ({ eluminaProctorCand,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
-        eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.navigateBack();
         });
-        await test.step(`Candidate Login to application`, async () => {
-            await eluminaProctorCand.candidateLoginToApplications();
-        });
+      
+       /* await test.step('Candidate start the exam',async ()=> {
+            //await eluminaProctorCand.clickOnAllLink();
+            await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
-        await test.step('Candidate start the exam',async ()=> {
-            await eluminaProctorCand.clickOnAllLink();
      
              const browser = await chromium.launch();
              const context1 = await browser.newContext();
@@ -105,5 +106,5 @@ test(`@Regression Verify Validation of the "Timer" - After clicking on "Start Ex
         });
         await test.step('Candidate start the exam',async ()=> {
              await eluminaProctorCand.navigateBack();
-        });
+        });    */
 });

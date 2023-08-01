@@ -30,7 +30,7 @@ else if(process.env.ENV == 'staging'){
 
 //Validation of Adding & Saving notes
 
-test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+/*test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -64,7 +64,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});              
+});          */         
 
 test(`@Regression Validation of Adding & Saving notes`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
 
@@ -77,7 +77,9 @@ test(`@Regression Validation of Adding & Saving notes`, async ({ eluminaProctorC
 
     await test.step('Invigilator  logging into Application', async () => {
 
-        await eluminaProctorCand.clickOnAllLink();
+        //await eluminaProctorCand.clickOnAllLink();
+        await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();

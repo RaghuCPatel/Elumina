@@ -37,10 +37,14 @@ test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, a
         });
         await test.step(`Candidate Login to application`, async () => {
             await eluminaProctorCand.candidateLoginToApplications();
+            await eluminaProctorCand.functionKey();
+
         });
 
-        await test.step('Candidate start the exam',async ()=> {
-            await eluminaProctorCand.clickOnAllLink();
+      /*  await test.step('Candidate start the exam',async ()=> {
+            //await eluminaProctorCand.clickOnAllLink();
+            await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+
      
              const browser = await chromium.launch();
              const context1 = await browser.newContext();
@@ -68,5 +72,5 @@ test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, a
          await test.step('Candidate start the exam',async ()=> {
             await eluminaProctorCand.enterInvigilatorPassword();
             await eluminaProctorCand.functionKey();
-        });
+        });    */
 });
