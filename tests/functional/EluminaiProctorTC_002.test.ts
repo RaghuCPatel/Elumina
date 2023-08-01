@@ -10,6 +10,6 @@ test(`@Smoke Verify CandidatesInvExam`, async ({ eluminaCadInvPage,webActions })
 
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCadInvPage.candidateLoginToApplicationsByEnteringUsername();
-        
+        await eluminaCadInvPage.logoutClick();
     });
 });

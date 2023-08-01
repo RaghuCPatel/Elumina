@@ -43,6 +43,7 @@ export class EluminaInvCandidatePage {
     readonly ClickOnNextBtn:Locator;
     readonly ClickOnRevieweBtn:Locator;
     readonly ClickOnSubmitBtn:Locator;
+    readonly signOutBtn:Locator;
  
 
     constructor(page: Page, context: BrowserContext/*page1:Page,context1: BrowserContext*/) {
@@ -58,6 +59,8 @@ export class EluminaInvCandidatePage {
         this.ClickOnNextBtn=page.locator('(//div[text()=" Next "])[1]');
         this.ClickOnRevieweBtn=page.locator('(//div[text()=" Review "])[1]');
         this.ClickOnSubmitBtn=page.locator('(//div[text()=" Submit "])[1]');
+        this.signOutBtn=page.locator('//div[@class="signout"]');
+        
     }
 
     /**Method to Navigate to Candidate URL */
@@ -157,5 +160,11 @@ export class EluminaInvCandidatePage {
         await this.page.waitForTimeout(5000);
         await this.EnterExaPassword.type('ABC09');
         await this.ClickOnStartExamBtn.click();
+    }
+
+    /**Method to Logout */
+    async logoutClick(){
+        await this.signOutBtn.click();
+        await this.page.waitForTimeout(2000);
     }
 }

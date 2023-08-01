@@ -9,5 +9,6 @@ import test from '@lib/BaseTest';
         await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
             const newtab = await eluminaInvPage.iAuthorPageNavigation();
             await newtab.invClickOnExam();  
+            await newtab.logoutClick();
         });   
      });

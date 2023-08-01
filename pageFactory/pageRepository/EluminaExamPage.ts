@@ -130,6 +130,8 @@ export class EluminaExamPage {
     readonly fectchExamID:Locator;
     readonly nextButton:Locator;
     readonly Oneclick:Locator;
+    readonly MenuIconClick:Locator;
+    readonly logoutbuttonClick:Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -206,6 +208,8 @@ export class EluminaExamPage {
         this.fectchExamID=page.locator('//div[@class="label-text"]');
         this.nextButton=page.locator('//li[@class="next"]');
         this.Oneclick=page.locator('(//li//span[text()="1"])[1]');
+        this.MenuIconClick=page.locator('//i[@class="menuIcons profileIcon"]');
+        this.logoutbuttonClick=page.locator('//a[normalize-space()="Log out"]');
     }
 
     /**Method for Page Navigation */
@@ -312,15 +316,22 @@ export class EluminaExamPage {
 
         await this.ExamEndCalender.click();
        
-        if(EndExamDate=='31'||'30'||'32')
+        if(EndExamDate>="30")
+        {   
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else if(EndExamDate>="31")
         {   
             await this.page.waitForSelector('//li[@class="next"]');
             await this.nextButton.click();
             await this.Oneclick.click();
         }
         else{
+          console.log("Exam end date:"+EndExamDate);
           await this.ExamEndDate.click();
-        }        
+        }      
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
         await this.BookingStartHrs.type(hour12.toString());
@@ -432,13 +443,21 @@ export class EluminaExamPage {
   await this.BookingOK.click();
 
   await this.ExamEndCalender.click();
-  if(EndExamDate=='31'|| '30'||'32')
+ 
+  if(EndExamDate>="30")
+  {   
+      await this.page.waitForSelector('//li[@class="next"]');
+      await this.nextButton.click();
+      await this.Oneclick.click();
+  }
+  else if(EndExamDate>="31")
   {   
       await this.page.waitForSelector('//li[@class="next"]');
       await this.nextButton.click();
       await this.Oneclick.click();
   }
   else{
+    console.log("Exam end date:"+EndExamDate);
     await this.ExamEndDate.click();
   }
 
@@ -652,6 +671,13 @@ export class EluminaExamPage {
       // await this.ClickOnSubmitAndApproveBtn.click();
       // await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
       // await this.page.waitForTimeout(5000);
+    }
+
+    /**Method for Logout */
+    async logoutClick(){
+      await this.MenuIconClick.click();
+      await this.logoutbuttonClick.click();
+    
     }
 
     async addVSAQQuestions():Promise<void>{

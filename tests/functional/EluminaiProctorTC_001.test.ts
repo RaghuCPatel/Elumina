@@ -35,5 +35,6 @@ test(`@Smoke Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProc
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
+        await newtab.logoutClick();
     });
 });

@@ -35,5 +35,6 @@ test(`@Smoke Verify Elumina RegistrationInv and add User and Invigilator`, async
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
+        await newtab.logoutClick();
     });
 });

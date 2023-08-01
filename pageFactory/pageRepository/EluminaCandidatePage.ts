@@ -906,4 +906,10 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(5000);
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
     }
+
+    /**Method for Logout */
+    async logoutClick():Promise<void>{
+        await this.signOutBtn.click();
+        await this.page.waitForTimeout(2000);
+    }
 }

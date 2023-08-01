@@ -58,7 +58,6 @@ test(`@Smoke Validation of Navigating to an exam from the dashboard to invigilat
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[1]//span)[1]').click();
         await newPage.locator('//*[@class="proctoringImg"]').click();
         await newPage.screenshot({ path: 'screenshot.png', fullPage: true });
-        
         await newPage.close();
         await page1.close();
         
