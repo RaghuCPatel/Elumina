@@ -1,7 +1,8 @@
 import { test as base, chromium, type BrowserContext } from '@playwright/test';
 import path from 'path';
 
-import { WebActions } from '@lib/WebActions';
+import { WebActions } from '@lib/WebActions'; 
+import { EluminaInvPage } from '@pages/EluminaInvPage';
 import { EluminaProctorCandidatePage } from '@pages/EluminaProctorCandidatePage';
 import { EluminaCandidatePage } from '@pages/EluminaCandidatePage';
 import { EluminaLoginPage } from '@pages/EluminaLoginPage';
@@ -34,6 +35,7 @@ export const test = base.extend<{
   eluminaMultipleExamsForPMPage:EluminaMultipleExamsForPMPage;
   eluminaMinimalTimeExamPage:EluminaMinimalTimeExamPage;
   eluminaRegInvPage: EluminaRegistrationInvPage;
+  eluminaInvPage:EluminaInvPage;
 }>({
 
   
@@ -110,7 +112,11 @@ eluminaMinimalTimeExamPage: async ({ page, context }, use) => {
 },
 eluminaRegInvPage: async ({ page, context }, use) => {
   await use(new EluminaRegistrationInvPage(page, context));
+},
+eluminaInvPage: async ({ page, context }, use) => {
+  await use(new EluminaInvPage(page, context));
 }
+
 
 });
 export default test;

@@ -120,9 +120,10 @@ export class EluminaProctorExamPage {
     readonly fectchExamID:Locator;
     readonly CameraLink:Locator; 
     readonly MicrophoneLink:Locator;
-    readonly BrowserCheckLink:Locator; 
+    readonly BrowserCheckLink:Locator;   
     readonly nextButton:Locator;
-    readonly Oneclick:Locator;  
+    readonly Oneclick:Locator;
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -357,14 +358,14 @@ export class EluminaProctorExamPage {
 
     await this.ExamEndCalender.click();
     if(EndExamDate=='31'|| '30'||'32')
-    {  
+    {   
         await this.page.waitForSelector('//li[@class="next"]');
         await this.nextButton.click();
         await this.Oneclick.click();
     }
     else{
       await this.ExamEndDate.click();
-    }   
+    }
     await this.BookingStartHrs.click();
     await this.BookingStartHrs.clear();
     await this.BookingStartHrs.type(hour12.toString());
@@ -373,7 +374,6 @@ export class EluminaProctorExamPage {
     await this.BooingStartMins.type(EndExamMin.toString());
     await this.ChooseBookingStartSession.check();
     await this.BookingOK.click();
-
     await this.ClickOnExamVenue.click();
     await this.ChooseExamVenue.click();
     await this.ClickOnAdd.click();
@@ -429,7 +429,14 @@ export class EluminaProctorExamPage {
 
     await this.BooingStartMins.click();
     await this.BooingStartMins.clear();
-    await this.BooingStartMins.type(StartBookingMin.toString());
+    if(StartBookingMin >= 60)
+    {
+      StartBookingMin=1;
+      await this.BooingStartMins.type(StartBookingMin.toString());
+    }
+    else{
+      await this.BooingStartMins.type(StartBookingMin.toString());
+   }
     await this.ChooseBookingStartSession.check();
     await this.BookingOK.click();
 
@@ -440,7 +447,14 @@ export class EluminaProctorExamPage {
     await this.BookingStartHrs.type(hour12.toString());
     await this.BooingStartMins.click();
     await this.BooingStartMins.clear();
-    await this.BooingStartMins.type(EndBookingMin.toString());
+    if(EndBookingMin >= 60)
+    {
+      EndBookingMin=2;
+      await this.BooingStartMins.type(EndBookingMin.toString());
+    }
+    else{
+      await this.BooingStartMins.type(EndBookingMin.toString());
+    }
     await this.ChooseBookingStartSession.check();
     await this.BookingOK.click();
 
@@ -451,26 +465,39 @@ export class EluminaProctorExamPage {
     await this.BookingStartHrs.type(hour12.toString());
     await this.BooingStartMins.click();
     await this.BooingStartMins.clear();
-    await this.BooingStartMins.type(StartExamMin.toString());
+    if(StartExamMin >= 60)
+    {
+      StartExamMin=3;
+      await this.BooingStartMins.type(StartExamMin.toString());
+    }
+    else{
+      await this.BooingStartMins.type(StartExamMin.toString());
+    }
     await this.ChooseBookingStartSession.check();
     await this.BookingOK.click();
-
     await this.ExamEndCalender.click();
-    if(EndExamDate=='31'|| '30'||'32')
-    {  
+    if(EndExamDate=='31'||'30'||'32')
+    {   
         await this.page.waitForSelector('//li[@class="next"]');
         await this.nextButton.click();
         await this.Oneclick.click();
     }
     else{
       await this.ExamEndDate.click();
-    } 
-   await this.BookingStartHrs.click();
+    }
+    await this.BookingStartHrs.click();
     await this.BookingStartHrs.clear();
     await this.BookingStartHrs.type(hour12.toString());
     await this.BooingStartMins.click();
     await this.BooingStartMins.clear();
-    await this.BooingStartMins.type(EndExamMin.toString());
+    if(EndExamMin >= 60)
+        {
+            EndExamMin=1;
+            await this.BooingStartMins.type(EndExamMin.toString());
+        }
+        else{
+        await this.BooingStartMins.type(EndExamMin.toString());
+        }
     await this.ChooseBookingStartSession.check();
     await this.BookingOK.click();
 
@@ -546,7 +573,15 @@ async createExamwithDiffZone(): Promise<void> {
 
   await this.BooingStartMins.click();
   await this.BooingStartMins.clear();
-  await this.BooingStartMins.type(StartBookingMin.toString());
+  if(StartBookingMin >= 60)
+  {
+    StartBookingMin=1;
+    await this.BooingStartMins.type(StartBookingMin.toString());
+  }
+  else{
+    await this.BooingStartMins.type(StartBookingMin.toString());
+  }
+  
   await this.ChooseBookingStartSession.check();
   await this.BookingOK.click();
 
@@ -557,7 +592,14 @@ async createExamwithDiffZone(): Promise<void> {
   await this.BookingStartHrs.type(hour12.toString());
   await this.BooingStartMins.click();
   await this.BooingStartMins.clear();
-  await this.BooingStartMins.type(EndBookingMin.toString());
+  if(EndBookingMin >= 60)
+  {
+    EndBookingMin=2;
+    await this.BooingStartMins.type(EndBookingMin.toString());
+  }
+  else{
+    await this.BooingStartMins.type(EndBookingMin.toString());
+  }
   await this.ChooseBookingStartSession.check();
   await this.BookingOK.click();
 
@@ -568,26 +610,40 @@ async createExamwithDiffZone(): Promise<void> {
   await this.BookingStartHrs.type(hour12.toString());
   await this.BooingStartMins.click();
   await this.BooingStartMins.clear();
-  await this.BooingStartMins.type(StartExamMin.toString());
+  if(StartExamMin >= 60)
+        {
+          StartExamMin=3;
+          await this.BooingStartMins.type(StartExamMin.toString());
+        }
+        else{
+          await this.BooingStartMins.type(StartExamMin.toString());
+        }
   await this.ChooseBookingStartSession.check();
   await this.BookingOK.click();
 
   await this.ExamEndCalender.click();
   if(EndExamDate=='31'|| '30'||'32')
-  {  
-      await this.page.waitForSelector('//li[@class="next"]');
-      await this.nextButton.click();
-      await this.Oneclick.click();
-  }
-  else{
-    await this.ExamEndDate.click();
-  }  
+    {   
+        await this.page.waitForSelector('//li[@class="next"]');
+        await this.nextButton.click();
+        await this.Oneclick.click();
+    }
+    else{
+      await this.ExamEndDate.click();
+    }
   await this.BookingStartHrs.click();
   await this.BookingStartHrs.clear();
   await this.BookingStartHrs.type(hour12.toString());
   await this.BooingStartMins.click();
   await this.BooingStartMins.clear();
+  if(EndExamMin >= 60)
+  {
+      EndExamMin=1;
+      await this.BooingStartMins.type(EndExamMin.toString());
+  }
+  else{
   await this.BooingStartMins.type(EndExamMin.toString());
+  }
   await this.ChooseBookingStartSession.check();
   await this.BookingOK.click();
 
@@ -609,20 +665,20 @@ async createExamwithDiffZone(): Promise<void> {
 
      /*Create a Exam with All Tools*/
      async selectAllTools(){
-      await this.EnterInvigilatorPswd.click();
-      await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
-      await this.ExamTools.click();
-     await this.SelectCalculator.click();
-     await this.SelectNotepad.click();
-     await this.page.waitForTimeout(3000);
-    //  await this.EnterInvigilatorPswd.click();
-    //  await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
-     await this.ClickOnNextBtn.click();
-     await expect(this.VerifyExam_details).toBeVisible();
-     await expect(this.VerifyChoose_Question).toBeVisible();
-     await expect(this.VerifyChoose_Workflow).toBeVisible();
-     await expect(this.VerifyChoose_Confirmation).toBeVisible();
-     await this.page.waitForTimeout(5000);
+        await this.EnterInvigilatorPswd.click();
+        await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
+        await this.ExamTools.click();
+        await this.SelectCalculator.click();
+        await this.SelectNotepad.click();
+        await this.page.waitForTimeout(3000);
+      //  await this.EnterInvigilatorPswd.click();
+      //  await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
+        await this.ClickOnNextBtn.click();
+        await expect(this.VerifyExam_details).toBeVisible();
+        await expect(this.VerifyChoose_Question).toBeVisible();
+        await expect(this.VerifyChoose_Workflow).toBeVisible();
+        await expect(this.VerifyChoose_Confirmation).toBeVisible();
+        await this.page.waitForTimeout(5000);
      }
 
 
@@ -875,7 +931,6 @@ async addSJTQuestion():Promise<void>{
   await this.ClickOnNextBtn.click();
   await this.page.waitForTimeout(5000);
   await this.ClickOnSubmitAndApproveBtn.click();
-
 
 }
 

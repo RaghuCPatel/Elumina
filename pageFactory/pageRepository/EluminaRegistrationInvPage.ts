@@ -192,22 +192,22 @@ export class EluminaRegistrationInvPage {
         await this.page.waitForTimeout(5000);
         await this.TypeLastName.type(makeid(testData.clientLastname));
         await this.TypeEmail.type(makeid(testData.clientEmail)+Math.floor(Math.random()*899+100)+'@gmail.com');
-       await this.TypePhone.type(testData.clientPhone+Math.floor(Math.random()*899999999+100));
-       await this.SelectRole.click();
-       await this.SelectRole.selectOption('Candidate');
-       await this.page.waitForTimeout(5000);
-       await this.SelectEligible.click();
-       await this.SelectEligible.selectOption('Yes');
-       await this.page.waitForTimeout(5000);
-       await this.SelectVenue.click();
-       await this.SelectVenue.type('Elumina Chennai');
-       await this.SelectBookingStatus.click();
-       await this.SelectBookingStatus.selectOption('Booked');
-       await this.page.waitForTimeout(5000);
-       await this.ClickOnSaveBtn.click();
-       await this.page.waitForTimeout(5000);
-       await this.LeftArrow.click();
-       await this.ClickOnDropdown.click();
+        await this.TypePhone.type(testData.clientPhone+Math.floor(Math.random()*899999999+100));
+        await this.SelectRole.click();
+        await this.SelectRole.selectOption('Candidate');
+        await this.page.waitForTimeout(5000);
+        await this.SelectEligible.click();
+        await this.SelectEligible.selectOption('Yes');
+        await this.page.waitForTimeout(5000);
+        await this.SelectVenue.click();
+        await this.SelectVenue.type('Elumina Chennai');
+        await this.SelectBookingStatus.click();
+        await this.SelectBookingStatus.selectOption('Booked');
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(5000);
+        await this.LeftArrow.click();
+        await this.ClickOnDropdown.click();
     }
 
     /**Method to Download the User Details */
