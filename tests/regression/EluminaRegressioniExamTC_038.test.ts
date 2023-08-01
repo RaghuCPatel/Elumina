@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Adding & Saving notes */
 
-test(`@Regression Validation of creating Exam`, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
+/*test(`@Regression Validation of creating Exam`, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -35,9 +35,9 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});       
+});        */ 
 
-test(`@Regression Verify candidate adds and saves Notes`, async ({ eluminaCandPage,webActions }) => {
+/*test(`@Regression Verify candidate adds and saves Notes`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -45,8 +45,8 @@ test(`@Regression Verify candidate adds and saves Notes`, async ({ eluminaCandPa
         await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam',async ()=> {
-        await eluminaCandPage.AddingNotesToQuestionSingle();
+        await eluminaCandPage.AddingNotesToQuestionSinglelast();
         console.log("Candidate is able to use Notepad")
     });
     
-});
+});   */

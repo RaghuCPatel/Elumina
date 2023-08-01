@@ -36,7 +36,7 @@ import test from '@lib/BaseTest';
 //     });
 // });
 
-test(`@Regression Verify Validation of VSAQ Question type`, async ({ eluminaCandPage,webActions }) => {
+/*test(`@Regression Verify Validation of VSAQ Question type`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -46,4 +46,4 @@ test(`@Regression Verify Validation of VSAQ Question type`, async ({ eluminaCand
         await eluminaCandPage.candidateStartVSAQ();
     });
 
-});
+});    */

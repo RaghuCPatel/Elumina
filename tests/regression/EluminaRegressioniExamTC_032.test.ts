@@ -54,7 +54,7 @@ test(`@Regression Verify Candidate is able to close the broswer and answered que
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.candidateLoginToApplication();
-        await eluminaCandPage.candidateStartMCQ();
+        await eluminaCandPage.candidateStartMCQwithoutReviewe();
         console.log("Candidate is able to close the broswer and answered questions are saved after logging in again")
 
     });

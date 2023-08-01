@@ -109,6 +109,8 @@ test(`@Regression Verify CandidatesExam EluminaRegressioniProctorTC_057`, async 
     
 });
 
+/*Validation of Proctoring Exam Events > Exam In Progress, Exam started for candidate, 
+Candidate entered into exam section & Entered into question: 1(#IQID).*/
 
 test(`@Regression Validation of Proctoring Exam Events In Admin Section EluminaRegressioniProctorTC_124`, async ({ eluminaCandPage,eluminaLoginPage,eluminaProctorCand,eluminaProctorReg,webActions }) => {
     await test.step('Candidate logging into application', async () => {

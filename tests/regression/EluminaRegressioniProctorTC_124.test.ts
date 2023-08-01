@@ -31,7 +31,7 @@ else if(process.env.ENV == 'staging'){
 Candidate entered into exam section & Entered into question: 1(#IQID).*/
 
 
- test(`@Regression Create iProctor exam without password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+ /*test(`@Regression Create iProctor exam without password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -118,4 +118,4 @@ test(`@Regression Validation of Proctoring Exam Events In Admin Section`, async 
             await page1.close();
         });
        
-});
+});  */

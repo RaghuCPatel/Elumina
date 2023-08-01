@@ -74,7 +74,7 @@ test(`@Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage
     });
 });
 
-    test(`@Regression Verify Login Application for PM`, async ({ eluminaCandPage,webActions }) => {
+    test(`@Regression Verify Login Application for PM  EluminaRegressioniExamTC_017`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

@@ -632,6 +632,27 @@ export class EluminaExamPage {
       await this.page.waitForTimeout(5000);
 
     }
+       
+    /**Method to Add MCQ Questions in Exam */
+    async addMCQQuestionswithoutSave():Promise<void>{
+      await this.ClickOnAddQuestion.click();
+      await this.ClickOnSearchQuestion.click()
+      await this.ClickOnSearchQuestion.type('MCQ');
+      await this.page.waitForTimeout(5000);
+      await this.page.waitForSelector('//div[@class="eqc-question-info"]//input',{timeout:10000});
+      const McqQuestions=await this.page.$$('//div[@class="eqc-question-info"]//input');
+      for(let i=0;i<=McqQuestions.length-22;i++)
+      {
+        await McqQuestions[i].click();
+      }
+      await this.ClickOnAddBtn.click()
+      await this.ClickOnSave.click();
+      // await this.ClickOnNextBtn.click();
+      // await this.page.waitForTimeout(5000);
+      // await this.ClickOnSubmitAndApproveBtn.click();
+      // await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+      // await this.page.waitForTimeout(5000);
+    }
 
     async addVSAQQuestions():Promise<void>{
       await this.ClickOnAddQuestion.click();
