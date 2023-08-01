@@ -72,6 +72,8 @@ export class EluminaInvPage {
     readonly ClickOnExam1:Locator;
     readonly verifyCandNAme:Locator;
     readonly verifyErrorMessage:Locator;
+    readonly MenuIconClick:Locator;
+    readonly logoutbuttonClick:Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -110,6 +112,8 @@ export class EluminaInvPage {
         this.LocationSubmit=page.locator('//div[@title="Submit"]');
         this.SelectAll=page.locator('//span[@class="thtext"]//input[@type="checkbox"]');
         this.dropDown=page.locator('(//div[@class="msdd-triangle open msdd-triangle-down"])[2]');
+        this.MenuIconClick=page.locator('//i[@class="menuIcons profileIcon"]');
+        this.logoutbuttonClick=page.locator('//a[normalize-space()="Log out"]');
     }
 
     /**Method to login as invigilator */
@@ -282,4 +286,11 @@ export class EluminaInvPage {
     async locationSubmit() {
             await this.LocationSubmit.click();
     }  
+
+    /**Method for Logout */
+    async logoutClick(){
+        await this.MenuIconClick.click();
+        await this.logoutbuttonClick.click();
+      
+    }
 }

@@ -102,6 +102,8 @@ export class EluminaRegistrationForProctoringPage {
     readonly candidateCard:Locator;
     readonly hardwareInternetcheck:Locator;    
     readonly searchExam:Locator;
+    readonly MenuIconClick:Locator;
+    readonly logoutbuttonClick:Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -157,6 +159,8 @@ export class EluminaRegistrationForProctoringPage {
         this.liveMonitorIcon=page.locator('//img[@class="proctoringImg"]');
         this.candidateCard=page.locator('(//div[@class="candidate-name"]//div[1])[1]');
         this.hardwareInternetcheck=page.locator('//div[contains(text(),"Hardware / Internet Check Pass")]');
+        this.MenuIconClick=page.locator('//i[@class="menuIcons profileIcon"]');
+        this.logoutbuttonClick=page.locator('//a[normalize-space()="Log out"]');
         this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
         const examId:string=String(EluminaProctorExamPage.examID);
         const examId1:string=String(EluminaExamInvPage.examID);
@@ -491,6 +495,13 @@ export class EluminaRegistrationForProctoringPage {
         let hardwareInternet=await this.hardwareInternetcheck.textContent();
         console.log(hardwareInternet);
         
+    }
+
+    /**Method for logout */
+    async logoutClick(){
+        await this.MenuIconClick.click();
+        await this.logoutbuttonClick.click();
+      
     }
   
 }

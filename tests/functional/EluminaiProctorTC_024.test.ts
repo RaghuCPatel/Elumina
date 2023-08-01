@@ -82,6 +82,7 @@ test(`@iProctorlink Verify Validation of "Lock Exam" from Live monitor Proctor`,
     });
     await test.step(`Redirected to Candidate page`, async () => {
         await eluminaProctorCand.againCandidateLogin(); 
+        await eluminaProctorCand.candidateSignOut();
     });
 
     

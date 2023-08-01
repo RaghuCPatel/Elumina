@@ -11,6 +11,7 @@ test(`@Smoke Verify Elumina Login as an invigilator - Validation of UN, PWD & th
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaInvPage.iAuthorPageNavigation();
         await newtab.iAuthorPageVerification();
+        await newtab.logoutClick();
         
         
     });

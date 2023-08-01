@@ -7,6 +7,7 @@ test(`@Smoke Verify Validation of Candidate App Dashboard`, async ({ eluminaCand
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToAndValidateDashboard();
+        await eluminaCandPage.logoutClick();
     });
     
 });

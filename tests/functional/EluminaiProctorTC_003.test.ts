@@ -8,5 +8,6 @@ test(`@Smoke Verify CandidatesInvExam`, async ({ eluminaCadInvPage,webActions })
     });
     await test.step(`Candidate Login to application with valid password`, async () => {
         await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaCadInvPage.logoutClick();
     });
 });

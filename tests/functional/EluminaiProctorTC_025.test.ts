@@ -79,8 +79,7 @@ test(`@iProctorlink Verify Validation of "Resume Exam" from Live monitor Proctor
     });
     await test.step(`Redurected to Candidate page`, async () => {
         await eluminaProctorCand.againCandidateLogin();
-
-        
+        await eluminaProctorCand.candidateSignOut();
     });
 
     

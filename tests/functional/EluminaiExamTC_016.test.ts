@@ -72,6 +72,7 @@ test(`@Smoke Verify Validation of "Lock Exam" from Live monitor Proctor `, async
 
     await test.step(`Redirected to Candidate page`, async () => {
         await eluminaCadInvPage.againCandidateLogin();
+        await eluminaCadInvPage.logoutClick();
 
     }); 
 

@@ -13,6 +13,7 @@ test(`@Smoke Verify Validation of Invigilator Dashboard Proctor`, async ({ elumi
         await newtab.iAuthorPageVerification();
         await newtab.invDashboardValidations();
         //await newtab.validateExamStatus();
+        await newtab.logoutClick();
         
     });
 });

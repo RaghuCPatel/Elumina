@@ -357,13 +357,20 @@ export class EluminaProctorExamPage {
     await this.BookingOK.click();
 
     await this.ExamEndCalender.click();
-    if(EndExamDate=='31'|| '30'||'32')
+    if(EndExamDate>="30")
+    {   
+        await this.page.waitForSelector('//li[@class="next"]');
+        await this.nextButton.click();
+        await this.Oneclick.click();
+    }
+    else if(EndExamDate>="31")
     {   
         await this.page.waitForSelector('//li[@class="next"]');
         await this.nextButton.click();
         await this.Oneclick.click();
     }
     else{
+      console.log("Exam end date:"+EndExamDate);
       await this.ExamEndDate.click();
     }
     await this.BookingStartHrs.click();
@@ -476,13 +483,20 @@ export class EluminaProctorExamPage {
     await this.ChooseBookingStartSession.check();
     await this.BookingOK.click();
     await this.ExamEndCalender.click();
-    if(EndExamDate=='31'||'30'||'32')
+    if(EndExamDate>="30")
+    {   
+        await this.page.waitForSelector('//li[@class="next"]');
+        await this.nextButton.click();
+        await this.Oneclick.click();
+    }
+    else if(EndExamDate>="31")
     {   
         await this.page.waitForSelector('//li[@class="next"]');
         await this.nextButton.click();
         await this.Oneclick.click();
     }
     else{
+      console.log("Exam end date:"+EndExamDate);
       await this.ExamEndDate.click();
     }
     await this.BookingStartHrs.click();

@@ -88,6 +88,8 @@ export class EluminaRegistrationInvPage {
     readonly AssignInvToCand:Locator;
     readonly ClickOnInvSaveBtn:Locator;
     readonly searchExam:Locator;
+    readonly MenuIconClick:Locator;
+    readonly logoutbuttonClick:Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -131,7 +133,8 @@ export class EluminaRegistrationInvPage {
         this.AssignUsersToCand=page.locator('//input[@placeholder="Select User(s)"]');
         this.AssignInvToCand=page.locator('(//span[@class="open"])[5]');
         this.ClickOnInvSaveBtn=page.locator('(//button[text()="Save"])[2]');
-        
+        this.MenuIconClick=page.locator('//i[@class="menuIcons profileIcon"]');
+        this.logoutbuttonClick=page.locator('//a[normalize-space()="Log out"]');
         this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
         const examId:string=String(EluminaExamInvPage.examID);
         console.log(examId);
@@ -275,5 +278,12 @@ export class EluminaRegistrationInvPage {
         await this.ClickOnInvSaveBtn.click();
         await this.page.waitForTimeout(5000);
      }
+
+    /**Method for logout */
+    async logoutClick(){
+        await this.MenuIconClick.click();
+        await this.logoutbuttonClick.click();
+      
+      }
 
 }

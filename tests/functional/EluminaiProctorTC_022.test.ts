@@ -73,35 +73,13 @@ test(`@iProctorlink Verify Validation of "Start Exam" (All Candidates) Proctor `
         await newPage.locator('//div[@title="Start Exam for all Candidates"]').click();
         await newPage.locator('(//button[text()="Yes"])[2]').click();
 
-          //await eluminaProctorCand.enterInvigilatorPassword();
-          //await eluminaProctorCand.examSectionValidation();
-  
-        
-       // await newPage.locator('(//table[@class="table"]//tbody//tr[2]//td[2]//span)[1]').click();
-        /*await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
-        await newPage.locator('//div[@title="Start Exam for all Candidates"]').click();
-        await newPage.locator('(//button[text()="Yes"])[2]').click();*/
-
-        //let Examstatus=await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[11]//span').textContent();
-        //console.log(Examstatus);
-        //await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[11]//span').isVisible();
-        //await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-        //await newPage.locator('//div[@class="action-item control-item pause-exam"]').click();
-        //await newPage.locator('(//button[text()="Yes"])[3]').click();
-        //await newPage.locator('//a[@class="dropdown-toggle"]').click();
-        //await newPage.locator('//p[text()="Reset Login"]').click();
-        //await newPage.locator('(//button[text()="Yes"])[1]').click();
-        //await newPage.waitForLoadState();
-        //await newPage.close();
-        //await page1.close();
-
     });
     await test.step(`Redirected to Candidate page`, async () => {
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaProctorCand.examSectionValidation();
        // await eluminaProctorCand.examSectionValidation();
-
+        await eluminaProctorCand.candidateSignOut();
 
         
     });

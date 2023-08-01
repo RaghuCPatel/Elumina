@@ -12,6 +12,7 @@ test(`@Smoke Verify Validation of password entered after clicking on "Start Exam
     });
     await test.step('Candidate start the exam',async ()=> {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
+        await eluminaCadInvPage.logoutClick();
     });
     
 });
