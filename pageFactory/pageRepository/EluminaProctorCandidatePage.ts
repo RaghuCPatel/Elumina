@@ -321,6 +321,8 @@ export class EluminaProctorCandidatePage {
        await this.page.waitForTimeout(3000);
     }
 
+    
+
     /**Method to start Candidate Exam and click on Next without answering questions*/
     async candidateStartExams(): Promise<void>{
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
