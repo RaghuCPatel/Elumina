@@ -69,8 +69,7 @@ test(`@Regression Validation of Validation of Screen Capture verification check 
         await eluminaProctorCand.candidateLoginToApplications();
     });   
         await test.step(`Navigate to Application`, async () => {
-            await eluminaProctorCand.clickOnStartExamLink();
-            await eluminaProctorCand.clickOnUnderstandBtn();
+            await eluminaProctorCand.clickOnStartExamLink1();
             await eluminaProctorCand.validateScreenCaptureTick();
             await eluminaCandPage.waitforTime3();
             

@@ -70,7 +70,9 @@ test(`@Regression Verify Candidate> Enforce Hardware Check > True`, async ({ elu
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-        await eluminaProctorCand.clickOnAllLink();   
+       // await eluminaProctorCand.clickOnAllLink();   
+       await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+
     });   
 
 });

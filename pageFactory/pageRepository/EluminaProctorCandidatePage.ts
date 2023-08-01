@@ -165,7 +165,8 @@ export class EluminaProctorCandidatePage {
 
     /**Method to click on start exam */
     async startExam(){
-        await this.ClickStartExamLink.click();
+       // await this.ClickStartExamLink.click();
+       await this.ClickDiffStartExamLink.click();
         await this.page.waitForTimeout(2000);
         await this.ClickOnUnderstand.click();
         await this.page.waitForTimeout(2000);
@@ -191,7 +192,7 @@ export class EluminaProctorCandidatePage {
 
      /**Methods to click on Start Exam Link */
      async clickOnStartExamLink1(){
-        await this.ClickStartExamLink.click();
+        await this.ClickDiffStartExamLink.click();
         await this.ClickOnUnderstand.click();
         await this.page.waitForTimeout(1000);
     }
@@ -262,7 +263,8 @@ export class EluminaProctorCandidatePage {
     }
 /**Method to Click on Start Exam Link */
     async clickOnStartExamLink(){
-        await this.ClickStartExamLink.click();
+        //await this.ClickStartExamLink.click();
+        await this.ClickDiffStartExamLink.click();
 
     }
 
@@ -319,6 +321,8 @@ export class EluminaProctorCandidatePage {
        await this.page.waitForTimeout(3000);
     }
 
+    
+
     /**Method to start Candidate Exam and click on Next without answering questions*/
     async candidateStartExams(): Promise<void>{
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
@@ -350,6 +354,27 @@ export class EluminaProctorCandidatePage {
             await this.ClickOnNextBtn.click();
             await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
             await this.ClickOnRevieweBtn.click();
+    }
+
+    
+    /**Method to Answer the MCQ Quetions */
+    async candidateStartMCQwithoutReviewe(){
+
+        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+        const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');
+        console.log('Number of questions-'+qutns.length);
+        const Ttl=qutns.length-1;
+        for(let i=0;i<=qutns.length-3;i++)
+        {
+            await qutns[i].click();
+            await this.ansMCQQuestions.click(); 
+            await this.ClickOnNextBtn.click();
+        }
+            await this.page.locator('(//div[@class="question-number-container"]//div//p)[3]').click();
+            await this.flagForReviewQuestions.click();
+            await this.ClickOnNextBtn.click();
+            await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
+            //await this.ClickOnRevieweBtn.click();
     }
 
     /**Method to Flag for Review the MCQ Quetions */

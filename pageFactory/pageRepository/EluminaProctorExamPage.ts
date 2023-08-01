@@ -124,6 +124,7 @@ export class EluminaProctorExamPage {
     readonly nextButton:Locator;
     readonly Oneclick:Locator;
 
+
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
         this.context = context;
@@ -373,7 +374,6 @@ export class EluminaProctorExamPage {
     await this.BooingStartMins.type(EndExamMin.toString());
     await this.ChooseBookingStartSession.check();
     await this.BookingOK.click();
-
     await this.ClickOnExamVenue.click();
     await this.ChooseExamVenue.click();
     await this.ClickOnAdd.click();
@@ -381,9 +381,9 @@ export class EluminaProctorExamPage {
     await this.EnterNoOfCandidates.clear();
     await this.EnterNoOfCandidates.type('01');
     await this.ClickOnAdd.click();
-    await this.EnterInvigilatorPswd.click();
+   // await this.EnterInvigilatorPswd.click();
     //await this.page.waitForTimeout(5000);
-    await this.EnterInvigilatorPswd.type('ABC09');
+   // await this.EnterInvigilatorPswd.type('ABC09');
     // await this.page.waitForTimeout(5000);
 
     await this.ClickOnNextBtn.click();
@@ -475,7 +475,6 @@ export class EluminaProctorExamPage {
     }
     await this.ChooseBookingStartSession.check();
     await this.BookingOK.click();
-
     await this.ExamEndCalender.click();
     if(EndExamDate=='31'||'30'||'32')
     {   
@@ -790,7 +789,7 @@ async createExamWithCalculator(): Promise<void> {
       await this.page.waitForTimeout(5000);
     }
 
-    /**Method to Add MCQ Questions in Exam */
+    /**Method to Add MCQ Questions and save in Exam */
     async addMCQQuestions():Promise<void>{
       await this.ClickOnAddQuestion.click();
       await this.ClickOnSearchQuestion.click()
@@ -809,6 +808,28 @@ async createExamWithCalculator(): Promise<void> {
       await this.ClickOnSubmitAndApproveBtn.click();
       await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
       await this.page.waitForTimeout(5000);
+    }
+
+    
+    /**Method to Add MCQ Questions in Exam */
+    async addMCQQuestionswithoutSave():Promise<void>{
+      await this.ClickOnAddQuestion.click();
+      await this.ClickOnSearchQuestion.click()
+      await this.ClickOnSearchQuestion.type('MCQ');
+      await this.page.waitForTimeout(5000);
+      await this.page.waitForSelector('//div[@class="eqc-question-info"]//input',{timeout:10000});
+      const McqQuestions=await this.page.$$('//div[@class="eqc-question-info"]//input');
+      for(let i=0;i<=McqQuestions.length-22;i++)
+      {
+        await McqQuestions[i].click();
+      }
+      await this.ClickOnAddBtn.click()
+      await this.ClickOnSave.click();
+      // await this.ClickOnNextBtn.click();
+      // await this.page.waitForTimeout(5000);
+      // await this.ClickOnSubmitAndApproveBtn.click();
+      // await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+      // await this.page.waitForTimeout(5000);
     }
 
     async addMCQQuestion():Promise<void>{
@@ -840,7 +861,7 @@ async createExamWithCalculator(): Promise<void> {
       await this.ClickOnSearchQuestion.click()
       await this.ClickOnSearchQuestion.type('VSAQ');
       await this.page.waitForTimeout(3000);
-      await this.page.locator('(//input[@type="checkbox"])[1]').click();
+      await this.page.locator('(//input[@type="checkbox"])[2]').click();
       await this.ClickOnAddBtn.click()
       await this.ClickOnSave.click();
       await this.ClickOnNextBtn.click();

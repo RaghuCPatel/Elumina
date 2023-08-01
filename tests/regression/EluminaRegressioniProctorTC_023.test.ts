@@ -41,7 +41,9 @@ test(`@Regression Validation of the "Timer" - After clicking on "Start Exam" But
 
     await test.step('Invigilator  logging into Application', async () => {
 
-        await eluminaProctorCand.clickOnAllLink();
+        //await eluminaProctorCand.clickOnAllLink();
+        await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -72,6 +74,7 @@ test(`@Regression Validation of the "Timer" - After clicking on "Start Exam" But
     await test.step('Verify Validation of Changing Font Size to Decrease on the Dashboard', async () => {
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
+        await eluminaProctorCand.verifyExamDashboardTimer();
     });
 
 });

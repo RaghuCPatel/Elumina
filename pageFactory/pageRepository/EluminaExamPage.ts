@@ -320,7 +320,7 @@ export class EluminaExamPage {
         }
         else{
           await this.ExamEndDate.click();
-        }
+        }        
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
         await this.BookingStartHrs.type(hour12.toString());

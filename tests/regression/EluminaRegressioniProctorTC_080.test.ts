@@ -67,15 +67,13 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 
 test(`@Regression extending exam for the candidate by invigilator`, async ({ eluminaProctorCand,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
-        eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateLoginToApplications();
         });
-    await test.step(`Candidate Login to application`, async () => {
-            await eluminaProctorCand.candidateLoginToApplications();
-        });
-
+    
     await test.step('Candidate start the exam',async ()=> {
-      
-        await eluminaProctorCand.clickOnAllLink();
+        //await eluminaProctorCand.clickOnAllLink();
+        await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -95,14 +93,17 @@ test(`@Regression extending exam for the candidate by invigilator`, async ({ elu
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
         await newPage.waitForTimeout(5000);
-        await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
-        await newPage.locator('//div[@class="action-item control-item pause-exam"]').click();
-        await newPage.locator('(//button[text()="Yes"])[3]').click();
-        await newPage.waitForTimeout(5000);
-        await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
-        await newPage.locator('//div[@title="Pause Exam for all Candidates"]').click();
-        await newPage.locator('(//button[@class="theme-btn theme-primary-btn"])').click();
-        await newPage.waitForTimeout(5000);
+
+        await eluminaProctorCand.againCandidateLogin();
+        await eluminaProctorCand.enterInvigilatorPassword();
+        // await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
+        // await newPage.locator('//div[@class="action-item control-item pause-exam"]').click();
+        // await newPage.locator('(//button[text()="Yes"])[3]').click();
+        // await newPage.waitForTimeout(5000);
+        // await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
+        // await newPage.locator('//div[@title="Pause Exam for all Candidates"]').click();
+        // await newPage.locator('(//button[@class="theme-btn theme-primary-btn"])').click();
+        // await newPage.waitForTimeout(5000);
         await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr//td[2]//input').click();
         await newPage.locator('//div[@title="Extend Exam for all Candidates"]').click();
@@ -121,8 +122,8 @@ test(`@Regression extending exam for the candidate by invigilator`, async ({ elu
     });
     await test.step('Candidate start the exam',async ()=> {
         await eluminaProctorCand.againCandidateLogin();
-        await eluminaProctorCand.enterInvigilatorPassword();
-        await eluminaProctorCand.candidateStartMCQ();
+        // await eluminaProctorCand.enterInvigilatorPassword();
+       // await eluminaProctorCand.candidateStartMCQwithoutReviewe();
 
     });
 

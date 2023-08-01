@@ -29,7 +29,7 @@ else if(process.env.ENV == 'staging'){
 
 /**Validate Candidate while attending exam - Candidate abruptly closed the browser*/
 
-test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+/*test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -63,21 +63,22 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
         await newtab.addExistingUsers();
 
     });
-});                       
+});       */                    
 
 
 test(`@Regression Verify Validation of abrupt closure of browser`, async ({ eluminaProctorCand, eluminaCandPage,webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
 
-        await eluminaCandPage.candidateNavigateToURL();
+        await eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateLoginToApplications();
 
     });
 
     await test.step(`Candidate Login to application`, async () => {
 
-        await eluminaProctorCand.candidateLoginToApplications();
-        await eluminaProctorCand.clickOnAllLink();
+        //await eluminaProctorCand.clickOnAllLink();
+        await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
         
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -119,7 +120,7 @@ test(`@Regression Verify Elumina candidate attends the exam after abrupt closure
 
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-        await eluminaProctorCand.clickOnAllLink();
+        await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();

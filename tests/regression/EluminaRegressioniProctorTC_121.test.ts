@@ -13,7 +13,9 @@ test(`@Regression Validation of Proctoring Exam Event > Candidate Authentication
 
     await test.step('Invigilator  logging into Application', async () => {
 
-        await eluminaProctorCand.clickOnAllLink();
+        //await eluminaProctorCand.clickOnAllLink();
+        await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+
 
         /*const browser = await chromium.launch();
         const context1 = await browser.newContext();

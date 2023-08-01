@@ -35,7 +35,9 @@ test(`@Regression Validation of Proctoring Exam Event > Awaiting Exam Start`, as
         await eluminaProctorCand.candidateLoginToApplications();
         });   
         await test.step(`Navigate to Application`, async () => {
-            await eluminaProctorCand.clickOnAllLink();
+           // await eluminaProctorCand.clickOnAllLink();
+           await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+
             const browser = await chromium.launch();
             const context1 = await browser.newContext();
             const page1 = await context1.newPage();

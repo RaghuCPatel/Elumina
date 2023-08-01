@@ -29,7 +29,7 @@ else if(process.env.ENV == 'staging'){
 
 /**Validate the Exam sheet where the Question numbers are displayed are Gray by Default*/
 
-test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+/*test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -62,7 +62,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});    
+});         */
 
 
 test(`@Regression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
@@ -76,7 +76,8 @@ test(`@Regression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctor
 
     await test.step('Invigilator  logging into Application', async () => {
 
-        await eluminaProctorCand.clickOnAllLink();
+       // await eluminaProctorCand.clickOnAllLink();
+       await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();

@@ -75,7 +75,9 @@ test(`@Regression Verify Validation of Question numbers are displayed in Orange 
     });   
 
     await test.step('Invigilator  logging into Application', async () => {
-        await eluminaProctorCand.clickOnAllLink();
+        //await eluminaProctorCand.clickOnAllLink();
+        await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
         const page1 = await context1.newPage();
