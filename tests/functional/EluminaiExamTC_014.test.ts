@@ -11,6 +11,6 @@ test(`@Smoke Verify Validation of Invigilator Dashboard`, async ({ eluminaInvPag
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaInvPage.iAuthorPageNavigation();
         await newtab.invDashboardValidations();
-        
+        await newtab.logoutClick();
     });
 });

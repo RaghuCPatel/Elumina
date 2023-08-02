@@ -637,13 +637,13 @@ export class EluminaCandidatePage {
     /**Method to navigate from review page to candidate exam page */
     async clickonPrevious(){
         await this.clickOnPreviousBtn.click();
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(1000);
     }
 
 
     async  againCandidateLogin():Promise<void>{
         await this.page.bringToFront();
-        await this.page.waitForTimeout(10000);
+        await this.page.waitForTimeout(1000);
         //await this.page.close();
      }
 

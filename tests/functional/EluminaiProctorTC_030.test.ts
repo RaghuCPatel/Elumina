@@ -31,7 +31,7 @@ else if(process.env.ENV == 'staging'){
 
 /*Validation of all the events generated on the RHS of the Candidate page*/
 
-test(`@Smoke Verify Validation of "Start Exam" (All Candidates)`, async ({ eluminaCadInvPage,webActions }) => {
+test(`@Smoke Validation of all the events generated on the RHS of the Candidate page`, async ({ eluminaCadInvPage,webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();

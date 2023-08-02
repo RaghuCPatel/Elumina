@@ -79,9 +79,7 @@ test(`@iProctorlink Verify Validation of "Start Exam" (All Candidates) Proctor `
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaProctorCand.examSectionValidation();
        // await eluminaProctorCand.examSectionValidation();
-        await eluminaProctorCand.candidateSignOut();
 
-        
     });
     
 });
