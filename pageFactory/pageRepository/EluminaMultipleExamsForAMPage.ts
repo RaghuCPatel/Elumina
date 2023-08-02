@@ -186,16 +186,24 @@ export class EluminaMultipleExamsForAMPage {
         await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
         await this.EXAMCODE.type('D'+Math.floor(Math.random()*89+100));
         await this.BookingStartCalender.click();
-        if(EndExamDate=='31'|| '30'||'32')
-        {   
-            await this.page.waitForSelector('//li[@class="next"]');
-            await this.nextButton.click();
-            await this.Oneclick.click();
-        }
+        if(EndExamDate>="30")
+  {   
+      await this.page.waitForSelector('//li[@class="next"]');
+      await this.nextButton.click();
+      await this.Oneclick.click();
+  }
+  else if(EndExamDate>="31")
+  {   
+      await this.page.waitForSelector('//li[@class="next"]');
+      await this.nextButton.click();
+      await this.Oneclick.click();
+  }
+
+
         else{
           await this.BookingStartDate.click();
         }
-        await this.BookingStartDate.click();
+       // await this.BookingStartDate.click();
         await this.BookingStartHrs.click();
         await this.BookingStartHrs.clear();
         await this.BookingStartHrs.type(testData.StartBookingHr);
@@ -205,7 +213,13 @@ export class EluminaMultipleExamsForAMPage {
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
         await this.BookingEndCalender.click();
-        if(EndExamDate=='31'|| '30'||'32')
+        if(EndExamDate>="30")
+        {   
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else if(EndExamDate>="31")
         {   
             await this.page.waitForSelector('//li[@class="next"]');
             await this.nextButton.click();
@@ -223,12 +237,19 @@ export class EluminaMultipleExamsForAMPage {
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
         await this.ExamStartCalender.click();
-        if(EndExamDate=='31'|| '30'||'32')
+        if(EndExamDate>="30")
         {   
             await this.page.waitForSelector('//li[@class="next"]');
             await this.nextButton.click();
             await this.Oneclick.click();
         }
+        else if(EndExamDate>="31")
+        {   
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        
         else{
         await this.ExamStartDate.click();
         }
@@ -241,7 +262,13 @@ export class EluminaMultipleExamsForAMPage {
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
         await this.ExamEndCalender.click();
-        if(EndExamDate=='31'|| '30'||'32')
+        if(EndExamDate>="30")
+        {   
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else if(EndExamDate>="31")
         {   
             await this.page.waitForSelector('//li[@class="next"]');
             await this.nextButton.click();

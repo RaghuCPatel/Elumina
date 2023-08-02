@@ -117,7 +117,7 @@ test(`@Regression Verify Validation of Candidate dashboard - Exam scheduled Date
         await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam',async ()=> {
-        await eluminaCandPage.candidateStartMCQwithoutReviewe();
+        await eluminaCandPage.candidateStartMCQandSAQ_RevieweandSubmit();
        // await eluminaCandPage.candidateStartVSAQ();
         await eluminaCandPage.confirmationOkBtn();
         await eluminaCandPage.clickOnLogoutBtn();

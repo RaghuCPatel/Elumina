@@ -15,7 +15,7 @@ test(`@Regression Create practice exam`, async ({ eluminaLoginPage,eluminaCandPa
     await test.step(`Navigate to exam Tab and Create New Exam and add MCQ Questions`, async () => {
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createPractiseExam();
+        await newtab.createPracticeExam();
         await newtab.createSection();
         await newtab.addMCQQuestions();
     });
@@ -39,6 +39,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 test(`@Regression Verify Validation of Candidate attend Practice Exam`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime3();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();

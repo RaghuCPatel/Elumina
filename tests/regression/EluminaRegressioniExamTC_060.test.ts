@@ -106,7 +106,7 @@ test(`@Regression Verify Validation of "Terminate Exam"  `, async ({eluminaCandP
             await eluminaCadInvPage.candidateNavigateToURL();
         });
         await test.step(`Candidate Login to application`, async () => {
-            await eluminaCandPage.candidateLoginToApplication();
+            await eluminaCandPage.candidateLoginToAndValidateDashboard();
             
         });
 

@@ -67,6 +67,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
 test(`@Regression Verify Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)`, async ({eluminaCandPage, eluminaCadInvPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime3();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
@@ -112,6 +113,8 @@ test(`@Regression Verify Validation of Invigilator Dashboard after the Exam Comp
     });
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaCandPage.candidateStartMCQAndSubmit();
+        await eluminaCandPage.confirmationOkBtn();
+
     });
 
 

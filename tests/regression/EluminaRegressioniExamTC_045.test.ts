@@ -55,6 +55,7 @@ Exam name, Candidate name, Exam timer, no of questions as per exam created Elumi
 test(`@Regression Validation of candidate able to submit the exam when not answering all questions`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime3();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();

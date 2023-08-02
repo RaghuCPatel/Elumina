@@ -71,6 +71,7 @@ test(`@Regression Verify Elumina Registration and user and invigilator`, async (
 test(`@Regression Validation of "Start Exam" (All Candidates) `, async ({ eluminaCandPage,eluminaCadInvPage,eluminaProctorCand,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime3();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCadInvPage.candidateLoginToApplications();
