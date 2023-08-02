@@ -63,6 +63,7 @@ test(`@iProctorlink Verify Elumina Registration`, async ({ eluminaLoginPage,elum
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
+        await newtab.logoutClick();
     });
 });       
 

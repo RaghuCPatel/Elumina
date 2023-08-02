@@ -92,6 +92,8 @@ export class EluminaRegistrationPage {
     readonly ClickOnInvSaveBtn:Locator;
     readonly captureUserClientID:Locator;
     readonly SelectCandRole:Locator;
+    readonly MenuIconClick:Locator;
+    readonly logoutbuttonClick:Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -147,6 +149,8 @@ export class EluminaRegistrationPage {
         console.log(examId);
         const examId1:string=String(EluminaMultipleExamsForPMPage.examID);
         const examId2:string=String(EluminaMultipleExamsForAMPage.examID);
+        this.MenuIconClick=page.locator('//i[@class="menuIcons profileIcon"]');
+        this.logoutbuttonClick=page.locator('//a[normalize-space()="Log out"]');
 
 
     }
@@ -372,4 +376,11 @@ async registrationTabNavigationAMExamPage():Promise<void> {
         await this.page.waitForTimeout(2000);
         await this.ClickOnDropdown.click();
     }
+
+        /**Method for logout */
+        async logoutClick(){
+            await this.MenuIconClick.click();
+            await this.logoutbuttonClick.click();
+          
+          }
 }

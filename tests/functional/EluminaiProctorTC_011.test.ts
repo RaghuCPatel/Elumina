@@ -71,9 +71,6 @@ test(`@iProctorlink Verify CandidatesExam`, async ({ eluminaProctorCand,eluminaC
     await test.step(`Redirected to Candidate page and Validation of the following in the Exam Section Exam name, Candidate name, REC Symbol blinking, no of questions as per exam created`, async () => {
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaProctorCand.examSectionValidation();
-
-
-        
     });
     
 });
