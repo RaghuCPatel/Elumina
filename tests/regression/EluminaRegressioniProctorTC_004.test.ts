@@ -56,6 +56,7 @@ test(`@Regression Verify Elumina Login with diff venu`, async ({ eluminaLoginPag
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExamwithDiffZone();
+        await newtab.selectAllTools();
         await newtab.createSections();
         await newtab.addMCQQuestionswithoutSave();
         await newtab.addVSAQQuestions();

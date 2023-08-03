@@ -40,6 +40,8 @@ test(`@Regression Verify Validation of Candidate attend Practice Exam`, async ({
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime2();
+
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();

@@ -72,6 +72,7 @@ test(`@Regression Validation of "Start Exam" (All Candidates) `, async ({ elumin
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime2();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCadInvPage.candidateLoginToApplications();

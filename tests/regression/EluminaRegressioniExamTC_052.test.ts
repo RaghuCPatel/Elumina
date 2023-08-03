@@ -44,7 +44,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 test(`@Regression Verify Timer Expires Alert Box  in Exam Content page`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        //await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime3();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();

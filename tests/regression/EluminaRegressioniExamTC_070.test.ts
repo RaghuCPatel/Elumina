@@ -93,7 +93,8 @@ test(`@Regression Verify Validation of Invigilator Dashboard after the Exam Comp
         
           await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
        
-          await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//input').click();
+          //await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//input').click();
+          await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
           await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[5]').click();
           await newPage.locator('(//button[text()="Yes"])[2]').click();
           await newPage.waitForTimeout(5000);
