@@ -67,6 +67,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
 test(`@Regression Verify Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)`, async ({eluminaCandPage, eluminaCadInvPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime3();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
@@ -92,7 +93,8 @@ test(`@Regression Verify Validation of Invigilator Dashboard after the Exam Comp
         
           await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
        
-          await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//input').click();
+          //await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//input').click();
+          await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
           await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[5]').click();
           await newPage.locator('(//button[text()="Yes"])[2]').click();
           await newPage.waitForTimeout(5000);
@@ -112,6 +114,8 @@ test(`@Regression Verify Validation of Invigilator Dashboard after the Exam Comp
     });
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaCandPage.candidateStartMCQAndSubmit();
+        await eluminaCandPage.confirmationOkBtn();
+
     });
 
 

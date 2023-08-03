@@ -43,6 +43,7 @@ test(`@Regression add user and download user details`, async ({ eluminaLoginPage
 test(`@Regression Verify Validation of Exam content section page contents and details`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime3();
         await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam',async ()=> {

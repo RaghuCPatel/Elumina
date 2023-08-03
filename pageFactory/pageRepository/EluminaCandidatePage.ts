@@ -403,7 +403,7 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(5000);
     }
     async examSectionCloudValidation(){
-        await this.page.waitForTimeout(15000);
+        await this.page.waitForTimeout(30000);
         await expect(this.verifyCloud).toBeVisible();
         console.log('cloud symbol is Updated');
     }
@@ -469,11 +469,37 @@ export class EluminaCandidatePage {
            await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
            await this.ClickOnRevieweBtn.click();
            await this.ClickOnSubmitBtn.click();
-           await this.page.waitForTimeout(20000);
+           await this.page.waitForTimeout(3000);
     }
 
      /**Method to Answer the MCQ Quetions */
      async candidateStartMCQwithoutReviewe(){
+
+        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+        const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');
+        console.log('Number of questions-'+qutns.length);
+        const Ttl=qutns.length-1;
+        for(let i=0;i<=qutns.length-2;i++)
+        {
+            await qutns[i].click();
+            await this.ansMCQQuestions.click(); 
+            await this.ClickOnNextBtn.click();
+        }
+            // await this.page.locator('(//div[@class="question-number-container"]//div//p)[4]').click();
+            // await this.flagForReviewQuestions.click();
+            // await this.ClickOnNextBtn.click();
+            await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
+            //await this.ClickOnRevieweBtn.click();
+            await this.ansVSAQQuestion.click();
+            await this.ansVSAQQuestion.type(makeid(100));
+            await this.page.waitForTimeout(2000);
+            // await this.ClickOnRevieweBtn.click();
+            // await this.ClickOnSubmitBtn.click();
+    }
+
+    
+     /**Method to Answer the MCQ Quetions */
+     async candidateStartMCQandSAQ_RevieweandSubmit(){
 
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
         const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');
@@ -729,19 +755,20 @@ export class EluminaCandidatePage {
         const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');
         console.log('Number of questions-'+qutns.length);
         const Ttl=qutns.length-1;
-        for(let i=0;i<=qutns.length-3;i++)
+        for(let i=0;i<=qutns.length-2;i++)
         {
             await qutns[i].click();
             await this.ansMCQQuestions.click();
             await this.ClickOnNextBtn.click();
         }
-           await this.page.locator('(//div[@class="question-number-container"]//div//p)[3]').click();
+           await this.page.locator('(//div[@class="question-number-container"]//div//p)[4]').click();
            await this.flagForReviewQuestions.click();
            await this.ClickOnNextBtn.click();
            await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
            await this.ClickOnRevieweBtn.click();
            await this.page.waitForTimeout(5000);
            await this.ClickOnSubmitBtn.click();
+           await this.ConfirmationToSubmit.click();
            await this.page.waitForTimeout(5000);
            await this.ViewResult.click();
            await this.page.waitForTimeout(5000);

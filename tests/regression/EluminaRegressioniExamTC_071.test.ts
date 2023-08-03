@@ -17,7 +17,7 @@ test(`@Regression Validation of "Time Remaining" pop-up when the just before the
         await newtab.examTabNavigation();
         await newtab.createExam();
         await newtab.createSection();
-        await newtab.addQuestionsInExam();
+        await newtab.addMCQQuestions();
     });
 });
 
@@ -30,7 +30,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
+        await newtab.registrationTabNavigationforMinimaltime();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
@@ -40,6 +40,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
 test(`@Regression Validation of Invigilator Dashboard after the Exam Completion by candidate (once the time exceeds)`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime3();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
@@ -52,7 +53,7 @@ test(`@Regression Validation of Invigilator Dashboard after the Exam Completion 
     });
 });     
 
-test(`@Regression Verify Validation of Invigilator Dashboard Proctor`, async ({ eluminaInvPage, webActions }) => {
+test(`@Regression Verify Validation of Invigilator Dashboard `, async ({ eluminaInvPage, webActions }) => {
    
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaInvPage.invigilatorLogin();

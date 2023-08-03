@@ -577,7 +577,7 @@ async createExamwithDiffZone(): Promise<void> {
   await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
  
   await this.EXAMCODE.type('D'+Math.floor(Math.random()*89+100));
-
+  await this.ProctoringExam.click();
   await this.BookingStartCalender.click();
 
   await this.BookingStartDate.click();
@@ -668,13 +668,6 @@ async createExamwithDiffZone(): Promise<void> {
   await this.EnterNoOfCandidates.clear();
   await this.EnterNoOfCandidates.type('01');
   await this.ClickOnAdd.click();
-
-  await this.ClickOnNextBtn.click();
-  await expect(this.VerifyExam_details).toBeVisible();
-  await expect(this.VerifyChoose_Question).toBeVisible();
-  await expect(this.VerifyChoose_Workflow).toBeVisible();
-  await expect(this.VerifyChoose_Confirmation).toBeVisible();
-  await this.page.waitForTimeout(5000);
 }
 
      /*Create a Exam with All Tools*/

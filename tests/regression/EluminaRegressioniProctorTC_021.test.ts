@@ -31,7 +31,7 @@ else if(process.env.ENV == 'staging'){
 
 /**Validation of Changing Font Size to increase on the Dashboard */
 
-test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, async ({ eluminaProctorCand,webActions }) => {
+test(`@Regression Validation of Changing Font Size to increase on the Dashboard `, async ({ eluminaProctorCand,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         eluminaProctorCand.candidateNavigateToURL();
         });

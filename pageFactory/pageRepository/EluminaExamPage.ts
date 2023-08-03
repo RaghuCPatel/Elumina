@@ -132,6 +132,7 @@ export class EluminaExamPage {
     readonly Oneclick:Locator;
     readonly MenuIconClick:Locator;
     readonly logoutbuttonClick:Locator;
+    readonly PracticeExam:Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -210,6 +211,8 @@ export class EluminaExamPage {
         this.Oneclick=page.locator('(//li//span[text()="1"])[1]');
         this.MenuIconClick=page.locator('//i[@class="menuIcons profileIcon"]');
         this.logoutbuttonClick=page.locator('//a[normalize-space()="Log out"]');
+        this.PracticeExam = page.locator('(//span[@class="slider round"])[1]')
+
     }
 
     /**Method for Page Navigation */
@@ -485,6 +488,116 @@ export class EluminaExamPage {
   await this.EnterNoOfCandidates.clear();
   await this.EnterNoOfCandidates.type('0100');
   await this.ClickOnAdd.click();
+}
+
+  /**Method to create practice exam*/
+  async createPracticeExam(): Promise<void> {
+
+    let currentDate=new Date();
+    console.log(currentDate.getDate());
+    let pm = currentDate.getHours() >= 12;
+    let hour12 = currentDate.getHours() % 12;
+    if (!hour12) 
+      hour12 += 12;
+    let minute = currentDate.getMinutes();
+    console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
+    //console.log(localDate.)
+    //let Hours=currentDate.getHours();
+    //console.log(Hours);
+    let StartBookingMin=currentDate.getMinutes()+1;
+    let EndBookingMin=currentDate.getMinutes()+2;
+    let StartExamMin=currentDate.getMinutes()+3;
+    let EndExamMin=currentDate.getMinutes()+13;
+
+    await expect(this.CREATEEXAMS).toBeVisible();
+    await this.CREATEEXAMS.click();
+    await this.STARTFROMSCRATCH.click();
+    await this.SELECTBANK.click();
+    await this.TESTBANK.click();
+    await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
+    //await newPage.locator('//div[normalize-space()="Proctoring Exam"]//div[@id="Crm_Leads_COMPANY_label"]').scrollIntoViewIfNeeded();
+    await this.EXAMCODE.type('D'+Math.floor(Math.random()*89+100));
+
+    await this.PracticeExam.click();
+    //await this.page.waitForTimeout(5000);
+    await this.BookingStartCalender.click();
+   // await this.page.waitForTimeout(5000);
+    await this.BookingStartDate.click();
+    await this.BookingStartHrs.click();
+    await this.BookingStartHrs.clear();
+    await this.BookingStartHrs.type(hour12.toString());
+   // await this.BookingStartHrs.type(StartBookingMin.toString());
+    await this.BooingStartMins.click();
+    await this.BooingStartMins.clear();
+    await this.BooingStartMins.type(StartBookingMin.toString());
+    await this.ChooseBookingStartSession.check();
+    await this.BookingOK.click();
+
+    await this.BookingEndCalender.click();
+    await this.BookingEndDate.click();
+    await this.BookingStartHrs.click();
+    await this.BookingStartHrs.clear();
+    await this.BookingStartHrs.type(hour12.toString());
+    await this.BooingStartMins.click();
+    await this.BooingStartMins.clear();
+    await this.BooingStartMins.type(EndBookingMin.toString());
+    await this.ChooseBookingStartSession.check();
+    await this.BookingOK.click();
+
+    await this.ExamStartCalender.click();
+    await this.ExamStartDate.click();
+    await this.BookingStartHrs.click();
+    await this.BookingStartHrs.clear();
+    await this.BookingStartHrs.type(hour12.toString());
+    await this.BooingStartMins.click();
+    await this.BooingStartMins.clear();
+    await this.BooingStartMins.type(StartExamMin.toString());
+    await this.ChooseBookingStartSession.check();
+    await this.BookingOK.click();
+
+    await this.ExamEndCalender.click();
+    if(EndExamDate>="30")
+    {   
+        await this.page.waitForSelector('//li[@class="next"]');
+        await this.nextButton.click();
+        await this.Oneclick.click();
+    }
+    else if(EndExamDate>="31")
+    {   
+        await this.page.waitForSelector('//li[@class="next"]');
+        await this.nextButton.click();
+        await this.Oneclick.click();
+    }
+    else{
+      console.log("Exam end date:"+EndExamDate);
+      await this.ExamEndDate.click();
+    }
+    await this.BookingStartHrs.click();
+    await this.BookingStartHrs.clear();
+    await this.BookingStartHrs.type(hour12.toString());
+    await this.BooingStartMins.click();
+    await this.BooingStartMins.clear();
+    await this.BooingStartMins.type(EndExamMin.toString());
+    await this.ChooseBookingStartSession.check();
+    await this.BookingOK.click();
+    await this.ClickOnExamVenue.click();
+    await this.ChooseExamVenue.click();
+    await this.ClickOnAdd.click();
+    await this.EnterNoOfCandidates.click();
+    await this.EnterNoOfCandidates.clear();
+    await this.EnterNoOfCandidates.type('01');
+    await this.ClickOnAdd.click();
+   // await this.EnterInvigilatorPswd.click();
+    //await this.page.waitForTimeout(5000);
+   // await this.EnterInvigilatorPswd.type('ABC09');
+    // await this.page.waitForTimeout(5000);
+
+    await this.ClickOnNextBtn.click();
+    await expect(this.VerifyExam_details).toBeVisible();
+    await expect(this.VerifyChoose_Question).toBeVisible();
+    await expect(this.VerifyChoose_Workflow).toBeVisible();
+    await expect(this.VerifyChoose_Confirmation).toBeVisible();
+    await this.page.waitForTimeout(5000);
 }
 
     async clickonNextBtnInExam(){
