@@ -68,7 +68,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 });         */
 
 
-test(`@Regression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
+test(`@Regression Validation of Question numbers are displayed in Red, when Flag for Review is selected`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
 
@@ -112,7 +112,7 @@ test(`@Regression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctor
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaCandPage.flagForReview();
-        //await eluminaProctorCand.clickonPrevious();
+        await eluminaProctorCand.clickonPrevious();
     });
 
 });

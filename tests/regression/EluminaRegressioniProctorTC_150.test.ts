@@ -72,7 +72,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 /**Validate Survey screen where candidate can provide feedback in comment section EluminaRegressioniProctorTC_084*/
     test(`@Regression Verify Validation of Candidate answering survey questions`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
         await test.step(`Navigate to Application`, async () => {
-            eluminaProctorCand.candidateNavigateToURL();
+            await eluminaProctorCand.candidateNavigateToURL();
             });
         await test.step(`Candidate Login to application`, async () => {
                 await eluminaProctorCand.candidateLoginToApplications();

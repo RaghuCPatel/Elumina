@@ -28,7 +28,7 @@ else if(process.env.ENV == 'staging'){
 }
 
 //Validation of Proctoring Exam Event > Candidate Authentication Pass
-test(`@RegressionValidation of Proctoring Exam Event > Candidate Authentication Pass`, async ({ eluminaCandPage,eluminaLoginPage,eluminaProctorCand,eluminaProctorReg,webActions }) => {
+test(`@Regression Validation of Proctoring Exam Event > Candidate Authentication Pass`, async ({ eluminaCandPage,eluminaLoginPage,eluminaProctorCand,eluminaProctorReg,webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
