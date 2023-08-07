@@ -110,6 +110,20 @@ export class EluminaCandidatePage {
     readonly clickOnLastVSAQ:Locator;
     readonly clearButton:Locator;
     readonly clickOnVSAQQuestions:Locator;
+    readonly checklogo:Locator;
+    readonly txtLogin:Locator;
+    readonly txtUserIdPlaceholder:Locator;
+    readonly txtPassword:Locator;
+
+    readonly clickChatApp:Locator;
+    readonly chatAppTxtArea:Locator;
+    readonly clickOnSendicon:Locator;
+
+    readonly clickOnOptionsInChatApp:Locator;
+    readonly enterNameInChatApp:Locator;
+    readonly clickOnNextChatApp:Locator;
+    readonly enterExamInChatApp:Locator;
+    readonly clickOnSendInChatApp:Locator;
 
 
 
@@ -182,6 +196,20 @@ export class EluminaCandidatePage {
         this.clickOnLastVSAQ=page.locator('//div[@class="question-number-container"]//div//p').last();
         this.clearButton=page.locator('//div[@class="action-btn-container"]//div[text()="Clear"]');
         this.clickOnVSAQQuestions=page.locator('(//div[@class="question-number"])[2]');
+        this.checklogo=page.locator('//div[@class="logo-container"]//div[@class="logo"]');
+        this.txtLogin=page.locator('//div[text()="Login"]');
+        this.txtUserIdPlaceholder=page.locator('//label[text()="User Id"]')
+        this.txtPassword=page.locator('//label[text()="Password"]');
+
+        this.clickChatApp=page.frameLocator('//iframe[@title="Button to launch messaging window"]').locator('html');
+        this.chatAppTxtArea=page.frameLocator('iframe[name="Messaging window"]').getByPlaceholder('Type a message');
+        this.clickOnSendicon=page.frameLocator('iframe[name="Messaging window"]').getByRole('button', { name: 'Send message' });
+
+        this.clickOnOptionsInChatApp=page.frameLocator('iframe[name="Messaging window"]').locator('//button[normalize-space()="Hardware checks not working"]');
+        this.enterNameInChatApp=page.frameLocator('iframe[name="Messaging window"]').locator('//textarea[@id="1val-field_1.3.10--input"]');
+        this.clickOnNextChatApp=page.frameLocator('iframe[name="Messaging window"]').locator('//span[@class="sc-16za5ry-1 hDzhld"]')
+        this.enterExamInChatApp=page.frameLocator('iframe[name="Messaging window"]').locator('input[@id="16val-field_1.3.10--input"]');
+        this.clickOnSendInChatApp=page.frameLocator('iframe[name="Messaging window"]').locator('span[@class="sc-16za5ry-1 hDzhld"]')
     }
 
     /**Method to Navigate to candidate dashboard */
@@ -235,6 +263,16 @@ export class EluminaCandidatePage {
         console.log(await this.InvalidDetailsAlert.textContent());
 
     }
+
+        /**Method to validation of client logo */
+        async validationOfLogo(){
+            await expect(this.checklogo).toBeVisible();
+            console.log(await this.checklogo.textContent());
+            console.log("Login page title:",await this.txtLogin.textContent());
+            console.log("User Id Placeholder:",await this.txtUserIdPlaceholder.textContent())
+            console.log("Password Placeholder:",await this.txtPassword.textContent())
+            console.log("Login button:",await this.LOGIN_BUTTON.textContent())
+        }
 
     /**Method to Enter Candidate Credentials */
     async candidateLoginToAndValidateDashboard(): Promise<void> {
@@ -716,6 +754,7 @@ export class EluminaCandidatePage {
             await this.ClickOnHighlighter.click();
             await this.page.waitForTimeout(1000);
             await this.HighlightQuestion.dblclick()
+            await this.HighlightQuestion.click()
             await this.page.waitForTimeout(1000);
         }
     }
@@ -998,6 +1037,24 @@ async AddingNotesToQuestionSinglelastandclickPrevious(){
         await this.clickonNextBtn.click();
         await this.page.waitForTimeout(2000);
         
+    }
+
+    async chatApp(){
+      await this.clickChatApp.click();
+      await this.chatAppTxtArea.click();
+      await this.chatAppTxtArea.fill("Hello");
+      await this.clickOnSendicon.click();
+      await this.page.waitForTimeout(5000);
+    }
+
+    async enterFieldsInChatApp(){
+     await this.clickChatApp.click();
+     await this.clickOnOptionsInChatApp.click();
+     await this.enterNameInChatApp.type('Raghu')
+     await this.clickOnNextChatApp.click();
+     await this.enterExamInChatApp.type('Rag123')
+     await this.clickOnSendInChatApp.click();
+     await this.page.waitForTimeout(5000);
     }
 
      /**Method to Answer the MCQ questions and Abort in middle */
