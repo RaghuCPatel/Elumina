@@ -243,10 +243,10 @@ export class EluminaExamPage {
         let minute = currentDate.getMinutes();
         console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
    
-        let StartBookingMin=currentDate.getMinutes()+1;
-        let EndBookingMin=currentDate.getMinutes()+2;
-        let StartExamMin=currentDate.getMinutes()+3;
-        let EndExamMin=currentDate.getMinutes()+14;
+        let StartBookingMin=currentDate.getMinutes()+2;
+        let EndBookingMin=currentDate.getMinutes()+3;
+        let StartExamMin=currentDate.getMinutes()+4;
+        let EndExamMin=currentDate.getMinutes()+15;
         
 
         await this.EXAMSMENU.click();

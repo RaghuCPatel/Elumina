@@ -34,7 +34,7 @@ function makeid(length) {
     const charactersLength = characters.length;
     let counter = 0;
     while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      result += characters.charAt(Math.floor(Math.random()* charactersLength));
       counter += 1;
   
     }
@@ -110,7 +110,6 @@ export class EluminaCandidatePage {
     readonly clickOnLastVSAQ:Locator;
     readonly clearButton:Locator;
     readonly clickOnVSAQQuestions:Locator;
-
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -213,6 +212,23 @@ export class EluminaCandidatePage {
         await this.ClickOnStartExamBtn.click();
     }
 
+    /**Method to Enter Candidate Credentials and to verify if start exam link is visible */
+    async candidateLoginToApplicationwithoutclickingLogin(): Promise<void> {
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/User_details.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+          const ws = wb.getWorksheet('Worksheet');
+              console.log(ws.actualRowCount)
+              console.log(ws.getRow(2).getCell(1).value)
+              console.log(ws.getRow(2).getCell(4).value)
+              await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
+              await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+        })
+        await this.page.waitForTimeout(5000);
+    }
+
     /**Method to Enter Invaild Candidate Credentials */
     async candidateInvalidLoginCredential(): Promise<void> {
         const ExcelJS = require('exceljs');
@@ -225,6 +241,51 @@ export class EluminaCandidatePage {
               console.log(ws.getRow(2).getCell(1).value)
               console.log(ws.getRow(2).getCell(4).value)
               await this.CandidateUsername.fill(testData.InvalidCandidateUsername);
+              await this.CandidatePassword.fill(testData.InvalidCandidatePassword);
+        })
+
+        await this.page.waitForTimeout(5000);
+        await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(5000);
+        await this.InvalidDetailsAlert.isVisible();
+        console.log(await this.InvalidDetailsAlert.textContent());
+    }
+
+    /**Method to Enter Invaild Username Candidate Credentials */
+    async candidateInvalidLoginUsername(): Promise<void> {
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/User_details.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+          const ws = wb.getWorksheet('Worksheet');
+              console.log(ws.actualRowCount)
+              console.log(ws.getRow(2).getCell(1).value)
+              console.log(ws.getRow(2).getCell(4).value)
+              await this.CandidateUsername.fill(testData.InvalidCandidateUsername);
+              await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+        })
+
+        await this.page.waitForTimeout(5000);
+        await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(5000);
+        await this.InvalidDetailsAlert.isVisible();
+        console.log(await this.InvalidDetailsAlert.textContent());
+
+    }
+
+    /**Method to Enter Invaild Password Candidate Credentials */
+    async candidateInvalidLoginPassword(): Promise<void> {
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/User_details.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+          const ws = wb.getWorksheet('Worksheet');
+              console.log(ws.actualRowCount)
+              console.log(ws.getRow(2).getCell(1).value)
+              console.log(ws.getRow(2).getCell(4).value)
+              await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
               await this.CandidatePassword.fill(testData.InvalidCandidatePassword);
         })
 
@@ -407,6 +468,15 @@ export class EluminaCandidatePage {
         console.log("Key Pressed");
         await this.page.waitForTimeout(5000);
     }
+
+    /**Method to click on function keys */
+    async HotKeyPress(){
+        await this.page.keyboard.press('Alt+Shift+Q');
+        console.log("Key Pressed");
+        await this.page.waitForTimeout(5000);
+    }
+
+
     async examSectionCloudValidation(){
         await this.page.waitForTimeout(30000);
         await expect(this.verifyCloud).toBeVisible();
@@ -579,7 +649,7 @@ export class EluminaCandidatePage {
     async candidateAttendsAllQVSAQ(){
             await this.page.waitForTimeout(2000);
             await this.ansVSAQQuestion.click();
-            await this.ansVSAQQuestion.type(makeid(100));
+            await this.ansVSAQQuestion.type("Start "+makeid(100)+" END");
             await this.page.waitForTimeout(2000);
             await this.ClickOnNextBtn.click();            
     }
@@ -587,9 +657,9 @@ export class EluminaCandidatePage {
     async candidateStartISAWE(){
             await this.page.waitForTimeout(2000);
             await this.ansISAWEQuestion.click();
-            await this.ansISAWEQuestion.type(makeid(100));
+            await this.ansISAWEQuestion.type("Start "+makeid(100)+" END");
             await this.ans2ISAWEQuestion.click();
-            await this.ans2ISAWEQuestion.type(makeid(100));
+            await this.ans2ISAWEQuestion.type("Start "+makeid(100)+" END");
             await this.page.waitForTimeout(2000);
             await this.ClickOnNextBtn.click();
     }
@@ -617,7 +687,7 @@ export class EluminaCandidatePage {
     async candidateStartSAQ(){
             await this.page.waitForTimeout(2000);
             await this.ansSAQQuestion.click();
-            await this.ansSAQQuestion.type(makeid(100));
+            await this.ansSAQQuestion.type("Start "+makeid(100)+" END");
             await this.page.waitForTimeout(2000);
             await this.ClickOnNextBtn.click();
 
