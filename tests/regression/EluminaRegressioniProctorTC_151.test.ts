@@ -72,6 +72,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
 test(`@Regression Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime3();
         await eluminaProctorCand.candidateLoginToApplications();
         }); 
 

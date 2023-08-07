@@ -45,7 +45,7 @@ the invigilator to start the exam, Exam started for candidate, Candidate entered
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExam();
-        await newtab.createSection();
+        await newtab.createSections();
         await newtab.addMCQQuestions();
     });
 });
@@ -70,6 +70,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 test(`@Regression Validation of Proctoring Exam Events In Admin Section`, async ({ eluminaCandPage,eluminaLoginPage,eluminaProctorCand,eluminaProctorReg,webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime3();
         await eluminaProctorCand.candidateLoginToApplications();
         });   
         await test.step(`Navigate to Application`, async () => {

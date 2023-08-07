@@ -33,7 +33,7 @@ else if(process.env.ENV == 'staging'){
 
 test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, async ({ eluminaProctorCand,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
-        eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateNavigateToURL();
         });
         await test.step(`Candidate Login to application`, async () => {
             await eluminaProctorCand.candidateLoginToApplications();

@@ -78,8 +78,6 @@ export class EluminaProctorCandidatePage {
     readonly ClickOnMicrophoneTroubleshoot:Locator;
     readonly ClickOnBrowserTroubleshoot:Locator;
     readonly CliclOnTermAndConditin:Locator;
-    readonly MenuIconClick:Locator;
-    readonly logoutbuttonClick:Locator;
 
  
 
@@ -91,7 +89,7 @@ export class EluminaProctorCandidatePage {
         this.CandidatePassword = page.locator('//input[@id="password"]');
         this.LOGIN_BUTTON = page.locator('//div[text()=" Login "]');
         this.ClickStartExamLink=page.locator('//table[@class="table-container"]//tr[2]//td[6]');
-        this.ClickDiffStartExamLink=page.locator('//table[@class="table-container"]//tr[3]//td[6]');
+        this.ClickDiffStartExamLink=page.locator('//table[@class="table-container"]//tr[2]//td[6]');
         this.EnterExaPassword=page.locator('//input[contains(@class,"password")]');
         this.ClickOnStartExamBtn=page.locator('//div[@class="btn parent-body-container btn-primary"]');
 
@@ -129,8 +127,7 @@ export class EluminaProctorCandidatePage {
         this.ClickOnMicrophoneTroubleshoot=page.locator('//div[@class="hardware-list"]//div[3]//p[2]');
         this.ClickOnBrowserTroubleshoot=page.locator('//div[@class="hardware-list"]//div[4]//p[2]');
         this.CliclOnTermAndConditin=page.locator('//span[contains(text(),"terms and conditions.")]');
-        this.MenuIconClick=page.locator('//i[@class="menuIcons profileIcon"]');
-        this.logoutbuttonClick=page.locator('//a[normalize-space()="Log out"]');
+
     }
 
     /**Method to Navigate to Candidate URL */
@@ -321,7 +318,7 @@ export class EluminaProctorCandidatePage {
        await this.page.waitForTimeout(1000);
        await this.EnterExaPassword.type('ABC09');
        await this.ClickOnStartExamBtn.click();
-       await this.page.waitForTimeout(2000);
+       await this.page.waitForTimeout(3000);
     }
 
     
@@ -412,7 +409,7 @@ export class EluminaProctorCandidatePage {
     /**Method to Login from Invigilator to Candidate  */
     async  againCandidateLogin():Promise<void>{
         await this.page.bringToFront();
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(3000);
     }
 
         /**Method to Click On Start Exam Button*/
@@ -492,13 +489,6 @@ export class EluminaProctorCandidatePage {
         await this.inceaseSize.click();
         await this.inceaseSize.click();
         await this.page.waitForTimeout(5000);
-    }
-
-    /**Method for logout */
-    async logoutClick(){
-        await this.MenuIconClick.click();
-        await this.logoutbuttonClick.click();
-      
     }
 
 }
