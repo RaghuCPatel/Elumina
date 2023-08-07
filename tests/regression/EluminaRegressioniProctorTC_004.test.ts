@@ -16,7 +16,7 @@ test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomeP
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createCommonExam();
+        await newtab.createExamwithDiffZone();
         await newtab.selectAllTools();
         await newtab.createSections();
         await newtab.addMCQQuestionswithoutSave();
@@ -35,9 +35,8 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaProctorReg.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
+        await newtab.addUserDetailsdiffzone();
+     
     });
 });         
                 
@@ -55,7 +54,7 @@ test(`@Regression Verify Elumina Login with diff venu`, async ({ eluminaLoginPag
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createExamwithDiffZone();
+        await newtab.createCommonExam();
         await newtab.selectAllTools();
         await newtab.createSections();
         await newtab.addMCQQuestionswithoutSave();
@@ -74,6 +73,8 @@ test(`@Regression Verify Elumina Registration and adding existing user`, async (
         const newtab = await eluminaProctorReg.iAuthorPageNavigations();
         await newtab.registrationTabNavigationByClickCreateExam();
         await newtab.addExistingUsers1();
+        await newtab.downloadUserDetails();
+        await newtab.addExistingUsers();
     });
 });
 

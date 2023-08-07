@@ -96,7 +96,7 @@ test(`@Regression Validation of Proctoring Exam > Fragment streaming.`, async ({
 
              await eluminaProctorCand.againCandidateLogin();
              await eluminaProctorCand.enterInvigilatorPassword();
-            await eluminaCandPage.candidateStartMCQAndSubmit();
+            await eluminaCandPage.candidateStartMCQ();
             await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click();
             await newPage.waitForTimeout(3000);
             await newPage.locator('//img[@class="proctoringImg"]').click();
