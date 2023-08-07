@@ -85,6 +85,9 @@ export class EluminaCandidatePage {
     readonly ansMCQQuestions:Locator;
     readonly flagForReviewQuestions:Locator;
     readonly clickOnTermAndCondition:Locator;
+    readonly clickChatApp:Locator;
+    readonly chatAppTxtArea:Locator;
+    readonly clickOnSendicon:Locator;
     readonly popupOK:Locator;
     readonly clickonNextBtn:Locator;
     readonly clickOnPreviousBtn:Locator;
@@ -122,6 +125,9 @@ export class EluminaCandidatePage {
         this.LOGIN_BUTTON = page.locator('//div[text()=" Login "]');
         this.ClickStartExamLink=page.locator('//table[@class="table-container"]//tr[2]//td[6]');
         this.ClickOnStartExamBtn=page.locator('//div[@class="btn parent-body-container btn-primary"]');
+        this.clickChatApp=page.frameLocator('//iframe[@title="Button to launch messaging window"]').locator('html');
+        this.chatAppTxtArea=page.frameLocator('iframe[name="Messaging window"]').getByPlaceholder('Type a message');
+        this.clickOnSendicon=page.frameLocator('iframe[name="Messaging window"]').getByRole('button', { name: 'Send message' });
         this.ClickOnNextBtn=page.locator('(//div[text()=" Next "])[1]');
         this.ClickOnRevieweBtn=page.locator('(//div[text()=" Review "])[1]');
         this.ClickOnSubmitBtn=page.locator('(//div[text()=" Submit "])[1]');
@@ -350,6 +356,18 @@ export class EluminaCandidatePage {
         await expect(this.verifyClientID).toBeVisible();
         console.log('Client ID-'+await this.verifyClientID.textContent());
     }
+
+    /**Method to send message in chat app */
+    async chatAppMessageSent(){
+        await this.page.waitForTimeout(8000);
+        await this.clickChatApp.click();
+        await this.chatAppTxtArea.click();
+        await this.chatAppTxtArea.fill("Hi Chatbot");
+        await this.clickOnSendicon.click();
+        await this.page.waitForTimeout(5000);
+
+    }
+
 
  
     async waitforTime(){
