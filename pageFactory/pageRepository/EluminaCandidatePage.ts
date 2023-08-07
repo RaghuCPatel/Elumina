@@ -108,6 +108,9 @@ export class EluminaCandidatePage {
     readonly clickOnAutoOkPopup:Locator;
     readonly cloudUpdatedIcon:Locator;
     readonly clickOnLastVSAQ:Locator;
+    readonly clearButton:Locator;
+    readonly clickOnVSAQQuestions:Locator;
+
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -177,6 +180,8 @@ export class EluminaCandidatePage {
         this.inProgressColor=page.locator('//p[@class="parent-body-container menuActive menuColor1"]');
         this.cloudUpdatedIcon=page.locator('//div[@class="cloud"]//div');
         this.clickOnLastVSAQ=page.locator('//div[@class="question-number-container"]//div//p').last();
+        this.clearButton=page.locator('//div[@class="action-btn-container"]//div[text()="Clear"]');
+        this.clickOnVSAQQuestions=page.locator('(//div[@class="question-number"])[2]');
     }
 
     /**Method to Navigate to candidate dashboard */
@@ -587,9 +592,9 @@ export class EluminaCandidatePage {
             await this.ans2ISAWEQuestion.type(makeid(100));
             await this.page.waitForTimeout(2000);
             await this.ClickOnNextBtn.click();
-
     }
 
+    
     async candidateStartTypeX(){
 
             await this.page.waitForTimeout(2000);
@@ -855,6 +860,18 @@ export class EluminaCandidatePage {
            console.log("Pink Color is Displayed When added Notes to the Questions")
     }
 
+    async AddingNotesToQuestionandclickNext(){
+        await this.ansVSAQQuestion.click();
+        await this.ClickOnNotepad.click();
+        await this.page.waitForTimeout(1000);
+        await this.textareafill.type('abc');
+        await this.page.waitForTimeout(1000);
+        await this.saveButton.click();
+        await this.page.waitForTimeout(1000);
+        await this.CloseNotepad.click();
+        await this.ClickOnNextBtn.click();
+}
+
     async AddingNotesToQuestionSingle(){
             await this.ansVSAQQuestion.click();
             await this.ClickOnNotepad.click();
@@ -869,7 +886,7 @@ export class EluminaCandidatePage {
     
     async AddingNotesToQuestionSinglelast(){
         await this.clickOnLastVSAQ.click();
-       await this.ansVSAQQuestion.click();
+        await this.ansVSAQQuestion.click();
         await this.ClickOnNotepad.click();
         await this.page.waitForTimeout(1000);
         await this.textareafill.type('abc');
@@ -877,6 +894,24 @@ export class EluminaCandidatePage {
         await this.saveButton.click();
         await this.page.waitForTimeout(1000);
         await this.CloseNotepad.click();
+}
+
+async AddingNotesToQuestionSinglelastandclickPrevious(){
+    await this.clickOnVSAQQuestions.click();
+    await this.ansVSAQQuestion.click();
+    await this.ClickOnNotepadOne.click();
+    await this.page.waitForTimeout(1000);
+    await this.textareafill.type('abc');
+    await this.page.waitForTimeout(1000);
+    await this.saveButton.click();
+    await this.page.waitForTimeout(1000);
+    await this.clearButton.click();
+    await this.page.waitForTimeout(1000);
+    await this.CloseNotepad.click();
+    await this.clickOnPreviousBtn.click()
+    await this.ClickOnNextBtn.click();
+    await this.ClickOnNotepadOne.click();
+    await this.page.waitForTimeout(1000);
 }
 
     async AddingNotesValidate(){
@@ -938,5 +973,46 @@ export class EluminaCandidatePage {
     async logoutClick():Promise<void>{
         await this.signOutBtn.click();
         await this.page.waitForTimeout(2000);
+    }
+
+    /**Method to click on terms & condtion */
+    async termsandconditionsclick(){
+        await this.clickOnTermAndCondition.click();
+        await this.inceaseSize.click();
+        await this.inceaseSize.click();
+        await this.inceaseSize.click();
+        await this.page.waitForTimeout(5000);
+        await this.decreaseSize.click();
+        await this.decreaseSize.click();
+        await this.decreaseSize.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+     /**Method to click on terms & condtion in content section */
+    async candidateContentSectionVerification(){
+        await this.popupOK.click();
+        await this.page.waitForTimeout(25000);
+        await this.clickOnTermAndCondition.click();
+        await expect(this.verifyCloud).toBeVisible();
+        console.log('cloud symbol is Updated');
+        await this.clickonNextBtn.click();
+        await this.page.waitForTimeout(2000);
+        
+    }
+
+     /**Method to Answer the MCQ questions and Abort in middle */
+     async candidateStartMCQandAbort(){
+        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+        const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p');
+        console.log('Number of questions-'+qutns.length);
+        const Ttl=qutns.length-1;
+        for(let i=0;i<=qutns.length-3;i++)
+        {
+            await qutns[i].click();
+            await this.ansMCQQuestions.click();
+            await this.ClickOnNextBtn.click();
+           }
+           await this.page.locator('(//div[@class="question-number-container"]//div//p)[3]').click();
+           await this.flagForReviewQuestions.click();
     }
 }

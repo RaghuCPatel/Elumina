@@ -94,6 +94,9 @@ export class EluminaRegistrationPage {
     readonly SelectCandRole:Locator;
     readonly MenuIconClick:Locator;
     readonly logoutbuttonClick:Locator;
+    readonly bulkDownloadButton:Locator;
+    readonly bulkdownloadbuttonclick:Locator;
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -145,6 +148,9 @@ export class EluminaRegistrationPage {
         this.SelectCandRole=page.locator('//span[text()="Candidate"]');
         this.captureUserClientID=page.locator('//table[@class="table"]//tbody//tr[1]//td[5]//div//div//span');
         this.searchExam=page.locator('//input[@placeholder="Search Exam(s)"]');
+        this.bulkDownloadButton=page.locator('//button[normalize-space()="..."]');
+        this.bulkdownloadbuttonclick=page.locator('//a[text()="Bulk Download User Details"]');
+
         const examId:string=String(EluminaExamPage.examID);
         console.log(examId);
         const examId1:string=String(EluminaMultipleExamsForPMPage.examID);
@@ -300,6 +306,21 @@ async registrationTabNavigationAMExamPage():Promise<void> {
 
      }
 
+     /**Method for Bulk Download the User Details */
+    async BulkDownloadUserDetails():Promise<void>{
+        const downloadPromise = this.page.waitForEvent('download');
+        await this.bulkDownloadButton.click();
+        await this.bulkdownloadbuttonclick.click();
+        const download = await downloadPromise;
+       // Wait for the download process to complete.
+       console.log(await download.path());
+       //const suggestedFileName = download.suggestedFilename();
+       const filePath = 'download/' + 'bulk_user_details.xlsx';
+       await download.saveAs(filePath)
+       await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+       await this.page.waitForTimeout(20000);
+    }
+
       /**Method to Add invigilator to the exam */
     async addExistingUsers():Promise<void>{
         await this.ClickOnAddExistingUser.click();
@@ -376,6 +397,7 @@ async registrationTabNavigationAMExamPage():Promise<void> {
         await this.page.waitForTimeout(2000);
         await this.ClickOnDropdown.click();
     }
+
 
         /**Method for logout */
         async logoutClick(){
