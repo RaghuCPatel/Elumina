@@ -51,10 +51,9 @@ test(`@Regression Validation of Exam content section >  Chat App`, async ({ elum
         await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam',async ()=> {
-        await eluminaCandPage.waitforTime3();
+        //await eluminaCandPage.waitforTime3();
         await eluminaCandPage.chatApp();
-        //await eluminaCandPage.candidateContentSection();
-        //await eluminaCandPage.candidateStartMCQ();
+       
     });
     
 });

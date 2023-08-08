@@ -206,10 +206,10 @@ export class EluminaCandidatePage {
         this.clickOnSendicon=page.frameLocator('iframe[name="Messaging window"]').getByRole('button', { name: 'Send message' });
 
         this.clickOnOptionsInChatApp=page.frameLocator('iframe[name="Messaging window"]').locator('//button[normalize-space()="Hardware checks not working"]');
-        this.enterNameInChatApp=page.frameLocator('iframe[name="Messaging window"]').locator('//textarea[@id="1val-field_1.3.10--input"]');
-        this.clickOnNextChatApp=page.frameLocator('iframe[name="Messaging window"]').locator('//span[@class="sc-16za5ry-1 hDzhld"]')
-        this.enterExamInChatApp=page.frameLocator('iframe[name="Messaging window"]').locator('input[@id="16val-field_1.3.10--input"]');
-        this.clickOnSendInChatApp=page.frameLocator('iframe[name="Messaging window"]').locator('span[@class="sc-16za5ry-1 hDzhld"]')
+        this.enterNameInChatApp=page.frameLocator('iframe[name="Messaging window"]').getByLabel('Name');
+        this.clickOnNextChatApp=page.frameLocator('iframe[name="Messaging window"]').getByRole('button', { name: 'Next' })
+        this.enterExamInChatApp=page.frameLocator('iframe[name="Messaging window"]').getByLabel('Exam Name');
+        this.clickOnSendInChatApp=page.frameLocator('iframe[name="Messaging window"]').getByRole('button', { name: 'Send' })
     }
 
     /**Method to Navigate to candidate dashboard */
@@ -1037,6 +1037,10 @@ async AddingNotesToQuestionSinglelastandclickPrevious(){
         await this.clickonNextBtn.click();
         await this.page.waitForTimeout(2000);
         
+    }
+    
+    async validsationOfChatApp(){
+        await expect(this.clickChatApp).toBeVisible();
     }
 
     async chatApp(){

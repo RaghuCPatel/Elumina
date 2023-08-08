@@ -10,10 +10,9 @@ test(`@Regression Validation of textbox capabilities of chat app.`, async ({ elu
         await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam',async ()=> {
-        await eluminaCandPage.waitforTime3();
+        //await eluminaCandPage.waitforTime3();
         await eluminaCandPage.candidateContentSection();
         await eluminaCandPage.enterFieldsInChatApp();
-        //await eluminaCandPage.candidateStartMCQ();
     });
     
 });

@@ -12,6 +12,6 @@ test(`@Regression Validation of Candidate Dashboard page - Chat App`, async ({ e
         await eluminaCandPage.candidateLoginToAndValidateDashboard();
     });
     await test.step('Candidate start the exam',async ()=> {
-        await eluminaCandPage.chatApp();
+        await eluminaCandPage.validsationOfChatApp();
     });
 });
