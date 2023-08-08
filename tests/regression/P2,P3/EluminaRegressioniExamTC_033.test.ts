@@ -17,8 +17,7 @@ test(`@Regression Verify Elumina Login and create exam `, async ({ eluminaLoginP
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
-        await newtab.selectNotepadTool();
-        await newtab.clickonNextBtnInExam();
+        await newtab.selectAllTools();
         await newtab.createContentSection();
         await newtab.createContentPage();
         await newtab.createSection();
@@ -41,11 +40,61 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.registrationTabNavigation();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
+        await newtab.addExistingUsers();
         await newtab.logoutClick();
     });
 });
 
-test(`@Regression Validation of Exam content page -> (Terms & Conditions) Font size validation`, async ({ eluminaCandPage,webActions }) => {
+test(`@Regression Validation of Login using Invalid credentials Scenario 1 TC-09`, async ({ eluminaCandPage,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateInvalidLoginUsername();
+    });
+});
+
+test(`@Regression Validation of Login using Invalid credentials Scenario 2 TC-10`, async ({ eluminaCandPage,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateInvalidLoginPassword();
+    });
+});
+
+test(`@Regression Validation of Sign out at Candidate Dashboard Page TC-14`, async ({ eluminaCandPage,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToAppandSignout();
+    });
+});
+
+test(`@Regression Validation of Sign out at Exam Start Page TC-15`, async ({ eluminaCandPage,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToAppStartExamandSignout();
+    });
+});
+
+test(`@Regression Validation of Candidate dashboard > Exam Start page Font size validation. TC-27`, async ({ eluminaCandPage,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+    });
+    await test.step('Candidate start the exam',async ()=> {
+        await eluminaCandPage.increaseFontSize();
+        await eluminaCandPage.decreaseFontSize();
+    });
+});
+
+test(`@Regression Validation of Exam content page -> (Terms & Conditions) Font size validation TC-33`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -55,5 +104,5 @@ test(`@Regression Validation of Exam content page -> (Terms & Conditions) Font s
     await test.step('Candidate start the exam',async ()=> {
         await eluminaCandPage.termsandconditionsclick();
     });
-    
 });
+

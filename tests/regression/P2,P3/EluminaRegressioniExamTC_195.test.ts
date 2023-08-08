@@ -8,12 +8,12 @@ test(`@Regression Validation of Exam content page -> Questions download at conte
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
+
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplicationwithoutclickingLogin();
+        await eluminaCandPage.HotKeyPress();
     });
-    await test.step('Candidate start the exam',async ()=> {
-        await eluminaCandPage.candidateContentSectionVerification();
-    });
+  
 });
 
 
