@@ -399,6 +399,7 @@ export class EluminaCandidatePage {
     await this.clickOnSendicon.click();
     await this.page.waitForTimeout(5000);
 }
+
     async waitforTime(){
         await this.page.waitForTimeout(60000);
     }
@@ -454,6 +455,14 @@ export class EluminaCandidatePage {
         console.log("Key Pressed");
         await this.page.waitForTimeout(5000);
     }
+
+    /**Method to click on function keys */
+    async HotKeyPress(){
+        await this.page.keyboard.press('Alt+Shift+Q');
+        console.log("Key Pressed");
+        await this.page.waitForTimeout(5000);
+    }
+
     async examSectionCloudValidation(){
         await this.page.waitForTimeout(30000);
         await expect(this.verifyCloud).toBeVisible();
