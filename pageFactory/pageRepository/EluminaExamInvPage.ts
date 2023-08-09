@@ -120,7 +120,7 @@ export class EluminaExamInvPage{
         this.STARTFROMSCRATCH = page.locator('//p[normalize-space()="Start from Scratch"]')
 
         this.SELECTBANK = page.locator('//input[@placeholder="Select Bank"]');
-        this.TESTBANK = page.locator('//span[contains(text(),"Elumina - Test Bank")]')
+        this.TESTBANK = page.locator('(//div[@class="dropdown-main"])[1]//li//span[@class="open"]')
         this.EXAMNAME = page.locator('(//input[@name="inputbox"])[1]')
         this.EXAMCODE = page.locator('(//input[@name="inputbox"])[2]')
         this.BookingStartCalender = page.locator('//div[@id="exam_booking_start_date_time"]//i[@class="glyphicon glyphicon-calendar"]');
@@ -204,6 +204,7 @@ export class EluminaExamInvPage{
     await this.CREATEEXAMS.click();
     await this.STARTFROMSCRATCH.click();
     await this.SELECTBANK.click();
+    await this.SELECTBANK.type(testData.TestBank2);
     await this.TESTBANK.click();
     await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
     await this.EXAMCODE.type('De'+Math.floor(Math.random())*89+100);

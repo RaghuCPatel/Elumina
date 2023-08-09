@@ -7,6 +7,8 @@ const qaTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variab
 const sandboxTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/sandbox/testData.json')));
 const stagingTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/staging/testData.json')));
 
+/**Validation of candidate response using calculator in exam */
+
 let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
@@ -27,6 +29,50 @@ else if(process.env.ENV == 'staging'){
     testData = stagingTestData;
 }
 
-test(`@Regression Validation of Proctoring Exam with Screenshots`, async ({ eluminaCandPage,eluminaLoginPage,eluminaProctorCand,eluminaProctorReg,webActions }) => {
-    
+// test(`@Regression Validation of candidate response using calculator in exam `, async ({ eluminaCandPage,webActions }) => {
+//     await test.step(`Navigate to Application`, async () => {
+//         await eluminaCandPage.candidateNavigateToURL();
+//     });
+//     await test.step(`Candidate Login to application`, async () => {
+//         await eluminaCandPage.candidateLoginToApplication();
+//     });
+//     await test.step('Candidate start the exam',async ()=> {
+        
+//     });
+// });
+
+test(`@Regression  Validation of candidate response using calculator in exam `, async ({ eluminaCandPage,eluminaLoginPage,eluminaProctorCand,eluminaProctorReg,webActions }) => {
+    await test.step('Candidate logging into application', async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.candidateLoginToApplication();
+        });   
+        await test.step(`Navigate to Application`, async () => {
+            await eluminaCandPage.candidateContentSectionVerification();
+            await eluminaCandPage.UsingCalculatorForQuestions();
+            console.log("Candidate is able to use Calculator")
+
+            const browser = await chromium.launch();
+            const context1 = await browser.newContext();
+            const page1 = await context1.newPage();
+            await page1.goto('/');
+            await page1.waitForLoadState();
+            await page1.locator('(//input)[1]').type(testData.UserEmail);
+            await page1.locator('(//input)[2]').type(testData.UserPassword);
+            await page1.locator('//*[@class="submit-butn"]').click();
+            const [newPage] = await Promise.all([
+                context1.waitForEvent('page'),
+                await page1.locator('//div[text()="iAuthor"]').click()
+              ]);
+            await newPage.locator('//a[text()="Registration"]').click();
+            await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+            await newPage.locator('//a[text()="Live Monitor"]').click();
+            await newPage.locator('//img[@class="proctoringImg"]').click();
+            await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();
+
+            await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+            await newPage.close();
+            await page1.close();
+        });
+       
 });
