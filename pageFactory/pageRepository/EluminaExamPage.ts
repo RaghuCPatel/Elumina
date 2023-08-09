@@ -360,6 +360,7 @@ export class EluminaExamPage {
         await this.EnterNoOfCandidates.clear();
         await this.EnterNoOfCandidates.type('10');
         await this.ClickOnAdd.click();
+
     }
 
  /**Method to Create Common Exam */
