@@ -135,7 +135,7 @@ export class EluminaProctorExamPage {
         this.CREATEEXAMS = page.locator('//button[normalize-space()="Create Exam"]')
         this.STARTFROMSCRATCH = page.locator('//p[normalize-space()="Start from Scratch"]')
         this.SELECTBANK = page.locator('//input[@placeholder="Select Bank"]');
-        this.TESTBANK = page.locator('//span[contains(text(),"Elumina - Test Bank")]')
+        this.TESTBANK = page.locator('(//div[@class="dropdown-main"])[1]//li//span[@class="open"]')
         this.EXAMNAME = page.locator('(//input[@name="inputbox"])[1]')
         this.EXAMCODE = page.locator('(//input[@name="inputbox"])[2]')
         this.PracticeExam = page.locator('(//span[@class="slider round"])[1]')
@@ -312,7 +312,7 @@ export class EluminaProctorExamPage {
     await expect(this.CREATEEXAMS).toBeVisible();
     await this.CREATEEXAMS.click();
     await this.STARTFROMSCRATCH.click();
-    await this.SELECTBANK.click();
+    await this.SELECTBANK.type(testData.TestBank2);
     await this.TESTBANK.click();
     await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
     //await newPage.locator('//div[normalize-space()="Proctoring Exam"]//div[@id="Crm_Leads_COMPANY_label"]').scrollIntoViewIfNeeded();
@@ -421,7 +421,7 @@ export class EluminaProctorExamPage {
     await expect(this.CREATEEXAMS).toBeVisible();
     await this.CREATEEXAMS.click();
     await this.STARTFROMSCRATCH.click();
-    await this.SELECTBANK.click();
+    await this.SELECTBANK.type(testData.TestBank2);
     await this.TESTBANK.click();
     await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
   
@@ -572,7 +572,7 @@ async createExamwithDiffZone(): Promise<void> {
   await expect(this.CREATEEXAMS).toBeVisible();
   await this.CREATEEXAMS.click();
   await this.STARTFROMSCRATCH.click();
-  await this.SELECTBANK.click();
+  await this.SELECTBANK.type(testData.TestBank2);
   await this.TESTBANK.click();
   await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
  
