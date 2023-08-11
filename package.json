@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:single": "npx playwright test EluminaRegressioniExamTC_052P.test.ts --project=Chrome",
+    "test:single": "npx playwright test EluminaRegressioniProctorTC_002.test.ts --project=Chrome",
     "test:elumina": "npx playwright test Elumina.test.ts --project=Chrome",
     "test:parallel": "npx playwright test --grep @Smoke --project=Chrome",
     "test:serial": "npx playwright test --grep \"@Smoke|@iProctorlink\" --workers=1 --project=Chrome",
@@ -15,7 +15,7 @@
     "test:record": "npx playwright codegen",
     "test:visual": "npx playwright test visualComparision.test.ts --project=Chrome",
     "test:device": "npx playwright test Emulation.test.ts --project=Device",
-    "allureReport": "allure generate ./allure-results && allure open",
+    "allureReport": "allure serve",
     "lighthouse": "node tests/lighthouse/Lighthouse.js"
   },
   "author": "IGS",

@@ -451,7 +451,14 @@ export class EluminaCandidatePage {
 
     /**Method to click on function keys */
     async functionKey(){
-        await this.page.keyboard.press('F3');
+        await this.page.keyboard.press('F5');
+        console.log("Key Pressed");
+        await this.page.waitForTimeout(5000);
+    }
+
+    /**Method to click on function keys */
+    async functionKeyWithControl_Shift_R(){
+        await this.page.keyboard.press('Control+Shift+R');
         console.log("Key Pressed");
         await this.page.waitForTimeout(5000);
     }

@@ -123,6 +123,8 @@ export class EluminaProctorExamPage {
     readonly BrowserCheckLink:Locator;   
     readonly nextButton:Locator;
     readonly Oneclick:Locator;
+    readonly clickOnAudioToggle:Locator;
+    readonly clickOnScreenShotToggle:Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -197,6 +199,8 @@ export class EluminaProctorExamPage {
         this.BrowserCheckLink=page.locator('//div[@id="browsercheck_link"]//input[@name="inputbox"]');
         this.nextButton=page.locator('//li[@class="next"]');
         this.Oneclick=page.locator('(//li//span[text()="1"])[1]');
+        this.clickOnAudioToggle=page.locator('(//span[@class="slider round"])[2]');
+        this.clickOnScreenShotToggle=page.locator('(//span[@class="slider round"])[3]');
     }
 
     /**Method of Page Navigation */
@@ -242,6 +246,20 @@ export class EluminaProctorExamPage {
     await this.CameraLink.clear();
     await this.page.waitForTimeout(3000);
     await this.CameraLink.type('https://www.google.com/')
+    await this.ClickOnSave.click();
+  }
+
+  async clickOnAudioToggleButton(){
+    await this.clickOnAudioToggle.click();
+    await this.page.waitForTimeout(2000);
+    await this.clickOnAudioToggle.click();
+    await this.ClickOnSave.click();
+  }
+
+  async clickOnScreenshotToggleButton(){
+    await this.clickOnScreenShotToggle.click();
+    await this.page.waitForTimeout(2000);
+    await this.clickOnScreenShotToggle.click();
     await this.ClickOnSave.click();
   }
 
@@ -421,7 +439,8 @@ export class EluminaProctorExamPage {
     await expect(this.CREATEEXAMS).toBeVisible();
     await this.CREATEEXAMS.click();
     await this.STARTFROMSCRATCH.click();
-    await this.SELECTBANK.type(testData.TestBank2);
+    await this.SELECTBANK.click();
+    await this.SELECTBANK.type(testData.TestBank1);
     await this.TESTBANK.click();
     await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
   
