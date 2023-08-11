@@ -364,6 +364,24 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(3000);
     }
 
+    
+    /**Method to Enter Candidate Credentials only*/
+    async enterCandidateCredetialonly(){
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/User_details.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+          const ws = wb.getWorksheet('Worksheet');
+              console.log(ws.actualRowCount)
+              console.log(ws.getRow(2).getCell(1).value)
+              console.log(ws.getRow(2).getCell(4).value)
+              await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
+              await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+        })
+        await this.page.waitForTimeout(3000);
+    }
+
     /**Method to Click on Start Exam */
     async clickOnStartExam(){
         await this.ClickStartExamLink.click();
@@ -502,7 +520,14 @@ export class EluminaCandidatePage {
 
     /**Method to click on function keys */
     async functionKey(){
-        await this.page.keyboard.press('F3');
+        await this.page.keyboard.press('F5');
+        console.log("Key Pressed");
+        await this.page.waitForTimeout(5000);
+    }
+
+    /**Method to click on function keys */
+    async functionKeyWithControl_Shift_R(){
+        await this.page.keyboard.press('Control+Shift+R');
         console.log("Key Pressed");
         await this.page.waitForTimeout(5000);
     }

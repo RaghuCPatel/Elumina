@@ -33,3 +33,18 @@ test(`@Regression Candidate while attending exam - Online - try to press any F1 
     
     
 });
+
+test(`@Regression No other key combinations could cause the candidates to logout and/or lose data TC-205`, async ({ eluminaCandPage,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+    });
+    await test.step('Candidate start the exam',async ()=> {
+        await eluminaCandPage.verifyExamDashboardTimer();
+        await eluminaCandPage.functionKeyWithControl_Shift_R();
+    });
+    
+    
+});

@@ -123,6 +123,14 @@ export class EluminaProctorExamPage {
     readonly BrowserCheckLink:Locator;   
     readonly nextButton:Locator;
     readonly Oneclick:Locator;
+    readonly clickOnAudioToggle:Locator;
+    readonly clickOnScreenShotToggle:Locator;
+    readonly InternetConnectionLink:Locator;
+    readonly clickUserProfile:Locator;
+    readonly logoutbuttonClick:Locator;
+    readonly closeVideoFragment:Locator;
+    readonly clickOnVideoFragmentField:Locator;
+    readonly clickOnVideoFragmentSize:Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -197,6 +205,14 @@ export class EluminaProctorExamPage {
         this.BrowserCheckLink=page.locator('//div[@id="browsercheck_link"]//input[@name="inputbox"]');
         this.nextButton=page.locator('//li[@class="next"]');
         this.Oneclick=page.locator('(//li//span[text()="1"])[1]');
+        this.clickOnAudioToggle=page.locator('(//span[@class="slider round"])[2]');
+        this.clickOnScreenShotToggle=page.locator('(//span[@class="slider round"])[3]');
+        this.InternetConnectionLink=page.locator('//div[@id="internet_connectioncheck_link"]//input[@name="inputbox"]')
+        this.clickUserProfile=page.locator('//img[@alt="UserProifle"]')
+        this.logoutbuttonClick=page.locator('//a[normalize-space()="Log out"]');
+        this.closeVideoFragment=page.locator('(//span[@class="msdd-close"])[1]');
+        this.clickOnVideoFragmentField=page.locator('//input[@placeholder="Select Video Fragment Size"]');
+        this.clickOnVideoFragmentSize=page.locator('//span[@class="open"]');
     }
 
     /**Method of Page Navigation */
@@ -245,6 +261,20 @@ export class EluminaProctorExamPage {
     await this.ClickOnSave.click();
   }
 
+  async clickOnAudioToggleButton(){
+    await this.clickOnAudioToggle.click();
+    await this.page.waitForTimeout(2000);
+    await this.clickOnAudioToggle.click();
+    await this.ClickOnSave.click();
+  }
+
+  async clickOnScreenshotToggleButton(){
+    await this.clickOnScreenShotToggle.click();
+    await this.page.waitForTimeout(2000);
+    await this.clickOnScreenShotToggle.click();
+    await this.ClickOnSave.click();
+  }
+
   /**Methods to enter Microphone Link  */
   async enterMicrophoneLink(){
     await this.MicrophoneLink.click();
@@ -268,6 +298,22 @@ export class EluminaProctorExamPage {
     await this.page.waitForTimeout(3000);
     await this.BrowserCheckLink.type('https://linkedin.com/')
     await this.ClickOnSave.click();
+  }
+
+  async enterInternetConnectionLink(){
+    await this.InternetConnectionLink.click();
+    await this.InternetConnectionLink.clear();
+    await this.page.waitForTimeout(3000);
+    await this.InternetConnectionLink.type('https://www.speedtest.net/')
+    await this.ClickOnSave.click();
+  }
+
+  async setVideoFragmentSize(){
+    await this.closeVideoFragment.click();
+    await this.clickOnVideoFragmentField.click();
+    await this.clickOnVideoFragmentField.type(testData.SelectVideoFragmentSize);
+    await this.clickOnVideoFragmentSize.click();
+    await this.ClickOnAdminSaveBtn.click();
   }
 
    /**Method to add prompt candidate message*/
@@ -421,7 +467,8 @@ export class EluminaProctorExamPage {
     await expect(this.CREATEEXAMS).toBeVisible();
     await this.CREATEEXAMS.click();
     await this.STARTFROMSCRATCH.click();
-    await this.SELECTBANK.type(testData.TestBank2);
+    await this.SELECTBANK.click();
+    await this.SELECTBANK.type(testData.TestBank1);
     await this.TESTBANK.click();
     await this.EXAMNAME.type('DEMO'+Math.floor(Math.random()*899999+100000));
   
@@ -940,6 +987,13 @@ async addSJTQuestion():Promise<void>{
   await this.ClickOnSubmitAndApproveBtn.click();
 
 }
+
+    /**Method for logout */
+    async logoutClick(){
+      await this.clickUserProfile.click();
+      await this.logoutbuttonClick.click();
+    
+    }
 
 }
     
