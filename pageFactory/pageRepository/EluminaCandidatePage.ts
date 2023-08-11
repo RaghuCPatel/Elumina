@@ -124,6 +124,8 @@ export class EluminaCandidatePage {
     readonly clickOnNextChatApp:Locator;
     readonly enterExamInChatApp:Locator;
     readonly clickOnSendInChatApp:Locator;
+    readonly EnterExaPassword:Locator;
+    readonly RatelimitLogin:Locator;
 
 
 
@@ -176,7 +178,6 @@ export class EluminaCandidatePage {
 
         this.ClickOnNotepadOne=page.locator('(//div[@class="toolIcon"])[1]');
 
-
         this.HighlightQuestion=page.locator('//div[@class="question-content clearfix"]');
         this.textareafill=page.locator('//div[@class="notepad-content"]//textarea');
         this.EnternumberOne=page.locator('//button[@value="7"]');
@@ -210,6 +211,9 @@ export class EluminaCandidatePage {
         this.clickOnNextChatApp=page.frameLocator('iframe[name="Messaging window"]').getByRole('button', { name: 'Next' })
         this.enterExamInChatApp=page.frameLocator('iframe[name="Messaging window"]').getByLabel('Exam Name');
         this.clickOnSendInChatApp=page.frameLocator('iframe[name="Messaging window"]').getByRole('button', { name: 'Send' })
+        this.EnterExaPassword=page.locator('//input[@placeholder="Enter Exam Password"]');
+        this.RatelimitLogin=page.locator('//div[text()="Attempts exceeded the Limit"]');
+        
     }
 
     /**Method to Navigate to candidate dashboard */
@@ -253,6 +257,53 @@ export class EluminaCandidatePage {
               console.log(ws.getRow(2).getCell(1).value)
               console.log(ws.getRow(2).getCell(4).value)
               await this.CandidateUsername.fill(testData.InvalidCandidateUsername);
+              await this.CandidatePassword.fill(testData.InvalidCandidatePassword);
+        })
+
+        await this.page.waitForTimeout(5000);
+        await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(5000);
+        await this.InvalidDetailsAlert.isVisible();
+        console.log(await this.InvalidDetailsAlert.textContent());
+
+    }
+
+    
+    /**Method to Enter Invaild Username Candidate Credentials */
+    async candidateInvalidLoginUsername(): Promise<void> {
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/User_details.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+          const ws = wb.getWorksheet('Worksheet');
+              console.log(ws.actualRowCount)
+              console.log(ws.getRow(2).getCell(1).value)
+              console.log(ws.getRow(2).getCell(4).value)
+              await this.CandidateUsername.fill(testData.InvalidCandidateUsername);
+              await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+        })
+
+        await this.page.waitForTimeout(5000);
+        await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(5000);
+        await this.InvalidDetailsAlert.isVisible();
+        console.log(await this.InvalidDetailsAlert.textContent());
+
+    }
+
+    /**Method to Enter Invaild Password Candidate Credentials */
+    async candidateInvalidLoginPassword(): Promise<void> {
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/User_details.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+          const ws = wb.getWorksheet('Worksheet');
+              console.log(ws.actualRowCount)
+              console.log(ws.getRow(2).getCell(1).value)
+              console.log(ws.getRow(2).getCell(4).value)
+              await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
               await this.CandidatePassword.fill(testData.InvalidCandidatePassword);
         })
 
@@ -841,6 +892,54 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(2000);
     }
 
+    /**Method to signout of the exam after candidate logged in and clicked on start exam */
+    async candidateLoginToAppStartExam(): Promise<void> {
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/User_details.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+          const ws = wb.getWorksheet('Worksheet');
+              console.log(ws.actualRowCount)
+              console.log(ws.getRow(2).getCell(1).value)
+              console.log(ws.getRow(2).getCell(4).value)
+              await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
+              await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+        })
+        await this.page.waitForTimeout(5000);
+        await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(5000);
+        if(this.ClickStartExamLink.isVisible())
+        {
+            await this.ClickStartExamLink.click();
+        }
+    }
+
+        /**Method to Enter Invigilator Password */
+        async enterInvigilatorPassword(){
+            await this.page.bringToFront();
+            await this.EnterExaPassword.click();
+            await this.page.waitForTimeout(1000);
+            await this.EnterExaPassword.type('ABC09');
+            await this.ClickOnStartExamBtn.click();
+            await this.page.waitForTimeout(3000);
+         }
+
+        /**Method to Enter Invigilator Password multiple times*/
+        async enterInvigilatorPasswordMultipletimes(){
+            for(let i=0;i<=9;i++){
+            await this.page.bringToFront();
+            await this.EnterExaPassword.click();
+            await this.page.waitForTimeout(1000);
+            await this.EnterExaPassword.type('ABC08');
+            await this.ClickOnStartExamBtn.click();
+            await this.page.waitForTimeout(3000);
+            }
+            await this.RatelimitLogin.isVisible();
+            console.log(await this.RatelimitLogin.textContent());
+         }
+    
+
     /**Method to add MCQ Questions for Practise exam */
     async candidateStartMCQPractise(){
 
@@ -1124,5 +1223,10 @@ async AddingNotesToQuestionSinglelastandclickPrevious(){
            }
            await this.page.locator('(//div[@class="question-number-container"]//div//p)[3]').click();
            await this.flagForReviewQuestions.click();
+    }
+
+    async candidateStartOneMCQwithViewer(){
+        await this.page.waitForTimeout(2000);
+        await this.ansMCQQuestions.click();        
     }
 }
