@@ -39,8 +39,8 @@
     "EndExamMin":"45",
     "StartBookingHrPM":"2",
     "EndExamhrPM":"3",
-    "TestBank1":"Elumina - Test Bank",
-    "TestBank2":"Practice Bank"
+    
+    "SelectVideoFragmentSize":"5 seconds"
 
 
 }

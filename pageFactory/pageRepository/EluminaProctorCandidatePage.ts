@@ -78,6 +78,7 @@ export class EluminaProctorCandidatePage {
     readonly ClickOnMicrophoneTroubleshoot:Locator;
     readonly ClickOnBrowserTroubleshoot:Locator;
     readonly CliclOnTermAndConditin:Locator;
+    readonly checkiProctorEtensionTroubleshoot:Locator;
 
  
 
@@ -127,6 +128,7 @@ export class EluminaProctorCandidatePage {
         this.ClickOnMicrophoneTroubleshoot=page.locator('//div[@class="hardware-list"]//div[3]//p[2]');
         this.ClickOnBrowserTroubleshoot=page.locator('//div[@class="hardware-list"]//div[4]//p[2]');
         this.CliclOnTermAndConditin=page.locator('//span[contains(text(),"terms and conditions.")]');
+        this.checkiProctorEtensionTroubleshoot=page.locator('(//p[@class="troubleshoot-link"])[1]')
 
     }
 
@@ -196,6 +198,11 @@ export class EluminaProctorCandidatePage {
         await this.ClickOnUnderstand.click();
         await this.page.waitForTimeout(1000);
     }
+
+    async clickOniProctorExtensionTroubleshoot(){
+        await this.checkiProctorEtensionTroubleshoot.click()
+    }
+
     /**Methods to click on Camera Link */
     async troubleshootCamera()
     {

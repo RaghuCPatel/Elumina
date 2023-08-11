@@ -65,12 +65,12 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 
 test(`@Regression Verify Candidate > Peripheral verification screen Validation`, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
         await test.step(`Navigate to Application`, async () => {
-        eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaProctorCand.candidateLoginToApplications();
         await eluminaProctorCand.clickOnStartExamLink1();
-        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime();
 
     });
 
