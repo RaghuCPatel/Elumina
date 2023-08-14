@@ -39,9 +39,10 @@
     "EndExamMin":"45",
     "StartBookingHrPM":"2",
     "EndExamhrPM":"3",
-    "SelectVideoFragmentSize":"5 seconds"
+    "SelectVideoFragmentSize":"5 seconds",
     "InactiveUsername":"inactiveuser@gmail.com",
-    "InactivePassword":"xKc6ZSuB!g"
+    "InactivePassword":"xKc6ZSuB!g",
+    "InternetSpeed":"512kbps"
 
 
 }

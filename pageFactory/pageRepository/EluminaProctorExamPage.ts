@@ -131,6 +131,9 @@ export class EluminaProctorExamPage {
     readonly closeVideoFragment:Locator;
     readonly clickOnVideoFragmentField:Locator;
     readonly clickOnVideoFragmentSize:Locator;
+    readonly InternetSpeedCheckInput:Locator;
+    readonly InternetSpeedClick:Locator;
+    readonly clickOnVideoToggle:Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -213,6 +216,9 @@ export class EluminaProctorExamPage {
         this.closeVideoFragment=page.locator('(//span[@class="msdd-close"])[1]');
         this.clickOnVideoFragmentField=page.locator('//input[@placeholder="Select Video Fragment Size"]');
         this.clickOnVideoFragmentSize=page.locator('//span[@class="open"]');
+        this.InternetSpeedCheckInput=page.locator('//input[@class="item-search open ng-pristine ng-valid ng-touched"]');
+        this.InternetSpeedClick=page.locator('//div[@class="open container-left-padding"]');
+        this.clickOnVideoToggle=page.locator('(//span[@class="slider round"])[1]');
     }
 
     /**Method of Page Navigation */
@@ -251,6 +257,24 @@ export class EluminaProctorExamPage {
       await this.ClickonEnableiProctorExtension.isVisible();
       console.log("Enable iProctor Extension option is not editable.");
   }
+
+    /**Method to check Internet speed check */
+    async InternetSpeedCheck(){
+      await this.InternetSpeedCheckInput.click();
+      await this.InternetSpeedCheckInput.type(testData.InternetSpeed);
+      await this.page.waitForTimeout(3000);
+      await this.InternetSpeedClick.click();
+      await this.ClickOnSave.click();
+    }
+
+    /**Method to click video toggle button */
+    async clickOnVideoToggleButton(){
+      await this.clickOnVideoToggle.click();
+      await this.page.waitForTimeout(2000);
+      await this.clickOnVideoToggle.click();
+      await this.ClickOnSave.click();
+    }
+
 
   /**Methods to enter Camera Link  */
   async enterCameraLink(){

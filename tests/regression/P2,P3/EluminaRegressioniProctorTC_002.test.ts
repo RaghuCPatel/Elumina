@@ -35,8 +35,28 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
+        await newtab.logoutClick();
     });
-});             
+});       
+
+//Validation of Admin > Proctoring > Video Recording (Toggle Button)
+test(`@Regression Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Elumina application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
+        await eluminaLoginPage.verifyProfilePage();
+    });
+    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
+        const newtab = await eluminaProctorExam.AdminPageNavigation();
+        await newtab.clickOnProctoringInAdmin();
+        await newtab.clickOnVideoToggleButton();
+    });
+});  
+
 
 test(`@Regression Validation of Admin > Proctoring > Audio Recording  (Toggle Button)`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -133,6 +153,24 @@ test(`@Regression Validation of Admin > Proctoring > Browser Check Link TC-007`,
     });
 }); 
 
+//Validation of Admin> Proctoring > Terms And Condition
+test(`@Regression Validation of Admin> Proctoring > Terms And Condition TC-009`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Elumina application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
+        await eluminaLoginPage.verifyProfilePage();
+    });
+    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
+        const newtab = await eluminaProctorExam.AdminPageNavigation();
+        await newtab.clickOnProctoringInAdmin();
+        await newtab.enterTermAndCondition();
+    });
+});
+
 // //Validation of Admin > Proctoring > Internet Connection Check Link
 // test(`@Regression Validation of Admin > Proctoring > Internet Connection Check Link TC-008`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
 //     await test.step(`Navigate to Application`, async () => {
@@ -153,7 +191,6 @@ test(`@Regression Validation of Admin > Proctoring > Browser Check Link TC-007`,
 // }); 
 
 //Validation of Enable iProctor Extension
-
 test(`@Regression Validation of Enable iProctor Extension TC-010`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
@@ -191,6 +228,44 @@ test(`@Regression Validation of Admin > Proctoring > Video Fragment Size TC-066`
         await newtab.logoutClick();
     });
 });  
+
+//Validation of Internet Connection Check
+test(`@Regression Validation of Internet Connection Check TC-068`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Elumina application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
+        await eluminaLoginPage.verifyProfilePage();
+    });
+    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
+        const newtab = await eluminaProctorExam.AdminPageNavigation();
+        await newtab.clickOnProctoringInAdmin();
+        await newtab.clickOnInternetConnectionCheck();
+        
+    });
+}); 
+
+//Validation of Internet Upload Speed
+test(`@Regression Validation of Internet Upload Speed TC-069`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Elumina application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
+        await eluminaLoginPage.verifyProfilePage();
+    });
+    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
+        const newtab = await eluminaProctorExam.AdminPageNavigation();
+        await newtab.clickOnProctoringInAdmin();
+        await newtab.InternetSpeedCheck();
+        
+    });
+}); 
 
 //Validation  of Prompt Candidate
 

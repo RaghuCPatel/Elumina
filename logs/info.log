@@ -8540,3 +8540,83 @@
 {"level":"info","message":"Executing Step : Login to Elumina application"}
 {"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
 {"level":"info","message":"Test Case Completed : @iProctorlink Verify Create Exam With Content Section and Content Section Page Status : failed"}
+{"level":"error","message":"Cannot find module '../../enviroment-variables/dev/testData.json'\nRequire stack:\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\14-08-2023\\Elumina\\tests\\regression\\P2,P3\\EluminaRegressioniProctorTC_170.test.ts\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\14-08-2023\\Elumina\\node_modules\\@playwright\\test\\lib\\transform\\transform.js\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\14-08-2023\\Elumina\\node_modules\\@playwright\\test\\lib\\common\\config.js\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\14-08-2023\\Elumina\\node_modules\\@playwright\\test\\lib\\reporters\\json.js\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\14-08-2023\\Elumina\\node_modules\\@playwright\\test\\lib\\reporters\\raw.js\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\14-08-2023\\Elumina\\node_modules\\@playwright\\test\\lib\\reporters\\html.js\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\14-08-2023\\Elumina\\node_modules\\@playwright\\test\\lib\\runner\\reporters.js\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\14-08-2023\\Elumina\\node_modules\\@playwright\\test\\lib\\runner\\runner.js\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\14-08-2023\\Elumina\\node_modules\\@playwright\\test\\lib\\cli.js\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\14-08-2023\\Elumina\\node_modules\\@playwright\\test\\cli.js"}
+{"level":"error","message":"No tests found"}
+{"level":"error","message":"File not found: C:\\Users\\Divyashree\\Desktop\\githubMerge\\14-08-2023\\Elumina\\html-report"}
+{"level":"info","message":"Test Case Started : @Regression Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Exam content section >  Chat App"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Verify Validation of Changing Font Size to Decrease on the Dashboard"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Exam content section >  Chat App Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App TC-169"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App TC-169 Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Candidate Dashboard page - Chat App"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Candidate Dashboard page - Chat App Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Candidate Dashboard page - Chat App"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Candidate Dashboard page - Chat App Status : passed"}
+{"level":"error","message":"Error: duplicate test title \"@Regression Validation of Exam content section >  Chat App\", first declared in tests\\regression\\P2,P3\\EluminaRegressioniProctorTC_075.test.ts:69"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Microphone Troubleshoot link validation."}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Microphone Troubleshoot link validation. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Microphone Troubleshoot link validation."}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Microphone Troubleshoot link validation. Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Microphone Troubleshoot link"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Microphone Troubleshoot link Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Microphone Troubleshoot link validation."}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Microphone Troubleshoot link validation. Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Microphone Troubleshoot link"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Microphone Troubleshoot link Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Microphone Troubleshoot link"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Microphone Troubleshoot link validation."}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Microphone Troubleshoot link validation. Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Microphone Troubleshoot link validation."}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Microphone Troubleshoot link validation. Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Microphone Troubleshoot link"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Microphone Troubleshoot link Status : passed"}
