@@ -82,6 +82,55 @@ test(`@Regression Validation of Exam Section > Highlighter tool highlights save 
     
 });
 
+//Validation of candidate response using calculator in exam
+test(`@Regression Validation of candidate response using Notes in exam TC-179`, async ({ eluminaCandPage,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+    });
+    await test.step('Candidate start the exam',async ()=> {
+        await eluminaCandPage.UsingCalculatorForQuestions();
+        console.log("Candidate is able to use AddingNotes")
+        const browser = await chromium.launch();
+        const context1 = await browser.newContext();
+        const page1 = await context1.newPage();
+        await page1.goto('/');
+        await page1.waitForLoadState();
+        await page1.locator('(//input)[1]').type(testData.UserEmail);
+        await page1.locator('(//input)[2]').type(testData.UserPassword);
+        await page1.locator('//*[@class="submit-butn"]').click();
+
+        const [newPage] = await Promise.all([
+            context1.waitForEvent('page'),
+            await page1.locator('//div[text()="iAuthor"]').click()
+
+          ]);
+        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+        await newPage.locator('//a[text()="Live Monitor"]').click();
+        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
+        await newPage.waitForTimeout(3000);
+        await newPage.waitForSelector('//div[@class="section-q-list wrapped"]//div//p',{timeout:10000});
+        const qutns=await newPage.$$('//div[@class="section-q-list wrapped"]//div//p');
+        console.log('Number of questions-'+qutns.length);
+        const total=qutns.length;
+        const Ttl=qutns.length-1;
+        for(let i=0;i<=Ttl;i++)
+        {
+           // await qutns[i].click();
+            await newPage.waitForTimeout(2000);
+            await newPage.locator('//button[@class="btn btn-blue"]').click();
+            await newPage.waitForTimeout(2000);
+        }
+        await expect(qutns.length).toBe(total);
+        await newPage.close();
+        await page1.close();
+    });
+    
+});
+
 //Validation of candidate response using Notes in exam
 test(`@Regression Validation of candidate response using Notes in exam TC-180`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -245,6 +294,163 @@ test(`@Regression Validation of candidate response using Highlighter and Notes i
         await eluminaCandPage.AddingNotesToQuestion();
         await eluminaCandPage.UsingHighlighterForQuestions();
         console.log("Candidate is able to use Highlighter and Notes ")
+
+        const browser = await chromium.launch();
+        const context1 = await browser.newContext();
+        const page1 = await context1.newPage();
+        await page1.goto('/');
+        await page1.waitForLoadState();
+        await page1.locator('(//input)[1]').type(testData.UserEmail);
+        await page1.locator('(//input)[2]').type(testData.UserPassword);
+        await page1.locator('//*[@class="submit-butn"]').click();
+
+        const [newPage] = await Promise.all([
+            context1.waitForEvent('page'),
+            await page1.locator('//div[text()="iAuthor"]').click()
+
+          ]);
+        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+        await newPage.locator('//a[text()="Live Monitor"]').click();
+        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
+        await newPage.waitForTimeout(3000);
+        await newPage.waitForSelector('//div[@class="section-q-list wrapped"]//div//p',{timeout:10000});
+        const qutns=await newPage.$$('//div[@class="section-q-list wrapped"]//div//p');
+        console.log('Number of questions-'+qutns.length);
+        const total=qutns.length;
+        const Ttl=qutns.length-1;
+        for(let i=0;i<=Ttl;i++)
+        {
+           // await qutns[i].click();
+            await newPage.waitForTimeout(2000);
+            await newPage.locator('//button[@class="btn btn-blue"]').click();
+            await newPage.waitForTimeout(2000);
+        }
+        await expect(qutns.length).toBe(total);
+        await newPage.close();
+        await page1.close();
+    });
+    
+});
+
+//Validation of candidate response using Calculator and Highlighter in exam
+test(`@Regression Validation of candidate response using Calculator and Highlighter in exam TC-185`, async ({ eluminaCandPage,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+    });
+    await test.step('Candidate start the exam',async ()=> {
+        await eluminaCandPage.UsingCalculatorForQuestions();
+        await eluminaCandPage.UsingHighlighterForQuestions();
+        
+        console.log("Candidate is able to use Highlighter and Calculator ")
+
+        const browser = await chromium.launch();
+        const context1 = await browser.newContext();
+        const page1 = await context1.newPage();
+        await page1.goto('/');
+        await page1.waitForLoadState();
+        await page1.locator('(//input)[1]').type(testData.UserEmail);
+        await page1.locator('(//input)[2]').type(testData.UserPassword);
+        await page1.locator('//*[@class="submit-butn"]').click();
+
+        const [newPage] = await Promise.all([
+            context1.waitForEvent('page'),
+            await page1.locator('//div[text()="iAuthor"]').click()
+
+          ]);
+        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+        await newPage.locator('//a[text()="Live Monitor"]').click();
+        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
+        await newPage.waitForTimeout(3000);
+        await newPage.waitForSelector('//div[@class="section-q-list wrapped"]//div//p',{timeout:10000});
+        const qutns=await newPage.$$('//div[@class="section-q-list wrapped"]//div//p');
+        console.log('Number of questions-'+qutns.length);
+        const total=qutns.length;
+        const Ttl=qutns.length-1;
+        for(let i=0;i<=Ttl;i++)
+        {
+           // await qutns[i].click();
+            await newPage.waitForTimeout(2000);
+            await newPage.locator('//button[@class="btn btn-blue"]').click();
+            await newPage.waitForTimeout(2000);
+        }
+        await expect(qutns.length).toBe(total);
+        await newPage.close();
+        await page1.close();
+    });
+    
+});
+
+//Validation of candidate response using Calculator and Note in exam.
+test(`@Regression Validation of candidate response using Calculator and Note in exam. TC-186`, async ({ eluminaCandPage,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+    });
+    await test.step('Candidate start the exam',async ()=> {
+        await eluminaCandPage.UsingCalculatorForQuestions();
+        await eluminaCandPage.AddingNotesToQuestion();
+        
+        console.log("Candidate is able to use Calculator and Notes ")
+
+        const browser = await chromium.launch();
+        const context1 = await browser.newContext();
+        const page1 = await context1.newPage();
+        await page1.goto('/');
+        await page1.waitForLoadState();
+        await page1.locator('(//input)[1]').type(testData.UserEmail);
+        await page1.locator('(//input)[2]').type(testData.UserPassword);
+        await page1.locator('//*[@class="submit-butn"]').click();
+
+        const [newPage] = await Promise.all([
+            context1.waitForEvent('page'),
+            await page1.locator('//div[text()="iAuthor"]').click()
+
+          ]);
+        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+        await newPage.locator('//a[text()="Live Monitor"]').click();
+        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
+        await newPage.waitForTimeout(3000);
+        await newPage.waitForSelector('//div[@class="section-q-list wrapped"]//div//p',{timeout:10000});
+        const qutns=await newPage.$$('//div[@class="section-q-list wrapped"]//div//p');
+        console.log('Number of questions-'+qutns.length);
+        const total=qutns.length;
+        const Ttl=qutns.length-1;
+        for(let i=0;i<=Ttl;i++)
+        {
+           // await qutns[i].click();
+            await newPage.waitForTimeout(2000);
+            await newPage.locator('//button[@class="btn btn-blue"]').click();
+            await newPage.waitForTimeout(2000);
+        }
+        await expect(qutns.length).toBe(total);
+        await newPage.close();
+        await page1.close();
+    });
+    
+});
+
+
+//Validation of candidate response using Flag + Highlighter  in exam
+test(`@Regression Validation of candidate response using Flag + Highlighter  in exam. TC-187`, async ({ eluminaCandPage,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+    });
+    await test.step('Candidate start the exam',async ()=> {
+        await eluminaCandPage.flagForQuestion();
+        await eluminaCandPage.UsingHighlighterForQuestions();
+        
+        console.log("Candidate is able to use highligher and flag for review ")
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
