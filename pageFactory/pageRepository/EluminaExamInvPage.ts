@@ -109,6 +109,7 @@ export class EluminaExamInvPage{
     readonly fectchExamID:Locator;
     readonly nextButton:Locator;
     readonly Oneclick:Locator;
+    readonly Choosehrs:Locator;
   
     constructor(page: Page, context: BrowserContext ) {
         this.page = page;
@@ -136,7 +137,7 @@ export class EluminaExamInvPage{
         this.ExamEndCalender=page.locator('#exam_end_date_time i');
         this.ExamEndDate=page.locator('#exam_end_date_time').getByText(EndExamDate, { exact: true });
         this.ClickOnExamVenue=page.getByPlaceholder('Select Exam Venue');
-        this.ChooseExamVenue=page.getByRole('listitem').filter({ hasText: 'Elumina Chennai' }).locator('div');
+        this.ChooseExamVenue=page.getByRole('listitem').filter({ hasText: testData.ChooseChennaiVenue }).locator('div');
         this.ClickOnAdd=page.getByRole('button', { name: 'Add' });
         this.EnterNoOfCandidates=page.getByRole('spinbutton');
         this.EnterInvigilatorPswd=page.locator('//input[@name="examInviglator"]');
@@ -152,6 +153,7 @@ export class EluminaExamInvPage{
         this.EnterSectionName=page.locator('#section_name').getByRole('textbox');
         this.DescriptionMessage=page.frameLocator('iframe[title="Rich Text Area\\. Press ALT-F9 for menu\\. Press ALT-F10 for toolbar\\. Press ALT-0 for help"]').locator('html');
         this.SelectTime=page.getByRole('combobox').nth(1);
+        this.Choosehrs=page.locator('//body//app-root//select[1]');
         this.ClickOnSave=page.locator('//button[normalize-space()="Save"]');
 
         this.ClickOnAddQuestion=page.locator('//i[@title="Create Exam Question"]');
@@ -317,7 +319,7 @@ async createSections(): Promise<string>{
   await this.DescriptionMessage.click();
   await this.DescriptionMessage.type('Hello World......!');
   await this.page.waitForTimeout(5000);
-  await this.SelectTime.selectOption('0');
+  await this.Choosehrs.selectOption('0');
   await this.SelectTime.selectOption('45');
   await this.ClickOnSave.click();
   return EluminaExamInvPage.examID;

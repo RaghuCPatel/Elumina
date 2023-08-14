@@ -131,9 +131,11 @@ export class EluminaProctorExamPage {
     readonly closeVideoFragment:Locator;
     readonly clickOnVideoFragmentField:Locator;
     readonly clickOnVideoFragmentSize:Locator;
+    readonly Choosehrs:Locator;
     readonly InternetSpeedCheckInput:Locator;
     readonly InternetSpeedClick:Locator;
     readonly clickOnVideoToggle:Locator;
+
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -164,8 +166,8 @@ export class EluminaProctorExamPage {
         this.ExamEndCalender=page.locator('#exam_end_date_time i');
         this.ExamEndDate=page.locator('#exam_end_date_time').getByText(EndExamDate, { exact: true });
         this.ClickOnExamVenue=page.getByPlaceholder('Select Exam Venue');
-        this.ChooseExamVenue=page.getByRole('listitem').filter({ hasText: 'Elumina Chennai' }).locator('div');
-        this.ChooseExamVenue1=page.getByRole('listitem').filter({ hasText: 'Practice Venue, Melbourne' }).locator('div');
+        this.ChooseExamVenue=page.getByRole('listitem').filter({ hasText: testData.ChooseChennaiVenue }).locator('div');
+        this.ChooseExamVenue1=page.getByRole('listitem').filter({ hasText: testData.ChooseMelbourneVenue }).locator('div');
         this.ClickOnAdd=page.getByRole('button', { name: 'Add' });
         this.EnterNoOfCandidates=page.getByRole('spinbutton');
         this.EnterInvigilatorPswd=page.locator('//input[@name="examInviglator"]');
@@ -179,6 +181,7 @@ export class EluminaProctorExamPage {
         this.EnterSectionName=page.locator('#section_name').getByRole('textbox');
         this.DescriptionMessage=page.frameLocator('iframe[title="Rich Text Area\\. Press ALT-F9 for menu\\. Press ALT-F10 for toolbar\\. Press ALT-0 for help"]').locator('html');
         this.SelectTime=page.getByRole('combobox').nth(1);
+        this.Choosehrs=page.locator('//body//app-root//select[1]');
         this.ClickOnSave=page.locator('//button[normalize-space()="Save"]');
         this.ClickOnCreateContentSection=page.getByText('Create Content Section');
         this.selectMinutes=page.getByRole('combobox').nth(1);
@@ -803,7 +806,7 @@ async createExamWithCalculator(): Promise<void> {
     await this.DescriptionMessage.click();
     await this.DescriptionMessage.type(testData.DescriptionMessage);
     await this.page.waitForTimeout(5000);
-    await this.SelectTime.selectOption('0');
+    await this.Choosehrs.selectOption('0');
     await this.SelectTime.selectOption('45');
     await this.ClickOnSave.click();
     return EluminaProctorExamPage.examID;
