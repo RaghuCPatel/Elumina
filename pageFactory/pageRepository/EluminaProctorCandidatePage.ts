@@ -79,6 +79,9 @@ export class EluminaProctorCandidatePage {
     readonly ClickOnBrowserTroubleshoot:Locator;
     readonly CliclOnTermAndConditin:Locator;
     readonly checkiProctorEtensionTroubleshoot:Locator;
+    readonly clickChatApp:Locator;
+    readonly chatAppTxtArea:Locator;
+    readonly clickOnSendicon:Locator;
 
  
 
@@ -129,6 +132,9 @@ export class EluminaProctorCandidatePage {
         this.ClickOnBrowserTroubleshoot=page.locator('//div[@class="hardware-list"]//div[4]//p[2]');
         this.CliclOnTermAndConditin=page.locator('//span[contains(text(),"terms and conditions.")]');
         this.checkiProctorEtensionTroubleshoot=page.locator('(//p[@class="troubleshoot-link"])[1]')
+        this.clickChatApp=page.frameLocator('//iframe[@title="Button to launch messaging window"]').locator('html');
+        this.chatAppTxtArea=page.frameLocator('iframe[name="Messaging window"]').getByPlaceholder('Type a message');
+        this.clickOnSendicon=page.frameLocator('iframe[name="Messaging window"]').getByRole('button', { name: 'Send message' });
 
     }
 
@@ -164,6 +170,31 @@ export class EluminaProctorCandidatePage {
         await this.page.waitForTimeout(5000);
         await this.SIGNOUT_BUTTON.click();
     }
+
+    /**Method to validate chat app */
+    async validationOfChatApp(){
+        await expect(this.clickChatApp).toBeVisible();
+    }
+
+    /**Method for chat app click */
+    async chatApp(){
+        await this.clickChatApp.click();
+        await this.chatAppTxtArea.click();
+        await this.chatAppTxtArea.fill("Hello");
+        await this.clickOnSendicon.click();
+        await this.page.waitForTimeout(5000);
+      }
+
+    
+   /**Method to send message in chat app */
+   async chatAppMessageSent(){
+    await this.page.waitForTimeout(8000);
+    await this.clickChatApp.click();
+    await this.chatAppTxtArea.click();
+    await this.chatAppTxtArea.fill("Hi Chatbot");
+    await this.clickOnSendicon.click();
+    await this.page.waitForTimeout(5000);
+}
 
     /**Method to click on start exam */
     async startExam(){
