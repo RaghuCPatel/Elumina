@@ -47,6 +47,6 @@ test(`@Regression Verify Validation of Review Exam page  > Chat App`, async ({ e
         await eluminaCandPage.candidateStartMCQ();
     });
     await test.step('Candidate uses chat app in Review exam page',async ()=> {
-        await eluminaCandPage.chatAppMessageSent();        
+        await eluminaCandPage.enterFieldsInChatApp();        
     });
 });  

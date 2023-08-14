@@ -166,7 +166,7 @@ export class EluminaExamPage {
         this.ExamEndDate=page.locator('#exam_end_date_time').getByText(EndExamDate, { exact: true });
 
         this.ClickOnExamVenue=page.getByPlaceholder('Select Exam Venue');
-        this.ChooseExamVenue=page.getByRole('listitem').filter({ hasText: 'Elumina Chennai' }).locator('div');
+        this.ChooseExamVenue=page.getByRole('listitem').filter({ hasText: testData.ChooseChennaiVenue }).locator('div');
         this.ClickOnAdd=page.getByRole('button', { name: 'Add' });
         this.EnterNoOfCandidates=page.getByRole('spinbutton');
         this.ProctoringExam = page.locator('(//span[@class="slider round"])[2]');

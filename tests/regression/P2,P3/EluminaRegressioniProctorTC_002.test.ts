@@ -1,5 +1,33 @@
-import test from '@lib/BaseTest';
+import test from '@lib/Fixtures';
 import { chromium } from '@playwright/test';
+
+const devTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/dev/testData.json')));
+const p7TestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/p7/testData.json')));
+const productionTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/production/testData.json')));
+const qaTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/qa/testData.json')));
+const sandboxTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/sandbox/testData.json')));
+const stagingTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/staging/testData.json')));
+
+let testData = qaTestData;
+if (process.env.ENV == 'dev') {
+    testData = devTestData;
+}
+else if(process.env.ENV == 'p7'){
+    testData = p7TestData;
+} 
+else if(process.env.ENV == 'production'){
+    testData = productionTestData;
+} 
+else if(process.env.ENV == 'qa'){
+    testData = qaTestData;
+} 
+else if(process.env.ENV == 'sandbox'){
+    testData = sandboxTestData;
+} 
+else if(process.env.ENV == 'staging'){
+    testData = stagingTestData;
+}
+
 
 //Validation of Admin > Proctoring > Audio Recording  (Toggle Button)
 
@@ -17,6 +45,8 @@ test(`@Regression Create iProctor exam with password`, async ({ eluminaLoginPage
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExam();
+        await newtab.createContentSection();
+        await newtab.createContentPage()
         await newtab.createSections();
         await newtab.addMCQQuestions();
     });
@@ -35,6 +65,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
+        await newtab.logoutClick();
     });
 });             
 
@@ -225,4 +256,182 @@ test(`@Regression Validation of Prompt Candidate TC-71`, async ({ eluminaLoginPa
 
 // });
 
-// });
+// });       
+
+//Verify Validation of Exam section page  > Chat App
+test(`@Regression Verify Validation of Exam section page  > Chat App TC-171`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+
+    await test.step(`Navigate to Application`, async () => {
+        await test.step('Candidate logging into application', async () => {
+            await eluminaProctorCand.candidateNavigateToURL();
+            await eluminaCandPage.waitforTime3();
+            await eluminaProctorCand.candidateLoginToApplications();
+            });   
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaProctorCand.clickOnAllLink();
+        const browser = await chromium.launch();
+            const context1 = await browser.newContext();
+            const page1 = await context1.newPage();
+            await page1.goto('/');
+            await page1.waitForLoadState();
+            await page1.locator('(//input)[1]').type(testData.UserEmail);
+            await page1.locator('(//input)[2]').type(testData.UserPassword);
+            await page1.locator('//*[@class="submit-butn"]').click();
+            const [newPage] = await Promise.all([
+                context1.waitForEvent('page'),
+                await page1.locator('//div[text()="iAuthor"]').click()
+              ]);
+            await newPage.locator('//a[text()="Registration"]').click();
+            await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+            await newPage.locator('//a[text()="Live Monitor"]').click();
+
+            await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+            await newPage.locator('//a[@class="dropdown-toggle"]').click();
+            await newPage.locator('//p[text()="Verify Identity"]').click();
+            await newPage.locator('(//button[text()="Yes"])[1]').click();
+             await newPage.waitForTimeout(3000);
+             await newPage.close();
+            await page1.close();
+    })
+    await test.step('Candidate uses chat app in Submit exam page',async ()=> {
+        await eluminaProctorCand.againCandidateLogin();
+        await eluminaProctorCand.enterInvigilatorPassword();
+        await eluminaCandPage.candidateContentSection();
+        await eluminaCandPage.enterFieldsInChatApp();        
+    });
+});  
+
+//Validation of Review Exam page  > Chat App
+test(`@Regression Verify Validation of Review Exam page  > Chat App TC-172`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+
+    await test.step(`Navigate to Application`, async () => {
+        await test.step('Candidate logging into application', async () => {
+            await eluminaProctorCand.candidateNavigateToURL();
+            await eluminaProctorCand.candidateLoginToApplications();
+            });   
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaProctorCand.clickOnAllLink();
+        const browser = await chromium.launch();
+            const context1 = await browser.newContext();
+            const page1 = await context1.newPage();
+            await page1.goto('/');
+            await page1.waitForLoadState();
+            await page1.locator('(//input)[1]').type(testData.UserEmail);
+            await page1.locator('(//input)[2]').type(testData.UserPassword);
+            await page1.locator('//*[@class="submit-butn"]').click();
+            const [newPage] = await Promise.all([
+                context1.waitForEvent('page'),
+                await page1.locator('//div[text()="iAuthor"]').click()
+              ]);
+            await newPage.locator('//a[text()="Registration"]').click();
+            await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+            await newPage.locator('//a[text()="Live Monitor"]').click();
+
+            await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+            await newPage.locator('//a[@class="dropdown-toggle"]').click();
+            await newPage.locator('//p[text()="Verify Identity"]').click();
+            await newPage.locator('(//button[text()="Yes"])[1]').click();
+             await newPage.waitForTimeout(3000);
+             await newPage.close();
+            await page1.close();
+           
+    });
+    await test.step('Candidate uses chat app in Review exam page',async ()=> {
+        await eluminaProctorCand.againCandidateLogin();
+        await eluminaProctorCand.enterInvigilatorPassword();
+        await eluminaCandPage.candidateStartMCQ();
+        await eluminaCandPage.enterFieldsInChatApp();        
+    });
+});     
+
+//Validation of textbox capabilities of chat app.
+test(`@Regression Validation of textbox capabilities of chat app. TC-174`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+  
+    await test.step(`Navigate to Application`, async () => {
+        await test.step('Candidate logging into application', async () => {
+            await eluminaProctorCand.candidateNavigateToURL();
+            await eluminaProctorCand.candidateLoginToApplications();
+            });   
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaProctorCand.clickOnAllLink();
+        const browser = await chromium.launch();
+            const context1 = await browser.newContext();
+            const page1 = await context1.newPage();
+            await page1.goto('/');
+            await page1.waitForLoadState();
+            await page1.locator('(//input)[1]').type(testData.UserEmail);
+            await page1.locator('(//input)[2]').type(testData.UserPassword);
+            await page1.locator('//*[@class="submit-butn"]').click();
+            const [newPage] = await Promise.all([
+                context1.waitForEvent('page'),
+                await page1.locator('//div[text()="iAuthor"]').click()
+              ]);
+            await newPage.locator('//a[text()="Registration"]').click();
+            await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+            await newPage.locator('//a[text()="Live Monitor"]').click();
+
+            await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+            await newPage.locator('//a[@class="dropdown-toggle"]').click();
+            await newPage.locator('//p[text()="Verify Identity"]').click();
+            await newPage.locator('(//button[text()="Yes"])[1]').click();
+             await newPage.waitForTimeout(3000);
+             await newPage.close();
+            await page1.close();
+    })
+    await test.step('Candidate start the exam',async ()=> {
+        await eluminaProctorCand.againCandidateLogin();
+        await eluminaProctorCand.enterInvigilatorPassword();
+       // await eluminaCandPage.candidateContentSection();
+        await eluminaCandPage.chatApp();
+    });
+    
+});
+
+//Verify Validation of Submit Exam page  > Chat App
+test(`@Regression Verify Validation of Submit Exam page  > Chat App TC-173`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+
+    await test.step(`Navigate to Application`, async () => {
+        await test.step('Candidate logging into application', async () => {
+            await eluminaProctorCand.candidateNavigateToURL();
+            await eluminaProctorCand.candidateLoginToApplications();
+            });   
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaProctorCand.clickOnAllLink();
+        const browser = await chromium.launch();
+            const context1 = await browser.newContext();
+            const page1 = await context1.newPage();
+            await page1.goto('/');
+            await page1.waitForLoadState();
+            await page1.locator('(//input)[1]').type(testData.UserEmail);
+            await page1.locator('(//input)[2]').type(testData.UserPassword);
+            await page1.locator('//*[@class="submit-butn"]').click();
+            const [newPage] = await Promise.all([
+                context1.waitForEvent('page'),
+                await page1.locator('//div[text()="iAuthor"]').click()
+              ]);
+            await newPage.locator('//a[text()="Registration"]').click();
+            await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+            await newPage.locator('//a[text()="Live Monitor"]').click();
+
+            await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+            await newPage.locator('//a[@class="dropdown-toggle"]').click();
+            await newPage.locator('//p[text()="Verify Identity"]').click();
+            await newPage.locator('(//button[text()="Yes"])[1]').click();
+             await newPage.waitForTimeout(3000);
+             await newPage.close();
+            await page1.close();
+    })
+    await test.step('Candidate uses chat app in Submit exam page',async ()=> {
+        await eluminaProctorCand.againCandidateLogin();
+        await eluminaProctorCand.enterInvigilatorPassword();
+        await eluminaCandPage.candidateStartMCQAndSubmit();
+        await eluminaCandPage.enterFieldsInChatApp();        
+    });
+});  
+
+
+
