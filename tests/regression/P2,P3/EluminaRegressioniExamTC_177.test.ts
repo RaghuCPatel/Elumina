@@ -29,7 +29,7 @@ else if(process.env.ENV == 'staging'){
 
 /**Validation of candidate response using Image Viewer in exam*/
 
-test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`@RegressionP Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -49,7 +49,7 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
     });
 });
 
-test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@RegressionP Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -61,10 +61,11 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
         await newtab.registrationTabNavigation();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
+        await newtab.logoutClick();
     });
 });            
 
-test(`@Regression Verify Validation of candidate response using Image Viewer in exam`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Verify Validation of candidate response using Image Viewer in exam`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

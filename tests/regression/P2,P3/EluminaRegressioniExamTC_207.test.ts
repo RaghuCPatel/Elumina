@@ -1,7 +1,8 @@
 import test from '@lib/BaseTest';
 
 //Validation of copy paste in password field
-test(`@Regression Validation of copy paste in password field`, async ({ eluminaCandPage,webActions }) => {
+
+test(`@RegressionP Validation of copy paste in password field`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

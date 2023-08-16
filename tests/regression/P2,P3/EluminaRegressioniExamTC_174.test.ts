@@ -1,7 +1,8 @@
 import test from '@lib/BaseTest';
 
 //Validation of textbox capabilities of chat app.
-test(`@Regression Validation of textbox capabilities of chat app.`, async ({ eluminaCandPage,webActions }) => {
+
+test(`@RegressionP Validation of textbox capabilities of chat app.`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime3();

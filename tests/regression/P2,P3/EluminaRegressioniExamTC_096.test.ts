@@ -4,7 +4,7 @@ import test from '@lib/BaseTest';
 /**Validation of Candidate Attending Exam in Online (Abort and Resume Exam) */
 
 
-test(`@Regression Validation of Candidate Attending Exam in Online (Abort and Resume Exam)`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Validation of Candidate Attending Exam in Online (Abort and Resume Exam)`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -16,7 +16,7 @@ test(`@Regression Validation of Candidate Attending Exam in Online (Abort and Re
     });
 });
 
-test(`@Regression Validation Candidate Login again`, async ({ eluminaCandPage, webActions }) => {
+test(`@RegressionP Validation Candidate Login again`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

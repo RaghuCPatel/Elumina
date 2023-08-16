@@ -27,7 +27,7 @@ else if(process.env.ENV == 'staging'){
     testData = stagingTestData;
 }
 
-/**Validation of candidate response using Image Inline in exam*/
+/**Validation of candidate response using Image Inline in exam*/    
 
 test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -64,7 +64,8 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
 });            
 
-test(`@Regression Verify Validation of candidate response using Image Inline in exam`, async ({ eluminaCandPage,webActions }) => {
+
+test(`@RegressionP Verify Validation of candidate response using Image Inline in exam`, async ({ eluminaCandPage,webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();

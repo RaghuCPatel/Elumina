@@ -3,7 +3,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Candidate Attending Exam in Online (Abort and Resume Exam) */
 
-test(`@Regression Verify candidate adds and saves Notes EluminaRegressioniExamTC_038`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Verify candidate adds and saves Notes EluminaRegressioniExamTC_038`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -19,7 +19,7 @@ test(`@Regression Verify candidate adds and saves Notes EluminaRegressioniExamTC
 
 /**Candidate while attending exam - Online - try to press any F1 to F12 keys */
 
-test(`@Regression Candidate while attending exam - Online - try to press any F1 to F12 keys TC-201`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Candidate while attending exam - Online - try to press any F1 to F12 keys TC-201`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -34,7 +34,7 @@ test(`@Regression Candidate while attending exam - Online - try to press any F1 
     
 });
 
-test(`@Regression No other key combinations could cause the candidates to logout and/or lose data TC-205`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP No other key combinations could cause the candidates to logout and/or lose data TC-205`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
