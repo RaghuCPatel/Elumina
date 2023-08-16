@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /** Validation of Do Page refresh in Exam Section Page When candidate attending exam in Online.  */
 
-test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`@RegressionP Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -28,7 +28,7 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
     });
 });
 
-test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@RegressionP Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -44,7 +44,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
 });
 
-test(`@Regression Verify Validation of Candidate attends All Question type`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Verify Validation of Candidate attends All Question type`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime3();
