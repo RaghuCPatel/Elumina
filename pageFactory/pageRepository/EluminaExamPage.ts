@@ -1077,7 +1077,12 @@ export class EluminaExamPage {
     await this.ClickOnSearchQuestion.click()
     await this.ClickOnSearchQuestion.type('MCQ');
     await this.page.waitForTimeout(3000);
-    await this.page.locator('(//input[@type="checkbox"])[2]').click();
+    await this.page.waitForSelector('//div[@class="eqc-question-info"]//input',{timeout:10000});
+    const McqQuestions=await this.page.$$('//div[@class="eqc-question-info"]//input');
+    for(let i=0;i<5;i++)
+    {
+      await McqQuestions[i].click();
+    }
     await this.ClickOnAddBtn.click()
     await this.ClickOnSave.click();
   }
@@ -1087,7 +1092,12 @@ export class EluminaExamPage {
       await this.ClickOnSearchQuestion.click()
       await this.ClickOnSearchQuestion.type('VSAQ');
       await this.page.waitForTimeout(3000);
-      await this.page.locator('(//input[@type="checkbox"])[2]').click();
+      await this.page.waitForSelector('//div[@class="eqc-question-info"]//input',{timeout:10000});
+      const Vsaquestions=await this.page.$$('//div[@class="eqc-question-info"]//input');
+      for(let i=0;i<3;i++)
+      {
+        await Vsaquestions[i].click();
+      }
       await this.ClickOnAddBtn.click()
       await this.ClickOnSave.click();
   }
@@ -1097,7 +1107,12 @@ export class EluminaExamPage {
       await this.ClickOnSearchQuestion.click()
       await this.ClickOnSearchQuestion.type('ISAWE');
       await this.page.waitForTimeout(3000);
-      await this.page.locator('(//input[@type="checkbox"])[2]').click();
+      await this.page.waitForSelector('//div[@class="eqc-question-info"]//input',{timeout:10000});
+      const Isawequestions=await this.page.$$('//div[@class="eqc-question-info"]//input');
+      for(let i=0;i<2;i++)
+      {
+        await Isawequestions[i].click();
+      }
       await this.ClickOnAddBtn.click()
       await this.ClickOnSave.click();
   }
@@ -1107,7 +1122,12 @@ export class EluminaExamPage {
     await this.ClickOnSearchQuestion.click()
     await this.ClickOnSearchQuestion.type('Type X');
     await this.page.waitForTimeout(3000);
-    await this.page.locator('(//input[@type="checkbox"])[2]').click();
+    await this.page.waitForSelector('//div[@class="eqc-question-info"]//input',{timeout:10000});
+    const TypeXquestions=await this.page.$$('//div[@class="eqc-question-info"]//input');
+      for(let i=0;i<5;i++)
+      {
+        await TypeXquestions[i].click();
+      }
     await this.ClickOnAddBtn.click()
     await this.ClickOnSave.click();
   }
@@ -1117,7 +1137,12 @@ export class EluminaExamPage {
     await this.ClickOnSearchQuestion.click()
     await this.ClickOnSearchQuestion.type('Type B');
     await this.page.waitForTimeout(3000);
-    await this.page.locator('(//input[@type="checkbox"])[2]').click();
+    await this.page.waitForSelector('//div[@class="eqc-question-info"]//input',{timeout:10000});
+    const TypeBquestions=await this.page.$$('//div[@class="eqc-question-info"]//input');
+      for(let i=0;i<5;i++)
+      {
+        await TypeBquestions[i].click();
+      }
     await this.ClickOnAddBtn.click()
     await this.ClickOnSave.click();
   }
@@ -1127,9 +1152,14 @@ export class EluminaExamPage {
     await this.ClickOnSearchQuestion.click()
     await this.ClickOnSearchQuestion.type('SAQ');
     await this.page.waitForTimeout(3000);
-    await this.page.locator('(//input[@type="checkbox"])[2]').click();
-    await this.ClickOnAddBtn.click()
-    await this.ClickOnSave.click();
+    await this.page.waitForSelector('//div[@class="eqc-question-info"]//input',{timeout:10000});
+    const SAQquestions=await this.page.$$('//div[@class="eqc-question-info"]//input');
+      for(let i=2;i<7;i++)
+      {
+        await SAQquestions[i].click();
+      }    
+      await this.ClickOnAddBtn.click()
+      await this.ClickOnSave.click();
 
   }
 
@@ -1158,7 +1188,12 @@ export class EluminaExamPage {
     await this.ClickOnSearchQuestion.click()
     await this.ClickOnSearchQuestion.type('SJT');
     await this.page.waitForTimeout(3000);
-    await this.page.locator('(//input[@type="checkbox"])[2]').click();
+    await this.page.waitForSelector('//div[@class="eqc-question-info"]//input',{timeout:10000});
+    const SAQquestions=await this.page.$$('//div[@class="eqc-question-info"]//input');
+      for(let i=0;i<5;i++)
+      {
+        await SAQquestions[i].click();
+      } 
     await this.ClickOnAddBtn.click()
     await this.ClickOnSave.click();
     await this.ClickOnNextBtn.click();

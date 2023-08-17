@@ -41,7 +41,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});
+});                        
 
 test(`@Regression Verify Validation of Candidate attends All Question type`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {

@@ -275,7 +275,7 @@ export class EluminaProctorExamPage {
     async clickOnVideoToggleButton(){
       await this.clickOnVideoToggle.click();
       await this.page.waitForTimeout(2000);
-      await this.clickOnVideoToggle.click();
+      //await this.clickOnVideoToggle.click();
       await this.ClickOnSave.click();
     }
 
