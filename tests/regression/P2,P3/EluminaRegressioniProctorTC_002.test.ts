@@ -31,7 +31,7 @@ else if(process.env.ENV == 'staging'){
 
 //Validation of Admin > Proctoring > Audio Recording  (Toggle Button)
 
-test(`@Regression Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+test(`@RegressioniP Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -52,7 +52,7 @@ test(`@Regression Create iProctor exam with password`, async ({ eluminaLoginPage
     });
 });
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(`@RegressioniP Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -70,7 +70,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 });       
 
 //Validation of Admin > Proctoring > Video Recording (Toggle Button)
-test(`@Regression Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
+test(`@RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -88,7 +88,7 @@ test(`@Regression Validation of Admin > Proctoring > Video Recording (Toggle But
 });  
 
 
-test(`@Regression Validation of Admin > Proctoring > Audio Recording  (Toggle Button)`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
+test(`@RegressioniP Validation of Admin > Proctoring > Audio Recording  (Toggle Button)`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -107,7 +107,7 @@ test(`@Regression Validation of Admin > Proctoring > Audio Recording  (Toggle Bu
 });  
 
 //Validation of Admin > Proctoring > Enable Screenshot
-test(`@Regression Validation of Admin > Proctoring > Enable Screenshot TC-003`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
+test(`@RegressioniP Validation of Admin > Proctoring > Enable Screenshot TC-003`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -126,7 +126,7 @@ test(`@Regression Validation of Admin > Proctoring > Enable Screenshot TC-003`, 
 });  
 
 //Validation of Admin > Proctoring > Camera Link
-test(`@Regression Validation of Admin > Proctoring > Camera Link TC-005`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
+test(`@RegressioniP Validation of Admin > Proctoring > Camera Link TC-005`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -145,7 +145,7 @@ test(`@Regression Validation of Admin > Proctoring > Camera Link TC-005`, async 
 });  
 
 //Validation of Admin > Proctoring > Microphone Link
-test(`@Regression Validation of Admin > Proctoring > Microphone Link TC-006`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
+test(`@RegressioniP Validation of Admin > Proctoring > Microphone Link TC-006`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -165,7 +165,7 @@ test(`@Regression Validation of Admin > Proctoring > Microphone Link TC-006`, as
 
 
 //Validation of Admin > Proctoring > Browser Check Link
-test(`@Regression Validation of Admin > Proctoring > Browser Check Link TC-007`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
+test(`@RegressioniP Validation of Admin > Proctoring > Browser Check Link TC-007`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -184,7 +184,7 @@ test(`@Regression Validation of Admin > Proctoring > Browser Check Link TC-007`,
 }); 
 
 //Validation of Admin> Proctoring > Terms And Condition
-test(`@Regression Validation of Admin> Proctoring > Terms And Condition TC-009`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
+test(`@RegressioniP Validation of Admin> Proctoring > Terms And Condition TC-009`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -221,7 +221,7 @@ test(`@Regression Validation of Admin> Proctoring > Terms And Condition TC-009`,
 // }); 
 
 //Validation of Enable iProctor Extension
-test(`@Regression Validation of Enable iProctor Extension TC-010`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(`@RegressioniP Validation of Enable iProctor Extension TC-010`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -241,7 +241,7 @@ test(`@Regression Validation of Enable iProctor Extension TC-010`, async ({ elum
 
 //Validation of Admin > Proctoring > Video Fragment Size
 
-test(`@Regression Validation of Admin > Proctoring > Video Fragment Size TC-066`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(`@RegressioniP Validation of Admin > Proctoring > Video Fragment Size TC-066`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -260,7 +260,7 @@ test(`@Regression Validation of Admin > Proctoring > Video Fragment Size TC-066`
 });  
 
 //Validation of Internet Connection Check
-test(`@Regression Validation of Internet Connection Check TC-068`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(`@RegressioniP Validation of Internet Connection Check TC-068`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -277,10 +277,10 @@ test(`@Regression Validation of Internet Connection Check TC-068`, async ({ elum
         await newtab.logoutClick();
         
     });
-}); 
+});        
 
 //Validation of Internet Upload Speed
-test(`@Regression Validation of Internet Upload Speed TC-069`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(`@RegressioniP Validation of Internet Upload Speed TC-069`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -301,7 +301,7 @@ test(`@Regression Validation of Internet Upload Speed TC-069`, async ({ eluminaL
 
 //Validation  of Prompt Candidate
 
-test(`@Regression Validation of Prompt Candidate TC-71`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(`@RegressioniP Validation of Prompt Candidate TC-71`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -335,12 +335,11 @@ test(`@Regression Validation of Prompt Candidate TC-71`, async ({ eluminaLoginPa
 // });       
 
 //Verify Validation of Exam section page  > Chat App
-test(`@Regression Verify Validation of Exam section page  > Chat App TC-171`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+test(`@RegressioniP Verify Validation of Exam section page  > Chat App TC-171`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await test.step('Candidate logging into application', async () => {
             await eluminaProctorCand.candidateNavigateToURL();
-            await eluminaCandPage.waitforTime3();
             await eluminaProctorCand.candidateLoginToApplications();
             });   
     });
@@ -379,7 +378,7 @@ test(`@Regression Verify Validation of Exam section page  > Chat App TC-171`, as
 });  
 
 //Validation of Review Exam page  > Chat App
-test(`@Regression Verify Validation of Review Exam page  > Chat App TC-172`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+test(`@RegressioniP Verify Validation of Review Exam page  > Chat App TC-172`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await test.step('Candidate logging into application', async () => {
@@ -423,7 +422,7 @@ test(`@Regression Verify Validation of Review Exam page  > Chat App TC-172`, asy
 });     
 
 //Validation of textbox capabilities of chat app.
-test(`@Regression Validation of textbox capabilities of chat app. TC-174`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+test(`@RegressioniP Validation of textbox capabilities of chat app. TC-174`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
   
     await test.step(`Navigate to Application`, async () => {
         await test.step('Candidate logging into application', async () => {
@@ -467,7 +466,7 @@ test(`@Regression Validation of textbox capabilities of chat app. TC-174`, async
 });
 
 //Verify Validation of Submit Exam page  > Chat App
-test(`@Regression Verify Validation of Submit Exam page  > Chat App TC-173`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+test(`@RegressioniP Verify Validation of Submit Exam page  > Chat App TC-173`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await test.step('Candidate logging into application', async () => {
@@ -507,7 +506,7 @@ test(`@Regression Verify Validation of Submit Exam page  > Chat App TC-173`, asy
         await eluminaCandPage.candidateStartMCQAndSubmit();
         await eluminaCandPage.enterFieldsInChatApp();        
     });
-});  
+});        
 
 
 

@@ -132,10 +132,11 @@ export class EluminaProctorExamPage {
     readonly clickOnVideoFragmentField:Locator;
     readonly clickOnVideoFragmentSize:Locator;
     readonly Choosehrs:Locator;
-    readonly InternetSpeedCheckInput:Locator;
+    readonly InternetSpeedcloseicon:Locator;
     readonly InternetSpeedClick:Locator;
     readonly clickOnVideoToggle:Locator;
     readonly ChooseBookingStartSessions:Locator
+    readonly InternetField:Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -220,7 +221,8 @@ export class EluminaProctorExamPage {
         this.closeVideoFragment=page.locator('(//span[@class="msdd-close"])[1]');
         this.clickOnVideoFragmentField=page.locator('//input[@placeholder="Select Video Fragment Size"]');
         this.clickOnVideoFragmentSize=page.locator('//span[@class="open"]');
-        this.InternetSpeedCheckInput=page.locator('//input[@class="item-search open ng-pristine ng-valid ng-touched"]');
+        this.InternetSpeedcloseicon=page.locator('(//span[@class="msdd-close"])[4]');
+        this.InternetField=page.locator('//input[@placeholder="Select Internet Upload Speed"]')
         this.InternetSpeedClick=page.locator('//div[@class="open container-left-padding"]');
         this.clickOnVideoToggle=page.locator('(//span[@class="slider round"])[1]');
     }
@@ -264,10 +266,11 @@ export class EluminaProctorExamPage {
 
     /**Method to check Internet speed check */
     async InternetSpeedCheck(){
-      await this.InternetSpeedCheckInput.click();
-      await this.InternetSpeedCheckInput.type(testData.InternetSpeed);
-      await this.page.waitForTimeout(3000);
+      await this.InternetSpeedcloseicon.click();
+      await this.InternetField.click()
+      await this.InternetField.type(testData.InternetSpeed);
       await this.InternetSpeedClick.click();
+      await this.ClickOnSave.click();
       await this.ClickOnSave.click();
     }
 

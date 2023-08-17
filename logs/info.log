@@ -9069,3 +9069,545 @@
 {"level":"info","message":"Test Case Completed : @RegressionP Verify Elumina Login and create exam  Status : failed"}
 {"level":"info","message":"Test Case Started : @RegressionP Verify Elumina Login and create exam "}
 {"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify Validation of Candidate attends All Question type"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify Validation of Candidate attends All Question type Status : timedOut"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify Validation of Candidate attends All Question type"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify Validation of Candidate attends All Question type Status : timedOut"}
+{"level":"error","message":"File not found: C:\\Elumina\\17-08-2023\\html-report"}
+{"level":"info","message":"Test Case Started : @RegressioniP Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC- Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC- Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Audio Recording  (Toggle Button)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Audio Recording  (Toggle Button) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Enable Screenshot TC-003"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Enable Screenshot TC-003 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Camera Link TC-005"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Camera Link TC-005 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Microphone Link TC-006"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Microphone Link TC-006 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Browser Check Link TC-007"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Browser Check Link TC-007 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin> Proctoring > Terms And Condition TC-009"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin> Proctoring > Terms And Condition TC-009 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Enable iProctor Extension TC-010"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Enable iProctor Extension TC-010 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Video Fragment Size TC-066"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Video Fragment Size TC-066 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Internet Connection Check TC-068"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Internet Connection Check TC-068 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Internet Upload Speed TC-069"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Internet Upload Speed TC-069 Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Internet Upload Speed TC-069"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Internet Upload Speed TC-069 Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Prompt Candidate TC-71"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to proctoring and setting up Prompt Candidate Message"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Prompt Candidate TC-71 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Validation of Exam section page  > Chat App TC-171"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Submit exam page"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Validation of Exam section page  > Chat App TC-171 Status : timedOut"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Validation of Exam section page  > Chat App TC-171"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Submit exam page"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Validation of Exam section page  > Chat App TC-171 Status : timedOut"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Validation of Review Exam page  > Chat App TC-172"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Review exam page"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Validation of Review Exam page  > Chat App TC-172 Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Validation of Review Exam page  > Chat App TC-172"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Review exam page"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Validation of Review Exam page  > Chat App TC-172 Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of textbox capabilities of chat app. TC-174"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Started : @RegressioniP Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Create iProctor exam with password Status : timedOut"}
+{"level":"info","message":"Test Case Started : @RegressioniP Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC- Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC- Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Audio Recording  (Toggle Button)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Audio Recording  (Toggle Button) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Enable Screenshot TC-003"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Enable Screenshot TC-003 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Camera Link TC-005"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Camera Link TC-005 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Microphone Link TC-006"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Microphone Link TC-006 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Browser Check Link TC-007"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Browser Check Link TC-007 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin> Proctoring > Terms And Condition TC-009"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin> Proctoring > Terms And Condition TC-009 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Enable iProctor Extension TC-010"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Enable iProctor Extension TC-010 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Video Fragment Size TC-066"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Video Fragment Size TC-066 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Internet Connection Check TC-068"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Internet Connection Check TC-068 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Internet Upload Speed TC-069"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Internet Upload Speed TC-069 Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Internet Upload Speed TC-069"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Internet Upload Speed TC-069 Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Prompt Candidate TC-71"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to proctoring and setting up Prompt Candidate Message"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Prompt Candidate TC-71 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Validation of Exam section page  > Chat App TC-171"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Submit exam page"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Validation of Exam section page  > Chat App TC-171 Status : timedOut"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Validation of Exam section page  > Chat App TC-171"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Internet Upload Speed TC-069"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Internet Upload Speed TC-069 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Prompt Candidate TC-71"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Started : @RegressioniP Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC- Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC- Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Audio Recording  (Toggle Button)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Audio Recording  (Toggle Button) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Enable Screenshot TC-003"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Enable Screenshot TC-003 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Camera Link TC-005"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Camera Link TC-005 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Microphone Link TC-006"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Microphone Link TC-006 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Browser Check Link TC-007"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Browser Check Link TC-007 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin> Proctoring > Terms And Condition TC-009"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin> Proctoring > Terms And Condition TC-009 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Enable iProctor Extension TC-010"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Enable iProctor Extension TC-010 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Video Fragment Size TC-066"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Video Fragment Size TC-066 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Internet Connection Check TC-068"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Internet Connection Check TC-068 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Internet Upload Speed TC-069"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Internet Upload Speed TC-069 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Prompt Candidate TC-71"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to proctoring and setting up Prompt Candidate Message"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Prompt Candidate TC-71 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Validation of Exam section page  > Chat App TC-171"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Submit exam page"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Validation of Exam section page  > Chat App TC-171 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Validation of Review Exam page  > Chat App TC-172"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Review exam page"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Validation of Review Exam page  > Chat App TC-172 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of textbox capabilities of chat app. TC-174"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of textbox capabilities of chat app. TC-174 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Validation of Submit Exam page  > Chat App TC-173"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Submit exam page"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Validation of Submit Exam page  > Chat App TC-173 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Create iProctor exam with password Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Create iProctor exam with password Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Microphone Troubleshoot link validation."}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Microphone Troubleshoot link validation. Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Microphone Troubleshoot link validation."}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Microphone Troubleshoot link validation. Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Microphone Troubleshoot link"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Started : @RegressioniP Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Create iProctor exam with password Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Create iProctor exam with password Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @RegressioniP Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC- Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC- Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Audio Recording  (Toggle Button)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Audio Recording  (Toggle Button) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Enable Screenshot TC-003"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Enable Screenshot TC-003 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Camera Link TC-005"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Camera Link TC-005 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Microphone Link TC-006"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Microphone Link TC-006 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Browser Check Link TC-007"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Browser Check Link TC-007 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin> Proctoring > Terms And Condition TC-009"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin> Proctoring > Terms And Condition TC-009 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Enable iProctor Extension TC-010"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Enable iProctor Extension TC-010 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Video Fragment Size TC-066"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Video Fragment Size TC-066 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Internet Connection Check TC-068"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Internet Connection Check TC-068 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Internet Upload Speed TC-069"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Internet Upload Speed TC-069 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Prompt Candidate TC-71"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to proctoring and setting up Prompt Candidate Message"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Prompt Candidate TC-71 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Validation of Exam section page  > Chat App TC-171"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Validation of Exam section page  > Chat App TC-171 Status : timedOut"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Validation of Exam section page  > Chat App TC-171"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Started : @RegressioniP Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Create iProctor exam with password Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Create iProctor exam with password Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Elumina Registration Status : timedOut"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
