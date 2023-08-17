@@ -30,7 +30,7 @@ else if(process.env.ENV == 'staging'){
 
 //Validation of Microphone Troubleshoot link validation.     
 
-test(`@Regression Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+test(`@RegressioniP Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -49,7 +49,7 @@ test(`@Regression Create iProctor exam with password`, async ({ eluminaLoginPage
     });
 });
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(`@RegressioniP Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -64,9 +64,9 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.addExistingUsers();
         await newtab.logoutClick();
     });
-});       
+});           
 
-test(`@Regression Validation of Microphone Troubleshoot link validation.`, async ({ eluminaProctorCand,webActions }) => {
+test(`@RegressioniP Validation of Microphone Troubleshoot link validation.`, async ({ eluminaProctorCand,webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
@@ -81,7 +81,7 @@ test(`@Regression Validation of Microphone Troubleshoot link validation.`, async
    
 });
 
-test1(`@Regression Validation of Microphone Troubleshoot link`, async ({ eluminaProctorCand,webActions }) => {
+test1(`@RegressioniP Validation of Microphone Troubleshoot link`, async ({ eluminaProctorCand,webActions }) => {
     await test1.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
