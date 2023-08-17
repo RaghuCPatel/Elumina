@@ -155,9 +155,9 @@ export class EluminaCandidatePage {
         this.ans2ISAWEQuestion=page.frameLocator('(//iframe[@class="tox-edit-area__iframe"])[2]').locator('//html[@data-mce-style="height: auto;"]');
         this.ansTypeXQuestion=page.locator('(//div[@class="inputGroup question-preview--mc"]//label[@class="labelEmpty"])[1]');
         this.ans2TypeXQuestion=page.locator('(//div[@class="inputGroup question-preview--mc"]//label[@class="labelEmpty"])[4]');
-        this.ansTypeBQuestion=page.locator('//label[@for="radio0-319"]');
-        this.ansSAQQuestion=page.frameLocator('iframe[class="tox-edit-area__iframe"]').locator('html');
-        this.ansSJTQuestion=page.locator('//label[@for="radio0-321-0"]');
+        this.ansTypeBQuestion=page.locator('(//label[@class="labelEmpty"])[2]');
+        this.ansSAQQuestion=page.frameLocator('//iframe[@class="tox-edit-area__iframe"]').locator('html');
+        this.ansSJTQuestion=page.locator('(//label[@class="labelEmpty"])[1]');
         this.flagForReviewQuestions=page.locator('//div[text()="Flag for Review"]');
         this.clickOnTermAndCondition=page.locator('//input[@id="terms"]');
         this.popupOK=page.locator('//div[text()="OK"]');
@@ -676,9 +676,15 @@ export class EluminaCandidatePage {
 
     async candidateStartOneMCQ(){       
             await this.page.waitForTimeout(2000);
-            await this.ansMCQQuestions.click();
-            await this.page.waitForTimeout(2000);            
-            await this.ClickOnNextBtn.click();
+            await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+            const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p'); 
+            for(let i=0;i<5;i++)
+            {
+                await qutns[i].click();
+                await this.ansMCQQuestions.click();
+                await this.ClickOnNextBtn.click();
+              
+            }           
     }
 
     async candidateSurveyStartOneMCQ(){
@@ -710,55 +716,101 @@ export class EluminaCandidatePage {
 
     async candidateAttendsAllQVSAQ(){
             await this.page.waitForTimeout(2000);
-            await this.ansVSAQQuestion.click();
-            await this.ansVSAQQuestion.type(makeid(100));
+            await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+            const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p'); 
+            for(let i=5;i<8;i++)
+            {
+                await qutns[i].click();
+                await this.ansVSAQQuestion.click();
+                await this.ansVSAQQuestion.type(makeid(100));
+                await this.ClickOnNextBtn.click();            
+
+            }   
             await this.page.waitForTimeout(2000);
-            await this.ClickOnNextBtn.click();            
     }
 
     async candidateStartISAWE(){
             await this.page.waitForTimeout(2000);
-            await this.ansISAWEQuestion.click();
-            await this.ansISAWEQuestion.type(makeid(100));
-            await this.ans2ISAWEQuestion.click();
-            await this.ans2ISAWEQuestion.type(makeid(100));
+            await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+            const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p'); 
+            for(let i=8;i<10;i++)
+            {
+             await qutns[i].click();
+             await this.ansISAWEQuestion.click();
+             await this.ansISAWEQuestion.type(makeid(100));
+             await this.ClickOnNextBtn.click();
+              
+            }  
             await this.page.waitForTimeout(2000);
-            await this.ClickOnNextBtn.click();
     }
 
     
     async candidateStartTypeX(){
 
             await this.page.waitForTimeout(2000);
-            await this.ansTypeXQuestion.click();
-            await this.ans2TypeXQuestion.click();
+            await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+            const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p'); 
+            for(let i=10;i<15;i++)
+            {
+                await qutns[i].click();
+                await this.ansTypeXQuestion.click();
+                await this.ans2TypeXQuestion.click();
+                await this.ClickOnNextBtn.click();
+              
+            } 
             await this.page.waitForTimeout(2000);
-            await this.ClickOnNextBtn.click();
 
     }
 
     async candidateStartTypeB(){
     
             await this.page.waitForTimeout(2000);
-            await this.ansTypeBQuestion.click();
+            await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+            const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p'); 
+            for(let i=15;i<20;i++)
+            {
+                await qutns[i].click();
+                await this.ansTypeBQuestion.click();
+                await this.ClickOnNextBtn.click();
+              
+            }
             await this.page.waitForTimeout(2000);
-            await this.ClickOnNextBtn.click();
 
     }
 
     async candidateStartSAQ(){
             await this.page.waitForTimeout(2000);
-            await this.ansSAQQuestion.click();
-            await this.ansSAQQuestion.type(makeid(100));
+            await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+            const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p'); 
+            for(let i=20;i<25;i++)
+            {
+                await qutns[i].click();
+                //await this.page.waitForTimeout(2000);
+                await this.ansSAQQuestion.click();
+                await this.ansSAQQuestion.type(makeid(100));
+                await this.ClickOnNextBtn.click();
+              
+            }
             await this.page.waitForTimeout(2000);
-            await this.ClickOnNextBtn.click();
 
     }
 
     async candidateStartSJT(){   
             await this.page.waitForTimeout(2000);
-            await this.ansSJTQuestion.click();
+            await this.page.waitForSelector('//div[@class="question-number-container"]//div//p',{timeout:10000});
+            const qutns=await this.page.$$('//div[@class="question-number-container"]//div//p'); 
+            for(let i=25;i<28;i++)
+            {
+                await qutns[i].click();
+                await this.ansSJTQuestion.click();
+                await this.ClickOnNextBtn.click();
+              
+            }
             await this.page.waitForTimeout(2000);
+            await this.page.locator('(//div[@class="question-number-container"]//div//p)[28]').click()
+            await this.ansSJTQuestion.click();
+            await this.ClickOnNextBtn.click();
+            await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
             await this.ClickOnRevieweBtn.click();
             //await this.ClickOnSubmitBtn.click();
 
