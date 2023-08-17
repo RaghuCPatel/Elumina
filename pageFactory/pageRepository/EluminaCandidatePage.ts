@@ -126,6 +126,7 @@ export class EluminaCandidatePage {
     readonly clickOnSendInChatApp:Locator;
     readonly EnterExaPassword:Locator;
     readonly RatelimitLogin:Locator;
+    readonly HighlightQuestions:Locator;
 
 
 
@@ -179,6 +180,7 @@ export class EluminaCandidatePage {
         this.ClickOnNotepadOne=page.locator('(//div[@class="toolIcon"])[1]');
 
         this.HighlightQuestion=page.locator('//div[@class="question-content clearfix"]');
+        this.HighlightQuestions=page.locator('//p[@class="earseM-0 inner-question-section marker highlighter-context"]')
         this.textareafill=page.locator('//div[@class="notepad-content"]//textarea');
         this.EnternumberOne=page.locator('//button[@value="7"]');
         this.EnterPlus=page.locator('//button[@value="+"]');
@@ -529,6 +531,23 @@ export class EluminaCandidatePage {
     async functionKeyWithControl_Shift_R(){
         await this.page.keyboard.press('Control+Shift+R');
         console.log("Key Pressed");
+        await this.page.waitForTimeout(5000);
+    }
+
+    /**Method to Enter Candidate Credentials and to verify if start exam link is visible */
+    async candidateLoginToApplicationwithoutclickingLogin(): Promise<void> {
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/User_details.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+          const ws = wb.getWorksheet('Worksheet');
+              console.log(ws.actualRowCount)
+              console.log(ws.getRow(2).getCell(1).value)
+              console.log(ws.getRow(2).getCell(4).value)
+              await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
+              await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+        })
         await this.page.waitForTimeout(5000);
     }
 
@@ -899,8 +918,8 @@ export class EluminaCandidatePage {
             await this.ansVSAQQuestion.click();
             await this.ClickOnHighlighter.click();
             await this.page.waitForTimeout(1000);
-            await this.HighlightQuestion.dblclick()
-            await this.HighlightQuestion.click()
+            await this.HighlightQuestions.dblclick()
+            await this.HighlightQuestions.click()
             await this.page.waitForTimeout(1000);
         }
     }
@@ -1138,7 +1157,7 @@ export class EluminaCandidatePage {
 async AddingNotesToQuestionSinglelastandclickPrevious(){
     await this.clickOnVSAQQuestions.click();
     await this.ansVSAQQuestion.click();
-    await this.ClickOnNotepadOne.click();
+    await this.ClickOnNotepad.click();
     await this.page.waitForTimeout(1000);
     await this.textareafill.type('abc');
     await this.page.waitForTimeout(1000);

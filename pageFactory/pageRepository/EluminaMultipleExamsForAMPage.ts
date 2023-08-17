@@ -187,17 +187,17 @@ export class EluminaMultipleExamsForAMPage {
         await this.EXAMCODE.type('D'+Math.floor(Math.random()*89+100));
         await this.BookingStartCalender.click();
         if(EndExamDate>="30")
-  {   
-      await this.page.waitForSelector('//li[@class="next"]');
-      await this.nextButton.click();
-      await this.Oneclick.click();
-  }
-  else if(EndExamDate>="31")
-  {   
-      await this.page.waitForSelector('//li[@class="next"]');
-      await this.nextButton.click();
-      await this.Oneclick.click();
-  }
+        {   
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else if(EndExamDate>="31")
+        {   
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
 
 
         else{

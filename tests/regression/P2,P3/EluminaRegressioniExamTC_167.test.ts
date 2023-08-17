@@ -4,7 +4,7 @@ import test from '@lib/BaseTest';
 /**Validation of Candidate Dashboard page - Chat App */
 
 
-test(`@Regression Validation of Candidate Dashboard page - Chat App`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Validation of Candidate Dashboard page - Chat App`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

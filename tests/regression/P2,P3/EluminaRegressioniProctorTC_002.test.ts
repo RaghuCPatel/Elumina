@@ -159,7 +159,7 @@ test(`@Regression Validation of Admin > Proctoring > Microphone Link TC-006`, as
         const newtab = await eluminaProctorExam.AdminPageNavigation();
         await newtab.clickOnProctoringInAdmin();
         await newtab.enterMicrophoneLink();
-          await newtab.logoutClick();
+        await newtab.logoutClick();
     });
 });  
 
@@ -179,7 +179,7 @@ test(`@Regression Validation of Admin > Proctoring > Browser Check Link TC-007`,
         const newtab = await eluminaProctorExam.AdminPageNavigation();
         await newtab.clickOnProctoringInAdmin();
         await newtab.enterBrowserLink();
-          await newtab.logoutClick();
+        await newtab.logoutClick();
     });
 }); 
 
@@ -274,6 +274,7 @@ test(`@Regression Validation of Internet Connection Check TC-068`, async ({ elum
         const newtab = await eluminaProctorExam.AdminPageNavigation();
         await newtab.clickOnProctoringInAdmin();
         await newtab.clickOnInternetConnectionCheck();
+        await newtab.logoutClick();
         
     });
 }); 
@@ -293,6 +294,7 @@ test(`@Regression Validation of Internet Upload Speed TC-069`, async ({ eluminaL
         const newtab = await eluminaProctorExam.AdminPageNavigation();
         await newtab.clickOnProctoringInAdmin();
         await newtab.InternetSpeedCheck();
+        await newtab.logoutClick();
         
     });
 }); 
@@ -364,8 +366,8 @@ test(`@Regression Verify Validation of Exam section page  > Chat App TC-171`, as
             await newPage.locator('//a[@class="dropdown-toggle"]').click();
             await newPage.locator('//p[text()="Verify Identity"]').click();
             await newPage.locator('(//button[text()="Yes"])[1]').click();
-             await newPage.waitForTimeout(3000);
-             await newPage.close();
+            await newPage.waitForTimeout(3000);
+            await newPage.close();
             await page1.close();
     })
     await test.step('Candidate uses chat app in Submit exam page',async ()=> {

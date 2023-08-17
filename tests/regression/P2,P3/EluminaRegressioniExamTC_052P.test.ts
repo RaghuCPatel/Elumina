@@ -28,8 +28,8 @@ else if(process.env.ENV == 'staging'){
     testData = stagingTestData;
 }
 
-/**Validation of Exam Section > Highlighter tool highlights save scenario 2 */
-test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+// /**Validation of Exam Section > Highlighter tool highlights save scenario 2 */
+test(`@RegressionP Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -50,7 +50,7 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
     });
 });
 
-test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegInvPage,eluminaRegPage,webActions }) => {
+test(`@RegressionP Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegInvPage,eluminaRegPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -63,12 +63,11 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
         await newtab.logoutClick();
-       // await newtab.addExistingUsers();
     });
 });
 
 
-test(`@Regression Validation of Exam Section > Highlighter tool highlights save scenario 2 `, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Validation of Exam Section > Highlighter tool highlights save scenario 2 `, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -83,7 +82,7 @@ test(`@Regression Validation of Exam Section > Highlighter tool highlights save 
 });
 
 //Validation of candidate response using calculator in exam
-test(`@Regression Validation of candidate response using Notes in exam TC-179`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Validation of candidate response using Notes in exam TC-179`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -132,7 +131,7 @@ test(`@Regression Validation of candidate response using Notes in exam TC-179`, 
 });
 
 //Validation of candidate response using Notes in exam
-test(`@Regression Validation of candidate response using Notes in exam TC-180`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Validation of candidate response using Notes in exam TC-180`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -181,7 +180,7 @@ test(`@Regression Validation of candidate response using Notes in exam TC-180`, 
 });
 
 //Validation of candidate response using Highlighter in exam
-test(`@Regression Validation of candidate response using Highlighter in exam TC-181`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Validation of candidate response using Highlighter in exam TC-181`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -231,7 +230,7 @@ test(`@Regression Validation of candidate response using Highlighter in exam TC-
 });
 
 //Validation of candidate response using Calculator, Notes and Highlighter in exam
-test(`@Regression Validation of candidate response using Calculator, Notes and Highlighter in exam TC-182`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Validation of candidate response using Calculator, Notes and Highlighter in exam TC-182`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -283,7 +282,7 @@ test(`@Regression Validation of candidate response using Calculator, Notes and H
 });
 
 //Validation of candidate response using Highlighter and Notes in exam
-test(`@Regression Validation of candidate response using Highlighter and Notes in exam TC-184`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Validation of candidate response using Highlighter and Notes in exam TC-184`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -334,7 +333,7 @@ test(`@Regression Validation of candidate response using Highlighter and Notes i
 });
 
 //Validation of candidate response using Calculator and Highlighter in exam
-test(`@Regression Validation of candidate response using Calculator and Highlighter in exam TC-185`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Validation of candidate response using Calculator and Highlighter in exam TC-185`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -386,7 +385,7 @@ test(`@Regression Validation of candidate response using Calculator and Highligh
 });
 
 //Validation of candidate response using Calculator and Note in exam.
-test(`@Regression Validation of candidate response using Calculator and Note in exam. TC-186`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Validation of candidate response using Calculator and Note in exam. TC-186`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -439,7 +438,7 @@ test(`@Regression Validation of candidate response using Calculator and Note in 
 
 
 //Validation of candidate response using Flag + Highlighter  in exam
-test(`@Regression Validation of candidate response using Flag + Highlighter  in exam. TC-187`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Validation of candidate response using Flag + Highlighter  in exam. TC-187`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -491,7 +490,7 @@ test(`@Regression Validation of candidate response using Flag + Highlighter  in 
 });
 
 //Validation of candidate response using Flag + Note in exam
-test(`@Regression Validation of candidate response using Flag + Note in exam TC-188`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Validation of candidate response using Flag + Note in exam TC-188`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
