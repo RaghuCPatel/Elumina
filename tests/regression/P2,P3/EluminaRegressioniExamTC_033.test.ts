@@ -25,7 +25,12 @@ test(`@RegressionP Verify Elumina Login and create exam `, async ({ eluminaLogin
         await newtab.createContentPage();
         await newtab.createSection();
         await newtab.addMCQQuestion();
-        await newtab.addVSAQQuestions();
+        await newtab.addVSAQQuestion();
+        await newtab.addISAWEQuestion();
+        await newtab.addTypeXQuestion();
+        await newtab.addTypeBQuestion();
+        await newtab.addSAQQuestion();
+        await newtab.addSJTQuestion();
 
     });
 });
@@ -89,24 +94,21 @@ test(`@RegressionP Validation of Sign out at Exam Start Page TC-210`, async ({ e
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToAppStartExam();
-    });
-    await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToAppStartExam();
+        await eluminaCandPage.candidateLoginToApplication();
         await eluminaCandPage.enterInvigilatorPassword();
-        await eluminaCandPage.logoutClick();
     });
-
 });
 
 
-test(`@RegressionP Validation of Candidate dashboard > Exam Start page Font size validation. TC-27`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Validation of Candidate dashboard > Exam Start page Font size validation. TC-27`, async ({ eluminaCandPage,eluminaCadInvPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
-        await eluminaCandPage.enterInvigilatorPassword();
+        await eluminaCadInvPage.candidateLoginToApplications();
+    });
+    await test.step('Candidate start the exam',async ()=> {
+        await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
     });
     await test.step('Candidate start the exam',async ()=> {
         await eluminaCandPage.increaseFontSize();
@@ -114,15 +116,93 @@ test(`@RegressionP Validation of Candidate dashboard > Exam Start page Font size
     });
 });
 
-test(`@RegressionP Validation of Exam content page -> (Terms & Conditions) Font size validation TC-33`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Validation of Exam content page -> (Terms & Conditions) Font size validation TC-33`, async ({ eluminaCadInvPage,eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCadInvPage.candidateLoginToApplications();
+    });
+    await test.step('Candidate start the exam',async ()=> {
+        await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
     });
     await test.step('Candidate start the exam',async ()=> {
         await eluminaCandPage.termsandconditionsclick();
     });
 });
 
+
+test(`@RegressionP Validation of Exam content page -> Questions download at content section-> Browser shut down TC-40`, async ({ eluminaCadInvPage,eluminaCandPage,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCadInvPage.candidateLoginToApplications();
+    });
+    await test.step('Candidate start the exam',async ()=> {
+        await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
+    });
+    await test.step('Candidate start the exam',async ()=> {
+        await eluminaCandPage.candidateContentSectionVerificationwithoutnext();
+    });
+});
+
+test(`@RegressionP Validation of textbox capabilities of chat app. TC-174`, async ({eluminaCadInvPage, eluminaCandPage,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCadInvPage.candidateLoginToApplications();
+    });
+    await test.step('Candidate start the exam',async ()=> {
+        await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
+    });
+    await test.step('Candidate start the exam',async ()=> {
+        await eluminaCandPage.candidateContentSectionVerifications();
+        await eluminaCandPage.chatApp();
+    });
+    
+});
+
+test(`@RegressionP Verify Validation of Candidate attends All Question type`, async ({ eluminaCadInvPage,eluminaCandPage,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.enterInvigilatorPassword();
+        await eluminaCandPage.candidateStartOneMCQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ();
+        await eluminaCandPage.candidateStartISAWE();
+        await eluminaCandPage.candidateStartTypeX();
+        await eluminaCandPage.refreshPage();
+        await eluminaCandPage.candidateStartTypeB();
+        await eluminaCandPage.candidateStartSAQ();
+        await eluminaCandPage.candidateStartSJT();
+    });
+
+});
+
+/**Validation of Submit Exam page  > Chat App*/          
+
+test(`@RegressionP Verify Validation of Submit Exam page  > Chat App TC-173`, async ({ eluminaCandPage,webActions }) => {
+
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.enterInvigilatorPassword();
+        await eluminaCandPage.candidateStartOneMCQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ();
+        await eluminaCandPage.candidateStartISAWE();
+        await eluminaCandPage.candidateStartTypeX();
+        await eluminaCandPage.candidateStartTypeB();
+        await eluminaCandPage.candidateStartSAQ();
+        await eluminaCandPage.candidateStartSJT();
+    });
+    await test.step('Candidate uses chat app in Submit exam page',async ()=> {
+        await eluminaCandPage.enterFieldsInChatApp();        
+    });
+});  
