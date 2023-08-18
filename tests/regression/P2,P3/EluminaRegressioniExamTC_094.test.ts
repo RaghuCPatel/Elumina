@@ -44,11 +44,18 @@
 //     });
 // });
 
+
 // test(`@RegressionP Verify Validation of Candidate attends All Question type`, async ({ eluminaCandPage,webActions }) => {
 //     await test.step(`Navigate to Application`, async () => {
 //         await eluminaCandPage.candidateNavigateToURL();
 //         await eluminaCandPage.waitforTime3();
 //         await eluminaCandPage.waitforTime2();
+
+// test(`@RegressionP Verify Validation of Candidate attends All Question type`, async ({ eluminaCandPage,webActions }) => {
+//     await test.step(`Navigate to Application`, async () => {
+//         await eluminaCandPage.candidateNavigateToURL();
+//         await eluminaCandPage.waitforTime2();
+
 
 
 //     });
