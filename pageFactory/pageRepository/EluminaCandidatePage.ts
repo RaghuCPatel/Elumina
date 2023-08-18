@@ -1211,7 +1211,7 @@ async AddingNotesToQuestionSinglelastandclickPrevious(){
         for(let i=0;i<=qutns.length-3;i++)
         {
             await qutns[i].click();
-            await this.page.waitForTimeout(5000);
+            //await this.page.waitForTimeout(5000);
             //await this.ClickOnNextBtn.click();
         }
            await this.inProgressColor.isVisible();
