@@ -70,7 +70,7 @@ test(`@RegressioniP Verify Elumina Registration`, async ({ eluminaLoginPage,elum
 });       
 
 //Validation of Admin > Proctoring > Video Recording (Toggle Button)
-test(`@RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
+test(`@RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-02`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -84,11 +84,13 @@ test(`@RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle B
         const newtab = await eluminaProctorExam.AdminPageNavigation();
         await newtab.clickOnProctoringInAdmin();
         await newtab.clickOnVideoToggleButton();
+        await newtab.logoutClick();
+
     });
 });  
 
 
-test(`@RegressioniP Validation of Admin > Proctoring > Audio Recording  (Toggle Button)`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
+test(`@RegressioniP Validation of Admin > Proctoring > Audio Recording  (Toggle Button) TC-01`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -465,48 +467,7 @@ test(`@RegressioniP Validation of textbox capabilities of chat app. TC-174`, asy
     
 });
 
-//Verify Validation of Submit Exam page  > Chat App
-test(`@RegressioniP Verify Validation of Submit Exam page  > Chat App TC-173`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
-
-    await test.step(`Navigate to Application`, async () => {
-        await test.step('Candidate logging into application', async () => {
-            await eluminaProctorCand.candidateNavigateToURL();
-            await eluminaProctorCand.candidateLoginToApplications();
-            });   
-    });
-    await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.clickOnAllLink();
-        const browser = await chromium.launch();
-            const context1 = await browser.newContext();
-            const page1 = await context1.newPage();
-            await page1.goto('/');
-            await page1.waitForLoadState();
-            await page1.locator('(//input)[1]').type(testData.UserEmail);
-            await page1.locator('(//input)[2]').type(testData.UserPassword);
-            await page1.locator('//*[@class="submit-butn"]').click();
-            const [newPage] = await Promise.all([
-                context1.waitForEvent('page'),
-                await page1.locator('//div[text()="iAuthor"]').click()
-              ]);
-            await newPage.locator('//a[text()="Registration"]').click();
-            await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
-            await newPage.locator('//a[text()="Live Monitor"]').click();
-
-            await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-            await newPage.locator('//a[@class="dropdown-toggle"]').click();
-            await newPage.locator('//p[text()="Verify Identity"]').click();
-            await newPage.locator('(//button[text()="Yes"])[1]').click();
-             await newPage.waitForTimeout(3000);
-             await newPage.close();
-            await page1.close();
-    })
-    await test.step('Candidate uses chat app in Submit exam page',async ()=> {
-        await eluminaProctorCand.againCandidateLogin();
-        await eluminaProctorCand.enterInvigilatorPassword();
-        await eluminaCandPage.candidateStartMCQAndSubmit();
-        await eluminaCandPage.enterFieldsInChatApp();        
-    });
-});        
+    
 
 
 

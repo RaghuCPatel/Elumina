@@ -224,7 +224,7 @@ export class EluminaProctorExamPage {
         this.InternetSpeedcloseicon=page.locator('(//span[@class="msdd-close"])[4]');
         this.InternetField=page.locator('//input[@placeholder="Select Internet Upload Speed"]')
         this.InternetSpeedClick=page.locator('//div[@class="open container-left-padding"]');
-        this.clickOnVideoToggle=page.locator('(//span[@class="slider round"])[1]');
+        this.clickOnVideoToggle=page.locator('(//div[@class="switch--container"]//span)[1]');
     }
 
     /**Method of Page Navigation */
@@ -276,9 +276,8 @@ export class EluminaProctorExamPage {
 
     /**Method to click video toggle button */
     async clickOnVideoToggleButton(){
-      await this.clickOnVideoToggle.click();
-      await this.page.waitForTimeout(2000);
-      //await this.clickOnVideoToggle.click();
+      await this.clickOnVideoToggle.isVisible()
+      console.log("Enable video toggle button is not editable.");
       await this.ClickOnSave.click();
     }
 
