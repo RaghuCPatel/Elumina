@@ -39,6 +39,16 @@ export class EluminaLoginPage {
     readonly EXAMSMENU: Locator;
     readonly InactiveUseralert:Locator;
     readonly RatelimitLogin:Locator;
+    readonly UsernameAlert:Locator;
+    readonly PasswordAlert:Locator;
+    readonly EmptyFieldsAlert:Locator;
+    readonly checklogo:Locator;
+    readonly txtLogin:Locator;
+    readonly txtUserIdPlaceholder:Locator;
+    readonly txtPassword:Locator;
+    readonly Forgot_Password:Locator;
+    readonly InvaildUsernamePwd:Locator;
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -52,6 +62,16 @@ export class EluminaLoginPage {
         this.EXAMSMENU = page.locator('//a[text()="Exams"]')
         this.InactiveUseralert=page.locator('//div[text()="Your account has been deactivated, Kindly contact your system administrator to activate your account."]');
         this.RatelimitLogin=page.locator('//div[text()="Attempts exceeded the Limit"]');
+        this.UsernameAlert=page.locator('//div[text()="Please enter username"]');
+        this.PasswordAlert=page.locator('//div[text()="Please enter password"]');
+        this.EmptyFieldsAlert=page.locator('//div[text()="Please enter user credentials"]');
+        this.checklogo=page.locator('//div[@class="logo-container"]//div[@class="logo"]');
+        this.txtLogin=page.locator('(//div[text()="Login"])[1]');
+        this.txtUserIdPlaceholder=page.locator('//label[text()="Username"]')
+        this.txtPassword=page.locator('//label[text()="Password"]');
+        this.Forgot_Password=page.locator('//a[@class="forgot-pwd"]');
+        this.InvaildUsernamePwd=page.locator('//div[text()="Invalid username or password."]');
+    
     }
 
     /**Navigate to login URL */
@@ -67,6 +87,13 @@ export class EluminaLoginPage {
         await this.LOGIN_BUTTON.click();
     }
 
+    /**Navigate to Login Application with password masked*/
+    async loginToApplicationwithpasswordMasked(): Promise<void> {
+        await this.USERNAME_EDITBOX.fill(testData.UserEmail);
+        await this.PASSWORD_EDITBOX.fill(testData.UserPassword);
+        await this.LOGIN_BUTTON.click();
+        console.log("User can see that password has been masked!!")
+    }
     /**Navigate to Login Application */
     async loginToApplicationwithInactiveId(): Promise<void> {
         //const decipherPassword = await webActions.decipherPassword();
@@ -76,8 +103,7 @@ export class EluminaLoginPage {
         await this.page.waitForTimeout(5000);
         await this.InactiveUseralert.isVisible();
         console.log(await this.InactiveUseralert.textContent());
-       
-        //await expect(this.InactiveUseralert).toHaveText('Your account has been deactivated, Kindly contact your system administrator to activate your account."]');
+        await expect(this.InactiveUseralert).toHaveText("Your account has been deactivated, Kindly contact your system administrator to activate your account.");
     }
 
     /**Navigate to Login Application */
@@ -99,4 +125,65 @@ export class EluminaLoginPage {
         await expect(this.HOMEPAGE).toBeVisible();
     }
 
+    /**Method to Login to Asses app with empty feilds*/
+    async logintoAppwithEmptyfields(): Promise<void> {
+        await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(3000);
+        await this.EmptyFieldsAlert.isVisible();
+        console.log(await this.EmptyFieldsAlert.textContent());
+    }
+
+    /**Navigate to Login Application without username */
+    async loginToApplicationwithoutUsername(): Promise<void> {
+        await this.PASSWORD_EDITBOX.fill(testData.UserPassword);
+        await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(5000);
+        await this.UsernameAlert.isVisible();
+        console.log(await this.UsernameAlert.textContent());
+    }
+
+    /**Navigate to Login Application without password */
+    async loginToApplicationwithoutPassword(): Promise<void> {
+        await this.USERNAME_EDITBOX.fill(testData.UserEmail);
+        await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(5000);
+        await this.PasswordAlert.isVisible();
+        console.log(await this.PasswordAlert.textContent());
+    }
+
+        /**Method to validation of client logo */
+    async validationOfLogo(){
+        await expect(this.checklogo).toBeVisible();
+        console.log(await this.checklogo.textContent());
+        await expect(this.checklogo).toHaveCSS('display', 'inline-block');
+        console.log("Login page title:",await this.txtLogin.textContent());
+        await expect(this.txtLogin).toHaveCSS('font-size', '24px');
+        console.log("User Id Placeholder:",await this.txtUserIdPlaceholder.textContent());
+        console.log("Password Placeholder:",await this.txtPassword.textContent());
+        console.log("Forgot Password:",await this.Forgot_Password.textContent());
+        console.log("Login button:",await this.LOGIN_BUTTON.textContent());
+        await expect(this.LOGIN_BUTTON).toHaveCSS('background-color', 'rgb(66, 133, 244)');
+    }
+
+    /**Navigate to Login Application with invaild username */
+    async loginToApplicationwithInvaildUsername(): Promise<void> {
+        await this.USERNAME_EDITBOX.fill(testData.UserEmail);
+        await this.PASSWORD_EDITBOX.fill(testData.InvalidAdminPassword);
+        await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(5000);
+        await this.InvaildUsernamePwd.isVisible();
+        console.log(await this.InvaildUsernamePwd.textContent());
+        await expect(this.InvaildUsernamePwd).toHaveText("Invalid username or password.");
+    }
+
+    /**Navigate to Login Application with invaild username */
+    async loginToApplicationwithInvaildPassword(): Promise<void> {
+        await this.USERNAME_EDITBOX.fill(testData.InvalidAdminUsername);
+        await this.PASSWORD_EDITBOX.fill(testData.UserPassword);
+        await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(5000);
+        await this.InvaildUsernamePwd.isVisible();
+        console.log(await this.InvaildUsernamePwd.textContent());
+        await expect(this.InvaildUsernamePwd).toHaveText("Invalid username or password.");
+    }
 }

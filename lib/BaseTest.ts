@@ -23,6 +23,7 @@ import { EluminaMultipleExamsForAMPage } from '@pages/EluminaMultipleExamsForAMP
 import { EluminaMultipleExamsForPMPage } from '@pages/EluminaMultipleExamsForPMPage';
 import { EluminaMinimalTimeExamPage } from '@pages/EluminaMinimalTimeExamPage';
 import { commonPages } from '@pages/commonPages';
+import { EluminaCreateQuestionsPage } from '@pages/EluminaCreateQuestionsPage';
 
 const test = baseTest.extend<{
     webActions: WebActions;
@@ -49,6 +50,8 @@ const test = baseTest.extend<{
     eluminaMultipleExamsForAMPage:EluminaMultipleExamsForAMPage;
     eluminaMultipleExamsForPMPage:EluminaMultipleExamsForPMPage;
     eluminaMinimalTimeExamPage:EluminaMinimalTimeExamPage;
+    eluminaCreateQuestionsPage:EluminaCreateQuestionsPage;
+
 }>({
     webActions: async ({ page, context }, use) => {
         await use(new WebActions(page, context));
@@ -121,6 +124,9 @@ const test = baseTest.extend<{
     },
     eluminaMinimalTimeExamPage: async ({ page, context }, use) => {
         await use(new EluminaMinimalTimeExamPage(page, context));
+    },
+    eluminaCreateQuestionsPage: async ({ page, context }, use) => {
+        await use(new EluminaCreateQuestionsPage(page, context));
     }
 })
 

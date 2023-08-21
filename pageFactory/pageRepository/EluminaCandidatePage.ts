@@ -396,7 +396,11 @@ export class EluminaCandidatePage {
         await this.inceaseSize.click();
         await this.page.waitForTimeout(5000);
     }
-
+    /**method to handle pop up */
+    async popup(){
+        await this.popupOK.click();
+        await this.page.waitForTimeout(3000);
+    }
     /**Method to Decrease font size */
     async decreaseFontSize(){
         await this.decreaseSize.click();

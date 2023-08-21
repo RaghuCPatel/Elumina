@@ -10292,3 +10292,596 @@
 {"level":"info","message":"Executing Step : Login to Elumina application"}
 {"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
 {"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of Client Logo and name, color, font size and font type of different elements in the login page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Click on Login without Username and Password"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of Client Logo and name, color, font size and font type of different elements in the login page Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application with Inactive Userid and password TC-12"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of Login using Invalid credentials Scenario 1 TC-09"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of Login using Invalid credentials Scenario 1 TC-09 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of Login using Invalid credentials Scenario 2 TC-10"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of Login using Invalid credentials Scenario 2 TC-10 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of Sign out at Candidate Dashboard Page TC-14"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of Sign out at Candidate Dashboard Page TC-14 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of Sign out at Exam Start Page TC-15"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of Sign out at Exam Start Page TC-15 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of Sign out at Exam Start Page TC-210"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of Sign out at Exam Start Page TC-210 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of Candidate dashboard > Exam Start page Font size validation. TC-27"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of Candidate dashboard > Exam Start page Font size validation. TC-27 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of Exam content page -> (Terms & Conditions) Font size validation TC-33"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of Exam content page -> (Terms & Conditions) Font size validation TC-33 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of Exam content page -> Questions download at content section-> Browser shut down TC-40"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of Exam content page -> Questions download at content section-> Browser shut down TC-40 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of textbox capabilities of chat app. TC-174"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of textbox capabilities of chat app. TC-174 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify Validation of Candidate attends All Question type"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify Validation of Candidate attends All Question type Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify Validation of Submit Exam page  > Chat App TC-173"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Submit exam page"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify Validation of Submit Exam page  > Chat App TC-173 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify candidate adds and saves Notes EluminaRegressioniExamTC_038"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify candidate adds and saves Notes EluminaRegressioniExamTC_038 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Candidate while attending exam - Online - try to press any F1 to F12 keys TC-201"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Candidate while attending exam - Online - try to press any F1 to F12 keys TC-201 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP No other key combinations could cause the candidates to logout and/or lose data TC-205"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP No other key combinations could cause the candidates to logout and/or lose data TC-205 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of Candidate Attending Exam in Online (Abort and Resume Exam)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam and abort"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of Candidate Attending Exam in Online (Abort and Resume Exam) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation Candidate Login again"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation Candidate Login again Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify Validation of Review Exam page  > Chat App TC-173"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam and abort"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Review exam page"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify Validation of Review Exam page  > Chat App TC-173 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of Exam Section > Highlighter tool highlights save scenario 2 "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of Exam Section > Highlighter tool highlights save scenario 2  Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of candidate response using Notes in exam TC-179"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of candidate response using Notes in exam TC-179 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of candidate response using Notes in exam TC-180"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of candidate response using Notes in exam TC-180 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of candidate response using Highlighter in exam TC-181"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of candidate response using Highlighter in exam TC-181 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of candidate response using Calculator, Notes and Highlighter in exam TC-182"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of candidate response using Calculator, Notes and Highlighter in exam TC-182 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of candidate response using Highlighter and Notes in exam TC-184"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of candidate response using Highlighter and Notes in exam TC-184 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of candidate response using Calculator and Highlighter in exam TC-185"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of candidate response using Calculator and Highlighter in exam TC-185 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of candidate response using Calculator and Note in exam. TC-186"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of candidate response using Calculator and Note in exam. TC-186 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of candidate response using Flag + Highlighter  in exam. TC-187"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of candidate response using Flag + Highlighter  in exam. TC-187 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of candidate response using Flag + Note in exam TC-188"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of candidate response using Flag + Note in exam TC-188 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of Candidate Dashboard page - Chat App"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of Candidate Dashboard page - Chat App Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of Candidate Dashboard page - Chat App"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of Candidate Dashboard page - Chat App Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of Exam content section >  Chat App"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of Exam content section >  Chat App Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify Validation of Exam section page  > Chat App"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Exam page"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify Validation of Exam section page  > Chat App Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify Validation of candidate response using Image Viewer in exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify Validation of candidate response using Image Viewer in exam Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Verify Validation of candidate response using Image Inline in exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @RegressionP Verify Validation of candidate response using Image Inline in exam Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of Exam content page -> Questions download at content section-> Browser shut down"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of Exam content page -> Questions download at content section-> Browser shut down Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionP Validation of copy paste in password field"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @RegressionP Validation of copy paste in password field Status : passed"}
+{"level":"error","message":"File not found: C:\\Users\\Divyashree\\Desktop\\githubMerge\\21-08-2023\\Elumina\\html-report"}
+{"level":"info","message":"Test Case Started : @RegressioniP Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-02"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-02 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Audio Recording  (Toggle Button) TC-01"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Audio Recording  (Toggle Button) TC-01 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Enable Screenshot TC-003"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Enable Screenshot TC-003 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Camera Link TC-005"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Camera Link TC-005 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Microphone Link TC-006"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Microphone Link TC-006 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Browser Check Link TC-007"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Browser Check Link TC-007 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin> Proctoring > Terms And Condition TC-009"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin> Proctoring > Terms And Condition TC-009 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Enable iProctor Extension TC-010"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Enable iProctor Extension TC-010 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Admin > Proctoring > Video Fragment Size TC-066"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Admin > Proctoring > Video Fragment Size TC-066 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Internet Connection Check TC-068"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Internet Connection Check TC-068 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Internet Upload Speed TC-069"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Internet Upload Speed TC-069 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Prompt Candidate TC-71"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to proctoring and setting up Prompt Candidate Message"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Prompt Candidate TC-71 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Validation of Exam section page  > Chat App TC-171"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Submit exam page"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Validation of Exam section page  > Chat App TC-171 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Validation of Review Exam page  > Chat App TC-172"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Review exam page"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Validation of Review Exam page  > Chat App TC-172 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of textbox capabilities of chat app. TC-174"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of textbox capabilities of chat app. TC-174 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Microphone Troubleshoot link validation."}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Microphone Troubleshoot link validation. Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Microphone Troubleshoot link"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Microphone Troubleshoot link Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Candidate Dashboard page - Chat App"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Candidate Dashboard page - Chat App Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Candidate Dashboard page - Chat App"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Candidate Dashboard page - Chat App Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App TC-169"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App TC-169 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Validation of Proctoring Exam > Traffic light Green"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Validation of Proctoring Exam > Traffic light Green Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressioniP Verify Validation of Submit Exam page  > Chat App TC-173"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Submit exam page"}
+{"level":"info","message":"Test Case Completed : @RegressioniP Verify Validation of Submit Exam page  > Chat App TC-173 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Assess App URL"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Assess App URL Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Empty Field validation"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Empty Field validation Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of User Id Field"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of User Id Field Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of password Field"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of password Field Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Password Masking"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Password Masking Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Empty Field validation"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Empty Field validation Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page Status : interrupted"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Validation of logo"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Validation of logo"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Validation of logo"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Validation of logo"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Client Logo and name, color, font size and font type of different elements in the login page Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Login using Invalid credentials Scenario 1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Login using Invalid credentials Scenario 1 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Login using Invalid credentials Scenario 1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Login using Invalid credentials Scenario 1 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Login using Invalid credentials Scenario 1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Login using Invalid credentials Scenario 1 Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : interrupted"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : interrupted"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : interrupted"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}

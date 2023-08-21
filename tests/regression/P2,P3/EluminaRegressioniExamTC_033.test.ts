@@ -112,6 +112,7 @@ test(`@RegressionP Validation of Candidate dashboard > Exam Start page Font size
     });
     await test.step('Candidate start the exam',async ()=> {
         await eluminaCandPage.increaseFontSize();
+        await eluminaCandPage.popup();
         await eluminaCandPage.decreaseFontSize();
     });
 });

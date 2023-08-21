@@ -42,9 +42,10 @@
     "SelectVideoFragmentSize":"5 seconds",
     "InactiveUsername":"inactiveuser@gmail.com",
     "InactivePassword":"xKc6ZSuB!g",
-     "ChooseChennaiVenue":"Elumina Chennai",
+    "ChooseChennaiVenue":"Elumina Chennai",
     "ChooseMelbourneVenue":"Practice Venue, Melbourne",
-    "InternetSpeed":"512kbps"
-
+    "InternetSpeed":"512kbps",
+    "InvalidAdminUsername":"anonymouslogin@gmail.com",
+    "InvalidAdminPassword":"mrinvalid"
 
 }
