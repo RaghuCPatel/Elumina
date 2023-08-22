@@ -1539,6 +1539,5 @@ async createCommonExamWithViewer(): Promise<void> {
     await this.ClickOnAdd.click();
     await this.ClickOnViewer.click();
 
-  }
-    
+  } 
 }
