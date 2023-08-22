@@ -46,6 +46,19 @@
     "ChooseMelbourneVenue":"Practice Venue, Melbourne",
     "InternetSpeed":"512kbps",
     "InvalidAdminUsername":"anonymouslogin@gmail.com",
-    "InvalidAdminPassword":"mrinvalid"
+    "InvalidAdminPassword":"mrinvalid",
+    "InvalidAdminUserEmail": "divya002.r@igsindia.net",
+    "InvalidAdminUserPassword": "XEy!3001",
+    "SearchQuestion":"MCQ",
+    "Question": "Which of the following is transcribed correctly?",
+    "Subquestion":"Examination of the thumb shows weakness of the plantar muscles with slight atrophy. NCV shows decreased conduction velocity.",
+     "Answer": "Examination of the thumb shows weakness of thenar muscles with slight atrophy. MCV shows decreased conduction velocity.",
+     "AnswerKey":"MCV shows decreased conduction velocity.",
+     "TypeBStatement":"The inability to use or understand spoken or written language because of a brain lesion is known as?",
+     "OptionA":"anosmia",
+    "OptionB":"aphasia",
+    "OptionC":"dyslexia",
+    "OptionD":"dysphagia",
+    "OptionE":"None"
 
 }
