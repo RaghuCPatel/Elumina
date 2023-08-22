@@ -10885,3 +10885,147 @@
 {"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
 {"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
 {"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : passed"}
+{"level":"error","message":"File not found: C:\\Elumina\\22-08-2023\\html-report"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (VSAQ)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (VSAQ) Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (Type-B)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (Type-B) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (Type-B)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (Type-B)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
