@@ -12,21 +12,21 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
-} 
+}
 
 /** Validation of extending exam for the candidate by invigilator */
 
@@ -65,13 +65,13 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });                    */
 
-test(`@Regression extending exam for the candidate by invigilator`, async ({ eluminaProctorCand,webActions }) => {
+test(`@Regression1 extending exam for the candidate by invigilator`, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-        });
-    
-    await test.step('Candidate start the exam',async ()=> {
+    });
+
+    await test.step('Candidate start the exam', async () => {
         //await eluminaProctorCand.clickOnAllLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
@@ -86,7 +86,7 @@ test(`@Regression extending exam for the candidate by invigilator`, async ({ elu
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
-          ]);
+        ]);
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
@@ -118,12 +118,12 @@ test(`@Regression extending exam for the candidate by invigilator`, async ({ elu
         console.log("Candidate is able to see the exam timer is extended")
         await newPage.close();
         await page1.close();
-        
+
     });
-    await test.step('Candidate start the exam',async ()=> {
+    await test.step('Candidate start the exam', async () => {
         await eluminaProctorCand.againCandidateLogin();
         // await eluminaProctorCand.enterInvigilatorPassword();
-       // await eluminaProctorCand.candidateStartMCQwithoutReviewe();
+        // await eluminaProctorCand.candidateStartMCQwithoutReviewe();
 
     });
 

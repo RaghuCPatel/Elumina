@@ -28,7 +28,7 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
     });
 });
 
-test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -41,13 +41,13 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});                        
+});
 
-test(`@Regression Verify Validation of Candidate attends All Question type`, async ({ eluminaCandPage,webActions }) => {
+test(`@Regression Verify Validation of Candidate attends All Question type`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime3();
-        await eluminaCandPage.waitforTime2();
+        await eluminaCandPage.waitforTime();
+        //await eluminaCandPage.waitforTime2();
 
 
     });

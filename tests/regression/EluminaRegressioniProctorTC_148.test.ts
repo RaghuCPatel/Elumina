@@ -12,26 +12,26 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
-} 
+}
 
 /**Validation of multiple Exams on the dashboard for different time (Say one in AM & another in PM) EluminaRegressioniProctorTC_017*/
 
 /**AM */
-test(`@Regression Verify Elumina Login fpr AM`, async ({ eluminaLoginPage,eluminaMultipleExamsForAMPage, eluminaProctorExam, webActions }) => {
+test(`@Regression1 Verify Elumina Login fpr AM`, async ({ eluminaLoginPage, eluminaMultipleExamsForAMPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -50,7 +50,7 @@ test(`@Regression Verify Elumina Login fpr AM`, async ({ eluminaLoginPage,elumin
     });
 });
 
-test(`@Regression Verify Elumina Registration for AM`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(`@Regression1 Verify Elumina Registration for AM`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -67,7 +67,7 @@ test(`@Regression Verify Elumina Registration for AM`, async ({ eluminaLoginPage
 
 /**PM */
 
-test(`@Regression Verify Elumina Login for PM`, async ({ eluminaLoginPage,eluminaMultipleExamsForPMPage, eluminaProctorExam, webActions }) => {
+test(`@Regression1 Verify Elumina Login for PM`, async ({ eluminaLoginPage, eluminaMultipleExamsForPMPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -86,7 +86,7 @@ test(`@Regression Verify Elumina Login for PM`, async ({ eluminaLoginPage,elumin
     });
 });
 
-test(`@Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(`@Regression1 Verify Elumina Registration for PM`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -94,20 +94,19 @@ test(`@Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage
         await eluminaLoginPage.loginToApplication();
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
-            const newtab = await eluminaProctorReg.iAuthorPageNavigations();
-            await newtab.registrationTabNavigationforPM();
-            await newtab.addExistingUsersforMultiple();
-            await newtab.downloadUserDetails();
+        const newtab = await eluminaProctorReg.iAuthorPageNavigations();
+        await newtab.registrationTabNavigationforPM();
+        await newtab.addExistingUsersforMultiple();
+        await newtab.downloadUserDetails();
     });
 });
 
-test(`@Regression Validation of Browser Reload option on Candidate Dashboard for AM EluminaRegressioniProctorTC_017`, async ({ eluminaProctorCand,webActions }) => {
+test(`@Regression1 Validation of Browser Reload option on Candidate Dashboard for AM EluminaRegressioniProctorTC_017`, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
-        eluminaProctorCand.candidateNavigateToURL();
-        });
-        await test.step(`Candidate Login to application`, async () => {
-            await eluminaProctorCand.candidateLoginToApplications();
-        });
+        await eluminaProctorCand.candidateNavigateToURL();
     });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaProctorCand.candidateLoginToApplications();
+    });
+});
 
-   

@@ -11,19 +11,19 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
@@ -65,53 +65,52 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 });         */
 
 
-test(`@Regression Validation of Proctoring Exam > Fragment streaming.`, async ({ eluminaCandPage,eluminaLoginPage,eluminaProctorCand,eluminaProctorReg,webActions }) => {
+test(`@Regression1 Validation of Proctoring Exam > Fragment streaming.`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-        });   
-        await test.step(`Navigate to Application`, async () => {
-            await eluminaProctorCand.clickOnAllLink();
-            const browser = await chromium.launch();
-            const context1 = await browser.newContext();
-            const page1 = await context1.newPage();
-            await page1.goto('/');
-            await page1.waitForLoadState();
-            await page1.locator('(//input)[1]').type(testData.UserEmail);
-            await page1.locator('(//input)[2]').type(testData.UserPassword);
-            await page1.locator('//*[@class="submit-butn"]').click();
-            const [newPage] = await Promise.all([
-                context1.waitForEvent('page'),
-                await page1.locator('//div[text()="iAuthor"]').click()
-              ]);
-            await newPage.locator('//a[text()="Registration"]').click();
-            await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
-            await newPage.locator('//a[text()="Live Monitor"]').click();
+    });
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaProctorCand.clickOnAllLink();
+        const browser = await chromium.launch();
+        const context1 = await browser.newContext();
+        const page1 = await context1.newPage();
+        await page1.goto('/');
+        await page1.waitForLoadState();
+        await page1.locator('(//input)[1]').type(testData.UserEmail);
+        await page1.locator('(//input)[2]').type(testData.UserPassword);
+        await page1.locator('//*[@class="submit-butn"]').click();
+        const [newPage] = await Promise.all([
+            context1.waitForEvent('page'),
+            await page1.locator('//div[text()="iAuthor"]').click()
+        ]);
+        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+        await newPage.locator('//a[text()="Live Monitor"]').click();
 
-            await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-            await newPage.locator('//a[@class="dropdown-toggle"]').click();
-            await newPage.locator('//p[text()="Verify Identity"]').click();
-            await newPage.locator('(//button[text()="Yes"])[1]').click();
-             await newPage.waitForTimeout(3000);
-
-             await eluminaProctorCand.againCandidateLogin();
-             await eluminaProctorCand.enterInvigilatorPassword();
-            await eluminaCandPage.candidateStartMCQ();
-            await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click();
-            await newPage.waitForTimeout(3000);
-            await newPage.locator('//img[@class="proctoringImg"]').click();
-            await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();
-            await newPage.waitForTimeout(3000);
-            await newPage.waitForSelector('//div[@class="fragment-item"]//div[@class="thumbnail-img"]',{timeout:10000});
-       let videos=await newPage.$$('//div[@class="fragment-item"]//div[@class="thumbnail-img"]');
-       for(let i=0;i<=videos.length-1;i++)
-      {
-        await videos[i].click();
+        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+        await newPage.locator('//a[@class="dropdown-toggle"]').click();
+        await newPage.locator('//p[text()="Verify Identity"]').click();
+        await newPage.locator('(//button[text()="Yes"])[1]').click();
         await newPage.waitForTimeout(3000);
 
-      }
-            await newPage.close();
-            await page1.close();
-        });
-       
+        await eluminaProctorCand.againCandidateLogin();
+        await eluminaProctorCand.enterInvigilatorPassword();
+        await eluminaCandPage.candidateStartMCQ();
+        await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click();
+        await newPage.waitForTimeout(3000);
+        await newPage.locator('//img[@class="proctoringImg"]').click();
+        await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();
+        await newPage.waitForTimeout(3000);
+        await newPage.waitForSelector('//div[@class="fragment-item"]//div[@class="thumbnail-img"]', { timeout: 10000 });
+        let videos = await newPage.$$('//div[@class="fragment-item"]//div[@class="thumbnail-img"]');
+        for (let i = 0; i <= videos.length - 1; i++) {
+            await videos[i].click();
+            await newPage.waitForTimeout(3000);
+
+        }
+        await newPage.close();
+        await page1.close();
+    });
+
 });

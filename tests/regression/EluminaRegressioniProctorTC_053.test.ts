@@ -13,21 +13,21 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
-} 
+}
 
 /**Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected*/
 
@@ -68,19 +68,19 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 });         */
 
 
-test(`@Regression Validation of Question numbers are displayed in Red, when Flag for Review is selected`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
+test(`@Regression1 Validation of Question numbers are displayed in Red, when Flag for Review is selected`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
 
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
 
-    });   
+    });
 
     await test.step('Invigilator  logging into Application', async () => {
 
-       // await eluminaProctorCand.clickOnAllLink();
-       await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+        // await eluminaProctorCand.clickOnAllLink();
+        await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -96,7 +96,7 @@ test(`@Regression Validation of Question numbers are displayed in Red, when Flag
 
             await page1.locator('//div[text()="iAuthor"]').click()
 
-          ]);
+        ]);
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
@@ -106,8 +106,8 @@ test(`@Regression Validation of Question numbers are displayed in Red, when Flag
 
         await newPage.close();
         await page1.close();
-    });   
-   
+    });
+
     await test.step('Verify Validation of Question numbers are displayed in Red, when Flag for Review is selected', async () => {
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();

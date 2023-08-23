@@ -11,19 +11,19 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
@@ -63,10 +63,10 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
         await newtab.addExistingUsers();
 
     });
-});       */                    
+});       */
 
 
-test(`@Regression Verify Validation of abrupt closure of browser`, async ({ eluminaProctorCand, eluminaCandPage,webActions }) => {
+test(`@Regression1 Verify Validation of abrupt closure of browser`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
 
@@ -79,7 +79,7 @@ test(`@Regression Verify Validation of abrupt closure of browser`, async ({ elum
 
         //await eluminaProctorCand.clickOnAllLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
-        
+
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
         const page1 = await context1.newPage();
@@ -91,31 +91,31 @@ test(`@Regression Verify Validation of abrupt closure of browser`, async ({ elum
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
-          ]);
-        
+        ]);
+
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
         await newPage.waitForTimeout(3000);
-    
+
         await newPage.close();
         await page1.close();
-    
+
 
     });
 
-    await test.step('Candidate starts and closes the page after attending two questions in the exam',async ()=> {
+    await test.step('Candidate starts and closes the page after attending two questions in the exam', async () => {
 
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaCandPage.candidateStartTwoMCQ();
-        
-    });
-});   
 
-test(`@Regression Verify Elumina candidate attends the exam after abrupt closure of browser`, async ({ eluminaProctorCand, eluminaCandPage,webActions }) => {
+    });
+});
+
+test(`@Regression1 Verify Elumina candidate attends the exam after abrupt closure of browser`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Candidate Login to application`, async () => {
 
         await eluminaProctorCand.candidateNavigateToURL();
@@ -133,22 +133,22 @@ test(`@Regression Verify Elumina candidate attends the exam after abrupt closure
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
-          ]);
-        
+        ]);
+
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
         await newPage.waitForTimeout(3000);
-    
+
         await newPage.close();
         await page1.close();
-    
+
 
     });
 
-    await test.step('Candidate completes the exam',async ()=> {
+    await test.step('Candidate completes the exam', async () => {
 
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();

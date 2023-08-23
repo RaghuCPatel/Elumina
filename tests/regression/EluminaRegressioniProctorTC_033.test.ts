@@ -11,21 +11,21 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
-} 
+}
 
 //Validation of Calculator
 
@@ -64,13 +64,13 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });          */
 
-test(`@Regression Validation of Calculator`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+test(`@Regression1 Validation of Calculator`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
 
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
 
-    });   
+    });
 
     await test.step('Invigilator  logging into Application', async () => {
 
@@ -92,7 +92,7 @@ test(`@Regression Validation of Calculator`, async ({ eluminaCandPage,eluminaPro
 
             await page1.locator('//div[text()="iAuthor"]').click()
 
-          ]);
+        ]);
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
@@ -102,29 +102,29 @@ test(`@Regression Validation of Calculator`, async ({ eluminaCandPage,eluminaPro
 
         await newPage.close();
         await page1.close();
-    });   
-   
-    await test.step('Candidate start the exam',async ()=> {
+    });
+
+    await test.step('Candidate start the exam', async () => {
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaCandPage.UsingCalculatorForQuestions();
         console.log("Candidate is able to use Calculator")
     });
-    
+
 });
 
-test(`@Regression Validation of  Cloud indication -  (Status is Complted) RegressioniProctorTC_046`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+test(`@Regression1 Validation of  Cloud indication -  (Status is Complted) RegressioniProctorTC_046`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
 
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
 
-    });   
+    });
 
     await test.step('Invigilator  logging into Application', async () => {
 
-       // await eluminaProctorCand.clickOnAllLink();
-       await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+        // await eluminaProctorCand.clickOnAllLink();
+        await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
 
         const browser = await chromium.launch();
@@ -141,7 +141,7 @@ test(`@Regression Validation of  Cloud indication -  (Status is Complted) Regres
 
             await page1.locator('//div[text()="iAuthor"]').click()
 
-          ]);
+        ]);
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
@@ -151,28 +151,28 @@ test(`@Regression Validation of  Cloud indication -  (Status is Complted) Regres
 
         await newPage.close();
         await page1.close();
-    });   
-   
-    await test.step('Candidate start the exam',async ()=> {
+    });
+
+    await test.step('Candidate start the exam', async () => {
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaCandPage.waitforTime1();
         await eluminaCandPage.updatedCloudIcon();
     });
-    
-});    
-         
-test(`@Regression Verify Validation of adding notes in the Exam RegressioniProctorTC_055`, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
+
+});
+
+test(`@Regression1 Verify Validation of adding notes in the Exam RegressioniProctorTC_055`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
 
-    });  
+    });
     await test.step(`Candidate Login to application`, async () => {
-      //  await eluminaProctorCand.clickOnAllLink();
-      await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
+        //  await eluminaProctorCand.clickOnAllLink();
+        await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
-        
+
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
         const page1 = await context1.newPage();
@@ -184,24 +184,24 @@ test(`@Regression Verify Validation of adding notes in the Exam RegressioniProct
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
-          ]);
-        
+        ]);
+
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
         await newPage.waitForTimeout(3000);
-    
+
         await newPage.close();
         await page1.close();
     });
 
-    await test.step('Candidate start the exam',async ()=> {
+    await test.step('Candidate start the exam', async () => {
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaCandPage.AddingNotesToQuestionSingle();
 
 
     });
-    
+
 });

@@ -22,7 +22,7 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
     });
 });
 
-test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -39,29 +39,31 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
 
 /**Validation of Candidate Exam section - exam name, candidate name, exam timer and no of questions in the exam as per exam settings.*/
 test(`@Regression Verify Validation of the following in the Exam Section
-Exam name, Candidate name, Exam timer, no of questions as per exam created EluminaRegressioniExamTC_051`, async ({ eluminaCandPage,webActions }) => {
+Exam name, Candidate name, Exam timer, no of questions as per exam created EluminaRegressioniExamTC_051`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime2();
+
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
     });
-    await test.step('Candidate start the exam',async ()=> {
+    await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.examSectionValidation();
     });
-    
+
 });
 
-test(`@Regression Validation of candidate able to submit the exam when not answering all questions`, async ({ eluminaCandPage,webActions }) => {
+test(`@Regression Validation of candidate able to submit the exam when not answering all questions`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
     });
-    await test.step('Candidate start the exam',async ()=> {
+    await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.NotAnsweringQuestion();
     });
-    
+
 });

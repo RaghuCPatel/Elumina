@@ -11,19 +11,19 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
@@ -48,7 +48,7 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
     });
 });
 
-test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -62,20 +62,20 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});      
+});
 
-test(`@Regression Verify Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)`, async ({eluminaCandPage, eluminaCadInvPage,webActions }) => {
+test(`@Regression Verify Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)`, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
 
-        
-    });   
-    await test.step('Candidate start the exam',async ()=> {
-       await eluminaCandPage.verifyExamDashboardTimer();
+
+    });
+    await test.step('Candidate start the exam', async () => {
+        await eluminaCandPage.verifyExamDashboardTimer();
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -88,27 +88,27 @@ test(`@Regression Verify Validation of Invigilator Dashboard after the Exam Comp
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
-          ]);
-          
-        
-          await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
-       
-          //await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//input').click();
-          await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
-          await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[5]').click();
-          await newPage.locator('(//button[text()="Yes"])[2]').click();
-          await newPage.waitForTimeout(5000);
-        
+        ]);
+
+
+        await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
+
+        //await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//input').click();
+        await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
+        await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[5]').click();
+        await newPage.locator('(//button[text()="Yes"])[2]').click();
+        await newPage.waitForTimeout(5000);
+
         await eluminaCadInvPage.againCandidateLogin();
 
         await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click()
         await newPage.waitForTimeout(8000);
-         await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
-         await newPage.locator('//div[@title="Resume Exam for all Candidates"]').click();
-         await newPage.locator('(//button[text()="Yes"])[2]').click();
-         await newPage.waitForTimeout(3000);
-       //await eluminaCandPage.candidateStartMCQAndSubmit();
-         await newPage.close();
+        await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
+        await newPage.locator('//div[@title="Resume Exam for all Candidates"]').click();
+        await newPage.locator('(//button[text()="Yes"])[2]').click();
+        await newPage.waitForTimeout(3000);
+        //await eluminaCandPage.candidateStartMCQAndSubmit();
+        await newPage.close();
         await page1.close();
 
     });
