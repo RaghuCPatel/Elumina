@@ -113,6 +113,7 @@ test(`@Regression Validation of Calculator`, async ({ eluminaCandPage, eluminaPr
 
 });
 
+
 test(`@Regression Validation of  Cloud indication -  (Status is Complted) RegressioniProctorTC_046`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
 

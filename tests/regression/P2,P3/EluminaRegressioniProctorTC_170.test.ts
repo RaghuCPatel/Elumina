@@ -11,21 +11,21 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
-} 
+}
 
 //Validation of Exam content section >  Chat App
 
@@ -99,17 +99,17 @@ else if(process.env.ENV == 'staging'){
 //         await newPage.close();
 //         await page1.close();
 //     });
-   
+
 //     await test.step('Verify Validation of Changing Font Size to Decrease on the Dashboard', async () => {
 //         await eluminaProctorCand.againCandidateLogin();
 //         await eluminaProctorCand.enterInvigilatorPassword();
 //         await eluminaProctorCand.chatApp();
 //     });
-    
+
 // });
 
 
-test(`@RegressioniP Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App TC-169`, async ({ eluminaProctorCand,webActions }) => {
+test(`@RegressionP Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App TC-169`, async ({ eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
@@ -132,7 +132,7 @@ test(`@RegressioniP Validation of Candidate Proctoring Exam pheripheral checkup 
 
             await page1.locator('//div[text()="iAuthor"]').click()
 
-          ]);
+        ]);
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
@@ -143,11 +143,11 @@ test(`@RegressioniP Validation of Candidate Proctoring Exam pheripheral checkup 
         await newPage.close();
         await page1.close();
     });
-   
+
     await test.step('Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App', async () => {
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaProctorCand.chatAppMessageSent();
     });
-    
+
 });

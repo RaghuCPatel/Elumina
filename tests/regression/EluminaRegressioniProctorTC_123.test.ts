@@ -76,8 +76,8 @@ test(`@Regression Validation of Proctoring Exam Event > Awaiting Exam Start`, as
 });
 
 
-test(`@Regression Verify Elumina Invigilator terminating exam for candidate EluminaRegressioniProctorTC_056`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
+test(`@Regression Verify Elumina Invigilator terminating exam for candidate EluminaRegressioniProctorTC_056`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step('Candidate logging into application', async () => {
 
         await eluminaProctorCand.candidateNavigateToURL();

@@ -11,7 +11,7 @@ test(`@Regression Validation of Invigilator Dashboard after the Exam Completion 
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaInvPage.iAuthorPageNavigation();
         await newtab.invDashboardValidations();
-        await newtab.invClickOnExam();
+        await newtab.clickonexam();
 
     });
 });

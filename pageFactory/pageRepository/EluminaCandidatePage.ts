@@ -1226,6 +1226,8 @@ export class EluminaCandidatePage {
         await this.inceaseSize.click();
         await this.inceaseSize.click();
         await this.page.waitForTimeout(5000);
+        await this.popupOK.click();
+        await this.page.waitForTimeout(2000);
         await this.decreaseSize.click();
         await this.decreaseSize.click();
         await this.decreaseSize.click();

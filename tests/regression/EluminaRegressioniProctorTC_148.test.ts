@@ -28,7 +28,7 @@ else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
-/**Validation of multiple Exams on the dashboard for different time (Say one in AM & another in PM) EluminaRegressioniProctorTC_017*/
+/**Validation of multiple Exams on the dashboard for different time (Say one in AM & another in PM) EluminaRegression iProctorTC_017*/
 
 /**AM */
 test(`@Regression Verify Elumina Login fpr AM`, async ({ eluminaLoginPage, eluminaMultipleExamsForAMPage, eluminaProctorExam, webActions }) => {
@@ -100,6 +100,7 @@ test(`@Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage
         await newtab.downloadUserDetails();
     });
 });
+
 
 test(`@Regression Validation of Browser Reload option on Candidate Dashboard for AM EluminaRegressioniProctorTC_017`, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {

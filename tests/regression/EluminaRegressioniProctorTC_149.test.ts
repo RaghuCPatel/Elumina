@@ -29,6 +29,7 @@ else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
+
 /** Validation Validate Survey screen EluminaRegressioniProctorTC_083*/
 test(`@Regression Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -67,6 +68,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, elumi
         await newtab.addExistingUsers();
     });
 });
+
 
 test(`@Regression Verify Validation of Survey screen EluminaRegressioniProctorTC_083`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
