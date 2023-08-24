@@ -11,19 +11,19 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
@@ -49,7 +49,7 @@ test(`@RegressionP Verify Elumina Login and Create Exam`, async ({ eluminaLoginP
     });
 });
 
-test(`@RegressionP Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@RegressionP Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -63,36 +63,37 @@ test(`@RegressionP Verify Elumina RegistrationInv and add User and Invigilator`,
         await newtab.downloadUserDetails();
         await newtab.logoutClick();
     });
-});            
+});
 
-test(`@RegressionP Verify Validation of candidate response using Image Viewer in exam`, async ({ eluminaCandPage,webActions }) => {
+test(`@RegressionP Verify Validation of candidate response using Image Viewer in exam`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
         await eluminaCandPage.candidateStartOneMCQwithViewer();
-            const browser = await chromium.launch();
-                const context1 = await browser.newContext();
-                const page1 = await context1.newPage();
-                await page1.goto('/');
-                await page1.waitForLoadState();
-                await page1.locator('(//input)[1]').type(testData.UserEmail);
-                await page1.locator('(//input)[2]').type(testData.UserPassword);
-                await page1.locator('//*[@class="submit-butn"]').click();
-                const [newPage] = await Promise.all([
-                    context1.waitForEvent('page'),
-                    await page1.locator('//div[text()="iAuthor"]').click()
-                  ]);
-                await newPage.locator('//a[text()="Registration"]').click();
-                await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
-                await newPage.locator('//a[text()="Live Monitor"]').click();           
-                await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
-                await newPage.waitForTimeout(3000);
-                //let loginSuccess=await newPage.locator('(//div[contains(text(),"Login Success")])[1]').textContent();
-                console.log("Candidate Response is validated with Image Viewer");
-                await newPage.waitForTimeout(3000);
-                await newPage.close();
-                await page1.close();        
-        });
+        const browser = await chromium.launch();
+        const context1 = await browser.newContext();
+        const page1 = await context1.newPage();
+        await page1.goto('/');
+        await page1.waitForLoadState();
+        await page1.locator('(//input)[1]').type(testData.UserEmail);
+        await page1.locator('(//input)[2]').type(testData.UserPassword);
+        await page1.locator('//*[@class="submit-butn"]').click();
+        const [newPage] = await Promise.all([
+            context1.waitForEvent('page'),
+            await page1.locator('//div[text()="iAuthor"]').click()
+        ]);
+        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+        await newPage.locator('//a[text()="Live Monitor"]').click();
+        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
+        await newPage.waitForTimeout(3000);
+        //let loginSuccess=await newPage.locator('(//div[contains(text(),"Login Success")])[1]').textContent();
+        console.log("Candidate Response is validated with Image Viewer");
+        await newPage.waitForTimeout(3000);
+        await newPage.close();
+        await page1.close();
     });
+});

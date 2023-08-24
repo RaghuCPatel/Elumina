@@ -113,7 +113,7 @@ test(`@Regression1 Validation of Calculator`, async ({ eluminaCandPage, eluminaP
 
 });
 
-test(`@Regression1 Validation of  Cloud indication -  (Status is Complted) RegressioniProctorTC_046`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(`@Regression1 Validation of  Cloud indication -  (Status is Complted) Regression iProctorTC_046`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
 
         await eluminaProctorCand.candidateNavigateToURL();

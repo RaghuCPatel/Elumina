@@ -28,7 +28,7 @@ else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
-/** Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036*/
+/** Validation of different Question types - Able to Answer all types EluminaRegressionProctorTC_036*/
 test(`@Regression1 Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
@@ -69,7 +69,7 @@ test(`@Regression1 Verify Elumina RegistrationInv and add User and Invigilator`,
     });
 });
 
-test(`@Regression1 Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(`@Regression1 Validation of different Question types - Able to Answer all types EluminaRegressionProctorTC_036`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
