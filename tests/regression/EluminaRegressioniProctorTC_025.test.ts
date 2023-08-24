@@ -32,7 +32,7 @@ else if (process.env.ENV == 'staging') {
 //Validation of Questions, Videos & audio being downloaded as soon as the Exam Started
 
 
-test(`@Regression1 Validation of Questions, Videos & audio being downloaded as soon as the Exam Started`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`@Regression Validation of Questions, Videos & audio being downloaded as soon as the Exam Started`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

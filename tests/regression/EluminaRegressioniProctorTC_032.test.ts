@@ -66,7 +66,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });          */
 
-test(`@Regression1 Validation of Adding & Saving notes`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`@Regression Validation of Adding & Saving notes`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
 

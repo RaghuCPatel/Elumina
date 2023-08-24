@@ -64,7 +64,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });        */
 
-test(`@Regression1 Validation of Camera Connection Verified`, async ({ eluminaProctorCand, eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(`@Regression Validation of Camera Connection Verified`, async ({ eluminaProctorCand, eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
@@ -93,8 +93,8 @@ test(`@Regression1 Validation of Camera Connection Verified`, async ({ eluminaPr
         await newPage.locator('//a[text()="Live Monitor"]').click();
         await newPage.locator('//img[@class="proctoringImg"]').click();
         await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();
-        await newPage.locator('//div[contains(text(),"Camera Verified")]').isVisible();
-        let cameraVerified = await newPage.locator('//div[contains(text(),"Camera Verified")]').textContent();
+        await newPage.locator('(//div[contains(text(),"Camera Verified")])[1]').isVisible();
+        let cameraVerified = await newPage.locator('(//div[contains(text(),"Camera Verified")])[1]').textContent();
         console.log(cameraVerified);
         await newPage.waitForTimeout(3000);
         await newPage.close();

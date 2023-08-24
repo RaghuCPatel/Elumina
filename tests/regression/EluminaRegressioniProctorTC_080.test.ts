@@ -65,7 +65,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });                    */
 
-test(`@Regression1 extending exam for the candidate by invigilator`, async ({ eluminaProctorCand, webActions }) => {
+test(`@Regression extending exam for the candidate by invigilator`, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

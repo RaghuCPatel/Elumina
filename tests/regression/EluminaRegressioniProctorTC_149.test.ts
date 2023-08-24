@@ -30,7 +30,7 @@ else if (process.env.ENV == 'staging') {
 }
 
 /** Validation Validate Survey screen EluminaRegressioniProctorTC_083*/
-test(`@Regression1 Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`@Regression Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -52,7 +52,7 @@ test(`@Regression1 Verify Elumina Create Exam with survey section`, async ({ elu
     });
 });
 
-test(`@Regression1 Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -68,7 +68,7 @@ test(`@Regression1 Verify Elumina Registration`, async ({ eluminaLoginPage, elum
     });
 });
 
-test(`@Regression1 Verify Validation of Survey screen EluminaRegressioniProctorTC_083`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(`@Regression Verify Validation of Survey screen EluminaRegressioniProctorTC_083`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

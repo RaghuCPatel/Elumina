@@ -65,7 +65,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });       */
 
-test(`@Regression1 Validation marking attendance for individual`, async ({ eluminaProctorCand, webActions }) => {
+test(`@Regression Validation marking attendance for individual`, async ({ eluminaProctorCand, webActions }) => {
 
     await test.step('Invigilator login', async () => {
         const browser = await chromium.launch();

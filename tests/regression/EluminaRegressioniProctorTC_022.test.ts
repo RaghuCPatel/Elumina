@@ -66,7 +66,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 });        */
 
 
-test(`@Regression1 Validation of Changing Font Size to Decrease on the Dashboard`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`@Regression Validation of Changing Font Size to Decrease on the Dashboard`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
 

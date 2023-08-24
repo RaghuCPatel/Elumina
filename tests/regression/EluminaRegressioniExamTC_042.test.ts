@@ -47,7 +47,8 @@ test(`@Regression Verify Validation of Candidate attends All Question type`, asy
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
-        //await eluminaCandPage.waitforTime2();
+        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime3();
 
 
     });

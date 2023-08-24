@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 }
 
 /** Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036*/
-test(`@Regression1 Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -54,7 +54,7 @@ test(`@Regression1 Verify Elumina Login and Create Exam`, async ({ eluminaLoginP
     });
 });
 
-test(`@Regression1 Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -69,11 +69,12 @@ test(`@Regression1 Verify Elumina RegistrationInv and add User and Invigilator`,
     });
 });
 
-test(`@Regression1 Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(`@Regression Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime4();
         await eluminaProctorCand.candidateLoginToApplications();
     });
 

@@ -3,7 +3,7 @@ import test from '@lib/BaseTest';
 /**Validation of user authentication by invalid Candidate Creadentials */
 
 
-test(`@Regression1 Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -25,7 +25,7 @@ test(`@Regression1 Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHome
     });
 });
 
-test(`@Regression1 Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -41,7 +41,7 @@ test(`@Regression1 Verify Elumina Registration`, async ({ eluminaLoginPage, elum
 });
 
 
-test(`@Regression1 Verify Elumina Login with diff venu`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(`@Regression Verify Elumina Login with diff venu`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -62,7 +62,7 @@ test(`@Regression1 Verify Elumina Login with diff venu`, async ({ eluminaLoginPa
     });
 });
 
-test(`@Regression1 Verify Elumina Registration and adding existing user`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(`@Regression Verify Elumina Registration and adding existing user`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -78,7 +78,7 @@ test(`@Regression1 Verify Elumina Registration and adding existing user`, async 
     });
 });
 
-test(`@Regression1 Validation of user authentication by invalid Candidate Creadentials`, async ({ eluminaCandPage, webActions }) => {
+test(`@Regression Validation of user authentication by invalid Candidate Creadentials`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

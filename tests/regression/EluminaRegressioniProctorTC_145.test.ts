@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Proctoring Completed Exam candidate > Complete user journey events validation.
 
-test(`@Regression1 Validation of Proctoring Completed Exam candidate > Complete user journey events validation.`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorExam, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(`@Regression Validation of Proctoring Completed Exam candidate > Complete user journey events validation.`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorExam, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await test.step(`Navigate to Application`, async () => {
             await eluminaLoginPage.navigateToURL();

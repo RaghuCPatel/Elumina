@@ -31,7 +31,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Browser Reload option on Candidate Dashboard
 
-test(`@Regression1 Validation of Browser Reload option on Candidate Dashboard`, async ({ eluminaProctorCand, webActions }) => {
+test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });

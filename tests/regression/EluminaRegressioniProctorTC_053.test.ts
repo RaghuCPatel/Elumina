@@ -68,7 +68,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 });         */
 
 
-test(`@Regression1 Validation of Question numbers are displayed in Red, when Flag for Review is selected`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`@Regression Validation of Question numbers are displayed in Red, when Flag for Review is selected`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
 
