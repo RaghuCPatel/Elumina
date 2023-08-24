@@ -12,24 +12,24 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
 /** Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036*/
-test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`@Regression1 Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -54,7 +54,7 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
     });
 });
 
-test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression1 Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -69,36 +69,37 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
 });
 
-test(`@Regression Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+test(`@Regression1 Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime3();
         await eluminaProctorCand.candidateLoginToApplications();
-        }); 
+    });
 
     await test.step(`Candidate Login to application`, async () => {
         await eluminaProctorCand.clickOnAllLink();
         const browser = await chromium.launch();
-            const context1 = await browser.newContext();
-            const page1 = await context1.newPage();
-            await page1.goto('/');
-            await page1.waitForLoadState();
-            await page1.locator('(//input)[1]').type(testData.UserEmail);
-            await page1.locator('(//input)[2]').type(testData.UserPassword);
-            await page1.locator('//*[@class="submit-butn"]').click();
-            const [newPage] = await Promise.all([
-                context1.waitForEvent('page'),
-                await page1.locator('//div[text()="iAuthor"]').click()
-              ]);
-            await newPage.locator('//a[text()="Registration"]').click();
-            await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
-            await newPage.locator('//a[text()="Live Monitor"]').click();
+        const context1 = await browser.newContext();
+        const page1 = await context1.newPage();
+        await page1.goto('/');
+        await page1.waitForLoadState();
+        await page1.locator('(//input)[1]').type(testData.UserEmail);
+        await page1.locator('(//input)[2]').type(testData.UserPassword);
+        await page1.locator('//*[@class="submit-butn"]').click();
+        const [newPage] = await Promise.all([
+            context1.waitForEvent('page'),
+            await page1.locator('//div[text()="iAuthor"]').click()
+        ]);
+        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+        await newPage.locator('//a[text()="Live Monitor"]').click();
 
-            await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-            await newPage.locator('//a[@class="dropdown-toggle"]').click();
-            await newPage.locator('//p[text()="Verify Identity"]').click();
-            await newPage.locator('(//button[text()="Yes"])[1]').click();
-             await newPage.waitForTimeout(3000);
+        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+        await newPage.locator('//a[@class="dropdown-toggle"]').click();
+        await newPage.locator('//p[text()="Verify Identity"]').click();
+        await newPage.locator('(//button[text()="Yes"])[1]').click();
+        await newPage.waitForTimeout(3000);
 
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();

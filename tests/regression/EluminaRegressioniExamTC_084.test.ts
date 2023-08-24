@@ -22,39 +22,40 @@ test(`@Regression Verify Elumina Create Exam with survey section`, async ({ elum
         await newtab.addMCQQuestion();
         await newtab.createSurveySection();
         await newtab.createSurveyPage();
-        
+
     });
 });
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
-        await test.step(`Navigate to Application`, async () => {
-            await eluminaLoginPage.navigateToURL();
-        });
-        await test.step(`Login to Elumina application`, async () => {
-            await eluminaLoginPage.loginToApplication();
-        });
-        await test.step(`Navigate to exam Tab and Create New user`, async () => {
-            const newtab = await eluminaRegPage.iAuthorPageNavigations();
-            await newtab.registrationTabNavigation();
-            await newtab.addUserDetails();
-            await newtab.downloadUserDetails();
-        });
+test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
     });
-    
-    test(`@Regression Verify Validation of Survey screen and Validate Survey screen where candidate
-    can provide feedback in comment section TC-084 and TC-085`, async ({ eluminaCandPage,webActions }) => {
-        await test.step(`Navigate to Application`, async () => {
-            await eluminaCandPage.candidateNavigateToURL();
-        });
-        await test.step(`Candidate Login to application`, async () => {
-            await eluminaCandPage.candidateLoginToApplication();
-            await eluminaCandPage.candidateSurveyStartOneMCQ();
-            await eluminaCandPage.examSectionValidation();
-            await eluminaCandPage.candidateAnsSurveyQuestion();
+    await test.step(`Login to Elumina application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Navigate to exam Tab and Create New user`, async () => {
+        const newtab = await eluminaRegPage.iAuthorPageNavigations();
+        await newtab.registrationTabNavigation();
+        await newtab.addUserDetails();
+        await newtab.downloadUserDetails();
+    });
+});
 
-       
-        });
-        
+test(`@Regression Verify Validation of Survey screen and Validate Survey screen where candidate
+    can provide feedback in comment section TC-084 and TC-085`, async ({ eluminaCandPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime();
     });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateSurveyStartOneMCQ();
+        await eluminaCandPage.examSectionValidation();
+        await eluminaCandPage.candidateAnsSurveyQuestion();
+
+
+    });
+
+});
 
 

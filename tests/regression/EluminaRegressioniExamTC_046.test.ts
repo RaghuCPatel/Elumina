@@ -20,7 +20,7 @@ test(`@Regression Verify Elumina Login and create exam `, async ({ eluminaLoginP
     });
 });
 
-test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -38,13 +38,13 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
 test(`@Regression Validation of "Time Remaining" pop-up when the just before the exam time runs out`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime3();
-        await eluminaCandPage.waitforTime2();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
     });
-    await test.step('Candidate start the exam',async ()=> {
+    await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candidateStartExamforMinimalTime();
     });
 });

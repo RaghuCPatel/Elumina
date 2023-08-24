@@ -485,9 +485,11 @@ export class EluminaCandidatePage {
     async waitforTime2() {
         await this.page.waitForTimeout(5000);
     }
+  
     async waitforTime3() {
-        await this.page.waitForTimeout(10000);
+        await this.page.waitForTimeout(17000);
     }
+  
     async updatedCloudIcon() {
         await this.page.waitForTimeout(5000);
         await expect(this.cloudUpdatedIcon).toBeVisible();
@@ -595,7 +597,7 @@ export class EluminaCandidatePage {
         const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
         console.log('Number of questions-' + qutns.length);
         const Ttl = qutns.length - 1;
-        for (let i = 1; i <= 2; i++) {
+        for (let i = 0; i < 2; i++) {
             await qutns[i].click();
             await this.ansMCQQuestions.click();
             await this.ClickOnNextBtn.click();
@@ -1005,12 +1007,12 @@ export class EluminaCandidatePage {
         const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
         console.log('Number of questions-' + qutns.length);
         const Ttl = qutns.length - 1;
-        for (let i = 0; i <= qutns.length - 2; i++) {
+        for (let i = 0; i < qutns.length - 2; i++) {
             await qutns[i].click();
             await this.ansMCQQuestions.click();
             await this.ClickOnNextBtn.click();
         }
-        await this.page.locator('(//div[@class="question-number-container"]//div//p)[4]').click();
+        await this.page.locator('(//div[@class="question-number-container"]//div//p)[3]').click();
         await this.flagForReviewQuestions.click();
         await this.ClickOnNextBtn.click();
         await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();

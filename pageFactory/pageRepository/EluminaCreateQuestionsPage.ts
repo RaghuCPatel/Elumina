@@ -96,6 +96,9 @@ export class EluminaCreateQuestionsPage {
     readonly ClickOnTypeB: Locator;
     readonly Optional: Locator;
     readonly ClickOnOptionBRadioBtn: Locator;
+    readonly ClickOnSJT: Locator;
+    readonly ClickOnAppropriateRadioBtn: Locator;
+    readonly EnterMarksInSJT: Locator;
     readonly ISAWEQuestionsClick: Locator;
     readonly QuestionsText: Locator;
     readonly Answer: Locator;
@@ -108,6 +111,7 @@ export class EluminaCreateQuestionsPage {
     readonly SaveDraft: Locator
     readonly clickImage: Locator;
     readonly InsertImageClick: Locator;
+
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -131,11 +135,29 @@ export class EluminaCreateQuestionsPage {
         this.OptionD = page.frameLocator('(//iframe[@title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help"])[6]').locator('html');
         this.OptionE = page.frameLocator('(//iframe[@title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help"])[7]').locator('html');
         this.Optional = page.frameLocator('(//iframe[@title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help"])[8]').locator('html');
-        this.ControlIndicator = page.locator('(//div[@class="control__indicator"])[3]');
+        this.ControlIndicator = page.locator('(//div[@class="control__indicator"])[2]');
+        this.ControlIndicator1 = page.locator('(//div[@class="control__indicator"])[3]');
         this.SubmitAndApprove = page.locator('//button[text()="Submit & Approve"]');
         this.SuccessMessage = page.locator('//div[@class="txtBox"]')
         this.ClickOnNextBtn = page.locator('//button[normalize-space()="Next"]');
-
+        this.VerifyquestionID = page.locator('(//table[@class="table"]//thead//tr//th[2]//div//span[1])[1]')
+        this.VerifyquestioTitle = page.locator('(//table[@class="table"]//thead//tr//th[3]//div//span[1])[1]')
+        this.VerifyquestionText = page.locator('(//table[@class="table"]//thead//tr//th[4]//div//span[1])[1]')
+        this.VerifyquestionType = page.locator('(//table[@class="table"]//thead//tr//th[5]//div//span[1])[1]')
+        this.VerifyquestionDescription = page.locator('(//table[@class="table"]//thead//tr//th[6]//div//span[1])[1]')
+        this.VerifyquestionBank = page.locator('(//table[@class="table"]//thead//tr//th[7]//div//span[1])[1]')
+        this.VerifyquestionCreatedBy = page.locator('(//table[@class="table"]//thead//tr//th[8]//div//span[1])[1]')
+        this.VerifyquestionLastmodifiedBy = page.locator('(//table[@class="table"]//thead//tr//th[9]//div//span[1])[1]')
+        this.VerifyquestionStatus = page.locator('(//table[@class="table"]//thead//tr//th[10]//div//span[1])[1]')
+        this.VerifyquestionCreatedDate = page.locator('(//table[@class="table"]//thead//tr//th[11]//div//span[1])[1]')
+        this.VerifyquestionLastDateUpdated = page.locator('(//table[@class="table"]//thead//tr//th[12]//div//span[1])[1]')
+        this.VerifyquestionUsedInExams = page.locator('(//table[@class="table"]//thead//tr//th[13]//div//span[1])[1]')
+        this.VerifyquestionUsedInBlueprints = page.locator('(//table[@class="table"]//thead//tr//th[14]//div//span[1])[1]')
+        this.VerifyquestionMore = page.locator('//table[@class="table"]//thead//tr//th[15]')
+        this.ClickOnCreateQuestion = page.locator('//button[normalize-space()="Create Question"]')
+        this.SearchQuestion = page.locator('//input[@placeholder="Search Question Type"]')
+        this.ClickOnSearchedQuestion = page.locator('//div[@class="card-container"]//p')
+        this.ValidateCreateQuestionPage = page.locator('//h4[@class="subMenu-txt"]')
         this.VerifyquestionID = page.locator('(//table[@class="table"]//thead//tr//th[2]//div//span[1])[1]')
         this.VerifyquestioTitle = page.locator('(//table[@class="table"]//thead//tr//th[3]//div//span[1])[1]')
         this.VerifyquestionText = page.locator('(//table[@class="table"]//thead//tr//th[4]//div//span[1])[1]')
@@ -155,13 +177,10 @@ export class EluminaCreateQuestionsPage {
         this.SearchQuestion = page.locator('//input[@placeholder="Search Question Type"]')
         this.ClickOnSearchedQuestion = page.locator('//div[@class="card-container"]//p')
         this.ValidateCreateQuestionPage = page.locator('//h4[@class="subMenu-txt"]')
-
         this.VerifyPopupWtoutselctQuestion = page.locator('//span[normalize-space()="Kindly choose any question type"]')
         this.VerifyNoRecordsFoundStatus = page.locator('//p[normalize-space()="No Record(s) found"]');
-
         this.ClickOnProfile = page.locator('//i[@class="menuIcons profileIcon"]')
         this.ClickOnLogout = page.locator('//a[normalize-space()="Log out"]')
-
         this.Invalidpopupmessage = page.locator('//div[text()="Invalid username or password."]');
         this.USERNAME_EDITBOX = page.locator('(//input)[1]');
         this.PASSWORD_EDITBOX = page.locator('(//input)[2]');
@@ -170,10 +189,12 @@ export class EluminaCreateQuestionsPage {
         this.ClickOnVSAQ = page.locator('//p[normalize-space()="VSAQ"]');
         this.EnterMarks = page.locator('(//span[@class="input-mark"])[1]//input')
         this.EnterMarksInAns = page.locator('(//span[@class="input-mark"])[2]//input')
+        
         this.AddImage = page.locator('(//div[@class="btn-addimg"])[1]')
         this.ClickOnUploadImageBtn = page.locator('//button[normalize-space()="Upload Image/File"]')
         this.ClickOnInsertImageFile = page.locator('//div[@class="dz-text"]');
         this.InsertImageClick = page.locator('(//button[@class="btn primarybtn"])[2]');
+
         this.EnterAnsKey = page.locator('//div[@class="midcontent"]//input')
         this.ClickOnSaveDraft = page.locator('//button[normalize-space()="Save Draft"]')
         this.ClickOnEditQuestion = page.locator('//button[normalize-space()="Edit this Question"]')
@@ -181,6 +202,9 @@ export class EluminaCreateQuestionsPage {
         this.ClickOnApprove = page.locator('//button[normalize-space()="Approve"]')
         this.ValidateSuccessfulPopMessage = page.locator('//span[text()="Status has been updated successfully."]')
         this.ClickOnTypeB = page.locator('//p[normalize-space()="Type B"]')
+        this.ClickOnSJT = page.locator('//p[normalize-space()="SJT"]')
+        this.ClickOnAppropriateRadioBtn = page.locator('//div[@class="col-5 col-xlg-6 ng-star-inserted"]//div[2]//qms-radio-button[1]//label[1]//div[1]');
+        this.EnterMarksInSJT = page.locator('//div[@class="mark-input-box ng-star-inserted"]//input[@type="number"]')
         this.ClickOnOptionBRadioBtn = page.locator('(//div[@class="control__indicator"])[3]');
         this.QuestionsText = page.frameLocator('(//iframe[@title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help"])[3]').locator('html');
         this.Answer = page.frameLocator('(//iframe[@title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help"])[4]').locator('html');
@@ -214,6 +238,7 @@ export class EluminaCreateQuestionsPage {
         await this.PASSWORD_EDITBOX.fill(testData.InvalidAdminUserPassword);
         await this.LOGIN_BUTTON.click();
     }
+
 
     /**Method for Question Menu click on Menu bar */
     async QuestionsMenuClick(): Promise<void> {
@@ -270,12 +295,38 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(3000);
     }
 
-    /**Method to creayte Question and Search */
+    /**Method to create Question and Search to validate popup */
     async validatePopupWithoutSelctAQuestion() {
         await this.ClickOnCreateQuestion.click()
         await this.ClickOnNextBtn.click();
         await expect(this.VerifyPopupWtoutselctQuestion).toBeVisible();
         await this.page.waitForTimeout(3000);
+    }
+
+    async searchValidValue() {
+        await this.SearchQuestion.click()
+        await this.SearchQuestion.type(testData.SearchQuestion)
+        await this.page.waitForTimeout(2000);
+        console.log("Valid text:", await this.ClickOnSearchedQuestion.textContent());
+        await this.SearchQuestion.clear();
+        await this.SearchQuestion.type("ABC")
+        await this.page.waitForTimeout(2000);
+        console.log("Invalid text", await this.VerifyNoRecordsFoundStatus.textContent())
+        await this.SearchQuestion.clear();
+        await this.SearchQuestion.type(testData.SearchQuestion)
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSearchedQuestion.click()
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnNextBtn.click();
+        await expect(this.ValidateCreateQuestionPage).toBeVisible();
+        await this.page.waitForTimeout(3000);
+    }
+
+
+    /**Methods to logout as a admin */
+    async adminLogout() {
+        await this.ClickOnProfile.click();
+        await this.ClickOnLogout.click()
     }
 
     async searchValidValue() {
@@ -313,7 +364,7 @@ export class EluminaCreateQuestionsPage {
         await this.SelectQuestionBank.type(testData.TestBank2);
         await this.SelectTestBank.click();
         await this.page.waitForTimeout(2000);
-        await this.QuestionTopic.type('Sample MCQ Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.QuestionTopic.type('Sample MCQ Questions' + Math.floor(Math.random() * 8999 + 1000));
         await this.page.waitForTimeout(2000);
         await this.QuestionAims.click();
         await this.QuestionAims.type(testData.QuestionAims);
@@ -355,7 +406,7 @@ export class EluminaCreateQuestionsPage {
         await this.SelectQuestionBank.type(testData.TestBank2);
         await this.SelectTestBank.click();
         await this.page.waitForTimeout(2000);
-        await this.QuestionTopic.type('Sample MCQ Questions' + Math.floor(Math.random() * 8999 + 1000));
+        await this.QuestionTopic.type('Sample VSAQ Questions' + Math.floor(Math.random() * 8999 + 1000));
         await this.page.waitForTimeout(2000);
         await this.QuestionAims.click();
         await this.QuestionAims.type(testData.Question);
@@ -403,7 +454,7 @@ export class EluminaCreateQuestionsPage {
         await this.SelectQuestionBank.type(testData.TestBank2);
         await this.SelectTestBank.click();
         await this.page.waitForTimeout(2000);
-        await this.QuestionTopic.type('Sample MCQ Questions' + Math.floor(Math.random() * 8999 + 1000));
+        await this.QuestionTopic.type('Sample TypeB Questions' + Math.floor(Math.random() * 8999 + 1000));
         await this.page.waitForTimeout(2000);
         await this.QuestionAims.click();
         await this.QuestionAims.type(testData.Question);
@@ -453,6 +504,55 @@ export class EluminaCreateQuestionsPage {
 
     }
 
+    /**Methods to create SJT Question */
+    async createSJTQuestion() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.ClickOnSJT.click();
+        await this.NextButtonClick.click();
+        await this.SelectQuestionBank.click();
+        await this.SelectQuestionBank.type(testData.TestBank2);
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+      await this.QuestionTopic.type('Sample SJT Questions' + Math.floor(Math.random() * 8999 + 1000));
+        await this.page.waitForTimeout(2000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.TypeBStatement);
+        await this.page.waitForTimeout(2000);
+        await this.OptionA.click();
+        await this.OptionA.type(testData.Answer);
+        await this.page.waitForTimeout(2000);
+        // await this.EnterMarks.click()
+        // await this.EnterMarks.clear()
+        // await this.EnterMarks.type('2')
+        // await this.page.waitForTimeout(2000);
+        // await this.AddImage.click();
+        // await this.ClickOnUploadImageBtn.click()
+        // await this.page.waitForTimeout(5000);
+        // await this.ClickOnInsertImageFile.setInputFiles('lib/Images/kohli.jpeg');
+        // await this.page.waitForTimeout(2000);
+        await this.ClickOnAppropriateRadioBtn.click();
+        await this.page.waitForTimeout(2000);
+        await this.EnterMarksInSJT.click();
+        await this.EnterMarksInSJT.clear();
+        await this.EnterMarksInSJT.type("2");
+        // await this.EnterMarksInAns.click()
+        // await this.EnterMarksInAns.clear()
+        // await this.EnterMarksInAns.type("2")
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveDraft.click();
+        await this.ClickOnEditQuestion.click();
+        await this.ClickOnWorkFlow.click()
+        await this.ClickOnApprove.click()
+        await this.page.waitForTimeout(3000);
+        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+    }
+
+  
     /**Method to create ISAWEQuestions */
     async createISAWEQuestions(): Promise<void> {
         await expect(this.CreateQuestion).toBeVisible();

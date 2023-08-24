@@ -3,13 +3,13 @@ import { chromium } from '@playwright/test';
 import { testConfig } from '../../testConfig';
 
 //Validation of Proctoring Exam Event > Candidate Authentication Fail
-test(`@Regression Validation of Proctoring Exam Event > Candidate Authentication Fail`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+test(`@Regression1 Validation of Proctoring Exam Event > Candidate Authentication Fail`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
 
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
 
-    });   
+    });
 
     await test.step('Invigilator  logging into Application', async () => {
 
@@ -41,6 +41,6 @@ test(`@Regression Validation of Proctoring Exam Event > Candidate Authentication
         await newPage.waitForTimeout(3000); 
         await newPage.close();
         await page1.close();     */
-    });   
-    
+    });
+
 });

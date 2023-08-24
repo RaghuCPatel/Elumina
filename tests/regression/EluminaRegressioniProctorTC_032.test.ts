@@ -12,21 +12,21 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
-} 
+}
 
 //Validation of Adding & Saving notes
 
@@ -64,16 +64,16 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});          */         
+});          */
 
-test(`@Regression Validation of Adding & Saving notes`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
+test(`@Regression1 Validation of Adding & Saving notes`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
 
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
 
-    });   
+    });
 
     await test.step('Invigilator  logging into Application', async () => {
 
@@ -95,7 +95,7 @@ test(`@Regression Validation of Adding & Saving notes`, async ({ eluminaProctorC
 
             await page1.locator('//div[text()="iAuthor"]').click()
 
-          ]);
+        ]);
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
@@ -105,8 +105,8 @@ test(`@Regression Validation of Adding & Saving notes`, async ({ eluminaProctorC
 
         await newPage.close();
         await page1.close();
-    });   
-   
+    });
+
     await test.step('Verify Validation of Changing Font Size to Decrease on the Dashboard', async () => {
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();

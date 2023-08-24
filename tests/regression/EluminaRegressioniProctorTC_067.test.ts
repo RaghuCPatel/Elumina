@@ -11,19 +11,19 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
@@ -65,9 +65,9 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });       */
 
-test(`@Regression Validation marking attendance for individual`, async ({ eluminaProctorCand,webActions }) => {
+test(`@Regression1 Validation marking attendance for individual`, async ({ eluminaProctorCand, webActions }) => {
 
-    await test.step('Invigilator login',async ()=> {
+    await test.step('Invigilator login', async () => {
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
         const page1 = await context1.newPage();
@@ -79,13 +79,13 @@ test(`@Regression Validation marking attendance for individual`, async ({ elumin
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
-          ]);
-          await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
-          await newPage.locator('//table[@class="table table-spacing"]//thead//th[2]//div');
-            let markattd1=newPage.locator('(//table[@class="table table-spacing"]//tbody//tr//td[5]//select)[1]');
-            await markattd1.click();
-            await markattd1.selectOption('Yes');
-            await newPage.waitForTimeout(5000);
+        ]);
+        await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
+        await newPage.locator('//table[@class="table table-spacing"]//thead//th[2]//div');
+        let markattd1 = newPage.locator('(//table[@class="table table-spacing"]//tbody//tr//td[5]//select)[1]');
+        await markattd1.click();
+        await markattd1.selectOption('Yes');
+        await newPage.waitForTimeout(5000);
         await newPage.waitForTimeout(3000);
         await newPage.close();
         await page1.close();

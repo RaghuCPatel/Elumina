@@ -11,21 +11,21 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
-} 
+}
 
 //Validation of candidate/s taking exam from different timezones.
 
@@ -96,9 +96,9 @@ test(`@Regression Verify Elumina Registration and adding existing user`, async (
         await newtab.registrationTabNavigationByClickCreateExam();
         await newtab.addExistingUsers1();
     });
-});           */    
+});           */
 
-test(`@Regression Validation of candidate/s taking exam from different timezones.`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
+test(`@Regression1 Validation of candidate/s taking exam from different timezones.`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
 
@@ -125,7 +125,7 @@ test(`@Regression Validation of candidate/s taking exam from different timezones
 
             await page1.locator('//div[text()="iAuthor"]').click()
 
-          ]);
+        ]);
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
@@ -136,12 +136,12 @@ test(`@Regression Validation of candidate/s taking exam from different timezones
         await newPage.close();
         await page1.close();
     });
-   
+
     await test.step('Verify Validation of Changing Font Size to Decrease on the Dashboard', async () => {
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaProctorCand.candidateStartMCQwithoutReviewe();
-       // await eluminaProctorCand.clickonPrevious();
+        // await eluminaProctorCand.clickonPrevious();
     });
 
 });

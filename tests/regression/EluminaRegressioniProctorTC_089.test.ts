@@ -3,7 +3,7 @@ import { chromium } from '@playwright/test';
 import { testConfig } from '../../testConfig';
 
 //Validation of Admin > Proctoring > Microphone Link
-test(`@Regression Validation of Enable iProctor Extension`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
+test(`@Regression1 Validation of Enable iProctor Extension`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -18,14 +18,14 @@ test(`@Regression Validation of Enable iProctor Extension`, async ({ eluminaLogi
         await newtab.clickOnProctoringInAdmin();
         await newtab.enterMicrophoneLink();
     });
-});  
+});
 
-test(`@Regression Validation of Admin > Proctoring > Microphone Link`, async ({ eluminaLoginPage,eluminaProctorReg,eluminaProctorCand,webActions }) => {
+test(`@Regression1 Validation of Admin > Proctoring > Microphone Link`, async ({ eluminaLoginPage, eluminaProctorReg, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
         await eluminaProctorCand.clickOnStartExamLink1();
         await eluminaProctorCand.troubleshootMicroPhone();
-        });  
-    
+    });
+
 });

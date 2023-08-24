@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Candidate Attend practice exam*/
 
-test(`@Regression Create practice exam`, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
+test(`@Regression Create practice exam`, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -21,7 +21,7 @@ test(`@Regression Create practice exam`, async ({ eluminaLoginPage,eluminaCandPa
     });
 });
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -36,18 +36,18 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });
 
-test(`@Regression Verify Validation of Candidate attend Practice Exam`, async ({ eluminaCandPage,webActions }) => {
+test(`@Regression Verify Validation of Candidate attend Practice Exam`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime3();
-        await eluminaCandPage.waitforTime2();
 
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
     });
-    await test.step('Candidate start the exam',async ()=> {
+    await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candidateStartMCQPractise();
     });
-    
+
 });

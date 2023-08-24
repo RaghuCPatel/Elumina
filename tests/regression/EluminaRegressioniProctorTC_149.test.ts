@@ -13,24 +13,24 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
 /** Validation Validate Survey screen EluminaRegressioniProctorTC_083*/
-test(`@Regression Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`@Regression1 Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -48,11 +48,11 @@ test(`@Regression Verify Elumina Create Exam with survey section`, async ({ elum
         await newtab.addMCQQuestion();
         await newtab.createSurveySection();
         await newtab.createSurveyPage();
-        
-    });
-});   
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+    });
+});
+
+test(`@Regression1 Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -66,50 +66,54 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});          
-    
-    test(`@Regression Verify Validation of Survey screen EluminaRegressioniProctorTC_083`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
-        await test.step(`Navigate to Application`, async () => {
-            eluminaProctorCand.candidateNavigateToURL();
-            });
-        await test.step(`Candidate Login to application`, async () => {
-                await eluminaProctorCand.candidateLoginToApplications();
-            });
-    
-        await test.step('Candidate start the exam',async ()=> {          
-            await eluminaProctorCand.clickOnAllLink();
-    
-            const browser = await chromium.launch();
-            const context1 = await browser.newContext();
-            const page1 = await context1.newPage();
-            await page1.goto('/');
-            await page1.waitForLoadState();
-            await page1.locator('(//input)[1]').type(testData.invigilatorUsername);
-            await page1.locator('(//input)[2]').type(testData.invigilatorPassword);
-            await page1.locator('//*[@class="submit-butn"]').click();
-            const [newPage] = await Promise.all([
-                context1.waitForEvent('page'),
-                await page1.locator('//div[text()="iAuthor"]').click()
-              ]);
-            await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
-            await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-            await newPage.locator('//a[@class="dropdown-toggle"]').click();
-            await newPage.locator('//p[text()="Verify Identity"]').click();
-            await newPage.locator('(//button[text()="Yes"])[1]').click();
-            await newPage.waitForTimeout(5000);
-            
-            await newPage.close();
-            await page1.close();
-            
-        });
-        await test.step('Candidate start the exam',async ()=> {
-            await eluminaProctorCand.againCandidateLogin();
-            await eluminaProctorCand.enterInvigilatorPassword();
-            await eluminaCandPage.candidateSurveyStartOneMCQ();
-            await eluminaProctorCand.examSectionValidation();
-    
-        });
-        
+});
+
+test(`@Regression1 Verify Validation of Survey screen EluminaRegressioniProctorTC_083`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaProctorCand.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime3();
+
     });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaProctorCand.candidateLoginToApplications();
+    });
+
+    await test.step('Candidate start the exam', async () => {
+        await eluminaProctorCand.clickOnAllLink();
+
+        const browser = await chromium.launch();
+        const context1 = await browser.newContext();
+        const page1 = await context1.newPage();
+        await page1.goto('/');
+        await page1.waitForLoadState();
+        await page1.locator('(//input)[1]').type(testData.invigilatorUsername);
+        await page1.locator('(//input)[2]').type(testData.invigilatorPassword);
+        await page1.locator('//*[@class="submit-butn"]').click();
+        const [newPage] = await Promise.all([
+            context1.waitForEvent('page'),
+            await page1.locator('//div[text()="iAuthor"]').click()
+        ]);
+        await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
+        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+        await newPage.locator('//a[@class="dropdown-toggle"]').click();
+        await newPage.locator('//p[text()="Verify Identity"]').click();
+        await newPage.locator('(//button[text()="Yes"])[1]').click();
+        await newPage.waitForTimeout(5000);
+
+        await newPage.close();
+        await page1.close();
+
+    });
+    await test.step('Candidate start the exam', async () => {
+        await eluminaProctorCand.againCandidateLogin();
+        await eluminaProctorCand.enterInvigilatorPassword();
+        await eluminaCandPage.candidateSurveyStartOneMCQ();
+        await eluminaProctorCand.examSectionValidation();
+
+    });
+
+});
 
 

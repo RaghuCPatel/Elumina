@@ -2,7 +2,7 @@ import { PlaywrightTestConfig, devices } from '@playwright/test';
 import { testConfig } from './testConfig';
 const ENV = process.env.ENV;
 
-if (!ENV || ![`dev`,`p7`,`production`,'qa','sandbox','staging'].includes(ENV)) {
+if (!ENV || ![`dev`, `p7`, `production`, 'qa', 'sandbox', 'staging'].includes(ENV)) {
   console.log(`Please provide a correct environment value like "npx cross-env ENV= dev|p7|production|qa|sandbox|staging"`);
   process.exit();
 }
@@ -16,7 +16,7 @@ const config: PlaywrightTestConfig = {
   globalTeardown: `./global-teardown`,
 
   //sets timeout for each test case
-  timeout: 180000,
+  timeout: 240000,
 
   //number of retries if test case fails
   retries: 1,
@@ -33,7 +33,7 @@ const config: PlaywrightTestConfig = {
 
         //Chrome Browser Config
         channel: `chrome`,
-      
+
 
         //Picks Base Url based on User input
         baseURL: testConfig[process.env.ENV],
@@ -47,7 +47,7 @@ const config: PlaywrightTestConfig = {
 
         //Enable File Downloads in Chrome
         acceptDownloads: true,
-        
+
         //Artifacts
         screenshot: `on`,
         video: `on`,

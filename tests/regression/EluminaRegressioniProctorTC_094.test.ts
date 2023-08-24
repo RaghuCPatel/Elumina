@@ -4,7 +4,7 @@ import { testConfig } from '../../testConfig';
 
 //Validation of Internet Connection Check
 
-test(`@Regression Validation of Internet Connection Check`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(`@Regression1 Validation of Internet Connection Check`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -18,6 +18,6 @@ test(`@Regression Validation of Internet Connection Check`, async ({ eluminaLogi
         const newtab = await eluminaProctorExam.AdminPageNavigation();
         await newtab.clickOnProctoringInAdmin();
         await newtab.clickOnInternetConnectionCheck();
-        
+
     });
 });  

@@ -25,7 +25,7 @@ test(`@Regression Create a Exam and add MCQ Questions`, async ({ eluminaLoginPag
 });
 
 
-test(`@Regression add user and download user details`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression add user and download user details`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -38,17 +38,18 @@ test(`@Regression add user and download user details`, async ({ eluminaLoginPage
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});    
+});
 
-test(`@Regression Verify Validation of Exam content section page contents and details`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+test(`@Regression Verify Validation of Exam content section page contents and details`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime3();
         await eluminaCandPage.candidateLoginToApplication();
     });
-    await test.step('Candidate start the exam',async ()=> {
-       await eluminaCandPage.candidateContentSectionValidation();
-       
+    await test.step('Candidate start the exam', async () => {
+        await eluminaCandPage.candidateContentSectionValidation();
+
     });
-    
+
 });

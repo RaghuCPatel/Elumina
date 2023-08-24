@@ -13,21 +13,21 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
-} 
+}
 
 
 //Validation of "Start Exam" (All Candidates)
@@ -52,7 +52,7 @@ test(`@Regression Verify Elumina Login and create exam`, async ({ eluminaLoginPa
     });
 });
 
-test(`@Regression Verify Elumina Registration and user and invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression Verify Elumina Registration and user and invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -66,19 +66,19 @@ test(`@Regression Verify Elumina Registration and user and invigilator`, async (
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});    
+});
 
-test(`@Regression Validation of "Start Exam" (All Candidates) `, async ({ eluminaCandPage,eluminaCadInvPage,eluminaProctorCand,webActions }) => {
+test(`@Regression Validation of "Start Exam" (All Candidates) `, async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime2();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCadInvPage.candidateLoginToApplications();
-        
+
     });
-    await test.step('Candidate start the exam',async ()=> {
+    await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.candidateStartExamsValidationInv();
 
         const browser = await chromium.launch();
@@ -92,21 +92,21 @@ test(`@Regression Validation of "Start Exam" (All Candidates) `, async ({ elumin
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
-          ]);
-       
+        ]);
+
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
         await newPage.locator('//div[@title="Start Exam for all Candidates"]').click();
         await newPage.locator('(//button[text()="Yes"])[2]').click();
         await newPage.waitForTimeout(3000);
-        
+
         await newPage.close();
         await page1.close();
 
     });
     await test.step(`Redirected to Candidate page`, async () => {
         await eluminaProctorCand.againCandidateLogin();
-        await eluminaCandPage.examSectionValidation();        
+        await eluminaCandPage.examSectionValidation();
     });
-    
+
 });

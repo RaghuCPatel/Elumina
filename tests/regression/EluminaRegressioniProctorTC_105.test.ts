@@ -11,19 +11,19 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
@@ -63,17 +63,17 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });       */
 
-test(`@Regression Validation of Validation of Mic verification check done`, async ({ eluminaCandPage,eluminaLoginPage,eluminaProctorCand,eluminaProctorReg,webActions }) => {
+test(`@Regression1 Validation of Validation of Mic verification check done`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-        });   
-        await test.step(`Navigate to Application`, async () => {
-            await eluminaProctorCand.clickOnStartExamLink();
-            await eluminaProctorCand.clickOnUnderstandBtn();
-            await eluminaProctorCand.validateMicTick();
-            await eluminaCandPage.waitforTime3();
-                   
+    });
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaProctorCand.clickOnStartExamLink();
+        await eluminaProctorCand.clickOnUnderstandBtn();
+        await eluminaProctorCand.validateMicTick();
+        await eluminaCandPage.waitforTime3();
+
     });
 
 });
