@@ -71,6 +71,8 @@ test(`@Regression1 Verify CandidatesExam EluminaRegressioniProctorTC_057`, async
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime3();
 
     });
     await test.step(`Candidate Login to application`, async () => {

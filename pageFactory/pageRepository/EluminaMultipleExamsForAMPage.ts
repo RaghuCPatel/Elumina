@@ -380,7 +380,7 @@ export class EluminaMultipleExamsForAMPage {
     await expect(this.CREATEEXAMS).toBeVisible();
     await this.CREATEEXAMS.click();
     await this.STARTFROMSCRATCH.click();
-    await this.TESTBANK.click();
+    await this.SELECTBANK.click();
     await this.SELECTBANK.type(testData.TestBank2);
     await this.TESTBANK.click();
     await this.EXAMNAME.type('DEMO' + Math.floor(Math.random() * 899999 + 100000));
