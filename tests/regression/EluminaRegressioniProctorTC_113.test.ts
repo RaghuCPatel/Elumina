@@ -64,7 +64,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });           */
 
-test(`@Regression1 Validation of "Time Remaining"`, async ({ eluminaProctorCand, webActions }) => {
+test(`@Regression Validation of "Time Remaining"`, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });

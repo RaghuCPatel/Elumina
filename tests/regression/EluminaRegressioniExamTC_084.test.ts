@@ -46,6 +46,8 @@ test(`@Regression Verify Validation of Survey screen and Validate Survey screen 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime4();
+
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();

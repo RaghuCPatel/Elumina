@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of Proctoring Exam Event > Screen Share Enabled*/
 
-test(`@Regression1 Validation of Proctoring Exam Event > Screen Share Enabled`, async ({ eluminaProctorCand, eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(`@Regression Validation of Proctoring Exam Event > Screen Share Enabled`, async ({ eluminaProctorCand, eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

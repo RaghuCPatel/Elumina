@@ -218,12 +218,14 @@ export class EluminaInvPage {
         await this.page.waitForTimeout(3000);
     }
 
+
     async clickonexam() {
         await this.examIdClick.click();
         let CandNAme = await this.verifyCandNAme.textContent();
         console.log(CandNAme);
         await this.page.waitForTimeout(3000);
     }
+
     /**Method to select Location */
     async selectLocation() {
         await this.ClickOnExam1.click();

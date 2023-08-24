@@ -65,7 +65,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });              */
 
-test(`@Regression1 Validation of marking all attendance`, async ({ eluminaProctorCand, webActions }) => {
+test(`@Regression Validation of marking all attendance`, async ({ eluminaProctorCand, webActions }) => {
 
     await test.step('Candidate start the exam', async () => {
 

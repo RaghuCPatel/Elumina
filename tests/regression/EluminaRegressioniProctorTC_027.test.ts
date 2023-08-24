@@ -98,7 +98,7 @@ test(`@Regression Verify Elumina Registration and adding existing user`, async (
     });
 });           */
 
-test(`@Regression1 Validation of candidate/s taking exam from different timezones.`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`@Regression Validation of candidate/s taking exam from different timezones.`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
 

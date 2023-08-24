@@ -483,11 +483,14 @@ export class EluminaCandidatePage {
     }
 
     async waitforTime2() {
+        await this.page.waitForTimeout(12000);
+    }
+    async waitforTime4() {
         await this.page.waitForTimeout(5000);
     }
 
     async waitforTime3() {
-        await this.page.waitForTimeout(17000);
+        await this.page.waitForTimeout(19000);
     }
 
     async updatedCloudIcon() {
@@ -707,7 +710,7 @@ export class EluminaCandidatePage {
     async candidateSurveyStartOneMCQ() {
         await this.page.waitForTimeout(2000);
         await this.ansMCQQuestions.click();
-        await this.page.waitForTimeout(8000);
+        await this.page.waitForTimeout(20000);
         await this.ClickOnRevieweBtn.click();
         await this.ClickOnSubmitBtn.click();
     }

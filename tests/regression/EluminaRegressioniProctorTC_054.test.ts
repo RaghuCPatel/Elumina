@@ -67,7 +67,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 });        */
 
 
-test(`@Regression1 Verify Validation of Question numbers are displayed in Orange when InProgress`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`@Regression Verify Validation of Question numbers are displayed in Orange when InProgress`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();

@@ -189,7 +189,7 @@ export class EluminaCreateQuestionsPage {
         this.ClickOnVSAQ = page.locator('//p[normalize-space()="VSAQ"]');
         this.EnterMarks = page.locator('(//span[@class="input-mark"])[1]//input')
         this.EnterMarksInAns = page.locator('(//span[@class="input-mark"])[2]//input')
-        
+
         this.AddImage = page.locator('(//div[@class="btn-addimg"])[1]')
         this.ClickOnUploadImageBtn = page.locator('//button[normalize-space()="Upload Image/File"]')
         this.ClickOnInsertImageFile = page.locator('//div[@class="dz-text"]');
@@ -322,31 +322,6 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(3000);
     }
 
-
-    /**Methods to logout as a admin */
-    async adminLogout() {
-        await this.ClickOnProfile.click();
-        await this.ClickOnLogout.click()
-    }
-
-    async searchValidValue() {
-        await this.SearchQuestion.click()
-        await this.SearchQuestion.type(testData.SearchQuestion)
-        await this.page.waitForTimeout(2000);
-        console.log("Valid text:", await this.ClickOnSearchedQuestion.textContent());
-        await this.SearchQuestion.clear();
-        await this.SearchQuestion.type("ABC")
-        await this.page.waitForTimeout(2000);
-        console.log("Invalid text", await this.VerifyNoRecordsFoundStatus.textContent())
-        await this.SearchQuestion.clear();
-        await this.SearchQuestion.type(testData.SearchQuestion)
-        await this.page.waitForTimeout(2000);
-        await this.ClickOnSearchedQuestion.click()
-        await this.page.waitForTimeout(2000);
-        await this.ClickOnNextBtn.click();
-        await expect(this.ValidateCreateQuestionPage).toBeVisible();
-        await this.page.waitForTimeout(3000);
-    }
 
     /**Methods to logout as a admin */
     async adminLogout() {
@@ -514,7 +489,7 @@ export class EluminaCreateQuestionsPage {
         await this.SelectQuestionBank.type(testData.TestBank2);
         await this.SelectTestBank.click();
         await this.page.waitForTimeout(2000);
-      await this.QuestionTopic.type('Sample SJT Questions' + Math.floor(Math.random() * 8999 + 1000));
+        await this.QuestionTopic.type('Sample SJT Questions' + Math.floor(Math.random() * 8999 + 1000));
         await this.page.waitForTimeout(2000);
         await this.QuestionAims.click();
         await this.QuestionAims.type(testData.Question);
@@ -552,7 +527,7 @@ export class EluminaCreateQuestionsPage {
         console.log(await this.ValidateSuccessfulPopMessage.textContent());
     }
 
-  
+
     /**Method to create ISAWEQuestions */
     async createISAWEQuestions(): Promise<void> {
         await expect(this.CreateQuestion).toBeVisible();

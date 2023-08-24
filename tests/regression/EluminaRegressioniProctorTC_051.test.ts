@@ -30,7 +30,7 @@ else if (process.env.ENV == 'staging') {
 
 //**Validation of Invalid Candidate login/
 
-test(`@Regression1 Verify CandidatesExam`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`@Regression Verify CandidatesExam`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
 

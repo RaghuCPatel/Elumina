@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of  non- Safe Exam Browser */
 
-test(`@Regression1 Verify Validation of candidate navigating to multiple window`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`@Regression Verify Validation of candidate navigating to multiple window`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
 

@@ -29,8 +29,8 @@ else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
-/** Validate Survey screen where candidate can provide feedback in comment section EluminaRegressionProctorTC_084*/
-test(`@Regression1 Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+/** Validate Survey screen where candidate can provide feedback in comment section EluminaRegressioniProctorTC_084*/
+test(`@Regression Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -53,7 +53,7 @@ test(`@Regression1 Verify Elumina Create Exam with survey section`, async ({ elu
 });
 
 
-test(`@Regression1 Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -69,8 +69,9 @@ test(`@Regression1 Verify Elumina Registration`, async ({ eluminaLoginPage, elum
     });
 });
 
-/**Validate Survey screen where candidate can provide feedback in comment section EluminaRegressionProctorTC_084*/
-test(`@Regression1 Verify Validation of Candidate answering survey questions`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+
+/**Validate Survey screen where candidate can provide feedback in comment section EluminaRegressioniProctorTC_084*/
+test(`@Regression Verify Validation of Candidate answering survey questions`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

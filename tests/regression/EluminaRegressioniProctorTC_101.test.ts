@@ -63,7 +63,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });      */
 
-test(`@Regression1 Verify Candidate Exam Disclaimer Page`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`@Regression Verify Candidate Exam Disclaimer Page`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });

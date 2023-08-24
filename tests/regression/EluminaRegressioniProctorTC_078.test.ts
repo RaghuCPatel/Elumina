@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line) */
 
-test(`@Regression1 Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)`, async ({ eluminaInvPage, webActions }) => {
+test(`@Regression Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)`, async ({ eluminaInvPage, webActions }) => {
 
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaInvPage.invigilatorLogin();

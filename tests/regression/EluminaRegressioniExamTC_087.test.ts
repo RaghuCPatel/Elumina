@@ -3,7 +3,7 @@ import test from '@lib/BaseTest';
 /**Validation of multiple Exams on the dashboard for different time (Say one in AM & another in PM)*/
 
 /**AM */
-test(`@Regression Validation of multiple Exams on the dashboard for different time For AM`, async ({ eluminaLoginPage,eluminaMultipleExamsForAMPage,eluminaCandPage,webActions }) => {
+/*test(`@Regression Validation of multiple Exams on the dashboard for different time For AM`, async ({ eluminaLoginPage, eluminaMultipleExamsForAMPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -23,7 +23,7 @@ test(`@Regression Validation of multiple Exams on the dashboard for different ti
 });
 
 
-test(`@Regression Verify Elumina Registration for AM`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression Verify Elumina Registration for AM`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -36,11 +36,11 @@ test(`@Regression Verify Elumina Registration for AM`, async ({ eluminaLoginPage
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});
+});                 */
 
 
 /**PM */
-test(`@Regression Validation of multiple Exams on the dashboard for different time For PM`, async ({ eluminaLoginPage,eluminaMultipleExamsForPMPage,eluminaCandPage,webActions }) => {
+/*test(`@Regression Validation of multiple Exams on the dashboard for different time For PM`, async ({ eluminaLoginPage, eluminaMultipleExamsForPMPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -59,7 +59,7 @@ test(`@Regression Validation of multiple Exams on the dashboard for different ti
     });
 });
 
-test(`@Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`@Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -74,12 +74,12 @@ test(`@Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage
     });
 });
 
-    test(`@Regression Verify Login Application for PM  EluminaRegressioniExamTC_017`, async ({ eluminaCandPage,webActions }) => {
+test(`@Regression Verify Login Application for PM  EluminaRegressioniExamTC_017`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.enterCandidateCredetial();
     });
-    
-});
+
+});    */

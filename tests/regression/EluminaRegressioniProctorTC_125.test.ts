@@ -31,7 +31,7 @@ else if (process.env.ENV == 'staging') {
 the invigilator to start the exam, Exam started for candidate, Candidate entered into
  exam section & Entered into question: 1(#IQID).*/
 
-test(`@Regression1 Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+test(`@Regression Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -50,7 +50,7 @@ test(`@Regression1 Create iProctor exam with password`, async ({ eluminaLoginPag
     });
 });
 
-test(`@Regression1 Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -67,7 +67,7 @@ test(`@Regression1 Verify Elumina Registration`, async ({ eluminaLoginPage, elum
 });
 
 
-test(`@Regression1 Validation of Proctoring Exam Events In Admin Section`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(`@Regression Validation of Proctoring Exam Events In Admin Section`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
