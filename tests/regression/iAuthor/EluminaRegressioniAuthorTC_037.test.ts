@@ -1,8 +1,8 @@
 import test from '@lib/BaseTest';
 
-/**Validation of Create Question (MCQ-SBA) */
+/**Validation of Create Question (ISAWE) */
 
-test(`@RegressionA Validation of Create Question (MCQ-SBA)`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
+test(`@RegressionA Validation of Create Question (ISAWE)`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -12,7 +12,7 @@ test(`@RegressionA Validation of Create Question (MCQ-SBA)`, async ({ eluminaLog
     await test.step(`Navigate to iAuthor`, async () => {
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.QuestionsMenuClick();
-        await newtab.createMCQQuestions();
+        await newtab.createISAWEQuestions();
     });
 
 });
