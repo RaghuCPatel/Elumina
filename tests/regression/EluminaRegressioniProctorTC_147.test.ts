@@ -27,7 +27,7 @@ else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
-/*Elumina login page with create exam with Practice exam button and attending practice exam  EluminaRegressioniProctorTC_057*/
+/*Elumina login page with create exam with Practice exam button and attending practice exam  EluminaRegression iProctorTC_057*/
 
 test(`@Regression1 Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -67,7 +67,7 @@ test(`@Regression1 Verify Elumina Registration`, async ({ eluminaLoginPage, elum
     });
 });
 
-test(`@Regression1 Verify CandidatesExam EluminaRegressioniProctorTC_057`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`@Regression1 Verify CandidatesExam EluminaRegressionProctorTC_057`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
@@ -116,7 +116,7 @@ test(`@Regression1 Verify CandidatesExam EluminaRegressioniProctorTC_057`, async
 /*Validation of Proctoring Exam Events > Exam In Progress, Exam started for candidate, 
 Candidate entered into exam section & Entered into question: 1(#IQID).*/
 
-test(`@Regression1 Validation of Proctoring Exam Events In Admin Section EluminaRegressioniProctorTC_124`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(`@Regression1 Validation of Proctoring Exam Events In Admin Section EluminaRegressionProctorTC_124`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

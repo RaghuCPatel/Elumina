@@ -485,11 +485,11 @@ export class EluminaCandidatePage {
     async waitforTime2() {
         await this.page.waitForTimeout(5000);
     }
-  
+
     async waitforTime3() {
         await this.page.waitForTimeout(17000);
     }
-  
+
     async updatedCloudIcon() {
         await this.page.waitForTimeout(5000);
         await expect(this.cloudUpdatedIcon).toBeVisible();
@@ -1223,6 +1223,8 @@ export class EluminaCandidatePage {
         await this.inceaseSize.click();
         await this.inceaseSize.click();
         await this.page.waitForTimeout(5000);
+        await this.popupOK.click();
+        await this.page.waitForTimeout(2000);
         await this.decreaseSize.click();
         await this.decreaseSize.click();
         await this.decreaseSize.click();

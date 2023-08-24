@@ -15,19 +15,19 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
@@ -35,89 +35,91 @@ export class EluminaInvPage {
 
     readonly page: Page;
     readonly context: BrowserContext;
-    readonly InvUsername:Locator;
-    readonly InvPssword:Locator;
-    readonly InvLoginBtn:Locator;
+    readonly InvUsername: Locator;
+    readonly InvPssword: Locator;
+    readonly InvLoginBtn: Locator;
     readonly AUTHOR: Locator;
-    readonly verifyDashboardTitle:Locator;
-    readonly ClickOnExam:Locator;
-    readonly CheckExamStatus:Locator;
+    readonly verifyDashboardTitle: Locator;
+    readonly ClickOnExam: Locator;
+    readonly CheckExamStatus: Locator;
 
-    readonly AllCandCheckbox:Locator;
-    readonly OneCandCheckbox:Locator;
-    readonly IsPresentYes:Locator;
-    readonly IsPresentNo:Locator;
-    readonly LockExam:Locator;
-    readonly SelectLocation:Locator;
-    readonly LocationDrop:Locator;
-    readonly LocationSubmit:Locator;
-    readonly SelectAll:Locator;
-    readonly dropDown:Locator;   
+    readonly AllCandCheckbox: Locator;
+    readonly OneCandCheckbox: Locator;
+    readonly IsPresentYes: Locator;
+    readonly IsPresentNo: Locator;
+    readonly LockExam: Locator;
+    readonly SelectLocation: Locator;
+    readonly LocationDrop: Locator;
+    readonly LocationSubmit: Locator;
+    readonly SelectAll: Locator;
+    readonly dropDown: Locator;
 
-    readonly verifyExamIDMenue:Locator;
-    readonly verifyExamNameMenue:Locator;
-    readonly verifyExamStartDateMenue:Locator;
-    readonly verifyExamEndDateMenue:Locator;
-    readonly verifyExamStatusMenue:Locator;
-    readonly verifyExamDurationMenue:Locator;
-    readonly verifyExamVenueMenue:Locator;
+    readonly verifyExamIDMenue: Locator;
+    readonly verifyExamNameMenue: Locator;
+    readonly verifyExamStartDateMenue: Locator;
+    readonly verifyExamEndDateMenue: Locator;
+    readonly verifyExamStatusMenue: Locator;
+    readonly verifyExamDurationMenue: Locator;
+    readonly verifyExamVenueMenue: Locator;
 
-    readonly verifyExamID:Locator;
-    readonly verifyExamName:Locator;
-    readonly verifyExamStartDate:Locator;
-    readonly verifyExamEndDate:Locator;
-    readonly verifyExamStatus:Locator;
-    readonly verifyExamDuration:Locator;
-    readonly verifyExamVenue:Locator;
-    readonly ClickOnExam1:Locator;
-    readonly verifyCandNAme:Locator;
-    readonly verifyErrorMessage:Locator;
-    readonly MenuIconClick:Locator;
-    readonly logoutbuttonClick:Locator;
+    readonly verifyExamID: Locator;
+    readonly verifyExamName: Locator;
+    readonly verifyExamStartDate: Locator;
+    readonly verifyExamEndDate: Locator;
+    readonly verifyExamStatus: Locator;
+    readonly verifyExamDuration: Locator;
+    readonly verifyExamVenue: Locator;
+    readonly ClickOnExam1: Locator;
+    readonly verifyCandNAme: Locator;
+    readonly verifyErrorMessage: Locator;
+    readonly MenuIconClick: Locator;
+    readonly logoutbuttonClick: Locator;
+    readonly examIdClick: Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
         this.context = context;
         webActions = new WebActions(this.page, this.context);
-        this.InvUsername=page.locator('(//input)[1]');
-        this.InvPssword=page.locator('(//input)[2]');
-        this.InvLoginBtn=page.locator('//*[@class="submit-butn"]');
+        this.InvUsername = page.locator('(//input)[1]');
+        this.InvPssword = page.locator('(//input)[2]');
+        this.InvLoginBtn = page.locator('//*[@class="submit-butn"]');
         this.AUTHOR = page.locator('//div[text()="iAuthor"]');
-        this.ClickOnExam=page.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]');
-        this.CheckExamStatus=page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[11]//span');
+        this.ClickOnExam = page.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]');
+        this.CheckExamStatus = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[11]//span');
 
-        this.verifyDashboardTitle=page.locator('//h4[text()="Dashboard"]');
+        this.verifyDashboardTitle = page.locator('//h4[text()="Dashboard"]');
 
-        this.verifyExamIDMenue=page.locator('//table[@class="table"]//thead//tr//th[1]');
-        this.verifyExamNameMenue=page.locator('//table[@class="table"]//thead//tr//th[2]');
-        this.verifyExamStartDateMenue=page.locator('//table[@class="table"]//thead//tr//th[3]');
-        this.verifyExamEndDateMenue=page.locator('//table[@class="table"]//thead//tr//th[4]');
-        this.verifyExamStatusMenue=page.locator('//table[@class="table"]//thead//tr//th[5]');
-        this.verifyExamDurationMenue=page.locator('//table[@class="table"]//thead//tr//th[6]');
-        this.verifyExamVenueMenue=page.locator('//table[@class="table"]//thead//tr//th[7]');
+        this.verifyExamIDMenue = page.locator('//table[@class="table"]//thead//tr//th[1]');
+        this.verifyExamNameMenue = page.locator('//table[@class="table"]//thead//tr//th[2]');
+        this.verifyExamStartDateMenue = page.locator('//table[@class="table"]//thead//tr//th[3]');
+        this.verifyExamEndDateMenue = page.locator('//table[@class="table"]//thead//tr//th[4]');
+        this.verifyExamStatusMenue = page.locator('//table[@class="table"]//thead//tr//th[5]');
+        this.verifyExamDurationMenue = page.locator('//table[@class="table"]//thead//tr//th[6]');
+        this.verifyExamVenueMenue = page.locator('//table[@class="table"]//thead//tr//th[7]');
 
-        this.verifyExamID=page.locator('(//table[@class="table"]//tbody//tr[1]//td[1]//span)[1]');
-        this.verifyExamName=page.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]');
-        this.verifyExamStartDate=page.locator('(//table[@class="table"]//tbody//tr[1]//td[3]//span)[1]');
-        this.verifyExamEndDate=page.locator('(//table[@class="table"]//tbody//tr[1]//td[4]//span)[1]');
-        this.verifyExamStatus=page.locator('(//table[@class="table"]//tbody//tr[1]//td[5]//span)[1]');
-        this.verifyExamDuration=page.locator('(//table[@class="table"]//tbody//tr[1]//td[6]//span)[1]');
-        this.verifyExamVenue=page.locator('(//table[@class="table"]//tbody//tr[1]//td[7]//span)[1]');
+        this.verifyExamID = page.locator('(//table[@class="table"]//tbody//tr[1]//td[1]//span)[1]');
+        this.verifyExamName = page.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]');
+        this.verifyExamStartDate = page.locator('(//table[@class="table"]//tbody//tr[1]//td[3]//span)[1]');
+        this.verifyExamEndDate = page.locator('(//table[@class="table"]//tbody//tr[1]//td[4]//span)[1]');
+        this.verifyExamStatus = page.locator('(//table[@class="table"]//tbody//tr[1]//td[5]//span)[1]');
+        this.verifyExamDuration = page.locator('(//table[@class="table"]//tbody//tr[1]//td[6]//span)[1]');
+        this.verifyExamVenue = page.locator('(//table[@class="table"]//tbody//tr[1]//td[7]//span)[1]');
 
-        this.ClickOnExam1=page.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]');
-        this.verifyCandNAme=page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[6]//span');
-        this.verifyErrorMessage=page.locator('//div[text()="Invalid username or password."]'); 
-        this.SelectLocation=page.locator('//input[@placeholder="Select Location"]');
-        this.LocationDrop=page.locator('(//span[@class="open"][text()="Elumina Chennai"])[1]');
-        this.LocationSubmit=page.locator('//div[@title="Submit"]');
-        this.SelectAll=page.locator('//span[@class="thtext"]//input[@type="checkbox"]');
-        this.dropDown=page.locator('(//div[@class="msdd-triangle open msdd-triangle-down"])[2]');
-        this.MenuIconClick=page.locator('//i[@class="menuIcons profileIcon"]');
-        this.logoutbuttonClick=page.locator('//a[normalize-space()="Log out"]');
+        this.ClickOnExam1 = page.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]');
+        this.verifyCandNAme = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[6]//span');
+        this.verifyErrorMessage = page.locator('//div[text()="Invalid username or password."]');
+        this.SelectLocation = page.locator('//input[@placeholder="Select Location"]');
+        this.LocationDrop = page.locator('(//span[@class="open"][text()="Elumina Chennai"])[1]');
+        this.LocationSubmit = page.locator('//div[@title="Submit"]');
+        this.SelectAll = page.locator('//span[@class="thtext"]//input[@type="checkbox"]');
+        this.dropDown = page.locator('(//div[@class="msdd-triangle open msdd-triangle-down"])[2]');
+        this.MenuIconClick = page.locator('//i[@class="menuIcons profileIcon"]');
+        this.logoutbuttonClick = page.locator('//a[normalize-space()="Log out"]');
+        this.examIdClick = page.locator('(//table[@class="table"]//tbody//tr//td[2]//span//span//span)[1]');
     }
 
     /**Method to login as invigilator */
-    async invigilatorLogin():Promise<void>{
+    async invigilatorLogin(): Promise<void> {
         await this.page.goto("/");
         await this.InvUsername.type(testData.invigilatorUsername);
         await this.InvPssword.type(testData.invigilatorPassword);
@@ -127,97 +129,102 @@ export class EluminaInvPage {
     }
 
     /**Method to check with invaild Invigilator login */
-    async invalidInvigilatorLogin():Promise<void>{
-      await this.page.goto("/");
-      await this.InvUsername.type(testData.invaildInvigilatorUsername);
-      await this.InvPssword.type(testData.invaildInvigilatorPassword);
-      await this.InvLoginBtn.click();
-      await expect(this.verifyErrorMessage).toBeVisible();
-      console.log(await this.verifyErrorMessage.textContent());
-  }
+    async invalidInvigilatorLogin(): Promise<void> {
+        await this.page.goto("/");
+        await this.InvUsername.type(testData.invaildInvigilatorUsername);
+        await this.InvPssword.type(testData.invaildInvigilatorPassword);
+        await this.InvLoginBtn.click();
+        await expect(this.verifyErrorMessage).toBeVisible();
+        console.log(await this.verifyErrorMessage.textContent());
+    }
 
-  /**Method for page navigation */
+    /**Method for page navigation */
     async iAuthorPageNavigation() {
         const [newPage] = await Promise.all([
             this.context.waitForEvent('page'),
             await this.AUTHOR.click()
-          ]);
-          await newPage.waitForLoadState();
-          return new exports.EluminaInvPage(newPage);
+        ]);
+        await newPage.waitForLoadState();
+        return new exports.EluminaInvPage(newPage);
     }
 
     /**Method for iAuthor Page Verification */
     async iAuthorPageVerification() {
-          await expect(this.verifyDashboardTitle).toBeVisible();
-          console.log("Invigilator-"+await this.verifyDashboardTitle.textContent())
-          //await this.ClickOnExam.click();
+        await expect(this.verifyDashboardTitle).toBeVisible();
+        console.log("Invigilator-" + await this.verifyDashboardTitle.textContent())
+        //await this.ClickOnExam.click();
     }
 
     /**Method for Invigilator Dashboard Validation */
     async invDashboardValidations() {
-      await this.page.waitForTimeout(10000);
-      await expect(this.verifyExamIDMenue).toBeVisible();
-      console.log(await this.verifyExamIDMenue.textContent()+"-"+await this.verifyExamID.textContent());
-      await expect(this.verifyExamNameMenue).toBeVisible();
-      console.log(await this.verifyExamNameMenue.textContent()+"-"+await this.verifyExamName.textContent());
-      await expect(this.verifyExamStartDateMenue).toBeVisible();
-      console.log(await this.verifyExamStartDateMenue.textContent()+"-"+await this.verifyExamStartDate.textContent());
-      await expect(this.verifyExamEndDateMenue).toBeVisible();
-      console.log(await this.verifyExamEndDateMenue.textContent()+"-"+await this.verifyExamEndDate.textContent());
-      await expect(this.verifyExamStatusMenue).toBeVisible();
-      console.log(await this.verifyExamStatusMenue.textContent()+"-"+await this.verifyExamStatus.textContent());
-      await expect(this.verifyExamDurationMenue).toBeVisible();
-      console.log(await this.verifyExamDurationMenue.textContent()+"-"+await this.verifyExamDuration.textContent());
-      await expect(this.verifyExamVenueMenue).toBeVisible();
-      console.log(await this.verifyExamVenueMenue.textContent()+"-"+await this.verifyExamVenue.textContent());
-      await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
-      await this.page.waitForTimeout(2000);
-  }
-
-  /**Method to Verify Exam status */
-    async validateExamStatus(){
-       let Examstatus=await this.CheckExamStatus.textContent();
-       console.log(Examstatus);
-       await this.CheckExamStatus.isVisible();
+        await this.page.waitForTimeout(10000);
+        await expect(this.verifyExamIDMenue).toBeVisible();
+        console.log(await this.verifyExamIDMenue.textContent() + "-" + await this.verifyExamID.textContent());
+        await expect(this.verifyExamNameMenue).toBeVisible();
+        console.log(await this.verifyExamNameMenue.textContent() + "-" + await this.verifyExamName.textContent());
+        await expect(this.verifyExamStartDateMenue).toBeVisible();
+        console.log(await this.verifyExamStartDateMenue.textContent() + "-" + await this.verifyExamStartDate.textContent());
+        await expect(this.verifyExamEndDateMenue).toBeVisible();
+        console.log(await this.verifyExamEndDateMenue.textContent() + "-" + await this.verifyExamEndDate.textContent());
+        await expect(this.verifyExamStatusMenue).toBeVisible();
+        console.log(await this.verifyExamStatusMenue.textContent() + "-" + await this.verifyExamStatus.textContent());
+        await expect(this.verifyExamDurationMenue).toBeVisible();
+        console.log(await this.verifyExamDurationMenue.textContent() + "-" + await this.verifyExamDuration.textContent());
+        await expect(this.verifyExamVenueMenue).toBeVisible();
+        console.log(await this.verifyExamVenueMenue.textContent() + "-" + await this.verifyExamVenue.textContent());
+        await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+        await this.page.waitForTimeout(2000);
     }
 
-  /**Method to verify candidate name */
-  async invClickOnExam() {
+    /**Method to Verify Exam status */
+    async validateExamStatus() {
+        let Examstatus = await this.CheckExamStatus.textContent();
+        console.log(Examstatus);
+        await this.CheckExamStatus.isVisible();
+    }
 
-    let examid= EluminaExamPage.examID;
-    console.log("From Registeration"+EluminaExamPage.examID);
+    /**Method to verify candidate name */
+    async invClickOnExam() {
 
-    let examIdProc=EluminaProctorExamPage.examID;
-    console.log("exam-id Proc"+EluminaProctorExamPage.examID)
+        let examid = EluminaExamPage.examID;
+        console.log("From Registeration" + EluminaExamPage.examID);
 
-    await this.page.waitForSelector('//table[@class="table"]//tbody//tr//td[2]//span//span//span')
-    let exam=await this.page.$$('//table[@class="table"]//tbody//tr//td[2]//span//span//span');
+        let examIdProc = EluminaProctorExamPage.examID;
+        console.log("exam-id Proc" + EluminaProctorExamPage.examID)
 
-    console.log("Exam list:"+exam);
-    for(let i=0;i<=exam.length-1;i++){
+        await this.page.waitForSelector('//table[@class="table"]//tbody//tr//td[2]//span//span//span')
+        let exam = await this.page.$$('//table[@class="table"]//tbody//tr//td[2]//span//span//span');
 
-            let ex=await exam[i].textContent();
-            console.log("exam:"+ex);
-            if(examid==ex)
-            {   
-                console.log("Examid inside:"+examid);
+        console.log("Exam list:" + exam);
+        for (let i = 0; i <= exam.length - 1; i++) {
+
+            let ex = await exam[i].textContent();
+            console.log("exam:" + ex);
+            if (examid == ex) {
+                console.log("Examid inside:" + examid);
                 const clickableExam: ElementHandle<Element> = exam[i] as ElementHandle<Element>;
                 await clickableExam.click();
             }
-            else if(examIdProc==ex){
-                console.log("Examid inside proc:"+examIdProc);
+            else if (examIdProc == ex) {
+                console.log("Examid inside proc:" + examIdProc);
                 const clickableExamProc: ElementHandle<Element> = exam[i] as ElementHandle<Element>;
                 await clickableExamProc.click();
             }
+        }
+
+        let CandNAme = await this.verifyCandNAme.textContent();
+        console.log(CandNAme);
+        await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+        await this.page.waitForTimeout(3000);
     }
 
-    let CandNAme=await this.verifyCandNAme.textContent();
-    console.log(CandNAme);
-    await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
-    await this.page.waitForTimeout(3000);
-  }
-
-    /**Method to select Location */  
+    async clickonexam() {
+        await this.examIdClick.click();
+        let CandNAme = await this.verifyCandNAme.textContent();
+        console.log(CandNAme);
+        await this.page.waitForTimeout(3000);
+    }
+    /**Method to select Location */
     async selectLocation() {
         await this.ClickOnExam1.click();
         await this.SelectAll.check();
@@ -227,7 +234,7 @@ export class EluminaInvPage {
         await this.page.waitForTimeout(5000);
     }
 
-    /**Method to click on exam link */  
+    /**Method to click on exam link */
     async ClickOnExamLink() {
         await this.ClickOnExam.click();
 
@@ -235,14 +242,14 @@ export class EluminaInvPage {
 
     /**Method to Mark all attendence */
     async markAllAttendance() {
-        let markattd1=this.page.locator('(//table[@class="table table-spacing"]//tbody//tr//td[3]//select)[1]');
+        let markattd1 = this.page.locator('(//table[@class="table table-spacing"]//tbody//tr//td[3]//select)[1]');
         await markattd1.click();
         await markattd1.selectOption('Yes');
-        let markattd2=this.page.locator('(//table[@class="table table-spacing"]//tbody//tr//td[3]//select)[1]');
+        let markattd2 = this.page.locator('(//table[@class="table table-spacing"]//tbody//tr//td[3]//select)[1]');
         await markattd2.click();
         await markattd2.selectOption('Yes');
         await this.page.waitForTimeout(2000);
-        
+
     }
 
     async oneCandCheckbox() {
@@ -251,13 +258,13 @@ export class EluminaInvPage {
 
     /**Method to mark attendence with yes */
     async isPresentYes() {
-        let markattd1=this.page.locator('(//table[@class="table table-spacing"]//tbody//tr//td[3]//select)[1]');
+        let markattd1 = this.page.locator('(//table[@class="table table-spacing"]//tbody//tr//td[3]//select)[1]');
         await markattd1.click();
         await markattd1.selectOption('Yes');
         await this.page.waitForTimeout(5000);
     }
 
-     /**Method to mark attendence with No */
+    /**Method to mark attendence with No */
     async isPresentNo() {
         await this.IsPresentNo.click();
     }
@@ -284,13 +291,13 @@ export class EluminaInvPage {
 
     /**Method to click on location submit */
     async locationSubmit() {
-            await this.LocationSubmit.click();
-    }  
+        await this.LocationSubmit.click();
+    }
 
     /**Method for Logout */
-    async logoutClick(){
+    async logoutClick() {
         await this.MenuIconClick.click();
         await this.logoutbuttonClick.click();
-      
+
     }
 }
