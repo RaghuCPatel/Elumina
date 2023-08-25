@@ -11643,3 +11643,64 @@
 {"level":"info","message":"Test Case Started : @RegressionP Verify Validation of Candidate attends All Question type"}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Question Preview "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Question Preview  Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Question Preview "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Question Preview  Status : failed"}
+{"level":"error","message":"File not found: C:\\Elumina\\25-08-2023\\html-report"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Question Preview "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Question Preview  Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Edit Question "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Edit Question  Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Edit Question "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Edit Question "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Edit Question "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Edit Question  Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Edit Question "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Edit Question  Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Edit Question "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Edit Question  Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Question checkout. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Question checkout. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Question checkout.  Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (SJT)/ Rating "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (SJT)/ Rating  Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (SJT)/ Rating "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (SJT)/ Rating  Status : failed"}

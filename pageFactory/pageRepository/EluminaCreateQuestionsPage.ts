@@ -111,6 +111,18 @@ export class EluminaCreateQuestionsPage {
     readonly SaveDraft: Locator
     readonly clickImage: Locator;
     readonly InsertImageClick: Locator;
+    readonly ClickOnMoreOption: Locator;
+    readonly ClickOnPreview: Locator;
+    readonly ValidatePreviewPage: Locator;
+    readonly ClickOnDuplicate: Locator;
+    readonly ClickOnYesBtn: Locator;
+    readonly ClickOnSubmitBtn: Locator;
+    readonly ClickOnInappropriateRadioBtn: Locator;
+    readonly ClickOnSaveBtn: Locator;
+    readonly ClickOnVersionHistory: Locator;
+    readonly ClickOnCheckout: Locator;
+    readonly ClickOnYesBtnForCheckout: Locator;
+    readonly ClickOnQuestionID: Locator;
 
 
 
@@ -204,6 +216,7 @@ export class EluminaCreateQuestionsPage {
         this.ClickOnTypeB = page.locator('//p[normalize-space()="Type B"]')
         this.ClickOnSJT = page.locator('//p[normalize-space()="SJT"]')
         this.ClickOnAppropriateRadioBtn = page.locator('//div[@class="col-5 col-xlg-6 ng-star-inserted"]//div[2]//qms-radio-button[1]//label[1]//div[1]');
+        this.ClickOnInappropriateRadioBtn = page.locator('//div[@class="col-5 col-xlg-6 ng-star-inserted"]//div[3]//qms-radio-button[1]//label[1]//div[1]')
         this.EnterMarksInSJT = page.locator('//div[@class="mark-input-box ng-star-inserted"]//input[@type="number"]')
         this.ClickOnOptionBRadioBtn = page.locator('(//div[@class="control__indicator"])[3]');
         this.QuestionsText = page.frameLocator('(//iframe[@title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help"])[3]').locator('html');
@@ -214,7 +227,17 @@ export class EluminaCreateQuestionsPage {
         this.MarkMarks = page.locator('//div[@id="editing-view-port"]');
         this.SaveDraft = page.locator('//button[text()="Save Draft"]');
         this.clickImage = page.locator('(//img[@class="block-img"])[4]');
-
+        this.ClickOnMoreOption = page.locator('//table[@class="table"]//tbody//tr[1]//td[15]//a');
+        this.ClickOnQuestionID = page.locator('//table[@class="table"]//tbody//tr[1]//td[2]//a')
+        this.ClickOnPreview = page.locator('(//p[normalize-space()="Preview"])[1]');
+        this.ValidatePreviewPage = page.locator('//h4[text()="Preview"]')
+        this.ClickOnDuplicate = page.locator('(//p[normalize-space()="Duplicate"])[1]')
+        this.ClickOnYesBtn = page.locator('//div[@id="duplicateModal"]//button[normalize-space()="Yes"]')
+        this.ClickOnSubmitBtn = page.locator('//button[normalize-space()="Submit"]')
+        this.ClickOnSaveBtn = page.locator('(//button[text()="Save"])[1]')
+        this.ClickOnVersionHistory = page.locator('//p[normalize-space()="Version History"]')
+        this.ClickOnCheckout = page.locator('(//p[normalize-space()="Check Out"])[1]')
+        this.ClickOnYesBtnForCheckout = page.locator('//div[@id="checkoutModal"]//button[@type="button"][normalize-space()="Yes"]')
     }
 
     /**Method for Page Navigation */
@@ -243,6 +266,45 @@ export class EluminaCreateQuestionsPage {
     /**Method for Question Menu click on Menu bar */
     async QuestionsMenuClick(): Promise<void> {
         await this.Questions.click();
+    }
+
+    /**Method to validate Preview Page */
+    async validatePreviewPage() {
+        await this.ClickOnMoreOption.click();
+        await this.ClickOnPreview.click();
+        await expect(this.ValidatePreviewPage).toBeVisible();
+    }
+
+    /**Method to validate Edit Question */
+    async validateEditQuestion() {
+        await this.ClickOnMoreOption.click();
+        await this.ClickOnDuplicate.click();
+        await this.ClickOnYesBtn.click();
+        // await this.ClickOnSaveBtn.click();
+        // await this.ClickOnInappropriateRadioBtn.click();
+        await this.ClickOnSubmitBtn.click();
+        await this.ClickOnSaveBtn.click();
+        await this.ClickOnWorkFlow.click()
+        await this.ClickOnApprove.click();
+        await this.page.waitForTimeout(3000);
+        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        await this.ClickOnVersionHistory.click()
+    }
+
+
+    /**Method to validate Question Checkout */
+    async validateQuestionCheckout() {
+        await this.ClickOnMoreOption.click();
+        await this.ClickOnCheckout.click();
+        await this.ClickOnYesBtnForCheckout.click();
+        await this.ClickOnQuestionID.click()
+        await this.ClickOnSaveBtn.click();
+        await this.ClickOnWorkFlow.click()
+        await this.ClickOnApprove.click();
+        await this.page.waitForTimeout(3000);
+        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        await this.ClickOnVersionHistory.click()
+
     }
 
     /**Method for Question Tab Navigation */
@@ -498,17 +560,15 @@ export class EluminaCreateQuestionsPage {
         await this.Question.type(testData.TypeBStatement);
         await this.page.waitForTimeout(2000);
         await this.OptionA.click();
+        await this.page.waitForTimeout(2000);
+        await this.AddImage.click();
+        await this.page.waitForTimeout(2000);
+        await this.clickImage.click()
+        await this.page.waitForTimeout(2000);
+        await this.InsertImageClick.click();
+        await this.page.waitForTimeout(2000);
         await this.OptionA.type(testData.Answer);
         await this.page.waitForTimeout(2000);
-        // await this.EnterMarks.click()
-        // await this.EnterMarks.clear()
-        // await this.EnterMarks.type('2')
-        // await this.page.waitForTimeout(2000);
-        // await this.AddImage.click();
-        // await this.ClickOnUploadImageBtn.click()
-        // await this.page.waitForTimeout(5000);
-        // await this.ClickOnInsertImageFile.setInputFiles('lib/Images/kohli.jpeg');
-        // await this.page.waitForTimeout(2000);
         await this.ClickOnAppropriateRadioBtn.click();
         await this.page.waitForTimeout(2000);
         await this.EnterMarksInSJT.click();
