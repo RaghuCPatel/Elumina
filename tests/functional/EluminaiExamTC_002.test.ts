@@ -2,8 +2,8 @@ import test from '@lib/BaseTest';
 
 //Validation of Candidate App URL, Login Page 
 
- 
-test(`@Smoke Verify Validation of Candidate App URL, Login Page`, async ({ eluminaCandPage,webActions }) => {
+
+test(`@Smoke Verify Validation of Candidate App URL, Login Page`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -11,5 +11,5 @@ test(`@Smoke Verify Validation of Candidate App URL, Login Page`, async ({ elumi
         await eluminaCandPage.candidateLoginToAndValidateDashboard();
         await eluminaCandPage.logoutClick();
     });
-    
+
 });
