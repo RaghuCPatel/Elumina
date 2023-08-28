@@ -24,6 +24,7 @@ import { EluminaMultipleExamsForPMPage } from '@pages/EluminaMultipleExamsForPMP
 import { EluminaMinimalTimeExamPage } from '@pages/EluminaMinimalTimeExamPage';
 import { commonPages } from '@pages/commonPages';
 import { EluminaCreateQuestionsPage } from '@pages/EluminaCreateQuestionsPage';
+import { EluminaBlueprintsPage } from '@pages/EluminaBlueprintsPage';
 
 const test = baseTest.extend<{
     webActions: WebActions;
@@ -40,17 +41,18 @@ const test = baseTest.extend<{
     eluminaCandPage: EluminaCandidatePage;
     eluminExamianvPage: EluminaExamInvPage;
     eluminaRegInvPage: EluminaRegistrationInvPage;
-    eluminaCadInvPage:EluminaInvCandidatePage;
-    eluminaInvPage:EluminaInvPage;
-    eluminaCandidateRevieweAndSubmitPage:EluminaCandidateRevieweAndSubmitPage;
-    eluminaProctorExam:EluminaProctorExamPage;
-    eluminaProctorReg:EluminaRegistrationForProctoringPage;
-    eluminaProctorCand:EluminaProctorCandidatePage;
-    eluminaLiveMonitorPage:EluminaIGLiveMonitorPage;
-    eluminaMultipleExamsForAMPage:EluminaMultipleExamsForAMPage;
-    eluminaMultipleExamsForPMPage:EluminaMultipleExamsForPMPage;
-    eluminaMinimalTimeExamPage:EluminaMinimalTimeExamPage;
-    eluminaCreateQuestionsPage:EluminaCreateQuestionsPage;
+    eluminaCadInvPage: EluminaInvCandidatePage;
+    eluminaInvPage: EluminaInvPage;
+    eluminaCandidateRevieweAndSubmitPage: EluminaCandidateRevieweAndSubmitPage;
+    eluminaProctorExam: EluminaProctorExamPage;
+    eluminaProctorReg: EluminaRegistrationForProctoringPage;
+    eluminaProctorCand: EluminaProctorCandidatePage;
+    eluminaLiveMonitorPage: EluminaIGLiveMonitorPage;
+    eluminaMultipleExamsForAMPage: EluminaMultipleExamsForAMPage;
+    eluminaMultipleExamsForPMPage: EluminaMultipleExamsForPMPage;
+    eluminaMinimalTimeExamPage: EluminaMinimalTimeExamPage;
+    eluminaCreateQuestionsPage: EluminaCreateQuestionsPage;
+    eluminaBlueprintsPage: EluminaBlueprintsPage;
 
 }>({
     webActions: async ({ page, context }, use) => {
@@ -127,6 +129,9 @@ const test = baseTest.extend<{
     },
     eluminaCreateQuestionsPage: async ({ page, context }, use) => {
         await use(new EluminaCreateQuestionsPage(page, context));
+    },
+    eluminaBlueprintsPage: async ({ page, context }, use) => {
+        await use(new EluminaBlueprintsPage(page, context));
     }
 })
 
