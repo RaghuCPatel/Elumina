@@ -13,6 +13,7 @@
     "invigilatorName": "IGS Invgilator One",
     "TestBank1": "Elumina - Test Bank",
     "TestBank2": "Practice Bank",
+    "TestBank3": "Test May 2023",
     "clientId": "5",
     "clientGender": "Mr",
     "clientUsername": "7",
@@ -66,6 +67,7 @@
     "AnswerKeyISAWE": "Solar",
     "BluePrintTitle": "TestBlueprint@",
     "cartName": "Cart1",
-    "cartName1": "Crat2",
-    "cartItems": "4"
+    "cartName1": "Cart2",
+    "cartItems": "4",
+    "TType": "Type"
 }
