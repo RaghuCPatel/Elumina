@@ -1,8 +1,8 @@
 import test from '@lib/BaseTest';
 
-/**Validation of Create Question (SJT)/ Rating */
+/**Validation of Edit Question*/
 
-test(`@RegressionA Validation of Create Question (SJT)/ Rating `, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
+test(`@RegressionA Validation of Edit Question `, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -12,7 +12,7 @@ test(`@RegressionA Validation of Create Question (SJT)/ Rating `, async ({ elumi
     await test.step(`Navigate to iAuthor`, async () => {
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.QuestionsMenuClick();
-        await newtab.createSJTQuestion();
+        await newtab.validateEditQuestion();
     });
 
 });
