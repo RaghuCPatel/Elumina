@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Question Duplicate */
 
-test(`@RegressionAValidation of Question Duplicate`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
+test(`@RegressionA Validation of Question Duplicate`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
