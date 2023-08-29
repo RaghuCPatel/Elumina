@@ -63,5 +63,9 @@
     "Scenario": "Renewable energy is energy that is generated from natural sources that are constantly replenished, such as sunlight, wind, water, and geothermal heat. It is a clean and sustainable source of energy that does not produce greenhouse gases or other pollutants. Renewable energy is becoming increasingly effective as technology improves and costs come down.Solar and wind power are now the cheapest sources of new electricity generation in many parts of the world.",
     "ISAWEQuestion": "Cheapest Renewable Energy Sources are?",
     "AnswerISAWE": "Cheapest Renewable Energy Sources are Solar & Wind",
-    "AnswerKeyISAWE": "Solar"
+    "AnswerKeyISAWE": "Solar",
+    "BluePrintTitle": "TestBlueprint@",
+    "cartName": "Cart1",
+    "cartName1": "Crat2",
+    "cartItems": "4"
 }
