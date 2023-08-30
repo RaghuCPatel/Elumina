@@ -42,9 +42,29 @@ export class EluminaBlueprintsPage {
     readonly SelectBank: Locator;
     readonly cartName: Locator;
     readonly cartItemsRequired: Locator;
+    readonly AddFilter: Locator;
+    readonly selectFilter: Locator;
+    readonly selectFilter1: Locator;
+    readonly selectFilter2: Locator;
+    readonly tickIconClick: Locator;
+    readonly SaveButtonClicks: Locator;
+    readonly FilterSuccessMessage: Locator;
+    readonly closeButton: Locator;
+    readonly nextButtonClick: Locator;
+    readonly TestBank: Locator;
+    readonly clickOnSaveDraft: Locator;
+    readonly workflowSuccessMessage: Locator;
+    readonly editBlueprint: Locator;
+    readonly cartButtonClick: Locator;
+    readonly addToCart: Locator;
+    readonly saveButton: Locator;
+    readonly saveSuccessMessage: Locator;
+    readonly workflowclick: Locator;
+    readonly approveButtonClick: Locator;
     readonly SearchDraftQuestions: Locator;
     readonly ClickOnQuestionID: Locator;
     readonly ClickOnAddCartBtn: Locator;
+    readonly ClickOnAddCartBtn2: Locator;
     readonly ClickOnToCart: Locator;
     readonly ClickOnSaveBtn: Locator;
     readonly ClickOnMoreIcon: Locator;
@@ -59,10 +79,15 @@ export class EluminaBlueprintsPage {
     readonly FilterSuccessMessage: Locator;
     readonly closeButton: Locator;
     readonly ClickOnAddCartBtn2: Locator;
+    readonly ClickOnVersionHistory: Locator;
+    readonly SaveButtonClick: Locator;
     readonly ClickOnWorkFlow: Locator;
     readonly ClickOnApprove: Locator;
     readonly ValidateSuccessfulPopMessage: Locator;
-    readonly ClickOnVersionHistory: Locator;
+    readonly removeCartButtonClick: Locator;
+    readonly cancelButtonClick: Locator;
+    readonly moreOptionClick: Locator;
+    readonly convertToExam: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -71,10 +96,30 @@ export class EluminaBlueprintsPage {
         this.AUTHOR = page.locator('//div[text()="iAuthor"]');
         this.Blueprint = page.locator('//a[@data-tour="Blueprints"]');
         this.clickCreateBlueprint = page.locator('//button[text()="Create Blueprint"]');
-        this.typeTitle = page.locator('//input[@class="textField ng-untouched ng-dirty ng-invalid"]');
+        this.typeTitle = page.locator('//input[@name="inputbox"]');
         this.SelectBank = page.locator('//input[@placeholder="Select Bank"]');
+        this.TestBank = page.locator('(//div[@class="dropdown-main"])[1]//li//span[@class="open"]')
         this.cartName = page.locator('//input[@placeholder="Cart"]');
         this.cartItemsRequired = page.locator('(//input[@placeholder="0"])[2]');
+        this.AddFilter = page.locator('(//button[@class="btn btn-blue"])[1]');
+        this.selectFilter = page.locator('//body//app-root//select[2]');
+        this.selectFilter1 = page.locator('//body//app-root//select[3]');
+        this.selectFilter2 = page.locator('//body//app-root//select[4]');
+        this.tickIconClick = page.locator('//i[@class="tick-icon ng-star-inserted"]');
+        this.SaveButtonClicks = page.locator('//button[text()="Save"]');
+        this.FilterSuccessMessage = page.locator('//div[text()="Filter Saved Successfully"]');
+        this.closeButton = page.locator('(//button[@type="button"][normalize-space()="×"])[1]');
+        this.nextButtonClick = page.locator('//button[text()="Next"]');
+        this.clickOnSaveDraft = page.locator('//button[text()="Save Draft"]');
+        this.workflowSuccessMessage = page.locator('//span[text()="Workflow has been created successfuly"]');
+        this.editBlueprint = page.locator('//button[text()="Edit this Blueprint"]');
+        this.cartButtonClick = page.locator('//div[@class="cartAdd-btn ng-star-inserted"]');
+        this.removeCartButtonClick = page.locator('//div[@class="cartMinus-btn ng-star-inserted"]');
+        this.addToCart = page.locator('//button[text()="Add to cart"]');
+        this.saveButton = page.locator('(//button[text()="Save"])[2]');
+        this.saveSuccessMessage = page.locator('//span[text()="Cart Details updated successfully"]');
+        this.workflowclick = page.locator('//p[text()="Workflow"]');
+        this.approveButtonClick = page.locator('//button[text()="Approve"]');
         this.SearchDraftQuestions = page.locator('//input[@placeholder="Search Blueprint(s)"]')
         this.ClickOnQuestionID = page.locator('//table[@class="table"]//tbody//tr[1]//td[2]//a')
         this.ClickOnAddCartBtn = page.locator('//div[@class="cartAdd-btn ng-star-inserted"]');
@@ -85,17 +130,15 @@ export class EluminaBlueprintsPage {
         this.EnterCartItem = page.locator('(//input[@class="inputtxt ng-untouched ng-pristine ng-valid ng-star-inserted"])[3]')
         this.EnterNumberReq = page.locator('(//div[@class="custom-tbdata item-required"]//input)[2]')
         this.ClickOnAddFilter = page.locator('(//button[@class="btn btn-blue"])[2]')
-        this.selectFilter = page.locator('//body//app-root//select[2]');
-        this.selectFilter1 = page.locator('//body//app-root//select[3]');
-        this.selectFilter2 = page.locator('//body//app-root//select[4]');
-        this.tickIconClick = page.locator('//i[@class="tick-icon ng-star-inserted"]')
         this.SaveButtonClick = page.locator('(//button[text()="Save"])[3]');
         this.closeButton = page.locator('(//button[@type="button"][text()="×"])[2]');
         this.ClickOnWorkFlow = page.locator('//p[normalize-space()="Workflow"]')
         this.ClickOnApprove = page.locator('//button[normalize-space()="Approve"]')
         this.ValidateSuccessfulPopMessage = page.locator('//span[text()="Status has been updated successfully."]')
         this.ClickOnVersionHistory = page.locator('//p[normalize-space()="Version History"]')
-
+        this.cancelButtonClick = page.locator('(//button[text()="Cancel"])[2]');
+        this.moreOptionClick = page.locator('//button[normalize-space()="..."]');
+        this.convertToExam = page.locator('//a[normalize-space()="Convert to exam"]');
     }
 
     /**Method for Page Navigation */
@@ -175,13 +218,83 @@ export class EluminaBlueprintsPage {
     async createBluePrint() {
         await this.clickCreateBlueprint.click();
         await this.typeTitle.click();
+        await this.page.waitForTimeout(2000);
         await this.typeTitle.type(testData.BluePrintTitle + currentDate);
+        await this.page.waitForTimeout(2000);
         await this.SelectBank.click();
-        await this.SelectBank.type(testData.TestBank2);
+        await this.SelectBank.type(testData.TestBank3);
+        await this.TestBank.click();
+        await this.page.waitForTimeout(2000);
         await this.cartName.click();
         await this.cartName.type(testData.cartName);
         await this.cartItemsRequired.click();
         await this.cartItemsRequired.type(testData.cartItems);
-
+        await this.AddFilter.click();
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter.click();
+        await this.selectFilter.selectOption('Type');
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter1.click();
+        await this.selectFilter1.selectOption('is equal to');
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter2.click();
+        await this.selectFilter2.selectOption('MCQ');
+        await this.page.waitForTimeout(2000);
+        await this.tickIconClick.click();
+        await this.SaveButtonClicks.click();
+        await this.page.waitForTimeout(2000);
+        await this.closeButton.click();
+        await this.page.waitForTimeout(2000);
+        await this.nextButtonClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickOnSaveDraft.click();
+        console.log(await this.workflowSuccessMessage.textContent());
+        await expect(this.workflowSuccessMessage).toHaveText("Workflow has been created successfuly");
+        await this.editBlueprint.click();
+        await this.page.waitForTimeout(2000);
+        await this.cartButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.page.waitForSelector('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        const checks = await this.page.$$('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        for (let i = 0; i < 4; i++) {
+            await checks[i].click()
+        }
+        await this.addToCart.click();
+        await this.page.waitForTimeout(2000);
+        await this.saveButton.click();
+        await this.page.waitForTimeout(2000);
+        await expect(this.saveSuccessMessage).toHaveText("Cart Details updated successfully");
+        await this.workflowclick.click();
+        await this.page.waitForTimeout(2000);
+        await this.approveButtonClick.click();
     }
+
+    async EditBlueprintQuestion() {
+        await this.SearchDraftQuestions.type('Draft')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+        await this.ClickOnAddCartBtn.click()
+        await this.page.waitForTimeout(3000)
+        await this.page.waitForSelector('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        const checks = await this.page.$$('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        for (let i = 0; i < 4; i++) {
+            await checks[i].click()
+        }
+        await this.ClickOnToCart.click()
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(5000)
+        await this.removeCartButtonClick.click();
+        await this.cancelButtonClick.click();
+        await this.workflowclick.click();
+        await this.page.waitForTimeout(2000);
+        await this.approveButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.convertToExam.click();
+        await this.page.waitForTimeout(2000);
+    }
+
 }
