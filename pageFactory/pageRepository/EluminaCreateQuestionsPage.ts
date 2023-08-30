@@ -144,6 +144,9 @@ export class EluminaCreateQuestionsPage {
     readonly ClickOnCheckout: Locator;
     readonly ClickOnYesBtnForCheckout: Locator;
     readonly ClickOnQuestionID: Locator;
+    readonly ValidateVersion: Locator;
+    readonly ClickOnDraftQuestion: Locator;
+    readonly SearchDraftQuestions: Locator;
 
 
 
@@ -281,6 +284,10 @@ export class EluminaCreateQuestionsPage {
         this.ClickOnVersionHistory = page.locator('//p[normalize-space()="Version History"]')
         this.ClickOnCheckout = page.locator('(//p[normalize-space()="Check Out"])[1]')
         this.ClickOnYesBtnForCheckout = page.locator('//div[@id="checkoutModal"]//button[@type="button"][normalize-space()="Yes"]')
+        this.ClickOnDraftQuestion = page.locator('(//table[@class="table"]//tbody//tr/td[10]//span[contains(text(),"Draft")])[1]')
+        this.ValidateVersion = page.locator('//div[@class="userInfo userInfo--defualt"]')
+        this.SearchDraftQuestions = page.locator('//input[@placeholder="Search Question(s)"]')
+
 
     }
 
@@ -292,6 +299,27 @@ export class EluminaCreateQuestionsPage {
         ]);
         await newPage.waitForLoadState();
         return new exports.EluminaCreateQuestionsPage(newPage);
+    }
+
+
+    async clickOnDraft() {
+        await this.SearchDraftQuestions.click();
+        await this.SearchDraftQuestions.type('Draft')
+        await this.page.waitForTimeout(3000);
+    }
+    /**Method to validate Version,date in Question page */
+    async validateVersionInQunPage() {
+        await expect(this.ValidateVersion).toBeVisible();
+        console.log(await this.ValidateVersion.textContent())
+    }
+    /**Method to validate Version Historey */
+    async validationOfVersionHistory() {
+        await this.page.waitForSelector('//h5[@class="verticalStepperCard__list--title"]')
+        const versions = await this.page.$$('//h5[@class="verticalStepperCard__list--title"]')
+        for (let i = 0; i < versions.length; i++) {
+            console.log(await versions[i].textContent());
+        }
+
     }
 
     /**Method to validate Admin pop */
@@ -332,7 +360,7 @@ export class EluminaCreateQuestionsPage {
         await this.ClickOnApprove.click();
         await this.page.waitForTimeout(3000);
         console.log(await this.ValidateSuccessfulPopMessage.textContent());
-        await this.ClickOnVersionHistory.click()
+        //await this.ClickOnVersionHistory.click()
     }
 
 
