@@ -1,8 +1,9 @@
 import test from '@lib/BaseTest';
 
-/*To verify candidates login and to start the exam*/
+/*Validation of user authentication by valid Candidate Creadentials*/
 
-test(`@Smoke Verify CandidatesInvExam`, async ({ eluminaCadInvPage,webActions }) => {
+test(`@SmokeValidation of user authentication by valid Candidate Creadentials
+`, async ({ eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });
