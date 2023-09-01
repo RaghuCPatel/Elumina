@@ -12652,63 +12652,149 @@
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
 {"level":"info","message":"Test Case Completed : iAU_TC_ID_124  Validation of Blueprint No Workflow Status : passed"}
-{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Exam – Copy an existing exam "}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
-{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Exam – Copy an existing exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Exam – Copy an existing exam "}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
-{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Exam – Copy an existing exam  Status : failed"}
+{"level":"error","message":"File not found: C:\\Users\\Divyashree\\Desktop\\githubMerge\\01-09-2023\\Elumina\\html-report"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Exam – Copy an existing exam "}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
-{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Exam – Copy an existing exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Exam – Copy an existing exam "}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
-{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Exam – Copy an existing exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Exam – Copy an existing exam "}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
-{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Exam – Copy an existing exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Exam – Copy an existing exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Exam – Copy an existing exam "}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
-{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : timedOut"}
-{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Exam – Copy an existing exam "}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
-{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : failed"}
-{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Exam – Copy an existing exam  Status : interrupted"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Exam – Copy an existing exam "}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
-{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Exam – Copy an existing exam "}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
-{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
-{"level":"info","message":"Executing Step : Navigate to Application"}
-{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
-{"level":"info","message":"Executing Step : Navigate to Application"}
-{"level":"info","message":"Executing Step : Login to Application"}
-{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
-{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : timedOut"}
-{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
-{"level":"info","message":"Executing Step : Navigate to Application"}
-{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Exam – Copy an existing exam  Status : interrupted"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Exam – Copy an existing exam "}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
-{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : failed"}
-{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Exam – Copy an existing exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Exam – Copy an existing exam "}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
-{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Exam – Copy an existing exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Exam – Copy an existing exam "}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Exam – Copy an existing exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Exam – Copy an existing exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Exam – Copy an existing exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Exam – Copy an existing exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Exam – Copy an existing exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Exam – Copy an existing exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Exam – Copy an existing exam  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_164. @RegressionA Validation of Exam Duplicate "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_164. @RegressionA Validation of Exam Duplicate  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_164. @RegressionA Validation of Exam Duplicate "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_164. @RegressionA Validation of Exam Duplicate  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_164. @RegressionA Validation of Exam Delete "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_164. @RegressionA Validation of Exam Delete "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_164. @RegressionA Validation of Exam Delete  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_164. @RegressionA Validation of Exam Delete "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_164. @RegressionA Validation of Exam Delete  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_164. @RegressionA Validation of Exam Delete "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_164. @RegressionA Validation of Exam Delete  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_164. @RegressionA Validation of Exam Delete "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_164. @RegressionA Validation of Exam Delete  Status : interrupted"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_164. @RegressionA Validation of Exam Delete "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_164. @RegressionA Validation of Exam Delete  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_171. @RegressionA Validation of Exam Archive"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_171. @RegressionA Validation of Exam Archive Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_172. @RegressionA Validation of Exam Export"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_172. @RegressionA Validation of Exam Export Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_172. @RegressionA Validation of Exam Export"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_172. @RegressionA Validation of Exam Export Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Add Multiple cart in one blueprint"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Add Multiple cart in one blueprint Status : passed"}
