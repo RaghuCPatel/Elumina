@@ -12009,3 +12009,646 @@
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : timedOut"}
+{"level":"error","message":"File not found: D:\\Elumina\\30-08-2023\\html-report"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : timedOut"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : timedOut"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : timedOut"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : interrupted"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint Version History Status : timedOut"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"error","message":"No tests found"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : timedOut"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : timedOut"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : interrupted"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : timedOut"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : timedOut"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Blueprint No Workflow Status : passed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_124  Validation of Blueprint No Workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_124  Validation of Blueprint No Workflow Status : passed"}
