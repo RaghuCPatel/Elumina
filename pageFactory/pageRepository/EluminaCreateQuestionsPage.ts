@@ -30,6 +30,25 @@ else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
+let currentDate = new Date();
+let StartBookingDate = currentDate.getDate().toString();
+let EndExamDate = (currentDate.getDate() + 1).toString();
+
+let hour = currentDate.getHours();
+let period = '';
+
+if (hour >= 12) {
+    period = 'PM';
+    if (hour > 12) {
+        hour -= 12;
+    }
+} else {
+    period = 'AM';
+    if (hour === 0) {
+        hour = 12;
+    }
+}
+
 export class EluminaCreateQuestionsPage {
     readonly page: Page;
     readonly context: BrowserContext;
@@ -144,8 +163,26 @@ export class EluminaCreateQuestionsPage {
     readonly ClickOnCheckout: Locator;
     readonly ClickOnYesBtnForCheckout: Locator;
     readonly ClickOnQuestionID: Locator;
+    readonly Exams: Locator;
+    readonly CREATEEXAMS: Locator;
+    readonly copyExistingExam: Locator;
+    readonly clickonQuestion: Locator;
 
-
+    readonly BookingStartCalender: Locator;
+    readonly BookingStartDate: Locator;
+    readonly BookingStartHrs: Locator;
+    readonly BooingStartMins: Locator;
+    readonly ChooseBookingStartSession: Locator;
+    readonly BookingOK: Locator;
+    readonly BookingEndCalender: Locator;
+    readonly BookingEndDate: Locator;
+    readonly ExamStartCalender: Locator;
+    readonly ExamStartDate: Locator;
+    readonly ExamEndCalender: Locator;
+    readonly ExamEndDate: Locator;
+    readonly ChooseBookingStartSessions: Locator;
+    readonly nextButton: Locator;
+    readonly Oneclick: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -154,6 +191,7 @@ export class EluminaCreateQuestionsPage {
         this.AUTHOR = page.locator('//div[text()="iAuthor"]');
         this.ClickOnQuestionTab = page.locator('//a[@data-tour="Questions"]')
         this.Questions = page.locator('//a[@data-tour="Questions"]');
+        this.Exams = page.locator('//a[@data-tour="Exams"]')
         this.CreateQuestion = page.locator('//button[text()="Create Question"]');
         this.MCQQuestionsClick = page.locator('//p[text()="MCQ"]');
         this.ISAWEQuestionsClick = page.locator('//p[text()="ISAWE"]');
@@ -281,7 +319,29 @@ export class EluminaCreateQuestionsPage {
         this.ClickOnVersionHistory = page.locator('//p[normalize-space()="Version History"]')
         this.ClickOnCheckout = page.locator('(//p[normalize-space()="Check Out"])[1]')
         this.ClickOnYesBtnForCheckout = page.locator('//div[@id="checkoutModal"]//button[@type="button"][normalize-space()="Yes"]')
+        this.CREATEEXAMS = page.locator('//button[normalize-space()="Create Exam"]');
+        this.copyExistingExam = page.locator('//p[normalize-space()="Copy an Existing Exam"]');
+        this.clickonQuestion = page.locator('//table[@class="table"]//tbody//tr[1]//td[3]');
 
+        this.BookingStartCalender = page.locator('//div[@id="exam_booking_start_date_time"]//i[@class="glyphicon glyphicon-calendar"]');
+        this.BookingStartDate = page.locator('#exam_booking_start_date_time').getByText(StartBookingDate, { exact: true });
+        this.BookingStartHrs = page.getByRole('spinbutton').first();
+        this.BooingStartMins = page.getByRole('spinbutton').nth(1);
+        this.ChooseBookingStartSession = page.getByLabel(period);
+        this.ChooseBookingStartSessions = page.getByLabel('PM');
+        this.BookingOK = page.locator('.dtpc-ok-svg');
+
+        this.BookingEndCalender = page.locator('#exam_booking_end_date_time i');
+        this.BookingEndDate = page.locator('#exam_booking_end_date_time').getByText(StartBookingDate, { exact: true });
+
+        this.ExamStartCalender = page.locator('#exam_start_date_time i');
+        this.ExamStartDate = page.locator('#exam_start_date_time').getByText(StartBookingDate, { exact: true });
+
+        this.ExamEndCalender = page.locator('#exam_end_date_time i');
+        this.ExamEndDate = page.locator('#exam_end_date_time').getByText(EndExamDate, { exact: true });
+
+        this.nextButton = page.locator('//li[@class="next"]');
+        this.Oneclick = page.locator('(//li//span[text()="1"])[1]');
     }
 
     /**Method for Page Navigation */
@@ -309,6 +369,11 @@ export class EluminaCreateQuestionsPage {
 
     /**Method for Question Menu click on Menu bar */
     async QuestionsMenuClick(): Promise<void> {
+        await this.Questions.click();
+    }
+
+    /**Method for Exams Menu click on Menu bar */
+    async ExamsMenuClick(): Promise<void> {
         await this.Questions.click();
     }
 
@@ -348,7 +413,6 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(3000);
         console.log(await this.ValidateSuccessfulPopMessage.textContent());
         await this.ClickOnVersionHistory.click()
-
     }
 
     /**Method for Question Tab Navigation */
@@ -821,4 +885,165 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(2000);
     }
 
+    async CopyExistingExams() {
+        let currentDate = new Date();
+        let datecurrent = currentDate.getDate();
+        console.log(datecurrent);
+        let pm = currentDate.getHours() >= 12;
+        let hour12 = currentDate.getHours() % 12;
+        if (!hour12)
+            hour12 += 12;
+        let minute = currentDate.getMinutes();
+        console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
+
+        let StartBookingMin = currentDate.getMinutes() + 2;
+        let EndBookingMin = currentDate.getMinutes() + 3;
+        let StartExamMin = currentDate.getMinutes() + 4;
+        let EndExamMin = currentDate.getMinutes() + 15;
+
+        await expect(this.CREATEEXAMS).toBeVisible();
+        await this.CREATEEXAMS.click();
+        await this.page.waitForTimeout(2000);
+        await this.copyExistingExam.click();
+        await this.page.waitForTimeout(2000);
+        await this.clickonQuestion.click();
+
+        await this.BookingStartCalender.click();
+        await this.BookingStartDate.click();
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (StartBookingMin >= 60) {
+            let SBM = StartBookingMin.toString();
+            SBM = "02";
+            await this.BooingStartMins.type(SBM);
+            //hrs+1
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            let BSH = hour12 + 1;
+            if (BSH == 12) {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSessions.check();
+            }
+            else if (BSH >= 13) {
+                BSH = 1;
+                await this.BookingStartHrs.type(BSH.toString());
+            }
+            else {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSession.check();
+            }
+        }
+        else {
+            await this.BooingStartMins.type(StartBookingMin.toString());
+            //hrs
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            await this.BookingStartHrs.type(hour12.toString());
+            await this.ChooseBookingStartSession.check();
+        }
+        await this.BookingOK.click();
+
+        await this.BookingEndCalender.click();
+        await this.BookingEndDate.click();
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (EndBookingMin >= 60) {
+            let EBM = EndBookingMin.toString();
+            EBM = "03";
+            await this.BooingStartMins.type(EBM);
+            //Hrs+1
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            let BSH = hour12 + 1;
+            if (BSH == 12) {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSessions.check();
+            }
+            else if (BSH >= 13) {
+                BSH = 1;
+                await this.BookingStartHrs.type(BSH.toString());
+            }
+            else {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSession.check();
+            }
+        }
+        else {
+            await this.BooingStartMins.type(EndBookingMin.toString());
+            //hrs
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            await this.BookingStartHrs.type(hour12.toString());
+            await this.ChooseBookingStartSession.check();
+        }
+
+        await this.BookingOK.click();
+
+        await this.ExamStartCalender.click();
+        await this.ExamStartDate.click();
+
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (StartExamMin >= 60) {
+            let SEM = StartExamMin.toString();
+            SEM = "04"
+            await this.BooingStartMins.type(SEM);
+            //hrs+1
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            let BSH = hour12 + 1;
+            if (BSH == 12) {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSessions.check();
+
+            }
+            else if (BSH >= 13) {
+                BSH = 1;
+                await this.BookingStartHrs.type(BSH.toString());
+            }
+            else {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSession.check();
+            }
+        }
+        else {
+            await this.BooingStartMins.type(StartExamMin.toString());
+            //hrs
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            await this.BookingStartHrs.type(hour12.toString());
+            await this.ChooseBookingStartSession.check();
+        }
+        await this.BookingOK.click();
+        await this.ExamEndCalender.click();
+
+        if (EndExamDate >= "30") {
+            console.log("Exam end date:" + EndExamDate);
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else if (EndExamDate >= "31") {
+            console.log("Exam end date:" + EndExamDate);
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else {
+            console.log("Exam end date:" + EndExamDate);
+            await this.ExamEndDate.click();
+        }
+        await this.BookingStartHrs.click();
+        await this.BookingStartHrs.clear();
+        await this.BookingStartHrs.type(hour12.toString());
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (EndExamMin >= 60) {
+            EndExamMin = 1;
+            await this.BooingStartMins.type(EndExamMin.toString());
+        }
+        else {
+            await this.BooingStartMins.type(EndExamMin.toString());
+        }
+    }
 }
