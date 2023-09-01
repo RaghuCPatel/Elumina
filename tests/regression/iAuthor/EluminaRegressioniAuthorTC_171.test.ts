@@ -1,8 +1,8 @@
 import test from '@lib/BaseTest';
 
-/**Validation of Create Exam – Copy an existing exam  */
+/**Validation of Exam Archive   */
 
-test(`@RegressionA Validation of Create Exam – Copy an existing exam `, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, eluminaExamPage, webActions }) => {
+test(`iAU_TC_ID_171. @RegressionA Validation of Exam Archive`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -11,6 +11,6 @@ test(`@RegressionA Validation of Create Exam – Copy an existing exam `, async 
     });
     await test.step(`Navigate to iAuthor blueprint`, async () => {
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
-        await newtab.CopyExistingExams();
+        await newtab.ValidationOfExamArchive();
     });
 });
