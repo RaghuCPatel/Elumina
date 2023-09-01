@@ -12,7 +12,7 @@ test(`@RegressionA Validation of Blueprint Version History`, async ({ eluminaLog
     await test.step(`Navigate to iAuthor blueprint`, async () => {
         const newtab = await eluminaBlueprintsPage.iAuthorPageNavigation();
         await newtab.BlueprintMenuClick();
-        await newtab.searchDraftBlueprintQueation();
+        await newtab.searchDraftBlueprintQuestionToApprove();
         await newtab.addQuestionsToCart()
     });
 });

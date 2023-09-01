@@ -941,6 +941,312 @@ export class EluminaCreateQuestionsPage {
         await this.clickonPreview.click();
         await this.page.waitForTimeout(2000);
     }
+    /**Method to choose a question and create a type */
+    async chooseQuetionType(QuestionType) {
+        if (QuestionType == "TypeB") {
+            await expect(this.CreateQuestion).toBeVisible();
+            await this.CreateQuestion.click();
+            await this.ClickOnTypeB.click();
+            await this.NextButtonClick.click();
+            await this.SelectQuestionBank.click();
+            await this.SelectQuestionBank.type(testData.TestBank2);
+            await this.SelectTestBank.click();
+            await this.page.waitForTimeout(2000);
+            await this.QuestionTopic.type('Sample TypeB Questions' + Math.floor(Math.random() * 8999 + 1000));
+            await this.page.waitForTimeout(2000);
+            await this.QuestionAims.click();
+            await this.QuestionAims.type(testData.Question);
+            await this.page.waitForTimeout(2000);
+            await this.Question.click();
+            await this.Question.type(testData.TypeBStatement);
+            await this.page.waitForTimeout(2000);
+            await this.OptionA.click();
+            await this.OptionA.type(testData.Answer);
+            await this.page.waitForTimeout(2000);
+            await this.AddImage.click();
+            await this.page.waitForTimeout(2000);
+            await this.clickImage.click()
+            await this.page.waitForTimeout(2000);
+            await this.InsertImageClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnOptionBRadioBtn.click()
+            await this.NextButtonClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnSaveDraft.click();
+            await this.ClickOnEditQuestion.click();
+            await this.ClickOnWorkFlow.click()
+            await this.ClickOnApprove.click()
+            await this.page.waitForTimeout(3000);
+            console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        }
+        else if (QuestionType == "SJT") {
+            await expect(this.CreateQuestion).toBeVisible();
+            await this.CreateQuestion.click();
+            await this.ClickOnSJT.click();
+            await this.NextButtonClick.click();
+            await this.SelectQuestionBank.click();
+            await this.SelectQuestionBank.type(testData.TestBank2);
+            await this.SelectTestBank.click();
+            await this.page.waitForTimeout(2000);
+            await this.QuestionTopic.type('Sample SJT Questions' + Math.floor(Math.random() * 8999 + 1000));
+            await this.page.waitForTimeout(2000);
+            await this.QuestionAims.click();
+            await this.QuestionAims.type(testData.Question);
+            await this.page.waitForTimeout(2000);
+            await this.Question.click();
+            await this.Question.type(testData.TypeBStatement);
+            await this.page.waitForTimeout(2000);
+            await this.OptionA.click();
+            await this.page.waitForTimeout(2000);
+            await this.AddImage.click();
+            await this.page.waitForTimeout(2000);
+            await this.clickImage.click()
+            await this.page.waitForTimeout(2000);
+            await this.InsertImageClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.OptionA.type(testData.Answer);
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnAppropriateRadioBtn.click();
+            await this.page.waitForTimeout(2000);
+            await this.EnterMarksInSJT.click();
+            await this.EnterMarksInSJT.clear();
+            await this.EnterMarksInSJT.type("2");
+            await this.NextButtonClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnSaveDraft.click();
+            await this.ClickOnEditQuestion.click();
+            await this.ClickOnWorkFlow.click()
+            await this.ClickOnApprove.click()
+            await this.page.waitForTimeout(3000);
+            console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        }
+        else if (QuestionType == "TypeX") {
+            await expect(this.CreateQuestion).toBeVisible();
+            await this.CreateQuestion.click();
+            await this.ClickOnTypeX.click();
+            await this.NextButtonClick.click();
+            await this.SelectQuestionBank.click();
+            await this.SelectQuestionBank.type(testData.TestBank2);
+            await this.SelectTestBank.click();
+            await this.page.waitForTimeout(2000);
+            await this.QuestionTopic.type('Sample TypeX Questions' + Math.floor(Math.random() * 899 + 100));
+            await this.page.waitForTimeout(2000);
+            await this.QuestionAims.click();
+            await this.QuestionAims.type(testData.Question);
+            await this.page.waitForTimeout(2000);
+            await this.Question.click();
+            await this.Question.type(testData.Subquestion);
+            await this.page.waitForTimeout(2000);
+            await this.OptionA.click();
+            await this.OptionA.type(testData.OptionA);
+            await this.ClickOnRadioButton1.click();
+            await this.page.waitForTimeout(2000);
+            await this.OptionB.click();
+            await this.OptionB.type(testData.OptionB);
+            await this.ClickOnRadioButton2.click();
+            await this.page.waitForTimeout(2000);
+            await this.OptionC.click();
+            await this.OptionC.type(testData.OptionC);
+            await this.ClickOnRadioButton3.click();
+            await this.page.waitForTimeout(2000);
+            await this.OptionD.click();
+            await this.OptionD.type(testData.OptionD);
+            await this.ClickOnRadioButton4.click();
+            await this.page.waitForTimeout(2000);
+            await this.OptionE.click();
+            await this.OptionE.type(testData.OptionE);
+            await this.ClickOnRadioButton5.click();
+            await this.page.waitForTimeout(2000);
+            await this.NextButtonClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnSaveDraft.click();
+            await this.ClickOnEditQuestion.click();
+            await this.ClickOnWorkFlow.click()
+            await this.ClickOnApprove.click()
+            await this.page.waitForTimeout(3000);
+            console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        }
+        else if (QuestionType == "SAQ") {
+            await expect(this.CreateQuestion).toBeVisible();
+            await this.CreateQuestion.click();
+            await this.ClickOnSAQ.click();
+            await this.NextButtonClick.click();
+            await this.SelectQuestionBank.click();
+            await this.SelectQuestionBank.type(testData.TestBank2);
+            await this.SelectTestBank.click();
+            await this.page.waitForTimeout(2000);
+            await this.QuestionTopic.type('Sample SAQ Questions' + Math.floor(Math.random() * 899 + 100));
+            await this.page.waitForTimeout(2000);
+            await this.QuestionAims.click();
+            await this.QuestionAims.type(testData.Question);
+            await this.page.waitForTimeout(2000);
+            await this.Question.click();
+            await this.Question.type(testData.Subquestion);
+            await this.page.waitForTimeout(2000);
+            await this.OptionA.click();
+            await this.OptionA.type(testData.Answer);
+            await this.page.waitForTimeout(2000);
+            await this.EnterMarks.click()
+            await this.EnterMarks.clear()
+            await this.EnterMarks.type('2')
+            await this.page.waitForTimeout(2000);
+            await this.EnterAnsKey.type(testData.AnswerKey)
+            await this.OptionB.click();
+            await this.OptionB.type(testData.Answer);
+            await this.page.waitForTimeout(2000);
+            await this.EnterMarksInAns.click()
+            await this.EnterMarksInAns.clear()
+            await this.EnterMarksInAns.type("2")
+            await this.NextButtonClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnSaveDraft.click();
+            await this.ClickOnEditQuestion.click();
+            await this.ClickOnWorkFlow.click()
+            await this.ClickOnApprove.click()
+            await this.page.waitForTimeout(3000);
+            console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        }
+        else if (QuestionType == "ISAWE") {
+            await expect(this.CreateQuestion).toBeVisible();
+            await this.CreateQuestion.click();
+            await this.ISAWEQuestionsClick.click();
+            await this.NextButtonClick.click();
+            await this.SelectQuestionBank.click();
+            await this.SelectQuestionBank.type(testData.TestBank2);
+            await this.SelectTestBank.click();
+            await this.page.waitForTimeout(2000);
+            await this.QuestionTopic.type('Renewable Energy ISAWE' + Math.floor(Math.random() * 899 + 100));
+            await this.page.waitForTimeout(2000);
+            await this.Question.click();
+            await this.Question.type(testData.Scenario);
+            await this.page.waitForTimeout(2000);
+            await this.AddImage.click();
+            await this.page.waitForTimeout(2000);
+            await this.clickImage.click()
+            await this.page.waitForTimeout(2000);
+            await this.InsertImageClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.Marks.click();
+            await this.Marks.type('2');
+            await this.QuestionsText.click();
+            await this.QuestionsText.type(testData.ISAWEQuestion);
+            await this.page.waitForTimeout(2000);
+            await this.Answer.click();
+            await this.Answer.type(testData.AnswerISAWE);
+            await this.page.waitForTimeout(2000);
+            await this.correctAnswerMarks.click();
+            await this.correctAnswerMarks.type('2');
+            await this.page.waitForTimeout(2000);
+            await this.EnterAnsKey.type(testData.AnswerKeyISAWE)
+            await this.page.waitForTimeout(2000);
+            await this.OptionC.click();
+            await this.OptionC.type(testData.AnswerKeyISAWE);
+            await this.page.waitForTimeout(2000);
+            await this.MarkMarks.click();
+            await this.MarkMarks.type('2');
+            await this.page.waitForTimeout(2000);
+            await this.NextButtonClick.click();
+            await expect(this.QuestionSuccessMessage).toHaveText('Question created successfully');
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnSaveDraft.click();
+            await this.ClickOnEditQuestion.click();
+            await this.ClickOnWorkFlow.click()
+            await this.ClickOnApprove.click()
+            await this.page.waitForTimeout(3000);
+            console.log(await this.ValidateSuccessfulPopMessage.textContent());
+            await expect(this.QuestionSuccessMessage).toHaveText('Status has been updated successfully.');
+        }
+        else if (QuestionType == "VSAQ") {
+            await expect(this.CreateQuestion).toBeVisible();
+            await this.CreateQuestion.click();
+            await this.ClickOnVSAQ.click();
+            await this.NextButtonClick.click();
+            await this.SelectQuestionBank.click();
+            await this.SelectQuestionBank.type(testData.TestBank2);
+            await this.SelectTestBank.click();
+            await this.page.waitForTimeout(2000);
+            await this.QuestionTopic.type('Sample VSAQ Questions' + Math.floor(Math.random() * 8999 + 1000));
+            await this.page.waitForTimeout(2000);
+            await this.QuestionAims.click();
+            await this.QuestionAims.type(testData.Question);
+            await this.page.waitForTimeout(2000);
+            await this.Question.click();
+            await this.Question.type(testData.Subquestion);
+            await this.page.waitForTimeout(2000);
+            await this.OptionA.click();
+            await this.OptionA.type(testData.Answer);
+            await this.page.waitForTimeout(2000);
+            await this.EnterMarks.click()
+            await this.EnterMarks.clear()
+            await this.EnterMarks.type('2')
+            await this.page.waitForTimeout(2000);
+            // await this.AddImage.click();
+            // await this.ClickOnUploadImageBtn.click()
+            // await this.page.waitForTimeout(5000);
+            // await this.ClickOnInsertImageFile.setInputFiles('lib/Images/kohli.jpeg');
+            // await this.page.waitForTimeout(2000);
+            await this.EnterAnsKey.type(testData.AnswerKey)
+            await this.OptionB.click();
+            await this.OptionB.type(testData.Answer);
+            await this.page.waitForTimeout(2000);
+            await this.EnterMarksInAns.click()
+            await this.EnterMarksInAns.clear()
+            await this.EnterMarksInAns.type("2")
+            await this.NextButtonClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnSaveDraft.click();
+            await this.ClickOnEditQuestion.click();
+            await this.ClickOnWorkFlow.click()
+            await this.ClickOnApprove.click()
+            await this.page.waitForTimeout(3000);
+            console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        }
+
+        else if (QuestionType == "MCQ") {
+            await expect(this.CreateQuestion).toBeVisible();
+            await this.CreateQuestion.click();
+            await this.MCQQuestionsClick.click();
+            await this.NextButtonClick.click();
+            await this.SelectQuestionBank.click();
+            await this.SelectQuestionBank.type(testData.TestBank2);
+            await this.SelectTestBank.click();
+            await this.page.waitForTimeout(2000);
+            await this.QuestionTopic.type('Sample MCQ Questions' + Math.floor(Math.random() * 8999 + 1000));
+            await this.page.waitForTimeout(2000);
+            await this.QuestionAims.click();
+            await this.QuestionAims.type(testData.QuestionAims);
+            await this.page.waitForTimeout(2000);
+            await this.Question.click();
+            await this.Question.type(testData.Question);
+            await this.page.waitForTimeout(2000);
+            await this.OptionA.click();
+            await this.OptionA.type(testData.OptionA);
+            await this.page.waitForTimeout(2000);
+            await this.ControlIndicator1.click();
+            await this.page.waitForTimeout(2000);
+            await this.OptionB.click();
+            await this.OptionB.type(testData.OptionB);
+            await this.page.waitForTimeout(2000);
+            await this.OptionC.click();
+            await this.OptionC.type(testData.OptionC);
+            await this.page.waitForTimeout(2000);
+            await this.OptionD.click();
+            await this.OptionD.type(testData.OptionD);
+            await this.page.waitForTimeout(2000);
+            await this.OptionE.click();
+            await this.OptionE.type(testData.OptionE);
+            await this.page.waitForTimeout(2000);
+            await this.NextButtonClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnSaveDraft.click();
+            await this.ClickOnEditQuestion.click();
+            await this.ClickOnWorkFlow.click()
+            await this.ClickOnApprove.click()
+            await this.page.waitForTimeout(3000);
+            console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        }
+    }
+
 
     /**Method for Exam Tab Navigation */
     async examTabNavigation(): Promise<void> {

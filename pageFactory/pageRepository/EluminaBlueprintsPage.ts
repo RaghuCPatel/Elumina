@@ -184,7 +184,7 @@ export class EluminaBlueprintsPage {
         this.tickIconClick = page.locator('//i[@class="tick-icon ng-star-inserted"]');
         this.SaveButtonClicks = page.locator('//button[text()="Save"]');
         this.FilterSuccessMessage = page.locator('//div[text()="Filter Saved Successfully"]');
-        this.closeButton = page.locator('(//button[@type="button"][normalize-space()="×"])[1]');
+        this.closeButton = page.locator('(//button[@type="button"][normalize-space()="×"])[2]');
         this.nextButtonClick = page.locator('//button[text()="Next"]');
         this.clickOnSaveDraft = page.locator('//button[text()="Save Draft"]');
         this.workflowSuccessMessage = page.locator('//span[text()="Workflow has been created successfuly"]');
@@ -308,15 +308,15 @@ export class EluminaBlueprintsPage {
 
 
     async searchDraftBlueprintQueation() {
-        await this.SearchDraftQuestions.type('Draft')
-        await this.page.waitForTimeout(3000)
-        await this.ClickOnQuestionID.click()
+        // await this.SearchDraftQuestions.type('Draft')
+        // await this.page.waitForTimeout(3000)
+        // await this.ClickOnQuestionID.click()
         await this.page.waitForTimeout(2000)
         await this.ClickOnAddCartBtn.click()
         await this.page.waitForTimeout(3000)
         await this.page.waitForSelector('(//table[@class="table"])[2]//tbody//tr//td[1]')
         const checks = await this.page.$$('(//table[@class="table"])[2]//tbody//tr//td[1]')
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 2; i++) {
             await checks[i].click()
         }
         await this.ClickOnToCart.click()
@@ -386,6 +386,7 @@ export class EluminaBlueprintsPage {
         await this.selectFilter2.selectOption('MCQ');
         await this.page.waitForTimeout(2000);
         await this.tickIconClick.click();
+        await this.page.waitForTimeout(2000);
         await this.SaveButtonClick.click();
         await this.page.waitForTimeout(2000);
         await this.closeButton.click();
@@ -409,14 +410,14 @@ export class EluminaBlueprintsPage {
     }
 
 
- 
+
 
 
     async approveBluePrintId() {
         await this.ClickOnWorkFlow.click();
         // await this.saveDraftOnWorkFlow.click();
         await this.page.waitForTimeout(4000);
-        if(await this.saveDraftText.textContent()=="Save Draft"){
+        if (await this.saveDraftText.textContent() == "Save Draft") {
             this.saveDraftOnWorkFlow.click()
         }
         await this.ClickOnApprove.click();
@@ -426,7 +427,7 @@ export class EluminaBlueprintsPage {
 
     }
 
-   /**Method to create blueprint */
+    /**Method to create blueprint */
     async createBluePrint() {
         await this.clickCreateBlueprint.click();
         await this.typeTitle.click();
