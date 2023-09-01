@@ -31,6 +31,23 @@ else if (process.env.ENV == 'staging') {
 }
 
 let currentDate = new Date();
+let StartBookingDate = currentDate.getDate().toString();
+let EndExamDate = (currentDate.getDate() + 1).toString();
+
+let hour = currentDate.getHours();
+let period = '';
+
+if (hour >= 12) {
+    period = 'PM';
+    if (hour > 12) {
+        hour -= 12;
+    }
+} else {
+    period = 'AM';
+    if (hour === 0) {
+        hour = 12;
+    }
+}
 
 export class EluminaBlueprintsPage {
     readonly page: Page;
@@ -80,6 +97,22 @@ export class EluminaBlueprintsPage {
     readonly cancelButtonClick: Locator;
     readonly moreOptionClick: Locator;
     readonly convertToExam: Locator;
+
+    readonly ClickOnCancelButton: Locator;
+    readonly previewButtonClick: Locator;
+    readonly previewCloseButtonClick: Locator;
+    readonly clickFirstBluePrint: Locator;
+    readonly DuplicateButtonClick: Locator;
+    readonly DeleteButtonClick: Locator;
+    readonly yesButtonClick: Locator;
+    readonly submitButtonClick: Locator;
+    readonly yesButtonClicks: Locator;
+    readonly saveDropdownButton: Locator;
+    readonly saveAsNewVersion: Locator;
+    readonly textAreaType: Locator;
+    readonly saveClick: Locator;
+    readonly saveNewVersionSuccessMessage: Locator;
+
     readonly saveButtonOnModify: Locator;
     readonly saveDraftOnWorkFlow: Locator;
     readonly editNumRequired: Locator;
@@ -91,6 +124,47 @@ export class EluminaBlueprintsPage {
     readonly saveDraftText: Locator;
 
 
+
+    readonly EXAMSMENU: Locator;
+    readonly CREATEEXAMS: Locator;
+    readonly STARTFROMSCRATCH: Locator;
+    readonly SELECTBANK: Locator;
+    readonly TESTBANK: Locator;
+    readonly EXAMNAME: Locator;
+    readonly EXAMCODE: Locator;
+    readonly BookingStartCalender: Locator;
+    readonly BookingStartDate: Locator;
+    readonly BookingStartHrs: Locator;
+    readonly BooingStartMins: Locator;
+    readonly ChooseBookingStartSession: Locator;
+    readonly BookingOK: Locator;
+    readonly BookingEndCalender: Locator;
+    readonly BookingEndDate: Locator;
+    readonly ExamStartCalender: Locator;
+    readonly ExamStartDate: Locator;
+    readonly ExamEndCalender: Locator;
+    readonly ExamEndDate: Locator;
+    readonly ClickOnExamVenue: Locator;
+    readonly ChooseExamVenue: Locator;
+    readonly ClickOnAdd: Locator;
+    readonly EnterNoOfCandidates: Locator;
+    readonly ClickOnNextBtn: Locator;
+    readonly VerifyExam_details: Locator;
+    readonly VerifyChoose_Question: Locator;
+    readonly VerifyChoose_Workflow: Locator;
+    readonly VerifyChoose_Confirmation: Locator;
+    readonly CliCKOnCreateSection: Locator;
+    readonly ClickOnCreateExamSection: Locator;
+    readonly ClickOnCreateSurveySection: Locator;
+    readonly ClickOnAddSurveyQuestion: Locator;
+    readonly EnterSectionName: Locator;
+    readonly DescriptionMessage: Locator;
+    readonly SelectTime: Locator;
+    readonly ClickOnSave: Locator;
+    readonly ChooseBookingStartSessions: Locator;
+    readonly nextButton: Locator;
+    readonly Oneclick: Locator;
+    readonly checkBoxClick: Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -128,12 +202,13 @@ export class EluminaBlueprintsPage {
         this.ClickOnAddCartBtn2 = page.locator('(//div[@class="cartAdd-btn ng-star-inserted"])[2]')
         this.ClickOnToCart = page.locator('//button[contains(text(),"Add to cart")]')
         this.ClickOnSaveBtn = page.locator('(//button[text()="Save"])[2]')
+        this.ClickOnCancelButton = page.locator('(//button[text()="Cancel"])[2]')
         this.ClickOnMoreIcon = page.locator('//div[@class="plus-btn"]')
         this.EnterCartItem = page.locator('(//input[@class="inputtxt ng-untouched ng-pristine ng-valid ng-star-inserted"])[3]')
         this.EnterNumberReq = page.locator('(//div[@class="custom-tbdata item-required"]//input)[2]')
         this.ClickOnAddFilter = page.locator('(//button[@class="btn btn-blue"])[2]')
         this.SaveButtonClick = page.locator('(//button[text()="Save"])[3]');
-        this.closeButton = page.locator('(//button[@type="button"][text()="×"])[2]');
+        this.closeButton = page.locator('(//button[@type="button"][text()="×"])[1]');
         this.ClickOnWorkFlow = page.locator('//p[normalize-space()="Workflow"]')
         this.ClickOnApprove = page.locator('//div//button[@class="theme-btn theme-primary-btn ng-star-inserted"]')
         this.ValidateSuccessfulPopMessage = page.locator('//span[contains(text(),"Status has been updated successfuly")]')
@@ -141,6 +216,67 @@ export class EluminaBlueprintsPage {
         this.cancelButtonClick = page.locator('(//button[text()="Cancel"])[2]');
         this.moreOptionClick = page.locator('//button[normalize-space()="..."]');
         this.convertToExam = page.locator('//a[normalize-space()="Convert to exam"]');
+
+        this.previewButtonClick = page.locator('//a[text()="Preview"]');
+        this.previewCloseButtonClick = page.locator('(//button[@type="button"][normalize-space()="×"])[11]');
+        this.clickFirstBluePrint = page.locator('(//table[@class="table"]//tbody//tr//td[3])[1]');
+        this.DuplicateButtonClick = page.locator('//a[text()="Duplicate"]');
+        this.DeleteButtonClick = page.locator('//a[text()="Delete"]');
+        this.yesButtonClick = page.locator('(//button[text()="Yes"])[3]');
+        this.yesButtonClicks = page.locator('(//button[text()="Yes"])[2]');
+        this.submitButtonClick = page.locator('//button[text()="Submit"]');
+        this.saveDropdownButton = page.locator('//span[@class="arrow-after"]');
+        this.saveAsNewVersion = page.locator('//a[normalize-space()="Save as New Version"]');
+        this.textAreaType = page.locator('//textarea[@name="comments"]');
+        this.saveClick = page.locator('(//button[text()="Save"])[3]');
+        this.saveNewVersionSuccessMessage = page.locator('//span[text()="Blueprint has been saved as new version"]');
+
+        this.EXAMSMENU = page.locator('//a[text()="Exams"]')
+        this.CREATEEXAMS = page.locator('//button[normalize-space()="Create Exam"]')
+        this.STARTFROMSCRATCH = page.locator('//p[normalize-space()="Start from Scratch"]')
+
+        this.SELECTBANK = page.locator('//input[@placeholder="Select Bank"]');
+        this.TESTBANK = page.locator('(//div[@class="dropdown-main"])[1]//li//span[@class="open"]')
+        this.EXAMNAME = page.locator('(//input[@name="inputbox"])[1]')
+        this.EXAMCODE = page.locator('(//input[@name="inputbox"])[2]')
+        this.BookingStartCalender = page.locator('//div[@id="exam_booking_start_date_time"]//i[@class="glyphicon glyphicon-calendar"]');
+        this.BookingStartDate = page.locator('#exam_booking_start_date_time').getByText(StartBookingDate, { exact: true });
+        this.BookingStartHrs = page.getByRole('spinbutton').first();
+        this.BooingStartMins = page.getByRole('spinbutton').nth(1);
+        this.ChooseBookingStartSession = page.getByLabel(period);
+        this.ChooseBookingStartSessions = page.getByLabel('PM');
+        this.BookingOK = page.locator('.dtpc-ok-svg');
+
+        this.BookingEndCalender = page.locator('#exam_booking_end_date_time i');
+        this.BookingEndDate = page.locator('#exam_booking_end_date_time').getByText(StartBookingDate, { exact: true });
+
+        this.ExamStartCalender = page.locator('#exam_start_date_time i');
+        this.ExamStartDate = page.locator('#exam_start_date_time').getByText(StartBookingDate, { exact: true });
+
+        this.ExamEndCalender = page.locator('#exam_end_date_time i');
+        this.ExamEndDate = page.locator('#exam_end_date_time').getByText(EndExamDate, { exact: true });
+
+        this.ClickOnExamVenue = page.getByPlaceholder('Select Exam Venue');
+        this.ChooseExamVenue = page.getByRole('listitem').filter({ hasText: testData.ChooseChennaiVenue }).locator('div');
+        this.ClickOnAdd = page.getByRole('button', { name: 'Add' });
+        this.EnterNoOfCandidates = page.getByRole('spinbutton');
+
+        this.ClickOnNextBtn = page.locator('//button[normalize-space()="Next"]');
+        this.VerifyExam_details = page.locator('//label[normalize-space()="1. Exam Details"]');
+        this.VerifyChoose_Question = page.locator('//label[normalize-space()="2. Choose Questions"]');
+        this.VerifyChoose_Workflow = page.locator('//label[normalize-space()="3. Choose Workflow"]');
+        this.VerifyChoose_Confirmation = page.locator('//label[normalize-space()="4. Confirmation"]');
+
+        this.CliCKOnCreateSection = page.locator('//i[@title="Create Section"]');
+        this.ClickOnCreateExamSection = page.getByText('Create Exam Section');
+        this.EnterSectionName = page.locator('#section_name').getByRole('textbox');
+        this.DescriptionMessage = page.frameLocator('iframe[title="Rich Text Area\\. Press ALT-F9 for menu\\. Press ALT-F10 for toolbar\\. Press ALT-0 for help"]').locator('html');
+        this.SelectTime = page.getByRole('combobox').nth(1);
+        this.ClickOnSave = page.locator('//button[normalize-space()="Save"]');
+        this.nextButton = page.locator('//li[@class="next"]');
+        this.Oneclick = page.locator('(//li//span[text()="1"])[1]');
+        this.checkBoxClick = page.locator('((//table[@class="table"])[2]//tbody//tr//td[1])[1]')
+
         this.saveButtonOnModify = page.locator('//div[@class="dropdownbtn"]');
         this.saveDraftOnWorkFlow = page.locator('(//div[@class="sub--right-menu ng-star-inserted"]//button)[1]')
         this.saveDraftText = page.locator('//button[text()="Save Draft"]')
@@ -151,6 +287,7 @@ export class EluminaBlueprintsPage {
         this.saveBtnOnRemoveCart = page.locator('(//div//button[@class="btn primarybtn"])[3]')
         this.cancelBtnOnRemoveCart = page.locator('(//button[@class="btn btn-default"])[1]')
         this.cartItemIsZero = page.locator('(//table//tbody//tr//td)[2]')
+
 
     }
 
@@ -168,6 +305,7 @@ export class EluminaBlueprintsPage {
     async BlueprintMenuClick(): Promise<void> {
         await this.Blueprint.click();
     }
+
 
     async searchDraftBlueprintQueation() {
         await this.SearchDraftQuestions.type('Draft')
@@ -271,6 +409,9 @@ export class EluminaBlueprintsPage {
     }
 
 
+ 
+
+
     async approveBluePrintId() {
         await this.ClickOnWorkFlow.click();
         // await this.saveDraftOnWorkFlow.click();
@@ -285,6 +426,7 @@ export class EluminaBlueprintsPage {
 
     }
 
+   /**Method to create blueprint */
     async createBluePrint() {
         await this.clickCreateBlueprint.click();
         await this.typeTitle.click();
@@ -339,7 +481,24 @@ export class EluminaBlueprintsPage {
         await this.approveButtonClick.click();
     }
 
+    /**Method to edit blueprint */
     async EditBlueprintQuestion() {
+
+        let currentDate = new Date();
+        let datecurrent = currentDate.getDate();
+        console.log(datecurrent);
+        let pm = currentDate.getHours() >= 12;
+        let hour12 = currentDate.getHours() % 12;
+        if (!hour12)
+            hour12 += 12;
+        let minute = currentDate.getMinutes();
+        console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
+
+        let StartBookingMin = currentDate.getMinutes() + 2;
+        let EndBookingMin = currentDate.getMinutes() + 3;
+        let StartExamMin = currentDate.getMinutes() + 4;
+        let EndExamMin = currentDate.getMinutes() + 15;
+
         await this.SearchDraftQuestions.type('Draft')
         await this.page.waitForTimeout(3000)
         await this.ClickOnQuestionID.click()
@@ -365,6 +524,234 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(2000);
         await this.convertToExam.click();
         await this.page.waitForTimeout(2000);
+
+        await this.SELECTBANK.click();
+        await this.SELECTBANK.type(testData.TestBank2);
+        await this.TESTBANK.click();
+        await this.EXAMNAME.type('DEMO' + Math.floor(Math.random() * 899999 + 100000));
+
+        await this.EXAMCODE.type('D' + Math.floor(Math.random() * 89 + 100));
+
+        await this.BookingStartCalender.click();
+        await this.BookingStartDate.click();
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (StartBookingMin >= 60) {
+            let SBM = StartBookingMin.toString();
+            SBM = "02";
+            await this.BooingStartMins.type(SBM);
+            //hrs+1
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            let BSH = hour12 + 1;
+            if (BSH == 12) {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSessions.check();
+            }
+            else if (BSH >= 13) {
+                BSH = 1;
+                await this.BookingStartHrs.type(BSH.toString());
+            }
+            else {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSession.check();
+            }
+        }
+        else {
+            await this.BooingStartMins.type(StartBookingMin.toString());
+            //hrs
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            await this.BookingStartHrs.type(hour12.toString());
+            await this.ChooseBookingStartSession.check();
+        }
+        await this.BookingOK.click();
+
+        await this.BookingEndCalender.click();
+        await this.BookingEndDate.click();
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (EndBookingMin >= 60) {
+            let EBM = EndBookingMin.toString();
+            EBM = "03";
+            await this.BooingStartMins.type(EBM);
+            //Hrs+1
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            let BSH = hour12 + 1;
+            if (BSH == 12) {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSessions.check();
+            }
+            else if (BSH >= 13) {
+                BSH = 1;
+                await this.BookingStartHrs.type(BSH.toString());
+            }
+            else {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSession.check();
+            }
+        }
+        else {
+            await this.BooingStartMins.type(EndBookingMin.toString());
+            //hrs
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            await this.BookingStartHrs.type(hour12.toString());
+            await this.ChooseBookingStartSession.check();
+        }
+
+        await this.BookingOK.click();
+
+        await this.ExamStartCalender.click();
+        await this.ExamStartDate.click();
+
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (StartExamMin >= 60) {
+            let SEM = StartExamMin.toString();
+            SEM = "04"
+            await this.BooingStartMins.type(SEM);
+            //hrs+1
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            let BSH = hour12 + 1;
+            if (BSH == 12) {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSessions.check();
+
+            }
+            else if (BSH >= 13) {
+                BSH = 1;
+                await this.BookingStartHrs.type(BSH.toString());
+            }
+            else {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSession.check();
+            }
+        }
+        else {
+            await this.BooingStartMins.type(StartExamMin.toString());
+            //hrs
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            await this.BookingStartHrs.type(hour12.toString());
+            await this.ChooseBookingStartSession.check();
+        }
+        await this.BookingOK.click();
+        await this.ExamEndCalender.click();
+
+        if (EndExamDate >= "30") {
+            console.log("Exam end date:" + EndExamDate);
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else if (EndExamDate >= "31") {
+            console.log("Exam end date:" + EndExamDate);
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else {
+            console.log("Exam end date:" + EndExamDate);
+            await this.ExamEndDate.click();
+        }
+        await this.BookingStartHrs.click();
+        await this.BookingStartHrs.clear();
+        await this.BookingStartHrs.type(hour12.toString());
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (EndExamMin >= 60) {
+            EndExamMin = 1;
+            await this.BooingStartMins.type(EndExamMin.toString());
+        }
+        else {
+            await this.BooingStartMins.type(EndExamMin.toString());
+        }
+        await this.ChooseBookingStartSession.check();
+        await this.BookingOK.click();
+
+        await this.ClickOnExamVenue.click();
+        await this.ChooseExamVenue.click();
+        await this.ClickOnAdd.click();
+        await this.EnterNoOfCandidates.click();
+        await this.EnterNoOfCandidates.clear();
+        await this.EnterNoOfCandidates.type('10');
+        await this.ClickOnAdd.click();
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnNextBtn.click();
     }
+
+    /**Method to edit blueprint with preview */
+    async EditBlueprintQuestionwithPreview() {
+        await this.SearchDraftQuestions.type('Draft')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+
+        await this.ClickOnAddCartBtn.click();
+        await this.page.waitForTimeout(3000)
+        await this.page.waitForSelector('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        //const checks = await this.page.$$('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        await this.checkBoxClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnToCart.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnCancelButton.click();
+        await this.page.waitForTimeout(2000);
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.previewButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.previewCloseButtonClick.click();
+        await this.page.waitForTimeout(2000)
+    }
+
+    /**Method to Delete the blueprint */
+    async DeleteBluePrint() {
+        await this.clickFirstBluePrint.click();
+        await this.page.waitForTimeout(2000);
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.DeleteButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.yesButtonClicks.click();
+        await this.page.waitForTimeout(2000);
+    }
+
+    /**Method to Duplicate the blueprint */
+    async DuplicateBluePrint() {
+        await this.clickFirstBluePrint.click();
+        await this.page.waitForTimeout(2000);
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.DuplicateButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.yesButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.submitButtonClick.click();
+        await this.page.waitForTimeout(2000);
+
+    }
+
+    /**Method to save as a new version */
+    async SaveAsNewVersion() {
+        await this.SearchDraftQuestions.type('Draft')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+        await this.saveDropdownButton.click();
+        await this.page.waitForTimeout(2000)
+        await this.saveAsNewVersion.click();
+        await this.page.waitForTimeout(2000)
+        await this.textAreaType.type("New Verison");
+        await this.page.waitForTimeout(2000)
+        await this.saveClick.click();
+        await this.page.waitForTimeout(2000)
+        await expect(this.saveNewVersionSuccessMessage).toHaveText("Blueprint has been saved as new version");
+    }
+
+
 
 }
