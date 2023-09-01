@@ -88,16 +88,8 @@ export class EluminaBlueprintsPage {
     readonly EnterCartItem: Locator;
     readonly EnterNumberReq: Locator;
     readonly ClickOnAddFilter: Locator;
-    readonly selectFilter: Locator;
-    readonly selectFilter1: Locator;
-    readonly selectFilter2: Locator;
-    readonly tickIconClick: Locator;
     readonly SaveButtonClick: Locator;
-    readonly FilterSuccessMessage: Locator;
-    readonly closeButton: Locator;
-    readonly ClickOnAddCartBtn2: Locator;
     readonly ClickOnVersionHistory: Locator;
-    readonly SaveButtonClick: Locator;
     readonly ClickOnWorkFlow: Locator;
     readonly ClickOnApprove: Locator;
     readonly ValidateSuccessfulPopMessage: Locator;
@@ -105,6 +97,7 @@ export class EluminaBlueprintsPage {
     readonly cancelButtonClick: Locator;
     readonly moreOptionClick: Locator;
     readonly convertToExam: Locator;
+
     readonly ClickOnCancelButton: Locator;
     readonly previewButtonClick: Locator;
     readonly previewCloseButtonClick: Locator;
@@ -119,6 +112,18 @@ export class EluminaBlueprintsPage {
     readonly textAreaType: Locator;
     readonly saveClick: Locator;
     readonly saveNewVersionSuccessMessage: Locator;
+
+    readonly saveButtonOnModify: Locator;
+    readonly saveDraftOnWorkFlow: Locator;
+    readonly editNumRequired: Locator;
+    readonly removeFromCart: Locator;
+    readonly clickOnRemoveCartBtn: Locator;
+    readonly saveBtnOnRemoveCart: Locator;
+    readonly cancelBtnOnRemoveCart: Locator;
+    readonly cartItemIsZero: Locator;
+    readonly saveDraftText: Locator;
+
+
 
     readonly EXAMSMENU: Locator;
     readonly CREATEEXAMS: Locator;
@@ -205,12 +210,13 @@ export class EluminaBlueprintsPage {
         this.SaveButtonClick = page.locator('(//button[text()="Save"])[3]');
         this.closeButton = page.locator('(//button[@type="button"][text()="×"])[1]');
         this.ClickOnWorkFlow = page.locator('//p[normalize-space()="Workflow"]')
-        this.ClickOnApprove = page.locator('//button[normalize-space()="Approve"]')
-        this.ValidateSuccessfulPopMessage = page.locator('//span[text()="Status has been updated successfully."]')
+        this.ClickOnApprove = page.locator('//div//button[@class="theme-btn theme-primary-btn ng-star-inserted"]')
+        this.ValidateSuccessfulPopMessage = page.locator('//span[contains(text(),"Status has been updated successfuly")]')
         this.ClickOnVersionHistory = page.locator('//p[normalize-space()="Version History"]')
         this.cancelButtonClick = page.locator('(//button[text()="Cancel"])[2]');
         this.moreOptionClick = page.locator('//button[normalize-space()="..."]');
         this.convertToExam = page.locator('//a[normalize-space()="Convert to exam"]');
+
         this.previewButtonClick = page.locator('//a[text()="Preview"]');
         this.previewCloseButtonClick = page.locator('(//button[@type="button"][normalize-space()="×"])[11]');
         this.clickFirstBluePrint = page.locator('(//table[@class="table"]//tbody//tr//td[3])[1]');
@@ -270,6 +276,19 @@ export class EluminaBlueprintsPage {
         this.nextButton = page.locator('//li[@class="next"]');
         this.Oneclick = page.locator('(//li//span[text()="1"])[1]');
         this.checkBoxClick = page.locator('((//table[@class="table"])[2]//tbody//tr//td[1])[1]')
+
+        this.saveButtonOnModify = page.locator('//div[@class="dropdownbtn"]');
+        this.saveDraftOnWorkFlow = page.locator('(//div[@class="sub--right-menu ng-star-inserted"]//button)[1]')
+        this.saveDraftText = page.locator('//button[text()="Save Draft"]')
+        this.editNumRequired = page.locator('(//div[@class="ngx-dnd-item custom-trow ng-star-inserted"]//div)[5]//input')
+        // this.removeQuesOnCart=page.locator('(//table[@class="table"])[2]//tbody//tr//td//input')
+        this.removeFromCart = page.locator('(//div//button[@class="btn primarybtn"])[2]')
+        this.clickOnRemoveCartBtn = page.locator('//div[@class="cartMinus-btn ng-star-inserted"]')
+        this.saveBtnOnRemoveCart = page.locator('(//div//button[@class="btn primarybtn"])[3]')
+        this.cancelBtnOnRemoveCart = page.locator('(//button[@class="btn btn-default"])[1]')
+        this.cartItemIsZero = page.locator('(//table//tbody//tr//td)[2]')
+
+
     }
 
     /**Method for Page Navigation */
@@ -306,13 +325,55 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(5000)
     }
 
+
+    async searchDraftBlueprintQuestionToApprove() {
+        await this.SearchDraftQuestions.type('Draft')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(3000)
+        //removeQuesOnCart
+        await this.clickOnRemoveCartBtn.click()
+        await this.page.waitForTimeout(2000);
+        if (await this.cartItemIsZero.textContent() == "0") {
+            console.log('dfsss:', 'noo');
+            await this.page.waitForTimeout(3000);
+            await this.cancelBtnOnRemoveCart.click();
+        }
+        else {
+            console.log('SSSSSSSSSS: ', 'yesss');
+            await this.page.waitForSelector('(//table[@class="table"])[2]//tbody//tr//td[1]')
+            const checksToDelete = await this.page.$$('(//table[@class="table"])[2]//tbody//tr//td[1]')
+            for (let i = 0; i < checksToDelete.length; i++) {
+                await checksToDelete[i].click()
+            }
+            await this.removeFromCart.click()
+            await this.saveBtnOnRemoveCart.click()
+        }
+        await this.editNumRequired.click()
+        await this.editNumRequired.clear()
+        await this.editNumRequired.fill('3')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnAddCartBtn.click()
+        await this.page.waitForTimeout(3000)
+        await this.page.waitForSelector('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        const checks = await this.page.$$('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        for (let i = 0; i < 3; i++) {
+            await checks[i].click()
+        }
+        await this.ClickOnToCart.click()
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(4000)
+    }
+
+
     async addQuestionsToCart() {
         await this.ClickOnMoreIcon.click()
         await this.EnterCartItem.click()
         await this.EnterCartItem.type('Item4')
         await this.page.waitForTimeout(5000)
         await this.EnterNumberReq.click()
-        await this.EnterNumberReq.type("3")
+        await this.EnterNumberReq.type("1")
         await this.ClickOnAddFilter.click()
         await this.page.waitForTimeout(2000);
         await this.selectFilter.click();
@@ -333,7 +394,7 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(3000)
         await this.page.waitForSelector('(//table[@class="table"])[2]//tbody//tr//td[1]')
         const checks = await this.page.$$('(//table[@class="table"])[2]//tbody//tr//td[1]')
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 1; i++) {
             await checks[i].click()
         }
         await this.ClickOnToCart.click()
@@ -347,7 +408,25 @@ export class EluminaBlueprintsPage {
         await this.ClickOnVersionHistory.click()
     }
 
-    /**Method to create blueprint */
+
+ 
+
+
+    async approveBluePrintId() {
+        await this.ClickOnWorkFlow.click();
+        // await this.saveDraftOnWorkFlow.click();
+        await this.page.waitForTimeout(4000);
+        if(await this.saveDraftText.textContent()=="Save Draft"){
+            this.saveDraftOnWorkFlow.click()
+        }
+        await this.ClickOnApprove.click();
+        await this.page.waitForTimeout(3000);
+        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        await this.page.waitForTimeout(5000);
+
+    }
+
+   /**Method to create blueprint */
     async createBluePrint() {
         await this.clickCreateBlueprint.click();
         await this.typeTitle.click();
