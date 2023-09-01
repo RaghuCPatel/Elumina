@@ -165,6 +165,7 @@ export class EluminaCreateQuestionsPage {
     readonly ClickOnQuestionID: Locator;
 
     readonly Exams: Locator;
+    readonly EXAMSMENU: Locator;
     readonly CREATEEXAMS: Locator;
     readonly copyExistingExam: Locator;
     readonly clickonQuestion: Locator;
@@ -188,7 +189,21 @@ export class EluminaCreateQuestionsPage {
     readonly ChooseBookingStartSessions: Locator;
     readonly nextButton: Locator;
     readonly Oneclick: Locator;
-
+    readonly moreOptionClick: Locator;
+    readonly DuplicateButtonClick: Locator;
+    readonly settingsButtonClick: Locator;
+    readonly QuestionsButtonClick: Locator;
+    readonly duplicateSuccessMessage: Locator;
+    readonly PrintButtonClick: Locator;
+    readonly clickDeleteYes: Locator;
+    readonly DeleteExamSuccessMessage: Locator;
+    readonly SearchDraftExams: Locator;
+    readonly clickArchiveYes: Locator;
+    readonly ArchiveExamSuccessMessage: Locator;
+    readonly clickonExport: Locator;
+    readonly selectFileFormat: Locator;
+    readonly selectZip: Locator;
+    readonly DownloadButtonclick: Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -197,6 +212,7 @@ export class EluminaCreateQuestionsPage {
         this.ClickOnQuestionTab = page.locator('//a[@data-tour="Questions"]')
         this.Questions = page.locator('//a[@data-tour="Questions"]');
         this.Exams = page.locator('//a[@data-tour="Exams"]')
+        this.EXAMSMENU = page.locator('//a[text()="Exams"]')
         this.CreateQuestion = page.locator('//button[text()="Create Question"]');
         this.MCQQuestionsClick = page.locator('//p[text()="MCQ"]');
         this.ISAWEQuestionsClick = page.locator('//p[text()="ISAWE"]');
@@ -320,7 +336,7 @@ export class EluminaCreateQuestionsPage {
         this.ClickOnDuplicate = page.locator('(//p[normalize-space()="Duplicate"])[1]')
         this.ClickOnYesBtn = page.locator('//div[@id="duplicateModal"]//button[normalize-space()="Yes"]')
         this.ClickOnSubmitBtn = page.locator('//button[normalize-space()="Submit"]')
-        this.ClickOnSaveBtn = page.locator('(//button[text()="Save"])[1]')
+        this.ClickOnSaveBtn = page.locator('(//button[normalize-space()="Save"])[1]')
         this.ClickOnVersionHistory = page.locator('//p[normalize-space()="Version History"]')
         this.ClickOnCheckout = page.locator('(//p[normalize-space()="Check Out"])[1]')
         this.ClickOnYesBtnForCheckout = page.locator('//div[@id="checkoutModal"]//button[@type="button"][normalize-space()="Yes"]')
@@ -328,13 +344,10 @@ export class EluminaCreateQuestionsPage {
         this.CREATEEXAMS = page.locator('//button[normalize-space()="Create Exam"]');
         this.copyExistingExam = page.locator('//p[normalize-space()="Copy an Existing Exam"]');
         this.clickonQuestion = page.locator('//table[@class="table"]//tbody//tr[1]//td[3]');
-
         this.ClickOnDraftQuestion = page.locator('(//table[@class="table"]//tbody//tr/td[10]//span[contains(text(),"Draft")])[1]')
         this.ValidateVersion = page.locator('//div[@class="userInfo userInfo--defualt"]')
         this.SearchDraftQuestions = page.locator('//input[@placeholder="Search Question(s)"]')
-
-
-
+        this.SearchDraftExams = page.locator('//input[@placeholder="Search Exam(s)"]')
         this.BookingStartCalender = page.locator('//div[@id="exam_booking_start_date_time"]//i[@class="glyphicon glyphicon-calendar"]');
         this.BookingStartDate = page.locator('#exam_booking_start_date_time').getByText(StartBookingDate, { exact: true });
         this.BookingStartHrs = page.getByRole('spinbutton').first();
@@ -342,18 +355,28 @@ export class EluminaCreateQuestionsPage {
         this.ChooseBookingStartSession = page.getByLabel(period);
         this.ChooseBookingStartSessions = page.getByLabel('PM');
         this.BookingOK = page.locator('.dtpc-ok-svg');
-
         this.BookingEndCalender = page.locator('#exam_booking_end_date_time i');
         this.BookingEndDate = page.locator('#exam_booking_end_date_time').getByText(StartBookingDate, { exact: true });
-
         this.ExamStartCalender = page.locator('#exam_start_date_time i');
         this.ExamStartDate = page.locator('#exam_start_date_time').getByText(StartBookingDate, { exact: true });
-
         this.ExamEndCalender = page.locator('#exam_end_date_time i');
         this.ExamEndDate = page.locator('#exam_end_date_time').getByText(EndExamDate, { exact: true });
-
         this.nextButton = page.locator('//li[@class="next"]');
         this.Oneclick = page.locator('(//li//span[text()="1"])[1]');
+        this.moreOptionClick = page.locator('//button[normalize-space()="..."]');
+        this.DuplicateButtonClick = page.locator('//a[text()="Duplicate"]');
+        this.PrintButtonClick = page.locator('//a[normalize-space()="Print"]');
+        this.settingsButtonClick = page.locator('(//i[@class="setting"])[1]');
+        this.QuestionsButtonClick = page.locator('//p[normalize-space()="Questions"]');
+        this.duplicateSuccessMessage = page.locator('//span[text()="Exam duplicated successfully"]');
+        this.clickDeleteYes = page.locator('(//button[normalize-space()="Yes"])[1]');
+        this.clickArchiveYes = page.locator('(//button[normalize-space()="Yes"])[2]');
+        this.DeleteExamSuccessMessage = page.locator('//span[text()="Exam deleted successfully."]')
+        this.ArchiveExamSuccessMessage = page.locator('//span[text()="Exam archived successfully."]')
+        this.clickonExport = page.locator('//a[text()="Export"]');
+        this.selectFileFormat = page.locator('//input[@placeholder="Select File Format"]');
+        this.selectZip = page.locator('//span[text()="ZIP"]');
+        this.DownloadButtonclick = page.locator('//button[text()="Download"]');
     }
 
     /**Method for Page Navigation */
@@ -372,6 +395,7 @@ export class EluminaCreateQuestionsPage {
         await this.SearchDraftQuestions.type('Draft')
         await this.page.waitForTimeout(3000);
     }
+
     /**Method to validate Version,date in Question page */
     async validateVersionInQunPage() {
         await expect(this.ValidateVersion).toBeVisible();
@@ -918,7 +942,14 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(2000);
     }
 
+    /**Method for Exam Tab Navigation */
+    async examTabNavigation(): Promise<void> {
+        await this.EXAMSMENU.click();
+    }
+
+    /*Create a Exam*/
     async CopyExistingExams() {
+
         let currentDate = new Date();
         let datecurrent = currentDate.getDate();
         console.log(datecurrent);
@@ -934,12 +965,21 @@ export class EluminaCreateQuestionsPage {
         let StartExamMin = currentDate.getMinutes() + 4;
         let EndExamMin = currentDate.getMinutes() + 15;
 
+        await this.EXAMSMENU.click();
         await expect(this.CREATEEXAMS).toBeVisible();
         await this.CREATEEXAMS.click();
-        await this.page.waitForTimeout(2000);
         await this.copyExistingExam.click();
-        await this.page.waitForTimeout(2000);
-        await this.clickonQuestion.click();
+        await this.page.waitForTimeout(3000);
+        await this.ClickOnQuestionID.click();
+        await this.page.waitForTimeout(3000);
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.DuplicateButtonClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickYesDuplicate.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickSubmit.click();
+        await this.page.waitForTimeout(3000);
 
         await this.BookingStartCalender.click();
         await this.BookingStartDate.click();
@@ -1011,10 +1051,8 @@ export class EluminaCreateQuestionsPage {
         }
 
         await this.BookingOK.click();
-
         await this.ExamStartCalender.click();
         await this.ExamStartDate.click();
-
         await this.BooingStartMins.click();
         await this.BooingStartMins.clear();
         if (StartExamMin >= 60) {
@@ -1045,6 +1083,9 @@ export class EluminaCreateQuestionsPage {
             await this.BookingStartHrs.click();
             await this.BookingStartHrs.clear();
             await this.BookingStartHrs.type(hour12.toString());
+            //BSET = await this.BookingStartHrs.type(hour12.toString());
+            console.log(hour12.toString());
+            console.log(StartExamMin.toString())
             await this.ChooseBookingStartSession.check();
         }
         await this.BookingOK.click();
@@ -1078,5 +1119,94 @@ export class EluminaCreateQuestionsPage {
         else {
             await this.BooingStartMins.type(EndExamMin.toString());
         }
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(5000);
+        await this.QuestionsButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.settingsButtonClick.click();
+        console.log("aaa " + hour12.toString());
+        console.log("bbb " + StartExamMin.toString())
+    }
+
+    /**Method to Validate Exam Duplicate*/
+    async ValidationOfExamDuplicate() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.ClickOnQuestionID.click();
+        await this.page.waitForTimeout(3000);
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.DuplicateButtonClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickYesDuplicate.click();
+        await this.page.waitForTimeout(3000);
+        await this.ClickOnSubmitBtn.click();
+        await this.page.waitForTimeout(3000);
+        await expect(this.duplicateSuccessMessage).toHaveText("Exam duplicated successfully");
+    }
+
+    /**Method to Validate Exam Print*/
+    async ValidationOfExamPrint() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.ClickOnQuestionID.click();
+        await this.page.waitForTimeout(3000);
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.PrintButtonClick.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    /**Method to Validate Exam Delete*/
+    async ValidationOfExamDelete() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.SearchDraftExams.type('Draft')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickDelete.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickDeleteYes.click();
+        await this.page.waitForTimeout(3000);
+        await expect(this.DeleteExamSuccessMessage).toHaveText("Exam deleted successfully.");
+    }
+
+    /**Method to Validation of Exam Archive  */
+    async ValidationOfExamArchive() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.SearchDraftExams.type('Approved')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickonArchive.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickArchiveYes.click();
+        await this.page.waitForTimeout(3000);
+        await expect(this.ArchiveExamSuccessMessage).toHaveText("Exam archived successfully.");
+    }
+
+    /**Method to Validation of Exam Export  */
+    async ValidationOfExamExport() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickonExport.click();
+        await this.page.waitForTimeout(3000);
+        await this.selectFileFormat.click();
+        await this.page.waitForTimeout(3000);
+        await this.selectZip.click();
+        await this.page.waitForTimeout(3000);
+        await this.DownloadButtonclick.click();
+        await this.page.waitForTimeout(3000);
     }
 }
