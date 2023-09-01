@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Create Question (Type-B)*/
 
-test(`@RegressionA Validation of Create Question (Type-B)`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage,webActions }) => {
+test(`@RegressionA Validation of Create Question (Type-B)`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -12,7 +12,7 @@ test(`@RegressionA Validation of Create Question (Type-B)`, async ({ eluminaLogi
     await test.step(`Navigate to iAuthor`, async () => {
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.QuestionsMenuClick();
-        await newtab.createTypeBQuestion();
+        await newtab.chooseQuetionType("TypeB");
     });
 
 });
