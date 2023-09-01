@@ -88,6 +88,15 @@ export class EluminaBlueprintsPage {
     readonly EnterCartItem: Locator;
     readonly EnterNumberReq: Locator;
     readonly ClickOnAddFilter: Locator;
+    readonly selectFilter: Locator;
+    readonly selectFilter1: Locator;
+    readonly selectFilter2: Locator;
+    readonly tickIconClick: Locator;
+    readonly SaveButtonClick: Locator;
+    readonly FilterSuccessMessage: Locator;
+    readonly closeButton: Locator;
+    readonly ClickOnAddCartBtn2: Locator;
+    readonly ClickOnVersionHistory: Locator;
     readonly SaveButtonClick: Locator;
     readonly ClickOnWorkFlow: Locator;
     readonly ClickOnApprove: Locator;
@@ -182,7 +191,6 @@ export class EluminaBlueprintsPage {
         this.saveSuccessMessage = page.locator('//span[text()="Cart Details updated successfully"]');
         this.workflowclick = page.locator('//p[text()="Workflow"]');
         this.approveButtonClick = page.locator('//button[text()="Approve"]');
-
         this.SearchDraftQuestions = page.locator('//input[@placeholder="Search Blueprint(s)"]')
         this.ClickOnQuestionID = page.locator('//table[@class="table"]//tbody//tr[1]//td[2]//a')
         this.ClickOnAddCartBtn = page.locator('//div[@class="cartAdd-btn ng-star-inserted"]');
@@ -199,6 +207,7 @@ export class EluminaBlueprintsPage {
         this.ClickOnWorkFlow = page.locator('//p[normalize-space()="Workflow"]')
         this.ClickOnApprove = page.locator('//button[normalize-space()="Approve"]')
         this.ValidateSuccessfulPopMessage = page.locator('//span[text()="Status has been updated successfully."]')
+        this.ClickOnVersionHistory = page.locator('//p[normalize-space()="Version History"]')
         this.cancelButtonClick = page.locator('(//button[text()="Cancel"])[2]');
         this.moreOptionClick = page.locator('//button[normalize-space()="..."]');
         this.convertToExam = page.locator('//a[normalize-space()="Convert to exam"]');
@@ -276,6 +285,66 @@ export class EluminaBlueprintsPage {
     /**Method for Blueprint Menu click on Menu bar */
     async BlueprintMenuClick(): Promise<void> {
         await this.Blueprint.click();
+    }
+
+
+    async searchDraftBlueprintQueation() {
+        await this.SearchDraftQuestions.type('Draft')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+        await this.ClickOnAddCartBtn.click()
+        await this.page.waitForTimeout(3000)
+        await this.page.waitForSelector('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        const checks = await this.page.$$('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        for (let i = 0; i < 3; i++) {
+            await checks[i].click()
+        }
+        await this.ClickOnToCart.click()
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(5000)
+    }
+
+    async addQuestionsToCart() {
+        await this.ClickOnMoreIcon.click()
+        await this.EnterCartItem.click()
+        await this.EnterCartItem.type('Item4')
+        await this.page.waitForTimeout(5000)
+        await this.EnterNumberReq.click()
+        await this.EnterNumberReq.type("3")
+        await this.ClickOnAddFilter.click()
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter.click();
+        await this.selectFilter.selectOption('Type');
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter1.click();
+        await this.selectFilter1.selectOption('is equal to');
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter2.click();
+        await this.selectFilter2.selectOption('MCQ');
+        await this.page.waitForTimeout(2000);
+        await this.tickIconClick.click();
+        await this.SaveButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.closeButton.click();
+        await this.page.waitForTimeout(2000)
+        await this.ClickOnAddCartBtn2.click()
+        await this.page.waitForTimeout(3000)
+        await this.page.waitForSelector('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        const checks = await this.page.$$('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        for (let i = 0; i < 3; i++) {
+            await checks[i].click()
+        }
+        await this.ClickOnToCart.click()
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(5000)
+        await this.ClickOnWorkFlow.click()
+        await this.ClickOnApprove.click();
+        await this.page.waitForTimeout(3000);
+        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        await this.ClickOnVersionHistory.click()
     }
 
     /**Method to create blueprint */
