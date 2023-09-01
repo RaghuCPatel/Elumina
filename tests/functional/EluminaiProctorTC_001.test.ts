@@ -1,6 +1,6 @@
 import test from '@lib/BaseTest';
 
-/*Elumina login page with create exam with proctoring button and adding questions to it*/ 
+/*Create the Exams, Users and Invigilators with the combinations mentioned in Summary tab*/
 
 test(`@Smoke Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -21,14 +21,14 @@ test(`@Smoke Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, 
     });
 });
 
-test(`@Smoke Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(`@Smoke Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
     await test.step(`Login to Elumina application`, async () => {
         await eluminaLoginPage.loginToApplication();
     });
-   
+
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaProctorReg.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();

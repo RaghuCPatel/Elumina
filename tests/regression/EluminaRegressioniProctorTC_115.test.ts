@@ -64,7 +64,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });        */
 
-test(`@Regression Validation of Camera Connection Verified`, async ({ eluminaProctorCand, eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(`@Regression Validation of Proctoring Exam Event > Camera Verified`, async ({ eluminaProctorCand, eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

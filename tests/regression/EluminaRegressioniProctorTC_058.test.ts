@@ -66,7 +66,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
 });       */
 
 
-test(`@Regression Verify Validation of abrupt closure of browser`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`@Regression Candidate while attending exam - Candidate abruptly closed the browser`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
 

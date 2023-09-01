@@ -67,7 +67,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 });      */
 
 
-test(`@Regression Validation of Browser Reload option on Candidate Dashboard`, async ({ eluminaProctorCand, webActions }) => {
+test(`@Regression Validation of multiple candidate trying to login to same Exam`, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });
