@@ -165,6 +165,11 @@ export class EluminaBlueprintsPage {
     readonly nextButton: Locator;
     readonly Oneclick: Locator;
     readonly checkBoxClick: Locator;
+    readonly clickonQuestion: Locator;
+    readonly ClickOnCancelBtn: Locator;
+    readonly confirmationPopUp: Locator;
+    readonly ClickOnNoBtn: Locator;
+    readonly ClickOnBackArrowBtn: Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -287,7 +292,11 @@ export class EluminaBlueprintsPage {
         this.saveBtnOnRemoveCart = page.locator('(//div//button[@class="btn primarybtn"])[3]')
         this.cancelBtnOnRemoveCart = page.locator('(//button[@class="btn btn-default"])[1]')
         this.cartItemIsZero = page.locator('(//table//tbody//tr//td)[2]')
-
+        this.clickonQuestion = page.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a');
+        this.ClickOnCancelBtn = page.locator('//button[@class="theme-btn theme-default-btn"]')
+        this.confirmationPopUp = page.locator('//div[normalize-space()="Are you sure you want to discard your changes?"]')
+        this.ClickOnNoBtn = page.locator('//div[@class="modal-dialog cancel-confirmation"]//button[normalize-space()="No"]')
+        this.ClickOnBackArrowBtn = page.locator('//i[@class="iconBg leftArrow"]')
 
     }
 
@@ -305,7 +314,6 @@ export class EluminaBlueprintsPage {
     async BlueprintMenuClick(): Promise<void> {
         await this.Blueprint.click();
     }
-
 
     async searchDraftBlueprintQueation() {
         // await this.SearchDraftQuestions.type('Draft')
@@ -409,9 +417,38 @@ export class EluminaBlueprintsPage {
         await this.ClickOnVersionHistory.click()
     }
 
-
-
-
+    /**Method to search a question */
+    async searchBlueprintQuestion() {
+        await this.SearchDraftQuestions.click();
+        await this.SearchDraftQuestions.type('Draft')
+        await this.page.waitForTimeout(3000)
+        await this.clickonQuestion.click()
+        await this.typeTitle.click()
+        await this.typeTitle.type("8");
+    }
+    /**Method to click on cancel Button Validation */
+    async clickOnCancelBtn() {
+        await this.ClickOnCancelBtn.click()
+        await expect(this.confirmationPopUp).toBeVisible()
+        await this.ClickOnNoBtn.click()
+    }
+    /**Method to click on other module validation */
+    async validationOfClickOnOtherModule() {
+        await this.EXAMSMENU.click();
+        await expect(this.confirmationPopUp).toBeVisible()
+        await this.ClickOnNoBtn.click()
+    }
+    /**Method to click on Back button validation */
+    async validationOfBackArrowBtn() {
+        await this.ClickOnBackArrowBtn.click();
+        await expect(this.confirmationPopUp).toBeVisible()
+        await this.ClickOnNoBtn.click()
+    }
+    /**Mrthod to validate close tab */
+    async closeTabValidation() {
+        await this.page.keyboard.press('Control+KeyW')
+        await this.page.waitForTimeout(8000)
+    }
 
     async approveBluePrintId() {
         await this.ClickOnWorkFlow.click();

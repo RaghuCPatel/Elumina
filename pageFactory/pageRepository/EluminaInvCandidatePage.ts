@@ -68,6 +68,7 @@ export class EluminaInvCandidatePage {
         await this.page.goto(testData.cadidateURL);
     }
 
+
     /**Method to navigate to Candidate application */
     async candidateLoginToApplications(): Promise<void> {
         const ExcelJS = require('exceljs');
