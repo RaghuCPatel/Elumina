@@ -12798,3 +12798,535 @@
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
 {"level":"info","message":"Test Case Completed : @RegressionA Validation of Add Multiple cart in one blueprint Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_165. @RegressionA \"Validation of Exam Preview(PDF) \" "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_165. @RegressionA \"Validation of Exam Preview(PDF) \" "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_165. @RegressionA \"Validation of Exam Preview(PDF) \"  Status : passed"}
+{"level":"error","message":"File not found: C:\\Elumina\\02-09-2023\\html-report"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_166. @RegressionA \"Validation of Exam Preview(WEB) \" "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_166. @RegressionA \"Validation of Exam Preview(WEB) \"  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_166. @RegressionA \"Validation of Exam Preview(WEB) \" "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_166. @RegressionA \"Validation of Exam Preview(WEB) \"  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_21. @RegressionA Validation of Login using Invalid credentials Scenario 1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_21. @RegressionA Validation of Login using Invalid credentials Scenario 1 Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_21. @RegressionA Validation of Login using Invalid credentials Scenario 1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_21. @RegressionA Validation of Login using Invalid credentials Scenario 1 Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_21. @RegressionA Validation of Login using Invalid credentials Scenario 1"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_21. @RegressionA Validation of Login using Invalid credentials Scenario 1 Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario.  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario.  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario.  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario.  Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : @RegressionA Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : @RegressionA Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario.  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario.  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario.  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Negative Scenario.  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_36. @RegressionA Validation of Create Question (VSAQ)-Negative Scenario. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_36. @RegressionA Validation of Create Question (VSAQ)-Negative Scenario.  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_38. @RegressionA Validation of Create Question (ISAWE)-Negative Scenario."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_38. @RegressionA Validation of Create Question (ISAWE)-Negative Scenario."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_38. @RegressionA Validation of Create Question (ISAWE)-Negative Scenario."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_38. @RegressionA Validation of Create Question (ISAWE)-Negative Scenario. Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_38. @RegressionA Validation of Create Question (ISAWE)-Negative Scenario."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_38. @RegressionA Validation of Create Question (ISAWE)-Negative Scenario."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_38. @RegressionA Validation of Create Question (ISAWE)-Negative Scenario."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_38. @RegressionA Validation of Create Question (ISAWE)-Negative Scenario. Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_40. @RegressionA Validation of Create Question (SAQ / Essay) - Negative Scenario."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_40. @RegressionA Validation of Create Question (SAQ / Essay) - Negative Scenario. Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_40. @RegressionA Validation of Create Question (SAQ / Essay) - Negative Scenario."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_40. @RegressionA Validation of Create Question (SAQ / Essay) - Negative Scenario. Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_40. @RegressionA Validation of Create Question (SAQ / Essay) - Negative Scenario."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_40. @RegressionA Validation of Create Question (SAQ / Essay) - Negative Scenario. Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_48. @RegressionA Validation of Create Question (Type-B) - Negative Scenario."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_48. @RegressionA Validation of Create Question (Type-B) - Negative Scenario. Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_62. @RegressionA Validation of Create Question (SJT)/ Rating - Negative Scenario."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_62. @RegressionA Validation of Create Question (SJT)/ Rating - Negative Scenario."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_62. @RegressionA Validation of Create Question (SJT)/ Rating - Negative Scenario."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_62. @RegressionA Validation of Create Question (SJT)/ Rating - Negative Scenario. Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_94. @RegressionA \"Validation of Edit Question(Negative Scenarios)\". Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_113. @RegressionA \"Validation of Edit Blueprint(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_113. @RegressionA \"Validation of Edit Blueprint(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_113. @RegressionA \"Validation of Edit Blueprint(Negative Scenarios)\"."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_113. @RegressionA \"Validation of Edit Blueprint(Negative Scenarios)\". Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline.  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline.  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline.  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline.  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline.  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline.  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline.  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline.  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline.  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline.  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline.  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline.  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline.  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline. "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_13. @RegressionA Validation of Login using valid credentials in browser offline.  Status : passed"}
