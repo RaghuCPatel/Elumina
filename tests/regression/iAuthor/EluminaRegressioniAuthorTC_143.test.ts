@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Blueprint No Workflow */
 
-test(`iAU_TC_ID_124  Validation of Blueprint No Workflow`, async ({ eluminaLoginPage, eluminaBlueprintsPage, webActions }) => {
+test(`iAU_TC_ID_143  Validation of Blueprint No Workflow`, async ({ eluminaLoginPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -10,9 +10,7 @@ test(`iAU_TC_ID_124  Validation of Blueprint No Workflow`, async ({ eluminaLogin
         await eluminaLoginPage.loginToApplication();
     });
     await test.step(`Navigate to iAuthor blueprint`, async () => {
-        const newtab = await eluminaBlueprintsPage.iAuthorPageNavigation();
-        await newtab.BlueprintMenuClick();
-        await newtab.searchDraftBlueprintQuestionToApprove();
-        await newtab.approveBluePrintId();
+        const newtab = await eluminaExamPage.iAuthorPageNavigation();
+        await newtab.searchDraftExamQuestionToApprove();
     });
 });
