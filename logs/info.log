@@ -12798,3 +12798,213 @@
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
 {"level":"info","message":"Test Case Completed : @RegressionA Validation of Add Multiple cart in one blueprint Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_164. @RegressionA Validation of Exam Duplicate "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_164. @RegressionA Validation of Exam Duplicate  Status : passed"}
+{"level":"error","message":"File not found: C:\\Users\\Divyashree\\Desktop\\githubMerge\\4-09-2023\\Elumina\\html-report"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_162. @RegressionA Validation of Exam Save as New version "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_162. @RegressionA Validation of Exam Save as New version "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_162. @RegressionA Validation of Exam Save as New version  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_162. @RegressionA Validation of Exam Save as New version "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_162. @RegressionA Validation of Exam Save as New version  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_163. @RegressionA Validation of Exam Version History "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_163. @RegressionA Validation of Exam Version History  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_163. @RegressionA Validation of Exam Version History "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_163. @RegressionA Validation of Exam Version History  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_163. @RegressionA Validation of Exam Version History "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_163. @RegressionA Validation of Exam Version History  Status : interrupted"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_163. @RegressionA Validation of Exam Version History "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_163. @RegressionA Validation of Exam Version History  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_144. @RegressionA Validation of Blueprint  Approval Workflow "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_144. @RegressionA Validation of Blueprint  Approval Workflow  Status : interrupted"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_144. @RegressionA Validation of Blueprint  Approval Workflow "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_144. @RegressionA Validation of Blueprint  Approval Workflow "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_144. @RegressionA Validation of Blueprint  Approval Workflow  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_144. @RegressionA Validation of Blueprint  Approval Workflow "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_144. @RegressionA Validation of Blueprint  Approval Workflow "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_144. @RegressionA Validation of Blueprint  Approval Workflow  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of multiple Exams on the dashboard for different time For AM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of multiple Exams on the dashboard for different time For AM Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression Validation of multiple Exams on the dashboard for different time For AM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of multiple Exams on the dashboard for different time For AM Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration for AM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration for AM Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of multiple Exams on the dashboard for different time For PM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of multiple Exams on the dashboard for different time For PM Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of multiple Exams on the dashboard for different time For PM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of multiple Exams on the dashboard for different time For PM Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration for PM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration for PM Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration for PM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Started : @Regression Validation of multiple Exams on the dashboard for different time For AM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of multiple Exams on the dashboard for different time For AM Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration for AM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration for AM Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of multiple Exams on the dashboard for different time For PM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of multiple Exams on the dashboard for different time For PM Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration for PM"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration for PM Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Login Application for PM  EluminaRegressioniExamTC_017"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Login Application for PM  EluminaRegressioniExamTC_017 Status : passed"}
+{"level":"error","message":"Cannot find module '../../../enviroment-variables/dev/testData.json'\nRequire stack:\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\4-09-2023\\Elumina\\tests\\regression\\EluminaRegressioniExamTC_iEX_TC_ID_57.test.ts\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\4-09-2023\\Elumina\\node_modules\\@playwright\\test\\lib\\transform\\transform.js\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\4-09-2023\\Elumina\\node_modules\\@playwright\\test\\lib\\common\\config.js\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\4-09-2023\\Elumina\\node_modules\\@playwright\\test\\lib\\reporters\\json.js\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\4-09-2023\\Elumina\\node_modules\\@playwright\\test\\lib\\reporters\\raw.js\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\4-09-2023\\Elumina\\node_modules\\@playwright\\test\\lib\\reporters\\html.js\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\4-09-2023\\Elumina\\node_modules\\@playwright\\test\\lib\\runner\\reporters.js\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\4-09-2023\\Elumina\\node_modules\\@playwright\\test\\lib\\runner\\runner.js\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\4-09-2023\\Elumina\\node_modules\\@playwright\\test\\lib\\cli.js\n- C:\\Users\\Divyashree\\Desktop\\githubMerge\\4-09-2023\\Elumina\\node_modules\\@playwright\\test\\cli.js"}
+{"level":"error","message":"No tests found"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_57. @RegressionP Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_57. @RegressionP Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_57. @RegressionP Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_57. @RegressionP Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_57. @RegressionP Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_57. @RegressionP Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_57. @RegressionP Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_57. @RegressionP Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_57. @RegressionP Validation of Exam Section> Image viewer"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_57. @RegressionP Validation of Exam Section> Image viewer Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_57. @RegressionP Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_57. @RegressionP Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_57. @RegressionP Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_57. @RegressionP Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_57. @RegressionP Validation of Exam Section> Image viewer"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_57. @RegressionP Validation of Exam Section> Image viewer Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_57. @RegressionP Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_57. @RegressionP Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_57. @RegressionP Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_57. @RegressionP Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_57. @RegressionP Validation of Exam Section> Image viewer"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_57. @RegressionP Validation of Exam Section> Image viewer Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_57. @RegressionP Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_57. @RegressionP Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_57. @RegressionP Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_57. @RegressionP Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_57. @RegressionP Validation of Exam Section> Image viewer"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_57. @RegressionP Validation of Exam Section> Image viewer Status : passed"}

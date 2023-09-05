@@ -127,6 +127,14 @@ export class EluminaCandidatePage {
     readonly EnterExaPassword: Locator;
     readonly RatelimitLogin: Locator;
     readonly HighlightQuestions: Locator;
+    readonly ZoominIconClick: Locator;
+    readonly ZoomOutIconClick: Locator;
+    readonly RotateRight: Locator;
+    readonly RotateLeft: Locator;
+    readonly FullScreenClick: Locator;
+    readonly FullScreenExit: Locator;
+    readonly CloseIconClick: Locator;
+
 
 
 
@@ -215,6 +223,13 @@ export class EluminaCandidatePage {
         this.clickOnSendInChatApp = page.frameLocator('iframe[name="Messaging window"]').getByRole('button', { name: 'Send' })
         this.EnterExaPassword = page.locator('//input[@placeholder="Enter Exam Password"]');
         this.RatelimitLogin = page.locator('//div[text()="Attempts exceeded the Limit"]');
+        this.ZoominIconClick = page.locator('//div[@class="zoom-in icon"]');
+        this.ZoomOutIconClick = page.locator('//div[@class="zoom-out icon"]');
+        this.RotateRight = page.locator('//div[@class="rotate-right icon"]');
+        this.RotateLeft = page.locator('//div[@class="rotate-left icon"]');
+        this.FullScreenClick = page.locator('//div[@class="fullview icon"]');
+        this.FullScreenExit = page.locator('//div[@class="full-close icon"]');
+        this.CloseIconClick = page.locator('//label[@class="closeIcon"]');
 
     }
 
@@ -244,6 +259,7 @@ export class EluminaCandidatePage {
             await this.ClickStartExamLink.click();
         }
         await this.ClickOnStartExamBtn.click();
+        await this.page.waitForTimeout(5000);
     }
 
     /**Method to Enter Invaild Candidate Credentials */
@@ -1300,5 +1316,25 @@ export class EluminaCandidatePage {
     async candidateStartOneMCQwithViewer() {
         await this.page.waitForTimeout(2000);
         await this.ansMCQQuestions.click();
+    }
+
+    async candidateStartOneMCQwithMultipleViewerOptions() {
+        await this.page.waitForTimeout(2000);
+        await this.ansMCQQuestions.click();
+        await this.page.waitForTimeout(2000);
+        await this.ZoominIconClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.ZoomOutIconClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.RotateRight.click();
+        await this.page.waitForTimeout(2000);
+        await this.RotateLeft.click();
+        await this.page.waitForTimeout(2000);
+        await this.FullScreenClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.FullScreenExit.click();
+        await this.page.waitForTimeout(2000);
+        await this.CloseIconClick.click();
+        await this.page.waitForTimeout(5000);
     }
 }
