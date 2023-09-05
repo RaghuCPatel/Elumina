@@ -49,7 +49,7 @@ test(`Exam_Prerequisit_ID_01. @iProctorlink Verify Create Exam With Content Sect
     });
 });
 
-test(`Reg_Prerequisit_ID_01. @iProctorlink Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(`Reg_Prerequisit_ID_01A. @iProctorlink Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

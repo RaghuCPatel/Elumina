@@ -216,6 +216,38 @@ export class EluminaRegistrationPage {
         await this.ClickOnAddNewUsers.click();
     }
 
+    /**Method to Add User Details with NotNooked status*/
+    async addUserDetailsNotBooked(BookingStatus): Promise<void> {
+        await this.EnterClientID.type(makeid(testData.clientId) + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(8000);
+        await this.ChooseTitle.click();
+        await this.ChooseTitle.selectOption('Mr');
+        await this.TypeUsername.type(makeid(testData.clientUsername) + Math.floor(Math.random() * 89 + 10));
+        await this.TypeFirstName.type(makeid(testData.clientFirstname));
+        await this.TypeLastName.type(makeid(testData.clientLastname));
+        await this.TypeEmail.type(makeid(testData.clientEmail) + Math.floor(Math.random() * 899 + 100) + '@gmail.com');
+        await this.TypePhone.type(testData.clientPhone + Math.floor(Math.random() * 899999999 + 100));
+        await this.page.waitForTimeout(8000);
+        await this.SelectRole.click();
+        await this.SelectRole.selectOption('Candidate');
+        await this.page.waitForTimeout(8000);
+        await this.SelectEligible.click();
+        await this.SelectEligible.selectOption('Yes');
+        await this.page.waitForTimeout(8000);
+        await this.SelectVenue.click();
+        await this.SelectVenue.type('Elumina Chennai');
+        await this.page.waitForTimeout(7000);
+        await this.SelectBookingStatus.click();
+        await this.SelectBookingStatus.selectOption(BookingStatus);
+        await this.page.waitForTimeout(7000);
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(8000);
+        await this.LeftArrow.click();
+        candClientID = await this.captureUserClientID.textContent()
+        console.log("Cand-ID :" + candClientID);
+        await this.ClickOnDropdown.click();
+    }
+
     /**Method to Add User Details */
     async addUserDetails(): Promise<void> {
         await this.EnterClientID.type(makeid(testData.clientId) + Math.floor(Math.random() * 899 + 100));

@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 //Validation of  function keys after Exam Starts
 
-test(`@Regression Verify Validation of  function keys after Exam Starts`, async ({ eluminaCandPage,webActions }) => {
+test(`iEX_TC_ID_224. @Regression Verify Validation of  function keys after Exam Starts`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -11,7 +11,7 @@ test(`@Regression Verify Validation of  function keys after Exam Starts`, async 
     });
     await test.step('Candidate start the exam',async ()=> {
         await eluminaCandPage.verifyExamDashboardTimer();
-        await eluminaCandPage.functionKey();
+        await eluminaCandPage.functionKey(false,'F7');
     });
     
     
