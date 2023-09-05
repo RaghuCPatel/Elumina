@@ -165,6 +165,7 @@ export class EluminaBlueprintsPage {
     readonly nextButton: Locator;
     readonly Oneclick: Locator;
     readonly checkBoxClick: Locator;
+
     readonly workFlowFieldDropDown: Locator;
     readonly chooseApproveWorkFlow: Locator;
     readonly reviewerDropDown: Locator;
@@ -174,6 +175,11 @@ export class EluminaBlueprintsPage {
     readonly submitForReviewBtn: Locator;
     readonly morebtnOnWorkFlow: Locator;
 
+    readonly clickonQuestion: Locator;
+    readonly ClickOnCancelBtn: Locator;
+    readonly confirmationPopUp: Locator;
+    readonly ClickOnNoBtn: Locator;
+    readonly ClickOnBackArrowBtn: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -194,7 +200,7 @@ export class EluminaBlueprintsPage {
         this.tickIconClick = page.locator('//i[@class="tick-icon ng-star-inserted"]');
         this.SaveButtonClicks = page.locator('//button[text()="Save"]');
         this.FilterSuccessMessage = page.locator('//div[text()="Filter Saved Successfully"]');
-        this.closeButton = page.locator('(//button[@type="button"][normalize-space()="×"])[1]');
+        this.closeButton = page.locator('(//button[@type="button"][normalize-space()="×"])[2]');
         this.nextButtonClick = page.locator('//button[text()="Next"]');
         this.clickOnSaveDraft = page.locator('//button[text()="Save Draft"]');
         this.workflowSuccessMessage = page.locator('//span[text()="Workflow has been created successfuly"]');
@@ -296,6 +302,7 @@ export class EluminaBlueprintsPage {
         this.saveBtnOnRemoveCart = page.locator('(//div//button[@class="btn primarybtn"])[3]')
         this.cancelBtnOnRemoveCart = page.locator('(//button[@class="btn btn-default"])[1]')
         this.cartItemIsZero = page.locator('(//table//tbody//tr//td)[2]')
+
         this.workFlowFieldDropDown = page.locator('//ul[@class="ng-star-inserted"]')
         this.chooseApproveWorkFlow = page.locator('(//span[@class="open"])[1]')
         this.reviewerDropDown = page.locator('(//*[@class="input-wrap"])[2]')
@@ -304,6 +311,12 @@ export class EluminaBlueprintsPage {
         this.chooseApprover = page.locator('(//li[@class="open ng-star-inserted"])[4]')
         this.submitForReviewBtn = page.locator('//button[@class="theme-btn theme-primary-btn ng-star-inserted"]')
         this.morebtnOnWorkFlow = page.locator('//button[@class="btn btn-default dotbutton"]')
+
+        this.clickonQuestion = page.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a');
+        this.ClickOnCancelBtn = page.locator('//button[@class="theme-btn theme-default-btn"]')
+        this.confirmationPopUp = page.locator('//div[normalize-space()="Are you sure you want to discard your changes?"]')
+        this.ClickOnNoBtn = page.locator('//div[@class="modal-dialog cancel-confirmation"]//button[normalize-space()="No"]')
+        this.ClickOnBackArrowBtn = page.locator('//i[@class="iconBg leftArrow"]')
 
     }
 
@@ -323,17 +336,16 @@ export class EluminaBlueprintsPage {
         await this.Blueprint.click();
     }
 
-
     async searchDraftBlueprintQueation() {
-        await this.SearchDraftQuestions.type('Draft')
-        await this.page.waitForTimeout(3000)
-        await this.ClickOnQuestionID.click()
+        // await this.SearchDraftQuestions.type('Draft')
+        // await this.page.waitForTimeout(3000)
+        // await this.ClickOnQuestionID.click()
         await this.page.waitForTimeout(2000)
         await this.ClickOnAddCartBtn.click()
         await this.page.waitForTimeout(3000)
         await this.page.waitForSelector('(//table[@class="table"])[2]//tbody//tr//td[1]')
         const checks = await this.page.$$('(//table[@class="table"])[2]//tbody//tr//td[1]')
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 2; i++) {
             await checks[i].click()
         }
         await this.ClickOnToCart.click()
@@ -403,6 +415,7 @@ export class EluminaBlueprintsPage {
         await this.selectFilter2.selectOption('MCQ');
         await this.page.waitForTimeout(2000);
         await this.tickIconClick.click();
+        await this.page.waitForTimeout(2000);
         await this.SaveButtonClick.click();
         await this.page.waitForTimeout(2000);
         await this.closeButton.click();
@@ -425,14 +438,43 @@ export class EluminaBlueprintsPage {
         await this.ClickOnVersionHistory.click()
     }
 
-
- 
-
+    /**Method to search a question */
+    async searchBlueprintQuestion() {
+        await this.SearchDraftQuestions.click();
+        await this.SearchDraftQuestions.type('Draft')
+        await this.page.waitForTimeout(3000)
+        await this.clickonQuestion.click()
+        await this.typeTitle.click()
+        await this.typeTitle.type("8");
+    }
+    /**Method to click on cancel Button Validation */
+    async clickOnCancelBtn() {
+        await this.ClickOnCancelBtn.click()
+        await expect(this.confirmationPopUp).toBeVisible()
+        await this.ClickOnNoBtn.click()
+    }
+    /**Method to click on other module validation */
+    async validationOfClickOnOtherModule() {
+        await this.EXAMSMENU.click();
+        await expect(this.confirmationPopUp).toBeVisible()
+        await this.ClickOnNoBtn.click()
+    }
+    /**Method to click on Back button validation */
+    async validationOfBackArrowBtn() {
+        await this.ClickOnBackArrowBtn.click();
+        await expect(this.confirmationPopUp).toBeVisible()
+        await this.ClickOnNoBtn.click()
+    }
+    /**Mrthod to validate close tab */
+    async closeTabValidation() {
+        await this.page.keyboard.press('Control+KeyW')
+        await this.page.waitForTimeout(8000)
+    }
 
     async approveBluePrintId() {
         await this.ClickOnWorkFlow.click();
         await this.page.waitForTimeout(4000);
-        if(await this.saveDraftText.textContent()=="Save Draft"){
+        if (await this.saveDraftText.textContent() == "Save Draft") {
             this.saveDraftOnWorkFlow.click()
         }
         await this.page.waitForTimeout(3000);
@@ -443,7 +485,7 @@ export class EluminaBlueprintsPage {
 
     }
 
-   /**Method to create blueprint */
+    /**Method to create blueprint */
     async createBluePrint() {
         await this.clickCreateBlueprint.click();
         await this.typeTitle.click();

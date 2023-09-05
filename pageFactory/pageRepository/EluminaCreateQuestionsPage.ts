@@ -165,6 +165,7 @@ export class EluminaCreateQuestionsPage {
     readonly ClickOnQuestionID: Locator;
 
     readonly Exams: Locator;
+    readonly EXAMSMENU: Locator;
     readonly CREATEEXAMS: Locator;
     readonly copyExistingExam: Locator;
     readonly clickonQuestion: Locator;
@@ -188,6 +189,61 @@ export class EluminaCreateQuestionsPage {
     readonly ChooseBookingStartSessions: Locator;
     readonly nextButton: Locator;
     readonly Oneclick: Locator;
+    readonly moreOptionClick: Locator;
+    readonly DuplicateButtonClick: Locator;
+    readonly settingsButtonClick: Locator;
+    readonly QuestionsButtonClick: Locator;
+    readonly duplicateSuccessMessage: Locator;
+    readonly PrintButtonClick: Locator;
+    readonly clickDeleteYes: Locator;
+    readonly DeleteExamSuccessMessage: Locator;
+    readonly SearchDraftExams: Locator;
+    readonly clickArchiveYes: Locator;
+    readonly ArchiveExamSuccessMessage: Locator;
+    readonly clickonExport: Locator;
+    readonly selectFileFormat: Locator;
+    readonly selectZip: Locator;
+    readonly DownloadButtonclick: Locator;
+
+    readonly clickOnCheckout: Locator;
+    readonly dropArrowclick: Locator;
+    readonly saveAsNewVersion: Locator;
+    readonly ClickOnComment: Locator;
+    readonly ClickOnSaveBtn2: Locator;
+    readonly clickOnVersionHistory: Locator;
+    readonly moreoptionClick: Locator;
+    readonly clickOnClose: Locator;
+    readonly versionCheck1: Locator;
+    readonly versionCheck2: Locator;
+    readonly CompareVersion: Locator;
+    readonly clickclose2: Locator;
+    readonly workflowDropdown: Locator;
+    readonly approvalWorkflowclick: Locator;
+    readonly selectReviwer: Locator;
+    readonly selectApprover: Locator;
+    readonly checkReviwerQA: Locator;
+    readonly approverQA: Locator;
+    readonly submitandreviewclick: Locator;
+    readonly workflowsuccessmessage: Locator;
+    readonly saveButtonClick: Locator;
+    readonly approverclick: Locator;
+
+    readonly ClickOnPreviewPDF: Locator;
+    readonly ClickOnPreviewWeb: Locator;
+    readonly ValidationOfPreviewPDFTitle: Locator;
+    readonly ValidateNorecordText: Locator;
+    readonly ClickOnPlusIcon: Locator;
+    readonly ClickOnCheckedAndUncheckedIcon: Locator;
+    readonly ClickOnSelectOne: Locator;
+    readonly ClickOnGreenIcon: Locator;
+    readonly ValidateMessage: Locator;
+    readonly EmptyFieldErrorMessage: Locator;
+    readonly ClickOnMarkinGuide: Locator;
+    readonly ValidatedefaultWorkFlow: Locator;
+    readonly ClickOnCancelBtn: Locator;
+    readonly confirmationPopUp: Locator;
+    readonly ClickOnNoBtn: Locator;
+    readonly ClickOnBackArrowBtn: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -197,6 +253,7 @@ export class EluminaCreateQuestionsPage {
         this.ClickOnQuestionTab = page.locator('//a[@data-tour="Questions"]')
         this.Questions = page.locator('//a[@data-tour="Questions"]');
         this.Exams = page.locator('//a[@data-tour="Exams"]')
+        this.EXAMSMENU = page.locator('//a[text()="Exams"]')
         this.CreateQuestion = page.locator('//button[text()="Create Question"]');
         this.MCQQuestionsClick = page.locator('//p[text()="MCQ"]');
         this.ISAWEQuestionsClick = page.locator('//p[text()="ISAWE"]');
@@ -320,7 +377,8 @@ export class EluminaCreateQuestionsPage {
         this.ClickOnDuplicate = page.locator('(//p[normalize-space()="Duplicate"])[1]')
         this.ClickOnYesBtn = page.locator('//div[@id="duplicateModal"]//button[normalize-space()="Yes"]')
         this.ClickOnSubmitBtn = page.locator('//button[normalize-space()="Submit"]')
-        this.ClickOnSaveBtn = page.locator('(//button[text()="Save"])[1]')
+        this.ClickOnSaveBtn = page.locator('(//button[normalize-space()="Save"])[1]')
+        this.ClickOnSaveBtn2 = page.locator('(//button[normalize-space()="Save"])[2]')
         this.ClickOnVersionHistory = page.locator('//p[normalize-space()="Version History"]')
         this.ClickOnCheckout = page.locator('(//p[normalize-space()="Check Out"])[1]')
         this.ClickOnYesBtnForCheckout = page.locator('//div[@id="checkoutModal"]//button[@type="button"][normalize-space()="Yes"]')
@@ -328,13 +386,10 @@ export class EluminaCreateQuestionsPage {
         this.CREATEEXAMS = page.locator('//button[normalize-space()="Create Exam"]');
         this.copyExistingExam = page.locator('//p[normalize-space()="Copy an Existing Exam"]');
         this.clickonQuestion = page.locator('//table[@class="table"]//tbody//tr[1]//td[3]');
-
         this.ClickOnDraftQuestion = page.locator('(//table[@class="table"]//tbody//tr/td[10]//span[contains(text(),"Draft")])[1]')
         this.ValidateVersion = page.locator('//div[@class="userInfo userInfo--defualt"]')
         this.SearchDraftQuestions = page.locator('//input[@placeholder="Search Question(s)"]')
-
-
-
+        this.SearchDraftExams = page.locator('//input[@placeholder="Search Exam(s)"]')
         this.BookingStartCalender = page.locator('//div[@id="exam_booking_start_date_time"]//i[@class="glyphicon glyphicon-calendar"]');
         this.BookingStartDate = page.locator('#exam_booking_start_date_time').getByText(StartBookingDate, { exact: true });
         this.BookingStartHrs = page.getByRole('spinbutton').first();
@@ -342,18 +397,69 @@ export class EluminaCreateQuestionsPage {
         this.ChooseBookingStartSession = page.getByLabel(period);
         this.ChooseBookingStartSessions = page.getByLabel('PM');
         this.BookingOK = page.locator('.dtpc-ok-svg');
-
         this.BookingEndCalender = page.locator('#exam_booking_end_date_time i');
         this.BookingEndDate = page.locator('#exam_booking_end_date_time').getByText(StartBookingDate, { exact: true });
-
         this.ExamStartCalender = page.locator('#exam_start_date_time i');
         this.ExamStartDate = page.locator('#exam_start_date_time').getByText(StartBookingDate, { exact: true });
-
         this.ExamEndCalender = page.locator('#exam_end_date_time i');
         this.ExamEndDate = page.locator('#exam_end_date_time').getByText(EndExamDate, { exact: true });
-
         this.nextButton = page.locator('//li[@class="next"]');
         this.Oneclick = page.locator('(//li//span[text()="1"])[1]');
+        this.moreOptionClick = page.locator('//button[normalize-space()="..."]');
+        this.DuplicateButtonClick = page.locator('//a[text()="Duplicate"]');
+        this.PrintButtonClick = page.locator('//a[normalize-space()="Print"]');
+        this.settingsButtonClick = page.locator('(//i[@class="setting"])[1]');
+        this.QuestionsButtonClick = page.locator('//p[normalize-space()="Questions"]');
+        this.duplicateSuccessMessage = page.locator('//span[text()="Exam duplicated successfully"]');
+        this.clickDeleteYes = page.locator('(//button[normalize-space()="Yes"])[1]');
+        this.clickArchiveYes = page.locator('(//button[normalize-space()="Yes"])[2]');
+        this.DeleteExamSuccessMessage = page.locator('//span[text()="Exam deleted successfully."]')
+        this.ArchiveExamSuccessMessage = page.locator('//span[text()="Exam archived successfully."]')
+        this.clickonExport = page.locator('//a[text()="Export"]');
+        this.selectFileFormat = page.locator('//input[@placeholder="Select File Format"]');
+        this.selectZip = page.locator('//span[text()="ZIP"]');
+        this.DownloadButtonclick = page.locator('//button[text()="Download"]');
+
+        this.clickOnCheckout = page.locator('//a[normalize-space()="Check Out"]')
+        this.dropArrowclick = page.locator('//button[@class="btn btn-primary dropdown-toggle"]');
+        this.saveAsNewVersion = page.locator('//a[normalize-space()="Save as New Version"]');
+        this.ClickOnComment = page.locator('//textarea[@name="comments"]');
+        this.clickOnVersionHistory = page.locator('//p[normalize-space()="Version History"]');
+        this.moreOptionClick = page.locator('(//a[text()="more"])[1]');
+        this.clickOnClose = page.locator('(//button[@type="button"][normalize-space()="×"])[1]');
+        this.clickclose2 = page.locator('(//button[@type="button"][normalize-space()="×"])[4]');
+        this.versionCheck1 = page.locator('//body/app-root/div/app-exam-history[@class="ng-star-inserted"]/div[@class="question-historyPage pageTop--div"]/div[@class="main-content-alt no-filter"]/div/div[@class="main"]/div[@class="middleColumn"]/div[@class="timeline--container"]/div[@class="history-column"]/app-vertical-stepper-exam[1]/div[1]/div[2]');
+        this.versionCheck2 = page.locator('//body/app-root/div/app-exam-history[@class="ng-star-inserted"]/div[@class="question-historyPage pageTop--div"]/div[@class="main-content-alt no-filter"]/div/div[@class="main"]/div[@class="middleColumn"]/div[@class="timeline--container"]/div[@class="history-column"]/app-vertical-stepper-exam[2]/div[1]/div[2]');
+        this.CompareVersion = page.locator('//button[normalize-space()="Compare Version"]');
+        this.workflowDropdown = page.locator('(//div[@class="btn-selected-list"])[1]');
+        this.approvalWorkflowclick = page.locator('//span[text()="Approval Workflow"]');
+        this.selectReviwer = page.locator('//input[@placeholder="Select Reviewer"]');
+        this.selectApprover = page.locator('//input[@placeholder="Select Approver"]');
+        this.checkReviwerQA = page.locator('//span[text()="Reviewer QA"]');
+        this.approverQA = page.locator('//span[text()="approver QA"]');
+        this.submitandreviewclick = page.locator('//button[text()="Submit & Review"]');
+        this.workflowsuccessmessage = page.locator('//span[text()="Workflow has been created successfuly."]');
+        this.saveButtonClick = page.locator('//button[text()="Save"]');
+        this.approverclick = page.locator('//div[normalize-space()="Approver"]');
+
+        this.ClickOnPreviewPDF = page.locator('//a[contains(text(),"Preview (PDF)")]')
+        this.ClickOnPreviewWeb = page.locator('//a[contains(text(),"Preview (WEB)")]')
+        this.ValidationOfPreviewPDFTitle = page.locator('//div[@id="previewModal"]//h4[@class="modal-title"][normalize-space()="Preview"]')
+        this.ValidateNorecordText = page.locator('//p[@class="no-record"]')
+        this.ClickOnCheckedAndUncheckedIcon = page.locator('//table[@class="table"]//thead//tr//th[1]//a')
+        this.ClickOnPlusIcon = page.locator('//button[@class="add-filter-button"]')
+        this.ClickOnSelectOne = page.locator('(//select[@class="theme-dropdown ng-untouched ng-pristine ng-valid"])[2]')
+        this.ClickOnGreenIcon = page.locator('//i[@class="tick-icon"]')
+        this.ValidateMessage = page.locator('//span[contains(text(),"Please Choose or Enter Value")]')
+        this.EmptyFieldErrorMessage = page.locator('//span[contains(text(),"Please fill all the mandatory fields!")]')
+        this.ClickOnMarkinGuide = page.locator('(//label[@class="accordian ng-star-inserted"])[2]')
+        this.ValidatedefaultWorkFlow = page.locator('//li[contains(text(),"No Workflow")]')
+        this.ClickOnCancelBtn = page.locator('//button[@class="theme-btn theme-default-btn"]')
+        this.confirmationPopUp = page.locator('//div[normalize-space()="Are you sure you want to discard your changes?"]')
+        this.ClickOnNoBtn = page.locator('//div[@class="modal-dialog cancel-confirmation"]//button[normalize-space()="No"]')
+        this.ClickOnBackArrowBtn = page.locator('//i[@class="iconBg leftArrow"]')
+
+
     }
 
     /**Method for Page Navigation */
@@ -372,6 +478,42 @@ export class EluminaCreateQuestionsPage {
         await this.SearchDraftQuestions.type('Draft')
         await this.page.waitForTimeout(3000);
     }
+
+    /**Method to enter invalid text in search field  */
+    async enterInvalidQutn() {
+        await this.SearchDraftQuestions.click();
+        await this.SearchDraftQuestions.type('Long Question')
+        await this.page.waitForTimeout(3000);
+        await expect(this.ValidateNorecordText).toBeVisible()
+    }
+
+    /**Method to validate Filter */
+    async validateFilter() {
+        await this.ClickOnPlusIcon.click()
+        await this.ClickOnSelectOne.click()
+        await this.ClickOnSelectOne.selectOption('ID')
+        await this.page.waitForTimeout(3000);
+        await this.ClickOnGreenIcon.click()
+        await this.page.waitForTimeout(3000);
+        await expect(this.ValidateMessage).toBeVisible()
+    }
+
+    /**Method to unchecked the all question columns  */
+    async uncheckAllQutnColumns() {
+        await this.ClickOnCheckedAndUncheckedIcon.click();
+        await this.page.waitForTimeout(5000);
+        await this.page.waitForSelector('//ul[@class="dropdown-menu dropdown-menu-columns"]//li//input')
+        const allcheckbox = await this.page.$$('//ul[@class="dropdown-menu dropdown-menu-columns"]//li//input')
+        console.log(allcheckbox.length)
+        for (let i = 1; i < allcheckbox.length; i++) {
+            await allcheckbox[i].click()
+            await this.page.waitForTimeout(8000);
+        }
+        // await this.SearchDraftQuestions.type('Long Question')
+        await this.page.waitForTimeout(3000);
+        // await expect(this.ValidateNorecordText).toBeVisible()
+    }
+
     /**Method to validate Version,date in Question page */
     async validateVersionInQunPage() {
         await expect(this.ValidateVersion).toBeVisible();
@@ -392,6 +534,42 @@ export class EluminaCreateQuestionsPage {
         await expect(this.Invalidpopupmessage).toBeVisible();
     }
 
+    /**Method to search a question */
+    async searchQuestion() {
+        await this.SearchDraftQuestions.click();
+        await this.SearchDraftQuestions.type('Draft')
+        await this.page.waitForTimeout(3000)
+        await this.clickonQuestion.click()
+        await this.QuestionTopic.click()
+        await this.QuestionTopic.type("8");
+    }
+
+    /**Method to click on cancel Button Validation */
+    async clickOnCancelBtn() {
+        await this.ClickOnCancelBtn.click()
+        await expect(this.confirmationPopUp).toBeVisible()
+        await this.ClickOnNoBtn.click()
+    }
+
+    /**Method to click on other module validation */
+    async validationOfClickOnOtherModule() {
+        await this.EXAMSMENU.click();
+        await expect(this.confirmationPopUp).toBeVisible()
+        await this.ClickOnNoBtn.click()
+    }
+    /**Method to click on Back button validation */
+    async validationOfBackArrowBtn() {
+        await this.ClickOnBackArrowBtn.click();
+        await expect(this.confirmationPopUp).toBeVisible()
+        await this.ClickOnNoBtn.click()
+    }
+
+    /**Mrthod to validate close tab */
+    async closeTabValidation() {
+        await this.page.keyboard.press('Control+KeyW')
+        await this.page.waitForTimeout(8000)
+    }
+
     /**Navigate to Invalid Login Application */
     async invalidloginCredential(): Promise<void> {
         await this.USERNAME_EDITBOX.fill(testData.InvalidAdminUserEmail);
@@ -407,7 +585,7 @@ export class EluminaCreateQuestionsPage {
 
     /**Method for Exams Menu click on Menu bar */
     async ExamsMenuClick(): Promise<void> {
-        await this.Questions.click();
+        await this.EXAMSMENU.click();
     }
 
     /**Method to validate Preview Page */
@@ -918,7 +1096,600 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(2000);
     }
 
+    /**Method to validate MCQ Question */
+    async validationOfMCQ() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.MCQQuestionsClick.click();
+        await this.NextButtonClick.click();
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await expect(this.EmptyFieldErrorMessage).toBeVisible()
+    }
+
+    /**Method to validate VSAQ Question */
+    async validationOfVSAQ() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.ClickOnVSAQ.click();
+        await this.NextButtonClick.click();
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await expect(this.EmptyFieldErrorMessage).toBeVisible()
+    }
+
+
+    /**Method to validate ISAWE Question */
+    async validationOfISAWE() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.ISAWEQuestionsClick.click();
+        await this.NextButtonClick.click();
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await expect(this.EmptyFieldErrorMessage).toBeVisible()
+    }
+
+    /**Method to validate SAQ Question */
+    async validationOfSAQ() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.ClickOnSAQ.click();
+        await this.NextButtonClick.click();
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await expect(this.EmptyFieldErrorMessage).toBeVisible()
+    }
+
+    /**Method to validate TypeB Question */
+    async validationOfTypeB() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.ClickOnTypeB.click();
+        await this.NextButtonClick.click();
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await expect(this.EmptyFieldErrorMessage).toBeVisible()
+    }
+
+    /**Method to validate SJT Question */
+    async validationOfTSJT() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.ClickOnSJT.click();
+        await this.NextButtonClick.click();
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await expect(this.EmptyFieldErrorMessage).toBeVisible()
+    }
+
+    /**Method to select a Bank */
+    async selectBank() {
+        await this.SelectQuestionBank.click();
+        await this.SelectQuestionBank.type(testData.TestBank2);
+    }
+
+    /**Method to validate MCQ fields */
+    async enterRemainingMCQField() {
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample MCQ Questions' + Math.floor(Math.random() * 8999 + 1000));
+        await this.page.waitForTimeout(2000);
+        await this.QuestionAims.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionAims.type(testData.QuestionAims);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.OptionA.click();
+        await this.OptionA.type(testData.OptionA);
+        await this.page.waitForTimeout(2000);
+        await this.ControlIndicator1.click();
+        await this.page.waitForTimeout(2000);
+        await this.OptionB.click();
+        await this.OptionB.type(testData.OptionB);
+        await this.page.waitForTimeout(2000);
+        await this.OptionC.click();
+        await this.OptionC.type(testData.OptionC);
+        await this.page.waitForTimeout(2000);
+        await this.OptionD.click();
+        await this.OptionD.type(testData.OptionD);
+        await this.page.waitForTimeout(2000);
+        await this.OptionE.click();
+        await this.OptionE.type(testData.OptionE);
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+    }
+
+    /**Method to validate VSAQ fields */
+    async enterRemainingVSAQField() {
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample VSAQ Questions' + Math.floor(Math.random() * 8999 + 1000));
+        await this.page.waitForTimeout(2000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.page.waitForTimeout(2000);
+        await this.OptionA.click();
+        await this.OptionA.type(testData.Answer);
+        await this.page.waitForTimeout(2000);
+        await this.EnterMarks.click()
+        await this.EnterMarks.clear()
+        await this.EnterMarks.type('2')
+        await this.page.waitForTimeout(2000);
+        await this.EnterAnsKey.type(testData.AnswerKey)
+        await this.OptionB.click();
+        await this.OptionB.type(testData.Answer);
+        await this.page.waitForTimeout(2000);
+        await this.EnterMarksInAns.click()
+        await this.EnterMarksInAns.clear()
+        await this.EnterMarksInAns.type("2")
+        await this.ClickOnMarkinGuide.click()
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+    }
+
+    /**Method to validate ISAWE fields */
+    async enterRemainingISAWEField() {
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Renewable Energy ISAWE' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Scenario);
+        await this.page.waitForTimeout(2000);
+        await this.AddImage.click();
+        await this.page.waitForTimeout(2000);
+        await this.clickImage.click()
+        await this.page.waitForTimeout(2000);
+        await this.InsertImageClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.Marks.click();
+        await this.Marks.type('2');
+        await this.QuestionsText.click();
+        await this.QuestionsText.type(testData.ISAWEQuestion);
+        await this.page.waitForTimeout(2000);
+        await this.Answer.click();
+        await this.Answer.type(testData.AnswerISAWE);
+        await this.page.waitForTimeout(2000);
+        await this.correctAnswerMarks.click();
+        await this.correctAnswerMarks.type('2');
+        await this.page.waitForTimeout(2000);
+        await this.EnterAnsKey.type(testData.AnswerKeyISAWE)
+        await this.page.waitForTimeout(2000);
+        await this.OptionC.click();
+        await this.OptionC.type(testData.AnswerKeyISAWE);
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+    }
+
+    /**Method to validate SAQ fields */
+    async enterRemainingSAQField() {
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample SAQ Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(2000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.page.waitForTimeout(2000);
+        await this.OptionA.click();
+        await this.OptionA.type(testData.Answer);
+        await this.page.waitForTimeout(2000);
+        await this.EnterMarks.click()
+        await this.EnterMarks.clear()
+        await this.EnterMarks.type('2')
+        await this.page.waitForTimeout(2000);
+        await this.EnterAnsKey.type(testData.AnswerKey)
+        await this.OptionB.click();
+        await this.OptionB.type(testData.Answer);
+        await this.page.waitForTimeout(2000);
+        await this.EnterMarksInAns.click()
+        await this.EnterMarksInAns.clear()
+        await this.EnterMarksInAns.type("2")
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+    }
+
+    /**Method to validate TypeB fields */
+    async enterRemainingTypeBField() {
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample TypeB Questions' + Math.floor(Math.random() * 8999 + 1000));
+        await this.page.waitForTimeout(2000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.TypeBStatement);
+        await this.page.waitForTimeout(2000);
+        await this.OptionA.click();
+        await this.OptionA.type(testData.Answer);
+        await this.page.waitForTimeout(2000);
+        await this.AddImage.click();
+        await this.page.waitForTimeout(2000);
+        await this.clickImage.click()
+        await this.page.waitForTimeout(2000);
+        await this.InsertImageClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnOptionBRadioBtn.click()
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+    }
+
+    /**Method to validate SJT fields */
+    async enterRemainingSJTField() {
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample SJT Questions' + Math.floor(Math.random() * 8999 + 1000));
+        await this.page.waitForTimeout(2000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.TypeBStatement);
+        await this.page.waitForTimeout(2000);
+        await this.OptionA.click();
+        await this.page.waitForTimeout(2000);
+        await this.AddImage.click();
+        await this.page.waitForTimeout(2000);
+        await this.clickImage.click()
+        await this.page.waitForTimeout(2000);
+        await this.InsertImageClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.OptionA.click();
+        await this.OptionA.type(testData.Answer);
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnAppropriateRadioBtn.click();
+        await this.page.waitForTimeout(2000);
+        await this.EnterMarksInSJT.click();
+        await this.EnterMarksInSJT.clear();
+        await this.EnterMarksInSJT.type("2");
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+    }
+
+    /**Method to validate default workflow */
+    async validateWorkFlow() {
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveDraft.click();
+        await this.ClickOnEditQuestion.click();
+        await this.ClickOnWorkFlow.click()
+        await expect(this.ValidatedefaultWorkFlow).toBeVisible()
+    }
+
+    /**Method to choose a question and create a type */
+    async chooseQuetionType(QuestionType) {
+        if (QuestionType == "TypeB") {
+            await expect(this.CreateQuestion).toBeVisible();
+            await this.CreateQuestion.click();
+            await this.ClickOnTypeB.click();
+            await this.NextButtonClick.click();
+            await this.SelectQuestionBank.click();
+            await this.SelectQuestionBank.type(testData.TestBank2);
+            await this.SelectTestBank.click();
+            await this.page.waitForTimeout(2000);
+            await this.QuestionTopic.type('Sample TypeB Questions' + Math.floor(Math.random() * 8999 + 1000));
+            await this.page.waitForTimeout(2000);
+            await this.QuestionAims.click();
+            await this.QuestionAims.type(testData.Question);
+            await this.page.waitForTimeout(2000);
+            await this.Question.click();
+            await this.Question.type(testData.TypeBStatement);
+            await this.page.waitForTimeout(2000);
+            await this.OptionA.click();
+            await this.OptionA.type(testData.Answer);
+            await this.page.waitForTimeout(2000);
+            await this.AddImage.click();
+            await this.page.waitForTimeout(2000);
+            await this.clickImage.click()
+            await this.page.waitForTimeout(2000);
+            await this.InsertImageClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnOptionBRadioBtn.click()
+            await this.NextButtonClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnSaveDraft.click();
+            await this.ClickOnEditQuestion.click();
+            await this.ClickOnWorkFlow.click()
+            await this.ClickOnApprove.click()
+            await this.page.waitForTimeout(3000);
+            console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        }
+        else if (QuestionType == "SJT") {
+            await expect(this.CreateQuestion).toBeVisible();
+            await this.CreateQuestion.click();
+            await this.ClickOnSJT.click();
+            await this.NextButtonClick.click();
+            await this.SelectQuestionBank.click();
+            await this.SelectQuestionBank.type(testData.TestBank2);
+            await this.SelectTestBank.click();
+            await this.page.waitForTimeout(2000);
+            await this.QuestionTopic.type('Sample SJT Questions' + Math.floor(Math.random() * 8999 + 1000));
+            await this.page.waitForTimeout(2000);
+            await this.QuestionAims.click();
+            await this.QuestionAims.type(testData.Question);
+            await this.page.waitForTimeout(2000);
+            await this.Question.click();
+            await this.Question.type(testData.TypeBStatement);
+            await this.page.waitForTimeout(2000);
+            await this.OptionA.click();
+            await this.page.waitForTimeout(2000);
+            await this.AddImage.click();
+            await this.page.waitForTimeout(2000);
+            await this.clickImage.click()
+            await this.page.waitForTimeout(2000);
+            await this.InsertImageClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.OptionA.type(testData.Answer);
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnAppropriateRadioBtn.click();
+            await this.page.waitForTimeout(2000);
+            await this.EnterMarksInSJT.click();
+            await this.EnterMarksInSJT.clear();
+            await this.EnterMarksInSJT.type("2");
+            await this.NextButtonClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnSaveDraft.click();
+            await this.ClickOnEditQuestion.click();
+            await this.ClickOnWorkFlow.click()
+            await this.ClickOnApprove.click()
+            await this.page.waitForTimeout(3000);
+            console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        }
+        else if (QuestionType == "TypeX") {
+            await expect(this.CreateQuestion).toBeVisible();
+            await this.CreateQuestion.click();
+            await this.ClickOnTypeX.click();
+            await this.NextButtonClick.click();
+            await this.SelectQuestionBank.click();
+            await this.SelectQuestionBank.type(testData.TestBank2);
+            await this.SelectTestBank.click();
+            await this.page.waitForTimeout(2000);
+            await this.QuestionTopic.type('Sample TypeX Questions' + Math.floor(Math.random() * 899 + 100));
+            await this.page.waitForTimeout(2000);
+            await this.QuestionAims.click();
+            await this.QuestionAims.type(testData.Question);
+            await this.page.waitForTimeout(2000);
+            await this.Question.click();
+            await this.Question.type(testData.Subquestion);
+            await this.page.waitForTimeout(2000);
+            await this.OptionA.click();
+            await this.OptionA.type(testData.OptionA);
+            await this.ClickOnRadioButton1.click();
+            await this.page.waitForTimeout(2000);
+            await this.OptionB.click();
+            await this.OptionB.type(testData.OptionB);
+            await this.ClickOnRadioButton2.click();
+            await this.page.waitForTimeout(2000);
+            await this.OptionC.click();
+            await this.OptionC.type(testData.OptionC);
+            await this.ClickOnRadioButton3.click();
+            await this.page.waitForTimeout(2000);
+            await this.OptionD.click();
+            await this.OptionD.type(testData.OptionD);
+            await this.ClickOnRadioButton4.click();
+            await this.page.waitForTimeout(2000);
+            await this.OptionE.click();
+            await this.OptionE.type(testData.OptionE);
+            await this.ClickOnRadioButton5.click();
+            await this.page.waitForTimeout(2000);
+            await this.NextButtonClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnSaveDraft.click();
+            await this.ClickOnEditQuestion.click();
+            await this.ClickOnWorkFlow.click()
+            await this.ClickOnApprove.click()
+            await this.page.waitForTimeout(3000);
+            console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        }
+        else if (QuestionType == "SAQ") {
+            await expect(this.CreateQuestion).toBeVisible();
+            await this.CreateQuestion.click();
+            await this.ClickOnSAQ.click();
+            await this.NextButtonClick.click();
+            await this.SelectQuestionBank.click();
+            await this.SelectQuestionBank.type(testData.TestBank2);
+            await this.SelectTestBank.click();
+            await this.page.waitForTimeout(2000);
+            await this.QuestionTopic.type('Sample SAQ Questions' + Math.floor(Math.random() * 899 + 100));
+            await this.page.waitForTimeout(2000);
+            await this.QuestionAims.click();
+            await this.QuestionAims.type(testData.Question);
+            await this.page.waitForTimeout(2000);
+            await this.Question.click();
+            await this.Question.type(testData.Subquestion);
+            await this.page.waitForTimeout(2000);
+            await this.OptionA.click();
+            await this.OptionA.type(testData.Answer);
+            await this.page.waitForTimeout(2000);
+            await this.EnterMarks.click()
+            await this.EnterMarks.clear()
+            await this.EnterMarks.type('2')
+            await this.page.waitForTimeout(2000);
+            await this.EnterAnsKey.type(testData.AnswerKey)
+            await this.OptionB.click();
+            await this.OptionB.type(testData.Answer);
+            await this.page.waitForTimeout(2000);
+            await this.EnterMarksInAns.click()
+            await this.EnterMarksInAns.clear()
+            await this.EnterMarksInAns.type("2")
+            await this.NextButtonClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnSaveDraft.click();
+            await this.ClickOnEditQuestion.click();
+            await this.ClickOnWorkFlow.click()
+            await this.ClickOnApprove.click()
+            await this.page.waitForTimeout(3000);
+            console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        }
+        else if (QuestionType == "ISAWE") {
+            await expect(this.CreateQuestion).toBeVisible();
+            await this.CreateQuestion.click();
+            await this.ISAWEQuestionsClick.click();
+            await this.NextButtonClick.click();
+            await this.SelectQuestionBank.click();
+            await this.SelectQuestionBank.type(testData.TestBank2);
+            await this.SelectTestBank.click();
+            await this.page.waitForTimeout(2000);
+            await this.QuestionTopic.type('Renewable Energy ISAWE' + Math.floor(Math.random() * 899 + 100));
+            await this.page.waitForTimeout(2000);
+            await this.Question.click();
+            await this.Question.type(testData.Scenario);
+            await this.page.waitForTimeout(2000);
+            await this.AddImage.click();
+            await this.page.waitForTimeout(2000);
+            await this.clickImage.click()
+            await this.page.waitForTimeout(2000);
+            await this.InsertImageClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.Marks.click();
+            await this.Marks.type('2');
+            await this.QuestionsText.click();
+            await this.QuestionsText.type(testData.ISAWEQuestion);
+            await this.page.waitForTimeout(2000);
+            await this.Answer.click();
+            await this.Answer.type(testData.AnswerISAWE);
+            await this.page.waitForTimeout(2000);
+            await this.correctAnswerMarks.click();
+            await this.correctAnswerMarks.type('2');
+            await this.page.waitForTimeout(2000);
+            await this.EnterAnsKey.type(testData.AnswerKeyISAWE)
+            await this.page.waitForTimeout(2000);
+            await this.OptionC.click();
+            await this.OptionC.type(testData.AnswerKeyISAWE);
+            await this.page.waitForTimeout(2000);
+            await this.MarkMarks.click();
+            await this.MarkMarks.type('2');
+            await this.page.waitForTimeout(2000);
+            await this.NextButtonClick.click();
+            await expect(this.QuestionSuccessMessage).toHaveText('Question created successfully');
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnSaveDraft.click();
+            await this.ClickOnEditQuestion.click();
+            await this.ClickOnWorkFlow.click()
+            await this.ClickOnApprove.click()
+            await this.page.waitForTimeout(3000);
+            console.log(await this.ValidateSuccessfulPopMessage.textContent());
+            await expect(this.QuestionSuccessMessage).toHaveText('Status has been updated successfully.');
+        }
+        else if (QuestionType == "VSAQ") {
+            await expect(this.CreateQuestion).toBeVisible();
+            await this.CreateQuestion.click();
+            await this.ClickOnVSAQ.click();
+            await this.NextButtonClick.click();
+            await this.SelectQuestionBank.click();
+            await this.SelectQuestionBank.type(testData.TestBank2);
+            await this.SelectTestBank.click();
+            await this.page.waitForTimeout(2000);
+            await this.QuestionTopic.type('Sample VSAQ Questions' + Math.floor(Math.random() * 8999 + 1000));
+            await this.page.waitForTimeout(2000);
+            await this.QuestionAims.click();
+            await this.QuestionAims.type(testData.Question);
+            await this.page.waitForTimeout(2000);
+            await this.Question.click();
+            await this.Question.type(testData.Subquestion);
+            await this.page.waitForTimeout(2000);
+            await this.OptionA.click();
+            await this.OptionA.type(testData.Answer);
+            await this.page.waitForTimeout(2000);
+            await this.EnterMarks.click()
+            await this.EnterMarks.clear()
+            await this.EnterMarks.type('2')
+            await this.page.waitForTimeout(2000);
+            // await this.AddImage.click();
+            // await this.ClickOnUploadImageBtn.click()
+            // await this.page.waitForTimeout(5000);
+            // await this.ClickOnInsertImageFile.setInputFiles('lib/Images/kohli.jpeg');
+            // await this.page.waitForTimeout(2000);
+            await this.EnterAnsKey.type(testData.AnswerKey)
+            await this.OptionB.click();
+            await this.OptionB.type(testData.Answer);
+            await this.page.waitForTimeout(2000);
+            await this.EnterMarksInAns.click()
+            await this.EnterMarksInAns.clear()
+            await this.EnterMarksInAns.type("2")
+            await this.NextButtonClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnSaveDraft.click();
+            await this.ClickOnEditQuestion.click();
+            await this.ClickOnWorkFlow.click()
+            await this.ClickOnApprove.click()
+            await this.page.waitForTimeout(3000);
+            console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        }
+
+        else if (QuestionType == "MCQ") {
+            await expect(this.CreateQuestion).toBeVisible();
+            await this.CreateQuestion.click();
+            await this.MCQQuestionsClick.click();
+            await this.NextButtonClick.click();
+            await this.SelectQuestionBank.click();
+            await this.SelectQuestionBank.type(testData.TestBank2);
+            await this.SelectTestBank.click();
+            await this.page.waitForTimeout(2000);
+            await this.QuestionTopic.type('Sample MCQ Questions' + Math.floor(Math.random() * 8999 + 1000));
+            await this.page.waitForTimeout(2000);
+            await this.QuestionAims.click();
+            await this.QuestionAims.type(testData.QuestionAims);
+            await this.page.waitForTimeout(2000);
+            await this.Question.click();
+            await this.Question.type(testData.Question);
+            await this.page.waitForTimeout(2000);
+            await this.OptionA.click();
+            await this.OptionA.type(testData.OptionA);
+            await this.page.waitForTimeout(2000);
+            await this.ControlIndicator1.click();
+            await this.page.waitForTimeout(2000);
+            await this.OptionB.click();
+            await this.OptionB.type(testData.OptionB);
+            await this.page.waitForTimeout(2000);
+            await this.OptionC.click();
+            await this.OptionC.type(testData.OptionC);
+            await this.page.waitForTimeout(2000);
+            await this.OptionD.click();
+            await this.OptionD.type(testData.OptionD);
+            await this.page.waitForTimeout(2000);
+            await this.OptionE.click();
+            await this.OptionE.type(testData.OptionE);
+            await this.page.waitForTimeout(2000);
+            await this.NextButtonClick.click();
+            await this.page.waitForTimeout(2000);
+            await this.ClickOnSaveDraft.click();
+            await this.ClickOnEditQuestion.click();
+            await this.ClickOnWorkFlow.click()
+            await this.ClickOnApprove.click()
+            await this.page.waitForTimeout(3000);
+            console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        }
+    }
+
+
+    /**Method for Exam Tab Navigation */
+    async examTabNavigation(): Promise<void> {
+        await this.EXAMSMENU.click();
+    }
+
+    /*Create a Exam*/
     async CopyExistingExams() {
+
         let currentDate = new Date();
         let datecurrent = currentDate.getDate();
         console.log(datecurrent);
@@ -934,12 +1705,21 @@ export class EluminaCreateQuestionsPage {
         let StartExamMin = currentDate.getMinutes() + 4;
         let EndExamMin = currentDate.getMinutes() + 15;
 
+        await this.EXAMSMENU.click();
         await expect(this.CREATEEXAMS).toBeVisible();
         await this.CREATEEXAMS.click();
-        await this.page.waitForTimeout(2000);
         await this.copyExistingExam.click();
-        await this.page.waitForTimeout(2000);
-        await this.clickonQuestion.click();
+        await this.page.waitForTimeout(3000);
+        await this.ClickOnQuestionID.click();
+        await this.page.waitForTimeout(3000);
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.DuplicateButtonClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickYesDuplicate.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickSubmit.click();
+        await this.page.waitForTimeout(3000);
 
         await this.BookingStartCalender.click();
         await this.BookingStartDate.click();
@@ -1011,10 +1791,8 @@ export class EluminaCreateQuestionsPage {
         }
 
         await this.BookingOK.click();
-
         await this.ExamStartCalender.click();
         await this.ExamStartDate.click();
-
         await this.BooingStartMins.click();
         await this.BooingStartMins.clear();
         if (StartExamMin >= 60) {
@@ -1045,6 +1823,9 @@ export class EluminaCreateQuestionsPage {
             await this.BookingStartHrs.click();
             await this.BookingStartHrs.clear();
             await this.BookingStartHrs.type(hour12.toString());
+            //BSET = await this.BookingStartHrs.type(hour12.toString());
+            console.log(hour12.toString());
+            console.log(StartExamMin.toString())
             await this.ChooseBookingStartSession.check();
         }
         await this.BookingOK.click();
@@ -1078,5 +1859,354 @@ export class EluminaCreateQuestionsPage {
         else {
             await this.BooingStartMins.type(EndExamMin.toString());
         }
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(5000);
+        await this.QuestionsButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.settingsButtonClick.click();
+        console.log("aaa " + hour12.toString());
+        console.log("bbb " + StartExamMin.toString())
+    }
+
+    /**Method to Validate Exam Duplicate*/
+    async ValidationOfExamDuplicate() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.ClickOnQuestionID.click();
+        await this.page.waitForTimeout(3000);
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.DuplicateButtonClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickYesDuplicate.click();
+        await this.page.waitForTimeout(3000);
+        await this.ClickOnSubmitBtn.click();
+        await this.page.waitForTimeout(3000);
+        await expect(this.duplicateSuccessMessage).toHaveText("Exam duplicated successfully");
+    }
+
+    /**Method to Validate Exam Preview*/
+    async ValidationOfExamPreview() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.ClickOnQuestionID.click();
+        await this.page.waitForTimeout(3000);
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.ClickOnPreviewPDF.click();
+        await expect(this.ValidationOfPreviewPDFTitle).toBeVisible();
+
+    }
+
+    /**Method to Validate Exam Preview WEB*/
+    async ValidationOfExamPreviewWEB() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.ClickOnQuestionID.click();
+        await this.page.waitForTimeout(3000);
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.ClickOnPreviewWeb.click();
+        await this.page.waitForTimeout(8000);
+        //await expect(this.ValidationOfPreviewPDFTitle).toBeVisible();
+
+    }
+
+    /**Method to Validate Exam Print*/
+    async ValidationOfExamPrint() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.ClickOnQuestionID.click();
+        await this.page.waitForTimeout(3000);
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.PrintButtonClick.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    /**Method to Validate Exam Delete*/
+    async ValidationOfExamDelete() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.SearchDraftExams.type('Draft')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickDelete.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickDeleteYes.click();
+        await this.page.waitForTimeout(3000);
+        await expect(this.DeleteExamSuccessMessage).toHaveText("Exam deleted successfully.");
+    }
+
+    /**Method to Validation of Exam Archive  */
+    async ValidationOfExamArchive() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.SearchDraftExams.type('Approved')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickonArchive.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickArchiveYes.click();
+        await this.page.waitForTimeout(3000);
+        await expect(this.ArchiveExamSuccessMessage).toHaveText("Exam archived successfully.");
+    }
+
+    /**Method to Validation of Exam Export  */
+    async ValidationOfExamExport() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickonExport.click();
+        await this.page.waitForTimeout(3000);
+        await this.selectFileFormat.click();
+        await this.page.waitForTimeout(3000);
+        await this.selectZip.click();
+        await this.page.waitForTimeout(3000);
+        await this.DownloadButtonclick.click();
+        await this.page.waitForTimeout(3000);
+    }
+
+    /**Method to Validation of Exam Checkout  */
+    async ValidationOfExamCheckout() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.SearchDraftExams.type('Approved')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickOnCheckout.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickYes.click();
+        await this.page.waitForTimeout(3000);
+    }
+
+    /**Method to Validation of Exam New Version  */
+    async ValidationOfExamSaveNewVersion() {
+
+        let currentDate = new Date();
+        let datecurrent = currentDate.getDate();
+        console.log(datecurrent);
+        let pm = currentDate.getHours() >= 12;
+        let hour12 = currentDate.getHours() % 12;
+        if (!hour12)
+            hour12 += 12;
+        let minute = currentDate.getMinutes();
+        console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
+
+        let StartBookingMin = currentDate.getMinutes() + 2;
+        let EndBookingMin = currentDate.getMinutes() + 3;
+        let StartExamMin = currentDate.getMinutes() + 4;
+        let EndExamMin = currentDate.getMinutes() + 15;
+
+        await this.BookingStartCalender.click();
+        await this.BookingStartDate.click();
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (StartBookingMin >= 60) {
+            let SBM = StartBookingMin.toString();
+            SBM = "02";
+            await this.BooingStartMins.type(SBM);
+            //hrs+1
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            let BSH = hour12 + 1;
+            if (BSH == 12) {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSessions.check();
+            }
+            else if (BSH >= 13) {
+                BSH = 1;
+                await this.BookingStartHrs.type(BSH.toString());
+            }
+            else {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSession.check();
+            }
+        }
+        else {
+            await this.BooingStartMins.type(StartBookingMin.toString());
+            //hrs
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            await this.BookingStartHrs.type(hour12.toString());
+            await this.ChooseBookingStartSession.check();
+        }
+        await this.BookingOK.click();
+
+        await this.BookingEndCalender.click();
+        await this.BookingEndDate.click();
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (EndBookingMin >= 60) {
+            let EBM = EndBookingMin.toString();
+            EBM = "03";
+            await this.BooingStartMins.type(EBM);
+            //Hrs+1
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            let BSH = hour12 + 1;
+            if (BSH == 12) {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSessions.check();
+            }
+            else if (BSH >= 13) {
+                BSH = 1;
+                await this.BookingStartHrs.type(BSH.toString());
+            }
+            else {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSession.check();
+            }
+        }
+        else {
+            await this.BooingStartMins.type(EndBookingMin.toString());
+            //hrs
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            await this.BookingStartHrs.type(hour12.toString());
+            await this.ChooseBookingStartSession.check();
+        }
+
+        await this.BookingOK.click();
+        await this.ExamStartCalender.click();
+        await this.ExamStartDate.click();
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (StartExamMin >= 60) {
+            let SEM = StartExamMin.toString();
+            SEM = "04"
+            await this.BooingStartMins.type(SEM);
+            //hrs+1
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            let BSH = hour12 + 1;
+            if (BSH == 12) {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSessions.check();
+
+            }
+            else if (BSH >= 13) {
+                BSH = 1;
+                await this.BookingStartHrs.type(BSH.toString());
+            }
+            else {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSession.check();
+            }
+        }
+        else {
+            await this.BooingStartMins.type(StartExamMin.toString());
+            //hrs
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            await this.BookingStartHrs.type(hour12.toString());
+            //BSET = await this.BookingStartHrs.type(hour12.toString());
+            console.log(hour12.toString());
+            console.log(StartExamMin.toString())
+            await this.ChooseBookingStartSession.check();
+        }
+        await this.BookingOK.click();
+        await this.ExamEndCalender.click();
+
+        if (EndExamDate >= "30") {
+            console.log("Exam end date:" + EndExamDate);
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else if (EndExamDate >= "31") {
+            console.log("Exam end date:" + EndExamDate);
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else {
+            console.log("Exam end date:" + EndExamDate);
+            await this.ExamEndDate.click();
+        }
+        await this.BookingStartHrs.click();
+        await this.BookingStartHrs.clear();
+        await this.BookingStartHrs.type(hour12.toString());
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (EndExamMin >= 60) {
+            EndExamMin = 1;
+            await this.BooingStartMins.type(EndExamMin.toString());
+        }
+        else {
+            await this.BooingStartMins.type(EndExamMin.toString());
+        }
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(2000);
+        await this.dropArrowclick.click();
+        await this.page.waitForTimeout(2000);
+        await this.saveAsNewVersion.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnComment.click();
+        await this.ClickOnComment.type("New Version");
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveBtn2.click();
+        await this.page.waitForTimeout(2000);
+    }
+
+    /**Method to Validation of Compare Version  */
+    async ValidationOfCompareVersion() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.SearchDraftExams.type('Approved')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+        await this.clickOnVersionHistory.click();
+        await this.page.waitForTimeout(2000)
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(2000)
+        await this.clickOnClose.click();
+        await this.page.waitForTimeout(2000)
+    }
+
+    /**Method to Validate Exam Approval Workflow*/
+    async validateExamApprovalWorkflow() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.SearchDraftExams.type('Draft')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+        await this.ClickOnWorkFlow.click();
+        await this.page.waitForTimeout(2000)
+        await this.workflowDropdown.click();
+        await this.page.waitForTimeout(2000)
+        await this.approvalWorkflowclick.click();
+        await this.page.waitForTimeout(2000)
+        await this.selectReviwer.click();
+        await this.page.waitForTimeout(2000)
+        await this.checkReviwerQA.click();
+        await this.page.waitForTimeout(2000)
+        await this.approverclick.click();
+        await this.page.waitForTimeout(1000)
+        await this.selectApprover.click();
+        await this.page.waitForTimeout(2000)
+        await this.approverQA.click();
+        await this.page.waitForTimeout(2000)
+        await this.submitandreviewclick.click();
+        await this.page.waitForTimeout(2000)
+        await expect(this.workflowsuccessmessage).toHaveText('Workflow has been created successfuly.');
+        await this.page.waitForTimeout(2000)
+        await this.saveButtonClick.click();
     }
 }

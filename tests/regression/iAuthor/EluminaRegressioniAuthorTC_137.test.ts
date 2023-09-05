@@ -11,7 +11,6 @@ test(`@RegressionA Validation of Create Exam – Copy an existing exam `, async 
     });
     await test.step(`Navigate to iAuthor blueprint`, async () => {
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
-        await newtab.QuestionsMenuClick();
         await newtab.CopyExistingExams();
     });
 });

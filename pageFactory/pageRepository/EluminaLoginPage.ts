@@ -12,21 +12,21 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
-} 
+}
 
 export class EluminaLoginPage {
     readonly page: Page;
@@ -37,17 +37,21 @@ export class EluminaLoginPage {
     readonly HOMEPAGE: Locator;
     readonly AUTHOR: Locator;
     readonly EXAMSMENU: Locator;
-    readonly InactiveUseralert:Locator;
-    readonly RatelimitLogin:Locator;
-    readonly UsernameAlert:Locator;
-    readonly PasswordAlert:Locator;
-    readonly EmptyFieldsAlert:Locator;
-    readonly checklogo:Locator;
-    readonly txtLogin:Locator;
-    readonly txtUserIdPlaceholder:Locator;
-    readonly txtPassword:Locator;
-    readonly Forgot_Password:Locator;
-    readonly InvaildUsernamePwd:Locator;
+    readonly InactiveUseralert: Locator;
+    readonly RatelimitLogin: Locator;
+    readonly UsernameAlert: Locator;
+    readonly PasswordAlert: Locator;
+    readonly EmptyFieldsAlert: Locator;
+    readonly checklogo: Locator;
+    readonly txtLogin: Locator;
+    readonly txtUserIdPlaceholder: Locator;
+    readonly txtPassword: Locator;
+    readonly Forgot_Password: Locator;
+    readonly InvaildUsernamePwd: Locator;
+    readonly ClickOnForgotPswd: Locator;
+    readonly ValidateErrorMessageInForgotPswd: Locator;
+    readonly ClickonContinueBtn: Locator;
+    readonly OfflineMessage: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -60,23 +64,33 @@ export class EluminaLoginPage {
         this.HOMEPAGE = page.locator('//*[@title="Question Management System"]');
         this.AUTHOR = page.locator('//div[text()="iAuthor"]');
         this.EXAMSMENU = page.locator('//a[text()="Exams"]')
-        this.InactiveUseralert=page.locator('//div[text()="Your account has been deactivated, Kindly contact your system administrator to activate your account."]');
-        this.RatelimitLogin=page.locator('//div[text()="Attempts exceeded the Limit"]');
-        this.UsernameAlert=page.locator('//div[text()="Please enter username"]');
-        this.PasswordAlert=page.locator('//div[text()="Please enter password"]');
-        this.EmptyFieldsAlert=page.locator('//div[text()="Please enter user credentials"]');
-        this.checklogo=page.locator('//div[@class="logo-container"]//div[@class="logo"]');
-        this.txtLogin=page.locator('(//div[text()="Login"])[1]');
-        this.txtUserIdPlaceholder=page.locator('//label[text()="Username"]')
-        this.txtPassword=page.locator('//label[text()="Password"]');
-        this.Forgot_Password=page.locator('//a[@class="forgot-pwd"]');
-        this.InvaildUsernamePwd=page.locator('//div[text()="Invalid username or password."]');
-    
+        this.InactiveUseralert = page.locator('//div[text()="Your account has been deactivated, Kindly contact your system administrator to activate your account."]');
+        this.RatelimitLogin = page.locator('//div[text()="Attempts exceeded the Limit"]');
+        this.UsernameAlert = page.locator('//div[text()="Please enter username"]');
+        this.PasswordAlert = page.locator('//div[text()="Please enter password"]');
+        this.EmptyFieldsAlert = page.locator('//div[text()="Please enter user credentials"]');
+        this.checklogo = page.locator('//div[@class="logo-container"]//div[@class="logo"]');
+        this.txtLogin = page.locator('(//div[text()="Login"])[1]');
+        this.txtUserIdPlaceholder = page.locator('//label[text()="Username"]')
+        this.txtPassword = page.locator('//label[text()="Password"]');
+        this.Forgot_Password = page.locator('//a[@class="forgot-pwd"]');
+        this.InvaildUsernamePwd = page.locator('//div[text()="Invalid username or password."]');
+        this.ClickOnForgotPswd = page.locator('//a[@class="forgot-pwd"]')
+        this.ValidateErrorMessageInForgotPswd = page.locator('//div[contains(text(),"The selected email is invalid.")]')
+        this.ClickonContinueBtn = page.locator('//div[@class="submit-btn"]')
+        this.OfflineMessage = page.locator('//div[text()="You are offline!"]')
+
     }
 
     /**Navigate to login URL */
     async navigateToURL(): Promise<void> {
         await this.page.goto("/");
+    }
+
+    /**Navigate to login URL Offline*/
+    async navigateToURLOffline(): Promise<void> {
+        await this.page.goto("/");
+        await this.context.setOffline(true)
     }
 
     /**Navigate to Login Application */
@@ -85,6 +99,20 @@ export class EluminaLoginPage {
         await this.USERNAME_EDITBOX.fill(testData.UserEmail);
         await this.PASSWORD_EDITBOX.fill(testData.UserPassword);
         await this.LOGIN_BUTTON.click();
+    }
+
+    /**Method to validate popup message */
+    async validationOfOfflineMessage() {
+        await expect(this.OfflineMessage).toBeVisible()
+    }
+
+    /**Method to validate Forgot Password */
+    async clickOnForgotPassword() {
+        await this.ClickOnForgotPswd.click()
+        await this.USERNAME_EDITBOX.fill(testData.InvalidAdminUserEmail);
+        await this.ClickonContinueBtn.click();
+        await expect(this.ValidateErrorMessageInForgotPswd).toBeVisible()
+
     }
 
     /**Navigate to Login Application with password masked*/
@@ -109,12 +137,12 @@ export class EluminaLoginPage {
     /**Navigate to Login Application */
     async Rateloginattemptcheck(): Promise<void> {
         //const decipherPassword = await webActions.decipherPassword();
-        for(let i=1;i<4;i++){
-        await this.USERNAME_EDITBOX.clear();
-        await this.USERNAME_EDITBOX.fill(testData.UserEmail);
-        await this.PASSWORD_EDITBOX.clear();
-        await this.PASSWORD_EDITBOX.fill(testData.InactivePassword);
-        await this.LOGIN_BUTTON.click();
+        for (let i = 1; i < 4; i++) {
+            await this.USERNAME_EDITBOX.clear();
+            await this.USERNAME_EDITBOX.fill(testData.UserEmail);
+            await this.PASSWORD_EDITBOX.clear();
+            await this.PASSWORD_EDITBOX.fill(testData.InactivePassword);
+            await this.LOGIN_BUTTON.click();
         }
         await this.RatelimitLogin.isVisible();
         console.log(await this.RatelimitLogin.textContent());
@@ -151,17 +179,17 @@ export class EluminaLoginPage {
         console.log(await this.PasswordAlert.textContent());
     }
 
-        /**Method to validation of client logo */
-    async validationOfLogo(){
+    /**Method to validation of client logo */
+    async validationOfLogo() {
         await expect(this.checklogo).toBeVisible();
         console.log(await this.checklogo.textContent());
         await expect(this.checklogo).toHaveCSS('display', 'inline-block');
-        console.log("Login page title:",await this.txtLogin.textContent());
+        console.log("Login page title:", await this.txtLogin.textContent());
         await expect(this.txtLogin).toHaveCSS('font-size', '24px');
-        console.log("User Id Placeholder:",await this.txtUserIdPlaceholder.textContent());
-        console.log("Password Placeholder:",await this.txtPassword.textContent());
-        console.log("Forgot Password:",await this.Forgot_Password.textContent());
-        console.log("Login button:",await this.LOGIN_BUTTON.textContent());
+        console.log("User Id Placeholder:", await this.txtUserIdPlaceholder.textContent());
+        console.log("Password Placeholder:", await this.txtPassword.textContent());
+        console.log("Forgot Password:", await this.Forgot_Password.textContent());
+        console.log("Login button:", await this.LOGIN_BUTTON.textContent());
         await expect(this.LOGIN_BUTTON).toHaveCSS('background-color', 'rgb(66, 133, 244)');
     }
 

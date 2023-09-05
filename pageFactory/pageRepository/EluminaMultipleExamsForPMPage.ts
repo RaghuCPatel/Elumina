@@ -173,34 +173,51 @@ export class EluminaMultipleExamsForPMPage {
   }
 
   /**Method to Create Exam */
-  async createExam(): Promise<void> {
+  async createPMExam(): Promise<void> {
 
+    await this.EXAMSMENU.click();
     await expect(this.CREATEEXAMS).toBeVisible();
     await this.CREATEEXAMS.click();
     await this.STARTFROMSCRATCH.click();
+    await this.SELECTBANK.click();
     await this.SELECTBANK.type(testData.TestBank2);
     await this.TESTBANK.click();
     await this.EXAMNAME.type('DEMO' + Math.floor(Math.random() * 899999 + 100000));
+
     await this.EXAMCODE.type('D' + Math.floor(Math.random() * 89 + 100));
+
     await this.BookingStartCalender.click();
-    if (EndExamDate == '31' || '30' || '32') {
+    if (EndExamDate >= "30") {
       await this.page.waitForSelector('//li[@class="next"]');
       await this.nextButton.click();
       await this.Oneclick.click();
     }
+    else if (EndExamDate >= "31") {
+      await this.page.waitForSelector('//li[@class="next"]');
+      await this.nextButton.click();
+      await this.Oneclick.click();
+    }
+
+
     else {
       await this.BookingStartDate.click();
     }
+    // await this.BookingStartDate.click();
     await this.BookingStartHrs.click();
     await this.BookingStartHrs.clear();
-    await this.BookingStartHrs.type(testData.StartBookingHrPM);
+    await this.BookingStartHrs.type(testData.StartBookingHr);
     await this.BooingStartMins.click();
     await this.BooingStartMins.clear();
     await this.BooingStartMins.type(testData.EndBookingmin);
     await this.ChooseBookingStartSession.check();
     await this.BookingOK.click();
     await this.BookingEndCalender.click();
-    if (EndExamDate == '31' || '30' || '32') {
+    if (EndExamDate >= "30") {
+      await this.page.waitForSelector('//li[@class="next"]');
+      await this.nextButton.click();
+      await this.Oneclick.click();
+    }
+    else if (EndExamDate >= "31") {
       await this.page.waitForSelector('//li[@class="next"]');
       await this.nextButton.click();
       await this.Oneclick.click();
@@ -210,31 +227,42 @@ export class EluminaMultipleExamsForPMPage {
     }
     await this.BookingStartHrs.click();
     await this.BookingStartHrs.clear();
-    await this.BookingStartHrs.type(testData.StartBookingHrPM);
+    await this.BookingStartHrs.type(testData.StartBookingHr);
     await this.BooingStartMins.click();
     await this.BooingStartMins.clear();
     await this.BooingStartMins.type(testData.EndBookingmins);
     await this.ChooseBookingStartSession.check();
     await this.BookingOK.click();
     await this.ExamStartCalender.click();
-    if (EndExamDate == '31' || '30' || '32') {
+    if (EndExamDate >= "30") {
       await this.page.waitForSelector('//li[@class="next"]');
       await this.nextButton.click();
       await this.Oneclick.click();
     }
+    else if (EndExamDate >= "31") {
+      await this.page.waitForSelector('//li[@class="next"]');
+      await this.nextButton.click();
+      await this.Oneclick.click();
+    }
+
     else {
       await this.ExamStartDate.click();
     }
     await this.BookingStartHrs.click();
     await this.BookingStartHrs.clear();
-    await this.BookingStartHrs.type(testData.StartBookingHrPM);
+    await this.BookingStartHrs.type(testData.StartBookingHr);
     await this.BooingStartMins.click();
     await this.BooingStartMins.clear();
     await this.BooingStartMins.type(testData.StartExamMin);
     await this.ChooseBookingStartSession.check();
     await this.BookingOK.click();
     await this.ExamEndCalender.click();
-    if (EndExamDate == '31' || '30' || '32') {
+    if (EndExamDate >= "30") {
+      await this.page.waitForSelector('//li[@class="next"]');
+      await this.nextButton.click();
+      await this.Oneclick.click();
+    }
+    else if (EndExamDate >= "31") {
       await this.page.waitForSelector('//li[@class="next"]');
       await this.nextButton.click();
       await this.Oneclick.click();
@@ -244,7 +272,7 @@ export class EluminaMultipleExamsForPMPage {
     }
     await this.BookingStartHrs.click();
     await this.BookingStartHrs.clear();
-    await this.BookingStartHrs.type(testData.EndExamhrPM);
+    await this.BookingStartHrs.type(testData.EndExamhr);
     await this.BooingStartMins.click();
     await this.BooingStartMins.clear();
     await this.BooingStartMins.type(testData.EndExamMin);

@@ -137,6 +137,7 @@ export class EluminaProctorExamPage {
   readonly clickOnVideoToggle: Locator;
   readonly ChooseBookingStartSessions: Locator
   readonly InternetField: Locator;
+  readonly ClickOnQuestionTypeInAdmin: Locator;
 
 
   constructor(page: Page, context: BrowserContext) {
@@ -225,6 +226,7 @@ export class EluminaProctorExamPage {
     this.InternetField = page.locator('//input[@placeholder="Select Internet Upload Speed"]')
     this.InternetSpeedClick = page.locator('//div[@class="open container-left-padding"]');
     this.clickOnVideoToggle = page.locator('(//div[@class="switch--container"]//span)[1]');
+    this.ClickOnQuestionTypeInAdmin = page.locator('//span[contains(text(),"Question Types")]')
   }
 
   /**Method of Page Navigation */
@@ -255,6 +257,11 @@ export class EluminaProctorExamPage {
   /**Method to click on proctoring in Admin section*/
   async clickOnProctoringInAdmin(): Promise<void> {
     await this.ClickOniProctoring.click();
+  }
+
+  /**Method to click On Question Type in Admin */
+  async clickOnQuestionTypeInAdmin() {
+    await this.ClickOnQuestionTypeInAdmin.click()
   }
 
   /**Method to validation on proctoring in Admin section*/
@@ -1026,9 +1033,9 @@ export class EluminaProctorExamPage {
   }
 
 
-  
 
- 
+
+
   /**Method to Add MCQ Questions and save in Exam */
   async addMCQQuestions(): Promise<void> {
     await this.ClickOnAddQuestion.click();
@@ -1042,7 +1049,7 @@ export class EluminaProctorExamPage {
     }
     await this.ClickOnAddBtn.click()
     await this.ClickOnSave.click();
-}
+  }
 
 
   //Creatr a Content Section Page
