@@ -176,15 +176,19 @@ export class EluminaMultipleExamsForAMPage {
   }
 
   /**Method to Create Exam */
-  async createExam(): Promise<void> {
+  async createAMExam(): Promise<void> {
 
+    await this.EXAMSMENU.click();
     await expect(this.CREATEEXAMS).toBeVisible();
     await this.CREATEEXAMS.click();
     await this.STARTFROMSCRATCH.click();
+    await this.SELECTBANK.click();
     await this.SELECTBANK.type(testData.TestBank2);
     await this.TESTBANK.click();
     await this.EXAMNAME.type('DEMO' + Math.floor(Math.random() * 899999 + 100000));
+
     await this.EXAMCODE.type('D' + Math.floor(Math.random() * 89 + 100));
+
     await this.BookingStartCalender.click();
     if (EndExamDate >= "30") {
       await this.page.waitForSelector('//li[@class="next"]');
@@ -293,7 +297,6 @@ export class EluminaMultipleExamsForAMPage {
   }
 
   //Create Content Section
-
   async createContentSection(): Promise<void> {
     await this.CliCKOnCreateSection.click();
     await this.ClickOnCreateContentSection.click();

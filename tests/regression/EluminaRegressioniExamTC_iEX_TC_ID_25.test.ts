@@ -1,9 +1,9 @@
 import test from '@lib/BaseTest';
 
-/**Validation of multiple Exams on the dashboard for different time (Say one in AM & another in PM)*/
+/**Validation of Candidate dashboard > With No Actions in AM and PM Exams*/
 
 /**AM */
-/*test(`@Regression Validation of multiple Exams on the dashboard for different time For AM`, async ({ eluminaLoginPage, eluminaMultipleExamsForAMPage, eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_25. @Regression Validation of Candidate dashboard > With No Actions in AM and PM Exams`, async ({ eluminaLoginPage, eluminaMultipleExamsForAMPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -16,14 +16,14 @@ import test from '@lib/BaseTest';
     await test.step(`Navigate to exam Tab and Create New Exam and add MCQ Questions`, async () => {
         const newtab = await eluminaMultipleExamsForAMPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createExam();
+        await newtab.createAMExam();
         await newtab.createSection();
         await newtab.addMCQQuestions();
     });
 });
 
 
-test(`@Regression Verify Elumina Registration for AM`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`iEX_TC_ID_25. @Regression Verify Elumina Registration for AM`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -33,14 +33,13 @@ test(`@Regression Verify Elumina Registration for AM`, async ({ eluminaLoginPage
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigationAMExamPage();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
+        await newtab.addUserDetailsdiffTime();
     });
-});                 */
+});
 
 
 /**PM */
-/*test(`@Regression Validation of multiple Exams on the dashboard for different time For PM`, async ({ eluminaLoginPage, eluminaMultipleExamsForPMPage, eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_25. @Regression Validation of Candidate dashboard > With No Actions in PM`, async ({ eluminaLoginPage, eluminaMultipleExamsForPMPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -52,14 +51,13 @@ test(`@Regression Verify Elumina Registration for AM`, async ({ eluminaLoginPage
     });
     await test.step(`Navigate to exam Tab and Create New Exam and add MCQ Questions`, async () => {
         const newtab = await eluminaMultipleExamsForPMPage.iAuthorPageNavigation();
-        await newtab.examTabNavigation();
-        await newtab.createExam();
+        await newtab.createPMExam();
         await newtab.createSection();
         await newtab.addMCQQuestions();
     });
 });
 
-test(`@Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`iEX_TC_ID_25. @Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -69,12 +67,12 @@ test(`@Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigationPMExamPage();
-        await newtab.addExistingUsersforMultiple();
+        await newtab.addExistingUsersdifftime();
         await newtab.downloadUserDetails();
     });
 });
 
-test(`@Regression Verify Login Application for PM  EluminaRegressioniExamTC_017`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_25. @Regression Verify Login Application for PM`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -82,4 +80,4 @@ test(`@Regression Verify Login Application for PM  EluminaRegressioniExamTC_017`
         await eluminaCandPage.enterCandidateCredetial();
     });
 
-});    */
+});    

@@ -204,6 +204,30 @@ export class EluminaCreateQuestionsPage {
     readonly selectFileFormat: Locator;
     readonly selectZip: Locator;
     readonly DownloadButtonclick: Locator;
+
+    readonly clickOnCheckout: Locator;
+    readonly dropArrowclick: Locator;
+    readonly saveAsNewVersion: Locator;
+    readonly ClickOnComment: Locator;
+    readonly ClickOnSaveBtn2: Locator;
+    readonly clickOnVersionHistory: Locator;
+    readonly moreoptionClick: Locator;
+    readonly clickOnClose: Locator;
+    readonly versionCheck1: Locator;
+    readonly versionCheck2: Locator;
+    readonly CompareVersion: Locator;
+    readonly clickclose2: Locator;
+    readonly workflowDropdown: Locator;
+    readonly approvalWorkflowclick: Locator;
+    readonly selectReviwer: Locator;
+    readonly selectApprover: Locator;
+    readonly checkReviwerQA: Locator;
+    readonly approverQA: Locator;
+    readonly submitandreviewclick: Locator;
+    readonly workflowsuccessmessage: Locator;
+    readonly saveButtonClick: Locator;
+    readonly approverclick: Locator;
+
     readonly ClickOnPreviewPDF: Locator;
     readonly ClickOnPreviewWeb: Locator;
     readonly ValidationOfPreviewPDFTitle: Locator;
@@ -220,6 +244,7 @@ export class EluminaCreateQuestionsPage {
     readonly confirmationPopUp: Locator;
     readonly ClickOnNoBtn: Locator;
     readonly ClickOnBackArrowBtn: Locator;
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -353,6 +378,7 @@ export class EluminaCreateQuestionsPage {
         this.ClickOnYesBtn = page.locator('//div[@id="duplicateModal"]//button[normalize-space()="Yes"]')
         this.ClickOnSubmitBtn = page.locator('//button[normalize-space()="Submit"]')
         this.ClickOnSaveBtn = page.locator('(//button[normalize-space()="Save"])[1]')
+        this.ClickOnSaveBtn2 = page.locator('(//button[normalize-space()="Save"])[2]')
         this.ClickOnVersionHistory = page.locator('//p[normalize-space()="Version History"]')
         this.ClickOnCheckout = page.locator('(//p[normalize-space()="Check Out"])[1]')
         this.ClickOnYesBtnForCheckout = page.locator('//div[@id="checkoutModal"]//button[@type="button"][normalize-space()="Yes"]')
@@ -393,6 +419,29 @@ export class EluminaCreateQuestionsPage {
         this.selectFileFormat = page.locator('//input[@placeholder="Select File Format"]');
         this.selectZip = page.locator('//span[text()="ZIP"]');
         this.DownloadButtonclick = page.locator('//button[text()="Download"]');
+
+        this.clickOnCheckout = page.locator('//a[normalize-space()="Check Out"]')
+        this.dropArrowclick = page.locator('//button[@class="btn btn-primary dropdown-toggle"]');
+        this.saveAsNewVersion = page.locator('//a[normalize-space()="Save as New Version"]');
+        this.ClickOnComment = page.locator('//textarea[@name="comments"]');
+        this.clickOnVersionHistory = page.locator('//p[normalize-space()="Version History"]');
+        this.moreOptionClick = page.locator('(//a[text()="more"])[1]');
+        this.clickOnClose = page.locator('(//button[@type="button"][normalize-space()="×"])[1]');
+        this.clickclose2 = page.locator('(//button[@type="button"][normalize-space()="×"])[4]');
+        this.versionCheck1 = page.locator('//body/app-root/div/app-exam-history[@class="ng-star-inserted"]/div[@class="question-historyPage pageTop--div"]/div[@class="main-content-alt no-filter"]/div/div[@class="main"]/div[@class="middleColumn"]/div[@class="timeline--container"]/div[@class="history-column"]/app-vertical-stepper-exam[1]/div[1]/div[2]');
+        this.versionCheck2 = page.locator('//body/app-root/div/app-exam-history[@class="ng-star-inserted"]/div[@class="question-historyPage pageTop--div"]/div[@class="main-content-alt no-filter"]/div/div[@class="main"]/div[@class="middleColumn"]/div[@class="timeline--container"]/div[@class="history-column"]/app-vertical-stepper-exam[2]/div[1]/div[2]');
+        this.CompareVersion = page.locator('//button[normalize-space()="Compare Version"]');
+        this.workflowDropdown = page.locator('(//div[@class="btn-selected-list"])[1]');
+        this.approvalWorkflowclick = page.locator('//span[text()="Approval Workflow"]');
+        this.selectReviwer = page.locator('//input[@placeholder="Select Reviewer"]');
+        this.selectApprover = page.locator('//input[@placeholder="Select Approver"]');
+        this.checkReviwerQA = page.locator('//span[text()="Reviewer QA"]');
+        this.approverQA = page.locator('//span[text()="approver QA"]');
+        this.submitandreviewclick = page.locator('//button[text()="Submit & Review"]');
+        this.workflowsuccessmessage = page.locator('//span[text()="Workflow has been created successfuly."]');
+        this.saveButtonClick = page.locator('//button[text()="Save"]');
+        this.approverclick = page.locator('//div[normalize-space()="Approver"]');
+
         this.ClickOnPreviewPDF = page.locator('//a[contains(text(),"Preview (PDF)")]')
         this.ClickOnPreviewWeb = page.locator('//a[contains(text(),"Preview (WEB)")]')
         this.ValidationOfPreviewPDFTitle = page.locator('//div[@id="previewModal"]//h4[@class="modal-title"][normalize-space()="Preview"]')
@@ -409,6 +458,7 @@ export class EluminaCreateQuestionsPage {
         this.confirmationPopUp = page.locator('//div[normalize-space()="Are you sure you want to discard your changes?"]')
         this.ClickOnNoBtn = page.locator('//div[@class="modal-dialog cancel-confirmation"]//button[normalize-space()="No"]')
         this.ClickOnBackArrowBtn = page.locator('//i[@class="iconBg leftArrow"]')
+
 
     }
 
@@ -535,7 +585,7 @@ export class EluminaCreateQuestionsPage {
 
     /**Method for Exams Menu click on Menu bar */
     async ExamsMenuClick(): Promise<void> {
-        await this.Questions.click();
+        await this.EXAMSMENU.click();
     }
 
     /**Method to validate Preview Page */
@@ -1925,5 +1975,238 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(3000);
         await this.DownloadButtonclick.click();
         await this.page.waitForTimeout(3000);
+    }
+
+    /**Method to Validation of Exam Checkout  */
+    async ValidationOfExamCheckout() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.SearchDraftExams.type('Approved')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickOnCheckout.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickYes.click();
+        await this.page.waitForTimeout(3000);
+    }
+
+    /**Method to Validation of Exam New Version  */
+    async ValidationOfExamSaveNewVersion() {
+
+        let currentDate = new Date();
+        let datecurrent = currentDate.getDate();
+        console.log(datecurrent);
+        let pm = currentDate.getHours() >= 12;
+        let hour12 = currentDate.getHours() % 12;
+        if (!hour12)
+            hour12 += 12;
+        let minute = currentDate.getMinutes();
+        console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
+
+        let StartBookingMin = currentDate.getMinutes() + 2;
+        let EndBookingMin = currentDate.getMinutes() + 3;
+        let StartExamMin = currentDate.getMinutes() + 4;
+        let EndExamMin = currentDate.getMinutes() + 15;
+
+        await this.BookingStartCalender.click();
+        await this.BookingStartDate.click();
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (StartBookingMin >= 60) {
+            let SBM = StartBookingMin.toString();
+            SBM = "02";
+            await this.BooingStartMins.type(SBM);
+            //hrs+1
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            let BSH = hour12 + 1;
+            if (BSH == 12) {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSessions.check();
+            }
+            else if (BSH >= 13) {
+                BSH = 1;
+                await this.BookingStartHrs.type(BSH.toString());
+            }
+            else {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSession.check();
+            }
+        }
+        else {
+            await this.BooingStartMins.type(StartBookingMin.toString());
+            //hrs
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            await this.BookingStartHrs.type(hour12.toString());
+            await this.ChooseBookingStartSession.check();
+        }
+        await this.BookingOK.click();
+
+        await this.BookingEndCalender.click();
+        await this.BookingEndDate.click();
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (EndBookingMin >= 60) {
+            let EBM = EndBookingMin.toString();
+            EBM = "03";
+            await this.BooingStartMins.type(EBM);
+            //Hrs+1
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            let BSH = hour12 + 1;
+            if (BSH == 12) {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSessions.check();
+            }
+            else if (BSH >= 13) {
+                BSH = 1;
+                await this.BookingStartHrs.type(BSH.toString());
+            }
+            else {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSession.check();
+            }
+        }
+        else {
+            await this.BooingStartMins.type(EndBookingMin.toString());
+            //hrs
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            await this.BookingStartHrs.type(hour12.toString());
+            await this.ChooseBookingStartSession.check();
+        }
+
+        await this.BookingOK.click();
+        await this.ExamStartCalender.click();
+        await this.ExamStartDate.click();
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (StartExamMin >= 60) {
+            let SEM = StartExamMin.toString();
+            SEM = "04"
+            await this.BooingStartMins.type(SEM);
+            //hrs+1
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            let BSH = hour12 + 1;
+            if (BSH == 12) {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSessions.check();
+
+            }
+            else if (BSH >= 13) {
+                BSH = 1;
+                await this.BookingStartHrs.type(BSH.toString());
+            }
+            else {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSession.check();
+            }
+        }
+        else {
+            await this.BooingStartMins.type(StartExamMin.toString());
+            //hrs
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            await this.BookingStartHrs.type(hour12.toString());
+            //BSET = await this.BookingStartHrs.type(hour12.toString());
+            console.log(hour12.toString());
+            console.log(StartExamMin.toString())
+            await this.ChooseBookingStartSession.check();
+        }
+        await this.BookingOK.click();
+        await this.ExamEndCalender.click();
+
+        if (EndExamDate >= "30") {
+            console.log("Exam end date:" + EndExamDate);
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else if (EndExamDate >= "31") {
+            console.log("Exam end date:" + EndExamDate);
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else {
+            console.log("Exam end date:" + EndExamDate);
+            await this.ExamEndDate.click();
+        }
+        await this.BookingStartHrs.click();
+        await this.BookingStartHrs.clear();
+        await this.BookingStartHrs.type(hour12.toString());
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (EndExamMin >= 60) {
+            EndExamMin = 1;
+            await this.BooingStartMins.type(EndExamMin.toString());
+        }
+        else {
+            await this.BooingStartMins.type(EndExamMin.toString());
+        }
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(2000);
+        await this.dropArrowclick.click();
+        await this.page.waitForTimeout(2000);
+        await this.saveAsNewVersion.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnComment.click();
+        await this.ClickOnComment.type("New Version");
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveBtn2.click();
+        await this.page.waitForTimeout(2000);
+    }
+
+    /**Method to Validation of Compare Version  */
+    async ValidationOfCompareVersion() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.SearchDraftExams.type('Approved')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+        await this.clickOnVersionHistory.click();
+        await this.page.waitForTimeout(2000)
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(2000)
+        await this.clickOnClose.click();
+        await this.page.waitForTimeout(2000)
+    }
+
+    /**Method to Validate Exam Approval Workflow*/
+    async validateExamApprovalWorkflow() {
+        await this.EXAMSMENU.click();
+        await this.page.waitForTimeout(3000);
+        await this.SearchDraftExams.type('Draft')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+        await this.ClickOnWorkFlow.click();
+        await this.page.waitForTimeout(2000)
+        await this.workflowDropdown.click();
+        await this.page.waitForTimeout(2000)
+        await this.approvalWorkflowclick.click();
+        await this.page.waitForTimeout(2000)
+        await this.selectReviwer.click();
+        await this.page.waitForTimeout(2000)
+        await this.checkReviwerQA.click();
+        await this.page.waitForTimeout(2000)
+        await this.approverclick.click();
+        await this.page.waitForTimeout(1000)
+        await this.selectApprover.click();
+        await this.page.waitForTimeout(2000)
+        await this.approverQA.click();
+        await this.page.waitForTimeout(2000)
+        await this.submitandreviewclick.click();
+        await this.page.waitForTimeout(2000)
+        await expect(this.workflowsuccessmessage).toHaveText('Workflow has been created successfuly.');
+        await this.page.waitForTimeout(2000)
+        await this.saveButtonClick.click();
     }
 }

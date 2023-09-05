@@ -96,7 +96,7 @@ export class EluminaRegistrationPage {
     readonly logoutbuttonClick: Locator;
     readonly bulkDownloadButton: Locator;
     readonly bulkdownloadbuttonclick: Locator;
-
+    readonly SelectCadVenue: Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -150,6 +150,7 @@ export class EluminaRegistrationPage {
         this.searchExam = page.locator('//input[@placeholder="Search Exam(s)"]');
         this.bulkDownloadButton = page.locator('//button[normalize-space()="..."]');
         this.bulkdownloadbuttonclick = page.locator('//a[text()="Bulk Download User Details"]');
+        this.SelectCadVenue = page.locator('//span[text()="Elumina Chennai"]')
 
         const examId: string = String(EluminaExamPage.examID);
         console.log(examId);
@@ -403,5 +404,60 @@ export class EluminaRegistrationPage {
         await this.MenuIconClick.click();
         await this.logoutbuttonClick.click();
 
+    }
+
+    /**Method to Add User Details */
+    async addUserDetailsdiffTime(): Promise<void> {
+        await this.EnterClientID.type(makeid(testData.clientId) + Math.floor(Math.random() * 899 + 100));
+        await this.ChooseTitle.click();
+        await this.ChooseTitle.selectOption('Mr');
+        await this.TypeUsername.type(makeid(testData.clientUsername) + Math.floor(Math.random() * 89 + 10));
+        await this.TypeFirstName.type(makeid(testData.clientFirstname));
+        await this.TypeLastName.type(makeid(testData.clientLastname));
+        await this.TypeEmail.type(makeid(testData.clientEmail) + Math.floor(Math.random() * 899 + 100) + '@gmail.com');
+        await this.TypePhone.type(testData.clientPhone + Math.floor(Math.random() * 899999999 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.SelectRole.click();
+        await this.SelectRole.selectOption(testData.clientRole);
+        await this.page.waitForTimeout(5000);
+        await this.SelectEligible.click();
+        await this.SelectEligible.selectOption(testData.clientEligableOption);
+        await this.page.waitForTimeout(5000);
+        await this.SelectVenue.click();
+        await this.SelectVenue.type(testData.clientVenue);
+        await this.page.waitForTimeout(5000);
+        await this.SelectBookingStatus.click();
+        await this.SelectBookingStatus.selectOption(testData.clientBookingStatus);
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(8000);
+        await this.LeftArrow.click();
+        candClientID = await this.captureUserClientID.textContent()
+        console.log("Cand-ID :" + candClientID);
+        //await this.ClickOnDropdown.click();
+    }
+
+    /**add Existing Cadidate In Diff Time Zone */
+    async addExistingUsersdifftime(): Promise<void> {
+        await this.ClickOnAddExistingUser.click();
+        await this.page.waitForTimeout(2000);
+        await this.SearchUsers.click();
+        await this.page.waitForTimeout(2000);
+        await this.SearchUsers.type(candClientID);
+        await this.page.waitForTimeout(4000);
+        await this.CLickOnUser.click();
+        await this.ChooseExistingRole.click();
+        await this.SelectCandRole.click();
+        await this.SelectExVenue.click();
+        await this.SelectCadVenue.click();
+        await this.SelectExEligible.click();
+        await this.SelectInvEligible.click();
+        await this.SelectExBookingStatus.click();
+        await this.SelectInvBookingStatus.click();
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(3000);
+        await this.LeftArrow.click();
+        await this.ClickOnDropdown.click();
+        await this.page.waitForTimeout(5000);
     }
 }
