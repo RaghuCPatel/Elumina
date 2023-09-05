@@ -165,11 +165,22 @@ export class EluminaBlueprintsPage {
     readonly nextButton: Locator;
     readonly Oneclick: Locator;
     readonly checkBoxClick: Locator;
+
+    readonly workFlowFieldDropDown: Locator;
+    readonly chooseApproveWorkFlow: Locator;
+    readonly reviewerDropDown: Locator;
+    readonly chooseReviewer: Locator;
+    readonly approverDropDown: Locator;
+    readonly chooseApprover: Locator;
+    readonly submitForReviewBtn: Locator;
+    readonly morebtnOnWorkFlow: Locator;
+
     readonly clickonQuestion: Locator;
     readonly ClickOnCancelBtn: Locator;
     readonly confirmationPopUp: Locator;
     readonly ClickOnNoBtn: Locator;
     readonly ClickOnBackArrowBtn: Locator;
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -286,12 +297,21 @@ export class EluminaBlueprintsPage {
         this.saveDraftOnWorkFlow = page.locator('(//div[@class="sub--right-menu ng-star-inserted"]//button)[1]')
         this.saveDraftText = page.locator('//button[text()="Save Draft"]')
         this.editNumRequired = page.locator('(//div[@class="ngx-dnd-item custom-trow ng-star-inserted"]//div)[5]//input')
-        // this.removeQuesOnCart=page.locator('(//table[@class="table"])[2]//tbody//tr//td//input')
         this.removeFromCart = page.locator('(//div//button[@class="btn primarybtn"])[2]')
         this.clickOnRemoveCartBtn = page.locator('//div[@class="cartMinus-btn ng-star-inserted"]')
         this.saveBtnOnRemoveCart = page.locator('(//div//button[@class="btn primarybtn"])[3]')
         this.cancelBtnOnRemoveCart = page.locator('(//button[@class="btn btn-default"])[1]')
         this.cartItemIsZero = page.locator('(//table//tbody//tr//td)[2]')
+
+        this.workFlowFieldDropDown = page.locator('//ul[@class="ng-star-inserted"]')
+        this.chooseApproveWorkFlow = page.locator('(//span[@class="open"])[1]')
+        this.reviewerDropDown = page.locator('(//*[@class="input-wrap"])[2]')
+        this.chooseReviewer = page.locator('//input[@type="checkbox"]')
+        this.approverDropDown = page.locator('(//div[@class="input-wrap"])[3]')
+        this.chooseApprover = page.locator('(//li[@class="open ng-star-inserted"])[4]')
+        this.submitForReviewBtn = page.locator('//button[@class="theme-btn theme-primary-btn ng-star-inserted"]')
+        this.morebtnOnWorkFlow = page.locator('//button[@class="btn btn-default dotbutton"]')
+
         this.clickonQuestion = page.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a');
         this.ClickOnCancelBtn = page.locator('//button[@class="theme-btn theme-default-btn"]')
         this.confirmationPopUp = page.locator('//div[normalize-space()="Are you sure you want to discard your changes?"]')
@@ -299,6 +319,7 @@ export class EluminaBlueprintsPage {
         this.ClickOnBackArrowBtn = page.locator('//i[@class="iconBg leftArrow"]')
 
     }
+
 
     /**Method for Page Navigation */
     async iAuthorPageNavigation() {
@@ -452,11 +473,11 @@ export class EluminaBlueprintsPage {
 
     async approveBluePrintId() {
         await this.ClickOnWorkFlow.click();
-        // await this.saveDraftOnWorkFlow.click();
         await this.page.waitForTimeout(4000);
         if (await this.saveDraftText.textContent() == "Save Draft") {
             this.saveDraftOnWorkFlow.click()
         }
+        await this.page.waitForTimeout(3000);
         await this.ClickOnApprove.click();
         await this.page.waitForTimeout(3000);
         console.log(await this.ValidateSuccessfulPopMessage.textContent());
@@ -790,6 +811,37 @@ export class EluminaBlueprintsPage {
         await expect(this.saveNewVersionSuccessMessage).toHaveText("Blueprint has been saved as new version");
     }
 
+
+    async reviewToReviewer() {
+        await this.SearchDraftQuestions.type('Draft')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+
+        await this.ClickOnWorkFlow.click();
+        await this.page.waitForTimeout(3000);
+
+        await this.workFlowFieldDropDown.click();
+        await this.page.waitForTimeout(2000);
+        await this.chooseApproveWorkFlow.click();
+        await this.page.waitForTimeout(3000);
+        await this.reviewerDropDown.click();
+        await this.page.waitForTimeout(2000);
+        await this.chooseReviewer.click();
+        await this.page.waitForTimeout(2000);
+        await this.morebtnOnWorkFlow.click();
+        await this.page.waitForTimeout(2000);
+        await this.approverDropDown.click();
+        await this.page.waitForTimeout(2000);
+        await this.chooseApprover.click();
+        await this.page.waitForTimeout(2000);
+        await this.submitForReviewBtn.click();
+        await this.page.waitForTimeout(5000);
+        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        await this.page.waitForTimeout(5000);
+
+    }
+   
 
 
 }

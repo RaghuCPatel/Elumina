@@ -25,6 +25,7 @@ import { EluminaMinimalTimeExamPage } from '@pages/EluminaMinimalTimeExamPage';
 import { commonPages } from '@pages/commonPages';
 import { EluminaCreateQuestionsPage } from '@pages/EluminaCreateQuestionsPage';
 import { EluminaBlueprintsPage } from '@pages/EluminaBlueprintsPage';
+import { EluminaGradeBookPage } from '@pages/EluminaGradeBookPage';
 
 const test = baseTest.extend<{
     webActions: WebActions;
@@ -53,6 +54,7 @@ const test = baseTest.extend<{
     eluminaMinimalTimeExamPage: EluminaMinimalTimeExamPage;
     eluminaCreateQuestionsPage: EluminaCreateQuestionsPage;
     eluminaBlueprintsPage: EluminaBlueprintsPage;
+    eluminaGradeBookPage: EluminaGradeBookPage;
 
 }>({
     webActions: async ({ page, context }, use) => {
@@ -132,7 +134,11 @@ const test = baseTest.extend<{
     },
     eluminaBlueprintsPage: async ({ page, context }, use) => {
         await use(new EluminaBlueprintsPage(page, context));
+    },
+    eluminaGradeBookPage: async ({ page, context }, use) => {
+        await use(new EluminaGradeBookPage(page, context));
     }
+    
 })
 
 export default test;
