@@ -71,6 +71,16 @@ test(`@RegressionP Validation of Login using Invalid credentials Scenario 2 TC-1
     });
 });
 
+test(`iEX_TC_ID_229. @Regression Verify Validation of Login using valid credentials in browser offline`, async ({ eluminaCandPage,webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate try to Login for application in offline`, async () => {
+        await eluminaCandPage.candidateLoginToApplicationoffline();
+    });
+});
+
+
 test(`@RegressionP Validation of Sign out at Candidate Dashboard Page TC-14`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();

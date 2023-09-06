@@ -34,7 +34,7 @@ test(`@RegressionP Candidate while attending exam - Online - try to press any F1
     });
     await test.step('Candidate start the exam',async ()=> {
         await eluminaCandPage.verifyExamDashboardTimer();
-        await eluminaCandPage.functionKey();
+        await eluminaCandPage.functionKey(false,'F6');
     });
     
     

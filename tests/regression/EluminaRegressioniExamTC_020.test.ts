@@ -10,7 +10,7 @@ test(`@Regression Verify Validation of  function keys on Candidate Dashboard`, a
         await eluminaCandPage.candidateLoginToAndValidateDashboard();
     });
     await test.step('Candidate start the exam',async ()=> {
-        await eluminaCandPage.functionKey();
+        await eluminaCandPage.functionKey(false,'F4');
     });
     
 });
