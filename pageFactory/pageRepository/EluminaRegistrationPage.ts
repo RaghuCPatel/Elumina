@@ -5,6 +5,7 @@ import { EluminaExamPage } from './EluminaExamPage';
 import { EluminaMultipleExamsForPMPage } from './EluminaMultipleExamsForPMPage';
 import { EluminaMultipleExamsForAMPage } from './EluminaMultipleExamsForAMPage';
 import { EluminaMinimalTimeExamPage } from './EluminaMinimalTimeExamPage';
+const testENV = process.env.ENV;
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
 const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
@@ -97,6 +98,9 @@ export class EluminaRegistrationPage {
     readonly bulkDownloadButton: Locator;
     readonly bulkdownloadbuttonclick: Locator;
     readonly SelectCadVenue: Locator;
+    readonly DeliveryMenu: Locator;
+    readonly SpecialArrangement: Locator;
+    readonly BookingStatus1: Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -117,6 +121,8 @@ export class EluminaRegistrationPage {
         this.SelectRole = page.locator('//table[@class="table"]//tbody//tr[1]//td[9]//select');
         this.SelectEligible = page.locator('//table[@class="table"]//tbody//tr[1]//td[10]//select');
         this.SelectVenue = page.locator('//table[@class="table"]//tbody//tr[1]//td[11]//select');
+        this.SpecialArrangement = page.locator('//table[@class="table"]//tbody//tr[1]//td[12]//select');
+        this.BookingStatus1 = page.locator('//table[@class="table"]//tbody//tr[1]//td[14]//select');
         this.SelectBookingStatus = page.locator('//table[@class="table"]//tbody//tr[1]//td[12]//select');
         this.ClickOnSaveBtn = page.locator('//button[@class="theme-btn theme-primary-btn"]');
         this.LeftArrow = page.locator('//i[@class="iconBg leftArrow"]');
@@ -151,6 +157,7 @@ export class EluminaRegistrationPage {
         this.bulkDownloadButton = page.locator('//button[normalize-space()="..."]');
         this.bulkdownloadbuttonclick = page.locator('//a[text()="Bulk Download User Details"]');
         this.SelectCadVenue = page.locator('//span[text()="Elumina Chennai"]')
+        this.DeliveryMenu = page.locator('//a[text()="Delivery"]');
 
         const examId: string = String(EluminaExamPage.examID);
         console.log(examId);
@@ -174,13 +181,19 @@ export class EluminaRegistrationPage {
 
     /**Method to register for the exam */
     async registrationTabNavigation(): Promise<void> {
-        await this.RegistrationMenu.click();
+        if (testENV === "sandbox") {
+            await this.RegistrationMenu.click();
+        }
+        else if (testENV === "qa") {
+            await this.DeliveryMenu.click();
+        }
         let examid = EluminaExamPage.examID;
         console.log(EluminaExamPage.examID);
         await this.searchExam.type(examid);
         await this.page.waitForTimeout(5000);
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
+
     }
 
 
@@ -250,6 +263,7 @@ export class EluminaRegistrationPage {
 
     /**Method to Add User Details */
     async addUserDetails(): Promise<void> {
+
         await this.EnterClientID.type(makeid(testData.clientId) + Math.floor(Math.random() * 899 + 100));
         await this.page.waitForTimeout(8000);
         await this.ChooseTitle.click();
@@ -269,16 +283,31 @@ export class EluminaRegistrationPage {
         await this.SelectVenue.click();
         await this.SelectVenue.type('Elumina Chennai');
         await this.page.waitForTimeout(7000);
-        await this.SelectBookingStatus.click();
-        await this.SelectBookingStatus.selectOption('Booked');
-        await this.page.waitForTimeout(7000);
-        await this.ClickOnSaveBtn.click();
-        await this.page.waitForTimeout(8000);
-        await this.LeftArrow.click();
-        candClientID = await this.captureUserClientID.textContent()
-        console.log("Cand-ID :" + candClientID);
-        await this.ClickOnDropdown.click();
-
+        if (testENV === "sandbox") {
+            await this.SelectBookingStatus.click();
+            await this.SelectBookingStatus.selectOption('Booked');
+            await this.page.waitForTimeout(7000);
+            await this.ClickOnSaveBtn.click();
+            await this.page.waitForTimeout(8000);
+            await this.LeftArrow.click();
+            candClientID = await this.captureUserClientID.textContent()
+            console.log("Cand-ID :" + candClientID);
+            await this.ClickOnDropdown.click();
+        }
+        else if (testENV === "qa") {
+            await this.SpecialArrangement.click();
+            await this.SpecialArrangement.selectOption('No');
+            await this.page.waitForTimeout(7000);
+            await this.BookingStatus1.click();
+            await this.BookingStatus1.selectOption('Booked');
+            await this.page.waitForTimeout(7000);
+            await this.ClickOnSaveBtn.click();
+            await this.page.waitForTimeout(8000);
+            await this.LeftArrow.click();
+            candClientID = await this.captureUserClientID.textContent()
+            console.log("Cand-ID :" + candClientID);
+            await this.ClickOnDropdown.click();
+        }
     }
 
     /**Method to Download the User Details */

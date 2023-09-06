@@ -262,6 +262,13 @@ export class EluminaCandidatePage {
         }
         await this.ClickOnStartExamBtn.click();
         await this.page.waitForTimeout(5000);
+
+    }
+
+    /**Method to set offline */
+    async setOffline() {
+        await this.context.setOffline(true);
+        await this.page.waitForTimeout(2000);
     }
 
     /**Method to Enter Invaild Candidate Credentials */
@@ -744,6 +751,10 @@ export class EluminaCandidatePage {
         }
         await this.page.close();
     }
+    async clickOnPrevious() {
+        await this.clickOnPreviousBtn.click();
+        await this.page.waitForTimeout(2000);
+    }
 
     async candidateStartOneMCQ() {
         await this.page.waitForTimeout(2000);
@@ -878,6 +889,24 @@ export class EluminaCandidatePage {
         await this.ClickOnRevieweBtn.click();
         //await this.ClickOnSubmitBtn.click();
 
+    }
+    async candidateStartSJTAns() {
+        await this.page.waitForTimeout(2000);
+        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
+        const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
+        for (let i = 25; i < 28; i++) {
+            await qutns[i].click();
+            await this.ansSJTQuestion.click();
+            await this.ClickOnNextBtn.click();
+
+        }
+        await this.page.waitForTimeout(2000);
+        await this.page.locator('(//div[@class="question-number-container"]//div//p)[28]').click()
+        await this.ansSJTQuestion.click();
+        await this.ClickOnNextBtn.click();
+        await this.page.locator('(//div[@class="question-number-container"]//div//p)[29]').click();
+        await this.ansSJTQuestion.click();
+        await this.ClickOnNextBtn.click();
     }
 
     async candidateFlagForReviewAllQuestions() {
