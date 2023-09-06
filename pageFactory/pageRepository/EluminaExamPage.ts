@@ -136,7 +136,21 @@ export class EluminaExamPage {
   readonly PracticeExam: Locator;
   readonly ClickOnViewer: Locator;
   readonly ChooseBookingStartSessions: Locator;
+
   readonly fullScreen: Locator;
+
+  readonly searchFieldOnExam: Locator;
+  readonly selectExamId: Locator;
+  readonly clickOnWorkFlowNavigation: Locator;
+  // readonly searchIconOnPage: Locator;
+  readonly selectQuesNavigation: Locator;
+  readonly selectModifyNavigation: Locator;
+  readonly questionNavigation: Locator;
+  readonly durationField: Locator;
+  readonly saveBtnInCreateExam: Locator;
+  readonly ClickOnnewAddQuestion: Locator;
+  readonly ValidateSuccessfulPopMessage: Locator;
+
 
   constructor(page: Page, context: BrowserContext) {
     this.page = page;
@@ -218,8 +232,66 @@ export class EluminaExamPage {
     this.logoutbuttonClick = page.locator('//a[normalize-space()="Log out"]');
     this.PracticeExam = page.locator('(//span[@class="slider round"])[1]')
     this.ClickOnViewer = page.locator('//label[@for="image_View1"]');
+
     this.fullScreen = page.locator('(//span[@class="slider round"])[5]');
+
+    this.searchFieldOnExam = page.locator('//input[@placeholder="Search Exam(s)"]')
+    this.selectExamId = page.locator('((//table//tbody//tr)[1]//td)[2]')
+    this.clickOnWorkFlowNavigation = page.locator('//p[normalize-space()="Workflow"]')
+    this.selectQuesNavigation = page.locator('//p[normalize-space()="Questions"]')
+    this.selectModifyNavigation = page.locator('//p[normalize-space()="View / Modify"]')
+    this.questionNavigation = page.locator('//p[normalize-space()="Questions"]')
+    this.durationField = page.locator('(//input[@class="textField"])[2]')
+    this.saveBtnInCreateExam = page.locator('(//button[normalize-space()="Save"])[2]')
+    this.ClickOnnewAddQuestion = page.locator('(//i[@title="Create Exam Question"])[1]');
+    this.ValidateSuccessfulPopMessage = page.locator('//span[contains(text(),"Status has been updated successfuly")]')
+
   }
+
+
+  async searchDraftExamQuestionToApprove() {
+    await this.EXAMSMENU.click();
+    await this.searchFieldOnExam.type('Draft');
+    await this.page.waitForTimeout(3000);
+    await this.selectExamId.click();
+    await this.page.waitForTimeout(2000);
+    await this.questionNavigation.click();
+    await this.page.waitForTimeout(2000);
+    await this.CliCKOnCreateSection.click();
+    await this.ClickOnCreateExamSection.click();
+    await this.EnterSectionName.type('Content-' + Math.floor(Math.random()) * 89 + 10);
+    await this.page.waitForTimeout(5000);
+    await this.DescriptionMessage.click();
+    await this.DescriptionMessage.type('Hello World.....');
+    await this.page.waitForTimeout(5000);
+    await this.durationField.click();
+    await this.page.waitForTimeout(5000);
+    await this.selectMinutes.selectOption('5');
+    await this.page.waitForTimeout(3000);
+    await this.saveBtnInCreateExam.click();
+    await this.page.waitForTimeout(4000);
+    await this.ClickOnnewAddQuestion.click();
+    await this.ClickOnSearchQuestion.click()
+    await this.ClickOnSearchQuestion.type('MCQ');
+    await this.page.waitForTimeout(5000);
+    await this.page.waitForSelector('//div[@class="eqc-question-info"]//input', { timeout: 10000 });
+    const McqQuestions = await this.page.$$('//div[@class="eqc-question-info"]//input');
+    for (let i = 1; i <= 1; i++) {
+      await McqQuestions[i].click();
+    }
+    await this.page.waitForTimeout(5000);
+    await this.ClickOnAddBtn.click()
+    await this.page.waitForTimeout(3000);
+    await this.saveBtnInCreateExam.click()
+    await this.page.waitForTimeout(3000);
+    await this.ClickOnSave.click();
+    await this.page.waitForTimeout(5000);
+    await this.clickOnWorkFlowNavigation.click();
+    await this.ClickOnSubmitAndApproveBtn.click();
+    console.log(await this.ValidateSuccessfulPopMessage.textContent());
+  }
+
+
 
   /**Method for Page Navigation */
   async iAuthorPageNavigation() {
