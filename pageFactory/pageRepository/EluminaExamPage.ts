@@ -67,7 +67,6 @@ function makeid(length) {
   return result;
 }
 
-
 export class EluminaExamPage {
   static examID: string;
   readonly page: Page;
@@ -150,7 +149,7 @@ export class EluminaExamPage {
   readonly saveBtnInCreateExam: Locator;
   readonly ClickOnnewAddQuestion: Locator;
   readonly ValidateSuccessfulPopMessage: Locator;
-
+  
 
   constructor(page: Page, context: BrowserContext) {
     this.page = page;
@@ -244,8 +243,8 @@ export class EluminaExamPage {
     this.durationField = page.locator('(//input[@class="textField"])[2]')
     this.saveBtnInCreateExam = page.locator('(//button[normalize-space()="Save"])[2]')
     this.ClickOnnewAddQuestion = page.locator('(//i[@title="Create Exam Question"])[1]');
-    this.ValidateSuccessfulPopMessage = page.locator('//span[contains(text(),"Status has been updated successfuly")]')
-
+    this.ValidateSuccessfulPopMessage = page.locator('//span[contains(text(),"Status has been updated successfuly")]');
+    
   }
 
 
@@ -374,7 +373,6 @@ export class EluminaExamPage {
         await this.ChooseBookingStartSession.check();
       }
       await this.BookingOK.click();
-
       await this.BookingEndCalender.click();
       await this.BookingEndDate.click();
       await this.BooingStartMins.click();
@@ -446,9 +444,14 @@ export class EluminaExamPage {
         await this.BookingStartHrs.type(hour12.toString());
         await this.ChooseBookingStartSession.check();
       }
+      // Below 4 lines of code inguested to get start Exam time   
+      let Hr = hour12;
+      let min = StartExamMin;
+      global.total = Hr+min;
+      console.log(global.total);
+
       await this.BookingOK.click();
       await this.ExamEndCalender.click();
-
       if (EndExamDate >= "30") {
         console.log("Exam end date:" + EndExamDate);
         await this.page.waitForSelector('//li[@class="next"]');
@@ -1478,7 +1481,9 @@ export class EluminaExamPage {
     await this.page.waitForTimeout(5000);
   }
 
-  /*Create a Exam with Viewer*/
+  /**
+   * Create a Exam with Viewer
+   */
 
   async createCommonExamWithViewer(): Promise<void> {
 
@@ -1656,5 +1661,22 @@ export class EluminaExamPage {
     await this.ClickOnAdd.click();
     await this.ClickOnViewer.click();
 
+  }
+/**
+ * To Get value of exam start time in candidate page  and compare with taking the value of start time during exam creation   
+ */
+  async TimeFetch():Promise<void>{
+    var TotalStartTime: number = +global.total;
+    let Time = await this.page.locator('(//div[@class="exam-list"]//table//tr[@class="body-row"]//td//div//div)[2]').textContent();
+    console.log(TotalStartTime);
+    console.log(Time);
+    let splitime = Time.split(' ')[1];
+    let HourhSplit = splitime.split(':')[0];
+    let MinSplit = splitime.split(':')[1];
+    var a: number = +HourhSplit;
+    var b: number = +MinSplit;
+    let totalHrandMin = a+b;
+    console.log(totalHrandMin);
+    expect(totalHrandMin).not.toBe(TotalStartTime);
   }
 }

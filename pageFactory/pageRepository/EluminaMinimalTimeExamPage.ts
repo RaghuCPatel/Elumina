@@ -192,8 +192,11 @@ export class EluminaMinimalTimeExamPage {
     await this.EXAMSMENU.click();
   }
 
-  //Create a Exam
-  async createExam(): Promise<void> {
+  /**
+   * To Create Exam with less time and also can be used for select current end date 
+   * @param EndDay 
+   */
+  async createExam(EndDay): Promise<void> {
 
     let currentDate = new Date();
     let datecurrent = currentDate.getDate();
@@ -290,7 +293,6 @@ export class EluminaMinimalTimeExamPage {
 
     await this.ExamStartCalender.click();
     await this.ExamStartDate.click();
-
     await this.BooingStartMins.click();
     await this.BooingStartMins.clear();
     if (StartExamMin >= 60) {
@@ -325,23 +327,29 @@ export class EluminaMinimalTimeExamPage {
     }
     await this.BookingOK.click();
     await this.ExamEndCalender.click();
+    
+    if(EndDay == 1){ 
 
-    if (EndExamDate >= "30") {
-      console.log("Exam end date:" + EndExamDate);
-      await this.page.waitForSelector('//li[@class="next"]');
-      await this.nextButton.click();
-      await this.Oneclick.click();
-    }
-    else if (EndExamDate >= "31") {
-      console.log("Exam end date:" + EndExamDate);
-      await this.page.waitForSelector('//li[@class="next"]');
-      await this.nextButton.click();
-      await this.Oneclick.click();
-    }
-    else {
-      console.log("Exam end date:" + EndExamDate);
-      await this.ExamEndDate.click();
-    }
+      if (EndExamDate >= "30") {
+        console.log("Exam end date:" + EndExamDate);
+        await this.page.waitForSelector('//li[@class="next"]');
+        await this.nextButton.click();
+        await this.Oneclick.click(); 
+      }
+      else if (EndExamDate >= "31") {
+        console.log("Exam end date:" + EndExamDate);
+        await this.page.waitForSelector('//li[@class="next"]');
+        await this.nextButton.click();
+        await this.Oneclick.click();
+      }
+      else {
+        console.log("Exam end date:" + EndExamDate);
+        await this.ExamEndDate.click();
+      }
+  }
+  else{
+    await this.ExamEndDate.click();
+  }
     await this.BookingStartHrs.click();
     await this.BookingStartHrs.clear();
     await this.BookingStartHrs.type(hour12.toString());
@@ -395,7 +403,7 @@ export class EluminaMinimalTimeExamPage {
     await this.ClickOnAddQuestion.click();
     await this.ClickOnSearchQuestion.click()
     await this.ClickOnSearchQuestion.type('MCQ');
-    await this.page.waitForTimeout(5000);
+    await this.page.waitForTimeout(10000);
     await this.page.waitForSelector('//div[@class="eqc-question-info"]//input', { timeout: 10000 });
     const McqQuestions = await this.page.$$('//div[@class="eqc-question-info"]//input');
     for (let i = 0; i <= McqQuestions.length - 22; i++) {

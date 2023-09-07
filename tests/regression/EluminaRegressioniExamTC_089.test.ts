@@ -1,9 +1,6 @@
 import test from '@lib/BaseTest';
-import { commonPages } from '@pages/commonPages';
 
-//Validation of Candidate dashboard > with Unassigned / Cancelled Exam 
-
-test(`Exam_Prerequisit_for_iEX_TC_ID_235A. @Smoke Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage,eluminExamianvPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_236. @Regression Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -14,15 +11,15 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_235A. @Smoke Verify Elumina Login and Creat
         await eluminaLoginPage.verifyProfilePage();
     });
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminaExamPage.iAuthorPageNavigation();
-        await newtab.createExam();
+        const newtab = await eluminaMinimalTimeExamPage.iAuthorPageNavigation();
+        await newtab.examTabNavigation();
+        await newtab.createExam(0);
         await newtab.createSection();
         await newtab.addMCQQuestions();
-        
     });
 });
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_235b. @Smoke Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_236. @Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -31,22 +28,23 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_235b. @Smoke Verify Elumina RegistrationInv
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
-        await newtab.addUserDetailsNotBooked('Not Booked');
+        await newtab.registrationTabNavigationforMinimaltime();
+        await newtab.addUserDetails();
         await newtab.downloadUserDetails();
-        await newtab.logoutClick();
     });
 });
 
-test(`iEX_TC_ID_235. @Regression Verify Validation of  function keys after Exam Starts`, async ({ eluminaCandPage,webActions }) => {
+test(`iEX_TC_ID_236. @Regression Validation of Candidate dashboard > Exam scheduled Date / Time is over.`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.enterCandidateCredetial();
     });
-    await test.step('Check the availablity of exam',async ()=> {
-        await eluminaCandPage.verifyExamDashboard();
+    await test.step('validate Exam not Available in the Dashboard', async () => {
+        await eluminaCandPage.ExamAvailabilityCheck();
     });
     
 });

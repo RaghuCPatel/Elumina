@@ -135,6 +135,7 @@ export class EluminaCandidatePage {
     readonly FullScreenExit: Locator;
     readonly CloseIconClick: Locator;
     readonly offlineMessage: Locator;
+    readonly StartExameTimer: Locator;
 
 
 
@@ -232,6 +233,7 @@ export class EluminaCandidatePage {
         this.FullScreenExit = page.locator('//div[@class="full-close icon"]');
         this.CloseIconClick = page.locator('//label[@class="closeIcon"]');
         this.offlineMessage = page.locator('//div[@class="message-txt"]');
+        this.StartExameTimer = page.locator('(//div[@class="exam-list"]//table//tr[@class="body-row"]//td//div//div)[2]');
 
     }
 
@@ -342,7 +344,9 @@ export class EluminaCandidatePage {
     }
 
 
-    /**Method to Enter Candidate Credentials and to verify the offline message */
+    /**
+     * Method to Enter Candidate Credentials and to verify the offline message
+     */
     async candidateLoginToApplicationoffline(): Promise<void> {
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();
@@ -391,7 +395,9 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(3000);
     }
 
-    /**Method to Enter Candidate Credentials */
+    /**
+     * Method to Enter Candidate Credentials
+     */
     async enterCandidateCredetial() {
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();
@@ -408,7 +414,7 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(5000);
         await this.LOGIN_BUTTON.click();
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
-        await this.page.waitForTimeout(3000);
+        await this.page.waitForTimeout(20000);
     }
 
 
@@ -1399,5 +1405,14 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(2000);
         await this.CloseIconClick.click();
         await this.page.waitForTimeout(5000);
+    }
+
+
+    /**
+     * To Validate the Exam availability in Candidate page by checking the exam start time xpath
+     */
+    async ExamAvailabilityCheck()  {
+        await expect(this.StartExameTimer).toBeHidden();
+        console.log('Exam is not visiable after time ends');
     }
 }
