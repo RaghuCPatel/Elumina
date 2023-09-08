@@ -1476,8 +1476,17 @@ export class EluminaCandidatePage {
     /**
      * To Validate the Exam availability in Candidate page by checking the exam start time xpath
      */
-    async ExamAvailabilityCheck()  {
+    async ExamAvailabilityCheck() {
         await expect(this.StartExameTimer).toBeHidden();
         console.log('Exam is not visiable after time ends');
+    }
+
+    /* Method to check user not Navigated back and check the assertion*/
+
+    async navigateBackFromExamattendPage() {
+        await this.page.waitForTimeout(5000);
+        await this.page.goBack();
+        console.log("Clicked on Back Navigation icon");
+        await this.ClickOnRevieweBtn.isDisabled();
     }
 }

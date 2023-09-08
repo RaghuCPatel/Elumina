@@ -44,6 +44,7 @@ export class EluminaInvCandidatePage {
     readonly ClickOnRevieweBtn: Locator;
     readonly ClickOnSubmitBtn: Locator;
     readonly signOutBtn: Locator;
+    readonly lockPopupMessage: Locator;
 
 
     constructor(page: Page, context: BrowserContext/*page1:Page,context1: BrowserContext*/) {
@@ -60,6 +61,8 @@ export class EluminaInvCandidatePage {
         this.ClickOnRevieweBtn = page.locator('(//div[text()=" Review "])[1]');
         this.ClickOnSubmitBtn = page.locator('(//div[text()=" Submit "])[1]');
         this.signOutBtn = page.locator('//div[@class="signout"]');
+        this.lockPopupMessage = page.locator('//div[text()="Please be advised that your exam has been locked. Please contact the invigilator for any further assistance."]');
+
 
     }
 
@@ -125,6 +128,12 @@ export class EluminaInvCandidatePage {
     async againCandidateLogin(): Promise<void> {
         await this.page.bringToFront();
         await this.page.waitForTimeout(10000);
+    }
+
+    /**Method for Lock candidate validation */
+    async lockCandidateValidation() {
+        console.log(await this.lockPopupMessage.textContent());
+        await expect(this.lockPopupMessage).toHaveText("Please be advised that your exam has been locked. Please contact the invigilator for any further assistance.");
     }
 
     /**Method to Enter Invaild Exam Password */

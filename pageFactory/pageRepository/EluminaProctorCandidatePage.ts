@@ -82,8 +82,7 @@ export class EluminaProctorCandidatePage {
     readonly clickChatApp: Locator;
     readonly chatAppTxtArea: Locator;
     readonly clickOnSendicon: Locator;
-
-
+    readonly pauseExamPopupSuccessMessage: Locator
 
     constructor(page: Page, context: BrowserContext/*page1:Page,context1: BrowserContext*/) {
         this.page = page;
@@ -135,7 +134,7 @@ export class EluminaProctorCandidatePage {
         this.clickChatApp = page.frameLocator('//iframe[@title="Button to launch messaging window"]').locator('html');
         this.chatAppTxtArea = page.frameLocator('iframe[name="Messaging window"]').getByPlaceholder('Type a message');
         this.clickOnSendicon = page.frameLocator('iframe[name="Messaging window"]').getByRole('button', { name: 'Send message' });
-
+        this.pauseExamPopupSuccessMessage = page.locator('//div[text()="Please be advised that your exam has been paused. Please contact the exam administrator for any further assistance."]')
     }
 
     /**Method to Navigate to Candidate URL */
@@ -175,6 +174,18 @@ export class EluminaProctorCandidatePage {
     async validationOfChatApp() {
         await expect(this.clickChatApp).toBeVisible();
     }
+
+    /**Pause Exam pop up success message validation */
+    async pauseExamValidation() {
+        console.log(await this.pauseExamPopupSuccessMessage.textContent());
+        await expect(this.pauseExamPopupSuccessMessage).toHaveText("Please be advised that your exam has been paused. Please contact the exam administrator for any further assistance.");
+    }
+
+    /**Pause Exam pop up success message validation */
+    async resumeExamValidation() {
+        await expect(this.pauseExamPopupSuccessMessage).not.toBeVisible();
+    }
+
 
     /**Method for chat app click */
     async chatApp() {

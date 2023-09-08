@@ -1,8 +1,8 @@
 import test from '@lib/BaseTest';
 
-/** Validate candidate attending All Question type  and Validation of Candidate attending Exam in Online - Offline and submit in online Mode. */
+/** Validation of Candidate Attending Exam in Online - Offline (Submit Offline and Resume Synch in Online) */
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_108. , iEX_TC_ID_115. @RegressionP Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_109. @RegressionP Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -27,10 +27,11 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_108. , iEX_TC_ID_115. @RegressionP Verify E
         await newtab.addTypeBQuestion();
         await newtab.addSAQQuestion();
         await newtab.addSJTQuestion();
+
     });
 });
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_108. , iEX_TC_ID_115. @RegressionP Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_109. @RegressionP Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -47,7 +48,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_108. , iEX_TC_ID_115. @RegressionP Verify E
     });
 });
 
-test(`iEX_TC_ID_108. , iEX_TC_ID_115. @RegressionP Validation of Candidate attending Exam in Online - Offline and submit in Offline Mode`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_109. @RegressionP Validation of Candidate attending Exam in Online - Offline and submit in Offline Mode`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
@@ -66,7 +67,8 @@ test(`iEX_TC_ID_108. , iEX_TC_ID_115. @RegressionP Validation of Candidate atten
         await eluminaCandPage.candidateStartTypeB();
         await eluminaCandPage.candidateStartSAQ();
         await eluminaCandPage.candidateStartSJTReviewandSubmit();
-        await eluminaCandPage.refreshPage();
+        await eluminaCandPage.waitforTime4();
+        await eluminaCandPage.setOffline(false);
         await eluminaCandPage.waitforTime4();
 
     });
