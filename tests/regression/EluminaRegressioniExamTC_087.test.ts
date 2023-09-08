@@ -1,6 +1,7 @@
 import test from '@lib/BaseTest';
 
 /**Validation of Candidate dashboard > With No Actions in AM and PM Exams*/
+//EluminaRegressioniExamTC_087(iEX_TC_ID_25,iEX_TC_ID_199).test.ts
 
 /**AM */
 test(`iEX_TC_ID_25. @Regression Validation of Candidate dashboard > With No Actions in AM and PM Exams`, async ({ eluminaLoginPage, eluminaMultipleExamsForAMPage, eluminaCandPage, webActions }) => {
@@ -23,7 +24,7 @@ test(`iEX_TC_ID_25. @Regression Validation of Candidate dashboard > With No Acti
 });
 
 
-test(`iEX_TC_ID_25. @Regression Verify Elumina Registration for AM`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`iEX_TC_ID_25A. @Regression Verify Elumina Registration for AM`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -39,7 +40,7 @@ test(`iEX_TC_ID_25. @Regression Verify Elumina Registration for AM`, async ({ el
 
 
 /**PM */
-test(`iEX_TC_ID_25. @Regression Validation of Candidate dashboard > With No Actions in PM`, async ({ eluminaLoginPage, eluminaMultipleExamsForPMPage, eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_25B. @Regression Validation of Candidate dashboard > With No Actions in PM`, async ({ eluminaLoginPage, eluminaMultipleExamsForPMPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -57,7 +58,7 @@ test(`iEX_TC_ID_25. @Regression Validation of Candidate dashboard > With No Acti
     });
 });
 
-test(`iEX_TC_ID_25. @Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`iEX_TC_ID_25C. @Regression Verify Elumina Registration for PM`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -72,12 +73,24 @@ test(`iEX_TC_ID_25. @Regression Verify Elumina Registration for PM`, async ({ el
     });
 });
 
-test(`iEX_TC_ID_25. @Regression Verify Login Application for PM`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_25D. @Regression Verify Login Application for PM`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.enterCandidateCredetial();
     });
+});
 
-});    
+
+test(`iEX_TC_ID_199. @Regression Validate auto response when chat is initiated out of working hours.`, async ({ eluminaCandPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.enterCandidateCredetial();
+    });
+    await test.step('Candidate uses chat app in Review exam page', async () => {
+        await eluminaCandPage.enterFieldsInChatAppForOutOfOfficeHours(false);
+    });
+});

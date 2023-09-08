@@ -94,7 +94,7 @@ export class EluminaProctorCandidatePage {
         this.LOGIN_BUTTON = page.locator('//div[text()=" Login "]');
         this.ClickStartExamLink = page.locator('//table[@class="table-container"]//tr[2]//td[6]');
         this.ClickDiffStartExamLink = page.locator('//table[@class="table-container"]//tr[2]//td[6]');
-        this.EnterExaPassword = page.locator('//input[contains(@class,"password")]');
+        this.EnterExaPassword = page.locator('//input[@placeholder="Enter Exam Password"]');
         this.ClickOnStartExamBtn = page.locator('//div[@class="btn parent-body-container btn-primary"]');
 
         this.ClickOnNextBtn = page.locator('(//div[text()=" Next "])[1]');

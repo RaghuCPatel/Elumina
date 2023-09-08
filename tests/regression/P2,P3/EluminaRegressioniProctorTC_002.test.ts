@@ -375,7 +375,7 @@ test(`@RegressionP Verify Validation of Exam section page  > Chat App TC-171`, a
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaCandPage.candidateContentSection();
-        await eluminaCandPage.enterFieldsInChatApp();
+        await eluminaCandPage.enterFieldsInChatApp(false);
     });
 });
 
@@ -419,7 +419,7 @@ test(`@RegressionP Verify Validation of Review Exam page  > Chat App TC-172`, as
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaCandPage.candidateStartMCQ();
-        await eluminaCandPage.enterFieldsInChatApp();
+        await eluminaCandPage.enterFieldsInChatApp(false);
     });
 });
 
