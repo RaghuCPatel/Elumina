@@ -985,7 +985,6 @@ export class EluminaProctorExamPage {
   }
 
   //**Methods to create exam with calculator */
-
   async createExamWithCalculator(): Promise<void> {
     await this.createCommonExam();
     await this.EnterInvigilatorPswd.click();
@@ -1119,7 +1118,7 @@ export class EluminaProctorExamPage {
 
 
   /**Method to Add MCQ Questions and save in Exam */
-  async addMCQQuestions(): Promise<void> {
+  async addMCQQuestionswithApprove(): Promise<void> {
     await this.ClickOnAddQuestion.click();
     await this.ClickOnSearchQuestion.click()
     await this.ClickOnSearchQuestion.type('MCQ');

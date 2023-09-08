@@ -56,7 +56,7 @@ test(`@Regression Validation of Admin > Proctoring > Camera Link`, async ({ elum
     });
 });
 
-test(`@Regression Validation of Admin > Proctoring > Camera Link`, async ({ eluminaLoginPage, eluminaProctorReg, eluminaProctorCand, webActions }) => {
+test(`@Regression Validation of Admin > Proctoring > Camera Links`, async ({ eluminaLoginPage, eluminaProctorReg, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

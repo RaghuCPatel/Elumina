@@ -135,9 +135,15 @@ export class EluminaCandidatePage {
     readonly FullScreenExit: Locator;
     readonly CloseIconClick: Locator;
     readonly offlineMessage: Locator;
+
+    readonly clickOnOptionInChatApp: Locator;
+    readonly examPwd: Locator;
+    readonly clickOnOk: Locator;
+    readonly DownloadRecoveryFile: Locator;
+    readonly DownloadButtonClick: Locator;
+    readonly DownloadSuccessMessage: Locator;
+    readonly LogoutButtonClick: Locator;
     readonly StartExameTimer: Locator;
-
-
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -219,6 +225,7 @@ export class EluminaCandidatePage {
         this.clickOnSendicon = page.frameLocator('iframe[name="Messaging window"]').getByRole('button', { name: 'Send message' });
 
         this.clickOnOptionsInChatApp = page.frameLocator('iframe[name="Messaging window"]').locator('//button[normalize-space()="Hardware checks not working"]');
+        this.clickOnOptionInChatApp = page.frameLocator('iframe[name="Messaging window"]').locator('(//button[@class="sc-as5ded-1 kreHQj sc-htpNat kbREso"])[2]');
         this.enterNameInChatApp = page.frameLocator('iframe[name="Messaging window"]').getByLabel('Name');
         this.clickOnNextChatApp = page.frameLocator('iframe[name="Messaging window"]').getByRole('button', { name: 'Next' })
         this.enterExamInChatApp = page.frameLocator('iframe[name="Messaging window"]').getByLabel('Exam Name');
@@ -233,7 +240,15 @@ export class EluminaCandidatePage {
         this.FullScreenExit = page.locator('//div[@class="full-close icon"]');
         this.CloseIconClick = page.locator('//label[@class="closeIcon"]');
         this.offlineMessage = page.locator('//div[@class="message-txt"]');
+
+        this.examPwd = page.locator('//input[@placeholder="Enter Password"]');
+        this.clickOnOk = page.locator('//div[text()="OK"]');
+        this.DownloadRecoveryFile = page.locator('//label[text()="Download Recovery File"]');
+        this.DownloadButtonClick = page.locator('//button[normalize-space()="Download"]');
+        this.DownloadSuccessMessage = page.locator('//div[normalize-space()="Download Completed"]');
+        this.LogoutButtonClick = page.locator('//div[normalize-space()="Log Out"]');
         this.StartExameTimer = page.locator('(//div[@class="exam-list"]//table//tr[@class="body-row"]//td//div//div)[2]');
+
 
     }
 
@@ -268,9 +283,9 @@ export class EluminaCandidatePage {
     }
 
     /**Method to set offline */
-    async setOffline() {
-        await this.context.setOffline(true);
-        await this.page.waitForTimeout(2000);
+    async setOffline(offlineValue) {
+        await this.context.setOffline(offlineValue);
+        await this.page.waitForTimeout(5000);
     }
 
     /**Method to Enter Invaild Candidate Credentials */
@@ -558,14 +573,14 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(5000);
         console.log('Exam Timer-' + await this.verifyExamTimer.textContent());
     }
-     /**Method to Verify the Exam Vailability */
+    /**Method to Verify the Exam Vailability */
     async verifyExamDashboard() {
         await this.page.waitForTimeout(5000);
         if (expect(this.verifyExamTimer).toBeHidden()) {
             console.log('Exam is not displayed to the candidate');
         } else {
-           await expect(this.verifyExamTimer).toBeHidden();
-           console.log('Exam is displayed for the user');
+            await expect(this.verifyExamTimer).toBeHidden();
+            console.log('Exam is displayed for the user');
         }
     }
 
@@ -591,7 +606,7 @@ export class EluminaCandidatePage {
     }
 
     /**Method to click on function keys */
-    async functionKey(Offlinevalue,keyword) {
+    async functionKey(Offlinevalue, keyword) {
         await this.context.setOffline(Offlinevalue);
         await this.page.keyboard.press(keyword);
         console.log("Key Pressed");
@@ -629,6 +644,18 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(5000);
     }
 
+    /**Method to type Exam recovery Pwd */
+    async examRecoveryPassword() {
+        await this.examPwd.click();
+        await this.examPwd.type('123456');
+        await this.clickOnOk.click();
+        await this.DownloadRecoveryFile.click();
+        await this.DownloadButtonClick.click();
+        await this.page.waitForTimeout(5000);
+        await expect(this.DownloadSuccessMessage).toHaveText("Download Completed");
+        await this.LogoutButtonClick.click();
+    }
+
     async examSectionCloudValidation() {
         await this.page.waitForTimeout(30000);
         await expect(this.verifyCloud).toBeVisible();
@@ -656,6 +683,11 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(5000);
     }
 
+    async submitButtonClick() {
+        await this.ClickOnRevieweBtn.click();
+        await this.ClickOnSubmitBtn.click();
+        await this.page.waitForTimeout(5000);
+    }
 
     /**Method to Answer the MCQ questions and click on review button */
     async candidateStartMCQ() {
@@ -893,9 +925,8 @@ export class EluminaCandidatePage {
         await this.ClickOnNextBtn.click();
         await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
         await this.ClickOnRevieweBtn.click();
-        //await this.ClickOnSubmitBtn.click();
-
     }
+
     async candidateStartSJTAns() {
         await this.page.waitForTimeout(2000);
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
@@ -914,6 +945,28 @@ export class EluminaCandidatePage {
         await this.ansSJTQuestion.click();
         await this.ClickOnNextBtn.click();
     }
+
+    async candidateStartSJTReviewandSubmit() {
+        await this.page.waitForTimeout(2000);
+        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
+        const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
+        for (let i = 25; i < 28; i++) {
+            await qutns[i].click();
+            await this.ansSJTQuestion.click();
+            await this.ClickOnNextBtn.click();
+
+        }
+        await this.page.waitForTimeout(2000);
+        await this.page.locator('(//div[@class="question-number-container"]//div//p)[28]').click()
+        await this.ansSJTQuestion.click();
+        await this.ClickOnNextBtn.click();
+        await this.page.locator('(//div[@class="question-number-container"]//div//p)[29]').click();
+        await this.ansSJTQuestion.click();
+        await this.ClickOnNextBtn.click();
+        await this.ClickOnRevieweBtn.click();
+        await this.ClickOnSubmitBtn.click();
+    }
+
 
     async candidateFlagForReviewAllQuestions() {
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
@@ -1357,11 +1410,23 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(5000);
     }
 
-    async enterFieldsInChatApp() {
+    async enterFieldsInChatApp(setOffline) {
         await this.clickChatApp.click();
         await this.clickOnOptionsInChatApp.click();
         await this.enterNameInChatApp.type('Raghu')
         await this.clickOnNextChatApp.click();
+        await this.context.setOffline(setOffline);
+        await this.enterExamInChatApp.type('Rag123')
+        await this.clickOnSendInChatApp.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    async enterFieldsInChatAppForOutOfOfficeHours(setOffline) {
+        await this.clickChatApp.click();
+        await this.clickOnOptionInChatApp.click();
+        await this.enterNameInChatApp.type('Raghu')
+        await this.clickOnNextChatApp.click();
+        await this.context.setOffline(setOffline);
         await this.enterExamInChatApp.type('Rag123')
         await this.clickOnSendInChatApp.click();
         await this.page.waitForTimeout(5000);

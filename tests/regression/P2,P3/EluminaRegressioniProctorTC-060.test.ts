@@ -107,6 +107,6 @@ test(`@RegressionP Verify Validation of Submit Exam page  > Chat App TC-173`, as
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaCandPage.candidateStartMCQAndSubmit();
-        await eluminaCandPage.enterFieldsInChatApp();
+        await eluminaCandPage.enterFieldsInChatApp(false);
     });
 });       
