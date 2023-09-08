@@ -135,6 +135,9 @@ export class EluminaCandidatePage {
     readonly FullScreenExit: Locator;
     readonly CloseIconClick: Locator;
     readonly offlineMessage: Locator;
+    readonly validatingExamSection: Locator;
+    readonly verifyExamNameInStartExamPage: Locator;
+    readonly verifyExamDescInStartExamPage: Locator;
 
 
 
@@ -232,6 +235,9 @@ export class EluminaCandidatePage {
         this.FullScreenExit = page.locator('//div[@class="full-close icon"]');
         this.CloseIconClick = page.locator('//label[@class="closeIcon"]');
         this.offlineMessage = page.locator('//div[@class="message-txt"]');
+        this.validatingExamSection = page.locator('//h4[@class="question-info question--id"]')
+        this.verifyExamNameInStartExamPage = page.locator('//div[normalize-space()="Exam Main Session"]')
+        this.verifyExamDescInStartExamPage = page.locator('//div[normalize-space()="Exam Main Session Description"]')
 
     }
 
@@ -552,14 +558,14 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(5000);
         console.log('Exam Timer-' + await this.verifyExamTimer.textContent());
     }
-     /**Method to Verify the Exam Vailability */
+    /**Method to Verify the Exam Vailability */
     async verifyExamDashboard() {
         await this.page.waitForTimeout(5000);
         if (expect(this.verifyExamTimer).toBeHidden()) {
             console.log('Exam is not displayed to the candidate');
         } else {
-           await expect(this.verifyExamTimer).toBeHidden();
-           console.log('Exam is displayed for the user');
+            await expect(this.verifyExamTimer).toBeHidden();
+            console.log('Exam is displayed for the user');
         }
     }
 
@@ -585,7 +591,7 @@ export class EluminaCandidatePage {
     }
 
     /**Method to click on function keys */
-    async functionKey(Offlinevalue,keyword) {
+    async functionKey(Offlinevalue, keyword) {
         await this.context.setOffline(Offlinevalue);
         await this.page.keyboard.press(keyword);
         console.log("Key Pressed");
@@ -1056,6 +1062,54 @@ export class EluminaCandidatePage {
             await this.ClickStartExamLink.click();
         }
     }
+
+    async validateBrowserBackButton(): Promise<void> {
+        // await this.ClickOnStartExamBtn.click();
+
+        await this.verifyExamNameInStartExamPage.isVisible();
+        await this.verifyExamDescInStartExamPage.isVisible();
+        // await this.ClickStartExamLink.click();
+        await this.navigateBack();
+        // await this.ClickStartExamLink.click();
+        if (this.ClickOnStartExamBtn.isVisible()) {
+            // console.log(await this.validatingExamSection.textContent())
+            console.log("Navigated in start exam page")
+            await this.ClickStartExamLink.click();
+        }
+    }
+
+    async validateExamSectionPage(): Promise<void> {
+        await this.ClickOnStartExamBtn.click();
+        // validatingExamSection
+        if (this.validatingExamSection.isVisible()) {
+            console.log(await this.validatingExamSection.textContent())
+            console.log("Navigating to Exam Screen Successfully")
+        }
+    }
+
+
+    async candidateLoginWithValidCredentials(): Promise<void> {
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/User_details.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Worksheet');
+            console.log(ws.actualRowCount)
+            console.log(ws.getRow(2).getCell(1).value)
+            console.log(ws.getRow(2).getCell(4).value)
+            await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
+            await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+        })
+        await this.page.waitForTimeout(5000);
+        await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(5000);
+        if (this.signOutBtn.isVisible()) {
+            console.log("Candidate Logged In Successfuly");
+
+        }
+    }
+
 
     /**Method to Enter Invigilator Password */
     async enterInvigilatorPassword() {
