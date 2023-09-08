@@ -1534,10 +1534,14 @@ export class EluminaCandidatePage {
     /**
      * To Validate the Exam availability in Candidate page by checking the exam start time xpath
      */
-    async ExamAvailabilityCheck()  {
+    async ExamAvailabilityCheck() {
         await expect(this.StartExameTimer).toBeHidden();
         console.log('Exam is not visiable after time ends');
     }
+
+
+    /* Method to check user not Navigated back and check the assertion*/
+
 
     /**
      * To check the User name pop up mesage in candidate screen
@@ -1562,12 +1566,14 @@ export class EluminaCandidatePage {
     /**
      * Method to check user not Navigated back and check the assertion
      */
+
     async navigateBackFromExamattendPage() {
         await this.page.waitForTimeout(5000);
         await this.page.goBack();
         console.log("Clicked on Back Navigation icon");
         await this.ClickOnRevieweBtn.isDisabled();
     }
+
 
     /**
      * To Validate each component displayed in the MCQ Section
@@ -1578,4 +1584,5 @@ export class EluminaCandidatePage {
         let Time = await this.verifyExamTimer.textContent();
         console.log('Time displaye' +Time);
     }
+
 }

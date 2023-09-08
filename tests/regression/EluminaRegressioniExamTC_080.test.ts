@@ -12,21 +12,21 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
-} 
+}
 
 /** Validation of extending exam for the candidate by invigilator */
 /*test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
@@ -64,8 +64,8 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
 });       */
 
-test(`@Regression Verify Validation of Extending Exam`, async ({ eluminaCandPage,webActions }) => {
-        await test.step(`Navigate to Application`, async () => {
+test(`@Regression Verify Validation of Extending Exam`, async ({ eluminaCandPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
 
@@ -73,7 +73,7 @@ test(`@Regression Verify Validation of Extending Exam`, async ({ eluminaCandPage
         await eluminaCandPage.candidateLoginToApplication();
     });
 
-    await test.step('Candidate start the exam',async ()=> {
+    await test.step('Candidate start the exam', async () => {
 
         await eluminaCandPage.examSectionValidation();
 
@@ -88,8 +88,8 @@ test(`@Regression Verify Validation of Extending Exam`, async ({ eluminaCandPage
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
-          ]);
-          //await newPage.waitForLoadState();
+        ]);
+        //await newPage.waitForLoadState();
 
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.waitForTimeout(8000);
@@ -109,7 +109,6 @@ test(`@Regression Verify Validation of Extending Exam`, async ({ eluminaCandPage
         await newPage.locator('//button[@class="theme-btn theme-primary-btn"]').click();
         await newPage.waitForTimeout(5000);
         console.log("Candidate is able to see the exam timer is extended")
-        
-    });
 
+    });
 });

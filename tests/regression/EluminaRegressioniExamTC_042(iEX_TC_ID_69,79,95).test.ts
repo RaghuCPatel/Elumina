@@ -112,6 +112,28 @@ test(`iEX_TC_ID_79. @Regression Verify Validation of Candidate attends All Quest
     });
 });
 
+
+// test(`iEX_TC_ID_109. @Regression Validation of Candidate attending Exam in Online - Offline and submit in Offline Mode`, async ({ eluminaCandPage, webActions }) => {
+//     await test.step(`Navigate to Application`, async () => {
+//         await eluminaCandPage.candidateNavigateToURL();
+//     });
+
+//     await test.step(`Candidate Login to application`, async () => {
+//         await eluminaCandPage.candidateLoginToApplication();
+//         await eluminaCandPage.setOffline(true);
+//         await eluminaCandPage.candidateStartOneMCQ();
+//         await eluminaCandPage.candidateAttendsAllQVSAQ();
+//         await eluminaCandPage.candidateStartISAWE();
+//         await eluminaCandPage.candidateStartTypeX();
+//         await eluminaCandPage.candidateStartTypeB();
+//         await eluminaCandPage.candidateStartSAQ();
+//         await eluminaCandPage.candidateStartSJTReviewandSubmit();
+//         await eluminaCandPage.setOffline(false);
+
+//     });
+// });
+
+
 test(`iEX_TC_ID_95. @Regression Verify Validation of Candidate attends All Question type in offline`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
