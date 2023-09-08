@@ -71,7 +71,7 @@ test(`@RegressionP Validation of Login using Invalid credentials Scenario 2 TC-1
     });
 });
 
-test(`iEX_TC_ID_229. @Regression Verify Validation of Login using valid credentials in browser offline`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_229. @RegressionP Verify Validation of Login using valid credentials in browser offline`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
