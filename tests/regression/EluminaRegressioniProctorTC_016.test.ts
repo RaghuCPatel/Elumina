@@ -31,12 +31,12 @@ else if (process.env.ENV == 'staging') {
 
 //Timer Validation before Exam starts - After clicking on "Start Exam"
 
-test(`@RegressionTimer Validation before Exam starts - After clicking on "Start Exam"
+test(`@Regression Timer Validation before Exam starts - After clicking on "Start Exam"
 `, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime2();
+        // await eluminaCandPage.waitforTime();
+        // await eluminaCandPage.waitforTime2();
         await eluminaProctorCand.candidateLoginToApplications();
 
     });
