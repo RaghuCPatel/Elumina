@@ -247,6 +247,9 @@ export class EluminaExamPage {
     
   }
 
+  async waitforTime() {
+    await this.page.waitForTimeout(10000);
+}
 
   async searchDraftExamQuestionToApprove() {
     await this.EXAMSMENU.click();
@@ -1019,6 +1022,22 @@ export class EluminaExamPage {
     await this.ClickOnTermAndCondition.click();
     await this.ClickOnSave.click();
 
+  }
+
+
+  async addingImageContentPage(): Promise<void> {
+    await this.ClickonCreateContentPage.click();
+    await this.ClickOnAddContent.click();
+    await this.enterContentTitle.type('Content-A' + Math.floor(Math.random()) * 89 + 10);
+    await this.page.waitForTimeout(5000);
+    await this.DescriptionMessage.click();
+    await this.DescriptionMessage.type('Hello World.....');
+    await this.page.waitForTimeout(5000);
+    await this.page.locator('(//div[@class="dz-text"][normalize-space()="Add Files"])[1]').setInputFiles('lib/Images/kohli.jpeg');
+    await this.page.waitForTimeout(5000);
+    await this.ClickOnContentLayout.click();
+    await this.ClickOnTermAndCondition.click();
+    await this.ClickOnSave.click();
   }
 
   /**Method to add more description in content page */

@@ -1,5 +1,7 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
+import { EluminaExamPage } from './EluminaExamPage';
+
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
 const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
 const productionTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/production/testData.json')));
@@ -135,6 +137,9 @@ export class EluminaCandidatePage {
     readonly FullScreenExit: Locator;
     readonly CloseIconClick: Locator;
     readonly offlineMessage: Locator;
+    readonly validatingExamSection: Locator;
+    readonly verifyExamNameInStartExamPage: Locator;
+    readonly verifyExamDescInStartExamPage: Locator;
 
     readonly clickOnOptionInChatApp: Locator;
     readonly examPwd: Locator;
@@ -144,6 +149,8 @@ export class EluminaCandidatePage {
     readonly DownloadSuccessMessage: Locator;
     readonly LogoutButtonClick: Locator;
     readonly StartExameTimer: Locator;
+    readonly UserIDText: Locator;
+    readonly PasswordIDText: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -240,6 +247,9 @@ export class EluminaCandidatePage {
         this.FullScreenExit = page.locator('//div[@class="full-close icon"]');
         this.CloseIconClick = page.locator('//label[@class="closeIcon"]');
         this.offlineMessage = page.locator('//div[@class="message-txt"]');
+        this.validatingExamSection = page.locator('//h4[@class="question-info question--id"]')
+        this.verifyExamNameInStartExamPage = page.locator('//div[normalize-space()="Exam Main Session"]')
+        this.verifyExamDescInStartExamPage = page.locator('//div[normalize-space()="Exam Main Session Description"]')
 
         this.examPwd = page.locator('//input[@placeholder="Enter Password"]');
         this.clickOnOk = page.locator('//div[text()="OK"]');
@@ -248,8 +258,8 @@ export class EluminaCandidatePage {
         this.DownloadSuccessMessage = page.locator('//div[normalize-space()="Download Completed"]');
         this.LogoutButtonClick = page.locator('//div[normalize-space()="Log Out"]');
         this.StartExameTimer = page.locator('(//div[@class="exam-list"]//table//tr[@class="body-row"]//td//div//div)[2]');
-
-
+        this.UserIDText = page.locator('//*[@class="container error-bg"]//div[text()="User Id is required."]');
+        this.PasswordIDText = page.locator('//*[@class="container error-bg"]//div[text()="Password is required."]');
     }
 
     /**Method to Navigate to candidate dashboard */
@@ -1116,6 +1126,54 @@ export class EluminaCandidatePage {
         }
     }
 
+    async validateBrowserBackButton(): Promise<void> {
+        // await this.ClickOnStartExamBtn.click();
+
+        await this.verifyExamNameInStartExamPage.isVisible();
+        await this.verifyExamDescInStartExamPage.isVisible();
+        // await this.ClickStartExamLink.click();
+        await this.navigateBack();
+        // await this.ClickStartExamLink.click();
+        if (this.ClickOnStartExamBtn.isVisible()) {
+            // console.log(await this.validatingExamSection.textContent())
+            console.log("Navigated in start exam page")
+            await this.ClickStartExamLink.click();
+        }
+    }
+
+    async validateExamSectionPage(): Promise<void> {
+        await this.ClickOnStartExamBtn.click();
+        // validatingExamSection
+        if (this.validatingExamSection.isVisible()) {
+            console.log(await this.validatingExamSection.textContent())
+            console.log("Navigating to Exam Screen Successfully")
+        }
+    }
+
+
+    async candidateLoginWithValidCredentials(): Promise<void> {
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/User_details.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Worksheet');
+            console.log(ws.actualRowCount)
+            console.log(ws.getRow(2).getCell(1).value)
+            console.log(ws.getRow(2).getCell(4).value)
+            await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
+            await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+        })
+        await this.page.waitForTimeout(5000);
+        await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(5000);
+        if (this.signOutBtn.isVisible()) {
+            console.log("Candidate Logged In Successfuly");
+
+        }
+    }
+
+
     /**Method to Enter Invigilator Password */
     async enterInvigilatorPassword() {
         await this.page.bringToFront();
@@ -1481,7 +1539,33 @@ export class EluminaCandidatePage {
         console.log('Exam is not visiable after time ends');
     }
 
+
     /* Method to check user not Navigated back and check the assertion*/
+
+
+    /**
+     * To check the User name pop up mesage in candidate screen
+     */
+    async candidateUserNamePopUp(): Promise<void> {
+        await this.CandidatePassword.fill(testData.InvalidCandidatePassword);
+        await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(2000);
+        await this.UserIDText.isVisible();
+    }
+
+    /**
+     * To check the User name pop up mesage in candidate screen
+     */
+    async candidatePasswordPopUp(): Promise<void> {
+        await this.CandidateUsername.fill(testData.InvalidCandidateUsername);
+        await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(2000);
+        await this.PasswordIDText.isVisible();
+    }
+
+    /**
+     * Method to check user not Navigated back and check the assertion
+     */
 
     async navigateBackFromExamattendPage() {
         await this.page.waitForTimeout(5000);
@@ -1489,4 +1573,16 @@ export class EluminaCandidatePage {
         console.log("Clicked on Back Navigation icon");
         await this.ClickOnRevieweBtn.isDisabled();
     }
+
+
+    /**
+     * To Validate each component displayed in the MCQ Section
+     * 
+     */
+    async McqPageValidation(){
+        await expect(this.verifyExamTimer).toBeVisible();
+        let Time = await this.verifyExamTimer.textContent();
+        console.log('Time displaye' +Time);
+    }
+
 }
