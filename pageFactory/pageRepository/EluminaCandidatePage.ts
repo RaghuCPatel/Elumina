@@ -135,6 +135,9 @@ export class EluminaCandidatePage {
     readonly FullScreenExit: Locator;
     readonly CloseIconClick: Locator;
     readonly offlineMessage: Locator;
+    readonly validatingExamSection: Locator;
+    readonly verifyExamNameInStartExamPage: Locator;
+    readonly verifyExamDescInStartExamPage: Locator;
 
     readonly clickOnOptionInChatApp: Locator;
     readonly examPwd: Locator;
@@ -240,6 +243,9 @@ export class EluminaCandidatePage {
         this.FullScreenExit = page.locator('//div[@class="full-close icon"]');
         this.CloseIconClick = page.locator('//label[@class="closeIcon"]');
         this.offlineMessage = page.locator('//div[@class="message-txt"]');
+        this.validatingExamSection = page.locator('//h4[@class="question-info question--id"]')
+        this.verifyExamNameInStartExamPage = page.locator('//div[normalize-space()="Exam Main Session"]')
+        this.verifyExamDescInStartExamPage = page.locator('//div[normalize-space()="Exam Main Session Description"]')
 
         this.examPwd = page.locator('//input[@placeholder="Enter Password"]');
         this.clickOnOk = page.locator('//div[text()="OK"]');
@@ -1115,6 +1121,54 @@ export class EluminaCandidatePage {
             await this.ClickStartExamLink.click();
         }
     }
+
+    async validateBrowserBackButton(): Promise<void> {
+        // await this.ClickOnStartExamBtn.click();
+
+        await this.verifyExamNameInStartExamPage.isVisible();
+        await this.verifyExamDescInStartExamPage.isVisible();
+        // await this.ClickStartExamLink.click();
+        await this.navigateBack();
+        // await this.ClickStartExamLink.click();
+        if (this.ClickOnStartExamBtn.isVisible()) {
+            // console.log(await this.validatingExamSection.textContent())
+            console.log("Navigated in start exam page")
+            await this.ClickStartExamLink.click();
+        }
+    }
+
+    async validateExamSectionPage(): Promise<void> {
+        await this.ClickOnStartExamBtn.click();
+        // validatingExamSection
+        if (this.validatingExamSection.isVisible()) {
+            console.log(await this.validatingExamSection.textContent())
+            console.log("Navigating to Exam Screen Successfully")
+        }
+    }
+
+
+    async candidateLoginWithValidCredentials(): Promise<void> {
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/User_details.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Worksheet');
+            console.log(ws.actualRowCount)
+            console.log(ws.getRow(2).getCell(1).value)
+            console.log(ws.getRow(2).getCell(4).value)
+            await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
+            await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+        })
+        await this.page.waitForTimeout(5000);
+        await this.LOGIN_BUTTON.click();
+        await this.page.waitForTimeout(5000);
+        if (this.signOutBtn.isVisible()) {
+            console.log("Candidate Logged In Successfuly");
+
+        }
+    }
+
 
     /**Method to Enter Invigilator Password */
     async enterInvigilatorPassword() {
