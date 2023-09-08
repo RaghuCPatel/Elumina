@@ -101,6 +101,7 @@ export class EluminaRegistrationPage {
     readonly DeliveryMenu: Locator;
     readonly SpecialArrangement: Locator;
     readonly BookingStatus1: Locator;
+    readonly SelectBookingStatusExistinguser: Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -158,6 +159,7 @@ export class EluminaRegistrationPage {
         this.bulkdownloadbuttonclick = page.locator('//a[text()="Bulk Download User Details"]');
         this.SelectCadVenue = page.locator('//span[text()="Elumina Chennai"]')
         this.DeliveryMenu = page.locator('//a[text()="Delivery"]');
+        this.SelectBookingStatusExistinguser = page.locator('//div[@class="dropdown-main"]//div//ul//li//div//span');
 
         const examId: string = String(EluminaExamPage.examID);
         console.log(examId);
@@ -199,7 +201,12 @@ export class EluminaRegistrationPage {
 
     /**Method to register for the exam */
     async registrationTabNavigationPMExamPage(): Promise<void> {
-        await this.RegistrationMenu.click();
+        if (testENV === "sandbox") {
+            await this.RegistrationMenu.click();
+        }
+        else if (testENV === "qa") {
+            await this.DeliveryMenu.click();
+        }
         let examid = EluminaMultipleExamsForPMPage.examID;
         console.log(EluminaMultipleExamsForPMPage.examID);
         await this.searchExam.type(examid);
@@ -209,7 +216,12 @@ export class EluminaRegistrationPage {
     }
 
     async registrationTabNavigationAMExamPage(): Promise<void> {
-        await this.RegistrationMenu.click();
+        if (testENV === "sandbox") {
+            await this.RegistrationMenu.click();
+        }
+        else if (testENV === "qa") {
+            await this.DeliveryMenu.click();
+        }
         let examid = EluminaMultipleExamsForAMPage.examID;
         console.log(EluminaMultipleExamsForAMPage.examID);
         await this.searchExam.type(examid);
@@ -220,45 +232,18 @@ export class EluminaRegistrationPage {
 
     /**Method to register for the exam */
     async registrationTabNavigationforMinimaltime(): Promise<void> {
-        await this.RegistrationMenu.click();
+        if (testENV === "sandbox") {
+            await this.RegistrationMenu.click();
+        }
+        else if (testENV === "qa") {
+            await this.DeliveryMenu.click();
+        }
         let examid = EluminaMinimalTimeExamPage.examID;
         console.log(EluminaMinimalTimeExamPage.examID);
         await this.searchExam.type(examid);
         await this.page.waitForTimeout(5000);
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
-    }
-
-    /**Method to Add User Details with NotNooked status*/
-    async addUserDetailsNotBooked(BookingStatus): Promise<void> {
-        await this.EnterClientID.type(makeid(testData.clientId) + Math.floor(Math.random() * 899 + 100));
-        await this.page.waitForTimeout(8000);
-        await this.ChooseTitle.click();
-        await this.ChooseTitle.selectOption('Mr');
-        await this.TypeUsername.type(makeid(testData.clientUsername) + Math.floor(Math.random() * 89 + 10));
-        await this.TypeFirstName.type(makeid(testData.clientFirstname));
-        await this.TypeLastName.type(makeid(testData.clientLastname));
-        await this.TypeEmail.type(makeid(testData.clientEmail) + Math.floor(Math.random() * 899 + 100) + '@gmail.com');
-        await this.TypePhone.type(testData.clientPhone + Math.floor(Math.random() * 899999999 + 100));
-        await this.page.waitForTimeout(8000);
-        await this.SelectRole.click();
-        await this.SelectRole.selectOption('Candidate');
-        await this.page.waitForTimeout(8000);
-        await this.SelectEligible.click();
-        await this.SelectEligible.selectOption('Yes');
-        await this.page.waitForTimeout(8000);
-        await this.SelectVenue.click();
-        await this.SelectVenue.type('Elumina Chennai');
-        await this.page.waitForTimeout(7000);
-        await this.SelectBookingStatus.click();
-        await this.SelectBookingStatus.selectOption(BookingStatus);
-        await this.page.waitForTimeout(7000);
-        await this.ClickOnSaveBtn.click();
-        await this.page.waitForTimeout(8000);
-        await this.LeftArrow.click();
-        candClientID = await this.captureUserClientID.textContent()
-        console.log("Cand-ID :" + candClientID);
-        await this.ClickOnDropdown.click();
     }
 
     /**Method to Add User Details */
@@ -521,4 +506,32 @@ export class EluminaRegistrationPage {
         await this.ClickOnDropdown.click();
         await this.page.waitForTimeout(5000);
     }
+
+
+/**
+ * add Existing Cadidate Booking status change to Not Booked
+ * @param Bookingstatus 
+ */
+async addExistingUserswithNotBooked(Bookingstatus): Promise<void> {
+    await this.ClickOnAddExistingUser.click();
+    await this.page.waitForTimeout(2000);
+    await this.SearchUsers.click();
+    await this.page.waitForTimeout(2000);
+    await this.SearchUsers.type(candClientID);
+    await this.page.waitForTimeout(4000);
+    await this.CLickOnUser.click();
+    await this.ChooseExistingRole.click();
+    await this.SelectCandRole.click();
+    await this.SelectExVenue.click();
+    await this.SelectCadVenue.click();
+    await this.SelectExEligible.click();
+    await this.SelectInvEligible.click();
+    await this.SelectExBookingStatus.click();
+    await this.SelectBookingStatusExistinguser.getByText(Bookingstatus).click();
+    await this.ClickOnSaveBtn.click();
+    await this.page.waitForTimeout(3000);
+    await this.LeftArrow.click();
+    await this.ClickOnDropdown.click();
+    await this.page.waitForTimeout(5000);
+}
 }

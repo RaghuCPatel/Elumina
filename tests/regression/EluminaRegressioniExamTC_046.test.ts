@@ -14,7 +14,7 @@ test(`@Regression Verify Elumina Login and create exam `, async ({ eluminaLoginP
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaMinimalTimeExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createExam();
+        await newtab.createExam(1);
         await newtab.createSection();
         await newtab.addMCQQuestions();
     });
@@ -39,7 +39,7 @@ test(`@Regression Validation of "Time Remaining" pop-up when the just before the
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime();
+       // await eluminaCandPage.waitforTime();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
