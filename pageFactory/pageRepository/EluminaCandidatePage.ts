@@ -151,6 +151,8 @@ export class EluminaCandidatePage {
     readonly StartExameTimer: Locator;
     readonly UserIDText: Locator;
     readonly PasswordIDText: Locator;
+    readonly mousehoverOnColourMoreIcon: Locator;
+    readonly NoOfQutn: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -260,6 +262,8 @@ export class EluminaCandidatePage {
         this.StartExameTimer = page.locator('(//div[@class="exam-list"]//table//tr[@class="body-row"]//td//div//div)[2]');
         this.UserIDText = page.locator('//*[@class="container error-bg"]//div[text()="User Id is required."]');
         this.PasswordIDText = page.locator('//*[@class="container error-bg"]//div[text()="Password is required."]');
+        this.mousehoverOnColourMoreIcon = page.locator('//p[@class="infoIcon status-icon-id"]//span')
+        this.NoOfQutn = page.locator('(//div[@class="main-title"]//h4)[1]')
     }
 
     /**Method to Navigate to candidate dashboard */
@@ -583,6 +587,39 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(5000);
         console.log('Exam Timer-' + await this.verifyExamTimer.textContent());
     }
+
+    /**Method to verify colour */
+    async verifyColours() {
+        await this.mousehoverOnColourMoreIcon.hover();
+        console.log(await this.mousehoverOnColourMoreIcon.textContent())
+    }
+
+    /*Method to verify No. Of Qutns*/
+    async verifyNoOfQutn() {
+        await expect(this.NoOfQutn).toBeVisible()
+        console.log(await this.NoOfQutn.textContent())
+    }
+    /**Method to veroify Flag For Revew Option  */
+    async verifyFlagForReview() {
+        await expect(this.flagForReviewQuestions).toBeVisible()
+    }
+    /**Method to validate all tools */
+    async validationOfAllTools() {
+        await expect(this.ClickOnCalculator).toBeVisible();
+        await expect(this.ClickOnNotepad).toBeVisible();
+        await expect(this.ClickOnHighlighter).toBeVisible();
+    }
+
+    /**Method to validate Next Button */
+    async validationOfNextBtn() {
+        await expect(this.ClickOnNextBtn).toBeEnabled()
+    }
+
+    /**Method to validate Previous Button */
+    async validatePreviousBtn() {
+        await expect(this.clickOnPreviousBtn).toBeEnabled()
+    }
+
     /**Method to Verify the Exam Vailability */
     async verifyExamDashboard() {
         await this.page.waitForTimeout(5000);
@@ -596,9 +633,8 @@ export class EluminaCandidatePage {
 
     /**Method to Verify the content section timer */
     async verifyContentSectionTimer() {
-        await this.page.waitForTimeout(5000);
+        // await this.page.waitForTimeout(5000);
         await expect(this.verifyContentSectionTime).toBeVisible();
-        await this.page.waitForTimeout(5000);
         console.log('Exam Timer-' + await this.verifyContentSectionTime.textContent());
     }
 
@@ -934,6 +970,7 @@ export class EluminaCandidatePage {
         await this.ansSJTQuestion.click();
         await this.ClickOnNextBtn.click();
         await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
+        await expect(this.ClickOnRevieweBtn).toBeEnabled()
         await this.ClickOnRevieweBtn.click();
     }
 
@@ -1057,7 +1094,7 @@ export class EluminaCandidatePage {
     async UsingHighlighterForQuestions() {
         {
             await this.clickOnLastVSAQ.click();
-            await this.ansVSAQQuestion.click();
+            //await this.ansVSAQQuestion.click();
             await this.ClickOnHighlighter.click();
             await this.page.waitForTimeout(1000);
             await this.HighlightQuestions.dblclick()
@@ -1579,10 +1616,10 @@ export class EluminaCandidatePage {
      * To Validate each component displayed in the MCQ Section
      * 
      */
-    async McqPageValidation(){
+    async McqPageValidation() {
         await expect(this.verifyExamTimer).toBeVisible();
         let Time = await this.verifyExamTimer.textContent();
-        console.log('Time displaye' +Time);
+        console.log('Time displaye' + Time);
     }
 
 }
