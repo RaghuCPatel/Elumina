@@ -852,6 +852,12 @@ export class EluminaCandidatePage {
         }
     }
 
+    async candAnsFirstQustAsMCQ() {
+        await this.page.locator('//div[@class="question-number-container"]//div//p').first().click()
+        await this.ansMCQQuestions.click();
+        await this.ClickOnNextBtn.click();
+    }
+
     async candidateSurveyStartOneMCQ() {
         await this.page.waitForTimeout(2000);
         await this.ansMCQQuestions.click();
@@ -893,6 +899,12 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(2000);
     }
 
+    async candAns7thQutnAsVSAQ(lines) {
+        await this.page.locator('(//div[@class="question-number-container"]//div//p)[7]').click();
+        await this.ansVSAQQuestion.type(makeid(lines));
+        await this.ClickOnNextBtn.click();
+    }
+
     async candidateStartISAWE() {
         await this.page.waitForTimeout(2000);
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
@@ -924,6 +936,13 @@ export class EluminaCandidatePage {
 
     }
 
+    async candAns13thQutnAsTypeX() {
+        await this.page.locator('(//div[@class="question-number-container"]//div//p)[13]').click();
+        await this.ansTypeXQuestion.click();
+        await this.ans2TypeXQuestion.click();
+        await this.ClickOnNextBtn.click();
+    }
+
     async candidateStartTypeB() {
 
         await this.page.waitForTimeout(2000);
@@ -937,6 +956,12 @@ export class EluminaCandidatePage {
         }
         await this.page.waitForTimeout(2000);
 
+    }
+
+    async candAns17thQutnAsTypeB() {
+        await this.page.locator('(//div[@class="question-number-container"]//div//p)[17]').click();
+        await this.ansTypeBQuestion.click();
+        await this.ClickOnNextBtn.click();
     }
 
     async candidateStartSAQ() {
@@ -972,6 +997,14 @@ export class EluminaCandidatePage {
         await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
         await expect(this.ClickOnRevieweBtn).toBeEnabled()
         await this.ClickOnRevieweBtn.click();
+    }
+
+    async candAnsLastQutnAsSJT() {
+        await this.page.locator('(//div[@class="question-number-container"]//div//p)[29]').click();
+        await this.ansSJTQuestion.click();
+        await this.ClickOnNextBtn.click();
+        await this.ClickOnRevieweBtn.click();
+        await this.ClickOnSubmitBtn.click();
     }
 
     async candidateStartSJTAns() {

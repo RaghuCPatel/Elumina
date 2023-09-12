@@ -71,30 +71,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elu
         await newtab.addExistingUsers();
         await newtab.logoutClick();
     });
-}); test(`iEX_TC_ID_77. @Regression Validation of Exam section > Candidate attend the exam by answering the questions randomly (Example: Monkey Jump) `, async ({ eluminaCandPage, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaCandPage.candidateNavigateToURL();
-    });
-    await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
-    });
-    await test.step('Candidate start the exam', async () => {
-        await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.candidateAttendsAllQVSAQ();
-        await eluminaCandPage.candidateStartISAWE();
-        await eluminaCandPage.candidateStartTypeX();
-        await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ();
-        await eluminaCandPage.candidateStartSJTReviewandSubmit()
-        await eluminaCandPage.clickOnLogoutBtn()
-        await eluminaCandPage.validationOfLogo();
-
-    });
-
 });
-
-
-
 test(`iEX_TC_ID_239'. @Regression Verify Validation of Browser back button on Candidate Dashboard`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();

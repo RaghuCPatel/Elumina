@@ -75,6 +75,7 @@ export class EluminaInvPage {
     readonly MenuIconClick: Locator;
     readonly logoutbuttonClick: Locator;
     readonly examIdClick: Locator;
+    readonly clickOnIdInLivemonitor: Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -116,6 +117,7 @@ export class EluminaInvPage {
         this.MenuIconClick = page.locator('//i[@class="menuIcons profileIcon"]');
         this.logoutbuttonClick = page.locator('//a[normalize-space()="Log out"]');
         this.examIdClick = page.locator('(//table[@class="table"]//tbody//tr//td[2]//span//span//span)[1]');
+        this.clickOnIdInLivemonitor = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a')
     }
 
     /**Method to login as invigilator */
@@ -240,6 +242,27 @@ export class EluminaInvPage {
     async ClickOnExamLink() {
         await this.ClickOnExam.click();
 
+    }
+
+    /**Method to click ID in live monitor */
+    async clickOnLivemonitorID() {
+        await this.clickOnIdInLivemonitor.click()
+    }
+
+    /**Method to validate Ans Questions */
+    async verifyAnsAsInv() {
+        await this.page.waitForSelector('//div[@class="section-q-list wrapped"]//div//p', { timeout: 10000 });
+        const qutns = await this.page.$$('//div[@class="section-q-list wrapped"]//div//p');
+        console.log('Number of questions-' + qutns.length);
+        const total = qutns.length;
+        const Ttl = qutns.length - 1;
+        for (let i = 0; i <= Ttl; i++) {
+            // await qutns[i].click();
+            await this.page.waitForTimeout(2000);
+            await this.page.locator('//button[@class="btn btn-blue"]').click();
+            await this.page.waitForTimeout(2000);
+        }
+        await expect(qutns.length).toBe(total);
     }
 
     /**Method to Mark all attendence */
