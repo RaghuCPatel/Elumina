@@ -1,6 +1,6 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
-import { EluminaExamPage } from './EluminaExamPage';
+import { EluminaRegistrationPage } from './EluminaRegistrationPage';
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
 const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
@@ -500,6 +500,7 @@ export class EluminaCandidatePage {
 
     /**Method to verify the candidate section if all the headers and values are displayed */
     async candidateContentSectionValidation() {
+        await expect(this.verifyExamName).toBeVisible();
         console.log('Exam Name-' + await this.verifyExamName.textContent());
         await expect(this.verifyCandidateName).toBeVisible();
         console.log('Candidate Name-' + await this.verifyCandidateName.textContent());
@@ -1579,9 +1580,10 @@ export class EluminaCandidatePage {
      * To Validate each component displayed in the MCQ Section
      * 
      */
-    async McqPageValidation(){
-        await expect(this.verifyExamTimer).toBeVisible();
-        let Time = await this.verifyExamTimer.textContent();
+    async McqPageValidation(): Promise<void>{
+        await this.candidateContentSectionValidation();
+        let ID = EluminaRegistrationPage.CandiateClientID;
+        await this.examSectionValidation();
         console.log('Time displaye' +Time);
     }
 
