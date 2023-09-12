@@ -1112,6 +1112,22 @@ export class EluminaExamPage {
     await this.ClickOnSave.click();
 
   }
+
+  //Create Survey Section
+  async createSurveySection1(timer) {
+    await this.page.waitForTimeout(5000);
+    await this.CliCKOnCreateSection.click();
+    await this.page.waitForTimeout(5000);
+    await this.ClickOnCreateSurveySection.click();
+    await this.EnterSectionName.type('Survey-' + Math.floor(Math.random()) * 89 + 10);
+    await this.page.waitForTimeout(5000);
+    await this.DescriptionMessage.click();
+    await this.DescriptionMessage.type('Hello World.....');
+    await this.page.waitForTimeout(5000);
+    await this.selectMinutes.selectOption(timer);
+    await this.ClickOnSave.click();
+
+  }
   async createSurveyPage(): Promise<void> {
     await this.ClickOnAddSurveyQuestion.click();
     await this.ClickOnSearchQuestion.click()
