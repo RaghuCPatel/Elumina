@@ -14366,3 +14366,215 @@
 {"level":"info","message":"Test Case Started : iEX_TC_ID_69. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Test Case Completed : iEX_TC_ID_69. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : interrupted"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_1. @Smoke Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_1. @Smoke Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_1A. @Smoke Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_1A. @Smoke Verify Elumina RegistrationInv and add User and Invigilator Status : timedOut"}
+{"level":"error","message":"File not found: D:\\Elumina\\Github\\11-09-2023\\html-report"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_1. @Smoke Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_1. @Smoke Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_1A. @Smoke Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_1A. @Smoke Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_239'. @Regression Verify Validation of Browser back button on Candidate Dashboard"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_239'. @Regression Verify Validation of Browser back button on Candidate Dashboard Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_122. @Regression Validation of exam paused for Candidate "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Redirected to Candidate page"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_122. @Regression Validation of exam paused for Candidate  Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_123. @Regression Verify Validation of Extending Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_123. @Regression Verify Validation of Extending Exam Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_138. @Regression Validation of Exam Invigilator Live monitor > Resume exam.  (Individual Candidate) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Redirected to Candidate page"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_138. @Regression Validation of Exam Invigilator Live monitor > Resume exam.  (Individual Candidate)  Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_124. @Smoke Verify Validation of \"Lock Exam\" from Live monitor Proctor "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Redirected to Candidate page"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_124. @Smoke Verify Validation of \"Lock Exam\" from Live monitor Proctor  Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Invigilator enters the note and save the save"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor  Status : failed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam Status : failed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Invigilator enters the note and save the save"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor  Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Invigilator enters the note and save the save"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor  Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Invigilator enters the note and save the save"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor  Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Invigilator enters the note and save the save"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor  Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Invigilator enters the note and save the save"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor  Status : interrupted"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Invigilator enters the note and save the save"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor  Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Invigilator enters the note and save the save"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor  Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Invigilator enters the note and save the save"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor  Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_154 and iEX_TC_ID_155. @Regression Validation of Refresh Live Monitor and status Auto update "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Tap on Refresh button and check the Time update"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_154 and iEX_TC_ID_155. @Regression Validation of Refresh Live Monitor and status Auto update  Status : failed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_154 and iEX_TC_ID_155. @Regression Validation of Refresh Live Monitor and status Auto update "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Tap on Refresh button and check the Time update"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_154 and iEX_TC_ID_155. @Regression Validation of Refresh Live Monitor and status Auto update  Status : failed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam Status : failed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_154 and iEX_TC_ID_155. @Regression Validation of Refresh Live Monitor and status Auto update "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Tap on Refresh button and check the Time update"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_154 and iEX_TC_ID_155. @Regression Validation of Refresh Live Monitor and status Auto update  Status : failed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam Status : failed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : interrupted"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_154 and iEX_TC_ID_155. @Regression Validation of Refresh Live Monitor and status Auto update "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Tap on Refresh button and check the Time update"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_154 and iEX_TC_ID_155. @Regression Validation of Refresh Live Monitor and status Auto update  Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_154 and iEX_TC_ID_155. @Regression Validation of Refresh Live Monitor and status Auto update "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Tap on Refresh button and check the Time update"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_154 and iEX_TC_ID_155. @Regression Validation of Refresh Live Monitor and status Auto update  Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_154 and iEX_TC_ID_155. @Regression Validation of Refresh Live Monitor and status Auto update "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Tap on Refresh button and check the Time update"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_154 and iEX_TC_ID_155. @Regression Validation of Refresh Live Monitor and status Auto update  Status : passed"}
