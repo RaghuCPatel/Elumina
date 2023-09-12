@@ -72,7 +72,6 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elu
         await newtab.logoutClick();
     });
 });
-
 test(`iEX_TC_ID_239'. @Regression Verify Validation of Browser back button on Candidate Dashboard`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
