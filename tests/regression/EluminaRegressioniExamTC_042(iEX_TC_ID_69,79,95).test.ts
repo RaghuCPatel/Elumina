@@ -62,7 +62,7 @@ test(`@Regression Verify Validation of Candidate attends All Question type`, asy
         await eluminaCandPage.candidateLoginToApplication();
         await eluminaCandPage.candidateContentSectionVerifications();
         await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.candidateAttendsAllQVSAQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
@@ -82,7 +82,7 @@ test(`iEX_TC_ID_69. @Regression Validation of Exam Section > Question and Answer
         await eluminaCandPage.candidateLoginToApplication();
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.clickOnPrevious();
-        await eluminaCandPage.candidateAttendsAllQVSAQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.clickOnPrevious();
@@ -103,7 +103,7 @@ test(`iEX_TC_ID_79. @Regression Verify Validation of Candidate attends All Quest
         await eluminaCandPage.candidateLoginToApplication();
         await eluminaCandPage.setOffline(true);
         await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.candidateAttendsAllQVSAQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
@@ -143,7 +143,7 @@ test(`iEX_TC_ID_95. @Regression Verify Validation of Candidate attends All Quest
         await eluminaCandPage.candidateLoginToApplication();
         await eluminaCandPage.setOffline(true);
         await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.candidateAttendsAllQVSAQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();

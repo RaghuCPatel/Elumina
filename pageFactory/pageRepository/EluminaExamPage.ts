@@ -775,9 +775,7 @@ export class EluminaExamPage {
       hour12 += 12;
     let minute = currentDate.getMinutes();
     console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
-    //console.log(localDate.)
-    //let Hours=currentDate.getHours();
-    //console.log(Hours);
+
     let StartBookingMin = currentDate.getMinutes() + 2;
     let EndBookingMin = currentDate.getMinutes() + 3;
     let StartExamMin = currentDate.getMinutes() + 4;
@@ -944,10 +942,6 @@ export class EluminaExamPage {
     await this.EnterNoOfCandidates.clear();
     await this.EnterNoOfCandidates.type('01');
     await this.ClickOnAdd.click();
-    // await this.EnterInvigilatorPswd.click();
-    //await this.page.waitForTimeout(5000);
-    // await this.EnterInvigilatorPswd.type('ABC09');
-    // await this.page.waitForTimeout(5000);
 
     await this.ClickOnNextBtn.click();
     await expect(this.VerifyExam_details).toBeVisible();
