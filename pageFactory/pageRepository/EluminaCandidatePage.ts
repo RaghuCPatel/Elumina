@@ -658,7 +658,8 @@ export class EluminaCandidatePage {
     /**Method to Verify the content section timer */
     async verifyContentSectionTimer() {
         // await this.page.waitForTimeout(5000);
-        await expect(this.verifyContentSectionTime).toBeVisible();
+        const contentpageTimer = await this.verifyContentSectionTime.textContent()
+        await expect(contentpageTimer).toBeLessThanOrEqual(1)
         console.log('Exam Timer-' + await this.verifyContentSectionTime.textContent());
     }
 
@@ -918,6 +919,16 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(2000);
         await this.ansMCQQuestions.click();
         await this.page.waitForTimeout(2000);
+        await this.ClickOnSubmitBtn.click();
+
+
+    }
+
+    async validatecandidateFlagForReviewSurveyQuestion() {
+        await this.page.waitForTimeout(2000);
+        await this.flagForReviewQuestions.click();
+        await this.page.waitForTimeout(2000);
+        await this.flagForReviewColor.isVisible();
         await this.ClickOnSubmitBtn.click();
 
 
@@ -1724,17 +1735,19 @@ export class EluminaCandidatePage {
      * 
      */
 
+
     async McqPageValidation() {
         await expect(this.verifyExamTimer).toBeVisible();
         EluminaCandidatePage.Time = await this.verifyExamTimer.textContent();
         console.log('Time display' + EluminaCandidatePage.Time);
     }
+  
+  
     async McqPageValidation(): Promise<void>{
         await this.candidateContentSectionValidation();
         let ID = EluminaRegistrationPage.CandiateClientID;
         await this.examSectionValidation();
         console.log('Time displaye' +Time);
-
     }
 
 }

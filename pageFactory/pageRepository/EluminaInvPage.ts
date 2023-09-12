@@ -294,8 +294,8 @@ export class EluminaInvPage {
 
     /**Method to validate Ans Questions */
     async verifyAnsAsInv() {
-        await this.page.waitForSelector('//div[@class="section-q-list wrapped"]//div//p', { timeout: 10000 });
-        const qutns = await this.page.$$('//div[@class="section-q-list wrapped"]//div//p');
+        await this.page.waitForSelector('//p[@style="background: green; color: white;"]', { timeout: 10000 });
+        const qutns = await this.page.$$('//p[@style="background: green; color: white;"]');
         console.log('Number of questions-' + qutns.length);
         const total = qutns.length;
         const Ttl = qutns.length - 1;
