@@ -136,6 +136,12 @@ export class EluminaInvCandidatePage {
         await expect(this.lockPopupMessage).toHaveText("Please be advised that your exam has been locked. Please contact the invigilator for any further assistance.");
     }
 
+    /**Method for Lock candidate validation */
+    async terminateCandidateValidation() {
+        console.log(await this.ClickStartExamLink.textContent());
+        await expect(this.ClickStartExamLink).toHaveText("Exam Terminated");
+    }
+
     /**Method to Enter Invaild Exam Password */
     async enterInvalidExamPassword(): Promise<void> {
         await this.ClickStartExamLink.click();

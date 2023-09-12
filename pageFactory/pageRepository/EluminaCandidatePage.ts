@@ -41,10 +41,13 @@ function makeid(length) {
 
     }
     return result;
-
 }
 
+
+
 export class EluminaCandidatePage {
+    static Time: any;
+    static answer: any;
     readonly page: Page;
     readonly context: BrowserContext;
     readonly CandidateUsername: Locator;
@@ -151,6 +154,13 @@ export class EluminaCandidatePage {
     readonly StartExameTimer: Locator;
     readonly UserIDText: Locator;
     readonly PasswordIDText: Locator;
+    readonly flagForReviewValidation: Locator;
+    readonly AddedNotesValidation: Locator;
+    readonly incompleteQuestionValidation: Locator;
+    readonly submitSuccessMessage: Locator;
+    readonly marks1: Locator;
+    readonly marks2: Locator;
+    readonly totalMarks: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -260,6 +270,13 @@ export class EluminaCandidatePage {
         this.StartExameTimer = page.locator('(//div[@class="exam-list"]//table//tr[@class="body-row"]//td//div//div)[2]');
         this.UserIDText = page.locator('//*[@class="container error-bg"]//div[text()="User Id is required."]');
         this.PasswordIDText = page.locator('//*[@class="container error-bg"]//div[text()="Password is required."]');
+        this.flagForReviewValidation = page.locator('//div[text()="Flagged for review"]');
+        this.AddedNotesValidation = page.locator('//div[text()="Added Notes"]');
+        this.incompleteQuestionValidation = page.locator('(//div[text()=" incomplete"])[1]');
+        this.submitSuccessMessage = page.locator('//div[text()="Exam Responses have been successfully synced to the server."]');
+        this.marks1 = page.locator('(//div[normalize-space()="1"])[1]');
+        this.marks2 = page.locator('(//div[normalize-space()="N/A"])[1]');
+        this.totalMarks = page.locator('(//div[@class="total-marks"])[2]');
     }
 
     /**Method to Navigate to candidate dashboard */
@@ -812,8 +829,32 @@ export class EluminaCandidatePage {
             await qutns[i].click();
             await this.ansMCQQuestions.click();
             await this.ClickOnNextBtn.click();
-
         }
+    }
+
+    async candidateStartMCQwithflagforreviewandnotes() {
+        await this.page.waitForTimeout(2000);
+        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
+        const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
+        for (let i = 0; i < 2; i++) {
+            await qutns[i].click();
+            await this.ansMCQQuestions.click();
+            await this.ClickOnNextBtn.click();
+        }
+        await this.page.locator('(//div[@class="question-number-container"]//div//p)[3]').click();
+        await this.flagForReviewQuestions.click();
+        await this.ClickOnNextBtn.click();
+        await this.page.locator('(//div[@class="question-number-container"]//div//p)[4]').click();
+        await this.ClickOnNotepad.click();
+        await this.page.waitForTimeout(1000);
+        await this.textareafill.type('abc');
+        await this.page.waitForTimeout(1000);
+        await this.saveButton.click();
+        await this.page.waitForTimeout(1000);
+        await this.CloseNotepad.click();
+        await this.ClickOnNextBtn.click();
+        //await this.ClickOnNextBtn.click();
+
     }
 
     async candidateSurveyStartOneMCQ() {
@@ -843,16 +884,27 @@ export class EluminaCandidatePage {
         // await this.ClickOnSubmitBtn.click();
     }
 
-    async candidateAttendsAllQVSAQ() {
+    async candidateAttendsAllQVSAQ(lines) {
         await this.page.waitForTimeout(2000);
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
         const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
         for (let i = 5; i < 8; i++) {
             await qutns[i].click();
             await this.ansVSAQQuestion.click();
-            await this.ansVSAQQuestion.type(makeid(100));
+            await this.ansVSAQQuestion.type(makeid(lines));
             await this.ClickOnNextBtn.click();
+        }
+        await this.page.waitForTimeout(2000);
+    }
 
+    async candidateAttendsOneVSAQ(lines) {
+        await this.page.waitForTimeout(2000);
+        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
+        const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
+        for (let i = 5; i < 6; i++) {
+            await qutns[i].click();
+            await this.ansVSAQQuestion.click();
+            EluminaCandidatePage.answer = await this.ansVSAQQuestion.type(makeid(lines));
         }
         await this.page.waitForTimeout(2000);
     }
@@ -919,6 +971,28 @@ export class EluminaCandidatePage {
 
     }
 
+    async candidateStartSJTValidationofReviewPage() {
+        await this.page.waitForTimeout(2000);
+        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
+        const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
+        for (let i = 25; i < 28; i++) {
+            await qutns[i].click();
+            await this.ansSJTQuestion.click();
+            await this.ClickOnNextBtn.click();
+
+        }
+        await this.page.waitForTimeout(2000);
+        await this.page.locator('(//div[@class="question-number-container"]//div//p)[28]').click()
+        await this.ansSJTQuestion.click();
+        await this.ClickOnNextBtn.click();
+        await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
+        await this.ClickOnRevieweBtn.click();
+        await this.page.waitForTimeout(5000);
+        await expect(this.flagForReviewValidation).toHaveText("Flagged for review");
+        await expect(this.AddedNotesValidation).toHaveText("Added Notes");
+        await expect(this.incompleteQuestionValidation).toHaveText("incomplete");
+    }
+
     async candidateStartSJT() {
         await this.page.waitForTimeout(2000);
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
@@ -935,6 +1009,7 @@ export class EluminaCandidatePage {
         await this.ClickOnNextBtn.click();
         await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
         await this.ClickOnRevieweBtn.click();
+        await this.page.waitForTimeout(5000);
     }
 
     async candidateStartSJTAns() {
@@ -1200,28 +1275,20 @@ export class EluminaCandidatePage {
 
 
     /**Method to add MCQ Questions for Practise exam */
-    async candidateStartMCQPractise() {
-
-        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
-        const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
-        console.log('Number of questions-' + qutns.length);
-        const Ttl = qutns.length - 1;
-        for (let i = 0; i < qutns.length - 2; i++) {
-            await qutns[i].click();
-            await this.ansMCQQuestions.click();
-            await this.ClickOnNextBtn.click();
-        }
-        await this.page.locator('(//div[@class="question-number-container"]//div//p)[3]').click();
-        await this.flagForReviewQuestions.click();
-        await this.ClickOnNextBtn.click();
-        await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
-        await this.ClickOnRevieweBtn.click();
+    async candidatePractisePageView() {
         await this.page.waitForTimeout(5000);
         await this.ClickOnSubmitBtn.click();
-        await this.ConfirmationToSubmit.click();
+        await this.page.waitForTimeout(5000);
+        // await this.ConfirmationToSubmit.click();
+        await expect(this.submitSuccessMessage).toHaveText("Exam Responses have been successfully synced to the server.");
         await this.page.waitForTimeout(5000);
         await this.ViewResult.click();
         await this.page.waitForTimeout(5000);
+        await expect(this.marks1).toHaveText("1");
+        await expect(this.marks2).toHaveText("N/A");
+        await expect(this.totalMarks).toBeVisible();
+        console.log("Total Marks:" + this.totalMarks.textContent());
+
     }
 
     /**Method to signout of the exam after candidate logged in */
@@ -1579,10 +1646,10 @@ export class EluminaCandidatePage {
      * To Validate each component displayed in the MCQ Section
      * 
      */
-    async McqPageValidation(){
+    async McqPageValidation() {
         await expect(this.verifyExamTimer).toBeVisible();
-        let Time = await this.verifyExamTimer.textContent();
-        console.log('Time displaye' +Time);
+        EluminaCandidatePage.Time = await this.verifyExamTimer.textContent();
+        console.log('Time display' + EluminaCandidatePage.Time);
     }
 
 }
