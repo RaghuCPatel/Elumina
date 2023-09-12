@@ -75,7 +75,28 @@ export class EluminaInvPage {
     readonly MenuIconClick: Locator;
     readonly logoutbuttonClick: Locator;
     readonly examIdClick: Locator;
+
+    readonly PauseExam: Locator;
+    readonly TerminateExam: Locator;
+    readonly ExtendExam: Locator;
+    readonly moreOptionClick: Locator;
+    readonly addNotes: Locator;
+    readonly SpecialConsiderationNotes: Locator;
+    readonly RestoreExam: Locator;
+    readonly downloadResponseInPdf: Locator;
+    readonly searchLiveMonitor: Locator;
+    readonly LockExamButton: Locator;
+    readonly Attendance: Locator;
+    readonly clientId: Locator;
+    readonly CandidateId: Locator;
+    readonly firstName: Locator;
+    readonly lastName: Locator;
+    readonly Venue: Locator;
+    readonly specialConsideration: Locator;
+    readonly examStatus: Locator;
+    readonly timeRemaining: Locator;
     readonly clickOnIdInLivemonitor: Locator;
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -117,7 +138,29 @@ export class EluminaInvPage {
         this.MenuIconClick = page.locator('//i[@class="menuIcons profileIcon"]');
         this.logoutbuttonClick = page.locator('//a[normalize-space()="Log out"]');
         this.examIdClick = page.locator('(//table[@class="table"]//tbody//tr//td[2]//span//span//span)[1]');
+
+        this.PauseExam = page.locator('//div[@title="Pause Exam for all Candidates"]');
+        this.TerminateExam = page.locator('//div[normalize-space()="Terminate Exam"]');
+        this.ExtendExam = page.locator('//div[@title="Extend Exam for all Candidates"]');
+        this.moreOptionClick = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[16]//a');
+        this.addNotes = page.locator('//p[text()="Add Notes"]');
+        this.SpecialConsiderationNotes = page.locator('//p[text()="Special Consideration Notes"]');
+        this.RestoreExam = page.locator('//p[text()="Restore Exam"]');
+        this.downloadResponseInPdf = page.locator('//p[text()="Download Candidate Response PDF"]');
+        this.searchLiveMonitor = page.locator('//input[@placeholder="Search live monitor"]');
+        this.LockExamButton = page.locator('//div[normalize-space()="Lock Exam"]');
+
+        this.Attendance = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[3]');
+        this.clientId = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[4]');
+        this.CandidateId = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]');
+        this.firstName = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[6]');
+        this.lastName = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[7]');
+        this.Venue = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[8]');
+        this.specialConsideration = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[10]');
+        this.examStatus = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[11]');
+        this.timeRemaining = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[15]');
         this.clickOnIdInLivemonitor = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a')
+
     }
 
     /**Method to login as invigilator */
@@ -325,4 +368,49 @@ export class EluminaInvPage {
         await this.logoutbuttonClick.click();
 
     }
+
+    /* Method to validate Live Monitor dashboard of Invigilator */
+    async validateLiveMonitorDashboard() {
+        await expect(this.PauseExam).toBeVisible();
+        console.log(await this.PauseExam.textContent());
+        await expect(this.ExtendExam).toBeVisible();
+        console.log(await this.ExtendExam.textContent());
+        await expect(this.LockExamButton).toBeVisible();
+        console.log(await this.LockExamButton.textContent());
+        await expect(this.TerminateExam).toBeVisible();
+        console.log(await this.TerminateExam.textContent());
+        await expect(this.moreOptionClick).toBeVisible();
+        await this.moreOptionClick.click();
+        await this.page.waitForTimeout(5000);
+
+        await expect(this.addNotes).toBeVisible();
+        console.log(await this.addNotes.textContent());
+        await expect(this.SpecialConsiderationNotes).toBeVisible();
+        console.log(await this.SpecialConsiderationNotes.textContent());
+        await expect(this.RestoreExam).toBeVisible();
+        console.log(await this.RestoreExam.textContent());
+        await expect(this.downloadResponseInPdf).toBeVisible();
+        console.log(await this.downloadResponseInPdf.textContent());
+        await expect(this.searchLiveMonitor).toBeVisible();
+        console.log(await this.searchLiveMonitor.textContent());
+
+        await expect(this.Attendance).toBeVisible();
+        console.log(await this.Attendance.textContent());
+        await expect(this.clientId).toBeVisible();
+        console.log(await this.clientId.textContent());
+        await expect(this.CandidateId).toBeVisible();
+        console.log(await this.CandidateId.textContent());
+        await expect(this.firstName).toBeVisible();
+        console.log(await this.firstName.textContent());
+        await expect(this.lastName).toBeVisible();
+        console.log(await this.lastName.textContent());
+        await expect(this.Venue).toBeVisible();
+        console.log(await this.Venue.textContent());
+        await expect(this.specialConsideration).toBeVisible();
+        console.log(await this.specialConsideration.textContent());
+        await expect(this.timeRemaining).toBeVisible();
+        console.log(await this.timeRemaining.textContent());
+    }
+
+
 }

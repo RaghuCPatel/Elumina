@@ -184,7 +184,7 @@ test(`@RegressionP Verify Validation of Candidate attends All Question type`, as
         await eluminaCandPage.candidateLoginToApplication();
         await eluminaCandPage.enterInvigilatorPassword();
         await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.candidateAttendsAllQVSAQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.refreshPage();
@@ -204,7 +204,7 @@ test(`iEX_TC_ID_53. @RegressionP Validation of Exam content page -> Questions do
         await eluminaCandPage.candidateLoginToApplication();
         await eluminaCandPage.enterInvigilatorPassword();
         await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.candidateAttendsAllQVSAQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
@@ -225,7 +225,7 @@ test(`@RegressionP Verify Validation of Submit Exam page  > Chat App TC-173`, as
         await eluminaCandPage.candidateLoginToApplication();
         await eluminaCandPage.enterInvigilatorPassword();
         await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.candidateAttendsAllQVSAQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
