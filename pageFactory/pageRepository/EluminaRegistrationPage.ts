@@ -49,7 +49,7 @@ function makeid(length) {
 let candClientID: string;
 
 export class EluminaRegistrationPage {
-
+    static CandiateClientID: string;
     readonly page: Page;
     readonly context: BrowserContext;
     readonly AUTHOR: Locator;
@@ -231,7 +231,7 @@ export class EluminaRegistrationPage {
     }
 
     /**Method to Add User Details */
-    async addUserDetails(): Promise<void> {
+    async addUserDetails(): Promise<string> {
 
         await this.EnterClientID.type(makeid(testData.clientId) + Math.floor(Math.random() * 899 + 100));
         await this.page.waitForTimeout(8000);
@@ -261,6 +261,7 @@ export class EluminaRegistrationPage {
             await this.LeftArrow.click();
             candClientID = await this.captureUserClientID.textContent()
             console.log("Cand-ID :" + candClientID);
+            EluminaRegistrationPage.CandiateClientID = await this.captureUserClientID.textContent();
             await this.ClickOnDropdown.click();
         }
         else if (testENV === "qa") {
@@ -275,8 +276,10 @@ export class EluminaRegistrationPage {
             await this.LeftArrow.click();
             candClientID = await this.captureUserClientID.textContent()
             console.log("Cand-ID :" + candClientID);
+            EluminaRegistrationPage.CandiateClientID = await this.captureUserClientID.textContent();
             await this.ClickOnDropdown.click();
         }
+        return EluminaRegistrationPage.CandiateClientID;
     }
 
     /**Method to Download the User Details */

@@ -72,7 +72,6 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elu
         await newtab.logoutClick();
     });
 });
-
 test(`iEX_TC_ID_239'. @Regression Verify Validation of Browser back button on Candidate Dashboard`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
@@ -84,6 +83,7 @@ test(`iEX_TC_ID_239'. @Regression Verify Validation of Browser back button on Ca
         await eluminaCandPage.navigateBackFromExamattendPage();
     });
 });
+
 
 test(`iEX_TC_ID_128. @Regression Validation of Exam Invigilator Live monitor`, async ({ eluminaInvPage, webActions }) => {
     await test.step(`Inv Login to Elumina application`, async () => {
@@ -134,6 +134,111 @@ test(`iEX_TC_ID_146. @Regression Validation of Long Essay Response (more than 20
     });
 });
 
+test('iEX_TC_ID_154,iEX_TC_ID_155,iEX_TC_ID_156,iEX_TC_ID_157. @Regression Validation of Refresh Live Monitor and status Auto update ', async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
+ 
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCadInvPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+    });
+    await test.step('Tap on Refresh button and check the Time update', async () =>{
+        const browser = await chromium.launch();
+        const context1 = await browser.newContext();
+        const page1 = await context1.newPage();
+        await page1.goto('/');
+        await page1.waitForLoadState();
+        await page1.locator('(//input)[1]').type(testData.invigilatorUsername);
+        await page1.locator('(//input)[2]').type(testData.invigilatorPassword);
+        await page1.locator('//*[@class="submit-butn"]').click();
+        const [newPage] = await Promise.all([
+            context1.waitForEvent('page'),
+            await page1.locator('//div[text()="iAuthor"]').click()
+        ]);
+        await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
+        await newPage.waitForTimeout(3000);
+        let time = await newPage.locator('(//tbody[@class="tableBody"]//tr//td//span)[11]').textContent();
+        let a = time.split(':')[0];
+        var Hrs: number = +a; 
+        console.log(Hrs)
+        let b = time.split(':')[2];
+        var Mins: number =+b;
+        console.log(Mins)
+        await newPage.locator('//div[@class="action-item refresh"]//div').click();
+        await newPage.waitForTimeout(1000);
+        let time1 = await newPage.locator('(//tbody[@class="tableBody"]//tr//td//span)[11]').textContent();
+        let c = time1.split(':')[0];
+        var HrsAfterRefresh: number =+c;
+        console.log(HrsAfterRefresh)
+        let d = time1.split(':')[2];
+        var MinsAfterRefresh: number =+d;
+        console.log(MinsAfterRefresh);
+        expect(HrsAfterRefresh).toBe(Hrs);
+        expect(MinsAfterRefresh).toBeLessThan(Mins);
+        let status = await newPage.locator('(//tbody[@class="tableBody"]//tr//td//span)[7]').textContent();
+        expect(status).toEqual('In Progress');
+        await newPage.locator('(//div[@class="msdd-triangle open msdd-triangle-down"])[3]').click();
+        await newPage.locator('//span[text()="Exam Paused"]').click();
+        await newPage.locator('(//div[@class="msdd-triangle open msdd-triangle-up"])').click();
+        await newPage.locator('//div[@class="action-item"]').click();
+        await newPage.waitForTimeout(2000);
+        const locator = newPage.locator('(//tbody[@class="tableBody"]//tr//td//span)[7]');
+        await expect(locator).toBeHidden();
+        await newPage.locator('(//div[@class="msdd-triangle open msdd-triangle-down"])[3]').click();
+        await newPage.locator('//span[text()="Exam Paused"]').click();
+        await newPage.locator('//span[text()="In Progress"]').click();
+        await newPage.locator('(//div[@class="msdd-triangle open msdd-triangle-up"])').click();
+        await newPage.locator('//div[@class="action-item"]').click();
+        await newPage.waitForTimeout(2000);
+        let status1 = await newPage.locator('(//tbody[@class="tableBody"]//tr//td//span)[7]').textContent();
+        expect(status1).toEqual('In Progress');
+        await newPage.close();
+        await page1.close();
+    });
+
+});
+
+
+test('iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor ', async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
+
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCadInvPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+    });
+    await test.step('Invigilator enters the note and save the save', async () =>{
+        const browser = await chromium.launch();
+        const context1 = await browser.newContext();
+        const page1 = await context1.newPage();
+        await page1.goto('/');
+        await page1.waitForLoadState();
+        await page1.locator('(//input)[1]').type(testData.invigilatorUsername);
+        await page1.locator('(//input)[2]').type(testData.invigilatorPassword);
+        await page1.locator('//*[@class="submit-butn"]').click();
+        const [newPage] = await Promise.all([
+            context1.waitForEvent('page'),
+            await page1.locator('//div[text()="iAuthor"]').click()
+        ]);
+        await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
+        await newPage.waitForTimeout(3000);
+        await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
+        await newPage.waitForTimeout(2000);
+        await newPage.locator('//a[@class="dropdown-toggle"]').click();
+        await newPage.waitForTimeout(2000);
+        await newPage.locator('(//p[@class="more-dropdown small-line-height"])[5]').click();
+        await newPage.locator('(//div[@class="modal-footer"]//button)[2]').click();
+        await newPage.waitForTimeout(2000);
+        await newPage.locator('//div[@class="labelVal-Create reqLabel"]//textarea').type(testData.Note);
+        await newPage.waitForTimeout(2000);
+        await newPage.locator('//div[@class="form-footer"]//button[text()="Save"]').click();
+        await newPage.waitForTimeout(2000);
+        let saveMessage = await newPage.locator('//div[@class="content-side"]//span');
+        await expect(saveMessage).toContainText('Notes has been updated successfully');
+        await newPage.close();
+        await page1.close();
+    })
+});
 
 test(`iEX_TC_ID_122. @Regression Validation of exam paused for Candidate `, async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -318,6 +423,7 @@ test(`iEX_TC_ID_124. @Smoke Verify Validation of "Lock Exam" from Live monitor P
         await eluminaCandPage.waitforTime4();
     });
 });
+
 
 test(`iEX_TC_ID_136. @Regression Validation of Exam Invigilator Live monitor > Terminate exam.  (Individual Candidate)"  `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
