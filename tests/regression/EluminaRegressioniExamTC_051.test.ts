@@ -24,7 +24,7 @@ test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLogin
         await newtab.addTypeXQuestion();
         await newtab.addTypeBQuestion();
         await newtab.addSAQQuestion();
-        await newtab.addSJTQuestion();
+       await newtab.addSJTQuestion();
     });
 });
 
@@ -43,6 +43,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, elumi
         await newtab.downloadUserDetails();
     });
 });
+
 
 test(`iEX_TC_ID_54. @Regression Validation of Exam section page.`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -106,6 +107,26 @@ test(`iEX_TC_ID_64. @Regression Validation of Exam Section > Highlighter tool hi
     });
 
 });
+
+
+test(`iEX_TC_ID_97,iEX_TC_ID_98,iEX_TC_ID_99,iEX_TC_ID_101,iEX_TC_ID_102,iEX_TC_ID_103,iEX_TC_ID_105. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons.`, async ({ eluminaCandPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+    });
+
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.AllQuestionPageValidation('MCQ');
+        await eluminaCandPage.AllQuestionPageValidation('VSAQ');
+        await eluminaCandPage.AllQuestionPageValidation('ISAWE');
+        await eluminaCandPage.AllQuestionPageValidation('TYPEX');
+        await eluminaCandPage.AllQuestionPageValidation('TYPEB');
+        await eluminaCandPage.AllQuestionPageValidation('SAQ');
+        await eluminaCandPage.AllQuestionPageValidation('SJT');
+    });
+
+})
+
 
 test(`iEX_TC_ID_76. @Regression Validation of Exam section > Candidate attend the exam in normal flow `, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {

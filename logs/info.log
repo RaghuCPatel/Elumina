@@ -14578,3 +14578,638 @@
 {"level":"info","message":"Executing Step : Candidate Login to application"}
 {"level":"info","message":"Executing Step : Tap on Refresh button and check the Time update"}
 {"level":"info","message":"Test Case Completed : iEX_TC_ID_154 and iEX_TC_ID_155. @Regression Validation of Refresh Live Monitor and status Auto update  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : interrupted"}
+{"level":"error","message":"File not found: D:\\Elumina\\Github\\12-09-2023\\html-report"}
+{"level":"error","message":"No tests found"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : interrupted"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_76. @Regression Validation of Exam section > Candidate attend the exam in normal flow "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_76. @Regression Validation of Exam section > Candidate attend the exam in normal flow  Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_1. @Smoke Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_1. @Smoke Verify Elumina Login and Create Exam Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97,99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97,99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97,99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97,99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : interrupted"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : interrupted"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : timedOut"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : interrupted"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : interrupted"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : interrupted"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : @Regression  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons."}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_97,iEX_TC_ID_99. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons. Status : passed"}

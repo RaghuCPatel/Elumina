@@ -183,12 +183,7 @@ export class EluminaRegistrationPage {
 
     /**Method to register for the exam */
     async registrationTabNavigation(): Promise<void> {
-        if (testENV === "sandbox") {
-            await this.RegistrationMenu.click();
-        }
-        else if (testENV === "qa") {
-            await this.DeliveryMenu.click();
-        }
+        await this.DeliveryMenu.click();
         let examid = EluminaExamPage.examID;
         console.log(EluminaExamPage.examID);
         await this.searchExam.type(examid);

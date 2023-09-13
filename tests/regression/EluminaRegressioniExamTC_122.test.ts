@@ -85,7 +85,7 @@ test(`iEX_TC_ID_239'. @Regression Verify Validation of Browser back button on Ca
 });
 
 
-test('iEX_TC_ID_154,iEX_TC_ID_155,iEX_TC_ID_156,iEX_TC_ID_157. @Regression Validation of Refresh Live Monitor and status Auto update ', async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
+test('iEX_TC_ID_154,iEX_TC_ID_155,iEX_TC_ID_156,iEX_TC_ID_157. @Regression Validation of Refresh option on Live Monitor,status Auto update after refresh,Status and Option selction ', async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
  
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();

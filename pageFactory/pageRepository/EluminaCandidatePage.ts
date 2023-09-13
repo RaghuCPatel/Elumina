@@ -153,6 +153,18 @@ export class EluminaCandidatePage {
     readonly PasswordIDText: Locator;
     readonly mousehoverOnColourMoreIcon: Locator;
     readonly NoOfQutn: Locator;
+    readonly QuestionDescription:Locator;
+    readonly SectionName:Locator;
+    readonly imageView:Locator;
+    readonly imageViewPreview:Locator;
+    readonly Panicon:Locator;
+    readonly Closeicon:Locator;
+    readonly Reseticon:Locator;
+    readonly IsaweQuestion: Locator;
+    readonly IsaweSubQuestion: Locator;
+    readonly TypexQuestion: Locator;
+    readonly TypebQuestionStatment: Locator;
+    readonly imageViewForTypeX: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -264,6 +276,19 @@ export class EluminaCandidatePage {
         this.PasswordIDText = page.locator('//*[@class="container error-bg"]//div[text()="Password is required."]');
         this.mousehoverOnColourMoreIcon = page.locator('//p[@class="infoIcon status-icon-id"]//span')
         this.NoOfQutn = page.locator('(//div[@class="main-title"]//h4)[1]')
+        this.QuestionDescription = page.locator('//p[@class="inner-question-section"]');
+        this.SectionName = page.locator('//div[@class="part-name"]//div');
+        this.imageView = page.locator('//div[@class="imagepreview-container"]//img');
+        this.imageViewPreview = page.locator('//div[@class="title"]');
+        this.Panicon = page.locator('//div[@class="pan icon"]');
+        this.Closeicon = page.locator('//div[@class="close-btn"]');
+        this.Reseticon = page.locator('//div[@class="reset icon"]');
+        this.IsaweQuestion = page.locator('//div[@class="ques-title-container qp-title"]//div[@class="isawe-question-sub-section"]//p//p');
+        this.IsaweSubQuestion = page.locator('//div[@class="sub-ques-title"]//p');
+        this.TypexQuestion = page.locator('//div[@class="main-title highlighterdiv"]//p//p');
+        this.TypebQuestionStatment = page.locator('(//p[@class="inner-question-section"])[1]');
+        this.imageViewForTypeX = page.locator('(//div[@class="imagepreview-container"]//img)[1]');
+        const ID: string = String(EluminaRegistrationPage.CandiateClientID);
     }
 
     /**Method to Navigate to candidate dashboard */
@@ -512,6 +537,7 @@ export class EluminaCandidatePage {
         console.log('Candidate ID-' + await this.verifyCandidateID.textContent());
         await expect(this.verifyClientID).toBeVisible();
         console.log('Client ID-' + await this.verifyClientID.textContent());
+        global.ClientID = this.verifyClientID.textContent();
     }
 
     /**Method to do horizontal scroll action */
@@ -1094,6 +1120,9 @@ export class EluminaCandidatePage {
         //await this.page.close();
     }
 
+    /**
+     * Method to add note to VSAQ Question
+     */
     async AddingNotesToQuestion() {
         {
             await this.ansVSAQQuestion.click();
@@ -1107,10 +1136,26 @@ export class EluminaCandidatePage {
         }
 
     }
+    /**
+     * Method to add Notes to all questions
+     */
+    async AddingNotesToAllQuestion() {
+        {
+            await this.ClickOnNotepad.click();
+            await this.page.waitForTimeout(1000);
+            await this.textareafill.type('abc');
+            await this.page.waitForTimeout(1000);
+            await this.saveButton.click();
+            await this.page.waitForTimeout(1000);
+            await this.CloseNotepad.click();
+        }
 
+    }
+    /**
+     * Method for using the Calculator for all Question types
+     */
     async UsingCalculatorForQuestions() {
         {
-
             await this.ClickOnCalculator.click();
             await this.page.waitForTimeout(1000);
             await this.EnternumberOne.click();
@@ -1125,14 +1170,53 @@ export class EluminaCandidatePage {
         }
     }
 
+    /**
+     * Method to use Highlighter for Last VSAQ question
+     */
     async UsingHighlighterForQuestions() {
         {
             await this.clickOnLastVSAQ.click();
-            //await this.ansVSAQQuestion.click();
             await this.ClickOnHighlighter.click();
             await this.page.waitForTimeout(1000);
             await this.HighlightQuestions.dblclick()
             await this.HighlightQuestions.click()
+            await this.page.waitForTimeout(1000);
+        }
+    }
+
+    /**
+     * Method to use Highlighter tool for All questions type
+     */
+    async UsingHighlighterForAllQuestions(Highlighter) {
+        {
+            await this.ClickOnHighlighter.click();
+            if(Highlighter == 'ISWE'){
+                await this.page.waitForTimeout(1000);
+                await this.IsaweQuestion.dblclick()
+                await this.IsaweQuestion.click()
+            }else if(Highlighter == 'TYPEB'){
+                await this.page.waitForTimeout(1000);
+                await this.TypebQuestionStatment.dblclick();
+                await this.TypebQuestionStatment.click();
+            }else if(Highlighter == 'Other'){
+            await this.page.waitForTimeout(1000);
+            await this.HighlightQuestions.dblclick()
+            await this.HighlightQuestions.click()
+            }
+            await this.page.waitForTimeout(1000);
+        }
+
+    }
+
+    /**
+     * Method to use Highlighter tool for ISWAE question types
+     */
+    async UsingHighlighterForIsweQuestions() {
+        {
+            await this.ClickOnHighlighter.click();
+            await this.page.waitForTimeout(1000);
+            await this.IsaweQuestion.dblclick()
+            await this.IsaweQuestion.click()
             await this.page.waitForTimeout(1000);
         }
     }
@@ -1645,16 +1729,132 @@ export class EluminaCandidatePage {
         await this.ClickOnRevieweBtn.isDisabled();
     }
 
-
     /**
-     * To Validate each component displayed in the MCQ Section
-     * 
+     * Method to validate the Multiple choice Options for MCQ question
      */
-    async McqPageValidation(): Promise<void>{
-        await this.candidateContentSectionValidation();
-        let ID = EluminaRegistrationPage.CandiateClientID;
-        await this.examSectionValidation();
-        console.log('Time displaye' +Time);
+    async MCQMultipleOptions(){
+        await this.page.waitForSelector('//label[@class="labelEmpty"]', { timeout: 10000 });
+        const quants = await this.page.$$('//label[@class="labelEmpty"]');
+        for (let i = 0; i < 5; i++) {
+            await quants[i].click();
+            await this.page.waitForTimeout(1000);
+        }
     }
 
+    
+/**
+ * Image View Validation in candidate page if the Question is added with Image
+ * @param ImageView 
+ */
+    async ImageViewValidation(ImageView){
+
+        if(ImageView == 'Typex') {
+            await this.imageViewForTypeX.click();
+        }else if(ImageView == 'all') {
+        await this.imageView.click();
+        }
+        await this.page.waitForTimeout(2000);
+        await this.imageViewPreview.isVisible();
+        await this.ZoominIconClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.ZoomOutIconClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.RotateRight.click();
+        await this.page.waitForTimeout(2000);
+        await this.RotateLeft.click();
+        await this.page.waitForTimeout(2000);
+        await this.RotateRight.click();
+        await this.page.waitForTimeout(2000);
+        await this.Reseticon.click();
+        await this.page.waitForTimeout(2000);
+        await this.Panicon.click();
+        await this.page.waitForTimeout(2000);
+        await this.Closeicon.click();
+        await this.page.waitForTimeout(2000);
+
+    }
+
+/**
+ * To Validate each component displayed in the All Question type Section
+ * @param page 
+ */
+    async AllQuestionPageValidation(page): Promise<void>{
+        await this.candidateContentSectionValidation();
+        let ID = EluminaRegistrationPage.CandiateClientID;
+        console.log('ID from Registration page'+ID);
+        await this.page.waitForTimeout(5000);
+        let ClientID1 = await this.page.locator('(//div[@class="txt"])[2]//label[4]').textContent();
+        console.log('ID from Candiate exam page'+ClientID1);
+        expect(ClientID1).toBe(ID);
+        await this.verifyExamDashboardTimer();
+        await this.verifyColours();
+        await this.verifyNoOfQutn();
+        await this.ClickOnRevieweBtn.isVisible();
+        await this.SectionName.isVisible();
+        await this.verifyFlagForReview();
+        await this.validationOfAllTools();
+        await this.validationOfNextBtn();
+        await this.UsingCalculatorForQuestions();
+        await this.AddingNotesToAllQuestion();
+        await this.increaseFontSize();
+        await this.decreaseFontSize();
+        if (page == 'MCQ'){
+            await this.QuestionDescription.isVisible();
+            let a = await this.NoOfQutn.textContent()
+            expect(a).toBe(' Question #1 of 30 ');
+            await this.UsingHighlighterForAllQuestions('Other');
+            await this.MCQMultipleOptions();
+            await this.candidateStartOneMCQ();
+            await this.validatePreviousBtn();
+        }else if(page == 'VSAQ'){
+            await this.QuestionDescription.isVisible();
+            let a = await this.NoOfQutn.textContent();
+            expect(a).toBe(' Question #6 of 30 ');
+            await this.UsingHighlighterForAllQuestions('Other');
+            await this.ImageViewValidation('all');
+            await this.candidateAttendsAllQVSAQ();
+            await this.validatePreviousBtn();
+        }else if(page == 'ISAWE'){
+            await this.IsaweQuestion.isVisible();
+            await this.IsaweSubQuestion.isVisible();
+            let a = await this.NoOfQutn.textContent();
+            expect(a).toBe(' Question #9 of 30 ');
+            await this.UsingHighlighterForAllQuestions('ISAWE');
+            await this.ImageViewValidation('all');
+            await this.candidateStartISAWE();
+            await this.validatePreviousBtn();
+        }else if(page == 'TYPEX'){
+            await this.TypexQuestion.isVisible();
+            let a = await this.NoOfQutn.textContent();
+            expect(a).toBe(' Question #11 of 30 ');
+            await this.UsingHighlighterForAllQuestions('Other');
+            await this.ImageViewValidation('Typex');
+            await this.candidateStartTypeX();
+            await this.validatePreviousBtn();
+        }else if(page == 'TYPEB'){
+            await this.TypebQuestionStatment.isVisible();
+            let a = await this.NoOfQutn.textContent();
+            expect(a).toBe(' Question #16 of 30 ');
+          //  await this.UsingHighlighterForAllQuestions('TYPEB');
+            await this.ImageViewValidation('all');
+            await this.candidateStartTypeB();
+            await this.validatePreviousBtn();
+        }else if(page == 'SAQ'){
+            await this.QuestionDescription.isVisible();
+            let a = await this.NoOfQutn.textContent()
+            expect(a).toBe(' Question #21 of 30 ');
+          //await this.UsingHighlighterForAllQuestions('Other');
+            await this.candidateStartSAQ();
+            await this.validatePreviousBtn();
+        }else if(page == 'SJT'){
+            await this.QuestionDescription.isVisible();
+            let a = await this.NoOfQutn.textContent();
+            expect(a).toBe(' Question #26 of 30 ');
+          //  await this.UsingHighlighterForAllQuestions('TYPEB');
+            await this.candidateStartSJT();
+            await this.validatePreviousBtn();
+        }
+    
+    }
+ 
 }
