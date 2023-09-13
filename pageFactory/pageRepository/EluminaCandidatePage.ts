@@ -1184,9 +1184,10 @@ export class EluminaCandidatePage {
         }
     }
 
-    /**
-     * Method to use Highlighter tool for All questions type
-     */
+/**
+ * Method to use Highlighter tool for All questions type
+ * @param Highlighter 
+ */
     async UsingHighlighterForAllQuestions(Highlighter) {
         {
             await this.ClickOnHighlighter.click();
@@ -1206,19 +1207,6 @@ export class EluminaCandidatePage {
             await this.page.waitForTimeout(1000);
         }
 
-    }
-
-    /**
-     * Method to use Highlighter tool for ISWAE question types
-     */
-    async UsingHighlighterForIsweQuestions() {
-        {
-            await this.ClickOnHighlighter.click();
-            await this.page.waitForTimeout(1000);
-            await this.IsaweQuestion.dblclick()
-            await this.IsaweQuestion.click()
-            await this.page.waitForTimeout(1000);
-        }
     }
 
     async flagForQuestion() {
