@@ -165,6 +165,7 @@ export class EluminaCandidatePage {
 
     readonly mousehoverOnColourMoreIcon: Locator;
     readonly NoOfQutn: Locator;
+    readonly fiveMinPopInSurveyPage: Locator;
 
 
 
@@ -286,6 +287,7 @@ export class EluminaCandidatePage {
 
         this.mousehoverOnColourMoreIcon = page.locator('//p[@class="infoIcon status-icon-id"]//span')
         this.NoOfQutn = page.locator('(//div[@class="main-title"]//h4)[1]')
+        this.fiveMinPopInSurveyPage = page.locator('//div[@class="msg-text"]')
 
     }
 
@@ -568,8 +570,12 @@ export class EluminaCandidatePage {
         console.log('Client ID-' + await this.verifyClientID.textContent());
     }
 
-    /**Method to send message in chat app */
+    /**Validation of popup in survey page */
+    async validationOfPopupInSurveyPage() {
+        await expect(this.fiveMinPopInSurveyPage).toBeVisible()
+    }
 
+    /**Method to send message in chat app */
     async chatAppMessageSent() {
         await this.page.waitForTimeout(8000);
         await this.clickChatApp.click();
@@ -608,6 +614,7 @@ export class EluminaCandidatePage {
     async verifyExamDashboardTimer() {
         await this.page.waitForTimeout(5000);
         await expect(this.verifyExamTimer).toBeVisible();
+        await expect(await this.verifyExamTimer.textContent()).toBeLessThan(24);
         await this.page.waitForTimeout(5000);
         console.log('Exam Timer-' + await this.verifyExamTimer.textContent());
     }
@@ -616,6 +623,8 @@ export class EluminaCandidatePage {
     async verifyColours() {
         await this.mousehoverOnColourMoreIcon.hover();
         console.log(await this.mousehoverOnColourMoreIcon.textContent())
+        await this.NoOfQutn.hover()
+
     }
 
     /*Method to verify No. Of Qutns*/
@@ -1049,6 +1058,21 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(2000);
 
     }
+    async candidateStartSingleSAQ(lines) {
+        await this.page.waitForTimeout(2000);
+        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
+        const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
+        for (let i = 20; i < 21; i++) {
+            await qutns[i].click();
+            //await this.page.waitForTimeout(2000);
+            await this.ansSAQQuestion.click();
+            await this.ansSAQQuestion.type(makeid(lines));
+            // await this.ClickOnNextBtn.click();
+
+        }
+        await this.page.waitForTimeout(2000);
+
+    }
 
     async candidateStartSJTValidationofReviewPage() {
         await this.page.waitForTimeout(2000);
@@ -1090,6 +1114,10 @@ export class EluminaCandidatePage {
         await expect(this.ClickOnRevieweBtn).toBeEnabled()
         await this.ClickOnRevieweBtn.click();
         await this.page.waitForTimeout(5000);
+    }
+
+    async validationOfReviewBtn() {
+        await expect(this.ClickOnRevieweBtn).toBeEnabled()
     }
 
     async candAnsLastQutnAsSJT() {
@@ -1221,6 +1249,16 @@ export class EluminaCandidatePage {
         {
             await this.clickOnLastVSAQ.click();
             //await this.ansVSAQQuestion.click();
+            await this.ClickOnHighlighter.click();
+            await this.page.waitForTimeout(1000);
+            await this.HighlightQuestions.dblclick()
+            await this.HighlightQuestions.click()
+            await this.page.waitForTimeout(1000);
+        }
+    }
+
+    async UsingHighlighterForQuestions1() {
+        {
             await this.ClickOnHighlighter.click();
             await this.page.waitForTimeout(1000);
             await this.HighlightQuestions.dblclick()
@@ -1741,13 +1779,32 @@ export class EluminaCandidatePage {
         EluminaCandidatePage.Time = await this.verifyExamTimer.textContent();
         console.log('Time display' + EluminaCandidatePage.Time);
     }
-  
-  
-    async McqPageValidation(): Promise<void>{
+
+
+    async McqPageValidation(): Promise<void> {
         await this.candidateContentSectionValidation();
         let ID = EluminaRegistrationPage.CandiateClientID;
         await this.examSectionValidation();
-        console.log('Time displaye' +Time);
+        console.log('Time displaye' + Time);
+    }
+
+    async SAQPageValidation() {
+        await this.examSectionValidation();
+        await this.verifyExamDashboardTimer()
+        await this.verifyColours()
+        await this.verifyNoOfQutn()
+        await this.verifyFlagForReview()
+        await this.validationOfAllTools();
+        await this.validationOfNextBtn()
+        await this.candidateStartOneMCQ();
+        await this.candidateStartSingleSAQ(2000);
+        await this.validatePreviousBtn()
+        await this.UsingCalculatorForQuestions()
+        await this.UsingHighlighterForQuestions1()
+        await this.increaseFontSize();
+        await this.decreaseFontSize()
+        await this.validationOfReviewBtn();
+
     }
 
 }

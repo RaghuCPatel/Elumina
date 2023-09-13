@@ -1,4 +1,6 @@
 import test from '@lib/BaseTest';
+
+/**Validation of Survey section > After Exam Time Expires*/
 import { chromium } from '@playwright/test';
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
 const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
@@ -27,8 +29,6 @@ else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
-/**Survey section > validate exam name, candidate name, exam timer, no of questions is as per exam settings.*/
-
 test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
@@ -52,7 +52,7 @@ test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLogin
         await newtab.addTypeBQuestion();
         await newtab.addSAQQuestion();
         await newtab.addSJTQuestions();
-        await newtab.createSurveySection();
+        await newtab.createSurveySection1("1");
         await newtab.createSurveyPage();
     });
 });
@@ -73,7 +73,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, elumi
     });
 });
 
-test(`iEX_TC_ID_91. @Regression Survey section > validate exam name, candidate name, exam timer, no of questions is as per exam settings.`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_94. @Regression Validation of Survey section > After Exam Time Expires`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
@@ -92,11 +92,10 @@ test(`iEX_TC_ID_91. @Regression Survey section > validate exam name, candidate n
         await eluminaCandPage.waitforTime()
         await eluminaCandPage.candidateStartSJTReviewandSubmit();
         await eluminaCandPage.examSectionValidation();
-        await eluminaCandPage.verifyExamDashboardTimer();
-        await eluminaCandPage.verifyNoOfQutn()
-        // await eluminaCandPage.candidateAnsSurveyQuestion();
-
-
+        await eluminaCandPage.popup()
+        await eluminaCandPage.waitforTime()
+        await eluminaCandPage.validationOfPopupInSurveyPage();
+        //await eluminaCandPage.candidateAnsSurveyQuestion();
     });
 
 });
