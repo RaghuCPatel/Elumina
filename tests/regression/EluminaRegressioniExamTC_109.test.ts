@@ -93,7 +93,7 @@ test(`iEX_TC_ID_81. @Regression Validation of Exam Review Exam page. (Offline)`,
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ();
+        await eluminaCandPage.candidateStartSAQ(100);
         await eluminaCandPage.candidateStartSJTValidationofReviewPage();
         await eluminaCandPage.waitforTime2();
     });
@@ -160,7 +160,7 @@ test(`iEX_TC_ID_109. @RegressionP Validation of Candidate attending Exam in Onli
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ();
+        await eluminaCandPage.candidateStartSAQ(100);
         await eluminaCandPage.candidateStartSJTReviewandSubmit();
         await eluminaCandPage.waitforTime4();
         await eluminaCandPage.setOffline(false);
