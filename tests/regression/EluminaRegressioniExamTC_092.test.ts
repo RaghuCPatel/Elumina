@@ -1,9 +1,35 @@
 import test from '@lib/BaseTest';
 
+/**Survey section > Flag for review.*/
+import { chromium } from '@playwright/test';
+const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
+const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
+const productionTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/production/testData.json')));
+const qaTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/qa/testData.json')));
+const sandboxTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/sandbox/testData.json')));
+const stagingTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/staging/testData.json')));
 
-/**Validation of Exam content page -> Questions download at content section-> Candidate goes offline */
+let testData = qaTestData;
+if (process.env.ENV == 'dev') {
+    testData = devTestData;
+}
+else if (process.env.ENV == 'p7') {
+    testData = p7TestData;
+}
+else if (process.env.ENV == 'production') {
+    testData = productionTestData;
+}
+else if (process.env.ENV == 'qa') {
+    testData = qaTestData;
+}
+else if (process.env.ENV == 'sandbox') {
+    testData = sandboxTestData;
+}
+else if (process.env.ENV == 'staging') {
+    testData = stagingTestData;
+}
 
-/*test(`Exam_Prerequisit_ID_01. @RegressionP Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -18,8 +44,6 @@ import test from '@lib/BaseTest';
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.clickonNextBtnInExam();
-        await newtab.createContentSection();
-        await newtab.createContentPage();
         await newtab.createSection();
         await newtab.addMCQQuestion();
         await newtab.addVSAQQuestion();
@@ -27,12 +51,14 @@ import test from '@lib/BaseTest';
         await newtab.addTypeXQuestion();
         await newtab.addTypeBQuestion();
         await newtab.addSAQQuestion();
-        await newtab.addSJTQuestion();
+        await newtab.addSJTQuestions();
+        await newtab.createSurveySection();
+        await newtab.createSurveyPage();
     });
 });
 
 
-test(`Reg_Prerequisit_ID_01. @RegressionP Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -45,27 +71,29 @@ test(`Reg_Prerequisit_ID_01. @RegressionP Verify Elumina Registration`, async ({
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});     */
+});
 
-test(`iEX_TC_ID_53. @RegressionP Validation of Exam content page -> Questions download at content section-> Candidate goes offline`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_92. @Regression Survey section > Flag for review.`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        //await eluminaCandPage.waitforTime();
-        //await eluminaCandPage.waitforTime4();
+        await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime4();
+
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
-    });
-    await test.step('Candidate start the exam', async () => {
-        await eluminaCandPage.setOffline(true);
-        await eluminaCandPage.candidateContentSection();
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
+        await eluminaCandPage.waitforTime()
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
         await eluminaCandPage.candidateStartSAQ();
-        await eluminaCandPage.candidateStartSJT();
+        await eluminaCandPage.waitforTime()
+        await eluminaCandPage.candidateStartSJTReviewandSubmit();
+        await eluminaCandPage.validatecandidateFlagForReviewSurveyQuestion();
+
+
     });
 
 });

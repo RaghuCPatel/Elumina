@@ -62,7 +62,7 @@ test(`iEX_TC_ID_54. @Regression Validation of Exam section page.`, async ({ elum
         await eluminaCandPage.validationOfNextBtn()
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.validatePreviousBtn()
-        await eluminaCandPage.candidateAttendsAllQVSAQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
@@ -96,7 +96,7 @@ test(`iEX_TC_ID_64. @Regression Validation of Exam Section > Highlighter tool hi
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.candidateAttendsAllQVSAQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
@@ -137,7 +137,7 @@ test(`iEX_TC_ID_76. @Regression Validation of Exam section > Candidate attend th
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.candidateAttendsAllQVSAQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();

@@ -141,13 +141,15 @@ export class EluminaRegistrationPage {
         this.SearchUsers = page.locator('//input[@placeholder="Search User(s)"]');
         this.CLickOnUser = page.locator('//tbody/tr[1]/td[2]/input[1]');
         this.ChooseExistingRole = page.locator('//div[@class="btn-selected-list"]//div//ul');
-        this.SelectInvRole = page.locator('//span[text()="Examiner-in-Charge"]');
+
+        this.SelectInvRole = page.locator('//span[normalize-space()="Invigilator"]');
+
         this.SelectExVenue = page.locator('//input[@placeholder="Select Venue"]');
         this.SelectInvVenue = page.locator('//span[text()="Elumina Chennai"]');
         this.SelectExEligible = page.locator('//input[@placeholder="Select Eligible"]');
         this.SelectInvEligible = page.locator('//span[text()="Yes"]');
         this.SelectExBookingStatus = page.locator('//input[@placeholder="Select Booking Status"]');
-        this.SelectInvBookingStatus = page.locator('//span[text()="Booked"]');
+        this.SelectInvBookingStatus = page.locator('//span[text()="Yes"]');
         this.AssignUsersToCand = page.locator('//input[@placeholder="Select User(s)"]');
         this.AssignInvToCand = page.locator('(//span[@class="open"])[5]');
         this.ClickOnInvSaveBtn = page.locator('(//button[text()="Save"])[2]');
@@ -196,12 +198,8 @@ export class EluminaRegistrationPage {
 
     /**Method to register for the exam */
     async registrationTabNavigationPMExamPage(): Promise<void> {
-        if (testENV === "sandbox") {
-            await this.RegistrationMenu.click();
-        }
-        else if (testENV === "qa") {
-            await this.DeliveryMenu.click();
-        }
+
+        await this.DeliveryMenu.click();
         let examid = EluminaMultipleExamsForPMPage.examID;
         console.log(EluminaMultipleExamsForPMPage.examID);
         await this.searchExam.type(examid);
@@ -211,12 +209,8 @@ export class EluminaRegistrationPage {
     }
 
     async registrationTabNavigationAMExamPage(): Promise<void> {
-        if (testENV === "sandbox") {
-            await this.RegistrationMenu.click();
-        }
-        else if (testENV === "qa") {
-            await this.DeliveryMenu.click();
-        }
+
+        await this.DeliveryMenu.click();
         let examid = EluminaMultipleExamsForAMPage.examID;
         console.log(EluminaMultipleExamsForAMPage.examID);
         await this.searchExam.type(examid);
@@ -227,12 +221,8 @@ export class EluminaRegistrationPage {
 
     /**Method to register for the exam */
     async registrationTabNavigationforMinimaltime(): Promise<void> {
-        if (testENV === "sandbox") {
-            await this.RegistrationMenu.click();
-        }
-        else if (testENV === "qa") {
-            await this.DeliveryMenu.click();
-        }
+
+        await this.DeliveryMenu.click();
         let examid = EluminaMinimalTimeExamPage.examID;
         console.log(EluminaMinimalTimeExamPage.examID);
         await this.searchExam.type(examid);
@@ -374,12 +364,12 @@ export class EluminaRegistrationPage {
         await this.CLickOnUser.click();
         await this.ChooseExistingRole.click();
         await this.SelectInvRole.click();
-        await this.SelectExVenue.click();
-        await this.SelectInvVenue.click();
+        // await this.SelectExVenue.click();
+        // await this.SelectInvVenue.click();
         await this.SelectExEligible.click();
         await this.SelectInvEligible.click();
-        await this.SelectExBookingStatus.click();
-        await this.SelectInvBookingStatus.click();
+        // await this.SelectExBookingStatus.click();
+        // await this.SelectInvBookingStatus.click();
         await this.ClickOnSaveBtn.click();
         await this.page.waitForTimeout(6000);
         await this.LeftArrow.click();
@@ -506,30 +496,30 @@ export class EluminaRegistrationPage {
     }
 
 
-/**
- * add Existing Cadidate Booking status change to Not Booked
- * @param Bookingstatus 
- */
-async addExistingUserswithNotBooked(Bookingstatus): Promise<void> {
-    await this.ClickOnAddExistingUser.click();
-    await this.page.waitForTimeout(2000);
-    await this.SearchUsers.click();
-    await this.page.waitForTimeout(2000);
-    await this.SearchUsers.type(candClientID);
-    await this.page.waitForTimeout(4000);
-    await this.CLickOnUser.click();
-    await this.ChooseExistingRole.click();
-    await this.SelectCandRole.click();
-    await this.SelectExVenue.click();
-    await this.SelectCadVenue.click();
-    await this.SelectExEligible.click();
-    await this.SelectInvEligible.click();
-    await this.SelectExBookingStatus.click();
-    await this.SelectBookingStatusExistinguser.getByText(Bookingstatus).click();
-    await this.ClickOnSaveBtn.click();
-    await this.page.waitForTimeout(3000);
-    await this.LeftArrow.click();
-    await this.ClickOnDropdown.click();
-    await this.page.waitForTimeout(5000);
-}
+    /**
+     * add Existing Cadidate Booking status change to Not Booked
+     * @param Bookingstatus 
+     */
+    async addExistingUserswithNotBooked(Bookingstatus): Promise<void> {
+        await this.ClickOnAddExistingUser.click();
+        await this.page.waitForTimeout(2000);
+        await this.SearchUsers.click();
+        await this.page.waitForTimeout(2000);
+        await this.SearchUsers.type(candClientID);
+        await this.page.waitForTimeout(4000);
+        await this.CLickOnUser.click();
+        await this.ChooseExistingRole.click();
+        await this.SelectCandRole.click();
+        await this.SelectExVenue.click();
+        await this.SelectCadVenue.click();
+        await this.SelectExEligible.click();
+        await this.SelectInvEligible.click();
+        await this.SelectExBookingStatus.click();
+        await this.SelectBookingStatusExistinguser.getByText(Bookingstatus).click();
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(3000);
+        await this.LeftArrow.click();
+        await this.ClickOnDropdown.click();
+        await this.page.waitForTimeout(5000);
+    }
 }

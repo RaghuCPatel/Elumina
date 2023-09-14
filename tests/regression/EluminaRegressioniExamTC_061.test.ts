@@ -1,8 +1,8 @@
 import test from '@lib/BaseTest';
 
-/**Candidate Attend practice exam*/
+/**Validation of Practice Exam View Result Page &Candidate Attend practice exam*/
 
-test(`@Regression Create practice exam`, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_242,243,61. @Regression Create practice exam`, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -17,11 +17,17 @@ test(`@Regression Create practice exam`, async ({ eluminaLoginPage, eluminaCandP
         await newtab.examTabNavigation();
         await newtab.createPracticeExam();
         await newtab.createSection();
-        await newtab.addMCQQuestions();
+        await newtab.addMCQQuestion();
+        await newtab.addVSAQQuestion();
+        await newtab.addISAWEQuestion();
+        await newtab.addTypeXQuestion();
+        await newtab.addTypeBQuestion();
+        await newtab.addSAQQuestion();
+        await newtab.addSJTQuestion();
     });
 });
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_242,243,61. @Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -33,10 +39,12 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, elumi
         await newtab.registrationTabNavigation();
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
+        await newtab.addExistingUsers();
+        await newtab.logoutClick();
     });
 });
 
-test(`@Regression Verify Validation of Candidate attend Practice Exam`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_242,243,61. @Regression Verify Validation of Candidate attend Practice Exam`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
@@ -48,7 +56,14 @@ test(`@Regression Verify Validation of Candidate attend Practice Exam`, async ({
         await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam', async () => {
-        await eluminaCandPage.candidateStartMCQPractise();
+        await eluminaCandPage.candidateStartOneMCQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
+        await eluminaCandPage.candidateStartISAWE();
+        await eluminaCandPage.candidateStartTypeX();
+        await eluminaCandPage.candidateStartTypeB();
+        await eluminaCandPage.candidateStartSAQ();
+        await eluminaCandPage.candidateStartSJT();
+        await eluminaCandPage.waitforTime4();
+        await eluminaCandPage.candidatePractisePageView();
     });
-
 });
