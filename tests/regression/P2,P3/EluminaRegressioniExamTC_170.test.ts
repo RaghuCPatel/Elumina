@@ -42,7 +42,7 @@ import test from '@lib/BaseTest';
 //     });
 // });
 
-test(`@RegressionP Validation of Exam content section >  Chat App`, async ({ eluminaCandPage,webActions }) => {
+test(` . @LowPriorityiExamCases Validation of Exam content section >  Chat App`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime3();

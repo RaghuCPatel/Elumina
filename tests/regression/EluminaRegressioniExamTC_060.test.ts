@@ -67,7 +67,7 @@ else if(process.env.ENV == 'staging'){
 //     });
 // });
 
-test(`@Regression Verify Validation of "Terminate Exam"  `, async ({eluminaCandPage, eluminaCadInvPage,webActions }) => {
+test(` . @iExamRegression Verify Validation of "Terminate Exam"  `, async ({eluminaCandPage, eluminaCadInvPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });

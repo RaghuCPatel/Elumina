@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of Exam Section> Image viewer  */
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_57. @Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_57. @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -49,7 +49,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_57. @Regression Verify Elumina Login and Cr
     });
 });
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_57. @Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_57. @iExamRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -65,7 +65,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_57. @Regression Verify Elumina Registration
     });
 });
 
-test(`iEX_TC_ID_57. @Regression Validation of Exam Section> Image viewer`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_57. @iExamRegression Validation of Exam Section> Image viewer`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

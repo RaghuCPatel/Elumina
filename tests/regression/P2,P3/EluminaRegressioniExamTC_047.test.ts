@@ -3,7 +3,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Candidate Attending Exam in Online (Abort and Resume Exam) */
 
-test(`@RegressionP Verify candidate adds and saves Notes EluminaRegressioniExamTC_038`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_60. @LowPriorityiExamCases Verify candidate adds and saves Notes EluminaRegressioniExamTC_038`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -22,7 +22,7 @@ test(`@RegressionP Verify candidate adds and saves Notes EluminaRegressioniExamT
 
 /**Candidate while attending exam - Online - try to press any F1 to F12 keys */
 
-test(`@RegressionP Candidate while attending exam - Online - try to press any F1 to F12 keys TC-201`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
+test(` . @LowPriorityiExamCases Candidate while attending exam - Online - try to press any F1 to F12 keys TC-201`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -40,7 +40,7 @@ test(`@RegressionP Candidate while attending exam - Online - try to press any F1
 
 });
 
-test(`@RegressionP No other key combinations could cause the candidates to logout and/or lose data TC-205`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
+test(` . @LowPriorityiExamCases No other key combinations could cause the candidates to logout and/or lose data TC-205`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -59,7 +59,7 @@ test(`@RegressionP No other key combinations could cause the candidates to logou
 /**Validation of Candidate Attending Exam in Online (Abort and Resume Exam) */
 
 
-test(`@RegressionP Validation of Candidate Attending Exam in Online (Abort and Resume Exam)`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
+test(` . @LowPriorityiExamCases Validation of Candidate Attending Exam in Online (Abort and Resume Exam)`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -78,7 +78,7 @@ test(`@RegressionP Validation of Candidate Attending Exam in Online (Abort and R
     });
 });
 
-test(`@RegressionP Validation Candidate Login again`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
+test(` . @LowPriorityiExamCases Validation Candidate Login again`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -94,7 +94,7 @@ test(`@RegressionP Validation Candidate Login again`, async ({ eluminaCadInvPage
 
 /**Validation of Review Exam page  > Chat App*/
 
-test(`@RegressionP Verify Validation of Review Exam page  > Chat App TC-173`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
+test(` . @LowPriorityiExamCases Verify Validation of Review Exam page  > Chat App TC-173`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();

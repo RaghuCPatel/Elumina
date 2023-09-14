@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 //Validation of login for invigilator for valid credential
 
-test(`@Regression Verify Validation of login for invigilator for valid credential`, async ({ eluminaInvPage, webActions }) => {
+test(` . @iExamRegression Verify Validation of login for invigilator for valid credential`, async ({ eluminaInvPage, webActions }) => {
    
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaInvPage.invigilatorLogin();

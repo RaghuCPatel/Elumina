@@ -40,7 +40,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
 });                     */
 
-test(`@Regression Verify Invigilator marks attendance for All candidates`, async ({ eluminaInvPage, webActions }) => {
+test(` . @iExamRegression Verify Invigilator marks attendance for All candidates`, async ({ eluminaInvPage, webActions }) => {
     await test.step('Invigilator logging into application', async () => {
         await eluminaInvPage.invigilatorLogin();
     });

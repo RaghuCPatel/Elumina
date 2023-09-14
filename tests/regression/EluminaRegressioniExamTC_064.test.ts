@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Exam content page - Scroll bar*/
 
-test(`@Regression Verify Validation of Exam content page - Scroll bar`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+test(` . @iExamRegression Verify Validation of Exam content page - Scroll bar`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.candidateLoginToApplication();

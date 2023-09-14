@@ -3,7 +3,7 @@ import test from '@lib/BaseTest';
 /**Validation of Client Logo and name, color, font size and font type of different elements in the login page*/
 
 
-test(`@RegressionP Validation of Client Logo and name, color, font size and font type of different elements in the login page`, async ({ eluminaCandPage, webActions }) => {
+test(` . @LowPriorityiExamCases Validation of Client Logo and name, color, font size and font type of different elements in the login page`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -12,7 +12,7 @@ test(`@RegressionP Validation of Client Logo and name, color, font size and font
     });
 });
 
-test('iEX_TC_ID_5. @RegressionP Verify Validation of User Id Field', async ({ eluminaCandPage, webActions }) => {
+test('iEX_TC_ID_5. @LowPriorityiExamCases Verify Validation of User Id Field', async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -21,7 +21,7 @@ test('iEX_TC_ID_5. @RegressionP Verify Validation of User Id Field', async ({ el
     });
 });
 
-test('iEX_TC_ID_6. @RegressionP Verify Validation of Password popup Field', async ({ eluminaCandPage, webActions }) => {
+test('iEX_TC_ID_6. @LowPriorityiExamCases Verify Validation of Password popup Field', async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 //Validation of the "Timer" - After clicking on "Start Exam" Button
 
-test(`@Regression Verify Validation of the "Timer" - After clicking on "Start Exam" Button`, async ({ eluminaCandPage,webActions }) => {
+test(` . @iExamRegression Verify Validation of the "Timer" - After clicking on "Start Exam" Button`, async ({ eluminaCandPage,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

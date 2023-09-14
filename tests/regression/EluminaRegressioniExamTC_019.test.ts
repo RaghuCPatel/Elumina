@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 //Validation of Browser Reload option on Candidate Dashboard
 
-test(`@Regression Verify Validation of Browser Reload option on Candidate Dashboard`, async ({ eluminaCandPage, webActions }) => {
+test(` . @iExamRegression Verify Validation of Browser Reload option on Candidate Dashboard`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Exam section page  > Chat App*/
 
-test(`@RegressionP Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(` . @LowPriorityiExamCases Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -22,7 +22,7 @@ test(`@RegressionP Verify Elumina Login and Create Exam`, async ({ eluminaLoginP
     });
 });
 
-test(`@RegressionP Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(` . @LowPriorityiExamCases Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -37,7 +37,7 @@ test(`@RegressionP Verify Elumina RegistrationInv and add User and Invigilator`,
     });
 });
 
-test(`@RegressionP Verify Validation of Exam section page  > Chat App`, async ({ eluminaCandPage, webActions }) => {
+test(` . @LowPriorityiExamCases Verify Validation of Exam section page  > Chat App`, async ({ eluminaCandPage, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
@@ -54,7 +54,7 @@ test(`@RegressionP Verify Validation of Exam section page  > Chat App`, async ({
     });
 });
 
-test(`iEX_TC_ID_198. @RegressionP Validate when user go offline while using chat app.`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_198. @LowPriorityiExamCases Validate when user go offline while using chat app.`, async ({ eluminaCandPage, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();

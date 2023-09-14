@@ -64,7 +64,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
 });        */
 
-test(`@Regression Verify Validation of Reset Login`, async ({ eluminaCandPage,webActions }) => {
+test(` . @iExamRegression Verify Validation of Reset Login`, async ({ eluminaCandPage,webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();

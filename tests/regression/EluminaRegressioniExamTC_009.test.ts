@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Sign out at Candidate Dashboard Page*/
 
-test(`@Regression Validation of Sign out at Candidate Dashboard Page`, async ({ eluminaCandPage, webActions }) => {
+test(` . @iExamRegression Validation of Sign out at Candidate Dashboard Page`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

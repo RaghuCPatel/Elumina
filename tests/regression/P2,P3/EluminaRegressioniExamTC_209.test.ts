@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /** Validate candidate attending All Question type  and Validation of Candidate attending Exam in Online - Offline and submit in online Mode. */
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_108. , iEX_TC_ID_115. @RegressionP Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_108,iEX_TC_ID_115. @LowPriorityiExamCases Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -30,7 +30,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_108. , iEX_TC_ID_115. @RegressionP Verify E
     });
 });
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_108. , iEX_TC_ID_115. @RegressionP Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_108,iEX_TC_ID_115. @LowPriorityiExamCases Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -47,7 +47,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_108. , iEX_TC_ID_115. @RegressionP Verify E
     });
 });
 
-test(`iEX_TC_ID_53. @RegressionP Validation of Exam content page -> Questions download at content section-> Candidate goes offline`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_53. @LowPriorityiExamCases Validation of Exam content page -> Questions download at content section-> Candidate goes offline`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
@@ -71,7 +71,7 @@ test(`iEX_TC_ID_53. @RegressionP Validation of Exam content page -> Questions do
 
 });
 
-test(`iEX_TC_ID_108. , iEX_TC_ID_115. @RegressionP Validation of Candidate attending Exam in Online - Offline and submit in Offline Mode`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_108,iEX_TC_ID_115. @LowPriorityiExamCases Validation of Candidate attending Exam in Online - Offline and submit in Offline Mode`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
 

@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 }
 /** Validation of exam paused for Candidate & Validation of exam extended for Candidate  */
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -56,7 +56,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elu
     });
 });
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @iExamRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -73,7 +73,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elu
     });
 });
 
-test(`iEX_TC_ID_239'. @Regression Verify Validation of Browser back button on Candidate Dashboard`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_239'. @iExamRegression Verify Validation of Browser back button on Candidate Dashboard`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -86,7 +86,7 @@ test(`iEX_TC_ID_239'. @Regression Verify Validation of Browser back button on Ca
 });
 
 
-test(`iEX_TC_ID_128. @Regression Validation of Exam Invigilator Live monitor`, async ({ eluminaInvPage, webActions }) => {
+test(`iEX_TC_ID_128. @iExamRegression Validation of Exam Invigilator Live monitor`, async ({ eluminaInvPage, webActions }) => {
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaInvPage.invigilatorLogin();
     });
@@ -99,7 +99,7 @@ test(`iEX_TC_ID_128. @Regression Validation of Exam Invigilator Live monitor`, a
 });
 
 
-test(`iEX_TC_ID_146. @Regression Validation of Long Essay Response (more than 200 lines)`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_146. @iExamRegression Validation of Long Essay Response (more than 200 lines)`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -135,7 +135,7 @@ test(`iEX_TC_ID_146. @Regression Validation of Long Essay Response (more than 20
     });
 });
 
-test('iEX_TC_ID_154,iEX_TC_ID_155,iEX_TC_ID_156,iEX_TC_ID_157. @Regression Validation of Refresh Live Monitor and status Auto update ', async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
+test('iEX_TC_ID_154,iEX_TC_ID_155,iEX_TC_ID_156,iEX_TC_ID_157. @iExamRegression Validation of Refresh Live Monitor and status Auto update ', async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
@@ -200,7 +200,7 @@ test('iEX_TC_ID_154,iEX_TC_ID_155,iEX_TC_ID_156,iEX_TC_ID_157. @Regression Valid
 });
 
 
-test('iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor ', async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
+test('iEX_TC_ID_153. @iExamRegression Validation of Add Notes in Live Monitor ', async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
@@ -241,7 +241,7 @@ test('iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor ', asyn
     })
 });
 
-test(`iEX_TC_ID_122. @Regression Validation of exam paused for Candidate `, async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
+test(`iEX_TC_ID_122. @iExamRegression Validation of exam paused for Candidate `, async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });
@@ -286,7 +286,7 @@ test(`iEX_TC_ID_122. @Regression Validation of exam paused for Candidate `, asyn
 });
 
 
-test(`iEX_TC_ID_142. @Regression Validation of Exam Invigilator Live monitor > Extend Timer.  (Individual Candidate)  Extend Candidate Exam beyond session end date/time `, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_142. @iExamRegression Validation of Exam Invigilator Live monitor > Extend Timer.  (Individual Candidate)  Extend Candidate Exam beyond session end date/time `, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -338,7 +338,7 @@ test(`iEX_TC_ID_142. @Regression Validation of Exam Invigilator Live monitor > E
     });
 });
 
-test(`iEX_TC_ID_123. @Regression Verify Validation of Extending Exam`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_123. @iExamRegression Verify Validation of Extending Exam`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -387,7 +387,7 @@ test(`iEX_TC_ID_123. @Regression Verify Validation of Extending Exam`, async ({ 
     });
 });
 
-test(`iEX_TC_ID_138. @Regression Validation of Exam Invigilator Live monitor > Resume exam.  (Individual Candidate) `, async ({ eluminaCandPage, eluminaProctorCand, eluminaCadInvPage, webActions }) => {
+test(`iEX_TC_ID_138. @iExamRegression Validation of Exam Invigilator Live monitor > Resume exam.  (Individual Candidate) `, async ({ eluminaCandPage, eluminaProctorCand, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -432,7 +432,7 @@ test(`iEX_TC_ID_138. @Regression Validation of Exam Invigilator Live monitor > R
     });
 });
 
-test(`iEX_TC_ID_124. @Smoke Verify Validation of "Lock Exam" from Live monitor Proctor `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
+test(`iEX_TC_ID_124. @iExamRegression Verify Validation of "Lock Exam" from Live monitor Proctor `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -479,7 +479,7 @@ test(`iEX_TC_ID_124. @Smoke Verify Validation of "Lock Exam" from Live monitor P
 });
 
 
-test(`iEX_TC_ID_136. @Regression Validation of Exam Invigilator Live monitor > Terminate exam.  (Individual Candidate)"  `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
+test(`iEX_TC_ID_136. @iExamRegression Validation of Exam Invigilator Live monitor > Terminate exam.  (Individual Candidate)"  `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });

@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Exam content section page not auto downloading video, audio, images */
 
-test(`@iEX_TC_ID_237  Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`iEX_TC_ID_237. @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
