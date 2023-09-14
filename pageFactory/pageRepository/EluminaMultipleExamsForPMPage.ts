@@ -323,7 +323,7 @@ export class EluminaMultipleExamsForPMPage {
   }
 
   /*Create Exam Section*/
-  async createSection(): Promise<string> {
+  async createSection(hr, mins): Promise<string> {
     EluminaMultipleExamsForPMPage.examID = await this.fectchExamID.textContent();
     console.log("Exam ID:" + EluminaMultipleExamsForPMPage.examID);
     await this.CliCKOnCreateSection.click();
@@ -333,8 +333,8 @@ export class EluminaMultipleExamsForPMPage {
     await this.DescriptionMessage.click();
     await this.DescriptionMessage.type(testData.DescriptionMessage);
     await this.page.waitForTimeout(5000);
-    await this.Choosehrs.selectOption('0');
-    await this.SelectTime.selectOption('58');
+    await this.Choosehrs.selectOption(hr);
+    await this.SelectTime.selectOption(mins);
     await this.ClickOnSave.click();
     await this.page.waitForTimeout(5000);
     return EluminaMultipleExamsForPMPage.examID;

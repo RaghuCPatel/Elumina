@@ -16,7 +16,7 @@ test(`@Regression Validation of "Time Remaining" pop-up when the just before the
         const newtab = await eluminaMinimalTimeExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExam();
-        await newtab.createSection();
+        await newtab.createSection("0", "1");
         await newtab.addMCQQuestions();
     });
 });

@@ -19,9 +19,9 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.clickonNextBtnInExam();
-        await newtab.createContentSection();
+        await newtab.createContentSection("1");
         await newtab.createContentPage();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestion();
         await newtab.addVSAQQuestion();
         await newtab.addISAWEQuestion();
@@ -29,7 +29,7 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
         await newtab.addTypeBQuestion();
         await newtab.addSAQQuestion();
         await newtab.addSJTQuestions();
-        await newtab.createSurveySection();
+        await newtab.createSurveySection("10");
         await newtab.createSurveyPage();
 
     });
@@ -93,7 +93,7 @@ test(`iEX_TC_ID_69. @Regression Validation of Exam Section > Question and Answer
     });
 });
 
-    
+
 test(`iEX_TC_ID_79. @Regression Verify Validation of Candidate attends All Question type in offline`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();

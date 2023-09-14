@@ -13,19 +13,19 @@ test(`@iEX_TC_ID_237  Regression Verify Elumina Login and Create Exam`, async ({
         await eluminaLoginPage.verifyProfilePage();
     });
 
-await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-    const newtab = await eluminaExamPage.iAuthorPageNavigation();
-    await newtab.examTabNavigation();
-    await newtab.createCommonExam();
-    await newtab.clickonNextBtnInExam();
-    await newtab.createContentSection();
+    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
+        const newtab = await eluminaExamPage.iAuthorPageNavigation();
+        await newtab.examTabNavigation();
+        await newtab.createCommonExam();
+        await newtab.clickonNextBtnInExam();
+        await newtab.createContentSection("1");
 
-    await newtab.createContentPage();
-    await newtab.addingImageContentPage();
-    // await newtab.createSection();
-    // await newtab.addMCQQuestions();
+        await newtab.createContentPage();
+        await newtab.addingImageContentPage();
+        // await newtab.createSection();
+        // await newtab.addMCQQuestions();
 
-});
+    });
 });
 
 
@@ -53,5 +53,5 @@ await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
 //     await test.step(`Candidate Login to application with inactive user`, async () => {
 //         await eluminaCandPage.candidateLoginWithValidCredentials();
 //     });
-// 
+//
 // });

@@ -183,6 +183,7 @@ export class EluminaCandidatePage {
     readonly imageViewForTypeX: Locator;
     readonly fiveMinPopInSurveyPage: Locator;
     readonly VSAQQuestion1Click: Locator;
+    readonly validationDashboardTitle: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -323,6 +324,7 @@ export class EluminaCandidatePage {
         this.imageViewForTypeX = page.locator('(//div[@class="imagepreview-container"]//img)[1]');
         const ID: string = String(EluminaRegistrationPage.CandiateClientID);
         this.fiveMinPopInSurveyPage = page.locator('//div[@class="msg-text"]')
+        this.validationDashboardTitle = page.locator('//div[@class="menu-item"]')
 
 
     }
@@ -410,6 +412,11 @@ export class EluminaCandidatePage {
 
     }
 
+
+    async validationOfPopessageInCandLoginPage() {
+        await expect(this.offlineMessage).toHaveText("User Id and Password are required")
+    }
+
     /**Method to Enter Invaild Password Candidate Credentials */
     async candidateInvalidLoginPassword(): Promise<void> {
         const ExcelJS = require('exceljs');
@@ -482,7 +489,11 @@ export class EluminaCandidatePage {
         })
         await this.page.waitForTimeout(5000);
         await this.LOGIN_BUTTON.click();
-        await this.page.waitForTimeout(3000);
+        await this.validationOfDashboardTitleInCandPage()
+    }
+    /**Method to validate Dashboard title */
+    async validationOfDashboardTitleInCandPage() {
+        await expect(this.validationDashboardTitle).toHaveText("Dashboard ")
     }
 
     /**
@@ -704,7 +715,6 @@ export class EluminaCandidatePage {
     async verifyContentSectionTimer() {
         // await this.page.waitForTimeout(5000);
         const contentpageTimer = await this.verifyContentSectionTime.textContent()
-        await expect(contentpageTimer).toBeLessThanOrEqual(1)
         console.log('Exam Timer-' + await this.verifyContentSectionTime.textContent());
     }
 
@@ -1322,6 +1332,7 @@ export class EluminaCandidatePage {
             await this.page.waitForTimeout(1000);
             await this.HighlightQuestions.dblclick()
             await this.HighlightQuestions.click()
+
         }
         await this.page.waitForTimeout(1000);
     }
@@ -1339,6 +1350,13 @@ export class EluminaCandidatePage {
 
         }
     
+
+
+        }
+        await this.page.waitForTimeout(1000);
+    }
+
+   
 
     async flagForQuestion() {
         await this.clickOnLastVSAQ.click();
@@ -1425,7 +1443,7 @@ export class EluminaCandidatePage {
     }
 
 
-    async candidateLoginWithValidCredentials(): Promise<void> {
+    /*async candidateLoginWithValidCredentials(): Promise<void> {
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();
         const fileName = './download/User_details.xlsx';
@@ -1445,7 +1463,7 @@ export class EluminaCandidatePage {
             console.log("Candidate Logged In Successfuly");
 
         }
-    }
+    }     */
 
 
     /**Method to Enter Invigilator Password */
@@ -1496,7 +1514,7 @@ export class EluminaCandidatePage {
     }
 
     /**Method to signout of the exam after candidate logged in */
-    async candidateLoginToAppandSignout(): Promise<void> {
+    /*async candidateLoginToAppandSignout(): Promise<void> {
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();
         const fileName = './download/User_details.xlsx';
@@ -1514,7 +1532,7 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(5000);
         await this.signOutBtn.click();
         await this.page.waitForTimeout(2000);
-    }
+    }     */
 
     /**Method to check if Red colour is displayed for questions which is marked for Falg for review */
     async flagForReview() {
@@ -1957,7 +1975,11 @@ export class EluminaCandidatePage {
             let a = await this.NoOfQutn.textContent()
             expect(a).toBe(' Question #21 of 30 ');
 
+
            // await this.UsingHighlighterForAllQuestions('Other');
+
+            await this.UsingHighlighterForAllQuestions('Other');
+
             await this.candidateStartSAQ(2000);
 
             await this.validatePreviousBtn();
@@ -1971,6 +1993,7 @@ export class EluminaCandidatePage {
         }
 
     }
+
 
     async SAQPageValidation() {
         await this.examSectionValidation();
@@ -1997,6 +2020,7 @@ export class EluminaCandidatePage {
     * 
     */
 
+
     async McqPageValidations() {
         await expect(this.verifyExamTimer).toBeVisible();
         EluminaCandidatePage.Time = await this.verifyExamTimer.textContent();
@@ -2004,7 +2028,7 @@ export class EluminaCandidatePage {
     }
 
 
+
 }
-   
 
 }

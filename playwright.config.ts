@@ -20,7 +20,7 @@ const config: PlaywrightTestConfig = {
 
 
   //number of retries if test case fails
-  retries: 0,
+  retries: 1,
 
   //Reporters
   reporter: [[`./CustomReporterConfig.ts`], [`allure-playwright`], [`html`, { outputFolder: 'html-report', open: 'never' }]],

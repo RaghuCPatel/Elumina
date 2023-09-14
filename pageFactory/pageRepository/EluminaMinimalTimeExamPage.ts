@@ -327,14 +327,14 @@ export class EluminaMinimalTimeExamPage {
     }
     await this.BookingOK.click();
     await this.ExamEndCalender.click();
-    
-    if(EndDay == 1){ 
+
+    if (EndDay == 1) {
 
       if (EndExamDate >= "30") {
         console.log("Exam end date:" + EndExamDate);
         await this.page.waitForSelector('//li[@class="next"]');
         await this.nextButton.click();
-        await this.Oneclick.click(); 
+        await this.Oneclick.click();
       }
       else if (EndExamDate >= "31") {
         console.log("Exam end date:" + EndExamDate);
@@ -346,10 +346,10 @@ export class EluminaMinimalTimeExamPage {
         console.log("Exam end date:" + EndExamDate);
         await this.ExamEndDate.click();
       }
-  }
-  else{
-    await this.ExamEndDate.click();
-  }
+    }
+    else {
+      await this.ExamEndDate.click();
+    }
     await this.BookingStartHrs.click();
     await this.BookingStartHrs.clear();
     await this.BookingStartHrs.type(hour12.toString());
@@ -381,7 +381,7 @@ export class EluminaMinimalTimeExamPage {
   }
 
   /**Create Exam Section */
-  async createSection(): Promise<String> {
+  async createSection(hr, mins): Promise<String> {
     EluminaMinimalTimeExamPage.examID = await this.fectchExamID.textContent();
     console.log("Exam ID:" + EluminaMinimalTimeExamPage.examID);
     await this.CliCKOnCreateSection.click();
@@ -391,8 +391,8 @@ export class EluminaMinimalTimeExamPage {
     await this.DescriptionMessage.click();
     await this.DescriptionMessage.type('Hello World.....');
     await this.page.waitForTimeout(5000);
-    await this.Choosehrs.selectOption('0');
-    await this.SelectTime.selectOption('1');
+    await this.Choosehrs.selectOption(hr);
+    await this.SelectTime.selectOption(mins);
     await this.ClickOnSave.click();
     await this.page.waitForTimeout(5000);
     return EluminaMinimalTimeExamPage.examID;

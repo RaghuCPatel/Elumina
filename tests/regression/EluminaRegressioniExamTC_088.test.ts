@@ -44,7 +44,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_57. @Regression Verify Elumina Login and Cr
         await newtab.examTabNavigation();
         await newtab.createCommonExamWithViewer();
         await newtab.clickonNextBtnInExam();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addImageQuestion();
     });
 });
