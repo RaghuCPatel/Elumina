@@ -141,7 +141,9 @@ export class EluminaRegistrationPage {
         this.SearchUsers = page.locator('//input[@placeholder="Search User(s)"]');
         this.CLickOnUser = page.locator('//tbody/tr[1]/td[2]/input[1]');
         this.ChooseExistingRole = page.locator('//div[@class="btn-selected-list"]//div//ul');
-        this.SelectInvRole = page.locator('//span[text()="Invigilator"]');
+
+        this.SelectInvRole = page.locator('//span[normalize-space()="Invigilator"]');
+
         this.SelectExVenue = page.locator('//input[@placeholder="Select Venue"]');
         this.SelectInvVenue = page.locator('//span[text()="Elumina Chennai"]');
         this.SelectExEligible = page.locator('//input[@placeholder="Select Eligible"]');
@@ -183,6 +185,7 @@ export class EluminaRegistrationPage {
 
     /**Method to register for the exam */
     async registrationTabNavigation(): Promise<void> {
+
         await this.DeliveryMenu.click();
         let examid = EluminaExamPage.examID;
         console.log(EluminaExamPage.examID);
@@ -196,12 +199,8 @@ export class EluminaRegistrationPage {
 
     /**Method to register for the exam */
     async registrationTabNavigationPMExamPage(): Promise<void> {
-        if (testENV === "sandbox") {
-            await this.RegistrationMenu.click();
-        }
-        else if (testENV === "qa") {
-            await this.DeliveryMenu.click();
-        }
+
+        await this.DeliveryMenu.click();
         let examid = EluminaMultipleExamsForPMPage.examID;
         console.log(EluminaMultipleExamsForPMPage.examID);
         await this.searchExam.type(examid);
@@ -211,12 +210,8 @@ export class EluminaRegistrationPage {
     }
 
     async registrationTabNavigationAMExamPage(): Promise<void> {
-        if (testENV === "sandbox") {
-            await this.RegistrationMenu.click();
-        }
-        else if (testENV === "qa") {
-            await this.DeliveryMenu.click();
-        }
+
+        await this.DeliveryMenu.click();
         let examid = EluminaMultipleExamsForAMPage.examID;
         console.log(EluminaMultipleExamsForAMPage.examID);
         await this.searchExam.type(examid);
@@ -227,12 +222,8 @@ export class EluminaRegistrationPage {
 
     /**Method to register for the exam */
     async registrationTabNavigationforMinimaltime(): Promise<void> {
-        if (testENV === "sandbox") {
-            await this.RegistrationMenu.click();
-        }
-        else if (testENV === "qa") {
-            await this.DeliveryMenu.click();
-        }
+
+        await this.DeliveryMenu.click();
         let examid = EluminaMinimalTimeExamPage.examID;
         console.log(EluminaMinimalTimeExamPage.examID);
         await this.searchExam.type(examid);

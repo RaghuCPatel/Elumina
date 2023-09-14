@@ -162,6 +162,10 @@ export class EluminaCandidatePage {
     readonly marks1: Locator;
     readonly marks2: Locator;
     readonly totalMarks: Locator;
+    readonly answerCorrect: Locator;
+    readonly answerIncorrect: Locator;
+    readonly clickQuestion1: Locator;
+    readonly clickQuestion5: Locator;
 
     readonly mousehoverOnColourMoreIcon: Locator;
     readonly NoOfQutn: Locator;
@@ -284,6 +288,12 @@ export class EluminaCandidatePage {
         this.marks1 = page.locator('(//div[normalize-space()="1"])[1]');
         this.marks2 = page.locator('(//div[normalize-space()="N/A"])[1]');
         this.totalMarks = page.locator('(//div[@class="total-marks"])[2]');
+
+        this.answerCorrect = page.locator('//div[text()="Your answer is correct"]');
+        this.answerIncorrect = page.locator('//div[text()="Your answer is incorrect"]');
+        this.clickQuestion1 = page.locator('//div[normalize-space()="Question 1"]');
+        this.clickQuestion5 = page.locator('(//div[@class="question-number-container"]//div//p)[5]');
+
 
         this.mousehoverOnColourMoreIcon = page.locator('//p[@class="infoIcon status-icon-id"]//span')
         this.NoOfQutn = page.locator('(//div[@class="main-title"]//h4)[1]')
@@ -1405,7 +1415,6 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(5000);
         await this.ClickOnSubmitBtn.click();
         await this.page.waitForTimeout(5000);
-        // await this.ConfirmationToSubmit.click();
         await expect(this.submitSuccessMessage).toHaveText("Exam Responses have been successfully synced to the server.");
         await this.page.waitForTimeout(5000);
         await this.ViewResult.click();
@@ -1414,6 +1423,12 @@ export class EluminaCandidatePage {
         await expect(this.marks2).toHaveText("N/A");
         await expect(this.totalMarks).toBeVisible();
         console.log("Total Marks:" + this.totalMarks.textContent());
+
+        await this.clickQuestion1.click();
+        await expect(this.answerCorrect).toHaveText("Your answer is correct");
+
+        await this.clickQuestion5.click();
+        await expect(this.answerIncorrect).toHaveText("Your answer is incorrect");
 
     }
 
