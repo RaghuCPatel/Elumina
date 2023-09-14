@@ -12,20 +12,20 @@ test(`@RegressionP Validation of Client Logo and name, color, font size and font
     });
 });
 
-test('iEX_TC_ID_5. @RegressionP Verify Validation of User Id Field',async ({ eluminaCandPage, webActions }) => {
+test('iEX_TC_ID_5. @RegressionP Verify Validation of User Id Field', async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
-    await test.step('Candiate enter the Password and click on Login button',async () => {
+    await test.step('Candiate enter the Password and click on Login button', async () => {
         await eluminaCandPage.candidateUserNamePopUp();
     });
 });
 
-test('iEX_TC_ID_6. @RegressionP Verify Validation of Password popup Field',async ({ eluminaCandPage, webActions }) => {
+test('iEX_TC_ID_6. @RegressionP Verify Validation of Password popup Field', async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
-    await test.step('Candiate enter the Password and click on Login button',async () => {
+    await test.step('Candiate enter the Password and click on Login button', async () => {
         await eluminaCandPage.candidatePasswordPopUp();
     });
 });

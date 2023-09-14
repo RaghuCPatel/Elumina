@@ -813,12 +813,36 @@ export class EluminaExamPage {
     await this.DescriptionMessage.click();
     await this.DescriptionMessage.type(testData.DescriptionMessage);
     await this.page.waitForTimeout(5000);
-    await this.Choosehrs.selectOption('1');
-    await this.SelectTime.selectOption('30');
+    await this.Choosehrs.selectOption("1");
+    await this.SelectTime.selectOption("30");
     await this.ClickOnSave.click();
     await this.page.waitForTimeout(5000);
     return EluminaExamPage.examID;
   }
+
+  /**
+   * 
+   * @param Hrs 
+   * @param Mins 
+   * @returns 
+   */
+  async createSection1(Hrs, Mins): Promise<string> {
+    EluminaExamPage.examID = await this.fectchExamID.textContent();
+    console.log("Exam ID:" + EluminaExamPage.examID);
+    await this.CliCKOnCreateSection.click();
+    await this.ClickOnCreateExamSection.click();
+    await this.EnterSectionName.type('Exam-' + Math.floor(Math.random()) * 89 + 10);
+    await this.page.waitForTimeout(5000);
+    await this.DescriptionMessage.click();
+    await this.DescriptionMessage.type(testData.DescriptionMessage);
+    await this.page.waitForTimeout(5000);
+    await this.Choosehrs.selectOption(Hrs);
+    await this.SelectTime.selectOption(Mins);
+    await this.ClickOnSave.click();
+    await this.page.waitForTimeout(5000);
+    return EluminaExamPage.examID;
+  }
+
 
   //Create Survey Section
   async createSurveySection() {
@@ -832,6 +856,22 @@ export class EluminaExamPage {
     await this.DescriptionMessage.type('Hello World.....');
     await this.page.waitForTimeout(5000);
     await this.selectMinutes.selectOption('10');
+    await this.ClickOnSave.click();
+
+  }
+
+  //Create Survey Section
+  async createSurveySection1(timer) {
+    await this.page.waitForTimeout(5000);
+    await this.CliCKOnCreateSection.click();
+    await this.page.waitForTimeout(5000);
+    await this.ClickOnCreateSurveySection.click();
+    await this.EnterSectionName.type('Survey-' + Math.floor(Math.random()) * 89 + 10);
+    await this.page.waitForTimeout(5000);
+    await this.DescriptionMessage.click();
+    await this.DescriptionMessage.type('Hello World.....');
+    await this.page.waitForTimeout(5000);
+    await this.selectMinutes.selectOption(timer);
     await this.ClickOnSave.click();
 
   }

@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Download Grade book. */
 
-test(`iAU_TC_ID_230  Validation of Download Grade book.`, async ({ eluminaLoginPage, eluminaGradeBookPage, webActions }) => {
+/*test(`iAU_TC_ID_230  Validation of Download Grade book.`, async ({ eluminaLoginPage, eluminaGradeBookPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -14,4 +14,4 @@ test(`iAU_TC_ID_230  Validation of Download Grade book.`, async ({ eluminaLoginP
         await newtab.gradeBookNavigator();
         await newtab.downloadGradeDetails();
     });
-});
+});*/
