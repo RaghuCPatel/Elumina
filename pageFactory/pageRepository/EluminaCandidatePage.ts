@@ -1108,7 +1108,7 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(2000);
 
     }
-    
+
     async candidateStartSJTValidationofReviewPage() {
         await this.page.waitForTimeout(2000);
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
@@ -1347,17 +1347,6 @@ export class EluminaCandidatePage {
     }
 
 
-
-        }
-    
-
-
-        }
-        await this.page.waitForTimeout(1000);
-    }
-
-   
-
     async flagForQuestion() {
         await this.clickOnLastVSAQ.click();
         await this.flagForReviewQuestions.click();
@@ -1514,7 +1503,7 @@ export class EluminaCandidatePage {
     }
 
     /**Method to signout of the exam after candidate logged in */
-    /*async candidateLoginToAppandSignout(): Promise<void> {
+    async candidateLoginToAppandSignout(): Promise<void> {
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();
         const fileName = './download/User_details.xlsx';
@@ -1532,7 +1521,7 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(5000);
         await this.signOutBtn.click();
         await this.page.waitForTimeout(2000);
-    }     */
+    }
 
     /**Method to check if Red colour is displayed for questions which is marked for Falg for review */
     async flagForReview() {
@@ -1976,7 +1965,7 @@ export class EluminaCandidatePage {
             expect(a).toBe(' Question #21 of 30 ');
 
 
-           // await this.UsingHighlighterForAllQuestions('Other');
+            // await this.UsingHighlighterForAllQuestions('Other');
 
             await this.UsingHighlighterForAllQuestions('Other');
 
@@ -1994,27 +1983,6 @@ export class EluminaCandidatePage {
 
     }
 
-
-    async SAQPageValidation() {
-        await this.examSectionValidation();
-        await this.verifyExamDashboardTimer()
-        await this.verifyColours()
-        await this.verifyNoOfQutn()
-        await this.verifyFlagForReview()
-        await this.validationOfAllTools();
-        await this.validationOfNextBtn()
-        await this.candidateStartOneMCQ();
-        await this.candidateStartSingleSAQ(2000);
-        await this.validatePreviousBtn()
-        await this.UsingCalculatorForQuestions()
-        await this.UsingHighlighterForQuestions1()
-        await this.increaseFontSize();
-        await this.decreaseFontSize()
-        await this.validationOfReviewBtn();
-
-
-    }
-
     /**
     * To Validate each component displayed in the MCQ Section
     * 
@@ -2027,8 +1995,6 @@ export class EluminaCandidatePage {
         console.log('Time display' + EluminaCandidatePage.Time);
     }
 
-
-
 }
 
-}
+

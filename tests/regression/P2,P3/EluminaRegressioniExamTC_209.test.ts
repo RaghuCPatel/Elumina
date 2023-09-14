@@ -17,9 +17,9 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_108. , iEX_TC_ID_115. @RegressionP Verify E
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.selectAllTools();
-        await newtab.createContentSection();
+        await newtab.createContentSection("1");
         await newtab.createContentPage();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestion();
         await newtab.addVSAQQuestion();
         await newtab.addISAWEQuestion();
@@ -65,7 +65,7 @@ test(`iEX_TC_ID_53. @RegressionP Validation of Exam content page -> Questions do
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ();
+        await eluminaCandPage.candidateStartSAQ(100);
         await eluminaCandPage.candidateStartSJT();
     });
 
@@ -86,7 +86,7 @@ test(`iEX_TC_ID_108. , iEX_TC_ID_115. @RegressionP Validation of Candidate atten
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ();
+        await eluminaCandPage.candidateStartSAQ(100);
         await eluminaCandPage.candidateStartSJTReviewandSubmit();
         await eluminaCandPage.refreshPage();
         await eluminaCandPage.waitforTime4();

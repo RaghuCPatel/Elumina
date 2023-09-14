@@ -21,9 +21,9 @@ test(`@RegressionP Verify Elumina Login and create exam `, async ({ eluminaLogin
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.selectAllToolswithInvPwd();
-        await newtab.createContentSection();
+        await newtab.createContentSection("1");
         await newtab.createContentPage();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestion();
         await newtab.addVSAQQuestion();
         await newtab.addISAWEQuestion();
@@ -195,7 +195,7 @@ test(`@RegressionP Verify Validation of Candidate attends All Question type`, as
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.refreshPage();
         await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ();
+        await eluminaCandPage.candidateStartSAQ(100);
         await eluminaCandPage.candidateStartSJT();
     });
 
@@ -216,7 +216,7 @@ test(`@RegressionP Verify Validation of Submit Exam page  > Chat App TC-173`, as
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ();
+        await eluminaCandPage.candidateStartSAQ(100);
         await eluminaCandPage.candidateStartSJT();
     });
     await test.step('Candidate uses chat app in Submit exam page', async () => {
