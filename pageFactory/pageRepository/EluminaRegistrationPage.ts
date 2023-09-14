@@ -185,7 +185,6 @@ export class EluminaRegistrationPage {
 
     /**Method to register for the exam */
     async registrationTabNavigation(): Promise<void> {
-
         await this.DeliveryMenu.click();
         let examid = EluminaExamPage.examID;
         console.log(EluminaExamPage.examID);

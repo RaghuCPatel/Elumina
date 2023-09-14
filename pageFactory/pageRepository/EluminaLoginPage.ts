@@ -150,6 +150,7 @@ export class EluminaLoginPage {
 
     /**Method to Verify Profile page */
     async verifyProfilePage(): Promise<void> {
+        await this.page.waitForTimeout(3000);
         await expect(this.HOMEPAGE).toBeVisible();
     }
 

@@ -50,6 +50,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
 });
 
+
 test(`@Regression Verify Validation of Candidate attends All Question type`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
@@ -90,10 +91,9 @@ test(`iEX_TC_ID_69. @Regression Validation of Exam Section > Question and Answer
         await eluminaCandPage.candidateStartSAQ();
         await eluminaCandPage.candidateStartSJT();
     });
-
 });
 
-
+    
 test(`iEX_TC_ID_79. @Regression Verify Validation of Candidate attends All Question type in offline`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
@@ -154,4 +154,3 @@ test(`iEX_TC_ID_95. @Regression Verify Validation of Candidate attends All Quest
 
     });
 });
-

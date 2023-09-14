@@ -328,7 +328,6 @@ export class EluminaExamPage {
     let StartExamMin = currentDate.getMinutes() + 4;
     let EndExamMin = currentDate.getMinutes() + 15;
 
-
     await this.EXAMSMENU.click();
     await expect(this.CREATEEXAMS).toBeVisible();
     await this.CREATEEXAMS.click();
@@ -378,8 +377,6 @@ export class EluminaExamPage {
     await this.BookingOK.click();
 
     await this.ExamEndCalender.click();
-
-
     await this.BooingStartMins.click();
     await this.BooingStartMins.clear();
     if (StartExamMin >= 60) {
@@ -455,7 +452,6 @@ export class EluminaExamPage {
     await this.EnterNoOfCandidates.clear();
     await this.EnterNoOfCandidates.type('10');
     await this.ClickOnAdd.click();
-
   }
 
   /**Method to Create Common Exam */
@@ -949,7 +945,7 @@ export class EluminaExamPage {
     await this.ClickOnAddQuestion.click();
     await this.ClickOnSearchQuestion.click()
     await this.ClickOnSearchQuestion.type('MCQ');
-    await this.page.waitForTimeout(5000);
+    await this.page.waitForTimeout(8000);
     await this.page.waitForSelector('//div[@class="eqc-question-info"]//input', { timeout: 10000 });
     const McqQuestions = await this.page.$$('//div[@class="eqc-question-info"]//input');
     for (let i = 1; i <= 4; i++) {
@@ -1052,7 +1048,7 @@ export class EluminaExamPage {
     await this.ClickOnAddQuestion.click();
     await this.ClickOnSearchQuestion.click()
     await this.ClickOnSearchQuestion.type('MCQ');
-    await this.page.waitForTimeout(3000);
+    await this.page.waitForTimeout(9000);
     await this.page.waitForSelector('//div[@class="eqc-question-info"]//input', { timeout: 10000 });
     const McqQuestions = await this.page.$$('//div[@class="eqc-question-info"]//input');
     for (let i = 0; i < 5; i++) {

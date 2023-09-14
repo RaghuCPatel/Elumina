@@ -72,7 +72,8 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Regression Verify Elu
         await newtab.logoutClick();
     });
 });
-/*test(`iEX_TC_ID_239'. @Regression Verify Validation of Browser back button on Candidate Dashboard`, async ({ eluminaCandPage, webActions }) => {
+
+test(`iEX_TC_ID_239'. @Regression Verify Validation of Browser back button on Candidate Dashboard`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -135,7 +136,7 @@ test(`iEX_TC_ID_146. @Regression Validation of Long Essay Response (more than 20
 });
 
 test('iEX_TC_ID_154,iEX_TC_ID_155,iEX_TC_ID_156,iEX_TC_ID_157. @Regression Validation of Refresh Live Monitor and status Auto update ', async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
-
+  
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });
@@ -238,7 +239,7 @@ test('iEX_TC_ID_153. @Regression Validation of Add Notes in Live Monitor ', asyn
         await newPage.close();
         await page1.close();
     })
-});        */
+});        
 
 test(`iEX_TC_ID_122. @Regression Validation of exam paused for Candidate `, async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
