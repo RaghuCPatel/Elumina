@@ -18,9 +18,9 @@ test(`@Regression Verify Elumina Create Exam with survey section`, async ({ elum
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.clickonNextBtnInExam();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestion();
-        await newtab.createSurveySection();
+        await newtab.createSurveySection("10");
         await newtab.createSurveyPage();
 
     });

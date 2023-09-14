@@ -17,14 +17,14 @@ test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLogin
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.selectAllTools();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestion();
         await newtab.addVSAQQuestion();
         await newtab.addISAWEQuestion();
         await newtab.addTypeXQuestion();
         await newtab.addTypeBQuestion();
         await newtab.addSAQQuestion();
-       await newtab.addSJTQuestion();
+        await newtab.addSJTQuestion();
     });
 });
 
@@ -48,6 +48,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, elumi
 test(`iEX_TC_ID_54. @Regression Validation of Exam section page.`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime()
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();

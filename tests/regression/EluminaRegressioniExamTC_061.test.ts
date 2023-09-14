@@ -16,7 +16,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_242,243,61. @Regression Create practice exa
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createPracticeExam();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestion();
         await newtab.addVSAQQuestion();
         await newtab.addISAWEQuestion();

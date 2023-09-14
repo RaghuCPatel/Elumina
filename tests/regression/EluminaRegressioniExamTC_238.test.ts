@@ -20,11 +20,11 @@ test(`Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPag
         await newtab.clickonNextBtnInExam();
         // await newtab.createContentSection();
         // await newtab.createContentPage();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestions();
         await newtab.waitforTime();
 
-    await test.step(`Navigate to exam Tab and Create New user`, async () => {
+        await test.step(`Navigate to exam Tab and Create New user`, async () => {
             const newtab = await eluminaRegPage.iAuthorPageNavigations();
             await newtab.registrationTabNavigation();
             await newtab.addUserDetails();

@@ -18,7 +18,7 @@ test(`iEX_TC_ID_25. @Regression Validation of Candidate dashboard > With No Acti
         const newtab = await eluminaMultipleExamsForAMPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createAMExam();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestions();
     });
 });
@@ -53,7 +53,7 @@ test(`iEX_TC_ID_25B. @Regression Validation of Candidate dashboard > With No Act
     await test.step(`Navigate to exam Tab and Create New Exam and add MCQ Questions`, async () => {
         const newtab = await eluminaMultipleExamsForPMPage.iAuthorPageNavigation();
         await newtab.createPMExam();
-        await newtab.createSection();
+        await newtab.createSection("0", "58");
         await newtab.addMCQQuestions();
     });
 });

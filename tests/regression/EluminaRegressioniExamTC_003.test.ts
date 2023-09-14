@@ -16,13 +16,13 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.selectAllTools();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestionswithoutSave();
         await newtab.addVSAQQuestions();
     });
 });
 
-test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegInvPage,eluminaRegPage,webActions }) => {
+test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -44,5 +44,7 @@ test(`@Regression Validation of Empty Field validation`, async ({ eluminaCandPag
     });
     await test.step(`Click on Login without Username and Password`, async () => {
         await eluminaCandPage.logintoAppwithoutUserPwd();
+        await eluminaCandPage.validationOfPopessageInCandLoginPage();
+
     });
 });

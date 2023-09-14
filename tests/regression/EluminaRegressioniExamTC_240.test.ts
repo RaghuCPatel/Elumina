@@ -19,7 +19,7 @@ test(`@Regression Validation of "Time Remaining" pop-up when the just before the
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.selectAllTools();
-        await newtab.createSection1("0", "1");
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestion();
         await newtab.addVSAQQuestion();
         await newtab.addISAWEQuestion();
@@ -61,7 +61,7 @@ test(`iEX_TC_ID_89. @Regression Validation of Exam section > After Exam Time Exp
         await eluminaCandPage.waitforTime4();
         await eluminaCandPage.clickOnAutoSubmitOKPopup();
         await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.candidateAttendsAllQVSAQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.clickOnAutoSubmitOKPopup();
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
