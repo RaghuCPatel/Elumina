@@ -241,7 +241,7 @@ export class EluminaRegistrationPage {
         await this.TypeUsername.type(makeid(testData.clientUsername) + Math.floor(Math.random() * 89 + 10));
         await this.TypeFirstName.type(makeid(testData.clientFirstname));
         await this.TypeLastName.type(makeid(testData.clientLastname));
-        await this.TypeEmail.type(makeid(testData.clientEmail) + Math.floor(Math.random() * 899 + 100) + '@gmail.com');
+        await this.TypeEmail.type(makeid(testData.clientEmail) + Math.floor(Math.random() * 899 + 100) + '@yopmail.com');
         await this.TypePhone.type(testData.clientPhone + Math.floor(Math.random() * 899999999 + 100));
         await this.page.waitForTimeout(8000);
         await this.SelectRole.click();
@@ -316,7 +316,7 @@ export class EluminaRegistrationPage {
             await this.TypeLastName.clear();
             await this.TypeLastName.type(makeid(testData.clientLastname));
             await this.TypeEmail.clear();
-            await this.TypeEmail.type(makeid(testData.clientEmail) + Math.floor(Math.random() * 899 + 100) + '@gmail.com');
+            await this.TypeEmail.type(makeid(testData.clientEmail) + Math.floor(Math.random() * 899 + 100) + '@yopmail.com');
             await this.TypePhone.clear();
             await this.TypePhone.type('6' + Math.floor(Math.random() * 899999999 + 100));
             await this.page.waitForTimeout(1000);
@@ -448,7 +448,7 @@ export class EluminaRegistrationPage {
         await this.TypeUsername.type(makeid(testData.clientUsername) + Math.floor(Math.random() * 89 + 10));
         await this.TypeFirstName.type(makeid(testData.clientFirstname));
         await this.TypeLastName.type(makeid(testData.clientLastname));
-        await this.TypeEmail.type(makeid(testData.clientEmail) + Math.floor(Math.random() * 899 + 100) + '@gmail.com');
+        await this.TypeEmail.type(makeid(testData.clientEmail) + Math.floor(Math.random() * 899 + 100) + '@yopmail.com');
         await this.TypePhone.type(testData.clientPhone + Math.floor(Math.random() * 899999999 + 100));
         await this.page.waitForTimeout(5000);
         await this.SelectRole.click();

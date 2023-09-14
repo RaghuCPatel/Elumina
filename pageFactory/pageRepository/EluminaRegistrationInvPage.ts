@@ -194,7 +194,7 @@ export class EluminaRegistrationInvPage {
         await this.TypeFirstName.type(makeid(testData.clientFirstname));
         await this.page.waitForTimeout(5000);
         await this.TypeLastName.type(makeid(testData.clientLastname));
-        await this.TypeEmail.type(makeid(testData.clientEmail)+Math.floor(Math.random()*899+100)+'@gmail.com');
+        await this.TypeEmail.type(makeid(testData.clientEmail)+Math.floor(Math.random()*899+100)+'@yopmail.com');
         await this.TypePhone.type(testData.clientPhone+Math.floor(Math.random()*899999999+100));
         await this.SelectRole.click();
         await this.SelectRole.selectOption('Candidate');
