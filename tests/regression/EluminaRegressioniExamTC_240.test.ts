@@ -66,7 +66,7 @@ test(`iEX_TC_ID_89. @Regression Validation of Exam section > After Exam Time Exp
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ();
+        await eluminaCandPage.candidateStartSAQ(100);
         await eluminaCandPage.candidateStartSJTReviewandSubmit()
         await eluminaCandPage.clickOnLogoutBtn()
 

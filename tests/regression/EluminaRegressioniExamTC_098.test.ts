@@ -44,16 +44,3 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, elumi
     });
 });     */
 
-test(`iEX_TC_ID_98. @Regression Validation of Exam Section > SAQ Questions`, async ({ eluminaCandPage, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaCandPage.candidateNavigateToURL();
-    });
-    await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
-    });
-    await test.step('Candidate start the exam', async () => {
-        await eluminaCandPage.SAQPageValidation();
-
-    });
-
-});

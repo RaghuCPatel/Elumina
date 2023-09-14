@@ -54,20 +54,12 @@ test(`iEX_TC_ID_54. @Regression Validation of Exam section page.`, async ({ elum
         await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam', async () => {
-        await eluminaCandPage.examSectionValidation();
-        await eluminaCandPage.verifyExamDashboardTimer()
-        await eluminaCandPage.verifyColours()
-        await eluminaCandPage.verifyNoOfQutn()
-        await eluminaCandPage.verifyFlagForReview()
-        await eluminaCandPage.validationOfAllTools();
-        await eluminaCandPage.validationOfNextBtn()
-        await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.validatePreviousBtn()
+        await eluminaCandPage.AllQuestionPageValidation('MCQ');
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ();
+        await eluminaCandPage.candidateStartSAQ(100);
         await eluminaCandPage.candidateStartSJT();
     });
 
@@ -101,7 +93,7 @@ test(`iEX_TC_ID_64. @Regression Validation of Exam Section > Highlighter tool hi
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ();
+        await eluminaCandPage.candidateStartSAQ(100);
         await eluminaCandPage.UsingHighlighterForQuestions();
         await eluminaCandPage.candidateStartSJT()
         await eluminaCandPage.clickonPrevious()
@@ -110,13 +102,17 @@ test(`iEX_TC_ID_64. @Regression Validation of Exam Section > Highlighter tool hi
 });
 
 
-test(`iEX_TC_ID_97,iEX_TC_ID_98,iEX_TC_ID_99,iEX_TC_ID_101,iEX_TC_ID_102,iEX_TC_ID_103,iEX_TC_ID_105. @Regression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons.`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_97,iEX_TC_ID_98,iEX_TC_ID_99,iEX_TC_ID_101,iEX_TC_ID_102,iEX_TC_ID_103,iEX_TC_ID_105. @Regression Validation of each component for all type of questions in Candidate flow.`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
 
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
+
+    });
+
+    await test.step('Validate each component in candidate Exam page for all Questions',async () => {
         await eluminaCandPage.AllQuestionPageValidation('MCQ');
         await eluminaCandPage.AllQuestionPageValidation('VSAQ');
         await eluminaCandPage.AllQuestionPageValidation('ISAWE');
@@ -142,7 +138,7 @@ test(`iEX_TC_ID_76. @Regression Validation of Exam section > Candidate attend th
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ();
+        await eluminaCandPage.candidateStartSAQ(100);
         await eluminaCandPage.candidateStartSJTReviewandSubmit()
         //await eluminaCandPage.confirmationOkBtn()
         await eluminaCandPage.clickOnLogoutBtn()

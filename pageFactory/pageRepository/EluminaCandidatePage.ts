@@ -1088,7 +1088,11 @@ export class EluminaCandidatePage {
         await this.ClickOnNextBtn.click();
     }
 
-    async candidateStartSAQ() {
+    /**
+     * Method to Enter the Answer in SAQ questions 
+     * @param lines 
+     */
+    async candidateStartSAQ(lines) {
         await this.page.waitForTimeout(2000);
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
         const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
@@ -1096,29 +1100,14 @@ export class EluminaCandidatePage {
             await qutns[i].click();
             //await this.page.waitForTimeout(2000);
             await this.ansSAQQuestion.click();
-            await this.ansSAQQuestion.type(makeid(100));
+            await this.ansSAQQuestion.type(makeid(lines));
             await this.ClickOnNextBtn.click();
 
         }
         await this.page.waitForTimeout(2000);
 
     }
-    async candidateStartSingleSAQ(lines) {
-        await this.page.waitForTimeout(2000);
-        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
-        const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
-        for (let i = 20; i < 21; i++) {
-            await qutns[i].click();
-            //await this.page.waitForTimeout(2000);
-            await this.ansSAQQuestion.click();
-            await this.ansSAQQuestion.type(makeid(lines));
-            // await this.ClickOnNextBtn.click();
-
-        }
-        await this.page.waitForTimeout(2000);
-
-    }
-
+    
     async candidateStartSJTValidationofReviewPage() {
         await this.page.waitForTimeout(2000);
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
@@ -1346,16 +1335,7 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(1000);
     }
 
-
-    async UsingHighlighterForQuestions1() {
-        await this.ClickOnHighlighter.click();
-        await this.page.waitForTimeout(1000);
-        await this.HighlightQuestions.dblclick()
-        await this.HighlightQuestions.click()
-        await this.page.waitForTimeout(1000);
-    }
-
-
+   
     async flagForQuestion() {
         await this.clickOnLastVSAQ.click();
         await this.flagForReviewQuestions.click();
@@ -1827,9 +1807,6 @@ export class EluminaCandidatePage {
     }
 
 
-    /* Method to check user not Navigated back and check the assertion*/
-
-
     /**
      * To check the User name pop up mesage in candidate screen
      */
@@ -1841,7 +1818,7 @@ export class EluminaCandidatePage {
     }
 
     /**
-     * To check the User name pop up mesage in candidate screen
+     * To check the User name pop up message in candidate screen
      */
     async candidatePasswordPopUp(): Promise<void> {
         await this.CandidateUsername.fill(testData.InvalidCandidateUsername);
@@ -1858,7 +1835,7 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(5000);
         await this.page.goBack();
         console.log("Clicked on Back Navigation icon");
-        await this.ClickOnRevieweBtn.isDisabled();
+        await this.ClickOnRevieweBtn.isVisible();
     }
 
     /**
@@ -1921,7 +1898,7 @@ export class EluminaCandidatePage {
         await this.verifyExamDashboardTimer();
         await this.verifyColours();
         await this.verifyNoOfQutn();
-        await this.ClickOnRevieweBtn.isVisible();
+        await this.validationOfReviewBtn();
         await this.SectionName.isVisible();
         await this.verifyFlagForReview();
         await this.validationOfAllTools();
@@ -1975,8 +1952,8 @@ export class EluminaCandidatePage {
             await this.QuestionDescription.isVisible();
             let a = await this.NoOfQutn.textContent()
             expect(a).toBe(' Question #21 of 30 ');
-            //await this.UsingHighlighterForAllQuestions('Other');
-            await this.candidateStartSAQ();
+            await this.UsingHighlighterForAllQuestions('Other');
+            await this.candidateStartSAQ(2000);
             await this.validatePreviousBtn();
         } else if (page == 'SJT') {
             await this.QuestionDescription.isVisible();
@@ -1986,25 +1963,6 @@ export class EluminaCandidatePage {
             await this.candidateStartSJT();
             await this.validatePreviousBtn();
         }
-    }
-
-    async SAQPageValidation() {
-        await this.examSectionValidation();
-        await this.verifyExamDashboardTimer()
-        await this.verifyColours()
-        await this.verifyNoOfQutn()
-        await this.verifyFlagForReview()
-        await this.validationOfAllTools();
-        await this.validationOfNextBtn()
-        await this.candidateStartOneMCQ();
-        await this.candidateStartSingleSAQ(2000);
-        await this.validatePreviousBtn()
-        await this.UsingCalculatorForQuestions()
-        await this.UsingHighlighterForQuestions1()
-        await this.increaseFontSize();
-        await this.decreaseFontSize()
-        await this.validationOfReviewBtn();
-
 
     }
 
