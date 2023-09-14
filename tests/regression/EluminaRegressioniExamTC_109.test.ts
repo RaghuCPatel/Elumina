@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 }
 /** Validation of Candidate Attending Exam in Online - Offline (Submit Offline and Resume Synch in Online) */
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_109. @RegressionP Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_109. @Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -58,7 +58,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_109. @RegressionP Verify Elumina Login and 
     });
 });
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_109. @RegressionP Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_109. @Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -147,7 +147,7 @@ test(`iEX_TC_ID_144. @Regression Validation of Check Individual Candidate Timer 
 });
 
 
-test(`iEX_TC_ID_109. @RegressionP Validation of Candidate attending Exam in Online - Offline and submit in Offline Mode`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_109. @Regression Validation of Candidate attending Exam in Online - Offline and submit in Offline Mode`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

@@ -71,7 +71,7 @@ test(`@RegressionP Validation of Candidate Attending Exam in Online (Abort and R
     });
     await test.step('Candidate start the exam and abort', async () => {
         await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.candidateAttendsAllQVSAQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.waitforTime2();

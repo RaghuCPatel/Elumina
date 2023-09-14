@@ -45,7 +45,7 @@ test(`Reg_Prerequisit_ID_01. @RegressionP Verify Elumina Registration`, async ({
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});     */
+});     
 
 test(`iEX_TC_ID_53. @RegressionP Validation of Exam content page -> Questions download at content section-> Candidate goes offline`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -68,4 +68,4 @@ test(`iEX_TC_ID_53. @RegressionP Validation of Exam content page -> Questions do
         await eluminaCandPage.candidateStartSJT();
     });
 
-});
+});*/

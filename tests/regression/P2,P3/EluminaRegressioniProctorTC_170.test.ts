@@ -109,7 +109,7 @@ else if (process.env.ENV == 'staging') {
 // });
 
 
-test(`@RegressionP Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App TC-169`, async ({ eluminaProctorCand, webActions }) => {
+test(`@Regressionproc Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App TC-169`, async ({ eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

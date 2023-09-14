@@ -43,7 +43,7 @@ import test from '@lib/BaseTest';
 //     });
 // });
 
-test(`iEX_TC_ID_219. @RegressionP Validation of internet disconnection while Resume Candidate Answer Sync by Invigilator or Exam Technician`, async ({ eluminaCandPage, webActions }) => {
+/*test(`iEX_TC_ID_219. @RegressionP Validation of internet disconnection while Resume Candidate Answer Sync by Invigilator or Exam Technician`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         // await eluminaCandPage.waitforTime();
@@ -72,7 +72,7 @@ test(`iEX_TC_ID_219. @RegressionP Validation of internet disconnection while Res
 //         await eluminaCandPage.examRecoveryPassword();
 
 //     });
-// });
+// }); */
 
 
 

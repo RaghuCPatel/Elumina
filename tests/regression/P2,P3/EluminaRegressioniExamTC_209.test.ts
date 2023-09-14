@@ -47,20 +47,42 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_108. , iEX_TC_ID_115. @RegressionP Verify E
     });
 });
 
-test(`iEX_TC_ID_108. , iEX_TC_ID_115. @RegressionP Validation of Candidate attending Exam in Online - Offline and submit in Offline Mode`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_53. @RegressionP Validation of Exam content page -> Questions download at content section-> Candidate goes offline`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime3();
         await eluminaCandPage.waitforTime3();
     });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+    });
+    await test.step('Candidate start the exam', async () => {
+        await eluminaCandPage.setOffline(true);
+        await eluminaCandPage.candidateContentSectionVerifications();
+        await eluminaCandPage.candidateStartOneMCQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
+        await eluminaCandPage.candidateStartISAWE();
+        await eluminaCandPage.candidateStartTypeX();
+        await eluminaCandPage.candidateStartTypeB();
+        await eluminaCandPage.candidateStartSAQ();
+        await eluminaCandPage.candidateStartSJT();
+    });
+
+});
+
+test(`iEX_TC_ID_108. , iEX_TC_ID_115. @RegressionP Validation of Candidate attending Exam in Online - Offline and submit in Offline Mode`, async ({ eluminaCandPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+
+    });
 
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
-        await eluminaCandPage.candidateContentSectionVerifications();
+        //await eluminaCandPage.candidateContentSectionVerifications();
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.setOffline(true);
-        await eluminaCandPage.candidateAttendsAllQVSAQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();

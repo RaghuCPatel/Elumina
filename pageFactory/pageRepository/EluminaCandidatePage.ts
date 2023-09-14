@@ -182,6 +182,7 @@ export class EluminaCandidatePage {
     readonly TypebQuestionStatment: Locator;
     readonly imageViewForTypeX: Locator;
     readonly fiveMinPopInSurveyPage: Locator;
+    readonly VSAQQuestion1Click: Locator;
     readonly validationDashboardTitle: Locator;
 
 
@@ -269,7 +270,7 @@ export class EluminaCandidatePage {
         this.clickOnNextChatApp = page.frameLocator('iframe[name="Messaging window"]').getByRole('button', { name: 'Next' })
         this.enterExamInChatApp = page.frameLocator('iframe[name="Messaging window"]').getByLabel('Exam Name');
         this.clickOnSendInChatApp = page.frameLocator('iframe[name="Messaging window"]').getByRole('button', { name: 'Send' })
-        this.EnterExaPassword = page.locator('//input[@placeholder="Enter Exam Password"]');
+        this.EnterExaPassword = page.locator('//input[@placeholder="Enter Invigilator Password"]');
         this.RatelimitLogin = page.locator('//div[text()="Attempts exceeded the Limit"]');
         this.ZoominIconClick = page.locator('//div[@class="zoom-in icon"]');
         this.ZoomOutIconClick = page.locator('//div[@class="zoom-out icon"]');
@@ -305,7 +306,7 @@ export class EluminaCandidatePage {
         this.answerIncorrect = page.locator('//div[text()="Your answer is incorrect"]');
         this.clickQuestion1 = page.locator('//div[normalize-space()="Question 1"]');
         this.clickQuestion5 = page.locator('(//div[@class="question-number-container"]//div//p)[5]');
-
+        this.VSAQQuestion1Click = page.locator('//div[@class="question-number"]//p');
 
         this.mousehoverOnColourMoreIcon = page.locator('//p[@class="infoIcon status-icon-id"]//span')
         this.NoOfQutn = page.locator('(//div[@class="main-title"]//h4)[1]')
@@ -1331,11 +1332,32 @@ export class EluminaCandidatePage {
             await this.page.waitForTimeout(1000);
             await this.HighlightQuestions.dblclick()
             await this.HighlightQuestions.click()
+
+        }
+        await this.page.waitForTimeout(1000);
+    }
+
+
+    async UsingHighlighterForQuestions1() {
+        await this.ClickOnHighlighter.click();
+        await this.page.waitForTimeout(1000);
+        await this.HighlightQuestions.dblclick()
+        await this.HighlightQuestions.click()
+        await this.page.waitForTimeout(1000);
+    }
+
+
+
+        }
+    
+
+
         }
         await this.page.waitForTimeout(1000);
     }
 
    
+
     async flagForQuestion() {
         await this.clickOnLastVSAQ.click();
         await this.flagForReviewQuestions.click();
@@ -1772,9 +1794,9 @@ export class EluminaCandidatePage {
         await this.flagForReviewQuestions.click();
     }
 
-    async candidateStartOneMCQwithViewer() {
+    async candidateStartOneVSAQwithViewer() {
+        await this.VSAQQuestion1Click.click();
         await this.page.waitForTimeout(2000);
-        await this.ansMCQQuestions.click();
     }
 
     async candidateStartOneMCQwithMultipleViewerOptions() {
@@ -1952,8 +1974,14 @@ export class EluminaCandidatePage {
             await this.QuestionDescription.isVisible();
             let a = await this.NoOfQutn.textContent()
             expect(a).toBe(' Question #21 of 30 ');
+
+
+           // await this.UsingHighlighterForAllQuestions('Other');
+
             await this.UsingHighlighterForAllQuestions('Other');
+
             await this.candidateStartSAQ(2000);
+
             await this.validatePreviousBtn();
         } else if (page == 'SJT') {
             await this.QuestionDescription.isVisible();
@@ -1966,10 +1994,41 @@ export class EluminaCandidatePage {
 
     }
 
+
+    async SAQPageValidation() {
+        await this.examSectionValidation();
+        await this.verifyExamDashboardTimer()
+        await this.verifyColours()
+        await this.verifyNoOfQutn()
+        await this.verifyFlagForReview()
+        await this.validationOfAllTools();
+        await this.validationOfNextBtn()
+        await this.candidateStartOneMCQ();
+        await this.candidateStartSingleSAQ(2000);
+        await this.validatePreviousBtn()
+        await this.UsingCalculatorForQuestions()
+        await this.UsingHighlighterForQuestions1()
+        await this.increaseFontSize();
+        await this.decreaseFontSize()
+        await this.validationOfReviewBtn();
+
+
+    }
+
+    /**
+    * To Validate each component displayed in the MCQ Section
+    * 
+    */
+
+
     async McqPageValidations() {
         await expect(this.verifyExamTimer).toBeVisible();
         EluminaCandidatePage.Time = await this.verifyExamTimer.textContent();
         console.log('Time display' + EluminaCandidatePage.Time);
     }
+
+
+
+}
 
 }
