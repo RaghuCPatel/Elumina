@@ -44,9 +44,9 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_109. @RegressionP Verify Elumina Login and 
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.selectAllTools();
-        await newtab.createContentSection();
+        await newtab.createContentSection("1");
         await newtab.createContentPage();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestion();
         await newtab.addVSAQQuestion();
         await newtab.addISAWEQuestion();
@@ -108,7 +108,7 @@ test(`iEX_TC_ID_144. @Regression Validation of Check Individual Candidate Timer 
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.McqPageValidation();
+        await eluminaCandPage.McqPageValidations();
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();

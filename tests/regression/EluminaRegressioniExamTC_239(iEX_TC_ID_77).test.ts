@@ -17,7 +17,7 @@ test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLogin
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.selectAllTools();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestion();
         await newtab.addVSAQQuestion();
         await newtab.addISAWEQuestion();

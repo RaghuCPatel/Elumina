@@ -18,7 +18,7 @@ test(`@Regression Verify Elumina Login and create exam `, async ({ eluminaLoginP
         await newtab.createCommonExam();
         await newtab.selectNotepadTool();
         await newtab.clickonNextBtnInExam();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestions();
     });
 });

@@ -413,7 +413,7 @@ export class EluminaExamPage {
     await this.BookingOK.click();
     await this.ExamEndCalender.click();
 
-    
+
     if (EndExamDate >= "30") {
       console.log("Exam end date:" + EndExamDate);
       await this.page.waitForSelector('//li[@class="next"]');
@@ -780,7 +780,7 @@ export class EluminaExamPage {
   }
 
   /** Method to Create Content Section */
-  async createContentSection(): Promise<void> {
+  async createContentSection(time): Promise<void> {
     await this.CliCKOnCreateSection.click();
     await this.ClickOnCreateContentSection.click();
     await this.EnterSectionName.type('Content-' + Math.floor(Math.random()) * 89 + 10);
@@ -788,7 +788,7 @@ export class EluminaExamPage {
     await this.DescriptionMessage.click();
     await this.DescriptionMessage.type('Hello World.....');
     await this.page.waitForTimeout(5000);
-    await this.selectMinutes.selectOption('1');
+    await this.selectMinutes.selectOption(time);
     await this.ClickOnSave.click();
 
   }
@@ -840,7 +840,7 @@ export class EluminaExamPage {
   }
 
   /**Create Exam Section */
-  async createSection(): Promise<string> {
+  async createSection(hr, mins): Promise<string> {
     EluminaExamPage.examID = await this.fectchExamID.textContent();
     console.log("Exam ID:" + EluminaExamPage.examID);
     await this.CliCKOnCreateSection.click();
@@ -850,39 +850,15 @@ export class EluminaExamPage {
     await this.DescriptionMessage.click();
     await this.DescriptionMessage.type(testData.DescriptionMessage);
     await this.page.waitForTimeout(5000);
-    await this.Choosehrs.selectOption("1");
-    await this.SelectTime.selectOption("30");
+    await this.Choosehrs.selectOption(hr);
+    await this.SelectTime.selectOption(mins);
     await this.ClickOnSave.click();
     await this.page.waitForTimeout(5000);
     return EluminaExamPage.examID;
   }
-
-  /**
-   * 
-   * @param Hrs 
-   * @param Mins 
-   * @returns 
-   */
-  async createSection1(Hrs, Mins): Promise<string> {
-    EluminaExamPage.examID = await this.fectchExamID.textContent();
-    console.log("Exam ID:" + EluminaExamPage.examID);
-    await this.CliCKOnCreateSection.click();
-    await this.ClickOnCreateExamSection.click();
-    await this.EnterSectionName.type('Exam-' + Math.floor(Math.random()) * 89 + 10);
-    await this.page.waitForTimeout(5000);
-    await this.DescriptionMessage.click();
-    await this.DescriptionMessage.type(testData.DescriptionMessage);
-    await this.page.waitForTimeout(5000);
-    await this.Choosehrs.selectOption(Hrs);
-    await this.SelectTime.selectOption(Mins);
-    await this.ClickOnSave.click();
-    await this.page.waitForTimeout(5000);
-    return EluminaExamPage.examID;
-  }
-
 
   //Create Survey Section
-  async createSurveySection() {
+  async createSurveySection(surveyTime) {
     await this.page.waitForTimeout(5000);
     await this.CliCKOnCreateSection.click();
     await this.page.waitForTimeout(5000);
@@ -892,26 +868,11 @@ export class EluminaExamPage {
     await this.DescriptionMessage.click();
     await this.DescriptionMessage.type('Hello World.....');
     await this.page.waitForTimeout(5000);
-    await this.selectMinutes.selectOption('10');
+    await this.selectMinutes.selectOption(surveyTime);
     await this.ClickOnSave.click();
 
   }
 
-  //Create Survey Section
-  async createSurveySection1(timer) {
-    await this.page.waitForTimeout(5000);
-    await this.CliCKOnCreateSection.click();
-    await this.page.waitForTimeout(5000);
-    await this.ClickOnCreateSurveySection.click();
-    await this.EnterSectionName.type('Survey-' + Math.floor(Math.random()) * 89 + 10);
-    await this.page.waitForTimeout(5000);
-    await this.DescriptionMessage.click();
-    await this.DescriptionMessage.type('Hello World.....');
-    await this.page.waitForTimeout(5000);
-    await this.selectMinutes.selectOption(timer);
-    await this.ClickOnSave.click();
-
-  }
   async createSurveyPage(): Promise<void> {
     await this.ClickOnAddSurveyQuestion.click();
     await this.ClickOnSearchQuestion.click()

@@ -14,7 +14,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_236. @Regression Verify Elumina Login and c
         const newtab = await eluminaMinimalTimeExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExam(0);
-        await newtab.createSection();
+        await newtab.createSection("0", "1");
         await newtab.addMCQQuestions();
     });
 });
@@ -46,5 +46,5 @@ test(`iEX_TC_ID_236. @Regression Validation of Candidate dashboard > Exam schedu
     await test.step('validate Exam not Available in the Dashboard', async () => {
         await eluminaCandPage.ExamAvailabilityCheck();
     });
-    
+
 });
