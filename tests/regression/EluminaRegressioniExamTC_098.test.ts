@@ -1,9 +1,8 @@
 import test from '@lib/BaseTest';
 
+/**Validation of Exam Section > SAQ Questions*/
 
-/**Validation of Exam content page -> Questions download at content section-> Candidate goes offline */
-
-/*test(`Exam_Prerequisit_ID_01. @RegressionP Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+/*test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -17,9 +16,7 @@ import test from '@lib/BaseTest';
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
-        await newtab.clickonNextBtnInExam();
-        await newtab.createContentSection();
-        await newtab.createContentPage();
+        await newtab.selectAllTools();
         await newtab.createSection();
         await newtab.addMCQQuestion();
         await newtab.addVSAQQuestion();
@@ -32,7 +29,7 @@ import test from '@lib/BaseTest';
 });
 
 
-test(`Reg_Prerequisit_ID_01. @RegressionP Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -47,25 +44,16 @@ test(`Reg_Prerequisit_ID_01. @RegressionP Verify Elumina Registration`, async ({
     });
 });     */
 
-test(`iEX_TC_ID_53. @RegressionP Validation of Exam content page -> Questions download at content section-> Candidate goes offline`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_98. @Regression Validation of Exam Section > SAQ Questions`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        //await eluminaCandPage.waitforTime();
-        //await eluminaCandPage.waitforTime4();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam', async () => {
-        await eluminaCandPage.setOffline(true);
-        await eluminaCandPage.candidateContentSection();
-        await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
-        await eluminaCandPage.candidateStartISAWE();
-        await eluminaCandPage.candidateStartTypeX();
-        await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ();
-        await eluminaCandPage.candidateStartSJT();
+        await eluminaCandPage.SAQPageValidation();
+
     });
 
 });

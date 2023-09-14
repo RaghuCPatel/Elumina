@@ -339,6 +339,7 @@ export class EluminaExamPage {
     await this.EXAMNAME.type('DEMO' + Math.floor(Math.random() * 899999 + 100000));
     await this.EXAMCODE.type('D' + Math.floor(Math.random() * 89 + 100));
 
+
     await this.ExamStartCalender.click();
     await this.ExamStartDate.click();
 
@@ -375,8 +376,47 @@ export class EluminaExamPage {
       await this.ChooseBookingStartSession.check();
     }
     await this.BookingOK.click();
+
     await this.ExamEndCalender.click();
 
+
+    await this.BooingStartMins.click();
+    await this.BooingStartMins.clear();
+    if (StartExamMin >= 60) {
+      let SEM = StartExamMin.toString();
+      SEM = "04"
+      await this.BooingStartMins.type(SEM);
+      //hrs+1
+      await this.BookingStartHrs.click();
+      await this.BookingStartHrs.clear();
+      let BSH = hour12 + 1;
+      if (BSH == 12) {
+        await this.BookingStartHrs.type(BSH.toString());
+        await this.ChooseBookingStartSessions.check();
+
+
+      }
+      else if (BSH >= 13) {
+        BSH = 1;
+        await this.BookingStartHrs.type(BSH.toString());
+      }
+      else {
+        await this.BookingStartHrs.type(BSH.toString());
+        await this.ChooseBookingStartSession.check();
+      }
+    }
+    else {
+      await this.BooingStartMins.type(StartExamMin.toString());
+      //hrs
+      await this.BookingStartHrs.click();
+      await this.BookingStartHrs.clear();
+      await this.BookingStartHrs.type(hour12.toString());
+      await this.ChooseBookingStartSession.check();
+    }
+    await this.BookingOK.click();
+    await this.ExamEndCalender.click();
+
+    
     if (EndExamDate >= "30") {
       console.log("Exam end date:" + EndExamDate);
       await this.page.waitForSelector('//li[@class="next"]');
@@ -389,6 +429,7 @@ export class EluminaExamPage {
       await this.nextButton.click();
       await this.Oneclick.click();
     }
+
     else {
       console.log("Exam end date:" + EndExamDate);
       await this.ExamEndDate.click();

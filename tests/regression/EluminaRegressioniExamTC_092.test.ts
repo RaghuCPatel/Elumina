@@ -1,6 +1,33 @@
 import test from '@lib/BaseTest';
 
 /**Survey section > Flag for review.*/
+import { chromium } from '@playwright/test';
+const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
+const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
+const productionTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/production/testData.json')));
+const qaTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/qa/testData.json')));
+const sandboxTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/sandbox/testData.json')));
+const stagingTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/staging/testData.json')));
+
+let testData = qaTestData;
+if (process.env.ENV == 'dev') {
+    testData = devTestData;
+}
+else if (process.env.ENV == 'p7') {
+    testData = p7TestData;
+}
+else if (process.env.ENV == 'production') {
+    testData = productionTestData;
+}
+else if (process.env.ENV == 'qa') {
+    testData = qaTestData;
+}
+else if (process.env.ENV == 'sandbox') {
+    testData = sandboxTestData;
+}
+else if (process.env.ENV == 'staging') {
+    testData = stagingTestData;
+}
 
 test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -56,7 +83,7 @@ test(`iEX_TC_ID_92. @Regression Survey section > Flag for review.`, async ({ elu
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
         await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.candidateAttendsAllQVSAQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.waitforTime()
         await eluminaCandPage.candidateStartTypeX();

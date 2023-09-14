@@ -141,13 +141,15 @@ export class EluminaRegistrationPage {
         this.SearchUsers = page.locator('//input[@placeholder="Search User(s)"]');
         this.CLickOnUser = page.locator('//tbody/tr[1]/td[2]/input[1]');
         this.ChooseExistingRole = page.locator('//div[@class="btn-selected-list"]//div//ul');
+
         this.SelectInvRole = page.locator('//span[normalize-space()="Invigilator"]');
+
         this.SelectExVenue = page.locator('//input[@placeholder="Select Venue"]');
         this.SelectInvVenue = page.locator('//span[text()="Elumina Chennai"]');
         this.SelectExEligible = page.locator('//input[@placeholder="Select Eligible"]');
         this.SelectInvEligible = page.locator('//span[text()="Yes"]');
         this.SelectExBookingStatus = page.locator('//input[@placeholder="Select Booking Status"]');
-        this.SelectInvBookingStatus = page.locator('//span[text()="Booked"]');
+        this.SelectInvBookingStatus = page.locator('//span[text()="Yes"]');
         this.AssignUsersToCand = page.locator('//input[@placeholder="Select User(s)"]');
         this.AssignInvToCand = page.locator('(//span[@class="open"])[5]');
         this.ClickOnInvSaveBtn = page.locator('(//button[text()="Save"])[2]');
@@ -363,12 +365,12 @@ export class EluminaRegistrationPage {
         await this.CLickOnUser.click();
         await this.ChooseExistingRole.click();
         await this.SelectInvRole.click();
-        await this.SelectExVenue.click();
-        await this.SelectInvVenue.click();
+        // await this.SelectExVenue.click();
+        // await this.SelectInvVenue.click();
         await this.SelectExEligible.click();
         await this.SelectInvEligible.click();
-        await this.SelectExBookingStatus.click();
-        await this.SelectInvBookingStatus.click();
+        // await this.SelectExBookingStatus.click();
+        // await this.SelectInvBookingStatus.click();
         await this.ClickOnSaveBtn.click();
         await this.page.waitForTimeout(6000);
         await this.LeftArrow.click();
