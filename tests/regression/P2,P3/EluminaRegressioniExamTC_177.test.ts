@@ -45,7 +45,7 @@ test(`@RegressionP Verify Elumina Login and Create Exam`, async ({ eluminaLoginP
         await newtab.createCommonExamWithViewer();
         await newtab.clickonNextBtnInExam();
         await newtab.createSection();
-        await newtab.addImageQuestion();
+        await newtab.addVSAQQuestions();
     });
 });
 
@@ -72,7 +72,7 @@ test(`@RegressionP Verify Validation of candidate response using Image Viewer in
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
-        await eluminaCandPage.candidateStartOneMCQwithViewer();
+        await eluminaCandPage.candidateStartOneVSAQwithViewer();
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
         const page1 = await context1.newPage();
@@ -85,7 +85,7 @@ test(`@RegressionP Verify Validation of candidate response using Image Viewer in
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();

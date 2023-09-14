@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of Proctoring Exam > Traffic light Green  */
 
-test(`@RegressionP Validation of Proctoring Exam > Traffic light Green`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(`@Regressionproc Validation of Proctoring Exam > Traffic light Green`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
@@ -69,7 +69,7 @@ test(`@RegressionP Validation of Proctoring Exam > Traffic light Green`, async (
 });
 
 //Verify Validation of Submit Exam page  > Chat App
-test(`@RegressionP Verify Validation of Submit Exam page  > Chat App TC-173`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(`@Regressionproc Verify Validation of Submit Exam page  > Chat App TC-173`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await test.step('Candidate logging into application', async () => {

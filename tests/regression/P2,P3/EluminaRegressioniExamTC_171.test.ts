@@ -41,6 +41,10 @@ test(`@RegressionP Verify Validation of Exam section page  > Chat App`, async ({
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime3();
+
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();

@@ -413,7 +413,7 @@ export class EluminaExamPage {
     await this.BookingOK.click();
     await this.ExamEndCalender.click();
 
-    
+
     if (EndExamDate >= "30") {
       console.log("Exam end date:" + EndExamDate);
       await this.page.waitForSelector('//li[@class="next"]');
@@ -1036,7 +1036,7 @@ export class EluminaExamPage {
     await this.ClickOnSearchQuestion.click()
     await this.ClickOnSearchQuestion.type('VSAQ');
     await this.page.waitForTimeout(3000);
-    await this.page.locator('(//input[@type="checkbox"])[3]').click();
+    await this.page.locator('(//input[@type="checkbox"])[2]').click();
     await this.ClickOnAddBtn.click()
     await this.ClickOnSave.click();
     await this.ClickOnNextBtn.click();
@@ -1312,7 +1312,7 @@ export class EluminaExamPage {
   async addImageQuestion(): Promise<void> {
     await this.ClickOnAddQuestion.click();
     await this.ClickOnSearchQuestion.click()
-    await this.ClickOnSearchQuestion.type('286');
+    await this.ClickOnSearchQuestion.type('VSAQ');
     await this.page.waitForTimeout(10000);
     await this.page.locator('(//input[@type="checkbox"])[2]').click();
     await this.ClickOnAddBtn.click()
