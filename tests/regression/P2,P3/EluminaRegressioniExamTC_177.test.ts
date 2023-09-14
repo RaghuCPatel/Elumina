@@ -44,7 +44,7 @@ test(`@RegressionP Verify Elumina Login and Create Exam`, async ({ eluminaLoginP
         await newtab.examTabNavigation();
         await newtab.createCommonExamWithViewer();
         await newtab.clickonNextBtnInExam();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addVSAQQuestions();
     });
 });

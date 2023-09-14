@@ -44,7 +44,7 @@ test(`@RegressionP Verify Elumina Login and Create Exam`, async ({ eluminaLoginP
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.selectAllTools();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestionswithoutSave();
         await newtab.addVSAQQuestions();
     });
@@ -107,7 +107,7 @@ test(`@RegressionP Validation of candidate response using Notes in exam TC-179`,
             await page1.locator('//div[text()="iAuthor"]').click()
 
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
@@ -155,7 +155,7 @@ test(`@RegressionP Validation of candidate response using Notes in exam TC-180`,
             await page1.locator('//div[text()="iAuthor"]').click()
 
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
@@ -204,7 +204,7 @@ test(`@RegressionP Validation of candidate response using Highlighter in exam TC
             await page1.locator('//div[text()="iAuthor"]').click()
 
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
@@ -255,7 +255,7 @@ test(`@RegressionP Validation of candidate response using Calculator, Notes and 
             await page1.locator('//div[text()="iAuthor"]').click()
 
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
@@ -305,7 +305,7 @@ test(`@RegressionP Validation of candidate response using Highlighter and Notes 
             await page1.locator('//div[text()="iAuthor"]').click()
 
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
@@ -356,7 +356,7 @@ test(`@RegressionP Validation of candidate response using Calculator and Highlig
             await page1.locator('//div[text()="iAuthor"]').click()
 
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
@@ -407,7 +407,7 @@ test(`@RegressionP Validation of candidate response using Calculator and Note in
             await page1.locator('//div[text()="iAuthor"]').click()
 
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
@@ -459,7 +459,7 @@ test(`@RegressionP Validation of candidate response using Flag + Highlighter  in
             await page1.locator('//div[text()="iAuthor"]').click()
 
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
@@ -509,7 +509,7 @@ test(`@RegressionP Validation of candidate response using Flag + Note in exam TC
             await page1.locator('//div[text()="iAuthor"]').click()
 
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
