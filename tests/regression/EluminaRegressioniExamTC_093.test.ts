@@ -88,7 +88,7 @@ test(`iEX_TC_ID_93. @Regression Validation of Survey section > Before Exam Time 
         await eluminaCandPage.waitforTime()
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ();
+        await eluminaCandPage.candidateStartSAQ(100);
         await eluminaCandPage.waitforTime()
         await eluminaCandPage.candidateStartSJTReviewandSubmit();
         await eluminaCandPage.validationOfPopupInSurveyPage();

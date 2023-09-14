@@ -88,7 +88,7 @@ test(`iEX_TC_ID_91. @Regression Survey section > validate exam name, candidate n
         await eluminaCandPage.waitforTime()
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ();
+        await eluminaCandPage.candidateStartSAQ(100);
         await eluminaCandPage.waitforTime()
         await eluminaCandPage.candidateStartSJTReviewandSubmit();
         await eluminaCandPage.examSectionValidation();
