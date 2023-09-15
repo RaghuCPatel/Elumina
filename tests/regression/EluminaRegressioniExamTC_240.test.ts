@@ -19,7 +19,7 @@ test(` . @iExamRegression Validation of "Time Remaining" pop-up when the just be
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.selectAllTools();
-        await newtab.createSection("1", "30");
+        await newtab.createSection("0", "1");
         await newtab.addMCQQuestion();
         await newtab.addVSAQQuestion();
         await newtab.addISAWEQuestion();
@@ -50,25 +50,18 @@ test(`iEX_TC_ID_89. @iExamRegression Validation of Exam section > After Exam Tim
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime();
 
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam', async () => {
-        // await eluminaCandPage.examSectionValidation();
         await eluminaCandPage.waitforTime4();
         await eluminaCandPage.clickOnAutoSubmitOKPopup();
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.clickOnAutoSubmitOKPopup();
-        await eluminaCandPage.candidateStartISAWE();
-        await eluminaCandPage.candidateStartTypeX();
-        await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ(100);
-        await eluminaCandPage.candidateStartSJTReviewandSubmit()
-        await eluminaCandPage.clickOnLogoutBtn()
 
     });
 });

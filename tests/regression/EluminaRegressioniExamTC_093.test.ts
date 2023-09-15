@@ -77,7 +77,7 @@ test(`iEX_TC_ID_93. @iExamRegression Validation of Survey section > Before Exam 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime4();
+        await eluminaCandPage.waitforTime3();
 
     });
     await test.step(`Candidate Login to application`, async () => {

@@ -76,6 +76,8 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @iExamRegression Verif
 test(`iEX_TC_ID_239'. @iExamRegression Verify Validation of Browser back button on Candidate Dashboard`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime3();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
@@ -92,9 +94,7 @@ test(`iEX_TC_ID_128. @iExamRegression Validation of Exam Invigilator Live monito
     });
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaInvPage.iAuthorPageNavigation();
-        await newtab.clickonexam();
-        await newtab.validateLiveMonitorDashboard();
-        await newtab.logoutClick();
+        await newtab.invDashboardValidations();
     });
 });
 
@@ -504,6 +504,10 @@ test(`iEX_TC_ID_136. @iExamRegression Validation of Exam Invigilator Live monito
         ]);
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.waitForTimeout(5000);
+        await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//input').click();
+        await newPage.locator('//div[@title="Resume Exam for all Candidates"]').click();
+        await newPage.locator('(//button[text()="Yes"])[2]').click();
+        await newPage.waitForTimeout(8000);
         await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//input').click();;
         await newPage.locator('//div[@class="action-item control-item terminate-exam"]').click();;
         await newPage.locator('(//button[text()="Yes"])[2]').click();

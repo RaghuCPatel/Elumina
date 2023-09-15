@@ -41,7 +41,7 @@ test(` . @iExamRegression Validation of Invigilator Dashboard after the Exam Com
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime();
 
     });
     await test.step(`Candidate Login to application`, async () => {

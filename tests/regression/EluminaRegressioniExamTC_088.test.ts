@@ -69,6 +69,7 @@ test(`iEX_TC_ID_57. @iExamRegression Validation of Exam Section> Image viewer`, 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();

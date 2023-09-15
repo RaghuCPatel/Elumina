@@ -1,8 +1,8 @@
 import test from '@lib/BaseTest';
 
-/**Validation of Exam Section > SAQ Questions*/
+/**Validation of Exam section > Candidate attend the exam by answering the questions randomly (Example: Monkey Jump)*/
 
-/*test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+test(` . @iExamRegression  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -17,7 +17,7 @@ import test from '@lib/BaseTest';
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.selectAllTools();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestion();
         await newtab.addVSAQQuestion();
         await newtab.addISAWEQuestion();
@@ -29,7 +29,7 @@ import test from '@lib/BaseTest';
 });
 
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(` . @iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -42,5 +42,26 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, elumi
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});     */
+});
 
+test(`iEX_TC_ID_77. @iExamRegression Validation of Exam section > Candidate attend the exam by answering the questions randomly (Example: Monkey Jump)`, async ({ eluminaCandPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCandPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime3();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
+    });
+    await test.step('Candidate start the exam', async () => {
+        await eluminaCandPage.candAnsFirstQustAsMCQ();
+        await eluminaCandPage.candAns17thQutnAsTypeB();
+        await eluminaCandPage.candAns7thQutnAsVSAQ(100);
+        await eluminaCandPage.candAns13thQutnAsTypeX();
+        await eluminaCandPage.candAnsLastQutnAsSJT();
+        await eluminaCandPage.clickOnLogoutBtn()
+        await eluminaCandPage.validationOfLogo();
+
+    });
+
+});

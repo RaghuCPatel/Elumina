@@ -202,7 +202,7 @@ export class EluminaInvPage {
 
     /**Method for Invigilator Dashboard Validation */
     async invDashboardValidations() {
-        await this.page.waitForTimeout(10000);
+        await this.page.waitForTimeout(20000);
         await expect(this.verifyExamIDMenue).toBeVisible();
         console.log(await this.verifyExamIDMenue.textContent() + "-" + await this.verifyExamID.textContent());
         await expect(this.verifyExamNameMenue).toBeVisible();

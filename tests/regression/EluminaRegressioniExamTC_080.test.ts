@@ -29,40 +29,6 @@ else if (process.env.ENV == 'staging') {
 }
 
 /** Validation of extending exam for the candidate by invigilator */
-/*test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
-        await eluminaLoginPage.verifyProfilePage();
-    });
-    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminaExamPage.iAuthorPageNavigation();
-        await newtab.examTabNavigation();
-        await newtab.createExam();
-        await newtab.createSection();
-        await newtab.addMCQQuestions();
-    });
-});
-
-test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaRegPage.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
-    });
-});       */
 
 test(` . @iExamRegression Verify Validation of Extending Exam`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -89,8 +55,6 @@ test(` . @iExamRegression Verify Validation of Extending Exam`, async ({ elumina
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
-        //await newPage.waitForLoadState();
-
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.waitForTimeout(8000);
         await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
