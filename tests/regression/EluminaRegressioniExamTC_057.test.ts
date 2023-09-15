@@ -45,7 +45,7 @@ Verification of Timer Expires Alert Box  in Exam Content page`, async ({ elumina
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime();
 
     });
     await test.step(`Candidate Login to application`, async () => {

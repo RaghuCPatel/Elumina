@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
-test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+test(`@Regression1  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -58,7 +58,7 @@ test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLogin
 });
 
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`@Regression1 Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -73,11 +73,11 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, elumi
     });
 });
 
-test(`iEX_TC_ID_94. @Regression Validation of Survey section > After Exam Time Expires`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_94. @Regression1 Validation of Survey section > After Exam Time Expires`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime4();
+        await eluminaCandPage.waitforTime();
 
     });
     await test.step(`Candidate Login to application`, async () => {
@@ -95,7 +95,6 @@ test(`iEX_TC_ID_94. @Regression Validation of Survey section > After Exam Time E
         await eluminaCandPage.popup()
         await eluminaCandPage.waitforTime()
         await eluminaCandPage.validationOfPopupInSurveyPage();
-        //await eluminaCandPage.candidateAnsSurveyQuestion();
     });
 
 });

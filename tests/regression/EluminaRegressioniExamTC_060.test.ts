@@ -13,69 +13,33 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
-} 
+}
 
 /**Validate When exam terminated for candidate*/
 
-// test(`@Regression Elumina Create exam`, async ({ eluminaLoginPage,eluminaCandPage,eluminaExamPage,webActions }) => {
-//     await test.step(`Navigate to Application`, async () => {
-//         await eluminaLoginPage.navigateToURL();
-//     });
-//     await test.step(`Login to Elumina application`, async () => {
-//         await eluminaLoginPage.loginToApplication();
-//     });
-//     await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
-//         await eluminaLoginPage.verifyProfilePage();
-//     });
-//     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-//         const newtab = await eluminaExamPage.iAuthorPageNavigation();
-//         await newtab.examTabNavigation();
-//         await newtab.createCommonExam();
-//         await newtab.clickonNextBtnInExam();
-//         await newtab.createSection();
-//         await newtab.addMCQQuestions();
-//     });
-// });
-
-// test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaRegPage,webActions }) => {
-//     await test.step(`Navigate to Application`, async () => {
-//         await eluminaLoginPage.navigateToURL();
-//     });
-//     await test.step(`Login to Elumina application`, async () => {
-//         await eluminaLoginPage.loginToApplication();
-//     });
-//     await test.step(`Navigate to exam Tab and Create New user`, async () => {
-//         const newtab = await eluminaRegPage.iAuthorPageNavigations();
-//         await newtab.registrationTabNavigation();
-//         await newtab.addUserDetails();
-//         await newtab.downloadUserDetails();
-//         await newtab.addExistingUsers();
-//     });
-// });
-
-test(`@Regression Verify Validation of "Terminate Exam"  `, async ({eluminaCandPage, eluminaCadInvPage,webActions }) => {
+test(`@Regression Verify Validation of "Terminate Exam"  `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
-        
+
     });
-    await test.step('Candidate start the exam',async ()=> {
+    await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candidateStartMCQ();
 
         const browser = await chromium.launch();
@@ -89,12 +53,12 @@ test(`@Regression Verify Validation of "Terminate Exam"  `, async ({eluminaCandP
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
-          ]);
+        ]);
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.waitForTimeout(5000);
         await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//input').click();;
         await newPage.locator('//div[@class="action-item control-item terminate-exam"]').click();;
-  
+
         await newPage.locator('(//button[text()="Yes"])[2]').click();
         await newPage.waitForTimeout(5000);
         await newPage.close();
@@ -102,12 +66,12 @@ test(`@Regression Verify Validation of "Terminate Exam"  `, async ({eluminaCandP
 
     });
 
-        await test.step(`Navigate to Application`, async () => {
-            await eluminaCadInvPage.candidateNavigateToURL();
-        });
-        await test.step(`Candidate Login to application`, async () => {
-            await eluminaCandPage.candidateLoginToAndValidateDashboard();
-            
-        });
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaCadInvPage.candidateNavigateToURL();
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToAndValidateDashboard();
+
+    });
 
 });

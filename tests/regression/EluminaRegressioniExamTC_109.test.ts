@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 }
 /** Validation of Candidate Attending Exam in Online - Offline (Submit Offline and Resume Synch in Online) */
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_109. @Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_109. @Regression2 Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -58,7 +58,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_109. @Regression Verify Elumina Login and C
     });
 });
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_109. @Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_109. @Regression2 Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -76,7 +76,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_109. @Regression Verify Elumina Registratio
 });
 
 
-test(`iEX_TC_ID_81. @Regression Validation of Exam Review Exam page. (Offline)`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_81. @Regression2 Validation of Exam Review Exam page. (Offline)`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
@@ -99,7 +99,7 @@ test(`iEX_TC_ID_81. @Regression Validation of Exam Review Exam page. (Offline)`,
     });
 });
 
-test(`iEX_TC_ID_144. @Regression Validation of Check Individual Candidate Timer is in Sync  (Individual Candidate)`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_144. @Regression2 Validation of Check Individual Candidate Timer is in Sync  (Individual Candidate)`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -147,7 +147,7 @@ test(`iEX_TC_ID_144. @Regression Validation of Check Individual Candidate Timer 
 });
 
 
-test(`iEX_TC_ID_109. @Regression Validation of Candidate attending Exam in Online - Offline and submit in Offline Mode`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_109. @Regression2 Validation of Candidate attending Exam in Online - Offline and submit in Offline Mode`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

@@ -112,7 +112,7 @@ test(`iEX_TC_ID_97,iEX_TC_ID_98,iEX_TC_ID_99,iEX_TC_ID_101,iEX_TC_ID_102,iEX_TC_
 
     });
 
-    await test.step('Validate each component in candidate Exam page for all Questions',async () => {
+    await test.step('Validate each component in candidate Exam page for all Questions', async () => {
         await eluminaCandPage.AllQuestionPageValidation('MCQ');
         await eluminaCandPage.AllQuestionPageValidation('VSAQ');
         await eluminaCandPage.AllQuestionPageValidation('ISAWE');
@@ -140,7 +140,6 @@ test(`iEX_TC_ID_76. @Regression Validation of Exam section > Candidate attend th
         await eluminaCandPage.candidateStartTypeB();
         await eluminaCandPage.candidateStartSAQ(100);
         await eluminaCandPage.candidateStartSJTReviewandSubmit()
-        //await eluminaCandPage.confirmationOkBtn()
         await eluminaCandPage.clickOnLogoutBtn()
         await eluminaCandPage.validationOfLogo();
 

@@ -1,6 +1,6 @@
 import test from '@lib/BaseTest';
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_236. @Regression Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_236. @Regression1 Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -19,7 +19,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_236. @Regression Verify Elumina Login and c
     });
 });
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_236. @Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_236. @Regression1 Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -34,7 +34,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_236. @Regression Verify Elumina Registratio
     });
 });
 
-test(`iEX_TC_ID_236. @Regression Validation of Candidate dashboard > Exam scheduled Date / Time is over.`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_236. @Regression1 Validation of Candidate dashboard > Exam scheduled Date / Time is over.`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

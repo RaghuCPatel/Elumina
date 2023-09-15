@@ -1108,7 +1108,7 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(2000);
 
     }
-    
+
     async candidateStartSJTValidationofReviewPage() {
         await this.page.waitForTimeout(2000);
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
@@ -1346,17 +1346,6 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(1000);
     }
 
-
-
-        }
-    
-
-
-        }
-        await this.page.waitForTimeout(1000);
-    }
-
-   
 
     async flagForQuestion() {
         await this.clickOnLastVSAQ.click();
@@ -1801,7 +1790,7 @@ export class EluminaCandidatePage {
 
     async candidateStartOneMCQwithMultipleViewerOptions() {
         await this.page.waitForTimeout(2000);
-        await this.ansMCQQuestions.click();
+        await this.VSAQQuestion1Click.click();
         await this.page.waitForTimeout(2000);
         await this.ZoominIconClick.click();
         await this.page.waitForTimeout(2000);
@@ -1976,7 +1965,7 @@ export class EluminaCandidatePage {
             expect(a).toBe(' Question #21 of 30 ');
 
 
-           // await this.UsingHighlighterForAllQuestions('Other');
+            // await this.UsingHighlighterForAllQuestions('Other');
 
             await this.UsingHighlighterForAllQuestions('Other');
 
@@ -1994,41 +1983,15 @@ export class EluminaCandidatePage {
 
     }
 
-
-    async SAQPageValidation() {
-        await this.examSectionValidation();
-        await this.verifyExamDashboardTimer()
-        await this.verifyColours()
-        await this.verifyNoOfQutn()
-        await this.verifyFlagForReview()
-        await this.validationOfAllTools();
-        await this.validationOfNextBtn()
-        await this.candidateStartOneMCQ();
-        await this.candidateStartSingleSAQ(2000);
-        await this.validatePreviousBtn()
-        await this.UsingCalculatorForQuestions()
-        await this.UsingHighlighterForQuestions1()
-        await this.increaseFontSize();
-        await this.decreaseFontSize()
-        await this.validationOfReviewBtn();
-
-
-    }
-
     /**
     * To Validate each component displayed in the MCQ Section
     * 
     */
-
-
     async McqPageValidations() {
         await expect(this.verifyExamTimer).toBeVisible();
         EluminaCandidatePage.Time = await this.verifyExamTimer.textContent();
         console.log('Time display' + EluminaCandidatePage.Time);
     }
 
-
-
-}
 
 }

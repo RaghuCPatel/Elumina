@@ -4,7 +4,7 @@ import test from '@lib/BaseTest';
 
 //Validation of Exam section > After Exam Time Expires
 
-test(`@Regression Validation of "Time Remaining" pop-up when the just before the exam time runs out`, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, eluminaExamPage, webActions }) => {
+test(`@Regression2 Validation of "Time Remaining" pop-up when the just before the exam time runs out`, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -19,7 +19,7 @@ test(`@Regression Validation of "Time Remaining" pop-up when the just before the
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.selectAllTools();
-        await newtab.createSection("1", "30");
+        await newtab.createSection("0", "1");
         await newtab.addMCQQuestion();
         await newtab.addVSAQQuestion();
         await newtab.addISAWEQuestion();
@@ -30,7 +30,7 @@ test(`@Regression Validation of "Time Remaining" pop-up when the just before the
     });
 });
 
-test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`@Regression2 Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -46,34 +46,27 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
     });
 });
 
-test(`iEX_TC_ID_89. @Regression Validation of Exam section > After Exam Time Expires`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_89. @Regression2 Validation of Exam section > After Exam Time Expires`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime();
 
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam', async () => {
-        // await eluminaCandPage.examSectionValidation();
         await eluminaCandPage.waitforTime4();
         await eluminaCandPage.clickOnAutoSubmitOKPopup();
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.clickOnAutoSubmitOKPopup();
-        await eluminaCandPage.candidateStartISAWE();
-        await eluminaCandPage.candidateStartTypeX();
-        await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ(100);
-        await eluminaCandPage.candidateStartSJTReviewandSubmit()
-        await eluminaCandPage.clickOnLogoutBtn()
 
     });
 });
 
-test(`iEX_TC_ID_89A. @Regression Validation of Exam section > After Exam Time Expires `, async ({ eluminaInvPage, webActions }) => {
+test(`iEX_TC_ID_89A. @Regression2 Validation of Exam section > After Exam Time Expires `, async ({ eluminaInvPage, webActions }) => {
 
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaInvPage.invigilatorLogin();

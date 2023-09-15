@@ -16,7 +16,7 @@ test(`iEX_TC_ID_1. @Smoke Verify Elumina Login and Create Exam`, async ({ elumin
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.createExam();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestions();
 
     });

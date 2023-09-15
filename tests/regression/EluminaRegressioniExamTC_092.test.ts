@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
-test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+test(`@Regression1  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -52,13 +52,13 @@ test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLogin
         await newtab.addTypeBQuestion();
         await newtab.addSAQQuestion();
         await newtab.addSJTQuestions();
-        await newtab.createSurveySection();
+        await newtab.createSurveySection("10");
         await newtab.createSurveyPage();
     });
 });
 
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`@Regression1 Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -73,7 +73,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, elumi
     });
 });
 
-test(`iEX_TC_ID_92. @Regression Survey section > Flag for review.`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_92. @Regression1 Survey section > Flag for review.`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

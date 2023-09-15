@@ -12,48 +12,46 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
-} 
+}
 
 //Validation of Invigilator Dashboard
 
-test(`@Regression Verify Validation of Invigilator Dashboard`, async ({ eluminaInvPage, webActions }) => {
-   
+test(`@Regression1 Verify Validation of Invigilator Dashboard`, async ({ eluminaInvPage, webActions }) => {
+
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaInvPage.invigilatorLogin();
     });
-    
+
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaInvPage.iAuthorPageNavigation();
-        //await newtab.iAuthorPageVerification();
         await newtab.invDashboardValidations();
-        //await newtab.validateExamStatus();
-        
+
     });
 });
 
 //Validation of "Start Exam" (All Candidates)
-test(`@Regression Validation of invigilator remotely start the Exam for candidate EluminaRegressioniExamTC_086`, async ({ eluminaCandPage,eluminaCadInvPage,eluminaProctorCand,webActions }) => {
+test(`@Regression1 Validation of invigilator remotely start the Exam for candidate EluminaRegressioniExamTC_086`, async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCadInvPage.candidateLoginToApplications();
     });
-    await test.step('Candidate start the exam',async ()=> {
+    await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.candidateStartExamsValidationInv();
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -69,8 +67,8 @@ test(`@Regression Validation of invigilator remotely start the Exam for candidat
 
             await page1.locator('//div[text()="iAuthor"]').click()
 
-          ]);
-       
+        ]);
+
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
         await newPage.locator('//div[@title="Start Exam for all Candidates"]').click();
@@ -81,6 +79,6 @@ test(`@Regression Validation of invigilator remotely start the Exam for candidat
     });
     await test.step(`Redirected to Candidate page`, async () => {
         await eluminaProctorCand.againCandidateLogin();
-        await eluminaCandPage.examSectionValidation();        
+        await eluminaCandPage.examSectionValidation();
     });
 });

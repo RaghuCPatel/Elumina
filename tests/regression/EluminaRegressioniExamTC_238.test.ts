@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Login using valid credentials with Client Id and  Password*/
 
-test(`Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, eluminaRegPage, webActions }) => {
+test(`@Regression2 Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -18,8 +18,6 @@ test(`Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPag
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.clickonNextBtnInExam();
-        // await newtab.createContentSection();
-        // await newtab.createContentPage();
         await newtab.createSection("1", "30");
         await newtab.addMCQQuestions();
         await newtab.waitforTime();
@@ -34,22 +32,6 @@ test(`Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPag
     });
 });
 
-
-// test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
-//     await test.step(`Navigate to Application`, async () => {
-//         await eluminaLoginPage.navigateToURL();
-//     });
-//     await test.step(`Login to Elumina application`, async () => {
-//         await eluminaLoginPage.loginToApplication();
-//     });
-//     await test.step(`Navigate to exam Tab and Create New user`, async () => {
-//         const newtab = await eluminaRegPage.iAuthorPageNavigations();
-//         await newtab.registrationTabNavigation();
-//         await newtab.addUserDetails();
-//         await newtab.downloadUserDetails();
-//     });
-// });
-
 test(` @iEX_TC_ID_032 @Regression Validation of Sign out at Exam Start Page`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
@@ -58,21 +40,8 @@ test(` @iEX_TC_ID_032 @Regression Validation of Sign out at Exam Start Page`, as
     });
     await test.step(`Candidate Login to application with inactive user`, async () => {
         await eluminaCandPage.candidateLoginToAppStartExam();
-        await eluminaCandPage.validateBrowserBackButton();
+        await eluminaCandPage.navigateBack();
+
     });
 
 });
-
-
-// test(` @iEX_TC_ID_238 @Regression Validation of Sign out at Exam Start Page`, async ({ eluminaCandPage, webActions }) => {
-//     await test.step(`Navigate to Application`, async () => {
-//         await eluminaCandPage.candidateNavigateToURL();
-//         await eluminaCandPage.waitforTime();
-//         await eluminaCandPage.waitforTime2();
-//     });
-//     await test.step(`Candidate Login to application with inactive user`, async () => {
-//         await eluminaCandPage.candidateLoginToAppStartExam();
-//         await eluminaCandPage.validateExamSectionPage();
-//     });
-
-// });

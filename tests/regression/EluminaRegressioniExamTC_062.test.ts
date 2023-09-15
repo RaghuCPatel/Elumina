@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 //Validation of Exam content section page contents and details
 
-test(`@Regression Create a Exam and add MCQ Questions`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`@Regression1 Create a Exam and add MCQ Questions`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -25,7 +25,7 @@ test(`@Regression Create a Exam and add MCQ Questions`, async ({ eluminaLoginPag
 });
 
 
-test(`@Regression add user and download user details`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`@Regression1 add user and download user details`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -40,11 +40,11 @@ test(`@Regression add user and download user details`, async ({ eluminaLoginPage
     });
 });
 
-test(`@Regression Verify Validation of Exam content section page contents and details`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(`@Regression1 Verify Validation of Exam content section page contents and details`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime();
         await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam', async () => {
