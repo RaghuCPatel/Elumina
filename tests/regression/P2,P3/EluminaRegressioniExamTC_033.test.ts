@@ -103,19 +103,6 @@ test(` . @LowPriorityiExamCases Validation of Sign out at Exam Start Page TC-15`
     });
 });
 
-// test(`@RegressionP Validation of Sign out at Exam Start Page TC-210`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
-//     await test.step(`Navigate to Application`, async () => {
-//         await eluminaCandPage.candidateNavigateToURL();
-//     });
-//     await test.step(`Candidate Login to application`, async () => {
-//         await eluminaCadInvPage.candidateLoginToApplications();
-//     });
-//     await test.step('Candidate start the exam', async () => {
-//         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
-//     });
-// });
-
-
 test(` . @LowPriorityiExamCases Validation of Candidate dashboard > Exam Start page Font size validation. TC-27`, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
