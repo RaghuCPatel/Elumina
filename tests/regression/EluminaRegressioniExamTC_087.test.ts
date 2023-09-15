@@ -110,7 +110,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_235A. @iExamRegression Verify Elumina Login
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.createExam();
-        await newtab.createSection();
+        await newtab.createSection("2","58");
         await newtab.addMCQQuestions(); 
     });
 });
