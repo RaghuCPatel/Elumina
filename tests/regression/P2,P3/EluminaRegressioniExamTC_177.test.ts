@@ -90,7 +90,6 @@ test(` . @LowPriorityiExamCases Verify Validation of candidate response using Im
         await newPage.locator('//a[text()="Live Monitor"]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
         await newPage.waitForTimeout(3000);
-        //let loginSuccess=await newPage.locator('(//div[contains(text(),"Login Success")])[1]').textContent();
         console.log("Candidate Response is validated with Image Viewer");
         await newPage.waitForTimeout(3000);
         await newPage.close();
