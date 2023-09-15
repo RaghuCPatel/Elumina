@@ -1,6 +1,6 @@
 import test from '@lib/BaseTest';
 
-test(`iEX_TC_ID_010. @iExamRegression Validation of Sign out at Exam Start Page`, async ({ eluminaCandPage, webActions }) => {
+test(` . iEX_TC_ID_010. @iExamRegression Validation of Sign out at Exam Start Page`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

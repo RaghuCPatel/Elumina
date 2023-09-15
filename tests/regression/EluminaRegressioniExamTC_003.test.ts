@@ -1,7 +1,7 @@
 import test from '@lib/BaseTest';
 
 /**Validation of Empty Field validation */
-test(`@iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(` . @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -22,7 +22,7 @@ test(`@iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLo
     });
 });
 
-test(`@iExamRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
+test(` . @iExamRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -38,7 +38,7 @@ test(`@iExamRegression Verify Elumina RegistrationInv and add User and Invigilat
     });
 });
 
-test(`@iExamRegression Validation of Empty Field validation`, async ({ eluminaCandPage, webActions }) => {
+test(` . @iExamRegression Validation of Empty Field validation`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
