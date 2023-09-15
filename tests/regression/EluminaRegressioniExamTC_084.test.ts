@@ -3,7 +3,7 @@ import { chromium } from '@playwright/test';
 import { testConfig } from '../../testConfig';
 
 /** Validate Survey screen*/
-test(`@iExamRegression Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(` . @iExamRegression Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -26,7 +26,7 @@ test(`@iExamRegression Verify Elumina Create Exam with survey section`, async ({
     });
 });
 
-test(`@iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(` . @iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -41,7 +41,7 @@ test(`@iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPage, 
     });
 });
 
-test(`@iExamRegression Verify Validation of Survey screen and Validate Survey screen where candidate
+test(` . @iExamRegression Verify Validation of Survey screen and Validate Survey screen where candidate
     can provide feedback in comment section TC-084 and TC-085`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();

@@ -3,7 +3,7 @@ import test from '@lib/BaseTest';
 
 /**Verification of Timer Expires Alert Box  in Exam Content page */
 
-test(`@iExamRegression Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+test(` . @iExamRegression Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -26,7 +26,7 @@ test(`@iExamRegression Verify Elumina Login and create exam `, async ({ eluminaL
 });
 
 
-test(`@iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(` . @iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -41,7 +41,7 @@ test(`@iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPage, 
     });
 });
 
-test(`@iExamRegression Verify Timer Expires Alert Box  in Exam Content page`, async ({ eluminaCandPage, webActions }) => {
+test(` . @iExamRegression Verify Timer Expires Alert Box  in Exam Content page`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

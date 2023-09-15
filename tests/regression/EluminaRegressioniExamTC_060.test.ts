@@ -31,7 +31,7 @@ else if (process.env.ENV == 'staging') {
 
 /**Validate When exam terminated for candidate*/
 
-test(`@iExamRegression Verify Validation of "Terminate Exam"  `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
+test(` . @iExamRegression Verify Validation of "Terminate Exam"  `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });

@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Password will not be asked after clicking on "Start Exam"*/
 
-test(`@iExamRegression Password will not be asked after clicking on "Start Exam"`, async ({ eluminaCandPage, webActions }) => {
+test(` . @iExamRegression Password will not be asked after clicking on "Start Exam"`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

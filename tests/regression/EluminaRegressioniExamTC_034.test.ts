@@ -76,7 +76,7 @@ test(`@iExamRegression Verify Validation of VSAQ Question type EluminaRegression
 
 //Validation of Candidate dashboard - Exam scheduled Date / Time is over.  
 
-test(`@iExamRegression Verify Validation of Candidate dashboard - Exam scheduled Date / Time is over EluminaRegressioniExamTC_024`, async ({ eluminaCandPage, webActions }) => {
+test(` . @iExamRegression Verify Validation of Candidate dashboard - Exam scheduled Date / Time is over EluminaRegressioniExamTC_024`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

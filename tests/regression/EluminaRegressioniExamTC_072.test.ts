@@ -32,7 +32,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of "Start Exam" (All Candidates)
 
-test(`@iExamRegression Verify Elumina Login and create exam`, async ({ eluminaLoginPage, eluminaExamPage, eluminaProctorExam, webActions }) => {
+test(` . @iExamRegression Verify Elumina Login and create exam`, async ({ eluminaLoginPage, eluminaExamPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -52,7 +52,7 @@ test(`@iExamRegression Verify Elumina Login and create exam`, async ({ eluminaLo
     });
 });
 
-test(`@iExamRegression Verify Elumina Registration and user and invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(` . @iExamRegression Verify Elumina Registration and user and invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -68,7 +68,7 @@ test(`@iExamRegression Verify Elumina Registration and user and invigilator`, as
     });
 });
 
-test(`@iExamRegression Validation of "Start Exam" (All Candidates) `, async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
+test(` . @iExamRegression Validation of "Start Exam" (All Candidates) `, async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

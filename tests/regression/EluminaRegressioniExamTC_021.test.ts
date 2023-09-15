@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 //Validation of Changing Font Size to increase on the Dashboard
 
-test(`@iExamRegression Verify Validation of Changing Font Size to increase on the Dashboard`, async ({ eluminaCandPage, webActions }) => {
+test(` . @iExamRegression Verify Validation of Changing Font Size to increase on the Dashboard`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

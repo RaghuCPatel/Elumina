@@ -4,7 +4,7 @@ import test from '@lib/BaseTest';
 
 //EluminaRegressioniExamTC_042(iEX_TC_ID_69,79,95).test
 
-test(`@iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(` . @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -35,7 +35,7 @@ test(`@iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLo
     });
 });
 
-test(`@iExamRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(` . @iExamRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -51,7 +51,7 @@ test(`@iExamRegression Verify Elumina RegistrationInv and add User and Invigilat
 });
 
 
-test(`@iExamRegression Verify Validation of Candidate attends All Question type`, async ({ eluminaCandPage, webActions }) => {
+test(` . @iExamRegression Verify Validation of Candidate attends All Question type`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
@@ -74,7 +74,7 @@ test(`@iExamRegression Verify Validation of Candidate attends All Question type`
 });
 
 
-test(`iEX_TC_ID_69. @iExamRegression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons.`, async ({ eluminaCandPage, webActions }) => {
+test(` . iEX_TC_ID_69. @iExamRegression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons.`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -94,7 +94,7 @@ test(`iEX_TC_ID_69. @iExamRegression Validation of Exam Section > Question and A
 });
 
 
-test(`iEX_TC_ID_79. @iExamRegression Verify Validation of Candidate attends All Question type in offline`, async ({ eluminaCandPage, webActions }) => {
+test(` . iEX_TC_ID_79. @iExamRegression Verify Validation of Candidate attends All Question type in offline`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -113,7 +113,7 @@ test(`iEX_TC_ID_79. @iExamRegression Verify Validation of Candidate attends All 
 });
 
 
-test(`iEX_TC_ID_95. @iExamRegression Verify Validation of Candidate attends All Question type in offline`, async ({ eluminaCandPage, webActions }) => {
+test(` . iEX_TC_ID_95. @iExamRegression Verify Validation of Candidate attends All Question type in offline`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
