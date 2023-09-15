@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 }
 /** Validation of exam paused for Candidate & Validation of exam extended for Candidate  */
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_137. @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_137. @iExamRegression  Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -56,7 +56,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_137. @iExamRegression Verify Elumina Login 
     });
 });
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_137. @iExamRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_137. @iExamRegression  Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -67,25 +67,24 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_137. @iExamRegression Verify Elumina Regist
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
         await newtab.addMultipleUserDetails();
-        await newtab.BulkDownloadUserDetails();
+        await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
         await newtab.logoutClick();
     });
 });
 
-test(`iEX_TC_ID_150. @iExamRegression Validation of Exam Invigilator Live monitor (View Response based on candidate) Negative scenario `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
+test(`iEX_TC_ID_150. @iExamRegression  Validation of Exam Invigilator Live monitor (View Response based on candidate) Negative scenario `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
-    });
-    await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
         await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime3();
         await eluminaCandPage.waitforTime3();
-
+    });
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaCandPage.candidateLoginToApplication();
     });
     await test.step('Candidate start the exam', async () => {
-        await eluminaCandPage.candidateStartMCQ();
+        await eluminaCandPage.candidateStartOneMCQ();
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -103,6 +102,7 @@ test(`iEX_TC_ID_150. @iExamRegression Validation of Exam Invigilator Live monito
         await newPage.waitForTimeout(5000);
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
         await newPage.locator('//div[@class="question-section"]').isDisabled();
+        await newPage.waitForTimeout(5000);
         await newPage.locator('(//div[@class="question-number-container"]//div//p)[6]');
         await newPage.locator('(//div[@class="answer-text-editor"])[1]').isDisabled();
         await newPage.waitForTimeout(5000);
@@ -114,7 +114,7 @@ test(`iEX_TC_ID_150. @iExamRegression Validation of Exam Invigilator Live monito
 });
 
 
-test(`iEX_TC_ID_137. @iExamRegression Validation of Exam Invigilator Live monitor > Terminate exam.  (All Candidate)"  `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
+test(`iEX_TC_ID_137. @iExamRegression  Validation of Exam Invigilator Live monitor > Terminate exam.  (All Candidate)"  `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });

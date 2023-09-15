@@ -79,7 +79,7 @@ test(`iEX_TC_ID_108,iEX_TC_ID_115. @LowPriorityiExamCases Validation of Candidat
 
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();
-        //await eluminaCandPage.candidateContentSectionVerifications();
+        await eluminaCandPage.candidateContentSectionVerifications();
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.setOffline(true);
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);

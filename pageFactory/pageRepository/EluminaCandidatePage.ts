@@ -254,7 +254,7 @@ export class EluminaCandidatePage {
         this.cloudUpdatedIcon = page.locator('//div[@class="cloud"]//div');
         this.clickOnLastVSAQ = page.locator('//div[@class="question-number-container"]//div//p').last();
         this.clearButton = page.locator('//div[@class="action-btn-container"]//div[text()="Clear"]');
-        this.clickOnVSAQQuestions = page.locator('(//div[@class="question-number"])[2]');
+        this.clickOnVSAQQuestions = page.locator('(//div[@class="question-number"])[6]');
         this.checklogo = page.locator('//div[@class="logo-container"]//div[@class="logo"]');
         this.txtLogin = page.locator('//div[text()="Login"]');
         this.txtUserIdPlaceholder = page.locator('//label[text()="User Id"]')
