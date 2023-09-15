@@ -108,7 +108,6 @@ test(` . @iExamRegression Verify Validation of Invigilator Dashboard after the E
         await newPage.locator('//div[@title="Resume Exam for all Candidates"]').click();
         await newPage.locator('(//button[text()="Yes"])[2]').click();
         await newPage.waitForTimeout(3000);
-        //await eluminaCandPage.candidateStartMCQAndSubmit();
         await newPage.close();
         await page1.close();
 

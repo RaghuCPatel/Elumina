@@ -52,7 +52,7 @@ test(` . @iExamRegression  Verify Elumina Login and create exam `, async ({ elum
         await newtab.addTypeBQuestion();
         await newtab.addSAQQuestion();
         await newtab.addSJTQuestions();
-        await newtab.createSurveySection();
+        await newtab.createSurveySection("10");
         await newtab.createSurveyPage();
     });
 });

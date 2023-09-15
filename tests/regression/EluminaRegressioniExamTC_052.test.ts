@@ -45,7 +45,7 @@ test(` . @iExamRegression Verify Timer Expires Alert Box  in Exam Content page`,
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime4();
+        await eluminaCandPage.waitforTime();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication();

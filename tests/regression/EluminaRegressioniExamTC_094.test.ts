@@ -77,7 +77,7 @@ test(`iEX_TC_ID_94. @iExamRegression Validation of Survey section > After Exam T
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime4();
+        await eluminaCandPage.waitforTime();
 
     });
     await test.step(`Candidate Login to application`, async () => {
@@ -95,7 +95,6 @@ test(`iEX_TC_ID_94. @iExamRegression Validation of Survey section > After Exam T
         await eluminaCandPage.popup()
         await eluminaCandPage.waitforTime()
         await eluminaCandPage.validationOfPopupInSurveyPage();
-        //await eluminaCandPage.candidateAnsSurveyQuestion();
     });
 
 });

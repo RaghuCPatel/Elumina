@@ -52,7 +52,7 @@ test(` . @iExamRegression  Verify Elumina Login and create exam `, async ({ elum
         await newtab.addTypeBQuestion();
         await newtab.addSAQQuestion();
         await newtab.addSJTQuestions();
-        await newtab.createSurveySection();
+        await newtab.createSurveySection("10");
         await newtab.createSurveyPage();
     });
 });
@@ -94,7 +94,6 @@ test(`iEX_TC_ID_91. @iExamRegression Survey section > validate exam name, candid
         await eluminaCandPage.examSectionValidation();
         await eluminaCandPage.verifyExamDashboardTimer();
         await eluminaCandPage.verifyNoOfQutn()
-        // await eluminaCandPage.candidateAnsSurveyQuestion();
 
 
     });

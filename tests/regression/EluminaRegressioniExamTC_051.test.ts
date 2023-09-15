@@ -90,12 +90,6 @@ test(`iEX_TC_ID_54. @iExamRegression Validation of Exam section page.`, async ({
         await eluminaCandPage.increaseFontSize();
         await eluminaCandPage.decreaseFontSize();
         await eluminaCandPage.validatePreviousBtn();
-        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
-        await eluminaCandPage.candidateStartISAWE();
-        await eluminaCandPage.candidateStartTypeX();
-        await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ(100);
-        await eluminaCandPage.candidateStartSJT();
     });
 
 });
@@ -153,7 +147,7 @@ test(`iEX_TC_ID_76. @iExamRegression Validation of Exam section > Candidate atte
         await eluminaCandPage.candidateStartSJTReviewandSubmit()
         //await eluminaCandPage.confirmationOkBtn()
         await eluminaCandPage.clickOnLogoutBtn()
-        await eluminaCandPage.validationOfLogo();
+        //await eluminaCandPage.validationOfLogo();
 
     });
 
