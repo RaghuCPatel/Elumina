@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Candidate App Dashboard Details*/
 
-test(`@Regression Validation of Candidate App Dashboard Details`, async ({ eluminaCandPage,webActions }) => {
+test(`@iExamRegression Validation of Candidate App Dashboard Details`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -10,5 +10,5 @@ test(`@Regression Validation of Candidate App Dashboard Details`, async ({ elumi
         await eluminaCandPage.candidateLoginToApplication();
         await eluminaCandPage.candidateContentSectionValidation();
     });
-    
+
 });

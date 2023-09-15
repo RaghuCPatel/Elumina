@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 }
 /** Validation of exam paused for Candidate & Validation of exam extended for Candidate  */
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_137. @Regression2 Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_137. @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -56,7 +56,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_137. @Regression2 Verify Elumina Login and 
     });
 });
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_137. @Regression2 Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_137. @iExamRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -73,7 +73,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_137. @Regression2 Verify Elumina Registrati
     });
 });
 
-test(`iEX_TC_ID_150. @Regression2 Validation of Exam Invigilator Live monitor (View Response based on candidate) Negative scenario `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
+test(`iEX_TC_ID_150. @iExamRegression Validation of Exam Invigilator Live monitor (View Response based on candidate) Negative scenario `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });
@@ -114,7 +114,7 @@ test(`iEX_TC_ID_150. @Regression2 Validation of Exam Invigilator Live monitor (V
 });
 
 
-test(`iEX_TC_ID_137. @Regression2 Validation of Exam Invigilator Live monitor > Terminate exam.  (All Candidate)"  `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
+test(`iEX_TC_ID_137. @iExamRegression Validation of Exam Invigilator Live monitor > Terminate exam.  (All Candidate)"  `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });

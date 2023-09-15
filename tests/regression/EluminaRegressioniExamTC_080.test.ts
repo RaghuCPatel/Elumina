@@ -30,7 +30,7 @@ else if (process.env.ENV == 'staging') {
 
 /** Validation of extending exam for the candidate by invigilator */
 
-test(`@Regression1 Verify Validation of Extending Exam`, async ({ eluminaCandPage, webActions }) => {
+test(`@iExamRegression Verify Validation of Extending Exam`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Practice Exam View Result Page &Candidate Attend practice exam*/
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_242,243,61. @Regression1 Create practice exam`, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_242,243,61. @iExamRegression Create practice exam`, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -27,7 +27,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_242,243,61. @Regression1 Create practice ex
     });
 });
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_242,243,61. @Regression1 Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_242,243,61. @iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -44,7 +44,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_242,243,61. @Regression1 Verify Elumina Reg
     });
 });
 
-test(`iEX_TC_ID_242,243,61. @Regression1 Verify Validation of Candidate attend Practice Exam`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_242,243,61. @iExamRegression Verify Validation of Candidate attend Practice Exam`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

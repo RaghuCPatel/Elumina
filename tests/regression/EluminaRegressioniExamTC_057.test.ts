@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected*/
 
-test(`@Regression Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+test(`@iExamRegression Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -24,7 +24,7 @@ test(`@Regression Verify Elumina Login and create exam `, async ({ eluminaLoginP
 });
 
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`@iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -40,7 +40,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, elumi
     });
 });
 
-test(`@Regression Verify Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected
+test(`@iExamRegression Verify Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected
 Verification of Timer Expires Alert Box  in Exam Content page`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();

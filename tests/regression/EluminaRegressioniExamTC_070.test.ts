@@ -28,7 +28,7 @@ else if (process.env.ENV == 'staging') {
 }
 
 //Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)
-test(`@Regression1 Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`@iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -48,7 +48,7 @@ test(`@Regression1 Verify Elumina Login and Create Exam`, async ({ eluminaLoginP
     });
 });
 
-test(`@Regression1 Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`@iExamRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -64,7 +64,7 @@ test(`@Regression1 Verify Elumina RegistrationInv and add User and Invigilator`,
     });
 });
 
-test(`@Regression1 Verify Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)`, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
+test(`@iExamRegression Verify Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)`, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
@@ -94,7 +94,6 @@ test(`@Regression1 Verify Validation of Invigilator Dashboard after the Exam Com
 
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
 
-        //await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//input').click();
         await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
         await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[5]').click();
         await newPage.locator('(//button[text()="Yes"])[2]').click();
@@ -108,7 +107,6 @@ test(`@Regression1 Verify Validation of Invigilator Dashboard after the Exam Com
         await newPage.locator('//div[@title="Resume Exam for all Candidates"]').click();
         await newPage.locator('(//button[text()="Yes"])[2]').click();
         await newPage.waitForTimeout(3000);
-        //await eluminaCandPage.candidateStartMCQAndSubmit();
         await newPage.close();
         await page1.close();
 

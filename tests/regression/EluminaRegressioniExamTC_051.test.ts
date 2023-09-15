@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Exam section page.*/
 
-test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+test(`@iExamRegression  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -29,7 +29,7 @@ test(`@Regression  Verify Elumina Login and create exam `, async ({ eluminaLogin
 });
 
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`@iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -45,7 +45,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, elumi
 });
 
 
-test(`iEX_TC_ID_54. @Regression Validation of Exam section page.`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_54. @iExamRegression Validation of Exam section page.`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime()
@@ -65,7 +65,7 @@ test(`iEX_TC_ID_54. @Regression Validation of Exam section page.`, async ({ elum
 
 });
 
-test(`iEX_TC_ID_61. @Regression Validation of Exam Section > Font Size `, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_61. @iExamRegression Validation of Exam Section > Font Size `, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -80,7 +80,7 @@ test(`iEX_TC_ID_61. @Regression Validation of Exam Section > Font Size `, async 
 
 });
 
-test(`iEX_TC_ID_64. @Regression Validation of Exam Section > Highlighter tool highlights save scenario 1`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_64. @iExamRegression Validation of Exam Section > Highlighter tool highlights save scenario 1`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -102,7 +102,7 @@ test(`iEX_TC_ID_64. @Regression Validation of Exam Section > Highlighter tool hi
 });
 
 
-test(`iEX_TC_ID_97,iEX_TC_ID_98,iEX_TC_ID_99,iEX_TC_ID_101,iEX_TC_ID_102,iEX_TC_ID_103,iEX_TC_ID_105. @Regression Validation of each component for all type of questions in Candidate flow.`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_97,iEX_TC_ID_98,iEX_TC_ID_99,iEX_TC_ID_101,iEX_TC_ID_102,iEX_TC_ID_103,iEX_TC_ID_105. @iExamRegression Validation of each component for all type of questions in Candidate flow.`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -125,7 +125,7 @@ test(`iEX_TC_ID_97,iEX_TC_ID_98,iEX_TC_ID_99,iEX_TC_ID_101,iEX_TC_ID_102,iEX_TC_
 })
 
 
-test(`iEX_TC_ID_76. @Regression Validation of Exam section > Candidate attend the exam in normal flow `, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_76. @iExamRegression Validation of Exam section > Candidate attend the exam in normal flow `, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

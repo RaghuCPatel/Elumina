@@ -30,7 +30,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Invigilator Dashboard
 
-test(`@Regression1 Verify Validation of Invigilator Dashboard`, async ({ eluminaInvPage, webActions }) => {
+test(`@iExamRegression Verify Validation of Invigilator Dashboard`, async ({ eluminaInvPage, webActions }) => {
 
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaInvPage.invigilatorLogin();
@@ -44,7 +44,7 @@ test(`@Regression1 Verify Validation of Invigilator Dashboard`, async ({ elumina
 });
 
 //Validation of "Start Exam" (All Candidates)
-test(`@Regression1 Validation of invigilator remotely start the Exam for candidate EluminaRegressioniExamTC_086`, async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
+test(`@iExamRegression Validation of invigilator remotely start the Exam for candidate EluminaRegressioniExamTC_086`, async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });

@@ -3,7 +3,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Exam content page ->Timer verification in all pages */
 
-test(`@Regression Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+test(`@iExamRegression Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -26,7 +26,7 @@ test(`@Regression Verify Elumina Login and create exam `, async ({ eluminaLoginP
 });
 
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`@iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -41,7 +41,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, elumi
     });
 });
 
-test(`iEX_TC_ID_49. @Regression Validation of Exam content page ->Timer verification in all pages `, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_49. @iExamRegression Validation of Exam content page ->Timer verification in all pages `, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

@@ -4,7 +4,7 @@ import test from '@lib/BaseTest';
 
 //Validation of Exam section > After Exam Time Expires
 
-test(`@Regression2 Validation of "Time Remaining" pop-up when the just before the exam time runs out`, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, eluminaExamPage, webActions }) => {
+test(`@iExamRegression Validation of "Time Remaining" pop-up when the just before the exam time runs out`, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -30,7 +30,7 @@ test(`@Regression2 Validation of "Time Remaining" pop-up when the just before th
     });
 });
 
-test(`@Regression2 Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`@iExamRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -46,7 +46,7 @@ test(`@Regression2 Verify Elumina RegistrationInv and add User and Invigilator`,
     });
 });
 
-test(`iEX_TC_ID_89. @Regression2 Validation of Exam section > After Exam Time Expires`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_89. @iExamRegression Validation of Exam section > After Exam Time Expires`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
@@ -66,7 +66,7 @@ test(`iEX_TC_ID_89. @Regression2 Validation of Exam section > After Exam Time Ex
     });
 });
 
-test(`iEX_TC_ID_89A. @Regression2 Validation of Exam section > After Exam Time Expires `, async ({ eluminaInvPage, webActions }) => {
+test(`iEX_TC_ID_89A. @iExamRegression Validation of Exam section > After Exam Time Expires `, async ({ eluminaInvPage, webActions }) => {
 
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaInvPage.invigilatorLogin();
