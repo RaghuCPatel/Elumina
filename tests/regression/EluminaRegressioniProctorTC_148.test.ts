@@ -45,7 +45,7 @@ test(`@Regression Verify Elumina Login fpr AM`, async ({ eluminaLoginPage, elumi
         const newtab = await eluminaMultipleExamsForAMPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExamforProctoring();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestions();
     });
 });
@@ -81,7 +81,7 @@ test(`@Regression Verify Elumina Login for PM`, async ({ eluminaLoginPage, elumi
         const newtab = await eluminaMultipleExamsForPMPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExamforProctoring();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestions();
     });
 });

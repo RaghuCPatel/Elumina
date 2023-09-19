@@ -18,7 +18,7 @@ test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomeP
         await newtab.examTabNavigation();
         await newtab.createExamwithDiffZone();
         await newtab.selectAllTools();
-        await newtab.createSections();
+        await newtab.createSections("2", "30");
         await newtab.addMCQQuestionswithoutSave();
         await newtab.addVSAQQuestions();
 
@@ -56,7 +56,7 @@ test(`@Regression Verify Elumina Login with diff venu`, async ({ eluminaLoginPag
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
         await newtab.selectAllTools();
-        await newtab.createSections();
+        await newtab.createSections("2", "30");
         await newtab.addMCQQuestionswithoutSave();
         await newtab.addVSAQQuestions();
     });

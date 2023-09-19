@@ -343,6 +343,14 @@ export class EluminaProctorCandidatePage {
 
     }
 
+    async verifyPeripherialInCand() {
+        await this.candidateCameraTick.isVisible();
+        await this.candidateMicTick.isVisible();
+        await this.candidateScreenCaptureTick.isVisible();
+
+
+    }
+
     /**Method to click on All links for Diff Zone Exam */
     async clickOnAllLinkForDiffExamZone() {
         await this.ClickDiffStartExamLink.click();
