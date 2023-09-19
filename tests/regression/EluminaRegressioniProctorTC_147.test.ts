@@ -43,7 +43,7 @@ test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomeP
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createPracticeExam();
-        await newtab.createSections();
+        await newtab.createSections("1", "30");
         await newtab.addMCQQuestions();
     });
 });
