@@ -138,6 +138,7 @@ export class EluminaProctorExamPage {
   readonly ChooseBookingStartSessions: Locator
   readonly InternetField: Locator;
   readonly ClickOnQuestionTypeInAdmin: Locator;
+  readonly fullScreenClick: Locator;
 
 
   constructor(page: Page, context: BrowserContext) {
@@ -226,7 +227,8 @@ export class EluminaProctorExamPage {
     this.InternetField = page.locator('//input[@placeholder="Select Internet Upload Speed"]')
     this.InternetSpeedClick = page.locator('//div[@class="open container-left-padding"]');
     this.clickOnVideoToggle = page.locator('(//div[@class="switch--container"]//span)[1]');
-    this.ClickOnQuestionTypeInAdmin = page.locator('//span[contains(text(),"Question Types")]')
+    this.ClickOnQuestionTypeInAdmin = page.locator('//span[contains(text(),"Question Types")]');
+    this.fullScreenClick = page.locator('(//span[@class="slider round"])[5]');
   }
 
   /**Method of Page Navigation */
@@ -594,77 +596,6 @@ export class EluminaProctorExamPage {
 
     await this.EXAMCODE.type('D' + Math.floor(Math.random() * 89 + 100));
     await this.ProctoringExam.click();
-    await this.BookingStartCalender.click();
-
-    await this.BookingStartDate.click();
-    await this.BooingStartMins.click();
-    await this.BooingStartMins.clear();
-    if (StartBookingMin >= 60) {
-      let SBM = StartBookingMin.toString();
-      SBM = "02";
-      await this.BooingStartMins.type(SBM);
-      //hrs+1
-      await this.BookingStartHrs.click();
-      await this.BookingStartHrs.clear();
-      let BSH = hour12 + 1;
-      if (BSH == 12) {
-        await this.BookingStartHrs.type(BSH.toString());
-        await this.ChooseBookingStartSessions.check();
-      }
-      else if (BSH >= 13) {
-        BSH = 1;
-        await this.BookingStartHrs.type(BSH.toString());
-      }
-      else {
-        await this.BookingStartHrs.type(BSH.toString());
-        await this.ChooseBookingStartSession.check();
-      }
-    }
-    else {
-      await this.BooingStartMins.type(StartBookingMin.toString());
-      //hrs
-      await this.BookingStartHrs.click();
-      await this.BookingStartHrs.clear();
-      await this.BookingStartHrs.type(hour12.toString());
-      await this.ChooseBookingStartSession.check();
-    }
-    await this.BookingOK.click();
-
-    await this.BookingEndCalender.click();
-    await this.BookingEndDate.click();
-    await this.BooingStartMins.click();
-    await this.BooingStartMins.clear();
-    if (EndBookingMin >= 60) {
-      let EBM = EndBookingMin.toString();
-      EBM = "03";
-      await this.BooingStartMins.type(EBM);
-      //Hrs+1
-      await this.BookingStartHrs.click();
-      await this.BookingStartHrs.clear();
-      let BSH = hour12 + 1;
-      if (BSH == 12) {
-        await this.BookingStartHrs.type(BSH.toString());
-        await this.ChooseBookingStartSessions.check();
-      }
-      else if (BSH >= 13) {
-        BSH = 1;
-        await this.BookingStartHrs.type(BSH.toString());
-      }
-      else {
-        await this.BookingStartHrs.type(BSH.toString());
-        await this.ChooseBookingStartSession.check();
-      }
-    }
-    else {
-      await this.BooingStartMins.type(EndBookingMin.toString());
-      //hrs
-      await this.BookingStartHrs.click();
-      await this.BookingStartHrs.clear();
-      await this.BookingStartHrs.type(hour12.toString());
-      await this.ChooseBookingStartSession.check();
-    }
-
-    await this.BookingOK.click();
 
     await this.ExamStartCalender.click();
     await this.ExamStartDate.click();
@@ -743,6 +674,7 @@ export class EluminaProctorExamPage {
     await this.EnterNoOfCandidates.clear();
     await this.EnterNoOfCandidates.type('0100');
     await this.ClickOnAdd.click();
+    await this.fullScreenClick.click();
   }
   /**Method to create exam */
   async createExam(): Promise<void> {
@@ -1001,19 +933,21 @@ export class EluminaProctorExamPage {
   }
 
 
-  async createSections(): Promise<string> {
+  async createSections(hr, mins): Promise<string> {
     EluminaProctorExamPage.examID = await this.fectchExamID.textContent();
     console.log("Exam ID:" + EluminaProctorExamPage.examID);
+
     await this.CliCKOnCreateSection.click();
     await this.ClickOnCreateExamSection.click();
-    await this.EnterSectionName.type('Exam-' + Math.floor(Math.random() * 89 + 10));
+    await this.EnterSectionName.type('Exam-' + Math.floor(Math.random()) * 89 + 10);
     await this.page.waitForTimeout(5000);
     await this.DescriptionMessage.click();
     await this.DescriptionMessage.type(testData.DescriptionMessage);
     await this.page.waitForTimeout(5000);
-    await this.Choosehrs.selectOption('0');
-    await this.SelectTime.selectOption('45');
+    await this.Choosehrs.selectOption(hr);
+    await this.SelectTime.selectOption(mins);
     await this.ClickOnSave.click();
+    await this.page.waitForTimeout(5000);
     return EluminaProctorExamPage.examID;
 
   }
