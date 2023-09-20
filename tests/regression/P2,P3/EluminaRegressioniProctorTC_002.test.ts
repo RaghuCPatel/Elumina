@@ -109,7 +109,7 @@ test(`@Regressionproc Validation of Admin > Proctoring > Audio Recording  (Toggl
 });
 
 //Validation of Admin > Proctoring > Enable Screenshot
-test(`@Regressionproc Validation of Admin > Proctoring > Enable Screenshot TC-003`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(`iProc_TC_ID_168.@Regressionproc Validation of Admin > Proctoring > Enable Screenshot TC-003`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

@@ -347,8 +347,8 @@ export class EluminaProctorCandidatePage {
         await this.candidateCameraTick.isVisible();
         await this.candidateMicTick.isVisible();
         await this.candidateScreenCaptureTick.isVisible();
-
-
+        await this.CliclOnTermAndConditin.isVisible()
+        await this.checkiProctorEtensionTroubleshoot.isVisible()
     }
 
     /**Method to click on All links for Diff Zone Exam */
