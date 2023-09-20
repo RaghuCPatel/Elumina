@@ -4,7 +4,7 @@ import test from '@lib/BaseTest';
 /**Validation of Candidate Dashboard page - Chat App */
 
 
-test(`@Regressionproc Validation of Candidate Dashboard page - Chat App`, async ({ eluminaProctorCand, webActions }) => {
+test(` . @LowPriorityiProctorCases Validation of Candidate Dashboard page - Chat App`, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });

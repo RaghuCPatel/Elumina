@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of candidate/s taking exam from different timezones.
 
-/*test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+/*test(` . @iProctorRegression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -48,7 +48,7 @@ else if (process.env.ENV == 'staging') {
     });
 });     
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -65,7 +65,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 });         
                 
 
-test(`@Regression Verify Elumina Login with diff venu`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(` . @iProctorRegression Verify Elumina Login with diff venu`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -84,7 +84,7 @@ test(`@Regression Verify Elumina Login with diff venu`, async ({ eluminaLoginPag
     });
 });   
 
-test(`@Regression Verify Elumina Registration and adding existing user`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(` . @iProctorRegression Verify Elumina Registration and adding existing user`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -98,7 +98,7 @@ test(`@Regression Verify Elumina Registration and adding existing user`, async (
     });
 });           */
 
-test(`@Regression Validation of candidate/s taking exam from different timezones.`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(` . @iProctorRegression Validation of candidate/s taking exam from different timezones.`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
 

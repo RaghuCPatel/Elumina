@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of "Flag for Review" option
 
-test(`@Regression Validation of "Flag for Review" option`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(` . @iProctorRegression Validation of "Flag for Review" option`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
 

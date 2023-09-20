@@ -29,7 +29,7 @@ else if(process.env.ENV == 'staging'){
 
 /**Validate When exam terminated for candidate*/
 
-/*test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+/*test(` . @iProctorRegression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -49,7 +49,7 @@ else if(process.env.ENV == 'staging'){
     });
 });    
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -65,7 +65,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });       */
 
-// test(`@Regression1 Verify Elumina Invigilator terminating exam for candidate`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
+// test(` . @iProctorRegression Verify Elumina Invigilator terminating exam for candidate`, async ({ eluminaProctorCand,eluminaCandPage, webActions }) => {
 
 //     await test.step('Candidate logging into application', async () => {
 

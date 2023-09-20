@@ -30,7 +30,7 @@ else if (process.env.ENV == 'staging') {
 
 //**Validate login with inactive user/
 
-test(`@Regression Verify CandidatesExam`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(` . @iProctorRegression Verify CandidatesExam`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
 

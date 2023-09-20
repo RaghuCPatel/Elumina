@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 /*Elumina login page with create exam with Practice exam button and attending practice exam  EluminaRegression iProctorTC_057*/
 
-test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(` . @iProctorRegression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -48,7 +48,7 @@ test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomeP
     });
 });
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -67,7 +67,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, elumi
     });
 });
 
-test(`@Regression Candidate Attend practice exam EluminaRegressionProctorTC_057`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(` . @iProctorRegression Candidate Attend practice exam EluminaRegressionProctorTC_057`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
@@ -117,7 +117,7 @@ test(`@Regression Candidate Attend practice exam EluminaRegressionProctorTC_057`
 Candidate entered into exam section & Entered into question: 1(#IQID).*/
 
 
-test(`@Regression Validation of Proctoring Exam Events In Admin Section EluminaRegressioniProctorTC_124`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(` . @iProctorRegression Validation of Proctoring Exam Events In Admin Section EluminaRegressioniProctorTC_124`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

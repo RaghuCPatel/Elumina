@@ -30,7 +30,7 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of Exam Section> Image Inline viewer   */
 
-test(`Exam_Prerequisit_for_iProc_TC_ID_30. @Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaProctorExam, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaProctorExam, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -49,7 +49,7 @@ test(`Exam_Prerequisit_for_iProc_TC_ID_30. @Regression Verify Elumina Login and 
     });
 });
 
-test(`Exam_Prerequisit_for_iProc_TC_ID_30. @Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaProctorReg, eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaProctorReg, eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -68,7 +68,7 @@ test(`Exam_Prerequisit_for_iProc_TC_ID_30. @Regression Verify Elumina Registrati
 });
 
 
-test(`iProc_TC_ID_30. @Regression Validation of Exam Section> Image Inline viewer `, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer `, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
@@ -111,7 +111,7 @@ test(`iProc_TC_ID_30. @Regression Validation of Exam Section> Image Inline viewe
 });
 
 
-test(`iProc_TC_ID_142A. @Regression Validation of iProctor Extension Troubleshoot link validation.TC-73`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`iProc_TC_ID_142A. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation.TC-73`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });
@@ -123,7 +123,7 @@ test(`iProc_TC_ID_142A. @Regression Validation of iProctor Extension Troubleshoo
     });
 });
 
-test1(`iProc_TC_ID_142B. @Regression Validation of iProctor Extension Troubleshoot link validation`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test1(`iProc_TC_ID_142B. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });

@@ -30,7 +30,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Changing Font Size to Decrease on the Dashboard
 
-/*test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+/*test(` . @iProctorRegression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -49,7 +49,7 @@ else if (process.env.ENV == 'staging') {
     });
 });       
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -66,7 +66,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
 });        */
 
 
-test(`@Regression Validation of Changing Font Size to Decrease on the Dashboard`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(` . @iProctorRegression Validation of Changing Font Size to Decrease on the Dashboard`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
 

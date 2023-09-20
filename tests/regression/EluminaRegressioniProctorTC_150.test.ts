@@ -30,7 +30,7 @@ else if (process.env.ENV == 'staging') {
 }
 
 /** Validate Survey screen where candidate can provide feedback in comment section EluminaRegressioniProctorTC_084*/
-test(`@Regression Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(` . @iProctorRegression Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -53,7 +53,7 @@ test(`@Regression Verify Elumina Create Exam with survey section`, async ({ elum
 });
 
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -71,7 +71,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, elumi
 
 
 /**Validate Survey screen where candidate can provide feedback in comment section EluminaRegressioniProctorTC_084*/
-test(`@Regression Verify Validation of Candidate answering survey questions`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(` . @iProctorRegression Verify Validation of Candidate answering survey questions`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

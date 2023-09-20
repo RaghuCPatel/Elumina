@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of Candidate attends exam within browser screen and not in Full-screen mode */
 
-test(`Exam_Prerequisit_for_iProc_TC_ID_166. @Regression Verify Elumina Login with diff venu`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(`Exam_Prerequisit_for_iProc_TC_ID_166. @iProctorRegression Verify Elumina Login with diff venu`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -48,7 +48,7 @@ test(`Exam_Prerequisit_for_iProc_TC_ID_166. @Regression Verify Elumina Login wit
     });
 });
 
-test(`Exam_Prerequisit_for_iProc_TC_ID_166. @Regression Verify Elumina Registration and adding existing user`, async ({ eluminaProctorCand, eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(`Exam_Prerequisit_for_iProc_TC_ID_166. @iProctorRegression Verify Elumina Registration and adding existing user`, async ({ eluminaProctorCand, eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -64,7 +64,7 @@ test(`Exam_Prerequisit_for_iProc_TC_ID_166. @Regression Verify Elumina Registrat
     });
 });
 
-test(`iProc_TC_ID_166. @Regression Validation of Candidate attends exam within browser screen and not in Full-screen mode`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`iProc_TC_ID_166. @iProctorRegression Validation of Candidate attends exam within browser screen and not in Full-screen mode`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();

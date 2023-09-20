@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of Exam Section> Image viewer  */
 
-test(`Exam_Prerequisit_for_iProc_TC_ID_29. @Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaProctorExam, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`Exam_Prerequisit_for_iProc_TC_ID_29. @iProctorRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaProctorExam, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -49,7 +49,7 @@ test(`Exam_Prerequisit_for_iProc_TC_ID_29. @Regression Verify Elumina Login and 
     });
 });
 
-test(`Exam_Prerequisit_for_iProc_TC_ID_29. @Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaProctorReg, eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`Exam_Prerequisit_for_iProc_TC_ID_29. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaProctorReg, eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -66,7 +66,7 @@ test(`Exam_Prerequisit_for_iProc_TC_ID_29. @Regression Verify Elumina Registrati
         await newtab.logoutClick();
     });
 });
-test(`iProc_TC_ID_29. @Regression Validation of Exam Section> Image viewer`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`iProc_TC_ID_29. @iProctorRegression Validation of Exam Section> Image viewer`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

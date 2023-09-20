@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Exam content section >  Chat App
 
-// test(`@Regression Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+// test(` . @LowPriorityiProctorCases Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
 //     await test.step(`Navigate to Application`, async () => {
 //         await eluminaLoginPage.navigateToURL();
 //     });
@@ -48,7 +48,7 @@ else if (process.env.ENV == 'staging') {
 //     });
 // });
 
-// test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+// test(` . @LowPriorityiProctorCases Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
 //     await test.step(`Navigate to Application`, async () => {
 //         await eluminaLoginPage.navigateToURL();
 //     });
@@ -65,7 +65,7 @@ else if (process.env.ENV == 'staging') {
 //     });
 // });       
 
-// test(`@Regression Validation of Exam content section >  Chat App`, async ({ eluminaProctorCand,webActions }) => {
+// test(` . @LowPriorityiProctorCases Validation of Exam content section >  Chat App`, async ({ eluminaProctorCand,webActions }) => {
 //     await test.step('Candidate logging into application', async () => {
 //         await eluminaProctorCand.candidateNavigateToURL();
 //         await eluminaProctorCand.candidateLoginToApplications();
@@ -109,7 +109,7 @@ else if (process.env.ENV == 'staging') {
 // });
 
 
-test(`@Regressionproc Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App TC-169`, async ({ eluminaProctorCand, webActions }) => {
+test(` . @LowPriorityiProctorCases Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App TC-169`, async ({ eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

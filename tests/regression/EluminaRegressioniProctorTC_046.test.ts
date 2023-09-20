@@ -30,7 +30,7 @@ else if(process.env.ENV == 'staging'){
 
 //Validation of  Cloud indication -  (Status is Complted)
 
-// test(`@Regression Validation of  Cloud indication -  (Status is Complted)`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
+// test(` . @iProctorRegression Validation of  Cloud indication -  (Status is Complted)`, async ({ eluminaCandPage,eluminaProctorCand,webActions }) => {
 //     await test.step('Candidate logging into application', async () => {
 
 //         await eluminaProctorCand.candidateNavigateToURL();

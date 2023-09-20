@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Proctoring Completed Exam candidate > Video fragments, screenshots.
 
-test(`iProc_TC_ID_69. @Regression Validation of Proctoring Completed Exam candidate > Video fragments, screenshots.`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorExam, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(`iProc_TC_ID_69. @iProctorRegression Validation of Proctoring Completed Exam candidate > Video fragments, screenshots.`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorExam, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await test.step(`Navigate to Application`, async () => {
             await eluminaLoginPage.navigateToURL();

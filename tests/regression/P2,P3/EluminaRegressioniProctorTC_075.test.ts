@@ -30,7 +30,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Microphone Troubleshoot link validation.     
 
-test(`@Regressionproc Validation of Microphone Troubleshoot link validation.`, async ({ eluminaProctorCand, webActions }) => {
+test(` . @LowPriorityiProctorCases Validation of Microphone Troubleshoot link validation.`, async ({ eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
@@ -45,7 +45,7 @@ test(`@Regressionproc Validation of Microphone Troubleshoot link validation.`, a
 
 });
 
-test1(`@Regressionproc Validation of Microphone Troubleshoot link`, async ({ eluminaProctorCand, webActions }) => {
+test1(` . @LowPriorityiProctorCases Validation of Microphone Troubleshoot link`, async ({ eluminaProctorCand, webActions }) => {
     await test1.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

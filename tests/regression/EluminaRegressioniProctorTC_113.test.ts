@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of Candidate ( i-Exam ) > Manual authentication */
 
-/*test(`@Regression Validation of Candidate (i-Exam) > Manual authentication`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+/*test(` . @iProctorRegression Validation of Candidate (i-Exam) > Manual authentication`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -48,7 +48,7 @@ else if (process.env.ENV == 'staging') {
     });
 });
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -64,7 +64,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });           */
 
-test(`@Regression Validation of Candidate ( i-Exam ) > Manual authentication "`, async ({ eluminaProctorCand, webActions }) => {
+test(` . @iProctorRegression Validation of Candidate ( i-Exam ) > Manual authentication "`, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });

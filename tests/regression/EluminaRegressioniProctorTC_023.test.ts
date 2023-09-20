@@ -30,7 +30,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of the "Timer" - After clicking on "Start Exam" Button
 
-test(`@Regression Validation of the "Timer" - After clicking on "Start Exam" Button`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(` . @iProctorRegression Validation of the "Timer" - After clicking on "Start Exam" Button`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
 

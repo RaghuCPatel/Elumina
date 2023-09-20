@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Proctoring Exam Events > Exam Resumed
 
-test(`@Regression Validation of Proctoring Exam Events > Exam Resumed`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(` . @iProctorRegression Validation of Proctoring Exam Events > Exam Resumed`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

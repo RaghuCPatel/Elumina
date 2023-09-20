@@ -30,7 +30,7 @@ else if (process.env.ENV == 'staging') {
 
 /** Validation of Candidate > Peripheral verification screen > Terms and Conditions */
 
-/*test(`@Regression Validation of Candidate > Peripheral verification screen > Terms and Conditions`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+/*test(` . @iProctorRegression Validation of Candidate > Peripheral verification screen > Terms and Conditions`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -49,7 +49,7 @@ else if (process.env.ENV == 'staging') {
     });
 });
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -65,7 +65,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });      */
 
-test(`@Regression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(` . @iProctorRegression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();

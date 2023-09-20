@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Calculator
 
-/*test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+/*test(` . @iProctorRegression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -48,7 +48,7 @@ else if (process.env.ENV == 'staging') {
     });
 });   
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -64,7 +64,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });          */
 
-test(`@Regression Validation of Calculator`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(` . @iProctorRegression Validation of Calculator`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
 
         await eluminaProctorCand.candidateNavigateToURL();
@@ -114,7 +114,7 @@ test(`@Regression Validation of Calculator`, async ({ eluminaCandPage, eluminaPr
 });
 
 
-test(`@Regression Validation of  Cloud indication -  (Status is Complted) RegressioniProctorTC_046`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(` . @iProctorRegression Validation of  Cloud indication -  (Status is Complted) RegressioniProctorTC_046`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
 
         await eluminaProctorCand.candidateNavigateToURL();
@@ -163,7 +163,7 @@ test(`@Regression Validation of  Cloud indication -  (Status is Complted) Regres
 
 });
 
-test(`@Regression Verify Validation of adding notes in the Exam RegressioniProctorTC_055`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(` . @iProctorRegression Verify Validation of adding notes in the Exam RegressioniProctorTC_055`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

@@ -31,7 +31,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Browser back button on Candidate Dashboard
 
-/*test(`@Regression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+/*test(` . @iProctorRegression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -50,7 +50,7 @@ else if (process.env.ENV == 'staging') {
     });
 });
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -66,7 +66,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });         */
 
-test(`@Regression Validation of Browser back button on Candidate Dashboard`, async ({ eluminaProctorCand, webActions }) => {
+test(` . @iProctorRegression Validation of Browser back button on Candidate Dashboard`, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

@@ -30,7 +30,7 @@ else if(process.env.ENV == 'staging'){
 
 /**Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering */
 
-/*test(`@Regression Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering `, async ({ eluminaLoginPage,eluminaProctorExam,webActions }) => {
+/*test(` . @iProctorRegression Validate the Exam sheet where the Question numbers are displayed in Pink, when Notes are added while answering `, async ({ eluminaLoginPage,eluminaProctorExam,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -50,7 +50,7 @@ else if(process.env.ENV == 'staging'){
 });
 
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -66,7 +66,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });       */
 
-// test(`@Regression Verify Validation of adding notes in the Exam `, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
+// test(` . @iProctorRegression Verify Validation of adding notes in the Exam `, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
 //     await test.step(`Navigate to Application`, async () => {
 //         await eluminaProctorCand.candidateNavigateToURL();
 //     });

@@ -30,7 +30,7 @@ else if (process.env.ENV == 'staging') {
 
 
 /** Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036*/
-test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(` . @iProctorRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -55,7 +55,7 @@ test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPa
     });
 });
 
-test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(` . @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -71,7 +71,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
 });
 
 
-test(`@Regression Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(` . @iProctorRegression Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
@@ -118,7 +118,7 @@ test(`@Regression Validation of different Question types - Able to Answer all ty
 
 });
 
-test(`iProc_TC_ID_33. @Regression Validation of Exam Section > Highlighter tool highlights save scenario 1`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(`iProc_TC_ID_33. @iProctorRegression Validation of Exam Section > Highlighter tool highlights save scenario 1`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
@@ -163,7 +163,7 @@ test(`iProc_TC_ID_33. @Regression Validation of Exam Section > Highlighter tool 
     });
 });
 
-test(`iProc_TC_ID_36. @Regression Validating of VSAQ - Maximum number of lines that can be written`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(`iProc_TC_ID_36. @iProctorRegression Validating of VSAQ - Maximum number of lines that can be written`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
@@ -201,7 +201,7 @@ test(`iProc_TC_ID_36. @Regression Validating of VSAQ - Maximum number of lines t
     });
 });
 
-test(`iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verification > Verify Identity > PASS`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(`iProc_TC_ID_104. @iProctorRegression Validation of Candidate > Peripheral verification > Verify Identity > PASS`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
@@ -235,7 +235,7 @@ test(`iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verifica
     });
 });
 
-test(`iProc_TC_ID_44. @Regression Validation of  Cloud indication -  (Status is InCompleted)`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(`iProc_TC_ID_44. @iProctorRegression Validation of  Cloud indication -  (Status is InCompleted)`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

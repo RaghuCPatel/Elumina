@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of Proctoring Exam > Screenshots*/
 
-test(`@Regression Validation of Proctoring Exam > Screenshots`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+test(` . @iProctorRegression Validation of Proctoring Exam > Screenshots`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -48,7 +48,7 @@ test(`@Regression Validation of Proctoring Exam > Screenshots`, async ({ elumina
     });
 });
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -64,7 +64,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage, elumi
     });
 });
 
-test(`@Regression Validation of Proctoring Exam with Screenshots`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(` . @iProctorRegression Validation of Proctoring Exam with Screenshots`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

@@ -31,7 +31,7 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of  function keys on Candidate Dashboard */
 
-test(`@Regression Validation of  function keys on Candidate Dashboard`, async ({ eluminaProctorCand, webActions }) => {
+test(` . @iProctorRegression Validation of  function keys on Candidate Dashboard`, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });

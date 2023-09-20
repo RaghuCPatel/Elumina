@@ -3,7 +3,7 @@ import { chromium } from '@playwright/test';
 import { testConfig } from '../../testConfig';
 
 //Validation of Proctoring Exam Event > Candidate Authentication Fail
-test(`@Regression Validation of Proctoring Exam Event > Candidate Authentication Fail`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(` . @iProctorRegression Validation of Proctoring Exam Event > Candidate Authentication Fail`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
 
         await eluminaProctorCand.candidateNavigateToURL();

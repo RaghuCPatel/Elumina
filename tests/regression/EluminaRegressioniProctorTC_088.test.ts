@@ -4,7 +4,7 @@ import { testConfig } from '../../testConfig';
 
 //Validation of Admin > Proctoring > Camera Link
 
-/*test(`@Regression Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+/*test(` . @iProctorRegression Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -23,7 +23,7 @@ import { testConfig } from '../../testConfig';
     });
 });
 
-test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -39,7 +39,7 @@ test(`@Regression Verify Elumina Registration`, async ({ eluminaLoginPage,elumin
     });
 });             */
 
-test(`@Regression Validation of Admin > Proctoring > Camera Link`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(` . @iProctorRegression Validation of Admin > Proctoring > Camera Link`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -56,7 +56,7 @@ test(`@Regression Validation of Admin > Proctoring > Camera Link`, async ({ elum
     });
 });
 
-test(`@Regression Validation of Admin > Proctoring > Camera Links`, async ({ eluminaLoginPage, eluminaProctorReg, eluminaProctorCand, webActions }) => {
+test(` . @iProctorRegression Validation of Admin > Proctoring > Camera Links`, async ({ eluminaLoginPage, eluminaProctorReg, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

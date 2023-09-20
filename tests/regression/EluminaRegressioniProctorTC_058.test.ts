@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 /**Validate Candidate while attending exam - Candidate abruptly closed the browser*/
 
-/*test(`@Regression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+/*test(` . @iProctorRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -48,7 +48,7 @@ else if (process.env.ENV == 'staging') {
     });
 });
 
-test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
+test(` . @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -66,7 +66,7 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
 });       */
 
 
-test(`@Regression Candidate while attending exam - Candidate abruptly closed the browser`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(` . @iProctorRegression Candidate while attending exam - Candidate abruptly closed the browser`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
 
@@ -115,7 +115,7 @@ test(`@Regression Candidate while attending exam - Candidate abruptly closed the
     });
 });
 
-test(`@Regression Verify Elumina candidate attends the exam after abrupt closure of browser`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(` . @iProctorRegression Verify Elumina candidate attends the exam after abrupt closure of browser`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Candidate Login to application`, async () => {
 
         await eluminaProctorCand.candidateNavigateToURL();
