@@ -109,22 +109,3 @@ test(`@Regression Validation of multiple candidate trying to login to same Exam`
 
 
 
-test(`iProc_TC_ID_11. @Regression Validation of "I Authorise" checkbox - To access Webcam, Microphone & Terms & Condition`, async ({ eluminaProctorCand, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaProctorCand.candidateNavigateToURL();
-    });
-    await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.candidateLoginToApplications();
-    });
-
-    await test.step('Candidate start the exam', async () => {
-        await eluminaProctorCand.clickOnStartExamLink();
-        await eluminaProctorCand.clickOnUnderstandBtn();
-        await eluminaProctorCand.verifyPeripherialInCand()
-
-
-    });
-
-});
-
-

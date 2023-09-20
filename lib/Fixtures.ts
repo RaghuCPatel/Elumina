@@ -1,7 +1,7 @@
 import { test as base, chromium, type BrowserContext } from '@playwright/test';
 import path from 'path';
 
-import { WebActions } from '@lib/WebActions'; 
+import { WebActions } from '@lib/WebActions';
 import { EluminaInvPage } from '@pages/EluminaInvPage';
 import { EluminaProctorCandidatePage } from '@pages/EluminaProctorCandidatePage';
 import { EluminaCandidatePage } from '@pages/EluminaCandidatePage';
@@ -22,26 +22,26 @@ export const test = base.extend<{
   extensionId: string;
 
   webActions: WebActions;
-  eluminaProctorCand:EluminaProctorCandidatePage;
+  eluminaProctorCand: EluminaProctorCandidatePage;
   eluminaCandPage: EluminaCandidatePage;
   eluminaLoginPage: EluminaLoginPage;
   eluminaHomePage: EluminaHomePage;
   eluminaExamPage: EluminaExamPage;
   eluminaRegPage: EluminaRegistrationPage;
-  eluminaProctorReg:EluminaRegistrationForProctoringPage;
-  eluminaProctorExam:EluminaProctorExamPage;
-  eluminaCandidateRevieweAndSubmitPage:EluminaCandidateRevieweAndSubmitPage;
-  eluminaMultipleExamsForAMPage:EluminaMultipleExamsForAMPage;
-  eluminaMultipleExamsForPMPage:EluminaMultipleExamsForPMPage;
-  eluminaMinimalTimeExamPage:EluminaMinimalTimeExamPage;
+  eluminaProctorReg: EluminaRegistrationForProctoringPage;
+  eluminaProctorExam: EluminaProctorExamPage;
+  eluminaCandidateRevieweAndSubmitPage: EluminaCandidateRevieweAndSubmitPage;
+  eluminaMultipleExamsForAMPage: EluminaMultipleExamsForAMPage;
+  eluminaMultipleExamsForPMPage: EluminaMultipleExamsForPMPage;
+  eluminaMinimalTimeExamPage: EluminaMinimalTimeExamPage;
   eluminaRegInvPage: EluminaRegistrationInvPage;
-  eluminaInvPage:EluminaInvPage;
+  eluminaInvPage: EluminaInvPage;
 }>({
 
-  
 
-  context: async ({ }, use) => {                              
-    const pathToExtension = path.join(__dirname, '/extensions/agjngcdfhdplchpgmalcfjhgginnljdc/1.0.2_0');
+
+  context: async ({ }, use) => {
+    const pathToExtension = path.join(__dirname, '/extensions/agjngcdfhdplchpgmalcfjhgginnljdc/1.2.1_0');
     const context = await chromium.launchPersistentContext('', {
       headless: false,
       permissions: ['microphone', 'camera'],
@@ -76,46 +76,46 @@ export const test = base.extend<{
   },
   eluminaProctorCand: async ({ page, context }, use) => {
     await use(new EluminaProctorCandidatePage(page, context));
-},
-eluminaCandPage: async ({ page, context }, use) => {
-  await use(new EluminaCandidatePage(page, context));
-},
-eluminaLoginPage: async ({ page, context }, use) => {
-  await use(new EluminaLoginPage(page, context));
-},
-eluminaHomePage: async ({ page, context }, use) => {
-  await use(new EluminaHomePage(page, context));
-},
-eluminaExamPage: async ({ page, context }, use) => {
-  await use(new EluminaExamPage(page, context));
-},
-eluminaProctorReg: async ({ page, context }, use) => {
-  await use(new EluminaRegistrationForProctoringPage(page, context));
-},
-eluminaProctorExam: async ({ page, context }, use) => {
-  await use(new EluminaProctorExamPage(page, context));
-},
-eluminaCandidateRevieweAndSubmitPage: async ({ page, context }, use) => {
-  await use(new EluminaCandidateRevieweAndSubmitPage(page, context));
-},
-eluminaRegPage: async ({ page, context }, use) => {
-  await use(new EluminaRegistrationPage(page, context));
-},
-eluminaMultipleExamsForAMPage: async ({ page, context }, use) => {
-  await use(new EluminaMultipleExamsForAMPage(page, context));
-},
-eluminaMultipleExamsForPMPage: async ({ page, context }, use) => {
-  await use(new EluminaMultipleExamsForPMPage(page, context));
-},
-eluminaMinimalTimeExamPage: async ({ page, context }, use) => {
-  await use(new EluminaMinimalTimeExamPage(page, context));
-},
-eluminaRegInvPage: async ({ page, context }, use) => {
-  await use(new EluminaRegistrationInvPage(page, context));
-},
-eluminaInvPage: async ({ page, context }, use) => {
-  await use(new EluminaInvPage(page, context));
-}
+  },
+  eluminaCandPage: async ({ page, context }, use) => {
+    await use(new EluminaCandidatePage(page, context));
+  },
+  eluminaLoginPage: async ({ page, context }, use) => {
+    await use(new EluminaLoginPage(page, context));
+  },
+  eluminaHomePage: async ({ page, context }, use) => {
+    await use(new EluminaHomePage(page, context));
+  },
+  eluminaExamPage: async ({ page, context }, use) => {
+    await use(new EluminaExamPage(page, context));
+  },
+  eluminaProctorReg: async ({ page, context }, use) => {
+    await use(new EluminaRegistrationForProctoringPage(page, context));
+  },
+  eluminaProctorExam: async ({ page, context }, use) => {
+    await use(new EluminaProctorExamPage(page, context));
+  },
+  eluminaCandidateRevieweAndSubmitPage: async ({ page, context }, use) => {
+    await use(new EluminaCandidateRevieweAndSubmitPage(page, context));
+  },
+  eluminaRegPage: async ({ page, context }, use) => {
+    await use(new EluminaRegistrationPage(page, context));
+  },
+  eluminaMultipleExamsForAMPage: async ({ page, context }, use) => {
+    await use(new EluminaMultipleExamsForAMPage(page, context));
+  },
+  eluminaMultipleExamsForPMPage: async ({ page, context }, use) => {
+    await use(new EluminaMultipleExamsForPMPage(page, context));
+  },
+  eluminaMinimalTimeExamPage: async ({ page, context }, use) => {
+    await use(new EluminaMinimalTimeExamPage(page, context));
+  },
+  eluminaRegInvPage: async ({ page, context }, use) => {
+    await use(new EluminaRegistrationInvPage(page, context));
+  },
+  eluminaInvPage: async ({ page, context }, use) => {
+    await use(new EluminaInvPage(page, context));
+  }
 
 
 });

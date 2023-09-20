@@ -184,6 +184,8 @@ export class EluminaCandidatePage {
     readonly fiveMinPopInSurveyPage: Locator;
     readonly VSAQQuestion1Click: Locator;
     readonly validationDashboardTitle: Locator;
+    readonly DownloadingIconInCloud: Locator;
+    readonly IncompleteDownloadIcon: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -234,7 +236,6 @@ export class EluminaCandidatePage {
         this.ClickOnHighlighter = page.locator('(//div[@class="toolIcon"])[3]');
 
         this.ClickOnNotepadOne = page.locator('(//div[@class="toolIcon"])[1]');
-
         this.HighlightQuestion = page.locator('//div[@class="question-content clearfix"]');
         this.HighlightQuestions = page.locator('//p[@class="earseM-0 inner-question-section marker highlighter-context"]')
         this.textareafill = page.locator('//div[@class="notepad-content"]//textarea');
@@ -325,6 +326,8 @@ export class EluminaCandidatePage {
         const ID: string = String(EluminaRegistrationPage.CandiateClientID);
         this.fiveMinPopInSurveyPage = page.locator('//div[@class="msg-text"]')
         this.validationDashboardTitle = page.locator('//div[@class="menu-item"]')
+        this.DownloadingIconInCloud = page.locator('//div[@class="status downloading"]')
+        this.IncompleteDownloadIcon = page.locator('//div[@class="status offline"]')
 
 
     }
@@ -656,6 +659,14 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(5000);
         await expect(this.cloudUpdatedIcon).toBeVisible();
         console.log("Status Updated")
+    }
+
+    async downloadingCloudIcon() {
+        await expect(this.DownloadingIconInCloud).toBeVisible()
+    }
+
+    async incompleteQuestionDownloadingIcon() {
+        await expect(this.IncompleteDownloadIcon).toBeVisible()
     }
 
     /**Method to Verify the the Dashboard timer */
@@ -1148,6 +1159,7 @@ export class EluminaCandidatePage {
         await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
         await expect(this.ClickOnRevieweBtn).toBeEnabled()
         await this.ClickOnRevieweBtn.click();
+        await expect(this.clickOnPreviousBtn).toBeEnabled()
         await this.page.waitForTimeout(5000);
     }
 
@@ -1238,6 +1250,7 @@ export class EluminaCandidatePage {
 
     /**Method to navigate from review page to candidate exam page */
     async clickonPrevious() {
+        await this.clickOnPreviousBtn.isEnabled()
         await this.clickOnPreviousBtn.click();
         await this.page.waitForTimeout(1000);
     }

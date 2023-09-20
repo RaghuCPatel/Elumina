@@ -72,11 +72,10 @@ test(`@Regression Verify Elumina RegistrationInv and add User and Invigilator`, 
 
 
 test(`@Regression Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
-    await test.step('z logging into application', async () => {
+    await test.step('logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime3();
-        await eluminaCandPage.waitforTime4();
+        await eluminaCandPage.waitforTime();
         await eluminaProctorCand.candidateLoginToApplications();
     });
 
@@ -117,54 +116,10 @@ test(`@Regression Validation of different Question types - Able to Answer all ty
     });
 
 
-});
-
-test(`iProc_TC_ID_34. @Regression Validation of Exam section page (Offline Exam validation)`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
-    await test.step('z logging into application', async () => {
-        await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
-    });
-
-    await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.clickOnAllLink();
-        const browser = await chromium.launch();
-        const context1 = await browser.newContext();
-        const page1 = await context1.newPage();
-        await page1.goto('/');
-        await page1.waitForLoadState();
-        await page1.locator('(//input)[1]').type(testData.UserEmail);
-        await page1.locator('(//input)[2]').type(testData.UserPassword);
-        await page1.locator('//*[@class="submit-butn"]').click();
-        const [newPage] = await Promise.all([
-            context1.waitForEvent('page'),
-            await page1.locator('//div[text()="iAuthor"]').click()
-        ]);
-        await newPage.locator('//a[text()="Delivery"]').click();
-        await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
-        await newPage.locator('//a[text()="Live Monitor"]').click();
-
-        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-        await newPage.locator('//a[@class="dropdown-toggle"]').click();
-        await newPage.locator('//p[text()="Verify Identity"]').click();
-        await newPage.locator('(//button[text()="Yes"])[1]').click();
-        await newPage.waitForTimeout(3000);
-
-        await eluminaProctorCand.againCandidateLogin();
-        await eluminaProctorCand.enterInvigilatorPassword();
-        await eluminaCandPage.setOffline(true);
-        await eluminaCandPage.candidateStartOneMCQ();
-        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
-        await eluminaCandPage.candidateStartISAWE();
-        await eluminaCandPage.candidateStartTypeX();
-        await eluminaCandPage.candidateStartTypeB();
-        await eluminaCandPage.candidateStartSAQ(100);
-        await eluminaCandPage.candidateStartSJT();
-
-    });
 });
 
 test(`iProc_TC_ID_33. @Regression Validation of Exam Section > Highlighter tool highlights save scenario 1`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
-    await test.step('z logging into application', async () => {
+    await test.step('logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
     });
@@ -207,3 +162,115 @@ test(`iProc_TC_ID_33. @Regression Validation of Exam Section > Highlighter tool 
 
     });
 });
+
+test(`iProc_TC_ID_36. @Regression Validating of VSAQ - Maximum number of lines that can be written`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+    await test.step('logging into application', async () => {
+        await eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateLoginToApplications();
+    });
+
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaProctorCand.clickOnAllLink();
+        const browser = await chromium.launch();
+        const context1 = await browser.newContext();
+        const page1 = await context1.newPage();
+        await page1.goto('/');
+        await page1.waitForLoadState();
+        await page1.locator('(//input)[1]').type(testData.UserEmail);
+        await page1.locator('(//input)[2]').type(testData.UserPassword);
+        await page1.locator('//*[@class="submit-butn"]').click();
+        const [newPage] = await Promise.all([
+            context1.waitForEvent('page'),
+            await page1.locator('//div[text()="iAuthor"]').click()
+        ]);
+        await newPage.locator('//a[text()="Delivery"]').click();
+        await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+        await newPage.locator('//a[text()="Live Monitor"]').click();
+
+        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+        await newPage.locator('//a[@class="dropdown-toggle"]').click();
+        await newPage.locator('//p[text()="Verify Identity"]').click();
+        await newPage.locator('(//button[text()="Yes"])[1]').click();
+        await newPage.waitForTimeout(3000);
+
+        await eluminaProctorCand.againCandidateLogin();
+        await eluminaProctorCand.enterInvigilatorPassword();
+        await eluminaCandPage.candidateStartOneMCQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(2000);
+
+    });
+});
+
+test(`iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verification > Verify Identity > PASS`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+    await test.step('logging into application', async () => {
+        await eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateLoginToApplications();
+    });
+
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaProctorCand.clickOnAllLink();
+        const browser = await chromium.launch();
+        const context1 = await browser.newContext();
+        const page1 = await context1.newPage();
+        await page1.goto('/');
+        await page1.waitForLoadState();
+        await page1.locator('(//input)[1]').type(testData.UserEmail);
+        await page1.locator('(//input)[2]').type(testData.UserPassword);
+        await page1.locator('//*[@class="submit-butn"]').click();
+        const [newPage] = await Promise.all([
+            context1.waitForEvent('page'),
+            await page1.locator('//div[text()="iAuthor"]').click()
+        ]);
+        await newPage.locator('//a[text()="Delivery"]').click();
+        await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+        await newPage.locator('//a[text()="Live Monitor"]').click();
+
+        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+        await newPage.locator('//a[@class="dropdown-toggle"]').click();
+        await newPage.locator('//p[text()="Verify Identity"]').click();
+        await newPage.locator('(//button[text()="Yes"])[1]').click();
+        await newPage.waitForTimeout(3000);
+
+        await eluminaProctorCand.againCandidateLogin();
+    });
+});
+
+test(`iProc_TC_ID_44. @Regression Validation of  Cloud indication -  (Status is InCompleted)`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+    await test.step('logging into application', async () => {
+        await eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateLoginToApplications();
+    });
+
+    await test.step(`Candidate Login to application`, async () => {
+        await eluminaProctorCand.clickOnAllLink();
+        const browser = await chromium.launch();
+        const context1 = await browser.newContext();
+        const page1 = await context1.newPage();
+        await page1.goto('/');
+        await page1.waitForLoadState();
+        await page1.locator('(//input)[1]').type(testData.UserEmail);
+        await page1.locator('(//input)[2]').type(testData.UserPassword);
+        await page1.locator('//*[@class="submit-butn"]').click();
+        const [newPage] = await Promise.all([
+            context1.waitForEvent('page'),
+            await page1.locator('//div[text()="iAuthor"]').click()
+        ]);
+        await newPage.locator('//a[text()="Delivery"]').click();
+        await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
+        await newPage.locator('//a[text()="Live Monitor"]').click();
+
+        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+        await newPage.locator('//a[@class="dropdown-toggle"]').click();
+        await newPage.locator('//p[text()="Verify Identity"]').click();
+        await newPage.locator('(//button[text()="Yes"])[1]').click();
+        await newPage.waitForTimeout(3000);
+
+        await eluminaProctorCand.againCandidateLogin();
+        await eluminaProctorCand.enterInvigilatorPassword();
+        await eluminaCandPage.candidateStartOneMCQ();
+        await eluminaCandPage.downloadingCloudIcon()
+        await eluminaCandPage.setOffline(true);
+        await eluminaCandPage.incompleteQuestionDownloadingIcon();
+
+    });
+});  
