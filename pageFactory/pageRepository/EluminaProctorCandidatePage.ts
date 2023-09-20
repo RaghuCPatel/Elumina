@@ -93,7 +93,7 @@ export class EluminaProctorCandidatePage {
         this.LOGIN_BUTTON = page.locator('//div[text()=" Login "]');
         this.ClickStartExamLink = page.locator('//table[@class="table-container"]//tr[2]//td[6]');
         this.ClickDiffStartExamLink = page.locator('//table[@class="table-container"]//tr[2]//td[6]');
-        this.EnterExaPassword = page.locator('//input[@placeholder="Enter Exam Password"]');
+        this.EnterExaPassword = page.locator('//input[@class="password ng-untouched ng-pristine ng-valid"]');
         this.ClickOnStartExamBtn = page.locator('//div[@class="btn parent-body-container btn-primary"]');
 
         this.ClickOnNextBtn = page.locator('(//div[text()=" Next "])[1]');
@@ -415,7 +415,7 @@ export class EluminaProctorCandidatePage {
         const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
         console.log('Number of questions-' + qutns.length);
         const Ttl = qutns.length - 1;
-        for (let i = 0; i <= qutns.length - 3; i++) {
+        for (let i = 1; i <= 4; i++) {
             await qutns[i].click();
             await this.ansMCQQuestions.click();
             await this.ClickOnNextBtn.click();

@@ -237,12 +237,13 @@ export class EluminaInvPage {
         let examIdProc = EluminaProctorExamPage.examID;
         console.log("exam-id Proc" + EluminaProctorExamPage.examID)
 
-        await this.page.waitForSelector('//table[@class="table"]//tbody//tr//td[2]//span//span//span')
-        let exam = await this.page.$$('//table[@class="table"]//tbody//tr//td[2]//span//span//span');
+        await this.page.waitForSelector('//table[@class="table"]//tbody//tr//td[2]//span//span//span//a')
+        let exam = await this.page.$$('//table[@class="table"]//tbody//tr//td[2]//span//span//span//a');
 
         console.log("Exam list:" + exam);
         for (let i = 0; i <= exam.length - 1; i++) {
 
+            console.log(exam.length);
             let ex = await exam[i].textContent();
             console.log("exam:" + ex);
             if (examid == ex) {
