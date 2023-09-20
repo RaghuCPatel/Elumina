@@ -16234,3 +16234,167 @@
 {"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
 {"level":"info","message":"Test Case Completed : @Regressionproc Create iProctor exam with password Status : interrupted"}
 {"level":"error","message":"File not found: C:\\Users\\Divyashree\\Desktop\\githubMerge\\14-sep\\Elumina\\html-report"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036"}
+{"level":"info","message":"Executing Step : z logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_34. @Regression Validation of Exam section page (Offline Exam validation)"}
+{"level":"info","message":"Executing Step : z logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_34. @Regression Validation of Exam section page (Offline Exam validation) Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_33. @Regression Validation of Exam Section > Highlighter tool highlights save scenario 1"}
+{"level":"info","message":"Executing Step : z logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_33. @Regression Validation of Exam Section > Highlighter tool highlights save scenario 1 Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_33. @Regression Validation of Exam Section > Highlighter tool highlights save scenario 1"}
+{"level":"info","message":"Executing Step : z logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_33. @Regression Validation of Exam Section > Highlighter tool highlights save scenario 1 Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_36. @Regression Validating of VSAQ - Maximum number of lines that can be written"}
+{"level":"info","message":"Executing Step : z logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_36. @Regression Validating of VSAQ - Maximum number of lines that can be written Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_36. @Regression Validating of VSAQ - Maximum number of lines that can be written"}
+{"level":"info","message":"Executing Step : z logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_36. @Regression Validating of VSAQ - Maximum number of lines that can be written Status : passed"}
+{"level":"error","message":"File not found: C:\\Elumina\\20-09-2023\\html-report"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_33. @Regression Validation of Exam Section > Highlighter tool highlights save scenario 1"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_33. @Regression Validation of Exam Section > Highlighter tool highlights save scenario 1"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_33. @Regression Validation of Exam Section > Highlighter tool highlights save scenario 1 Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_33. @Regression Validation of Exam Section > Highlighter tool highlights save scenario 1"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_33. @Regression Validation of Exam Section > Highlighter tool highlights save scenario 1 Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Smoke Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Smoke Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_11. @Smoke Validation of \"I Authorise\" checkbox - To access Webcam, Microphone & Terms & Condition"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_11. @Smoke Validation of \"I Authorise\" checkbox - To access Webcam, Microphone & Terms & Condition Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_34. @Smoke Validation of Exam section page (Offline Exam validation)"}
+{"level":"info","message":"Executing Step :  logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_34. @Smoke Validation of Exam section page (Offline Exam validation) Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_39. @Smoke Validation of submitting when the Candidate has not answered all Questions"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_39. @Smoke Validation of submitting when the Candidate has not answered all Questions Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verification > Verify Identity > PASS"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verification > Verify Identity > PASS Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verification > Verify Identity > PASS"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verification > Verify Identity > PASS"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verification > Verify Identity > PASS Status : timedOut"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verification > Verify Identity > PASS"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verification > Verify Identity > PASS Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verification > Verify Identity > PASS"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verification > Verify Identity > PASS"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verification > Verify Identity > PASS"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verification > Verify Identity > PASS"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verification > Verify Identity > PASS"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verification > Verify Identity > PASS Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_104. @Regression Validation of Candidate > Peripheral verification > Verify Identity > PASS"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_168. @Regression Validation of Admin > Proctoring > Enable Screenshot"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to proctoring and setting up Prompt Candidate Message"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_168. @Regression Validation of Admin > Proctoring > Enable Screenshot Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of iProctor Extension Troubleshoot link validation.TC-73"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of iProctor Extension Troubleshoot link validation.TC-73 Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of iProctor Extension Troubleshoot link validation.TC-73"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Proctoring Exam > Screenshots"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Proctoring Exam > Screenshots Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Proctoring Exam with Screenshots"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @Regression Validation of Proctoring Exam with Screenshots Status : failed"}
+{"level":"info","message":"Test Case Started : @Regression Validation of Proctoring Exam with Screenshots"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : @Regression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : @Regression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_44. @Regression Validation of  Cloud indication -  (Status is InCompleted)"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_44. @Regression Validation of  Cloud indication -  (Status is InCompleted)"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_44. @Regression Validation of  Cloud indication -  (Status is InCompleted) Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_44. @Regression Validation of  Cloud indication -  (Status is InCompleted)"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_44. @Regression Validation of  Cloud indication -  (Status is InCompleted) Status : passed"}

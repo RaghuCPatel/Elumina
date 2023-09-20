@@ -270,10 +270,13 @@ export class EluminaRegistrationForProctoringPage {
     async verifyTimeScreenshotst() {
         await this.page.waitForSelector('//div[@class="screenshot-item"]//div[@class="time"]', { timeout: 10000 });
         let screenshots = await this.page.$$('//div[@class="screenshot-item"]//div[@class="time"]');
+        let TotalScreenshot = screenshots.length;
+        console.log(TotalScreenshot);
         for (let i = 0; i <= screenshots.length - 1; i++) {
             let screenshot = await screenshots[i].textContent();
             console.log("Screenshot time:" + screenshot);
         }
+        await expect(TotalScreenshot).toBeLessThan(500)
     }
 
     /**Methods to fetch events as admin */
