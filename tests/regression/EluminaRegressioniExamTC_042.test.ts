@@ -74,7 +74,7 @@ test(` . @iExamRegression Verify Validation of Candidate attends All Question ty
 });
 
 
-test(`iEX_TC_ID_69. @iExamRegression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons.`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_69,iEX_TC_ID_240. @iExamRegression Validation of Exam Section > Question and Answer save navigation validation using Previous / Next buttons.`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

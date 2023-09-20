@@ -415,7 +415,7 @@ export class EluminaProctorCandidatePage {
         const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
         console.log('Number of questions-' + qutns.length);
         const Ttl = qutns.length - 1;
-        for (let i = 0; i <= qutns.length - 3; i++) {
+        for (let i = 1; i <= 4; i++) {
             await qutns[i].click();
             await this.ansMCQQuestions.click();
             await this.ClickOnNextBtn.click();

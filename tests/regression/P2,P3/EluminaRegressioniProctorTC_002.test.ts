@@ -44,7 +44,7 @@ test(`@Regressionproc Create iProctor exam with password`, async ({ eluminaLogin
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createExam();
+        await newtab.createExamwithoutFullscreen();
         await newtab.createContentSection();
         await newtab.createContentPage()
         await newtab.createSections();
@@ -301,6 +301,26 @@ test(`@Regressionproc Validation of Internet Upload Speed TC-069`, async ({ elum
     });
 });
 
+//Validation of Internet Download Speed
+test(`iProc_TC_ID_91. @Regressionproc Validation of Internet Download Speed`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Elumina application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
+        await eluminaLoginPage.verifyProfilePage();
+    });
+    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
+        const newtab = await eluminaProctorExam.AdminPageNavigation();
+        await newtab.clickOnProctoringInAdmin();
+        await newtab.InternetDownloadSpeedCheck();
+        await newtab.logoutClick();
+
+    });
+});
+
 //Validation  of Prompt Candidate
 
 test(`@Regressionproc Validation of Prompt Candidate TC-71`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
@@ -380,7 +400,7 @@ test(`@Regressionproc Verify Validation of Exam section page  > Chat App TC-171`
 });
 
 //Validation of Review Exam page  > Chat App
-test(`@Regressionproc Verify Validation of Review Exam page  > Chat App TC-172`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(`iProc_TC_167,TC-172. @Regressionproc Verify Validation of Review Exam page  > Chat App `, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await test.step('Candidate logging into application', async () => {

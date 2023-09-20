@@ -139,6 +139,9 @@ export class EluminaProctorExamPage {
   readonly InternetField: Locator;
   readonly ClickOnQuestionTypeInAdmin: Locator;
   readonly fullScreenClick: Locator;
+  readonly InternetDownloadField: Locator;
+  readonly downloadSpeedClick: Locator;
+  readonly ClickOnViewer: Locator;
 
 
   constructor(page: Page, context: BrowserContext) {
@@ -229,6 +232,9 @@ export class EluminaProctorExamPage {
     this.clickOnVideoToggle = page.locator('(//div[@class="switch--container"]//span)[1]');
     this.ClickOnQuestionTypeInAdmin = page.locator('//span[contains(text(),"Question Types")]');
     this.fullScreenClick = page.locator('(//span[@class="slider round"])[5]');
+    this.InternetDownloadField = page.locator('//input[@placeholder="Select Internet Download Speed"]')
+    this.downloadSpeedClick = page.locator('(//div[@class="open container-left-padding"])[1]');
+    this.ClickOnViewer = page.locator('//label[@for="image_View1"]');
   }
 
   /**Method of Page Navigation */
@@ -674,10 +680,26 @@ export class EluminaProctorExamPage {
     await this.EnterNoOfCandidates.clear();
     await this.EnterNoOfCandidates.type('0100');
     await this.ClickOnAdd.click();
-    await this.fullScreenClick.click();
   }
+
   /**Method to create exam */
   async createExam(): Promise<void> {
+    await this.createCommonExam();
+    await this.fullScreenClick.click();
+    await this.EnterInvigilatorPswd.click();
+    await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
+    await this.page.waitForTimeout(5000);
+
+    await this.ClickOnNextBtn.click();
+    await expect(this.VerifyExam_details).toBeVisible();
+    await expect(this.VerifyChoose_Question).toBeVisible();
+    await expect(this.VerifyChoose_Workflow).toBeVisible();
+    await expect(this.VerifyChoose_Confirmation).toBeVisible();
+    await this.page.waitForTimeout(5000);
+  }
+
+  /**Method to create without fullscreen option exam */
+  async createExamwithoutFullscreen(): Promise<void> {
     await this.createCommonExam();
     await this.EnterInvigilatorPswd.click();
     await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
@@ -889,8 +911,6 @@ export class EluminaProctorExamPage {
     await this.SelectCalculator.click();
     await this.SelectNotepad.click();
     await this.page.waitForTimeout(3000);
-    //  await this.EnterInvigilatorPswd.click();
-    //  await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
     await this.ClickOnNextBtn.click();
     await expect(this.VerifyExam_details).toBeVisible();
     await expect(this.VerifyChoose_Question).toBeVisible();
@@ -1185,5 +1205,156 @@ export class EluminaProctorExamPage {
 
   }
 
+  /**Method to check Internet Download speed check */
+  async InternetDownloadSpeedCheck() {
+    await this.InternetSpeedcloseicon.click();
+    await this.InternetDownloadField.click()
+    await this.InternetDownloadField.type(testData.InternetSpeed);
+    await this.downloadSpeedClick.click();
+    await this.ClickOnSave.click();
+    await this.ClickOnSave.click();
+  }
+
+
+
+  /**
+    * Create a Exam with Viewer
+    */
+
+  async createCommonExamWithViewer(): Promise<void> {
+
+    let currentDate = new Date();
+    let datecurrent = currentDate.getDate();
+    console.log(datecurrent);
+    let pm = currentDate.getHours() >= 12;
+    let hour12 = currentDate.getHours() % 12;
+    if (!hour12)
+      hour12 += 12;
+    let minute = currentDate.getMinutes();
+    console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
+
+    let StartBookingMin = currentDate.getMinutes() + 2;
+    let EndBookingMin = currentDate.getMinutes() + 3;
+    let StartExamMin = currentDate.getMinutes() + 4;
+    let EndExamMin = currentDate.getMinutes() + 14;
+
+    await this.EXAMSMENU.click();
+    await expect(this.CREATEEXAMS).toBeVisible();
+    await this.CREATEEXAMS.click();
+    await this.STARTFROMSCRATCH.click();
+    await this.SELECTBANK.click();
+    await this.SELECTBANK.type(testData.TestBank1);
+    await this.TESTBANK.click();
+    await this.EXAMNAME.type('DEMO' + Math.floor(Math.random() * 899999 + 100000));
+    await this.EXAMCODE.type('D' + Math.floor(Math.random() * 89 + 100));
+
+    await this.ExamStartCalender.click();
+    await this.ExamStartDate.click();
+
+    await this.BooingStartMins.click();
+    await this.BooingStartMins.clear();
+    if (StartExamMin >= 60) {
+      let SEM = StartExamMin.toString();
+      SEM = "04"
+      await this.BooingStartMins.type(SEM);
+      //hrs+1
+      await this.BookingStartHrs.click();
+      await this.BookingStartHrs.clear();
+      let BSH = hour12 + 1;
+      if (BSH == 12) {
+        await this.BookingStartHrs.type(BSH.toString());
+        await this.ChooseBookingStartSessions.check();
+
+      }
+      else if (BSH >= 13) {
+        BSH = 1;
+        await this.BookingStartHrs.type(BSH.toString());
+      }
+      else {
+        await this.BookingStartHrs.type(BSH.toString());
+        await this.ChooseBookingStartSession.check();
+      }
+    }
+    else {
+      await this.BooingStartMins.type(StartExamMin.toString());
+      //hrs
+      await this.BookingStartHrs.click();
+      await this.BookingStartHrs.clear();
+      await this.BookingStartHrs.type(hour12.toString());
+      await this.ChooseBookingStartSession.check();
+    }
+    await this.BookingOK.click();
+    await this.ExamEndCalender.click();
+
+    if (EndExamDate >= "30") {
+      console.log("Exam end date:" + EndExamDate);
+      await this.page.waitForSelector('//li[@class="next"]');
+      await this.nextButton.click();
+      await this.Oneclick.click();
+    }
+    else if (EndExamDate >= "31") {
+      console.log("Exam end date:" + EndExamDate);
+      await this.page.waitForSelector('//li[@class="next"]');
+      await this.nextButton.click();
+      await this.Oneclick.click();
+    }
+    else {
+      console.log("Exam end date:" + EndExamDate);
+      await this.ExamEndDate.click();
+    }
+    await this.BookingStartHrs.click();
+    await this.BookingStartHrs.clear();
+    await this.BookingStartHrs.type(hour12.toString());
+    await this.BooingStartMins.click();
+    await this.BooingStartMins.clear();
+    if (EndExamMin >= 60) {
+      EndExamMin = 1;
+      await this.BooingStartMins.type(EndExamMin.toString());
+    }
+    else {
+      await this.BooingStartMins.type(EndExamMin.toString());
+    }
+    await this.ChooseBookingStartSession.check();
+    await this.BookingOK.click();
+
+
+    await this.ClickOnExamVenue.click();
+    await this.ChooseExamVenue.click();
+    await this.ClickOnAdd.click();
+    await this.EnterNoOfCandidates.click();
+    await this.EnterNoOfCandidates.clear();
+    await this.EnterNoOfCandidates.type('10');
+    await this.ClickOnAdd.click();
+    await this.ClickOnViewer.click();
+
+  }
+
+  async clickonNextBtnInExam() {
+    await this.ClickOnNextBtn.click();
+    await expect(this.VerifyExam_details).toBeVisible();
+    await expect(this.VerifyChoose_Question).toBeVisible();
+    await expect(this.VerifyChoose_Workflow).toBeVisible();
+    await expect(this.VerifyChoose_Confirmation).toBeVisible();
+    await this.page.waitForTimeout(5000);
+  }
+
+  /*Add MCQ Question with Image in an Exam*/
+  async addImageQuestion(): Promise<void> {
+    await this.ClickOnAddQuestion.click();
+    await this.ClickOnSearchQuestion.click()
+    await this.ClickOnSearchQuestion.type('VSAQ');
+    await this.page.waitForTimeout(10000);
+    await this.page.locator('(//input[@type="checkbox"])[2]').click();
+    await this.ClickOnAddBtn.click()
+    await this.ClickOnSave.click();
+    await this.ClickOnNextBtn.click();
+    await this.page.waitForTimeout(5000);
+    await this.ClickOnSubmitAndApproveBtn.click();
+    await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+    await this.page.waitForTimeout(5000);
+  }
 }
+
+
+
 
