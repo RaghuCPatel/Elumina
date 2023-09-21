@@ -31,7 +31,8 @@ else if (process.env.ENV == 'staging') {
 
 
 /** Validation Validate Survey screen EluminaRegressioniProctorTC_083*/
-test(` . @iProctorRegression Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+
+test(` Exam_Prerequisit_for_iProc_TC_ID_78. @iProctorRegression Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -53,7 +54,7 @@ test(` . @iProctorRegression Verify Elumina Create Exam with survey section`, as
     });
 });
 
-test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(` Exam_Prerequisit_for_iProc_TC_ID_78. @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -70,7 +71,7 @@ test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLogin
 });
 
 
-test(` . @iProctorRegression Verify Validation of Survey screen EluminaRegressioniProctorTC_083`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(` iProc_TC_ID_78. @iProctorRegression Verify Validation of Survey screen EluminaRegressioniProctorTC_083`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

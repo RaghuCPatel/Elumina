@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of Proctoring Exam Event > Microphone Verified*/
 
-test(` . @iProctorRegression Validation of Proctoring Exam Event > Microphone Verified`, async ({ eluminaProctorCand, eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(` iProc_TC_ID_110. @iProctorRegression Validation of Proctoring Exam Event > Microphone Verified`, async ({ eluminaProctorCand, eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });
@@ -38,7 +38,6 @@ test(` . @iProctorRegression Validation of Proctoring Exam Event > Microphone Ve
     });
 
     await test.step('Admin logging into Application', async () => {
-        // await eluminaProctorCand.clickOnLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
         const browser = await chromium.launch();

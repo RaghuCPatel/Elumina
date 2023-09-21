@@ -29,18 +29,13 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of  non- Safe Exam Browser */
 
-test(` . @iProctorRegression Verify Validation of candidate navigating to multiple window`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
-
+test(` iProc_TC_ID_46. @iProctorRegression Verify Validation of candidate navigating to multiple window`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
-
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-
     });
 
     await test.step('Invigilator logging into Application in another window', async () => {
-
-
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
         const page1 = await context1.newPage();

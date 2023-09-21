@@ -29,9 +29,9 @@ else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
-/**Validation of Changing Font Size to increase on the Dashboard */
+/**Validation of Candidate dashboard > Exam Start page Font size validation. */
 
-test(` . @iProctorRegression Validation of Changing Font Size to increase on the Dashboard `, async ({ eluminaProctorCand, webActions }) => {
+test(` iProc_TC_ID_21A. @iProctorRegression Validation of Changing Font Size to increase on the Dashboard `, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });
@@ -40,9 +40,7 @@ test(` . @iProctorRegression Validation of Changing Font Size to increase on the
     });
 
     await test.step('Candidate start the exam', async () => {
-        //await eluminaProctorCand.clickOnAllLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
-
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();

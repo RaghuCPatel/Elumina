@@ -29,7 +29,8 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Proctoring Exam Events > Exam Extened
 
-test(` . @iProctorRegression Validation of Proctoring Exam Events > Exam Extened`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(` iProc_TC_ID_121. @iProctorRegression Validation of Proctoring Exam Events > Exam Extened`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
@@ -75,8 +76,12 @@ test(` . @iProctorRegression Validation of Proctoring Exam Events > Exam Extened
         await newPage.waitForTimeout(3000);
 
         await eluminaProctorCand.againCandidateLogin();
+
+
+
         //await eluminaProctorCand.candidateCliclkOnSingleMCQ();
         await newPage.waitForTimeout(3000);
+>
         await newPage.locator('//img[@class="proctoringImg"]').click();
         await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();
         await newPage.waitForTimeout(3000);

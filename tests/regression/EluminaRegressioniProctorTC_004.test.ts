@@ -3,7 +3,7 @@ import test from '@lib/BaseTest';
 /**Validation of user authentication by invalid Candidate Creadentials */
 
 
-test(` . @iProctorRegression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(` Exam_Prerequisit_for_iProc_TC_ID_26A. @iProctorRegression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -25,7 +25,7 @@ test(` . @iProctorRegression Verify Elumina Login`, async ({ eluminaLoginPage, e
     });
 });
 
-test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(` Exam_Prerequisit_for_iProc_TC_ID_26B. @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -41,7 +41,7 @@ test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLogin
 });
 
 
-test(` . @iProctorRegression Verify Elumina Login with diff venu`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(` Exam_Prerequisit_for_iProc_TC_ID_26C. @iProctorRegression Verify Elumina Login with diff venu`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -62,7 +62,7 @@ test(` . @iProctorRegression Verify Elumina Login with diff venu`, async ({ elum
     });
 });
 
-test(` . @iProctorRegression Verify Elumina Registration and adding existing user`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(` Exam_Prerequisit_for_iProc_TC_ID_26D. @iProctorRegression Verify Elumina Registration and adding existing user`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -78,7 +78,7 @@ test(` . @iProctorRegression Verify Elumina Registration and adding existing use
     });
 });
 
-test(` . @iProctorRegression Validation of user authentication by invalid Candidate Creadentials`, async ({ eluminaCandPage, webActions }) => {
+test(` iProc_TC_ID_4. @iProctorRegression Validation of user authentication by invalid Candidate Creadentials`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

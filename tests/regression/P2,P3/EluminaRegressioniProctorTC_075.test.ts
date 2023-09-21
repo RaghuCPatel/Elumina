@@ -30,7 +30,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Microphone Troubleshoot link validation.     
 
-test(` . @LowPriorityiProctorCases Validation of Microphone Troubleshoot link validation.`, async ({ eluminaProctorCand, webActions }) => {
+test(` iProc_TC_ID_144A. @LowPriorityiProctorCases Validation of Microphone Troubleshoot link validation.`, async ({ eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
@@ -45,7 +45,7 @@ test(` . @LowPriorityiProctorCases Validation of Microphone Troubleshoot link va
 
 });
 
-test1(` . @LowPriorityiProctorCases Validation of Microphone Troubleshoot link`, async ({ eluminaProctorCand, webActions }) => {
+test1(` iProc_TC_ID_144B. @LowPriorityiProctorCases Validation of Microphone Troubleshoot link`, async ({ eluminaProctorCand, webActions }) => {
     await test1.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

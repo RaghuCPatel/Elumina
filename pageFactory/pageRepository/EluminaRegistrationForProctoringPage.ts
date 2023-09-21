@@ -483,41 +483,44 @@ export class EluminaRegistrationForProctoringPage {
         await this.page.waitForSelector('//table[@class="table"]//tbody//tr', { timeout: 10000 });
         let rowss = await this.page.$$('//table[@class="table"]//tbody//tr');
         for (let i = 0; i <= 2; i++) {
+
             await rowss[i].isVisible()
             await this.EnterClientID.clear();
-            await this.EnterClientID.type(testData.clientId + Math.floor(Math.random() * 89976543 + 10023));
+            await this.EnterClientID.type(makeid(testData.clientId) + Math.floor(Math.random() * 899 + 100));
             await this.page.waitForTimeout(1000);
             await this.ChooseTitle.click();
-            await this.ChooseTitle.selectOption(testData.clientGender);
+            await this.ChooseTitle.selectOption('Mr');
             await this.TypeUsername.clear();
-            await this.TypeUsername.type(testData.clientUsername + Math.floor(Math.random() * 896565 + 1098));
+            await this.TypeUsername.type(makeid(testData.clientUsername) + Math.floor(Math.random() * 89 + 10));
             await this.TypeFirstName.clear();
-            await this.TypeFirstName.type(testData.clientFirstname);
+            await this.TypeFirstName.type(makeid(testData.clientFirstname));
             await this.TypeLastName.clear();
-            await this.TypeLastName.type(testData.clientLastname);
+            await this.TypeLastName.type(makeid(testData.clientLastname));
             await this.TypeEmail.clear();
-            await this.TypeEmail.type(testData.clientEmail + Math.floor(Math.random() * 8995467 + 1003245) + '@yopmail.com');
+            await this.TypeEmail.type(makeid(testData.clientEmail) + Math.floor(Math.random() * 899 + 100) + '@yopmail.com');
             await this.TypePhone.clear();
-            await this.TypePhone.type(testData.clientPhone + Math.floor(Math.random() * 899999999 + 10000));
+            await this.TypePhone.type('6' + Math.floor(Math.random() * 899999999 + 100));
             await this.page.waitForTimeout(1000);
             await this.SelectRole.click();
-            await this.SelectRole.selectOption(testData.clientRole);
+            await this.SelectRole.selectOption('Candidate');
             await this.page.waitForTimeout(1000);
             await this.SelectEligible.click();
-            await this.SelectEligible.selectOption(testData.clientEligableOption);
+            await this.SelectEligible.selectOption('Yes');
             await this.page.waitForTimeout(1000);
             await this.SelectVenue.click();
-            await this.SelectVenue.type(testData.clientVenue);
+            await this.SelectVenue.type('Elumina Chennai');
             await this.page.waitForTimeout(1000);
             await this.SelectBookingStatus.click();
-            await this.SelectBookingStatus.selectOption(testData.clientBookingStatus);
-            await this.page.waitForTimeout(1000);
-            await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles('./lib/Image.png');
+            await this.SelectBookingStatus.selectOption('Booked');
+            await this.page.waitForTimeout(5000);
+            await this.page.locator('(//input[@name="profile_image"])[1]').setInputFiles('lib/Images/kohli.jpeg');
             await this.page.waitForTimeout(1000);
             await this.ClickOnSaveBtn.click();
-            await this.page.waitForTimeout(2000);
+            await this.page.waitForTimeout(5000);
         }
         await this.LeftArrow.click();
+        await this.ClickOnDropdown.click();
+
     }
 
     /**Method to Download the Multiple User Details */

@@ -3,7 +3,8 @@ import { chromium } from '@playwright/test';
 import { testConfig } from '../../testConfig';
 
 //Validation of Admin > Proctoring > Browser Check Link
-test(` . @iProctorRegression Validation of Enable iProctor Extension`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+
+test(` iProc_TC_ID_85A. @iProctorRegression Validation of Enable iProctor Extension`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -20,7 +21,7 @@ test(` . @iProctorRegression Validation of Enable iProctor Extension`, async ({ 
     });
 });
 
-test(` . @iProctorRegression Validation of Admin > Proctoring > Browser Check Link`, async ({ eluminaLoginPage, eluminaProctorReg, eluminaProctorCand, webActions }) => {
+test(` iProc_TC_ID_85B. @iProctorRegression Validation of Admin > Proctoring > Browser Check Link`, async ({ eluminaLoginPage, eluminaProctorReg, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

@@ -142,6 +142,7 @@ export class EluminaProctorExamPage {
   readonly InternetDownloadField: Locator;
   readonly downloadSpeedClick: Locator;
   readonly ClickOnViewer: Locator;
+  readonly InternetDownloadSpeedicon: Locator;
 
 
   constructor(page: Page, context: BrowserContext) {
@@ -226,7 +227,8 @@ export class EluminaProctorExamPage {
     this.closeVideoFragment = page.locator('(//span[@class="msdd-close"])[1]');
     this.clickOnVideoFragmentField = page.locator('//input[@placeholder="Select Video Fragment Size"]');
     this.clickOnVideoFragmentSize = page.locator('//span[@class="open"]');
-    this.InternetSpeedcloseicon = page.locator('(//span[@class="msdd-close"])[4]');
+    this.InternetSpeedcloseicon = page.locator('(//span[@class="msdd-close"])[1]');
+    this.InternetDownloadSpeedicon = page.locator('(//span[@class="msdd-close"])[2]');
     this.InternetField = page.locator('//input[@placeholder="Select Internet Upload Speed"]')
     this.InternetSpeedClick = page.locator('//div[@class="open container-left-padding"]');
     this.clickOnVideoToggle = page.locator('(//div[@class="switch--container"]//span)[1]');
@@ -972,17 +974,18 @@ export class EluminaProctorExamPage {
 
   }
 
-  /**Method to create content section */
-  async createContentSection(): Promise<void> {
+  /** Method to Create Content Section */
+  async createContentSection(time): Promise<void> {
     await this.CliCKOnCreateSection.click();
     await this.ClickOnCreateContentSection.click();
     await this.EnterSectionName.type('Content-' + Math.floor(Math.random()) * 89 + 10);
     await this.page.waitForTimeout(5000);
     await this.DescriptionMessage.click();
-    await this.DescriptionMessage.type(testData.DescriptionMessage);
+    await this.DescriptionMessage.type('Hello World.....');
     await this.page.waitForTimeout(5000);
-    await this.selectMinutes.selectOption('1');
+    await this.selectMinutes.selectOption(time);
     await this.ClickOnSave.click();
+
   }
 
 
@@ -1084,7 +1087,7 @@ export class EluminaProctorExamPage {
     await this.page.waitForTimeout(5000);
     await this.page.waitForSelector('//div[@class="eqc-question-info"]//input', { timeout: 10000 });
     const McqQuestions = await this.page.$$('//div[@class="eqc-question-info"]//input');
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i <= 5; i++) {
       await McqQuestions[i].click();
     }
     await this.ClickOnAddBtn.click()
@@ -1207,7 +1210,7 @@ export class EluminaProctorExamPage {
 
   /**Method to check Internet Download speed check */
   async InternetDownloadSpeedCheck() {
-    await this.InternetSpeedcloseicon.click();
+    await this.InternetDownloadSpeedicon.click();
     await this.InternetDownloadField.click()
     await this.InternetDownloadField.type(testData.InternetSpeed);
     await this.downloadSpeedClick.click();

@@ -31,55 +31,14 @@ else if (process.env.ENV == 'staging') {
 
 /**Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected*/
 
-/*test(` . @iProctorRegression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
-        await eluminaLoginPage.verifyProfilePage();
-    });
-    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminaProctorExam.iAuthorPageNavigation();
-        await newtab.examTabNavigation();
-        await newtab.createCommonExam();
-        await newtab.createExam();
-        await newtab.createSections();
-        await newtab.addMCQQuestions();
-    });
-});    
-
-test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaProctorReg.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
-    });
-});         */
-
-
-test(` . @iProctorRegression Validation of Question numbers are displayed in Red, when Flag for Review is selected`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`iProc_TC_ID_50. @iProctorRegression Validation of Question numbers are displayed in Red, when Flag for Review is selected`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step('Candidate logging into application', async () => {
-
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-
     });
 
     await test.step('Invigilator  logging into Application', async () => {
-
-        // await eluminaProctorCand.clickOnAllLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
         const browser = await chromium.launch();
@@ -93,7 +52,6 @@ test(` . @iProctorRegression Validation of Question numbers are displayed in Red
 
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
-
             await page1.locator('//div[text()="iAuthor"]').click()
 
         ]);

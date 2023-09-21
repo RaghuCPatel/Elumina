@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 /*Elumina login page with create exam with Practice exam button and attending practice exam  EluminaRegression iProctorTC_057*/
 
-test(` . @iProctorRegression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(` Exam_Prerequisit_for_iProc_TC_ID_54A. @iProctorRegression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -48,16 +48,13 @@ test(` . @iProctorRegression Verify Elumina Login`, async ({ eluminaLoginPage, e
     });
 });
 
-test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(` Exam_Prerequisit_for_iProc_TC_ID_54B. @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
     await test.step(`Login to Elumina application`, async () => {
         await eluminaLoginPage.loginToApplication();
     });
-    // await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
-    //     await eluminaLoginPage.verifyProfilePage();
-    // });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaProctorReg.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
@@ -67,7 +64,7 @@ test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLogin
     });
 });
 
-test(` . @iProctorRegression Candidate Attend practice exam EluminaRegressionProctorTC_057`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(` iProc_TC_ID_54. @iProctorRegression Candidate Attend practice exam EluminaRegressionProctorTC_057`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
@@ -107,8 +104,6 @@ test(` . @iProctorRegression Candidate Attend practice exam EluminaRegressionPro
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.clickOnStartExamBtn();
         await eluminaProctorCand.candidateStartMCQ();
-
-
     });
 
 });
@@ -117,7 +112,7 @@ test(` . @iProctorRegression Candidate Attend practice exam EluminaRegressionPro
 Candidate entered into exam section & Entered into question: 1(#IQID).*/
 
 
-test(` . @iProctorRegression Validation of Proctoring Exam Events In Admin Section EluminaRegressioniProctorTC_124`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(` iProc_TC_ID_118. @iProctorRegression Validation of Proctoring Exam Events In Admin Section EluminaRegressioniProctorTC_124`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();

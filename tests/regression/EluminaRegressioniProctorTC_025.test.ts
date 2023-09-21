@@ -38,9 +38,7 @@ test(` . @iProctorRegression Validation of Questions, Videos & audio being downl
         await eluminaProctorCand.candidateLoginToApplications();
     });
     await test.step('Invigilator  logging into Application', async () => {
-        //await eluminaProctorCand.clickOnAllLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
-
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();

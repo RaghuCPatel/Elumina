@@ -27,19 +27,16 @@ else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
-//Validation of "Flag for Review" option
+/**Validation of Exam Section > Flag for review.  */
 
-test(` . @iProctorRegression Validation of "Flag for Review" option`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
-
+test(` iProc_TC_ID_27. @iProctorRegression Validation of "Flag for Review" option`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step('Candidate logging into application', async () => {
-
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
 
     });
 
     await test.step('Invigilator  logging into Application', async () => {
-
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
         const browser = await chromium.launch();
@@ -53,7 +50,6 @@ test(` . @iProctorRegression Validation of "Flag for Review" option`, async ({ e
 
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
-
             await page1.locator('//div[text()="iAuthor"]').click()
 
         ]);

@@ -31,7 +31,7 @@ else if (process.env.ENV == 'staging') {
 /**Validation of multiple Exams on the dashboard for different time (Say one in AM & another in PM) EluminaRegression iProctorTC_017*/
 
 /**AM */
-test(` . @iProctorRegression Verify Elumina Login fpr AM`, async ({ eluminaLoginPage, eluminaMultipleExamsForAMPage, eluminaProctorExam, webActions }) => {
+test(` Exam_Prerequisit_for_iProc_TC_ID_17. @iProctorRegression Verify Elumina Login fpr AM`, async ({ eluminaLoginPage, eluminaMultipleExamsForAMPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -50,7 +50,7 @@ test(` . @iProctorRegression Verify Elumina Login fpr AM`, async ({ eluminaLogin
     });
 });
 
-test(` . @iProctorRegression Verify Elumina Registration for AM`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(` Exam_Prerequisit_for_iProc_TC_ID_17. @iProctorRegression Verify Elumina Registration for AM`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -67,7 +67,7 @@ test(` . @iProctorRegression Verify Elumina Registration for AM`, async ({ elumi
 
 /**PM */
 
-test(` . @iProctorRegression Verify Elumina Login for PM`, async ({ eluminaLoginPage, eluminaMultipleExamsForPMPage, eluminaProctorExam, webActions }) => {
+test(` Exam_Prerequisit_for_iProc_TC_ID_17. @iProctorRegression Verify Elumina Login for PM`, async ({ eluminaLoginPage, eluminaMultipleExamsForPMPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -86,7 +86,7 @@ test(` . @iProctorRegression Verify Elumina Login for PM`, async ({ eluminaLogin
     });
 });
 
-test(` . @iProctorRegression Verify Elumina Registration for PM`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(` Exam_Prerequisit_for_iProc_TC_ID_17. @iProctorRegression Verify Elumina Registration for PM`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -102,7 +102,7 @@ test(` . @iProctorRegression Verify Elumina Registration for PM`, async ({ elumi
 });
 
 
-test(` . @iProctorRegression Validation of Browser Reload option on Candidate Dashboard for AM EluminaRegressioniProctorTC_017`, async ({ eluminaProctorCand, webActions }) => {
+test(` iProc_TC_ID_17. @iProctorRegression Validation of Browser Reload option on Candidate Dashboard for AM EluminaRegressioniProctorTC_017`, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });

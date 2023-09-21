@@ -1,6 +1,6 @@
-import test from '@lib/BaseTest';
-import test1 from '@lib/Fixtures';
-import { chromium } from '@playwright/test';
+import test1 from '@lib/BaseTest';
+import test from '@lib/Fixtures';
+import { chromium, expect } from '@playwright/test';
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
 const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
 const productionTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/production/testData.json')));
@@ -60,7 +60,7 @@ test(`Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Re
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaProctorReg.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
+        await newtab.addMultipleUserDetails();
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
         await newtab.logoutClick();
@@ -97,6 +97,8 @@ test(`iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inli
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
+        let candId = await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[7]').textContent();
+        console.log(candId);
         await newPage.waitForTimeout(3000);
         await newPage.close();
         await page1.close();
@@ -111,7 +113,7 @@ test(`iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inli
 });
 
 
-test(`iProc_TC_ID_142A. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation.TC-73`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test1(`iProc_TC_ID_142A. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation.TC-73`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });
@@ -123,13 +125,13 @@ test(`iProc_TC_ID_142A. @iProctorRegression Validation of iProctor Extension Tro
     });
 });
 
-test1(`iProc_TC_ID_142B. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(`iProc_TC_ID_142B. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaProctorCand.candidateLoginToApplications();
-        await eluminaProctorCand.clickOnAllLink();
+        await eluminaProctorCand.clickOnStartExamLink1();
         await eluminaCandPage.waitforTime3();
     });
 

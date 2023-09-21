@@ -30,20 +30,15 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of the "Timer" - After clicking on "Start Exam" Button
 
-test(` . @iProctorRegression Validation of the "Timer" - After clicking on "Start Exam" Button`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
-
+test(` iProc_TC_ID_22. @iProctorRegression Validation of the "Timer" - After clicking on "Start Exam" Button`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step('Candidate logging into application', async () => {
-
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
 
     });
 
     await test.step('Invigilator  logging into Application', async () => {
-
-        //await eluminaProctorCand.clickOnAllLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
-
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();

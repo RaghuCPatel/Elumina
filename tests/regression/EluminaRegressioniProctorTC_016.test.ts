@@ -31,20 +31,19 @@ else if (process.env.ENV == 'staging') {
 
 //Timer Validation before Exam starts - After clicking on "Start Exam"
 
-test(` . @iProctorRegression Timer Validation before Exam starts - After clicking on "Start Exam"
-`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(` iProc_TC_ID_16. @iProctorRegression Timer Validation before Exam starts - After clicking on "Start Exam"`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
+
         await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime();
+
         await eluminaProctorCand.candidateLoginToApplications();
 
     });
 
     await test.step('Candidate start the exam', async () => {
-        // await eluminaProctorCand.clickOnAllLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
-
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -74,6 +73,5 @@ test(` . @iProctorRegression Timer Validation before Exam starts - After clickin
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaProctorCand.verifyExamDashboardTimer();
-        // await eluminaProctorCand.candidateStartMCQ();
     });
 });

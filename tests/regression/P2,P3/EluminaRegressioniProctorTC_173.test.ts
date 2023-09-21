@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of Proctoring Exam > Traffic light Green  */
 
-test(` . @LowPriorityiProctorCases Validation of Proctoring Exam > Traffic light Green`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(` iProc_TC_ID_135. @LowPriorityiProctorCases Validation of Proctoring Exam > Traffic light Green`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
@@ -48,7 +48,7 @@ test(` . @LowPriorityiProctorCases Validation of Proctoring Exam > Traffic light
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
 
@@ -69,7 +69,7 @@ test(` . @LowPriorityiProctorCases Validation of Proctoring Exam > Traffic light
 });
 
 //Verify Validation of Submit Exam page  > Chat App
-test(` . @LowPriorityiProctorCases Verify Validation of Submit Exam page  > Chat App TC-173`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(` iProc_TC_ID_164. @LowPriorityiProctorCases Verify Validation of Submit Exam page  > Chat App TC-173`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await test.step('Candidate logging into application', async () => {
@@ -91,7 +91,7 @@ test(` . @LowPriorityiProctorCases Verify Validation of Submit Exam page  > Chat
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
 

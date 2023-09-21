@@ -410,7 +410,6 @@ export class EluminaProctorCandidatePage {
 
     /**Method to Answer the MCQ Quetions */
     async candidateStartMCQwithoutReviewe() {
-
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
         const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
         console.log('Number of questions-' + qutns.length);

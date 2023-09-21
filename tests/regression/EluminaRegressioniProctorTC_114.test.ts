@@ -29,48 +29,12 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of Proctoring Exam Event >Login Success*/
 
-/*test(` . @iProctorRegression Validation of Proctoring Exam Event >Login Success`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
-        await eluminaLoginPage.verifyProfilePage();
-    });
-    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminaProctorExam.iAuthorPageNavigation();
-        await newtab.examTabNavigation();
-        await newtab.createExam();
-        await newtab.createSection();
-        await newtab.addMCQQuestions();
-    });
-});          
-
-test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaProctorReg.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
-    });
-});         */
-
-test(` . @iProctorRegression Validation of Proctoring Exam Event with Login Success`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(` iProc_TC_ID_108. @iProctorRegression Validation of Proctoring Exam Event with Login Success`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
     });
     await test.step(`Navigate to Application`, async () => {
-        // await eluminaProctorCand.clickOnAllLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
         const browser = await chromium.launch();
@@ -96,8 +60,6 @@ test(` . @iProctorRegression Validation of Proctoring Exam Event with Login Succ
         await newPage.waitForTimeout(3000);
 
         await eluminaProctorCand.againCandidateLogin();
-        //await eluminaCandPage.waitforTime3();
-
         await newPage.locator('//img[@class="proctoringImg"]').click();
         await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();
         await newPage.locator('(//div[contains(text(),"Login Success")])[1]').isVisible();

@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of Proctoring Exam > Screenshots*/
 
-test(` . @iProctorRegression Validation of Proctoring Exam > Screenshots`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+test(` iProc_TC_ID_134A. @iProctorRegression Validation of Proctoring Exam > Screenshots`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -48,7 +48,7 @@ test(` . @iProctorRegression Validation of Proctoring Exam > Screenshots`, async
     });
 });
 
-test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(` iProc_TC_ID_134B. @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -64,7 +64,7 @@ test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLogin
     });
 });
 
-test(` . @iProctorRegression Validation of Proctoring Exam with Screenshots`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(` iProc_TC_ID_134. @iProctorRegression Validation of Proctoring Exam with Screenshots`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
@@ -104,7 +104,6 @@ test(` . @iProctorRegression Validation of Proctoring Exam with Screenshots`, as
         const screenshots = newPage.locator('app-screenshots div[class="title"]');
         console.log(await screenshots.textContent());
         await newPage.waitForTimeout(3000);
-        //let loginSuccess=await newPage.locator('(//div[contains(text(),"Login Success")])[1]').textContent();
         console.log("candidate screen shots is visible");
         await newPage.waitForTimeout(3000);
         await newPage.close();
