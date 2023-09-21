@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Proctoring Exam Events > Exam Extened
 
-test(` . @iProctorRegression@Regression Validation of Proctoring Exam Events > Exam Extened`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(` . @iProctorRegression Validation of Proctoring Exam Events > Exam Extened`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
@@ -48,7 +48,7 @@ test(` . @iProctorRegression@Regression Validation of Proctoring Exam Events > E
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
 
@@ -76,7 +76,7 @@ test(` . @iProctorRegression@Regression Validation of Proctoring Exam Events > E
 
         await eluminaProctorCand.againCandidateLogin();
         //await eluminaProctorCand.candidateCliclkOnSingleMCQ();
-
+        await newPage.waitForTimeout(3000);
         await newPage.locator('//img[@class="proctoringImg"]').click();
         await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();
         await newPage.waitForTimeout(3000);

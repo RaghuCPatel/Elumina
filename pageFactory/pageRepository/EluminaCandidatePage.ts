@@ -225,10 +225,10 @@ export class EluminaCandidatePage {
         this.InvalidDetailsAlert = page.locator('//*[@class="container error-bg"]//div[text()="Invalid User Id and Password."]');
         this.inceaseSize = page.locator('//em[@title="Increase Font Size"]');
         this.decreaseSize = page.locator('//em[@title="Decrease Font Size"]');
-        this.decreaseSizePro = page.locator('//div[@class="font-container"]//em[@class="textfont fontSmall"]');
+        this.decreaseSizePro = page.locator('//em[@class="zoomOut"]');
         this.signOutBtn = page.locator('//div[@class="signout"]');
         this.ViewResult = page.locator('//div[@class="logout practiceBtn parent-body-container"]//label');
-        this.flagForReviewColor = page.locator('//p[@class="parent-body-container menuColor3"]');
+        this.flagForReviewColor = page.locator('(//p[@class="parent-body-container menuColor3"])[3]');
         this.notAnweredQuestion = page.locator('//p[@class="parent-body-container menuColor1"]');
 
         this.ClickOnNotepad = page.locator('(//div[@class="toolIcon"])[2]');

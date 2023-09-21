@@ -33,7 +33,7 @@ else if (process.env.ENV == 'staging') {
 
 test(` . @iProctorRegression Validation of Changing Font Size to increase on the Dashboard `, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
-        eluminaProctorCand.candidateNavigateToURL();
+        await eluminaProctorCand.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaProctorCand.candidateLoginToApplications();
@@ -58,8 +58,8 @@ test(` . @iProctorRegression Validation of Changing Font Size to increase on the
         ]);
 
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
-        await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
-        await newPage.locator('//div[@class="dropdown closed more-btn--width"]').click();
+        await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//div//input').click();
+        await newPage.locator('//a[@class="dropdown-toggle"]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
         await newPage.waitForTimeout(5000);
