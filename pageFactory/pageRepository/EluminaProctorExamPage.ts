@@ -186,7 +186,7 @@ export class EluminaProctorExamPage {
     this.CliCKOnCreateSection = page.locator('//i[@title="Create Section"]');
     this.ClickOnCreateExamSection = page.getByText('Create Exam Section');
     this.EnterSectionName = page.locator('#section_name').getByRole('textbox');
-    this.DescriptionMessage = page.frameLocator('iframe[title="Rich Text Area\\. Press ALT-F9 for menu\\. Press ALT-F10 for toolbar\\. Press ALT-0 for help"]').locator('html');
+    this.DescriptionMessage = page.frameLocator('(//iframe[@title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help"])[1]').locator('html');
     this.SelectTime = page.getByRole('combobox').nth(1);
     this.Choosehrs = page.locator('//body//app-root//select[1]');
     this.ClickOnSave = page.locator('//button[normalize-space()="Save"]');
