@@ -31,7 +31,7 @@ else if (process.env.ENV == 'staging') {
 the invigilator to start the exam, Exam started for candidate, Candidate entered into
  exam section & Entered into question: 1(#IQID).*/
 
-test(` . @iProctorRegression Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+test(` Exam_Prerequisit_for_iProc_TC_ID_119. @iProctorRegression Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -50,7 +50,7 @@ test(` . @iProctorRegression Create iProctor exam with password`, async ({ elumi
     });
 });
 
-test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(` Exam_Prerequisit_for_iProc_TC_ID_119. @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -67,7 +67,7 @@ test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLogin
 });
 
 
-test(` . @iProctorRegression Validation of Proctoring Exam Events In Admin Section`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(` iProc_TC_ID_119. @iProctorRegression Validation of Proctoring Exam Events In Admin Section`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

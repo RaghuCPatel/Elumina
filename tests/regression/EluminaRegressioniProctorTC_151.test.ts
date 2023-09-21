@@ -30,7 +30,8 @@ else if (process.env.ENV == 'staging') {
 
 
 /** Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036*/
-test(` . @iProctorRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+
+test(` Exam_Prerequisit_for_iProc_TC_ID_35. @iProctorRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -55,7 +56,7 @@ test(` . @iProctorRegression Verify Elumina Login and Create Exam`, async ({ elu
     });
 });
 
-test(` . @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(` Exam_Prerequisit_for_iProc_TC_ID_35. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -71,7 +72,7 @@ test(` . @iProctorRegression Verify Elumina RegistrationInv and add User and Inv
 });
 
 
-test(` . @iProctorRegression Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(` iProc_TC_ID_35. @iProctorRegression Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

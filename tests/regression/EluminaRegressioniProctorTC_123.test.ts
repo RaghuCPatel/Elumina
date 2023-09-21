@@ -29,13 +29,12 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Proctoring Exam Event > Awaiting Exam Start 
 
-test(` . @iProctorRegression Validation of Proctoring Exam Event > Awaiting Exam Start`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(` iProc_TC_ID_117. @iProctorRegression Validation of Proctoring Exam Event > Awaiting Exam Start`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
     });
     await test.step(`Navigate to Application`, async () => {
-        // await eluminaProctorCand.clickOnAllLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
         const browser = await chromium.launch();
@@ -76,20 +75,14 @@ test(` . @iProctorRegression Validation of Proctoring Exam Event > Awaiting Exam
 });
 
 
-
-test(` . @iProctorRegression Verify Elumina Invigilator terminating exam for candidate EluminaRegressioniProctorTC_056`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(` iProc_TC_ID_53. @iProctorRegression Verify Elumina Invigilator terminating exam for candidate EluminaRegressioniProctorTC_056`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step('Candidate logging into application', async () => {
-
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-
     });
 
     await test.step('Invigilator  logging into Application', async () => {
-
-        //await eluminaProctorCand.clickOnAllLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
-
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -102,7 +95,6 @@ test(` . @iProctorRegression Verify Elumina Invigilator terminating exam for can
 
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
-
             await page1.locator('//div[text()="iAuthor"]').click()
 
         ]);
@@ -111,7 +103,7 @@ test(` . @iProctorRegression Verify Elumina Invigilator terminating exam for can
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
-        // await newPage.waitForTimeout(3000);
+
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
         await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click()
@@ -124,7 +116,6 @@ test(` . @iProctorRegression Verify Elumina Invigilator terminating exam for can
         await newPage.locator('(//button[text()="Yes"])[2]').click();
         await newPage.waitForTimeout(5000);
 
-
         await newPage.close();
         await page1.close();
 
@@ -132,10 +123,5 @@ test(` . @iProctorRegression Verify Elumina Invigilator terminating exam for can
         await eluminaProctorCand.candidateLoginToApplications();
         await eluminaCandPage.waitforTime2();
 
-        // await eluminaProctorCand.candidateSignOut();
-
     });
-
-
-
 });

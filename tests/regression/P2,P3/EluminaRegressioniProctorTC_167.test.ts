@@ -4,7 +4,7 @@ import test from '@lib/BaseTest';
 /**Validation of Candidate Dashboard page - Chat App */
 
 
-test(` . @LowPriorityiProctorCases Validation of Candidate Dashboard page - Chat App`, async ({ eluminaProctorCand, webActions }) => {
+test(` iProc_TC_ID_159. @LowPriorityiProctorCases Validation of Candidate Dashboard page - Chat App`, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });

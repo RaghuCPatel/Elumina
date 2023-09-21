@@ -30,49 +30,13 @@ else if (process.env.ENV == 'staging') {
 
 /** Validation of extending exam for the candidate by invigilator */
 
-/*test(` . @iProctorRegression Validation of extending exam for the candidate by invigilator`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
-        await eluminaLoginPage.verifyProfilePage();
-    });
-    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminaProctorExam.iAuthorPageNavigation();
-        await newtab.examTabNavigation();
-        await newtab.createExam();
-        await newtab.createSection();
-        await newtab.addMCQQuestions();
-    });
-});
-
-test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaProctorReg.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
-    });
-});                    */
-
-test(` . @iProctorRegression extending exam for the candidate by invigilator`, async ({ eluminaProctorCand, webActions }) => {
+test(` iProc_TC_ID_76. @iProctorRegression extending exam for the candidate by invigilator`, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
     });
 
     await test.step('Candidate start the exam', async () => {
-        //await eluminaProctorCand.clickOnAllLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
         const browser = await chromium.launch();
@@ -96,14 +60,6 @@ test(` . @iProctorRegression extending exam for the candidate by invigilator`, a
 
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
-        // await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
-        // await newPage.locator('//div[@class="action-item control-item pause-exam"]').click();
-        // await newPage.locator('(//button[text()="Yes"])[3]').click();
-        // await newPage.waitForTimeout(5000);
-        // await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
-        // await newPage.locator('//div[@title="Pause Exam for all Candidates"]').click();
-        // await newPage.locator('(//button[@class="theme-btn theme-primary-btn"])').click();
-        // await newPage.waitForTimeout(5000);
         await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr//td[2]//input').click();
         await newPage.locator('//div[@title="Extend Exam for all Candidates"]').click();
@@ -122,9 +78,6 @@ test(` . @iProctorRegression extending exam for the candidate by invigilator`, a
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaProctorCand.againCandidateLogin();
-        // await eluminaProctorCand.enterInvigilatorPassword();
-        // await eluminaProctorCand.candidateStartMCQwithoutReviewe();
-
     });
 
 });

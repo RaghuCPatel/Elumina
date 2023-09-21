@@ -4,7 +4,7 @@ import { testConfig } from '../../testConfig';
 
 //Validation of Internet Connection Check
 
-test(` . @iProctorRegression Validation of Internet Connection Check`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(` iProc_TC_ID_89. @iProctorRegression Validation of Internet Connection Check`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

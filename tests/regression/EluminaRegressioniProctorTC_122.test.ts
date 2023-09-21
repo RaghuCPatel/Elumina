@@ -28,14 +28,14 @@ else if (process.env.ENV == 'staging') {
 }
 
 //Validation of Proctoring Exam Event > Viewed Exam instruction .
-test(` . @iProctorRegression Validation of Proctoring Exam Event > Viewed Exam instruction.`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+
+test(` iProc_TC_ID_116. @iProctorRegression Validation of Proctoring Exam Event > Viewed Exam instruction.`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
     });
 
     await test.step('Invigilator  logging into Application', async () => {
-        // await eluminaProctorCand.clickOnAllLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
         const browser = await chromium.launch();

@@ -28,13 +28,13 @@ else if (process.env.ENV == 'staging') {
 }
 
 //Validation of Proctoring Exam Event > Candidate Authentication Pass
-test(` . @iProctorRegression Validation of Proctoring Exam Event > Candidate Authentication Pass`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+
+test(` iProc_TC_ID_114. @iProctorRegression Validation of Proctoring Exam Event > Candidate Authentication Pass`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
     });
     await test.step(`Navigate to Application`, async () => {
-        // await eluminaProctorCand.clickOnAllLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
         const browser = await chromium.launch();

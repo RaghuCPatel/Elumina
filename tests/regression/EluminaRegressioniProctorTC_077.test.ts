@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of login for invigilator for valid credential */
 
-test(` . @iProctorRegression Validation of login for invigilator for valid credential`, async ({ eluminaInvPage, webActions }) => {
+test(` iProc_TC_ID_73. @iProctorRegression Validation of login for invigilator for valid credential`, async ({ eluminaInvPage, webActions }) => {
 
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaInvPage.invigilatorLogin();

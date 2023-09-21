@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of filter as Invigilator - Location & Venue */
 
-test(` . @iProctorRegression Validation of filter as Invigilator - Location & Venue`, async ({ eluminaInvPage, webActions }) => {
+test(` iProc_TC_ID_62. @iProctorRegression Validation of filter as Invigilator - Location & Venue`, async ({ eluminaInvPage, webActions }) => {
 
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaInvPage.invigilatorLogin();

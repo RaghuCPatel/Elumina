@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Proctoring Exam Events > Exam Resumed
 
-test(` . @iProctorRegression Validation of Proctoring Exam Events > Exam Resumed`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(` iProc_TC_ID_122. @iProctorRegression Validation of Proctoring Exam Events > Exam Resumed`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
@@ -66,12 +66,9 @@ test(` . @iProctorRegression Validation of Proctoring Exam Events > Exam Resumed
         await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
         await newPage.locator('//div[@title="Resume Exam for all Candidates"]').click();
         await newPage.locator('(//button[text()="Yes"])[2]').click();
-        //await newPage.locator('(//button[@class="theme-btn theme-primary-btn"])').click();
         await newPage.waitForTimeout(3000);
 
         await eluminaProctorCand.againCandidateLogin();
-        //await eluminaProctorCand.candidateCliclkOnSingleMCQ();
-
         await newPage.locator('//img[@class="proctoringImg"]').click();
         await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();
         await newPage.waitForTimeout(3000);

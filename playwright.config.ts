@@ -23,7 +23,7 @@ const config: PlaywrightTestConfig = {
   retries: 1,
 
   //Reporters
-  reporter: [[`./CustomReporterConfig.ts`], [`allure-playwright`], [`html`, { outputFolder: 'html-report', open: 'never' }],['./ExcelReporter.ts']],
+  reporter: [[`./CustomReporterConfig.ts`], [`allure-playwright`], [`html`, { outputFolder: 'html-report', open: 'never' }], ['./ExcelReporter.ts']],
 
   projects: [
     {

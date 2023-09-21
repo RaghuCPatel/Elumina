@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Candidate App Dashboard*/
 
-test(` . @iProctorRegression Verify Validation of Candidate App Dashboard`, async ({ eluminaCadInvPage, webActions }) => {
+test(` iProc_TC_ID_7. @iProctorRegression Verify Validation of Candidate App Dashboard`, async ({ eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });

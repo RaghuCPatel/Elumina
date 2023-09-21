@@ -31,7 +31,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Admin > Proctoring > Audio Recording  (Toggle Button)
 
-test(` . @LowPriorityiProctorCases Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
+test(` Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -45,14 +45,14 @@ test(` . @LowPriorityiProctorCases Create iProctor exam with password`, async ({
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExamwithoutFullscreen();
-        await newtab.createContentSection();
+        await newtab.createContentSection("1");
         await newtab.createContentPage()
-        await newtab.createSections();
+        await newtab.createSections("2", "30");
         await newtab.addMCQQuestions();
     });
 });
 
-test(` . @LowPriorityiProctorCases Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
+test(` Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -70,7 +70,8 @@ test(` . @LowPriorityiProctorCases Verify Elumina Registration`, async ({ elumin
 });
 
 //Validation of Admin > Proctoring > Video Recording (Toggle Button)
-test(` . @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-02`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+
+test(` iProc_TC_ID_80. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-02`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -90,7 +91,7 @@ test(` . @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Reco
 });
 
 
-test(` . @LowPriorityiProctorCases Validation of Admin > Proctoring > Audio Recording  (Toggle Button) TC-01`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(` iProc_TC_ID_81. @LowPriorityiProctorCases Validation of Admin > Proctoring > Audio Recording  (Toggle Button) TC-01`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -109,6 +110,7 @@ test(` . @LowPriorityiProctorCases Validation of Admin > Proctoring > Audio Reco
 });
 
 //Validation of Admin > Proctoring > Enable Screenshot
+
 test(`iProc_TC_ID_168. @LowPriorityiProctorCases Validation of Admin > Proctoring > Enable Screenshot TC-003`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
@@ -128,7 +130,8 @@ test(`iProc_TC_ID_168. @LowPriorityiProctorCases Validation of Admin > Proctorin
 });
 
 //Validation of Admin > Proctoring > Camera Link
-test(` . @LowPriorityiProctorCases Validation of Admin > Proctoring > Camera Link TC-005`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+
+test(` iProc_TC_ID_83. @LowPriorityiProctorCases Validation of Admin > Proctoring > Camera Link TC-005`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -147,7 +150,8 @@ test(` . @LowPriorityiProctorCases Validation of Admin > Proctoring > Camera Lin
 });
 
 //Validation of Admin > Proctoring > Microphone Link
-test(` . @LowPriorityiProctorCases Validation of Admin > Proctoring > Microphone Link TC-006`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+
+test(`iProc_TC_ID_84. @LowPriorityiProctorCases Validation of Admin > Proctoring > Microphone Link TC-006`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -167,7 +171,8 @@ test(` . @LowPriorityiProctorCases Validation of Admin > Proctoring > Microphone
 
 
 //Validation of Admin > Proctoring > Browser Check Link
-test(` . @LowPriorityiProctorCases Validation of Admin > Proctoring > Browser Check Link TC-007`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+
+test(` iProc_TC_ID_85. @LowPriorityiProctorCases Validation of Admin > Proctoring > Browser Check Link TC-007`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -186,7 +191,8 @@ test(` . @LowPriorityiProctorCases Validation of Admin > Proctoring > Browser Ch
 });
 
 //Validation of Admin> Proctoring > Terms And Condition
-test(` . @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+
+test(` iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -203,27 +209,9 @@ test(` . @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And C
     });
 });
 
-// //Validation of Admin > Proctoring > Internet Connection Check Link
-// test(` . @LowPriorityiProctorCases Validation of Admin > Proctoring > Internet Connection Check Link TC-008`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam,webActions }) => {
-//     await test.step(`Navigate to Application`, async () => {
-//         await eluminaLoginPage.navigateToURL();
-//     });
-//     await test.step(`Login to Elumina application`, async () => {
-//         await eluminaLoginPage.loginToApplication();
-//     });
-//     await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
-//         await eluminaLoginPage.verifyProfilePage();
-//     });
-//     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-//         const newtab = await eluminaProctorExam.AdminPageNavigation();
-//         await newtab.clickOnProctoringInAdmin();
-//         await newtab.enterInternetConnectionLink();
-//         await newtab.logoutClick();
-//     });
-// }); 
-
 //Validation of Enable iProctor Extension
-test(` . @LowPriorityiProctorCases Validation of Enable iProctor Extension TC-010`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+
+test(` iProc_TC_ID_88. @LowPriorityiProctorCases Validation of Enable iProctor Extension TC-010`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -243,7 +231,7 @@ test(` . @LowPriorityiProctorCases Validation of Enable iProctor Extension TC-01
 
 //Validation of Admin > Proctoring > Video Fragment Size
 
-test(` . @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Fragment Size TC-066`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(` iProc_TC_ID_82. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Fragment Size TC-066`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -262,7 +250,8 @@ test(` . @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Frag
 });
 
 //Validation of Internet Connection Check
-test(` . @LowPriorityiProctorCases Validation of Internet Connection Check TC-068`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+
+test(` iProc_TC_ID_86. @LowPriorityiProctorCases Validation of Internet Connection Check TC-068`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -282,7 +271,8 @@ test(` . @LowPriorityiProctorCases Validation of Internet Connection Check TC-06
 });
 
 //Validation of Internet Upload Speed
-test(` . @LowPriorityiProctorCases Validation of Internet Upload Speed TC-069`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+
+test(` iProc_TC_ID_90. @LowPriorityiProctorCases Validation of Internet Upload Speed TC-069`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -302,6 +292,7 @@ test(` . @LowPriorityiProctorCases Validation of Internet Upload Speed TC-069`, 
 });
 
 //Validation of Internet Download Speed
+
 test(`iProc_TC_ID_91. @LowPriorityiProctorCases Validation of Internet Download Speed`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
@@ -323,7 +314,7 @@ test(`iProc_TC_ID_91. @LowPriorityiProctorCases Validation of Internet Download 
 
 //Validation  of Prompt Candidate
 
-test(` . @LowPriorityiProctorCases Validation of Prompt Candidate TC-71`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(` iProc_TC_ID_92. @LowPriorityiProctorCases Validation of Prompt Candidate TC-71`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -341,23 +332,9 @@ test(` . @LowPriorityiProctorCases Validation of Prompt Candidate TC-71`, async 
     });
 });
 
-//Validation of iProctor Extension Troubleshoot link validation.
-// test(` . @LowPriorityiProctorCases Validation of iProctor Extension Troubleshoot link validation.TC-73`, async ({ eluminaProctorCand,eluminaCandPage,webActions }) => {
-//     await test.step(`Navigate to Application`, async () => {
-//     await eluminaProctorCand.candidateNavigateToURL();
-// });
-// await test.step(`Candidate Login to application`, async () => {
-//     await eluminaProctorCand.candidateLoginToApplications();
-//     await eluminaProctorCand.clickOnStartExamLink1();
-//     await eluminaProctorCand.clickOniProctorExtensionTroubleshoot()
-//     await eluminaCandPage.waitforTime3();
-
-// });
-
-// });       
-
 //Verify Validation of Exam section page  > Chat App
-test(` . @LowPriorityiProctorCases Verify Validation of Exam section page  > Chat App TC-171`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+
+test(` iProc_TC_ID_162. @LowPriorityiProctorCases Verify Validation of Exam section page  > Chat App TC-171`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await test.step('Candidate logging into application', async () => {
@@ -379,7 +356,7 @@ test(` . @LowPriorityiProctorCases Verify Validation of Exam section page  > Cha
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
 
@@ -400,6 +377,7 @@ test(` . @LowPriorityiProctorCases Verify Validation of Exam section page  > Cha
 });
 
 //Validation of Review Exam page  > Chat App
+
 test(`iProc_TC_167,TC-172. @LowPriorityiProctorCases Verify Validation of Review Exam page  > Chat App `, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
@@ -422,7 +400,7 @@ test(`iProc_TC_167,TC-172. @LowPriorityiProctorCases Verify Validation of Review
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
 
@@ -444,7 +422,8 @@ test(`iProc_TC_167,TC-172. @LowPriorityiProctorCases Verify Validation of Review
 });
 
 //Validation of textbox capabilities of chat app.
-test(` . @LowPriorityiProctorCases Validation of textbox capabilities of chat app. TC-174`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+
+test(` iProc_TC_ID_165. @LowPriorityiProctorCases Validation of textbox capabilities of chat app. TC-174`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await test.step('Candidate logging into application', async () => {
@@ -466,7 +445,7 @@ test(` . @LowPriorityiProctorCases Validation of textbox capabilities of chat ap
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
 
@@ -481,7 +460,6 @@ test(` . @LowPriorityiProctorCases Validation of textbox capabilities of chat ap
     await test.step('Candidate start the exam', async () => {
         await eluminaProctorCand.againCandidateLogin();
         await eluminaProctorCand.enterInvigilatorPassword();
-        // await eluminaCandPage.candidateContentSection();
         await eluminaCandPage.chatApp();
     });
 

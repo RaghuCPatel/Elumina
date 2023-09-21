@@ -4,7 +4,7 @@ import { testConfig } from '../../testConfig';
 
 //Validation of adding prompt candidate message
 
-test(` . @iProctorRegression Validation of adding prompt candidate message`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(` iProc_TC_ID_92. @iProctorRegression Validation of adding prompt candidate message`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

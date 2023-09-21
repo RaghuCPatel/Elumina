@@ -16398,3 +16398,882 @@
 {"level":"info","message":"Executing Step : logging into application"}
 {"level":"info","message":"Executing Step : Candidate Login to application"}
 {"level":"info","message":"Test Case Completed : iProc_TC_ID_44. @Regression Validation of  Cloud indication -  (Status is InCompleted) Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator Status : failed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator Status : failed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator Status : failed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer  Status : interrupted"}
+{"level":"error","message":"File not found: C:\\Users\\Divyashree\\Desktop\\githubMerge\\21-09-2023\\Elumina\\html-report"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer  Status : interrupted"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer  Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_142A. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation.TC-73"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_142A. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation.TC-73 Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_142B. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_142B. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation Status : failed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer  Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_142A. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation.TC-73"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_142A. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation.TC-73 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_142B. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_142B. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer  Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_142A. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation.TC-73"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_142A. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation.TC-73 Status : interrupted"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer  Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_142A. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation.TC-73"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_142A. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation.TC-73 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_142B. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_142B. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation Status : passed"}
+{"level":"info","message":"Test Case Started :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Create iProctor exam with password Status : failed"}
+{"level":"info","message":"Test Case Started :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Create iProctor exam with password Status : failed"}
+{"level":"info","message":"Test Case Started :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_80. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-02"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_80. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-02 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_81. @LowPriorityiProctorCases Validation of Admin > Proctoring > Audio Recording  (Toggle Button) TC-01"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_81. @LowPriorityiProctorCases Validation of Admin > Proctoring > Audio Recording  (Toggle Button) TC-01 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_168. @LowPriorityiProctorCases Validation of Admin > Proctoring > Enable Screenshot TC-003"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_168. @LowPriorityiProctorCases Validation of Admin > Proctoring > Enable Screenshot TC-003 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_83. @LowPriorityiProctorCases Validation of Admin > Proctoring > Camera Link TC-005"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_83. @LowPriorityiProctorCases Validation of Admin > Proctoring > Camera Link TC-005 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_84. @LowPriorityiProctorCases Validation of Admin > Proctoring > Microphone Link TC-006"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_84. @LowPriorityiProctorCases Validation of Admin > Proctoring > Microphone Link TC-006 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_85. @LowPriorityiProctorCases Validation of Admin > Proctoring > Browser Check Link TC-007"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_85. @LowPriorityiProctorCases Validation of Admin > Proctoring > Browser Check Link TC-007 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009 Status : failed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009 Status : failed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_88. @LowPriorityiProctorCases Validation of Enable iProctor Extension TC-010"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_88. @LowPriorityiProctorCases Validation of Enable iProctor Extension TC-010 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_82. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Fragment Size TC-066"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_82. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Fragment Size TC-066 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_86. @LowPriorityiProctorCases Validation of Internet Connection Check TC-068"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_86. @LowPriorityiProctorCases Validation of Internet Connection Check TC-068 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_90. @LowPriorityiProctorCases Validation of Internet Upload Speed TC-069"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_90. @LowPriorityiProctorCases Validation of Internet Upload Speed TC-069 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_91. @LowPriorityiProctorCases Validation of Internet Download Speed"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_91. @LowPriorityiProctorCases Validation of Internet Download Speed Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_91. @LowPriorityiProctorCases Validation of Internet Download Speed"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_91. @LowPriorityiProctorCases Validation of Internet Download Speed Status : failed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_92. @LowPriorityiProctorCases Validation of Prompt Candidate TC-71"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to proctoring and setting up Prompt Candidate Message"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_92. @LowPriorityiProctorCases Validation of Prompt Candidate TC-71 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_162. @LowPriorityiProctorCases Verify Validation of Exam section page  > Chat App TC-171"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_162. @LowPriorityiProctorCases Verify Validation of Exam section page  > Chat App TC-171 Status : failed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_162. @LowPriorityiProctorCases Verify Validation of Exam section page  > Chat App TC-171"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_162. @LowPriorityiProctorCases Verify Validation of Exam section page  > Chat App TC-171 Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_167,TC-172. @LowPriorityiProctorCases Verify Validation of Review Exam page  > Chat App "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_167,TC-172. @LowPriorityiProctorCases Verify Validation of Review Exam page  > Chat App  Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_167,TC-172. @LowPriorityiProctorCases Verify Validation of Review Exam page  > Chat App "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_167,TC-172. @LowPriorityiProctorCases Verify Validation of Review Exam page  > Chat App  Status : failed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_165. @LowPriorityiProctorCases Validation of textbox capabilities of chat app. TC-174"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_165. @LowPriorityiProctorCases Validation of textbox capabilities of chat app. TC-174 Status : failed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_165. @LowPriorityiProctorCases Validation of textbox capabilities of chat app. TC-174"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_165. @LowPriorityiProctorCases Validation of textbox capabilities of chat app. TC-174 Status : failed"}
+{"level":"info","message":"Test Case Started :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_80. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-02"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_80. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-02 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_81. @LowPriorityiProctorCases Validation of Admin > Proctoring > Audio Recording  (Toggle Button) TC-01"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_81. @LowPriorityiProctorCases Validation of Admin > Proctoring > Audio Recording  (Toggle Button) TC-01 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_168. @LowPriorityiProctorCases Validation of Admin > Proctoring > Enable Screenshot TC-003"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_168. @LowPriorityiProctorCases Validation of Admin > Proctoring > Enable Screenshot TC-003 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_83. @LowPriorityiProctorCases Validation of Admin > Proctoring > Camera Link TC-005"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_83. @LowPriorityiProctorCases Validation of Admin > Proctoring > Camera Link TC-005 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_84. @LowPriorityiProctorCases Validation of Admin > Proctoring > Microphone Link TC-006"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_84. @LowPriorityiProctorCases Validation of Admin > Proctoring > Microphone Link TC-006 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_85. @LowPriorityiProctorCases Validation of Admin > Proctoring > Browser Check Link TC-007"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_85. @LowPriorityiProctorCases Validation of Admin > Proctoring > Browser Check Link TC-007 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009 Status : failed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009 Status : failed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_88. @LowPriorityiProctorCases Validation of Enable iProctor Extension TC-010"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_88. @LowPriorityiProctorCases Validation of Enable iProctor Extension TC-010 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_82. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Fragment Size TC-066"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_82. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Fragment Size TC-066 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_86. @LowPriorityiProctorCases Validation of Internet Connection Check TC-068"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_86. @LowPriorityiProctorCases Validation of Internet Connection Check TC-068 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_90. @LowPriorityiProctorCases Validation of Internet Upload Speed TC-069"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_90. @LowPriorityiProctorCases Validation of Internet Upload Speed TC-069 Status : failed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_90. @LowPriorityiProctorCases Validation of Internet Upload Speed TC-069"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_90. @LowPriorityiProctorCases Validation of Internet Upload Speed TC-069 Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_91. @LowPriorityiProctorCases Validation of Internet Download Speed"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_91. @LowPriorityiProctorCases Validation of Internet Download Speed Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_91. @LowPriorityiProctorCases Validation of Internet Download Speed"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_80. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-02"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_80. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-02 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_81. @LowPriorityiProctorCases Validation of Admin > Proctoring > Audio Recording  (Toggle Button) TC-01"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_81. @LowPriorityiProctorCases Validation of Admin > Proctoring > Audio Recording  (Toggle Button) TC-01 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_168. @LowPriorityiProctorCases Validation of Admin > Proctoring > Enable Screenshot TC-003"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_168. @LowPriorityiProctorCases Validation of Admin > Proctoring > Enable Screenshot TC-003 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_83. @LowPriorityiProctorCases Validation of Admin > Proctoring > Camera Link TC-005"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_83. @LowPriorityiProctorCases Validation of Admin > Proctoring > Camera Link TC-005 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_84. @LowPriorityiProctorCases Validation of Admin > Proctoring > Microphone Link TC-006"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_84. @LowPriorityiProctorCases Validation of Admin > Proctoring > Microphone Link TC-006 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_85. @LowPriorityiProctorCases Validation of Admin > Proctoring > Browser Check Link TC-007"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_85. @LowPriorityiProctorCases Validation of Admin > Proctoring > Browser Check Link TC-007 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009 Status : failed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009 Status : failed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_88. @LowPriorityiProctorCases Validation of Enable iProctor Extension TC-010"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_88. @LowPriorityiProctorCases Validation of Enable iProctor Extension TC-010 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_82. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Fragment Size TC-066"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_82. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Fragment Size TC-066 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_86. @LowPriorityiProctorCases Validation of Internet Connection Check TC-068"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_86. @LowPriorityiProctorCases Validation of Internet Connection Check TC-068 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_90. @LowPriorityiProctorCases Validation of Internet Upload Speed TC-069"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_90. @LowPriorityiProctorCases Validation of Internet Upload Speed TC-069 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_91. @LowPriorityiProctorCases Validation of Internet Download Speed"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_91. @LowPriorityiProctorCases Validation of Internet Download Speed Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_92. @LowPriorityiProctorCases Validation of Prompt Candidate TC-71"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to proctoring and setting up Prompt Candidate Message"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_92. @LowPriorityiProctorCases Validation of Prompt Candidate TC-71 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_162. @LowPriorityiProctorCases Verify Validation of Exam section page  > Chat App TC-171"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_162. @LowPriorityiProctorCases Verify Validation of Exam section page  > Chat App TC-171 Status : failed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_162. @LowPriorityiProctorCases Verify Validation of Exam section page  > Chat App TC-171"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Started :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_80. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-02"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_80. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-02 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_81. @LowPriorityiProctorCases Validation of Admin > Proctoring > Audio Recording  (Toggle Button) TC-01"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_81. @LowPriorityiProctorCases Validation of Admin > Proctoring > Audio Recording  (Toggle Button) TC-01 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_168. @LowPriorityiProctorCases Validation of Admin > Proctoring > Enable Screenshot TC-003"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_168. @LowPriorityiProctorCases Validation of Admin > Proctoring > Enable Screenshot TC-003 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_83. @LowPriorityiProctorCases Validation of Admin > Proctoring > Camera Link TC-005"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_83. @LowPriorityiProctorCases Validation of Admin > Proctoring > Camera Link TC-005 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_84. @LowPriorityiProctorCases Validation of Admin > Proctoring > Microphone Link TC-006"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_84. @LowPriorityiProctorCases Validation of Admin > Proctoring > Microphone Link TC-006 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_85. @LowPriorityiProctorCases Validation of Admin > Proctoring > Browser Check Link TC-007"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_85. @LowPriorityiProctorCases Validation of Admin > Proctoring > Browser Check Link TC-007 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_88. @LowPriorityiProctorCases Validation of Enable iProctor Extension TC-010"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_88. @LowPriorityiProctorCases Validation of Enable iProctor Extension TC-010 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_82. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Fragment Size TC-066"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_82. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Fragment Size TC-066 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_86. @LowPriorityiProctorCases Validation of Internet Connection Check TC-068"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_86. @LowPriorityiProctorCases Validation of Internet Connection Check TC-068 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_90. @LowPriorityiProctorCases Validation of Internet Upload Speed TC-069"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_90. @LowPriorityiProctorCases Validation of Internet Upload Speed TC-069 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_91. @LowPriorityiProctorCases Validation of Internet Download Speed"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_91. @LowPriorityiProctorCases Validation of Internet Download Speed Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_92. @LowPriorityiProctorCases Validation of Prompt Candidate TC-71"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to proctoring and setting up Prompt Candidate Message"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_92. @LowPriorityiProctorCases Validation of Prompt Candidate TC-71 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_162. @LowPriorityiProctorCases Verify Validation of Exam section page  > Chat App TC-171"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Submit exam page"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_144A. @LowPriorityiProctorCases Validation of Microphone Troubleshoot link validation."}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_144A. @LowPriorityiProctorCases Validation of Microphone Troubleshoot link validation. Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_144B. @LowPriorityiProctorCases Validation of Microphone Troubleshoot link"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_144B. @LowPriorityiProctorCases Validation of Microphone Troubleshoot link Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_159. @LowPriorityiProctorCases Validation of Candidate Dashboard page - Chat App"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_159. @LowPriorityiProctorCases Validation of Candidate Dashboard page - Chat App Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_160. @LowPriorityiProctorCases Validation of Candidate Dashboard page - Chat App"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_160. @LowPriorityiProctorCases Validation of Candidate Dashboard page - Chat App Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_161. @LowPriorityiProctorCases Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App TC-169"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Invigilator  logging into Application"}
+{"level":"info","message":"Executing Step : Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_161. @LowPriorityiProctorCases Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App TC-169 Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_29. @iProctorRegression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_135. @LowPriorityiProctorCases Validation of Proctoring Exam > Traffic light Green"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_135. @LowPriorityiProctorCases Validation of Proctoring Exam > Traffic light Green Status : failed"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_29. @iProctorRegression Verify Elumina Login and Create Exam Status : failed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_135. @LowPriorityiProctorCases Validation of Proctoring Exam > Traffic light Green"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_29. @iProctorRegression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_135. @LowPriorityiProctorCases Validation of Proctoring Exam > Traffic light Green"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_135. @LowPriorityiProctorCases Validation of Proctoring Exam > Traffic light Green"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_135. @LowPriorityiProctorCases Validation of Proctoring Exam > Traffic light Green Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_164. @LowPriorityiProctorCases Verify Validation of Submit Exam page  > Chat App TC-173"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Submit exam page"}
+{"level":"info","message":"Test Case Started :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_80. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-02"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_80. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Recording (Toggle Button) TC-02 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_81. @LowPriorityiProctorCases Validation of Admin > Proctoring > Audio Recording  (Toggle Button) TC-01"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_81. @LowPriorityiProctorCases Validation of Admin > Proctoring > Audio Recording  (Toggle Button) TC-01 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_168. @LowPriorityiProctorCases Validation of Admin > Proctoring > Enable Screenshot TC-003"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_168. @LowPriorityiProctorCases Validation of Admin > Proctoring > Enable Screenshot TC-003 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_83. @LowPriorityiProctorCases Validation of Admin > Proctoring > Camera Link TC-005"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_83. @LowPriorityiProctorCases Validation of Admin > Proctoring > Camera Link TC-005 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_84. @LowPriorityiProctorCases Validation of Admin > Proctoring > Microphone Link TC-006"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_84. @LowPriorityiProctorCases Validation of Admin > Proctoring > Microphone Link TC-006 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_85. @LowPriorityiProctorCases Validation of Admin > Proctoring > Browser Check Link TC-007"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_85. @LowPriorityiProctorCases Validation of Admin > Proctoring > Browser Check Link TC-007 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_87. @LowPriorityiProctorCases Validation of Admin> Proctoring > Terms And Condition TC-009 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_88. @LowPriorityiProctorCases Validation of Enable iProctor Extension TC-010"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_88. @LowPriorityiProctorCases Validation of Enable iProctor Extension TC-010 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_82. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Fragment Size TC-066"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_82. @LowPriorityiProctorCases Validation of Admin > Proctoring > Video Fragment Size TC-066 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_86. @LowPriorityiProctorCases Validation of Internet Connection Check TC-068"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_86. @LowPriorityiProctorCases Validation of Internet Connection Check TC-068 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_90. @LowPriorityiProctorCases Validation of Internet Upload Speed TC-069"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_90. @LowPriorityiProctorCases Validation of Internet Upload Speed TC-069 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_91. @LowPriorityiProctorCases Validation of Internet Download Speed"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_91. @LowPriorityiProctorCases Validation of Internet Download Speed Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_92. @LowPriorityiProctorCases Validation of Prompt Candidate TC-71"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_92. @LowPriorityiProctorCases Validation of Prompt Candidate TC-71 Status : failed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_92. @LowPriorityiProctorCases Validation of Prompt Candidate TC-71"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to proctoring and setting up Prompt Candidate Message"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_92. @LowPriorityiProctorCases Validation of Prompt Candidate TC-71 Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_162. @LowPriorityiProctorCases Verify Validation of Exam section page  > Chat App TC-171"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate uses chat app in Submit exam page"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_30. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_30. @iProctorRegression Validation of Exam Section> Image Inline viewer  Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_142A. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation.TC-73"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_142A. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation.TC-73 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_142B. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_142B. @iProctorRegression Validation of iProctor Extension Troubleshoot link validation Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_29. @iProctorRegression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_29. @iProctorRegression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_29. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_29. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_29. @iProctorRegression Validation of Exam Section> Image viewer"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_166. @iProctorRegression Verify Elumina Login with diff venu"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_166. @iProctorRegression Verify Elumina Login with diff venu Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iProc_TC_ID_166. @iProctorRegression Verify Elumina Registration and adding existing user"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iProc_TC_ID_166. @iProctorRegression Verify Elumina Registration and adding existing user Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_166. @iProctorRegression Validation of Candidate attends exam within browser screen and not in Full-screen mode"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_166. @iProctorRegression Validation of Candidate attends exam within browser screen and not in Full-screen mode"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_166. @iProctorRegression Validation of Candidate attends exam within browser screen and not in Full-screen mode"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_166. @iProctorRegression Validation of Candidate attends exam within browser screen and not in Full-screen mode Status : failed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_166. @iProctorRegression Validation of Candidate attends exam within browser screen and not in Full-screen mode"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_166. @iProctorRegression Validation of Candidate attends exam within browser screen and not in Full-screen mode"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_166. @iProctorRegression Validation of Candidate attends exam within browser screen and not in Full-screen mode Status : passed"}
+{"level":"info","message":"Test Case Started :  Exam_Prerequisit_for_iProc_TC_ID_35. @iProctorRegression Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  Exam_Prerequisit_for_iProc_TC_ID_35. @iProctorRegression Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started :  Exam_Prerequisit_for_iProc_TC_ID_35. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  Exam_Prerequisit_for_iProc_TC_ID_35. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started :  iProc_TC_ID_35. @iProctorRegression Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed :  iProc_TC_ID_35. @iProctorRegression Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_33. @iProctorRegression Validation of Exam Section > Highlighter tool highlights save scenario 1"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_33. @iProctorRegression Validation of Exam Section > Highlighter tool highlights save scenario 1 Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_36. @iProctorRegression Validating of VSAQ - Maximum number of lines that can be written"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_36. @iProctorRegression Validating of VSAQ - Maximum number of lines that can be written Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_104. @iProctorRegression Validation of Candidate > Peripheral verification > Verify Identity > PASS"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_104. @iProctorRegression Validation of Candidate > Peripheral verification > Verify Identity > PASS Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_44. @iProctorRegression Validation of  Cloud indication -  (Status is InCompleted)"}
+{"level":"info","message":"Executing Step : logging into application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_44. @iProctorRegression Validation of  Cloud indication -  (Status is InCompleted) Status : passed"}
+{"level":"error","message":"ENOENT: no such file or directory, open 'C:\\Users\\Divyashree\\Desktop\\githubMerge\\21-09-2023\\Elumina\\test-results\\.playwright-artifacts-0\\traces\\e1b52ef1a2db06dc1b60-5f0e9f9573db27f97854-5.network'\n\n\u001b[31mFailed worker ran 7 tests:\u001b[39m\n[Chrome] › tests\\regression\\EluminaRegressioniProctorTC_151.test.ts:34:5 ›  Exam_Prerequisit_for_iProc_TC_ID_35. @iProctorRegression Verify Elumina Login and Create Exam\n[Chrome] › tests\\regression\\EluminaRegressioniProctorTC_151.test.ts:59:5 ›  Exam_Prerequisit_for_iProc_TC_ID_35. @iProctorRegression Verify Elumina RegistrationInv and add User and Invigilator\n[Chrome] › tests\\regression\\EluminaRegressioniProctorTC_151.test.ts:75:5 ›  iProc_TC_ID_35. @iProctorRegression Validation of different Question types - Able to Answer all types EluminaRegressioniProctorTC_036\n[Chrome] › tests\\regression\\EluminaRegressioniProctorTC_151.test.ts:122:5 › iProc_TC_ID_33. @iProctorRegression Validation of Exam Section > Highlighter tool highlights save scenario 1\n[Chrome] › tests\\regression\\EluminaRegressioniProctorTC_151.test.ts:167:5 › iProc_TC_ID_36. @iProctorRegression Validating of VSAQ - Maximum number of lines that can be written\n[Chrome] › tests\\regression\\EluminaRegressioniProctorTC_151.test.ts:205:5 › iProc_TC_ID_104. @iProctorRegression Validation of Candidate > Peripheral verification > Verify Identity > PASS\n[Chrome] › tests\\regression\\EluminaRegressioniProctorTC_151.test.ts:239:5 › iProc_TC_ID_44. @iProctorRegression Validation of  Cloud indication -  (Status is InCompleted)"}
+{"level":"info","message":"Test Case Started :  Exam_Prerequisit_for_iProc_TC_ID_79. @iProctorRegression Verify Elumina Create Exam with survey section"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam with survey section"}
+{"level":"info","message":"Test Case Completed :  Exam_Prerequisit_for_iProc_TC_ID_79. @iProctorRegression Verify Elumina Create Exam with survey section Status : passed"}
+{"level":"info","message":"Test Case Started :  Exam_Prerequisit_for_iProc_TC_ID_79. @iProctorRegression Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  Exam_Prerequisit_for_iProc_TC_ID_79. @iProctorRegression Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iProc_TC_ID_79. @iProctorRegression Verify Validation of Candidate answering survey questions"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : iProc_TC_ID_79. @iProctorRegression Verify Validation of Candidate answering survey questions Status : passed"}

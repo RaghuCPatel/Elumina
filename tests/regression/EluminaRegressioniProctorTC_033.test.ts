@@ -29,54 +29,14 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Calculator
 
-/*test(` . @iProctorRegression Verify Elumina Login`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
-        await eluminaLoginPage.verifyProfilePage();
-    });
-    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminaProctorExam.iAuthorPageNavigation();
-        await newtab.examTabNavigation();
-        await newtab.createExamWithCalculator();
-        await newtab.createSections();
-        await newtab.addVSAQQuestions();
-    });
-});   
-
-test(` . @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage,eluminaProctorReg,webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaProctorReg.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
-    });
-});          */
-
-test(` . @iProctorRegression Validation of Calculator`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(` iProc_TC_ID_32. @iProctorRegression Validation of Calculator`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
-
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
-
     });
 
     await test.step('Invigilator  logging into Application', async () => {
-
-        //await eluminaProctorCand.clickOnAllLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
-
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -89,7 +49,6 @@ test(` . @iProctorRegression Validation of Calculator`, async ({ eluminaCandPage
 
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
-
             await page1.locator('//div[text()="iAuthor"]').click()
 
         ]);
@@ -114,19 +73,15 @@ test(` . @iProctorRegression Validation of Calculator`, async ({ eluminaCandPage
 });
 
 
-test(` . @iProctorRegression Validation of  Cloud indication -  (Status is Complted) RegressioniProctorTC_046`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(` iProc_TC_ID_43. @iProctorRegression Validation of  Cloud indication -  (Status is Completed) Reg_iProctor_46 "`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
-
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
 
     });
 
     await test.step('Invigilator  logging into Application', async () => {
-
-        // await eluminaProctorCand.clickOnAllLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
-
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -163,16 +118,14 @@ test(` . @iProctorRegression Validation of  Cloud indication -  (Status is Compl
 
 });
 
-test(` . @iProctorRegression Verify Validation of adding notes in the Exam RegressioniProctorTC_055`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
+test(` iProc_TC_ID_52. @iProctorRegression Verify Validation of adding notes in the Exam RegressioniProctorTC_055`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaProctorCand.candidateLoginToApplications();
 
     });
     await test.step(`Candidate Login to application`, async () => {
-        //  await eluminaProctorCand.clickOnAllLink();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
-
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -201,8 +154,6 @@ test(` . @iProctorRegression Verify Validation of adding notes in the Exam Regre
     await test.step('Candidate start the exam', async () => {
         await eluminaProctorCand.enterInvigilatorPassword();
         await eluminaCandPage.AddingNotesToQuestionSingle();
-
-
     });
 
 });

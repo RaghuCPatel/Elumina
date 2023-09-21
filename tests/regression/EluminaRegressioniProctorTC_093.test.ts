@@ -4,7 +4,7 @@ import { testConfig } from '../../testConfig';
 
 //Validation of Enable iProctor Extension
 
-test(` . @iProctorRegression Validation of Enable iProctor Extension`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
+test(` iProc_TC_ID_88. @iProctorRegression Validation of Enable iProctor Extension`, async ({ eluminaLoginPage, eluminaHomePage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
