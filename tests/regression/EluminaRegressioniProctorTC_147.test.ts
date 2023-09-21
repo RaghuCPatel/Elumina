@@ -90,7 +90,7 @@ test(` iProc_TC_ID_54. @iProctorRegression Candidate Attend practice exam Elumin
         ]);
 
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
-        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+        await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//div//input').click();
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
@@ -131,7 +131,7 @@ test(` iProc_TC_ID_118. @iProctorRegression Validation of Proctoring Exam Events
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
 

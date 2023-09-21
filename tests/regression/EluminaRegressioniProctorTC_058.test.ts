@@ -52,7 +52,7 @@ test(` iProc_TC_ID_55A. @iProctorRegression Candidate while attending exam - Can
         ]);
 
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
-        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+        await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//div//input').click();
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
@@ -91,7 +91,7 @@ test(` iProc_TC_ID_55B. @iProctorRegression Verify Elumina candidate attends the
         ]);
 
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
-        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+        await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//div//input').click();
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();

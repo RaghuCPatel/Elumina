@@ -75,8 +75,7 @@ test(` iProc_TC_ID_78. @iProctorRegression Verify Validation of Survey screen El
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime3();
-        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime();
 
     });
     await test.step(`Candidate Login to application`, async () => {
@@ -99,7 +98,7 @@ test(` iProc_TC_ID_78. @iProctorRegression Verify Validation of Survey screen El
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
-        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+        await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//div//input').click();
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();

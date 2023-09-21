@@ -49,7 +49,7 @@ test(` iProc_TC_ID_93. @iProctorRegression Validation of Live monitor > Proctori
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
         await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click();

@@ -52,7 +52,7 @@ test(` iProc_TC_ID_112. @iProctorRegression Validation of Internet Connection Ve
             await page1.locator('//div[text()="iAuthor"]').click()
 
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
         await newPage.locator('//img[@class="proctoringImg"]').click();

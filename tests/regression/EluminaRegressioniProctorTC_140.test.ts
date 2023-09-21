@@ -68,8 +68,7 @@ test(` iProc_TC_ID_134. @iProctorRegression Validation of Proctoring Exam with S
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime3();
-        await eluminaCandPage.waitforTime2();
+        await eluminaCandPage.waitforTime();
         await eluminaProctorCand.candidateLoginToApplications();
     });
     await test.step(`Navigate to Application`, async () => {
@@ -86,7 +85,7 @@ test(` iProc_TC_ID_134. @iProctorRegression Validation of Proctoring Exam with S
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
-        await newPage.locator('//a[text()="Registration"]').click();
+        await newPage.locator('//a[text()="Delivery"]').click();
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
 
