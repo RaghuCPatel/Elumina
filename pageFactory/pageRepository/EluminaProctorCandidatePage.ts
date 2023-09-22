@@ -298,7 +298,7 @@ export class EluminaProctorCandidatePage {
     async clickOnAllLink() {
         await this.ClickStartExamLink.click();
         await this.ClickOnUnderstand.click();
-        await this.page.waitForTimeout(1000);
+        await this.page.waitForTimeout(8000);
         await this.ClickOnCheckBox.click();
         await this.page.waitForTimeout(5000);
         await this.ClickOnNextBtnPrct.click();
@@ -354,8 +354,9 @@ export class EluminaProctorCandidatePage {
     /**Method to click on All links for Diff Zone Exam */
     async clickOnAllLinkForDiffExamZone() {
         await this.ClickDiffStartExamLink.click();
-        await this.ClickOnUnderstand.click();
         await this.page.waitForTimeout(1000);
+        await this.ClickOnUnderstand.click();
+        await this.page.waitForTimeout(8000);
         await this.ClickOnCheckBox.click();
         await this.page.waitForTimeout(5000);
         await this.ClickOnNextBtnPrct.click();

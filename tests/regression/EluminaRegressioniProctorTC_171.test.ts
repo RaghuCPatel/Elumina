@@ -71,6 +71,8 @@ test(`iProc_TC_ID_29. @iProctorRegression Validation of Exam Section> Image view
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime3();
+
 
     });
     await test.step(`Candidate Login to application`, async () => {

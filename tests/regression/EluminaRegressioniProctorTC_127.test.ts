@@ -81,7 +81,7 @@ test(` iProc_TC_ID_121. @iProctorRegression Validation of Proctoring Exam Events
 
         //await eluminaProctorCand.candidateCliclkOnSingleMCQ();
         await newPage.waitForTimeout(3000);
->
+
         await newPage.locator('//img[@class="proctoringImg"]').click();
         await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();
         await newPage.waitForTimeout(3000);
