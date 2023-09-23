@@ -70,6 +70,8 @@ test(` iProc_TC_ID_54. @iProctorRegression Candidate Attend practice exam Elumin
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime3();
+
 
     });
     await test.step(`Candidate Login to application`, async () => {

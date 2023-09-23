@@ -81,7 +81,7 @@ test(` Exam_Prerequisit_for_iProc_TC_ID_17. @iProctorRegression Verify Elumina L
         const newtab = await eluminaMultipleExamsForPMPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExamforProctoring();
-        await newtab.createSection("1", "30");
+        await newtab.createSection("1", "0");
         await newtab.addMCQQuestions();
     });
 });

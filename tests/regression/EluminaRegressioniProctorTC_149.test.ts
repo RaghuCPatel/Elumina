@@ -102,7 +102,7 @@ test(` iProc_TC_ID_78. @iProctorRegression Verify Validation of Survey screen El
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
-        await newPage.waitForTimeout(5000);
+        await newPage.waitForTimeout(3000);
 
         await newPage.close();
         await page1.close();
