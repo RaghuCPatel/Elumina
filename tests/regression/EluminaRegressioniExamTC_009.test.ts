@@ -7,7 +7,7 @@ test(` . @iExamRegression Validation of Sign out at Candidate Dashboard Page`, a
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application with inactive user`, async () => {
-        await eluminaCandPage.candidateLoginToAndValidateDashboard();
+        await eluminaCandPage.candidateLoginToAndValidateDashboard(3, "bulk_user_details.xlsx");
         await eluminaCandPage.logoutClick()
         await eluminaCandPage.validationOfLogo()
     });

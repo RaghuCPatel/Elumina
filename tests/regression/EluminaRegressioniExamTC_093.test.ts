@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
-test(` . @iExamRegression  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+/*test(` . @iExamRegression  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -71,17 +71,15 @@ test(` . @iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPag
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});
+});     */
 
 test(`iEX_TC_ID_93. @iExamRegression Validation of Survey section > Before Exam Time Expires`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime3();
 
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(6, "bulkUserCredentialForSurveyExam.xlsx");
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();

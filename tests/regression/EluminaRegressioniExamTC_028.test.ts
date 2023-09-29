@@ -5,7 +5,7 @@ test(`iEX_TC_ID_225. @iExamRegression Verify Candidate while attending exam - Of
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(18, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.verifyExamDashboardTimer();

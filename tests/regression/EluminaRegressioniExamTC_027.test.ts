@@ -7,7 +7,7 @@ test(`iEX_TC_ID_224. @iExamRegression Verify Validation of  function keys after 
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(17, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.verifyExamDashboardTimer();

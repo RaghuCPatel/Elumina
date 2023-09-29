@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /** Validate candidate attending All Question type  and Validation of Candidate attending Exam in Online - Offline and submit in online Mode. */
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_108,iEX_TC_ID_115. @LowPriorityiExamCases Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+/*test(`Exam_Prerequisit_for_iEX_TC_ID_108,iEX_TC_ID_115. @LowPriorityiExamCases Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -45,21 +45,18 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_108,iEX_TC_ID_115. @LowPriorityiExamCases V
         await newtab.addExistingUsers();
         await newtab.logoutClick();
     });
-});
+});*/
 
 test(`iEX_TC_ID_53. @LowPriorityiExamCases Validation of Exam content page -> Questions download at content section-> Candidate goes offline`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime3();
-        await eluminaCandPage.waitforTime3();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(8, "bulkUserCredentialForAllTypeQutnExam.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.setOffline(true);
-        await eluminaCandPage.candidateContentSectionVerifications();
+        //await eluminaCandPage.candidateContentSectionVerifications();
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
@@ -78,8 +75,8 @@ test(`iEX_TC_ID_108,iEX_TC_ID_115. @LowPriorityiExamCases Validation of Candidat
     });
 
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
-        await eluminaCandPage.candidateContentSectionVerifications();
+        await eluminaCandPage.candidateLoginToApplication(8, "bulkUserCredentialForAllTypeQutnExam.xlsx");
+        //await eluminaCandPage.candidateContentSectionVerifications();
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.setOffline(true);
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);

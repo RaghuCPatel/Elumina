@@ -7,7 +7,7 @@ test(` . @iExamRegression Verify Validation of Browser back button on Candidate 
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToAndValidateDashboard();
+        await eluminaCandPage.candidateLoginToAndValidateDashboard(9, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.navigateBack();

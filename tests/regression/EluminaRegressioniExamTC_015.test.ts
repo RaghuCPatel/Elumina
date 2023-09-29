@@ -7,7 +7,7 @@ test(` . @iExamRegression Password will not be asked after clicking on "Start Ex
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application with inactive user`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(7, "bulk_user_details.xlsx");
         await eluminaCandPage.examSectionValidation();
     });
 

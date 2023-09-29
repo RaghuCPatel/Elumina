@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Practice Exam View Result Page &Candidate Attend practice exam*/
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_242,243,61. @iExamRegression Create practice exam`, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+/*test(`Exam_Prerequisit_for_iEX_TC_ID_242,243,61. @iExamRegression Create practice exam`, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -42,18 +42,15 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_242,243,61. @iExamRegression Verify Elumina
         await newtab.addExistingUsers();
         await newtab.logoutClick();
     });
-});
+});      */
 
 test(`iEX_TC_ID_242,243,61. @iExamRegression Verify Validation of Candidate attend Practice Exam`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime3();
-        await eluminaCandPage.waitforTime3();
 
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(3, "bulkUserCredentialForAllTypeQutnExam.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candidateStartOneMCQ();

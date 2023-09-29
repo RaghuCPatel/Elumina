@@ -7,7 +7,7 @@ test(` . @iExamRegression Verify Validation of Browser Reload option after Exam 
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(16, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.verifyExamDashboardTimer();

@@ -5,10 +5,9 @@ import test from '@lib/BaseTest';
 test(` . @iExamRegression Validation of Candidate Start Exam`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime()
     });
     await test.step(`Candidate Login to application with and start exam`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(5, "bulk_user_details.xlsx");
         await eluminaCandPage.examSectionValidation();
     });
 

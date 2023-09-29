@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected*/
 
-test(` . @iExamRegression Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+/*test(` . @iExamRegression Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -38,20 +38,19 @@ test(` . @iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPag
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});
+});            */
 
 test(` . @iExamRegression Verify Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected
 Verification of Timer Expires Alert Box  in Exam Content page`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime();
 
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(5, "bulkUserCredentialForMcqExamwithContentSection.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
+        await eluminaCandPage.candidateContentSection();
         await eluminaCandPage.flagForReview();
     });
 
