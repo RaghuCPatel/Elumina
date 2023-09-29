@@ -32,7 +32,7 @@ else if (process.env.ENV == 'staging') {
 test(` iProc_TC_ID_49. @iProctorRegression Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
     });
 
     await test.step('Invigilator  logging into Application', async () => {

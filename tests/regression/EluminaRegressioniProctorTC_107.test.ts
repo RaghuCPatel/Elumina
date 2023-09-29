@@ -34,7 +34,7 @@ test(` iProc_TC_ID_101. @iProctorRegression Verify Candidate> Enforce Hardware C
 
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
 
     });

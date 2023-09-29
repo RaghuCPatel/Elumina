@@ -35,7 +35,7 @@ test(`iProc_TC_ID_50. @iProctorRegression Validation of Question numbers are dis
 
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
     });
 
     await test.step('Invigilator  logging into Application', async () => {

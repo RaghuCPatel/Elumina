@@ -34,7 +34,7 @@ test(` iProc_TC_ID_94. @iProctorRegression Verify candidate choosing proctoring 
         await eluminaProctorCand.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
         await eluminaCandPage.waitforTime3();
 
     });

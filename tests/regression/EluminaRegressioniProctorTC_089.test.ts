@@ -24,7 +24,7 @@ test(` iProc_TC_ID_84A. @iProctorRegression Validation of Enable iProctor Extens
 test(` iProc_TC_ID_84B. @iProctorRegression Validation of Admin > Proctoring > Microphone Link`, async ({ eluminaLoginPage, eluminaProctorReg, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
         await eluminaProctorCand.clickOnStartExamLink1();
         await eluminaProctorCand.troubleshootMicroPhone();
     });

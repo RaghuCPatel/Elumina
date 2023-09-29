@@ -102,12 +102,13 @@ test(` Exam_Prerequisit_for_iProc_TC_ID_17. @iProctorRegression Verify Elumina R
 });
 
 
-test(` iProc_TC_ID_17. @iProctorRegression Validation of Browser Reload option on Candidate Dashboard for AM EluminaRegressioniProctorTC_017`, async ({ eluminaProctorCand, webActions }) => {
+test(` iProc_TC_ID_17. @iProctorRegression Validation of Browser Reload option on Candidate Dashboard for AM EluminaRegressioniProctorTC_017`, async ({ eluminaProctorCand, eluminaMultipleExamsForAMPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplications(2);
+        await eluminaMultipleExamsForAMPage.validateTimeforAMPM();
     });
 });
 

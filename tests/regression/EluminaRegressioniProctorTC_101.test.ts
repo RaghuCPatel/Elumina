@@ -34,7 +34,7 @@ test(` iProc_TC_ID_95. @iProctorRegression Verify Candidate Exam Disclaimer Page
         await eluminaProctorCand.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
         await eluminaProctorCand.clickOnStartExamLink();
         await eluminaCandPage.waitforTime3();
 

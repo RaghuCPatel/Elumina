@@ -32,7 +32,7 @@ else if (process.env.ENV == 'staging') {
 test(` iProc_TC_ID_46. @iProctorRegression Verify Validation of candidate navigating to multiple window`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
     });
 
     await test.step('Invigilator logging into Application in another window', async () => {

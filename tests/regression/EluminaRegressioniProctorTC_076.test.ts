@@ -32,7 +32,7 @@ else if (process.env.ENV == 'staging') {
 test(` iProc_TC_ID_72. @iProctorRegression Validation of "Time Remaining" on Right top corner of the Candidate page"`, async ({ eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
     });
 
     await test.step('Invigilator  logging into Application', async () => {

@@ -62,10 +62,10 @@ test(` Exam_Prerequisit_for_iProc_TC_ID_80. @LowPriorityiProctorCases Verify Elu
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaProctorReg.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
+        await newtab.addMultipleUserDetails();
+        await newtab.BulkDownloadUserDetails();
         await newtab.addExistingUsers();
-        await newtab.logoutClick();
+        await newtab.searchCandidate();
     });
 });
 
@@ -339,7 +339,7 @@ test(` iProc_TC_ID_162. @LowPriorityiProctorCases Verify Validation of Exam sect
     await test.step(`Navigate to Application`, async () => {
         await test.step('Candidate logging into application', async () => {
             await eluminaProctorCand.candidateNavigateToURL();
-            await eluminaProctorCand.candidateLoginToApplications();
+            await eluminaProctorCand.candidateLoginToApplications(2);
         });
     });
     await test.step(`Candidate Login to application`, async () => {
@@ -357,11 +357,21 @@ test(` iProc_TC_ID_162. @LowPriorityiProctorCases Verify Validation of Exam sect
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
         await newPage.locator('//a[text()="Delivery"]').click();
+
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/ExamID.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Sheet1');
+            console.log("ExamId" + ws.getRow(1).getCell(1).value)
+            await newPage.locator('//input[@placeholder="Search Exam(s)"]').type(ws.getRow(1).getCell(1).value);
+            await newPage.waitForTimeout(3000);
+        })
+
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
-
-        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-        await newPage.locator('//a[@class="dropdown-toggle"]').click();
+        await newPage.locator('(//a[@class="dropdown-toggle"])[3]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
         await newPage.waitForTimeout(3000);
@@ -383,7 +393,7 @@ test(`iProc_TC_167,TC-172. @LowPriorityiProctorCases Verify Validation of Review
     await test.step(`Navigate to Application`, async () => {
         await test.step('Candidate logging into application', async () => {
             await eluminaProctorCand.candidateNavigateToURL();
-            await eluminaProctorCand.candidateLoginToApplications();
+            await eluminaProctorCand.candidateLoginToApplications(2);
         });
     });
     await test.step(`Candidate Login to application`, async () => {
@@ -401,11 +411,21 @@ test(`iProc_TC_167,TC-172. @LowPriorityiProctorCases Verify Validation of Review
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
         await newPage.locator('//a[text()="Delivery"]').click();
+
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/ExamID.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Sheet1');
+            console.log("ExamId" + ws.getRow(1).getCell(1).value)
+            await newPage.locator('//input[@placeholder="Search Exam(s)"]').type(ws.getRow(1).getCell(1).value);
+            await newPage.waitForTimeout(3000);
+        })
+
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
-
-        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-        await newPage.locator('//a[@class="dropdown-toggle"]').click();
+        await newPage.locator('(//a[@class="dropdown-toggle"])[3]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
         await newPage.waitForTimeout(3000);
@@ -428,7 +448,7 @@ test(` iProc_TC_ID_165. @LowPriorityiProctorCases Validation of textbox capabili
     await test.step(`Navigate to Application`, async () => {
         await test.step('Candidate logging into application', async () => {
             await eluminaProctorCand.candidateNavigateToURL();
-            await eluminaProctorCand.candidateLoginToApplications();
+            await eluminaProctorCand.candidateLoginToApplications(2);
         });
     });
     await test.step(`Candidate Login to application`, async () => {
@@ -446,11 +466,22 @@ test(` iProc_TC_ID_165. @LowPriorityiProctorCases Validation of textbox capabili
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
         await newPage.locator('//a[text()="Delivery"]').click();
+
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/ExamID.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Sheet1');
+            console.log("ExamId" + ws.getRow(1).getCell(1).value)
+            await newPage.locator('//input[@placeholder="Search Exam(s)"]').type(ws.getRow(1).getCell(1).value);
+            await newPage.waitForTimeout(3000);
+        })
+
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
 
-        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-        await newPage.locator('//a[@class="dropdown-toggle"]').click();
+        await newPage.locator('(//a[@class="dropdown-toggle"])[3]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
         await newPage.waitForTimeout(3000);

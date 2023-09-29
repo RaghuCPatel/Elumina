@@ -34,7 +34,7 @@ test(` iProc_TC_ID_96. @iProctorRegression Verify Candidate > Peripheral verific
         await eluminaProctorCand.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
         await eluminaProctorCand.clickOnStartExamLink1();
         await eluminaCandPage.waitforTime2();
 

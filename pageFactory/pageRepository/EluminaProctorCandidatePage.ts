@@ -143,20 +143,20 @@ export class EluminaProctorCandidatePage {
     }
 
     /**Method to for Candidate to Login to Application */
-    async candidateLoginToApplications(): Promise<void> {
+    async candidateLoginToApplications(row): Promise<void> {
 
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();
-        const fileName = './download/User_details.xlsx';
+        const fileName = './download/bulk_user_details.xlsx';
         //const fileName = './User_details (30).xlsx';
         wb.xlsx.readFile(fileName).then(async () => {
             let data: any;
-            const ws = wb.getWorksheet('Worksheet');
+            const ws = wb.getWorksheet('users');
             console.log(ws.actualRowCount)
             console.log(ws.getRow(2).getCell(1).value)
             console.log(ws.getRow(2).getCell(4).value)
-            await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
-            await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+            await this.CandidateUsername.fill(ws.getRow(row).getCell(1).value);
+            await this.CandidatePassword.fill(ws.getRow(row).getCell(4).value);
         })
         await this.page.waitForTimeout(5000);
         await this.LOGIN_BUTTON.click();
@@ -538,5 +538,26 @@ export class EluminaProctorCandidatePage {
         await this.inceaseSize.click();
         await this.page.waitForTimeout(5000);
     }
+
+    /**Method to navigate to Candidate application */
+    async candidateLoginToApplication(): Promise<void> {
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/User_details.xlsx';
+        //const fileName = './User_details (30).xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Worksheet');
+            console.log(ws.actualRowCount)
+            console.log(ws.getRow(2).getCell(1).value)
+            console.log(ws.getRow(2).getCell(4).value)
+            await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
+            await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+        })
+        await this.page.waitForTimeout(5000);
+        await this.LOGIN_BUTTON.click();
+    }
+
+
 
 }

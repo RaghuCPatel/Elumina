@@ -32,7 +32,7 @@ else if (process.env.ENV == 'staging') {
 test(` iProc_TC_ID_98. @iProctorRegression Validation of Validation Camera verification check done`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
     });
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.clickOnStartExamLink1();

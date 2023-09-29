@@ -32,7 +32,7 @@ else if (process.env.ENV == 'staging') {
 test(` iProc_TC_ID_161. @LowPriorityiProctorCases Validation of Candidate Proctoring Exam pheripheral checkup page - Chat App TC-169`, async ({ eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplications(2);
 
     });
 
@@ -54,8 +54,8 @@ test(` iProc_TC_ID_161. @LowPriorityiProctorCases Validation of Candidate Procto
 
         ]);
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
-        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-        await newPage.locator('//a[@class="dropdown-toggle"]').click();
+        //await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+        await newPage.locator('(//a[@class="dropdown-toggle"])[3]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
         await newPage.waitForTimeout(3000);

@@ -35,7 +35,7 @@ else if (process.env.ENV == 'staging') {
 test(` . @iProctorRegression Validation of Questions, Videos & audio being downloaded as soon as the Exam Started`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
     });
     await test.step('Invigilator  logging into Application', async () => {
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();

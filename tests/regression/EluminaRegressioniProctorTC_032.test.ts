@@ -33,7 +33,7 @@ else if (process.env.ENV == 'staging') {
 test(` iProc_TC_ID_31. @iProctorRegression Validation of Adding & Saving notes`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
     });
 
     await test.step('Invigilator  logging into Application', async () => {

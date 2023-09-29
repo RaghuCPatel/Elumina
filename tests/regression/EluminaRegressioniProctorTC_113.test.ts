@@ -34,7 +34,7 @@ test(` iProc_TC_ID_107. @iProctorRegression Validation of Candidate ( i-Exam ) >
         await eluminaProctorCand.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
     });
 
     await test.step('Invigilator  logging into Application', async () => {

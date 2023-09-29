@@ -34,7 +34,7 @@ else if (process.env.ENV == 'staging') {
 test(`iProc_TC_ID_21B . @iProctorRegression Validation of Changing Font Size to Decrease on the Dashboard`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
 
     });
 

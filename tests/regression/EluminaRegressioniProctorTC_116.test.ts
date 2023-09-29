@@ -34,7 +34,7 @@ test(` iProc_TC_ID_110. @iProctorRegression Validation of Proctoring Exam Event 
         await eluminaProctorCand.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
     });
 
     await test.step('Admin logging into Application', async () => {

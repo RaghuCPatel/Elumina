@@ -9,7 +9,7 @@ test(` iProc_TC_ID_160. @LowPriorityiProctorCases Validation of Candidate Dashbo
         await eluminaProctorCand.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplications(2);
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaProctorCand.chatApp();

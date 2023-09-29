@@ -71,10 +71,10 @@ test(` Exam_Prerequisit_for_iProc_TC_ID_26D. @iProctorRegression Verify Elumina 
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaProctorReg.iAuthorPageNavigations();
-        await newtab.registrationTabNavigationByClickCreateExam();
+        await newtab.registrationTabNavigationByClickCreateExams();
         await newtab.addExistingUsers1();
         await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
+        await newtab.addExistingUsersDiffZone();
     });
 });
 

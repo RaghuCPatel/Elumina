@@ -107,6 +107,10 @@ export class EluminaRegistrationForProctoringPage {
     readonly DeliveryMenu: Locator;
     readonly SpecialArrangement: Locator;
     readonly BookingStatus1: Locator;
+    readonly bulkDownloadButton: Locator;
+    readonly bulkdownloadbuttonclick: Locator;
+    readonly addExamID: Locator;
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -156,7 +160,7 @@ export class EluminaRegistrationForProctoringPage {
         this.captureUserClientID = page.locator('//table[@class="table"]//tbody//tr[1]//td[5]//div//div//span');
         this.clcikOnLiveMonitor = page.locator('//a[normalize-space()="Live Monitor"]');
         this.clickOnProImage = page.locator('//*[@class="proctoringImg"]');
-        this.clickOnCadidateName = page.locator('(//div[@class="candidate-name"]//div[1])[1]');
+        this.clickOnCadidateName = page.locator('(//div[@class="candidate-name"]//div[1])[3]');
         this.verifyCadStatusAsAdmin = page.locator('//div[@class="status"]');
         this.liveMonitor = page.locator('//a[text()="Live Monitor"]');
         this.liveMonitorIcon = page.locator('//img[@class="proctoringImg"]');
@@ -171,6 +175,9 @@ export class EluminaRegistrationForProctoringPage {
         const examId: string = String(EluminaProctorExamPage.examID);
         const examId1: string = String(EluminaExamInvPage.examID);
         console.log(examId);
+        this.bulkDownloadButton = page.locator('//button[normalize-space()="..."]');
+        this.bulkdownloadbuttonclick = page.locator('//a[text()="Bulk Download User Details"]');
+        this.addExamID = page.locator('//div[@class="userInfo userInfo__lable"][2]');
     }
 
     //**Method to navogate new Tab */
@@ -192,6 +199,18 @@ export class EluminaRegistrationForProctoringPage {
         await this.searchExam.type(examid);
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
+    }
+
+    /**Method to register for the exam */
+    async registrationTabNavigationfromIExamPage(): Promise<void> {
+        await this.DeliveryMenu.click();
+        let examid = EluminaExamPage.examID;
+        console.log(EluminaExamPage.examID);
+        await this.searchExam.type(examid);
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnCreatedExam.click();
+        await this.ClickOnAddNewUsers.click();
+
     }
 
     /**Method to click on Registration Menu,click on Created Exam and click on Add new users */
@@ -237,6 +256,21 @@ export class EluminaRegistrationForProctoringPage {
 
     /**Method to click on Registration Menu and click on Created Exam  */
     async registrationTabNavigationByClickCreateExam() {
+        await this.DeliveryMenu.click();
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/ExamID.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Sheet1');
+            console.log("ExamId" + ws.getRow(1).getCell(1).value)
+            await this.searchExam.type(ws.getRow(1).getCell(1).value);
+        })
+        await this.ClickOnCreatedExam.click();
+    }
+
+    /**Method to click on Registration Menu and click on Created Exam  */
+    async registrationTabNavigationByClickCreateExams() {
         await this.DeliveryMenu.click();
         await this.ClickOnCreatedExam.click();
     }
@@ -408,7 +442,7 @@ export class EluminaRegistrationForProctoringPage {
         await this.ClickOnAddExistingUser.click();
         await this.SearchUsers.click();
         await this.SearchUsers.type(testData.invigilatorName);
-        await this.page.waitForTimeout(7000);
+        await this.page.waitForTimeout(6000);
         await this.CLickOnUser.click();
         await this.ChooseExistingRole.click();
         await this.SelectInvRole.click();
@@ -419,14 +453,51 @@ export class EluminaRegistrationForProctoringPage {
         await this.SelectExBookingStatus.click();
         await this.SelectInvBookingStatus.click();
         await this.ClickOnSaveBtn.click();
-        await this.page.waitForTimeout(7000);
+        await this.page.waitForTimeout(6000);
         await this.LeftArrow.click();
+        // await this.ClickOnDropdown2.click();
+        // await this.ClickOnAssignInv.click();
+        // await this.AssignUsersToCand.click();
+        // await this.AssignInvToCand.click();
+        // await this.ClickOnInvSaveBtn.click();
+        // await this.page.waitForTimeout(5000);
+    }
+
+    async addExistingUsersDiffZone() {
+        await this.addExistingUsers();
         await this.ClickOnDropdown2.click();
         await this.ClickOnAssignInv.click();
         await this.AssignUsersToCand.click();
         await this.AssignInvToCand.click();
         await this.ClickOnInvSaveBtn.click();
         await this.page.waitForTimeout(5000);
+
+    }
+
+    async searchCandidate(row, cell): Promise<void> {
+        for (let i = 2; i <= 4; i++) {
+            const ExcelJS = require('exceljs');
+            const wb = new ExcelJS.Workbook();
+            const fileName = './download/bulk_user_details.xlsx';
+            //const fileName = './User_details (30).xlsx';
+            wb.xlsx.readFile(fileName).then(async () => {
+                let data: any;
+                const ws = wb.getWorksheet('users');
+                console.log(ws.actualRowCount)
+                console.log(ws.getRow(2).getCell(1).value)
+                console.log(ws.getRow(2).getCell(4).value)
+                await this.SearchUsers.click();
+                await this.SearchUsers.clear();
+                await this.SearchUsers.type(ws.getRow(i).getCell(1).value)
+            })
+            await this.page.waitForTimeout(7000);
+            await this.ClickOnDropdown.click();
+            await this.ClickOnAssignInv.click();
+            await this.AssignUsersToCand.click();
+            await this.AssignInvToCand.click();
+            await this.ClickOnInvSaveBtn.click();
+            await this.page.waitForTimeout(5000);
+        }
     }
 
     /**add Existing Cadidate In Diff Time Zone */
@@ -518,8 +589,16 @@ export class EluminaRegistrationForProctoringPage {
             await this.ClickOnSaveBtn.click();
             await this.page.waitForTimeout(5000);
         }
+        const ExcelJS = require('exceljs');
+        const workbook = new ExcelJS.Workbook();
+        const worksheet = workbook.addWorksheet('Sheet1');
+        let Eexamid = await this.addExamID.textContent();
+        let fetchExamID = Eexamid.split(':')[1];
+        console.log("Inside Registration:" + fetchExamID);
+        worksheet.getCell('A1').value = fetchExamID;
+        await workbook.xlsx.writeFile('download/ExamID.xlsx');
         await this.LeftArrow.click();
-        await this.ClickOnDropdown.click();
+        //await this.ClickOnDropdown.click();
 
     }
 
@@ -558,6 +637,21 @@ export class EluminaRegistrationForProctoringPage {
         await this.MenuIconClick.click();
         await this.logoutbuttonClick.click();
 
+    }
+
+    /**Method for Bulk Download the User Details */
+    async BulkDownloadUserDetails(): Promise<void> {
+        const downloadPromise = this.page.waitForEvent('download');
+        await this.bulkDownloadButton.click();
+        await this.bulkdownloadbuttonclick.click();
+        const download = await downloadPromise;
+        // Wait for the download process to complete.
+        console.log(await download.path());
+        //const suggestedFileName = download.suggestedFilename();
+        const filePath = 'download/' + 'bulk_user_details.xlsx';
+        await download.saveAs(filePath)
+        await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+        await this.page.waitForTimeout(20000);
     }
 
 }
