@@ -32,7 +32,7 @@ else if (process.env.ENV == 'staging') {
 test(` iProc_TC_ID_117. @iProctorRegression Validation of Proctoring Exam Event > Awaiting Exam Start`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
     });
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.clickOnAllLinkForDiffExamZone();
@@ -78,7 +78,7 @@ test(` iProc_TC_ID_117. @iProctorRegression Validation of Proctoring Exam Event 
 test(` iProc_TC_ID_53. @iProctorRegression Verify Elumina Invigilator terminating exam for candidate EluminaRegressioniProctorTC_056`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
     });
 
     await test.step('Invigilator  logging into Application', async () => {
@@ -120,7 +120,7 @@ test(` iProc_TC_ID_53. @iProctorRegression Verify Elumina Invigilator terminatin
         await page1.close();
 
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
         await eluminaCandPage.waitforTime2();
 
     });

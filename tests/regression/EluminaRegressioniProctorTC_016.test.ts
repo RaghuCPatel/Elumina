@@ -34,11 +34,9 @@ else if (process.env.ENV == 'staging') {
 test(` iProc_TC_ID_16. @iProctorRegression Timer Validation before Exam starts - After clicking on "Start Exam"`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-
         await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime();
-
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
 
     });
 

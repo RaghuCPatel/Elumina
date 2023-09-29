@@ -24,7 +24,7 @@ test(` iProc_TC_ID_83A. @iProctorRegression Validation of Admin > Proctoring > C
 test(` iProc_TC_ID_83B. @iProctorRegression Validation of Admin > Proctoring > Camera Links`, async ({ eluminaLoginPage, eluminaProctorReg, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
         await eluminaProctorCand.clickOnStartExamLink1();
         await eluminaProctorCand.troubleshootCamera();
     });

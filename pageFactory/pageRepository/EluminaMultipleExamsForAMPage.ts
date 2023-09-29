@@ -94,6 +94,7 @@ export class EluminaMultipleExamsForAMPage {
   readonly fectchExamID: Locator;
   readonly nextButton: Locator;
   readonly Oneclick: Locator;
+  readonly EndBoookingHRS: Locator;
 
   constructor(page: Page, context: BrowserContext) {
     this.page = page;
@@ -158,6 +159,7 @@ export class EluminaMultipleExamsForAMPage {
     this.fectchExamID = page.locator('//div[@class="label-text"]');
     this.nextButton = page.locator('//li[@class="next"]');
     this.Oneclick = page.locator('(//li//span[text()="1"])[1]');
+    this.EndBoookingHRS = page.locator('(//div[@class="dtp-main reqLabel dtp-main-half"])[2]');
   }
 
   /**Method for iAuthor Page Navigation */
@@ -279,6 +281,9 @@ export class EluminaMultipleExamsForAMPage {
     await this.BooingStartMins.click();
     await this.BooingStartMins.clear();
     await this.BooingStartMins.type(testData.EndExamMin);
+
+    console.log(await this.EndBoookingHRS.textContent());
+
     await this.ChooseBookingStartSession.check();
     await this.BookingOK.click();
     await this.ClickOnExamVenue.click();
@@ -453,6 +458,13 @@ export class EluminaMultipleExamsForAMPage {
     await expect(this.VerifyChoose_Workflow).toBeVisible();
     await expect(this.VerifyChoose_Confirmation).toBeVisible();
     await this.page.waitForTimeout(5000);
+  }
+
+  async validateTimeforAMPM() {
+    let Time = await this.page.locator('//table[@class="table-container"]//tr[2]//td[3]').textContent();
+    console.log(Time);
+    console.log(this.EndBoookingHRS);
+    expect(Time).not.toBe(this.EndBoookingHRS);
   }
 
 }

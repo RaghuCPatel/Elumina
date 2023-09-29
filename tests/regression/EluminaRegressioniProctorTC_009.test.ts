@@ -37,9 +37,11 @@ test(` iProc_TC_ID_9. @iProctorRegression Validation of multiple candidate tryin
         await eluminaProctorCand.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
     });
 });
+
+
 
 
 

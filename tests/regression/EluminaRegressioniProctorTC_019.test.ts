@@ -36,7 +36,7 @@ test(`iProc_TC_ID_19. @iProctorRegression Validation of Browser Reload option on
         await eluminaProctorCand.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
         await eluminaProctorCand.refreshPage();
 
     });

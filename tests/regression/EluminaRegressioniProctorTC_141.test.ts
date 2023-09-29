@@ -32,7 +32,7 @@ else if (process.env.ENV == 'staging') {
 test(` iProc_TC_ID_135. @iProctorRegression Validation of Proctoring Exam > Traffic light Green`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplications(3);
     });
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.clickOnAllLink();
@@ -49,13 +49,24 @@ test(` iProc_TC_ID_135. @iProctorRegression Validation of Proctoring Exam > Traf
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
         await newPage.locator('//a[text()="Delivery"]').click();
+
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/ExamID.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Sheet1');
+            console.log("ExamId" + ws.getRow(1).getCell(1).value)
+            await newPage.locator('//input[@placeholder="Search Exam(s)"]').type(ws.getRow(1).getCell(1).value);
+        })
+
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
 
         await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click();
         await newPage.waitForTimeout(3000);
         await newPage.locator('//img[@class="proctoringImg"]').click();
-        await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();
+        await newPage.locator('(//div[@class="candidate-name"]//div[1])[2]').click();
         await newPage.waitForTimeout(3000);
         let status = await newPage.locator('//div[@class="status"]').textContent();
         await newPage.waitForTimeout(3000);

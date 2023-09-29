@@ -36,7 +36,7 @@ test(` iProc_TC_ID_21A. @iProctorRegression Validation of Changing Font Size to 
         await eluminaProctorCand.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
     });
 
     await test.step('Candidate start the exam', async () => {

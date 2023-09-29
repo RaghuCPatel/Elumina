@@ -394,9 +394,7 @@ export class EluminaProctorExamPage {
       hour12 += 12;
     let minute = currentDate.getMinutes();
     console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
-    //console.log(localDate.)
-    //let Hours=currentDate.getHours();
-    //console.log(Hours);
+
     let StartBookingMin = currentDate.getMinutes() + 2;
     let EndBookingMin = currentDate.getMinutes() + 3;
     let StartExamMin = currentDate.getMinutes() + 4;
@@ -414,78 +412,6 @@ export class EluminaProctorExamPage {
 
     await this.PracticeExam.click();
     await this.ProctoringExam.click();
-    //await this.page.waitForTimeout(5000);
-    await this.BookingStartCalender.click();
-
-    await this.BookingStartDate.click();
-    await this.BooingStartMins.click();
-    await this.BooingStartMins.clear();
-    if (StartBookingMin >= 60) {
-      let SBM = StartBookingMin.toString();
-      SBM = "02";
-      await this.BooingStartMins.type(SBM);
-      //hrs+1
-      await this.BookingStartHrs.click();
-      await this.BookingStartHrs.clear();
-      let BSH = hour12 + 1;
-      if (BSH == 12) {
-        await this.BookingStartHrs.type(BSH.toString());
-        await this.ChooseBookingStartSessions.check();
-      }
-      else if (BSH >= 13) {
-        BSH = 1;
-        await this.BookingStartHrs.type(BSH.toString());
-      }
-      else {
-        await this.BookingStartHrs.type(BSH.toString());
-        await this.ChooseBookingStartSession.check();
-      }
-    }
-    else {
-      await this.BooingStartMins.type(StartBookingMin.toString());
-      //hrs
-      await this.BookingStartHrs.click();
-      await this.BookingStartHrs.clear();
-      await this.BookingStartHrs.type(hour12.toString());
-      await this.ChooseBookingStartSession.check();
-    }
-    await this.BookingOK.click();
-
-    await this.BookingEndCalender.click();
-    await this.BookingEndDate.click();
-    await this.BooingStartMins.click();
-    await this.BooingStartMins.clear();
-    if (EndBookingMin >= 60) {
-      let EBM = EndBookingMin.toString();
-      EBM = "03";
-      await this.BooingStartMins.type(EBM);
-      //Hrs+1
-      await this.BookingStartHrs.click();
-      await this.BookingStartHrs.clear();
-      let BSH = hour12 + 1;
-      if (BSH == 12) {
-        await this.BookingStartHrs.type(BSH.toString());
-        await this.ChooseBookingStartSessions.check();
-      }
-      else if (BSH >= 13) {
-        BSH = 1;
-        await this.BookingStartHrs.type(BSH.toString());
-      }
-      else {
-        await this.BookingStartHrs.type(BSH.toString());
-        await this.ChooseBookingStartSession.check();
-      }
-    }
-    else {
-      await this.BooingStartMins.type(EndBookingMin.toString());
-      //hrs
-      await this.BookingStartHrs.click();
-      await this.BookingStartHrs.clear();
-      await this.BookingStartHrs.type(hour12.toString());
-      await this.ChooseBookingStartSession.check();
-    }
-
-    await this.BookingOK.click();
 
     await this.ExamStartCalender.click();
     await this.ExamStartDate.click();
@@ -556,19 +482,14 @@ export class EluminaProctorExamPage {
     await this.ChooseBookingStartSession.check();
     await this.BookingOK.click();
 
-
     await this.ClickOnExamVenue.click();
     await this.ChooseExamVenue.click();
     await this.ClickOnAdd.click();
+
     await this.EnterNoOfCandidates.click();
     await this.EnterNoOfCandidates.clear();
-    await this.EnterNoOfCandidates.type('01');
+    await this.EnterNoOfCandidates.type('10');
     await this.ClickOnAdd.click();
-    // await this.EnterInvigilatorPswd.click();
-    //await this.page.waitForTimeout(5000);
-    // await this.EnterInvigilatorPswd.type('ABC09');
-    // await this.page.waitForTimeout(5000);
-
     await this.ClickOnNextBtn.click();
     await expect(this.VerifyExam_details).toBeVisible();
     await expect(this.VerifyChoose_Question).toBeVisible();
@@ -1250,7 +1171,7 @@ export class EluminaProctorExamPage {
     await this.TESTBANK.click();
     await this.EXAMNAME.type('DEMO' + Math.floor(Math.random() * 899999 + 100000));
     await this.EXAMCODE.type('D' + Math.floor(Math.random() * 89 + 100));
-
+    await this.ProctoringExam.click();
     await this.ExamStartCalender.click();
     await this.ExamStartDate.click();
 
@@ -1329,6 +1250,7 @@ export class EluminaProctorExamPage {
     await this.EnterNoOfCandidates.type('10');
     await this.ClickOnAdd.click();
     await this.ClickOnViewer.click();
+    await this.fullScreenClick.click();
 
   }
 

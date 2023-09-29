@@ -186,6 +186,9 @@ export class EluminaCandidatePage {
     readonly validationDashboardTitle: Locator;
     readonly DownloadingIconInCloud: Locator;
     readonly IncompleteDownloadIcon: Locator;
+    readonly VSAQQuestion6Click: Locator;
+    readonly imagePreview: Locator;
+
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -308,6 +311,7 @@ export class EluminaCandidatePage {
         this.clickQuestion1 = page.locator('//div[normalize-space()="Question 1"]');
         this.clickQuestion5 = page.locator('(//div[@class="question-number-container"]//div//p)[5]');
         this.VSAQQuestion1Click = page.locator('//div[@class="question-number"]//p');
+        this.VSAQQuestion6Click = page.locator('(//div[@class="question-number"]//p)[6]')
 
         this.mousehoverOnColourMoreIcon = page.locator('//p[@class="infoIcon status-icon-id"]//span')
         this.NoOfQutn = page.locator('(//div[@class="main-title"]//h4)[1]')
@@ -328,6 +332,7 @@ export class EluminaCandidatePage {
         this.validationDashboardTitle = page.locator('//div[@class="menu-item"]')
         this.DownloadingIconInCloud = page.locator('//div[@class="status downloading"]')
         this.IncompleteDownloadIcon = page.locator('//div[@class="status offline"]')
+        this.imagePreview = page.locator('//div[@class="imagepreview-container"]');
 
 
     }
@@ -1760,6 +1765,17 @@ export class EluminaCandidatePage {
     }
 
     async candidateStartOneVSAQwithViewer() {
+        await this.VSAQQuestion1Click.click();
+        await this.page.waitForTimeout(2000);
+    }
+
+    async candidateStartSixVSAQwithViewer() {
+        await this.VSAQQuestion6Click.click();
+        await this.imagePreview.isVisible();
+        await this.page.waitForTimeout(2000);
+    }
+
+    async candidateStartWithVSAQwithViewer() {
         await this.VSAQQuestion1Click.click();
         await this.page.waitForTimeout(2000);
     }

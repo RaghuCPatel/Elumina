@@ -31,56 +31,12 @@ else if (process.env.ENV == 'staging') {
 
 /** Validate Survey screen where candidate can provide feedback in comment section EluminaRegressioniProctorTC_084*/
 
-test(` Exam_Prerequisit_for_iProc_TC_ID_79. @iProctorRegression Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
-        await eluminaLoginPage.verifyProfilePage();
-    });
-    await test.step(`Navigate to exam Tab and Create New Exam with survey section`, async () => {
-        const newtab = await eluminaExamPage.iAuthorPageNavigation();
-        await newtab.examTabNavigation();
-        await newtab.createProctorExam();
-        await newtab.createSection("1", "30");
-        await newtab.addMCQQuestion();
-        await newtab.createSurveySection("10");
-        await newtab.createSurveyPage();
-
-    });
-});
-
-
-test(` Exam_Prerequisit_for_iProc_TC_ID_79. @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaProctorReg.iAuthorPageNavigations();
-        await newtab.registrationTabNavigationforEluminaExamPage();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
-    });
-});
-
-
-/**Validate Survey screen where candidate can provide feedback in comment section EluminaRegressioniProctorTC_084*/
 test(`iProc_TC_ID_79. @iProctorRegression Verify Validation of Candidate answering survey questions`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime();
-
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplications(3);
     });
 
     await test.step('Candidate start the exam', async () => {
@@ -100,7 +56,7 @@ test(`iProc_TC_ID_79. @iProctorRegression Verify Validation of Candidate answeri
         ]);
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-        await newPage.locator('//a[@class="dropdown-toggle"]').click();
+        await newPage.locator('(//a[@class="dropdown-toggle"])[2]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
         await newPage.waitForTimeout(5000);

@@ -29,47 +29,10 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of Proctoring Exam > Screenshots*/
 
-test(` iProc_TC_ID_134A. @iProctorRegression Validation of Proctoring Exam > Screenshots`, async ({ eluminaLoginPage, eluminaProctorExam, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
-        await eluminaLoginPage.verifyProfilePage();
-    });
-    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminaProctorExam.iAuthorPageNavigation();
-        await newtab.examTabNavigation();
-        await newtab.createExam();
-        await newtab.createSections("1", "30");
-        await newtab.addMCQQuestions();
-    });
-});
-
-test(` iProc_TC_ID_134B. @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaProctorReg, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaProctorReg.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
-    });
-});
-
 test(` iProc_TC_ID_134. @iProctorRegression Validation of Proctoring Exam with Screenshots`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplications(3);
     });
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.clickOnAllLink();
@@ -86,11 +49,22 @@ test(` iProc_TC_ID_134. @iProctorRegression Validation of Proctoring Exam with S
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
         await newPage.locator('//a[text()="Delivery"]').click();
+
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/ExamID.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Sheet1');
+            console.log("ExamId" + ws.getRow(1).getCell(1).value)
+            await newPage.locator('//input[@placeholder="Search Exam(s)"]').type(ws.getRow(1).getCell(1).value);
+        })
+
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
 
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-        await newPage.locator('//a[@class="dropdown-toggle"]').click();
+        await newPage.locator('(//a[@class="dropdown-toggle"])[2]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
         await newPage.waitForTimeout(3000);
@@ -99,7 +73,7 @@ test(` iProc_TC_ID_134. @iProctorRegression Validation of Proctoring Exam with S
         await eluminaCandPage.waitforTime1();
 
         await newPage.locator('//img[@class="proctoringImg"]').click();
-        await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();
+        await newPage.locator('(//div[@class="candidate-name"]//div[1])[2]').click();
         await newPage.locator('//div[@class="screenshots-list scroll"]').isVisible();
         const screenshots = newPage.locator('app-screenshots div[class="title"]');
         console.log(await screenshots.textContent());

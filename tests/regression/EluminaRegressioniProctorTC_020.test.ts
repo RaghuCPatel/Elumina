@@ -36,7 +36,7 @@ test(`iProc_TC_ID_20. @iProctorRegression Validation of  function keys on Candid
         await eluminaProctorCand.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
         await eluminaProctorCand.functionKey();
 
     });

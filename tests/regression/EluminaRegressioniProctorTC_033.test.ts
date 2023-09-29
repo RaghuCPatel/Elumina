@@ -32,7 +32,7 @@ else if (process.env.ENV == 'staging') {
 test(` iProc_TC_ID_32. @iProctorRegression Validation of Calculator`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
     });
 
     await test.step('Invigilator  logging into Application', async () => {
@@ -76,7 +76,7 @@ test(` iProc_TC_ID_32. @iProctorRegression Validation of Calculator`, async ({ e
 test(` iProc_TC_ID_43. @iProctorRegression Validation of  Cloud indication -  (Status is Completed) Reg_iProctor_46 "`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
 
     });
 
@@ -121,7 +121,7 @@ test(` iProc_TC_ID_43. @iProctorRegression Validation of  Cloud indication -  (S
 test(` iProc_TC_ID_52. @iProctorRegression Verify Validation of adding notes in the Exam RegressioniProctorTC_055`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplication();
 
     });
     await test.step(`Candidate Login to application`, async () => {
