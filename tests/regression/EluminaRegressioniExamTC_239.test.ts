@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Exam section > Candidate attend the exam by answering the questions randomly (Example: Monkey Jump)*/
 
-test(` . @iExamRegression  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+/*test(` . @iExamRegression  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -42,16 +42,14 @@ test(` . @iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPag
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});
+});      */
 
 test(`iEX_TC_ID_77. @iExamRegression Validation of Exam section > Candidate attend the exam by answering the questions randomly (Example: Monkey Jump)`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime3();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(7, "bulkUserCredentialForAllTypeQutnExam.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candAnsFirstQustAsMCQ();

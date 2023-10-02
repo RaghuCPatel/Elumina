@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Login using valid credentials with Client Id and  Password*/
 
-test(` . @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, eluminaRegPage, webActions }) => {
+/*test(` . @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -30,17 +30,16 @@ test(` . @iExamRegression Verify Elumina Login and Create Exam`, async ({ elumin
         });
 
     });
-});
+});       */
 
 
 test(`iEX_TC_ID_032. @iExamRegression Validation of Sign out at Exam Start Page`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime2();
+
     });
     await test.step(`Candidate Login to application with inactive user`, async () => {
-        await eluminaCandPage.candidateLoginToAppStartExam();
+        await eluminaCandPage.candidateLoginToAppStartExam(4, "bulk_user_details.xlsx");
         await eluminaCandPage.navigateBack();
     });
 

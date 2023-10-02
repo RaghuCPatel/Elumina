@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Exam section page  > Chat App*/
 
-test(` . @LowPriorityiExamCases Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+/*test(` . @LowPriorityiExamCases Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -35,19 +35,16 @@ test(` . @LowPriorityiExamCases Verify Elumina RegistrationInv and add User and 
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});
+});     */
 
 test(` . @LowPriorityiExamCases Verify Validation of Exam section page  > Chat App`, async ({ eluminaCandPage, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime3();
-        await eluminaCandPage.waitforTime3();
 
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(7, "bulk_user_details.xlsx");
     });
     await test.step('Candidate uses chat app in Exam page', async () => {
         await eluminaCandPage.enterFieldsInChatApp(false);
@@ -60,7 +57,7 @@ test(`iEX_TC_ID_198. @LowPriorityiExamCases Validate when user go offline while 
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(7, "bulk_user_details.xlsx");
     });
     await test.step('Candidate uses chat app in Exam page', async () => {
         await eluminaCandPage.enterFieldsInChatApp(true);

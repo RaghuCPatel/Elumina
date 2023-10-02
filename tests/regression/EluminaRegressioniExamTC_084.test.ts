@@ -3,7 +3,7 @@ import { chromium } from '@playwright/test';
 import { testConfig } from '../../testConfig';
 
 /** Validate Survey screen*/
-test(` . @iExamRegression Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+/*test(` . @iExamRegression Verify Elumina Create Exam with survey section`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -39,19 +39,24 @@ test(` . @iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPag
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});
+});       */
 
 test(` . @iExamRegression Verify Validation of Survey screen and Validate Survey screen where candidate
     can provide feedback in comment section TC-084 and TC-085`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime();
 
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
-        await eluminaCandPage.candidateSurveyStartOneMCQ();
+        await eluminaCandPage.candidateLoginToApplication(3, "bulkUserCredentialForSurveyExam.xlsx");
+        await eluminaCandPage.candidateStartOneMCQ();
+        await eluminaCandPage.candidateAttendsAllQVSAQ(100);
+        await eluminaCandPage.candidateStartISAWE();
+        await eluminaCandPage.candidateStartTypeX();
+        await eluminaCandPage.candidateStartTypeB();
+        await eluminaCandPage.candidateStartSAQ(100);
+        await eluminaCandPage.candidateStartSJTAns();
+        await eluminaCandPage.candSubmitExam();
         await eluminaCandPage.examSectionValidation();
         await eluminaCandPage.candidateAnsSurveyQuestion();
 

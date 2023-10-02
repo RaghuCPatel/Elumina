@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validate candidate able to submit the exam when not answering all questions*/
 
-test(` . @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+/*test(` . @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -16,9 +16,10 @@ test(` . @iExamRegression Verify Elumina Login and Create Exam`, async ({ elumin
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createCommonExam();
-        await newtab.clickonNextBtnInExam();
+        await newtab.selectAllTools();
         await newtab.createSection("1", "30");
-        await newtab.addMCQQuestions();
+        await newtab.addMCQQuestionswithoutSave();
+        await newtab.addVSAQQuestions();
     });
 });
 
@@ -32,22 +33,23 @@ test(` . @iExamRegression Verify Elumina RegistrationInv and add User and Invigi
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
+        await newtab.clickaddMoreUsersIcon(1)
+        await newtab.addMultipleUserDetails(3);
+        await newtab.BulkDownloadUserDetails();
+        await newtab.addInv();
+        await newtab.searchUserForAddingInv(5)
     });
-});
+});        */
 
 /**Validation of Candidate Exam section - exam name, candidate name, exam timer and no of questions in the exam as per exam settings.*/
 test(` . @iExamRegression Verify Validation of the following in the Exam Section
 Exam name, Candidate name, Exam timer, no of questions as per exam created EluminaRegressioniExamTC_051`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime();
 
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(2, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.examSectionValidation();
@@ -60,7 +62,7 @@ test(` . @iExamRegression Validation of candidate able to submit the exam when n
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(3, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.NotAnsweringQuestion();

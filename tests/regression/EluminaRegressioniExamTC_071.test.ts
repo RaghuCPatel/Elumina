@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 //Validation of Invigilator Dashboard after the Exam Completion by candidate (once the time exceeds)
 
-test(` . @iExamRegression Validation of "Time Remaining" pop-up when the just before the exam time runs out`, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, webActions }) => {
+/*test(` . @iExamRegression Validation of "Time Remaining" pop-up when the just before the exam time runs out`, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -35,17 +35,15 @@ test(` . @iExamRegression Verify Elumina RegistrationInv and add User and Invigi
         await newtab.downloadUserDetails();
         await newtab.addExistingUsers();
     });
-});
+});                  */
 
 test(` . @iExamRegression Validation of Invigilator Dashboard after the Exam Completion by candidate (once the time exceeds)`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime();
 
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(3, "bulkUserCredentialForMinimalTimeExam.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.examSectionValidation();

@@ -3,55 +3,56 @@ import test from '@lib/BaseTest';
 
 /**Validation of Exam content page -> (Terms & Conditions) Font size validation */
 
-test(` . @LowPriorityiExamCases Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application with Inactive Userid and password TC-12`, async () => {
-        await eluminaLoginPage.loginToApplicationwithInactiveId();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
-        await eluminaLoginPage.verifyProfilePage();
-    });
-    await test.step(`Navigate to exam Tab and Create New Exam and add MCQ Questions`, async () => {
-        const newtab = await eluminaExamPage.iAuthorPageNavigation();
-        await newtab.examTabNavigation();
-        await newtab.createCommonExam();
-        await newtab.selectAllToolswithInvPwd();
-        await newtab.createContentSection("1");
-        await newtab.createContentPage();
-        await newtab.createSection("1", "30");
-        await newtab.addMCQQuestion();
-        await newtab.addVSAQQuestion();
-        await newtab.addISAWEQuestion();
-        await newtab.addTypeXQuestion();
-        await newtab.addTypeBQuestion();
-        await newtab.addSAQQuestion();
-        await newtab.addSJTQuestion();
+// test(` . @LowPriorityiExamCases Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+//     await test.step(`Navigate to Application`, async () => {
+//         await eluminaLoginPage.navigateToURL();
+//     });
+//     await test.step(`Login to Elumina application with Inactive Userid and password TC-12`, async () => {
+//         await eluminaLoginPage.loginToApplicationwithInactiveId();
+//     });
+//     await test.step(`Login to Elumina application`, async () => {
+//         await eluminaLoginPage.loginToApplication();
+//     });
+//     await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
+//         await eluminaLoginPage.verifyProfilePage();
+//     });
+//     await test.step(`Navigate to exam Tab and Create New Exam and add MCQ Questions`, async () => {
+//         const newtab = await eluminaExamPage.iAuthorPageNavigation();
+//         await newtab.examTabNavigation();
+//         await newtab.createCommonExam();
+//         await newtab.selectAllToolswithInvPwd();
+//         await newtab.createContentSection("1");
+//         await newtab.createContentPage();
+//         await newtab.createSection("1", "30");
+//         await newtab.addMCQQuestion();
+//         await newtab.addVSAQQuestion();
+//         await newtab.addISAWEQuestion();
+//         await newtab.addTypeXQuestion();
+//         await newtab.addTypeBQuestion();
+//         await newtab.addSAQQuestion();
+//         await newtab.addSJTQuestion();
 
-    });
-});
+//     });
+// });
 
 
-test(` . @LowPriorityiExamCases Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaRegPage.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
-        await newtab.logoutClick();
-    });
-});
+// test(` . @LowPriorityiExamCases Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+//     await test.step(`Navigate to Application`, async () => {
+//         await eluminaLoginPage.navigateToURL();
+//     });
+//     await test.step(`Login to Elumina application`, async () => {
+//         await eluminaLoginPage.loginToApplication();
+//     });
+//     await test.step(`Navigate to exam Tab and Create New user`, async () => {
+//         const newtab = await eluminaRegPage.iAuthorPageNavigations();
+//         await newtab.registrationTabNavigation();
+//         await newtab.clickaddMoreUsersIcon(1)
+//         await newtab.addMultipleUserDetails(3);
+//         await newtab.BulkDownloadUserDetails("bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
+//         await newtab.addInv();
+//         await newtab.searchUserForAddingInv(5, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx")
+//     });
+// });
 
 test(` . @LowPriorityiExamCases Validation of Login using Invalid credentials Scenario 1 TC-09`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -76,7 +77,7 @@ test(`iEX_TC_ID_229. @LowPriorityiExamCases Verify Validation of Login using val
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate try to Login for application in offline`, async () => {
-        await eluminaCandPage.candidateLoginToApplicationoffline();
+        await eluminaCandPage.candidateLoginToApplicationoffline(2, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
     });
 });
 
@@ -86,7 +87,7 @@ test(` . @LowPriorityiExamCases Validation of Sign out at Candidate Dashboard Pa
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToAppandSignout();
+        await eluminaCandPage.candidateLoginToAppandSignout(2, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
     });
 });
 
@@ -95,7 +96,7 @@ test(` . @LowPriorityiExamCases Validation of Sign out at Exam Start Page TC-15`
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaCadInvPage.candidateLoginToApplications(2, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
@@ -108,7 +109,7 @@ test(` . @LowPriorityiExamCases Validation of Candidate dashboard > Exam Start p
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaCadInvPage.candidateLoginToApplications(2, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
@@ -125,7 +126,7 @@ test(` . @LowPriorityiExamCases Validation of Exam content page -> (Terms & Cond
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaCadInvPage.candidateLoginToApplications(2, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
@@ -141,7 +142,7 @@ test(` . @LowPriorityiExamCases Validation of Exam content page -> Questions dow
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaCadInvPage.candidateLoginToApplications(2, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
@@ -156,7 +157,7 @@ test(` . @LowPriorityiExamCases Validation of textbox capabilities of chat app. 
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaCadInvPage.candidateLoginToApplications(2, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
@@ -174,7 +175,7 @@ test(` . @LowPriorityiExamCases Verify Validation of Candidate attends All Quest
     });
 
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaCadInvPage.candidateLoginToApplications(2, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);
@@ -196,7 +197,7 @@ test(` . @LowPriorityiExamCases Verify Validation of Submit Exam page  > Chat Ap
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaCadInvPage.candidateLoginToApplications(2, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);

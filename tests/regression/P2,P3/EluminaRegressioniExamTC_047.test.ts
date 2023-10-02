@@ -8,7 +8,7 @@ test(`iEX_TC_ID_60. @LowPriorityiExamCases Verify candidate adds and saves Notes
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaCadInvPage.candidateLoginToApplications(3, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
@@ -27,7 +27,7 @@ test(` . @LowPriorityiExamCases Candidate while attending exam - Online - try to
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaCadInvPage.candidateLoginToApplications(3, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
@@ -45,7 +45,7 @@ test(` . @LowPriorityiExamCases No other key combinations could cause the candid
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaCadInvPage.candidateLoginToApplications(3, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
@@ -64,7 +64,7 @@ test(` . @LowPriorityiExamCases Validation of Candidate Attending Exam in Online
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaCadInvPage.candidateLoginToApplications(3, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
@@ -83,7 +83,7 @@ test(` . @LowPriorityiExamCases Validation Candidate Login again`, async ({ elum
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaCadInvPage.candidateLoginToApplications(3, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
@@ -100,7 +100,7 @@ test(` . @LowPriorityiExamCases Verify Validation of Review Exam page  > Chat Ap
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaCadInvPage.candidateLoginToApplications(3, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();

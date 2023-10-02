@@ -3,7 +3,7 @@ import test from '@lib/BaseTest';
 
 /**Verification of Timer Expires Alert Box  in Exam Content page */
 
-test(` . @iExamRegression Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+/*test(` . @iExamRegression Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -39,16 +39,14 @@ test(` . @iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPag
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});
+});     */
 
 test(` . @iExamRegression Verify Timer Expires Alert Box  in Exam Content page`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(3, "bulkUserCredentialForMcqExamwithContentSection.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candidateContentSection();

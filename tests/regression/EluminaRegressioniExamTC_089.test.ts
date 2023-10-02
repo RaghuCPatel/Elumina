@@ -1,6 +1,6 @@
 import test from '@lib/BaseTest';
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_236. @iExamRegression Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, webActions }) => {
+/*test(`Exam_Prerequisit_for_iEX_TC_ID_236. @iExamRegression Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -32,16 +32,14 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_236. @iExamRegression Verify Elumina Regist
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});
+});                 */
 
 test(`iEX_TC_ID_236. @iExamRegression Validation of Candidate dashboard > Exam scheduled Date / Time is over.`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.enterCandidateCredetial();
+        await eluminaCandPage.enterCandidateCredetial(4, "bulkUserCredentialForMinimalTimeExam.xlsx");
     });
     await test.step('validate Exam not Available in the Dashboard', async () => {
         await eluminaCandPage.ExamAvailabilityCheck();

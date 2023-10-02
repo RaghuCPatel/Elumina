@@ -12,35 +12,37 @@ let testData = qaTestData;
 if (process.env.ENV == 'dev') {
     testData = devTestData;
 }
-else if(process.env.ENV == 'p7'){
+else if (process.env.ENV == 'p7') {
     testData = p7TestData;
-} 
-else if(process.env.ENV == 'production'){
+}
+else if (process.env.ENV == 'production') {
     testData = productionTestData;
-} 
-else if(process.env.ENV == 'qa'){
+}
+else if (process.env.ENV == 'qa') {
     testData = qaTestData;
-} 
-else if(process.env.ENV == 'sandbox'){
+}
+else if (process.env.ENV == 'sandbox') {
     testData = sandboxTestData;
-} 
-else if(process.env.ENV == 'staging'){
+}
+else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
-} 
+}
 
-/** Validate 'Reset login' for candidate by exam invigilator */
+/** Validation of resuming exam for the candidate by invigilator */
 
-test(` . @iExamRegression Verify Validation of Reset Login`, async ({ eluminaCandPage,webActions }) => {
+test(` . @iExamSerialRegression Verify Validation of Resume Exam`, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
+
     });
 
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCadInvPage.candidateLoginToApplications(2, "bulk_user_details.xlsx");
+
     });
 
-    await test.step('Candidate start the exam',async ()=> {
+    await test.step('Candidate start the exam', async () => {
 
         await eluminaCandPage.examSectionValidation();
 
@@ -55,14 +57,18 @@ test(` . @iExamRegression Verify Validation of Reset Login`, async ({ eluminaCan
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
             await page1.locator('//div[text()="iAuthor"]').click()
-          ]);
+        ]);
 
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
-        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-        await newPage.locator('//a[@class="dropdown-toggle"]').click();
-        await newPage.locator('//p[text()="Reset Login"]').click();
-        await newPage.locator('(//button[text()="Yes"])[1]').click();
+        await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[7]//div').click();
+        await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
+        await newPage.locator('//div[@title="Resume Exam for all Candidates"]').click();
+        await newPage.locator('(//button[text()="Yes"])[2]').click();
+        await newPage.waitForTimeout(5000);
+
         await eluminaCandPage.againCandidateLogin();
-        });
+        console.log("Candidate is able to attend the exam after invigilator resumes the exam")
 
     });
+
+});

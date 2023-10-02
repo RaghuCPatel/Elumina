@@ -369,7 +369,7 @@ export class EluminaMinimalTimeExamPage {
     await this.ClickOnAdd.click();
     await this.EnterNoOfCandidates.click();
     await this.EnterNoOfCandidates.clear();
-    await this.EnterNoOfCandidates.type('01');
+    await this.EnterNoOfCandidates.type('20');
     await this.ClickOnAdd.click();
 
     await this.ClickOnNextBtn.click();

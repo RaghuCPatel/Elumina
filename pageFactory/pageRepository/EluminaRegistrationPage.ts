@@ -102,6 +102,7 @@ export class EluminaRegistrationPage {
     readonly SpecialArrangement: Locator;
     readonly BookingStatus1: Locator;
     readonly SelectBookingStatusExistinguser: Locator;
+    readonly addMoreUsrs: Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -169,6 +170,8 @@ export class EluminaRegistrationPage {
         const examId2: string = String(EluminaMultipleExamsForAMPage.examID);
         this.MenuIconClick = page.locator('//i[@class="menuIcons profileIcon"]');
         this.logoutbuttonClick = page.locator('//a[normalize-space()="Log out"]');
+        this.addMoreUsrs = page.locator('//table[@class="table"]//thead//tr//th[14]//span')
+
 
 
     }
@@ -297,11 +300,19 @@ export class EluminaRegistrationPage {
         await this.page.waitForTimeout(20000);
     }
 
+    async clickaddMoreUsersIcon(addMoreUsers) {
+        for (let i = 1; i <= addMoreUsers; i++) {
+            await this.addMoreUsrs.click()
+            await this.page.waitForTimeout(2000);
+
+        }
+    }
+
     /**Method to Add Multiple User Details */
-    async addMultipleUserDetails(): Promise<void> {
+    async addMultipleUserDetails(addUsers): Promise<void> {
         await this.page.waitForSelector('//table[@class="table"]//tbody//tr', { timeout: 10000 });
         let rowss = await this.page.$$('//table[@class="table"]//tbody//tr');
-        for (let i = 0; i <= 2; i++) {
+        for (let i = 0; i <= addUsers; i++) {
 
             await rowss[i].isVisible()
             await this.EnterClientID.clear();
@@ -333,15 +344,16 @@ export class EluminaRegistrationPage {
             await this.SelectBookingStatus.selectOption('Booked');
             await this.page.waitForTimeout(1000);
             await this.ClickOnSaveBtn.click();
-            await this.page.waitForTimeout(5000);
+            await this.page.waitForTimeout(3000);
         }
         await this.LeftArrow.click();
-        await this.ClickOnDropdown.click();
+        // await this.ClickOnDropdown.click();
 
     }
 
+
     /**Method for Bulk Download the User Details */
-    async BulkDownloadUserDetails(): Promise<void> {
+    async BulkDownloadUserDetails(file): Promise<void> {
         const downloadPromise = this.page.waitForEvent('download');
         await this.bulkDownloadButton.click();
         await this.bulkdownloadbuttonclick.click();
@@ -349,10 +361,10 @@ export class EluminaRegistrationPage {
         // Wait for the download process to complete.
         console.log(await download.path());
         //const suggestedFileName = download.suggestedFilename();
-        const filePath = 'download/' + 'bulk_user_details.xlsx';
+        const filePath = 'download/' + file;
         await download.saveAs(filePath)
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
-        await this.page.waitForTimeout(20000);
+        await this.page.waitForTimeout(15000);
     }
 
     /**Method to Add invigilator to the exam */
@@ -379,6 +391,51 @@ export class EluminaRegistrationPage {
         await this.AssignInvToCand.click();
         await this.ClickOnInvSaveBtn.click();
         await this.page.waitForTimeout(5000);
+    }
+
+    async addInv() {
+        await this.ClickOnAddExistingUser.click();
+        await this.SearchUsers.click();
+        await this.SearchUsers.type(testData.invigilatorName);
+        await this.page.waitForTimeout(6000);
+        await this.CLickOnUser.click();
+        await this.ChooseExistingRole.click();
+        await this.SelectInvRole.click();
+        await this.SelectExVenue.click();
+        await this.SelectInvVenue.click();
+        await this.SelectExEligible.click();
+        await this.SelectInvEligible.click();
+        await this.SelectExBookingStatus.click();
+        await this.SelectInvBookingStatus.click();
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(6000);
+        await this.LeftArrow.click();
+    }
+
+    async searchUserForAddingInv(assignInv, file): Promise<void> {
+        for (let i = 2; i <= assignInv; i++) {
+            const ExcelJS = require('exceljs');
+            const wb = new ExcelJS.Workbook();
+            const fileName = './download/' + file;
+            wb.xlsx.readFile(fileName).then(async () => {
+                let data: any;
+                const ws = wb.getWorksheet('users');
+                console.log(ws.actualRowCount)
+                console.log(ws.getRow(2).getCell(1).value)
+                console.log(ws.getRow(2).getCell(4).value)
+                await this.SearchUsers.click()
+                await this.SearchUsers.clear()
+                await this.SearchUsers.type(ws.getRow(i).getCell(1).value);
+
+            })
+            await this.page.waitForTimeout(3000);
+            await this.ClickOnDropdown.click();
+            await this.ClickOnAssignInv.click();
+            await this.AssignUsersToCand.click();
+            await this.AssignInvToCand.click();
+            await this.ClickOnInvSaveBtn.click();
+            await this.page.waitForTimeout(5000);
+        }
     }
 
     /**Method to Add existing candidate to the exam */

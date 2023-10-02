@@ -343,18 +343,18 @@ export class EluminaCandidatePage {
     }
 
     /**Method to Enter Candidate Credentials and to verify if start exam link is visible */
-    async candidateLoginToApplication(): Promise<void> {
+    async candidateLoginToApplication(row, file): Promise<void> {
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();
-        const fileName = './download/User_details.xlsx';
+        const fileName = './download/' + file;
         wb.xlsx.readFile(fileName).then(async () => {
             let data: any;
-            const ws = wb.getWorksheet('Worksheet');
+            const ws = wb.getWorksheet('users');
             console.log(ws.actualRowCount)
             console.log(ws.getRow(2).getCell(1).value)
             console.log(ws.getRow(2).getCell(4).value)
-            await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
-            await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+            await this.CandidateUsername.fill(ws.getRow(row).getCell(1).value);
+            await this.CandidatePassword.fill(ws.getRow(row).getCell(4).value);
         })
         await this.page.waitForTimeout(5000);
         await this.LOGIN_BUTTON.click();
@@ -364,6 +364,57 @@ export class EluminaCandidatePage {
         }
         await this.ClickOnStartExamBtn.click();
         await this.page.waitForTimeout(5000);
+
+    }
+
+    async getCandidateClockText(): Promise<void> {
+        try {
+            const candidateClockText = await this.page.locator('//div[@class="clock-text"]').textContent();
+            console.log("Candidate Clock Timeing : " + candidateClockText);
+        } catch (error) {
+        }
+    }
+
+    async canddiateRecovery(): Promise<void> {
+        try {
+            await this.ClickOnStartExamBtn.click();
+        } catch (error) {
+        }
+        await this.page.waitForTimeout(10000);
+        // await this.context.setOffline(true);
+        const questioncount = await this.page.$$('//div[@class="question-number"]');
+        for (let index = 0; index < 5; index++) {
+            try {
+                await this.ansMCQQuestions.click();
+                await this.clickonNextBtn.click()
+                // await this.context.setOffline(true);
+                await this.ansMCQQuestions.click();
+                await this.clickonNextBtn.click()
+                await this.ansMCQQuestions.click();
+                await this.clickonNextBtn.click()
+                await this.ansMCQQuestions.click();
+                await this.clickonNextBtn.click()
+                // await this.context.setOffline(false);
+                await this.ansVSAQQuestion.click();
+                await this.ansVSAQQuestion.type(makeid(100));
+                await this.page.waitForTimeout(2000);
+            } catch (error) {
+            }
+            await this.ClickOnRevieweBtn.click();
+            await this.ClickOnSubmitBtn.click();
+            await this.page.waitForTimeout(30000);
+            await this.page.locator('//label[@class="parent-body-container"]').click();
+            await this.page.waitForTimeout(10000);
+            await this.page.keyboard.press('Alt+Shift+q');
+            await this.page.locator('//input[@type="password"]').type("123456");
+            await this.clickOnOk.click();
+            await this.page.locator('//label[contains(text(),"Download Recovery File")]').click();
+            const recoverymessage = await this.page.locator('//div[@class="recover-noresponse-description"]').textContent();
+            if (recoverymessage.startsWith("No recovery file")) {
+                await this.page.screenshot();
+                console.log("No Recovey file message ");
+            }
+        }
 
     }
 
@@ -452,18 +503,18 @@ export class EluminaCandidatePage {
     /**
      * Method to Enter Candidate Credentials and to verify the offline message
      */
-    async candidateLoginToApplicationoffline(): Promise<void> {
+    async candidateLoginToApplicationoffline(row, file): Promise<void> {
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();
-        const fileName = './download/User_details.xlsx';
+        const fileName = './download/' + file;
         wb.xlsx.readFile(fileName).then(async () => {
             let data: any;
-            const ws = wb.getWorksheet('Worksheet');
+            const ws = wb.getWorksheet('users');
             console.log(ws.actualRowCount)
             console.log(ws.getRow(2).getCell(1).value)
             console.log(ws.getRow(2).getCell(4).value)
-            await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
-            await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+            await this.CandidateUsername.fill(ws.getRow(row).getCell(1).value);
+            await this.CandidatePassword.fill(ws.getRow(row).getCell(4).value);
         })
         await this.page.waitForTimeout(5000);
         await this.context.setOffline(true);
@@ -482,18 +533,18 @@ export class EluminaCandidatePage {
     }
 
     /**Method to Enter Candidate Credentials */
-    async candidateLoginToAndValidateDashboard(): Promise<void> {
+    async candidateLoginToAndValidateDashboard(row, file): Promise<void> {
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();
-        const fileName = './download/User_details.xlsx';
+        const fileName = './download/' + file;
         wb.xlsx.readFile(fileName).then(async () => {
             let data: any;
-            const ws = wb.getWorksheet('Worksheet');
+            const ws = wb.getWorksheet('users');
             console.log(ws.actualRowCount)
             console.log(ws.getRow(2).getCell(1).value)
             console.log(ws.getRow(2).getCell(4).value)
-            await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
-            await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+            await this.CandidateUsername.fill(ws.getRow(row).getCell(1).value);
+            await this.CandidatePassword.fill(ws.getRow(row).getCell(4).value);
         })
         await this.page.waitForTimeout(5000);
         await this.LOGIN_BUTTON.click();
@@ -507,18 +558,18 @@ export class EluminaCandidatePage {
     /**
      * Method to Enter Candidate Credentials
      */
-    async enterCandidateCredetial() {
+    async enterCandidateCredetial(row, file) {
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();
-        const fileName = './download/User_details.xlsx';
+        const fileName = './download/' + file;
         wb.xlsx.readFile(fileName).then(async () => {
             let data: any;
-            const ws = wb.getWorksheet('Worksheet');
+            const ws = wb.getWorksheet('users');
             console.log(ws.actualRowCount)
             console.log(ws.getRow(2).getCell(1).value)
             console.log(ws.getRow(2).getCell(4).value)
-            await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
-            await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+            await this.CandidateUsername.fill(ws.getRow(row).getCell(1).value);
+            await this.CandidatePassword.fill(ws.getRow(row).getCell(4).value);
         })
         await this.page.waitForTimeout(5000);
         await this.LOGIN_BUTTON.click();
@@ -528,18 +579,18 @@ export class EluminaCandidatePage {
 
 
     /**Method to Enter Candidate Credentials only*/
-    async enterCandidateCredetialonly() {
+    async enterCandidateCredetialonly(row, file) {
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();
-        const fileName = './download/User_details.xlsx';
+        const fileName = './download/' + file;
         wb.xlsx.readFile(fileName).then(async () => {
             let data: any;
             const ws = wb.getWorksheet('Worksheet');
             console.log(ws.actualRowCount)
             console.log(ws.getRow(2).getCell(1).value)
             console.log(ws.getRow(2).getCell(4).value)
-            await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
-            await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+            await this.CandidateUsername.fill(ws.getRow(row).getCell(1).value);
+            await this.CandidatePassword.fill(ws.getRow(row).getCell(4).value);
         })
         await this.page.waitForTimeout(3000);
     }
@@ -763,18 +814,18 @@ export class EluminaCandidatePage {
     }
 
     /**Method to Enter Candidate Credentials and to verify if start exam link is visible */
-    async candidateLoginToApplicationwithoutclickingLogin(): Promise<void> {
+    async candidateLoginToApplicationwithoutclickingLogin(row, file): Promise<void> {
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();
-        const fileName = './download/User_details.xlsx';
+        const fileName = './download/' + file;
         wb.xlsx.readFile(fileName).then(async () => {
             let data: any;
-            const ws = wb.getWorksheet('Worksheet');
+            const ws = wb.getWorksheet('users');
             console.log(ws.actualRowCount)
             console.log(ws.getRow(2).getCell(1).value)
             console.log(ws.getRow(2).getCell(4).value)
-            await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
-            await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+            await this.CandidateUsername.fill(ws.getRow(row).getCell(1).value);
+            await this.CandidatePassword.fill(ws.getRow(row).getCell(4).value);
         })
         await this.page.waitForTimeout(5000);
     }
@@ -982,6 +1033,11 @@ export class EluminaCandidatePage {
         await this.page.waitForTimeout(2000);
         await this.ansMCQQuestions.click();
         await this.page.waitForTimeout(20000);
+        await this.ClickOnRevieweBtn.click();
+        await this.ClickOnSubmitBtn.click();
+    }
+
+    async candSubmitExam() {
         await this.ClickOnRevieweBtn.click();
         await this.ClickOnSubmitBtn.click();
     }
@@ -1404,18 +1460,18 @@ export class EluminaCandidatePage {
     }
 
     /**Method to signout of the exam after candidate logged in and clicked on start exam */
-    async candidateLoginToAppStartExam(): Promise<void> {
+    async candidateLoginToAppStartExam(row, file): Promise<void> {
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();
-        const fileName = './download/User_details.xlsx';
+        const fileName = './download/' + file;
         wb.xlsx.readFile(fileName).then(async () => {
             let data: any;
-            const ws = wb.getWorksheet('Worksheet');
+            const ws = wb.getWorksheet('users');
             console.log(ws.actualRowCount)
             console.log(ws.getRow(2).getCell(1).value)
             console.log(ws.getRow(2).getCell(4).value)
-            await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
-            await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+            await this.CandidateUsername.fill(ws.getRow(row).getCell(1).value);
+            await this.CandidatePassword.fill(ws.getRow(row).getCell(4).value);
         })
         await this.page.waitForTimeout(5000);
         await this.LOGIN_BUTTON.click();
@@ -1484,18 +1540,18 @@ export class EluminaCandidatePage {
     }
 
     /**Method to signout of the exam after candidate logged in */
-    async candidateLoginToAppandSignout(): Promise<void> {
+    async candidateLoginToAppandSignout(row, file): Promise<void> {
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();
-        const fileName = './download/User_details.xlsx';
+        const fileName = './download/' + file;
         wb.xlsx.readFile(fileName).then(async () => {
             let data: any;
-            const ws = wb.getWorksheet('Worksheet');
+            const ws = wb.getWorksheet('users');
             console.log(ws.actualRowCount)
             console.log(ws.getRow(2).getCell(1).value)
             console.log(ws.getRow(2).getCell(4).value)
-            await this.CandidateUsername.fill(ws.getRow(2).getCell(1).value);
-            await this.CandidatePassword.fill(ws.getRow(2).getCell(4).value);
+            await this.CandidateUsername.fill(ws.getRow(row).getCell(1).value);
+            await this.CandidatePassword.fill(ws.getRow(row).getCell(4).value);
         })
         await this.page.waitForTimeout(5000);
         await this.LOGIN_BUTTON.click();

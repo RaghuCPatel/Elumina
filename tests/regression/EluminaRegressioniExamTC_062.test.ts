@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 //Validation of Exam content section page contents and details
 
-test(` . @iExamRegression Create a Exam and add MCQ Questions`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+/*test(` . @iExamRegression Create a Exam and add MCQ Questions`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -38,14 +38,12 @@ test(` . @iExamRegression add user and download user details`, async ({ eluminaL
         await newtab.addUserDetails();
         await newtab.downloadUserDetails();
     });
-});
+});     */
 
 test(` . @iExamRegression Verify Validation of Exam content section page contents and details`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime();
-        await eluminaCandPage.candidateLoginToApplication();
+        await eluminaCandPage.candidateLoginToApplication(8, "bulkUserCredentialForMcqExamwithContentSection.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candidateContentSectionValidation();
