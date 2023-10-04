@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 }
 /** Validation of Candidate Attending Exam in Online - Offline (Submit Offline and Resume Synch in Online) */
 
-/*test(`Exam_Prerequisit_for_iEX_TC_ID_109. @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_109. @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -68,12 +68,12 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_109. @iExamRegression Verify Elumina Regist
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
-        await newtab.logoutClick();
+        await newtab.addMultipleUserDetails(0);
+        await newtab.BulkDownloadUserDetails("User_details.xlsx");
+        await newtab.addInv();
+        await newtab.searchUserForAddingInv(2, "User_details.xlsx")
     });
-});    */
+});
 
 
 test(`iEX_TC_ID_81. @iExamSerialRegression Validation of Exam Review Exam page. (Offline)`, async ({ eluminaCandPage, webActions }) => {
@@ -83,8 +83,8 @@ test(`iEX_TC_ID_81. @iExamSerialRegression Validation of Exam Review Exam page. 
     });
 
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(4, "bulkUserCredentialForAllTypeQutnExam.xlsx");
-        //await eluminaCandPage.candidateContentSectionVerifications();
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateContentSectionVerifications();
         await eluminaCandPage.candidateStartMCQwithflagforreviewandnotes();
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.setOffline(true);
@@ -102,7 +102,7 @@ test(`iEX_TC_ID_144. @iExamSerialRegression Validation of Check Individual Candi
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(4, "bulkUserCredentialForAllTypeQutnExam.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candidateStartOneMCQ();
@@ -151,7 +151,7 @@ test(`iEX_TC_ID_109. @iExamSerialRegression Validation of Candidate attending Ex
     });
 
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(4, "bulkUserCredentialForAllTypeQutnExam.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.setOffline(true);
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);

@@ -34,7 +34,7 @@ test(` . @iExamSerialRegression Verify Validation of "Pause Exam" from Live moni
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications(2, "bulk_user_details.xlsx");
+        await eluminaCadInvPage.candidateLoginToApplications(2, "User_details.xlsx");
 
 
     });

@@ -82,6 +82,7 @@ test(`iEX_TC_ID_69,iEX_TC_ID_240. @iExamRegression Validation of Exam Section > 
 
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication(3, "bulkUserCredentialForSurveyExam.xlsx");
+        await eluminaCandPage.candidateContentSectionVerifications();
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.clickOnPrevious();
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);
@@ -102,6 +103,7 @@ test(`iEX_TC_ID_79. @iExamRegression Verify Validation of Candidate attends All 
 
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication(4, "bulkUserCredentialForSurveyExam.xlsx");
+        await eluminaCandPage.candidateContentSectionVerifications();
         await eluminaCandPage.setOffline(true);
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);
@@ -121,6 +123,7 @@ test(`iEX_TC_ID_95. @iExamRegression Verify Validation of Candidate attends All 
 
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication(5, "bulkUserCredentialForSurveyExam.xlsx");
+        await eluminaCandPage.candidateContentSectionVerifications();
         await eluminaCandPage.setOffline(true);
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);

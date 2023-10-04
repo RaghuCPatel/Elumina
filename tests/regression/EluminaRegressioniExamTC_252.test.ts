@@ -1,12 +1,12 @@
 import test from '@lib/BaseTest';
 import { chromium, expect } from '@playwright/test';
 
-const devTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/dev/testData.json')));
-const p7TestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/p7/testData.json')));
-const productionTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/production/testData.json')));
-const qaTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/qa/testData.json')));
-const sandboxTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/sandbox/testData.json')));
-const stagingTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/staging/testData.json')));
+const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
+const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
+const productionTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/production/testData.json')));
+const qaTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/qa/testData.json')));
+const sandboxTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/sandbox/testData.json')));
+const stagingTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/staging/testData.json')));
 
 let testData = qaTestData;
 if (process.env.ENV == 'dev') {
@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 }
 
 // /**Validation of Exam Section > Highlighter tool highlights save scenario 2 */
-/*test(` . @LowPriorityiExamCases Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(` . @LowPriorityiExamCases Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -60,11 +60,12 @@ test(` . @LowPriorityiExamCases Verify Elumina RegistrationInv and add User and 
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
-        await newtab.logoutClick();
+        await newtab.addMultipleUserDetails(0);
+        await newtab.BulkDownloadUserDetails("User_details.xlsx");
+        await newtab.addInv();
+        await newtab.searchUserForAddingInv(2, "User_details.xlsx")
     });
-});     */
+});
 
 
 test(` . @iExamSerialRegression Validation of Exam Section > Highlighter tool highlights save scenario 2 `, async ({ eluminaCandPage, webActions }) => {
@@ -72,7 +73,7 @@ test(` . @iExamSerialRegression Validation of Exam Section > Highlighter tool hi
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(6, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.UsingHighlighterForQuestions();
@@ -87,7 +88,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Notes in 
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(6, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.UsingCalculatorForQuestions();
@@ -135,7 +136,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Notes in 
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(6, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.AddingNotesToQuestion();
@@ -183,7 +184,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Highlight
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(6, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.UsingHighlighterForQuestions();
@@ -232,7 +233,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Calculato
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(6, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.AddingNotesToQuestion();
@@ -283,7 +284,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Highlight
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(6, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.AddingNotesToQuestion();
@@ -333,7 +334,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Calculato
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(6, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.UsingCalculatorForQuestions();
@@ -384,7 +385,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Calculato
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(6, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.UsingCalculatorForQuestions();
@@ -436,7 +437,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Flag + Hi
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(6, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.flagForQuestion();
@@ -487,7 +488,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Flag + No
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(6, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.flagForQuestion();
