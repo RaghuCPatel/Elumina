@@ -32,7 +32,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of "Start Exam" (All Candidates)
 
-/*test(` . @iExamRegression Verify Elumina Login and create exam`, async ({ eluminaLoginPage, eluminaExamPage, eluminaProctorExam, webActions }) => {
+test(` . @iExamRegression Verify Elumina Login and create exam`, async ({ eluminaLoginPage, eluminaExamPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -62,18 +62,19 @@ test(` . @iExamRegression Verify Elumina Registration and user and invigilator`,
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
+        await newtab.addMultipleUserDetails(0);
+        await newtab.BulkDownloadUserDetails("User_details.xlsx");
+        await newtab.addInv();
+        await newtab.searchUserForAddingInv(2, "User_details.xlsx")
     });
-});        */
+});
 
 test(` . @iExamSerialRegression Validation of "Start Exam" (All Candidates) `, async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications(2, "bulk_user_details.xlsx");
+        await eluminaCadInvPage.candidateLoginToApplications(2, "User_details.xlsx");
 
     });
     await test.step('Candidate start the exam', async () => {

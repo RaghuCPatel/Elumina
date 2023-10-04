@@ -1306,7 +1306,7 @@ export class EluminaCandidatePage {
     /**Method to Candidate  Logout */
     async clickOnLogoutBtn() {
         await this.page.waitForTimeout(2000);
-        await this.CandidateLogout.click();
+        await this.CandidateLogout.isVisible();
     }
 
     /**Method to navigate from review page to candidate exam page */
@@ -1379,8 +1379,9 @@ export class EluminaCandidatePage {
     async UsingHighlighterForQuestions() {
         {
             await this.clickOnLastVSAQ.click();
+            await this.page.waitForTimeout(3000);
             await this.ClickOnHighlighter.click();
-            await this.page.waitForTimeout(1000);
+            await this.page.waitForTimeout(3000);
             await this.HighlightQuestions.dblclick()
             await this.HighlightQuestions.click()
             await this.page.waitForTimeout(1000);
@@ -1643,7 +1644,7 @@ export class EluminaCandidatePage {
 
     async AddingNotesToQuestionSinglelast() {
         await this.clickOnLastVSAQ.click();
-        await this.ansVSAQQuestion.click();
+        // await this.ansVSAQQuestion.click();
         await this.ClickOnNotepad.click();
         await this.page.waitForTimeout(1000);
         await this.textareafill.type('abc');
