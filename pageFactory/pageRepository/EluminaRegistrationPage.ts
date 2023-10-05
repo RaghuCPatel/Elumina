@@ -103,6 +103,14 @@ export class EluminaRegistrationPage {
     readonly BookingStatus1: Locator;
     readonly SelectBookingStatusExistinguser: Locator;
     readonly addMoreUsrs: Locator;
+    readonly MarkingMenu: Locator;
+    readonly AssignMarkers: Locator;
+    readonly selectAllQuestions: Locator;
+    readonly selectMarker: Locator;
+    readonly arrowClick: Locator;
+    readonly closeButton: Locator;
+    readonly SelectMarkerRole: Locator;
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -144,6 +152,7 @@ export class EluminaRegistrationPage {
         this.ChooseExistingRole = page.locator('//div[@class="btn-selected-list"]//div//ul');
 
         this.SelectInvRole = page.locator('//span[normalize-space()="Invigilator"]');
+        this.SelectMarkerRole = page.locator('(//span[normalize-space()="Marker"])[1]');
 
         this.SelectExVenue = page.locator('//input[@placeholder="Select Venue"]');
         this.SelectInvVenue = page.locator('//span[text()="Elumina Chennai"]');
@@ -170,9 +179,13 @@ export class EluminaRegistrationPage {
         const examId2: string = String(EluminaMultipleExamsForAMPage.examID);
         this.MenuIconClick = page.locator('//i[@class="menuIcons profileIcon"]');
         this.logoutbuttonClick = page.locator('//a[normalize-space()="Log out"]');
-        this.addMoreUsrs = page.locator('//table[@class="table"]//thead//tr//th[14]//span')
-
-
+        this.addMoreUsrs = page.locator('//table[@class="table"]//thead//tr//th[14]//span');
+        this.MarkingMenu = page.locator('//a[text()="Marking"]');
+        this.AssignMarkers = page.locator('(//p[text()="Assign Markers"])[1]');
+        this.selectAllQuestions = page.locator('//option[text()="All Questions"]');
+        this.selectMarker = page.locator('//option[text()="Igs Marker"]');
+        this.arrowClick = page.locator('(//div[@class="hideClass"])[1]');
+        this.closeButton = page.locator('//button[text()="Close"]');
 
     }
 
@@ -578,5 +591,56 @@ export class EluminaRegistrationPage {
         await this.LeftArrow.click();
         await this.ClickOnDropdown.click();
         await this.page.waitForTimeout(5000);
+    }
+
+    async addMarker() {
+        await this.ClickOnAddExistingUser.click();
+        await this.SearchUsers.click();
+        await this.SearchUsers.type(testData.MarkerUsername);
+        await this.page.waitForTimeout(6000);
+        await this.CLickOnUser.click();
+        await this.ChooseExistingRole.click();
+        await this.SelectMarkerRole.click();
+        await this.SelectExVenue.click();
+        await this.SelectInvVenue.click();
+        await this.SelectExEligible.click();
+        await this.SelectInvEligible.click();
+        await this.SelectExBookingStatus.click();
+        await this.SelectInvBookingStatus.click();
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(6000);
+        await this.LeftArrow.click();
+    }
+
+    async searchCandidateforMarker(): Promise<void> {
+        await this.MarkingMenu.click();
+
+        for (let i = 2; i <= 4; i++) {
+            const ExcelJS = require('exceljs');
+            const wb = new ExcelJS.Workbook();
+            const fileName = './download/bulk_user_details.xlsx';
+            //const fileName = './User_details (30).xlsx';
+            wb.xlsx.readFile(fileName).then(async () => {
+                let data: any;
+                const ws = wb.getWorksheet('users');
+                console.log(ws.actualRowCount)
+                console.log(ws.getRow(2).getCell(1).value)
+                console.log(ws.getRow(2).getCell(4).value)
+                await this.SearchUsers.click();
+                await this.SearchUsers.clear();
+                await this.SearchUsers.type(ws.getRow(i).getCell(1).value)
+            })
+            await this.page.waitForTimeout(7000);
+            await this.ClickOnDropdown.click();
+            await this.AssignMarkers.click();
+            await this.selectAllQuestions.click();
+            await this.selectMarker.click();
+            await this.arrowClick.click();
+            await this.closeButton.click();
+            // await this.AssignUsersToCand.click();
+            // await this.AssignInvToCand.click();
+            await this.LeftArrow.click();
+            await this.page.waitForTimeout(5000);
+        }
     }
 }

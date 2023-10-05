@@ -8,9 +8,9 @@
     "dbPort": null,
     "dbName": "",
     "cadidateURL": "https://sandboxcandidate.assessapp.com.au/",
-    "invigilatorUsername": "pogabi4464@quipas.com",
-    "invigilatorPassword": "MrU77#%FEd",
-    "invigilatorName": "IGS Invigilator Two",
+    "iProctorinvigilatorUsername": "fojimi4388@inkiny.com",
+    "iProctorinvigilatorPassword": "M3vX!xDnym",
+    "iProctorinvigilatorName": "IGS Invgilator One",
     "TestBank1": "Elumina - Test Bank",
     "TestBank2": "Practice Bank",
     "TestBank3": "Test May 2023",
@@ -72,5 +72,7 @@
     "TType": "Type",
     "QuestionAims": "The inability to use or understand spoken or written language because of a brain lesion is known as?",
     "examRecoveryPwd": "123456",
-    "Note": "All the best for the exam"
+    "Note": "All the best for the exam",
+    "MarkerUsername": "markertestigs@yopmail.com",
+    "MarkerPassword": "B6P5dr#&"
 }

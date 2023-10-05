@@ -4,12 +4,12 @@ import { EluminaLoginPage } from '@pages/EluminaLoginPage';
 import { EluminaRegistrationPage } from '@pages/EluminaRegistrationPage';
 import { chromium, expect } from '@playwright/test';
 
-const devTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/dev/testData.json')));
-const p7TestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/p7/testData.json')));
-const productionTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/production/testData.json')));
-const qaTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/qa/testData.json')));
-const sandboxTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/sandbox/testData.json')));
-const stagingTestData = JSON.parse(JSON.stringify(require('../../../enviroment-variables/staging/testData.json')));
+const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
+const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
+const productionTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/production/testData.json')));
+const qaTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/qa/testData.json')));
+const sandboxTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/sandbox/testData.json')));
+const stagingTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/staging/testData.json')));
 
 let testData = qaTestData;
 if (process.env.ENV == 'dev') {

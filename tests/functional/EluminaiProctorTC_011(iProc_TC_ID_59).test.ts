@@ -36,7 +36,7 @@ test(`iProc_TC_ID_59. @iProctorlink Verify Validation of "Lock Exam" from Live m
         await eluminaProctorCand.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplications(2);
 
 
     });
@@ -49,8 +49,8 @@ test(`iProc_TC_ID_59. @iProctorlink Verify Validation of "Lock Exam" from Live m
         const page1 = await context1.newPage();
         await page1.goto('/');
         await page1.waitForLoadState();
-        await page1.locator('(//input)[1]').type(testData.invigilatorUsername);
-        await page1.locator('(//input)[2]').type(testData.invigilatorPassword);
+        await page1.locator('(//input)[1]').type(testData.iProctorinvigilatorUsername);
+        await page1.locator('(//input)[2]').type(testData.iProctorinvigilatorPassword);
         await page1.locator('//*[@class="submit-butn"]').click();
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),
