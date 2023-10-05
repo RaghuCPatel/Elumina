@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:single": "npx playwright test EluminaRegressioniAuthorTC_177.test.ts --project=Chrome",
+    "test:single": "npx playwright test EluminaRegressioniExamTC_241.test.ts --project=Chrome",
     "test:elumina": "npx playwright test Elumina.test.ts --project=Chrome",
-    "test:parallel": "npx playwright test --grep @Smoke --project=Chrome",
-    "test:serial": "npx playwright test --grep \"@iProctorRegression|@LowPriorityiProctorCases\" --workers=1 --project=Chrome",
+    "test:parallel": "npx playwright test --grep \"@iExamRegression|@LowPriorityiExamCases\" --project=Chrome",
+    "test:serial": "npx playwright test --grep @iExamSerialRegression --workers=1 --project=Chrome",
     "test:ui": "npx playwright test --grep @Smoke --ui",
     "test:api": "npx playwright test --grep @API --workers=1 --project=Chrome",
     "test:db": "npx playwright test DB.test.ts --project=DB",
@@ -42,6 +42,6 @@
     "winston": "^3.8.2"
   },
   "devDependencies": {
-    "@playwright/test": "^1.34.3"
+    "@playwright/test": "^1.38.1"
   }
 }
