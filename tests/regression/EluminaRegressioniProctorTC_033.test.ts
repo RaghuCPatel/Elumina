@@ -43,8 +43,8 @@ test(` iProc_TC_ID_32. @iProctorRegression Validation of Calculator`, async ({ e
         const page1 = await context1.newPage();
         await page1.goto('/');
         await page1.waitForLoadState();
-        await page1.locator('(//input)[1]').type(testData.invigilatorUsername);
-        await page1.locator('(//input)[2]').type(testData.invigilatorPassword);
+        await page1.locator('(//input)[1]').type(testData.iProctorinvigilatorUsername);
+        await page1.locator('(//input)[2]').type(testData.iProctorinvigilatorPassword);
         await page1.locator('//*[@class="submit-butn"]').click();
 
         const [newPage] = await Promise.all([
@@ -88,8 +88,8 @@ test(` iProc_TC_ID_43. @iProctorRegression Validation of  Cloud indication -  (S
         const page1 = await context1.newPage();
         await page1.goto('/');
         await page1.waitForLoadState();
-        await page1.locator('(//input)[1]').type(testData.invigilatorUsername);
-        await page1.locator('(//input)[2]').type(testData.invigilatorPassword);
+        await page1.locator('(//input)[1]').type(testData.iProctorinvigilatorUsername);
+        await page1.locator('(//input)[2]').type(testData.iProctorinvigilatorPassword);
         await page1.locator('//*[@class="submit-butn"]').click();
 
         const [newPage] = await Promise.all([
@@ -132,8 +132,8 @@ test(` iProc_TC_ID_52. @iProctorRegression Verify Validation of adding notes in 
         const page1 = await context1.newPage();
         await page1.goto('/');
         await page1.waitForLoadState();
-        await page1.locator('(//input)[1]').type(testData.invigilatorUsername);
-        await page1.locator('(//input)[2]').type(testData.invigilatorPassword);
+        await page1.locator('(//input)[1]').type(testData.iProctorinvigilatorUsername);
+        await page1.locator('(//input)[2]').type(testData.iProctorinvigilatorPassword);
         await page1.locator('//*[@class="submit-butn"]').click();
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),

@@ -70,7 +70,7 @@ test(`Reg_Prerequisit_ID_01A. @iProctorlink Verify Elumina Registration`, async 
 test(`iProc_TC_ID_40. @iProctorlink Verify Elumina Invigilator Dashboard`, async ({ eluminaProctorCand, eluminaCandPage, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplications(2);
         await eluminaCandPage.waitforTime3();
     });
     await test.step('Invigilator  logging into Application', async () => {
@@ -81,8 +81,8 @@ test(`iProc_TC_ID_40. @iProctorlink Verify Elumina Invigilator Dashboard`, async
         const page1 = await context1.newPage();
         await page1.goto('/');
         await page1.waitForLoadState();
-        await page1.locator('(//input)[1]').type(testData.invigilatorUsername);
-        await page1.locator('(//input)[2]').type(testData.invigilatorPassword);
+        await page1.locator('(//input)[1]').type(testData.iProctorinvigilatorUsername);
+        await page1.locator('(//input)[2]').type(testData.iProctorinvigilatorPassword);
         await page1.locator('//*[@class="submit-butn"]').click();
         const [newPage] = await Promise.all([
             context1.waitForEvent('page'),

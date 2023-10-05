@@ -44,8 +44,8 @@ test(` iProc_TC_ID_27. @iProctorRegression Validation of "Flag for Review" optio
         const page1 = await context1.newPage();
         await page1.goto('/');
         await page1.waitForLoadState();
-        await page1.locator('(//input)[1]').type(testData.invigilatorUsername);
-        await page1.locator('(//input)[2]').type(testData.invigilatorPassword);
+        await page1.locator('(//input)[1]').type(testData.iProctorinvigilatorUsername);
+        await page1.locator('(//input)[2]').type(testData.iProctorinvigilatorPassword);
         await page1.locator('//*[@class="submit-butn"]').click();
 
         const [newPage] = await Promise.all([

@@ -557,7 +557,4 @@ export class EluminaProctorCandidatePage {
         await this.page.waitForTimeout(5000);
         await this.LOGIN_BUTTON.click();
     }
-
-
-
 }

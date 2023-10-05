@@ -244,6 +244,46 @@ export class EluminaCreateQuestionsPage {
     readonly confirmationPopUp: Locator;
     readonly ClickOnNoBtn: Locator;
     readonly ClickOnBackArrowBtn: Locator;
+    readonly DeliveryMenu: Locator;
+    readonly IDMenu: Locator;
+    readonly ExamName: Locator;
+    readonly Bank: Locator;
+    readonly DelExamStartDate: Locator;
+    readonly DelExamEndDate: Locator;
+    readonly createdDate: Locator;
+    readonly sortButtonClick: Locator;
+    readonly sortButtonDownClick: Locator;
+    readonly addFilter: Locator;
+    readonly selectStatusFilter: Locator;
+    readonly selectApproved: Locator;
+    readonly tickIcon: Locator;
+    readonly clearAll: Locator;
+    readonly clickfilter: Locator;
+    readonly statusClick: Locator;
+    readonly dropdownclick: Locator;
+    readonly examNamecheckbox: Locator;
+    readonly TotalCount: Locator;
+    readonly pageNumber: Locator;
+    readonly moreOption: Locator;
+    readonly downloadExam: Locator;
+    readonly ErrorMessage: Locator;
+    readonly examClick: Locator;
+    readonly manageDeliveryId: Locator;
+    readonly manageDeliveryName: Locator;
+    readonly manageDeliveryStartDate: Locator;
+    readonly manageDeliveryEndDate: Locator;
+    readonly manageDeliveryStatus: Locator;
+    readonly manageDeliveryworkflowStatus: Locator;
+    readonly manageDeliveryFullScreen: Locator;
+    readonly moreButtonClick: Locator;
+    readonly bulkdownloadbuttonclick: Locator;
+    readonly DeleteUsers: Locator;
+    readonly DownloadUserDetails: Locator;
+    readonly GenerateTempId: Locator;
+    readonly AssignVenue: Locator;
+    readonly MarkerReportDownload: Locator;
+    readonly examMoreOptionsClick: Locator;
+    readonly manageDeliveryoption: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -457,8 +497,47 @@ export class EluminaCreateQuestionsPage {
         this.ClickOnCancelBtn = page.locator('//button[@class="theme-btn theme-default-btn"]')
         this.confirmationPopUp = page.locator('//div[normalize-space()="Are you sure you want to discard your changes?"]')
         this.ClickOnNoBtn = page.locator('//div[@class="modal-dialog cancel-confirmation"]//button[normalize-space()="No"]')
-        this.ClickOnBackArrowBtn = page.locator('//i[@class="iconBg leftArrow"]')
-
+        this.ClickOnBackArrowBtn = page.locator('//i[@class="iconBg leftArrow"]');
+        this.DeliveryMenu = page.locator('//a[text()="Delivery"]');
+        this.IDMenu = page.locator('//table[@class="table"]//thead//tr//th[2]');
+        this.ExamName = page.locator('//table[@class="table"]//thead//tr//th[3]');
+        this.Bank = page.locator('//table[@class="table"]//thead//tr//th[4]');
+        this.DelExamStartDate = page.locator('//table[@class="table"]//thead//tr//th[5]');
+        this.DelExamEndDate = page.locator('//table[@class="table"]//thead//tr//th[6]');
+        this.createdDate = page.locator('//table[@class="table"]//thead//tr//th[7]');
+        this.sortButtonClick = page.locator('(//span[@class="etspinbtn up"])[1]');
+        this.sortButtonDownClick = page.locator('(//span[@class="etspinbtn down"])[1]');
+        this.addFilter = page.locator('//button[@class="add-filter-button"]');
+        this.clickfilter = page.locator('//select[@class="theme-dropdown ng-valid ng-dirty ng-touched"]');
+        this.selectStatusFilter = page.locator('//option[normalize-space()="Status"]');
+        this.selectApproved = page.locator('//option[normalize-space()="Approved"]');
+        this.tickIcon = page.locator('//i[@class="tick-icon"]');
+        this.clearAll = page.locator('//button[text()="Clear All"]');
+        this.statusClick = page.locator('(//select[@class="theme-dropdown ng-untouched ng-pristine ng-valid"])[3]');
+        this.dropdownclick = page.locator('//table[@class="table"]//thead//tr//th[1]');
+        this.examNamecheckbox = page.locator('(//input[@type="checkbox"])[2]');
+        this.TotalCount = page.locator('//div[@class="tablefooter-left"]');
+        this.pageNumber = page.locator('//span[text()="2"]');
+        this.moreOption = page.locator('//table[@class="table"]//tbody//tr[1]//td[1]');
+        this.downloadExam = page.locator('(//p[text()="Download Exam"])[1]');
+        this.ErrorMessage = page.locator('//p[text()="No records found!"]');
+        this.examClick = page.locator('//table[@class="table"]//tbody//tr[1]//td[3]');
+        this.manageDeliveryId = page.locator('(//div[@class="userInfo userInfo__lable"])[1]');
+        this.manageDeliveryName = page.locator('(//div[@class="userInfo userInfo__lable"])[2]');
+        this.manageDeliveryStartDate = page.locator('(//div[@class="userInfo userInfo__lable"])[3]');
+        this.manageDeliveryEndDate = page.locator('(//div[@class="userInfo userInfo__lable"])[4]');
+        this.manageDeliveryStatus = page.locator('(//div[@class="userInfo userInfo__lable"])[5]');
+        this.manageDeliveryworkflowStatus = page.locator('(//div[@class="userInfo userInfo__lable"])[6]');
+        this.manageDeliveryFullScreen = page.locator('(//div[@class="userInfo userInfo__lable"])[7]');
+        this.moreButtonClick = page.locator('//button[normalize-space()="..."]');
+        this.bulkdownloadbuttonclick = page.locator('//a[text()="Bulk Download User Details"]');
+        this.DeleteUsers = page.locator('//a[text()="Delete Users"]');
+        this.DownloadUserDetails = page.locator('//a[text()="Download User details"]');
+        this.GenerateTempId = page.locator('//a[text()="Generate Temp ID"]');
+        this.AssignVenue = page.locator('//a[text()="Assign Venue And Booking Status"]');
+        this.MarkerReportDownload = page.locator('//a[text()="Markers Report Download"]');
+        this.examMoreOptionsClick = page.locator('//table[@class="table"]//tbody//tr[1]//td[1]');
+        this.manageDeliveryoption = page.locator('(//p[text()="Manage Deliveries"])[1]');
 
     }
 
@@ -472,6 +551,101 @@ export class EluminaCreateQuestionsPage {
         return new exports.EluminaCreateQuestionsPage(newPage);
     }
 
+    /**Method to click on Delivery Menu */
+    async deliveryMenuClick() {
+        await this.DeliveryMenu.click();
+        await this.page.waitForTimeout(3000);
+    }
+
+    /**Method to validate delivery tab */
+    async validationDelivery() {
+        await this.IDMenu.isVisible();
+        console.log(await this.IDMenu.textContent());
+        await this.ExamName.isVisible();
+        console.log(await this.ExamName.textContent());
+        await this.Bank.isVisible();
+        console.log(await this.Bank.textContent());
+        await this.DelExamStartDate.isVisible();
+        console.log(await this.DelExamStartDate.textContent());
+        await this.DelExamEndDate.isVisible();
+        console.log(await this.DelExamEndDate.textContent());
+        await this.createdDate.isVisible();
+        console.log(await this.createdDate.textContent());
+        await this.sortButtonClick.isVisible();
+        await this.sortButtonClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.sortButtonDownClick.isVisible();
+        await this.sortButtonDownClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.dropdownclick.click();
+        await this.examNamecheckbox.click();
+        await this.page.waitForTimeout(3000);
+        await this.examNamecheckbox.click();
+        await this.page.waitForTimeout(3000);
+        await this.TotalCount.isVisible();
+        console.log(await this.TotalCount.textContent());
+        await this.moreOption.click();
+        await this.downloadExam.click();
+        await this.page.waitForTimeout(3000);
+        await this.pageNumber.click();
+    }
+
+    /**Method to check search exam negative scenerio */
+    async searchExamNegativeScenerio() {
+        await this.SearchDraftExams.type('ABC10');
+        console.log(await this.ErrorMessage.textContent());
+        await expect(this.ErrorMessage).toHaveText("No records found!");
+        await this.page.waitForTimeout(3000);
+    }
+
+    /**method to click on exam link */
+    async examLinkClick() {
+        await this.examClick.click();
+        await this.page.waitForTimeout(3000);
+    }
+
+    /**Method to click on more options in exam link */
+    async moreOptionsClickinExam() {
+        await this.page.waitForTimeout(3000);
+        await this.examMoreOptionsClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.manageDeliveryoption.click();
+    }
+
+    /**method to manage delivery */
+    async manageDeliveries() {
+        await this.manageDeliveryId.isVisible();
+        console.log(await this.manageDeliveryId.textContent());
+        await this.manageDeliveryName.isVisible();
+        console.log(await this.manageDeliveryName.textContent());
+        await this.manageDeliveryStartDate.isVisible();
+        console.log(await this.manageDeliveryStartDate.textContent());
+        await this.manageDeliveryEndDate.isVisible();
+        console.log(await this.manageDeliveryEndDate.textContent());
+        await this.manageDeliveryStatus.isVisible();
+        console.log(await this.manageDeliveryStatus.textContent());
+        await this.manageDeliveryworkflowStatus.isVisible();
+        console.log(await this.manageDeliveryworkflowStatus.textContent());
+        await this.manageDeliveryFullScreen.isVisible();
+        console.log(await this.manageDeliveryFullScreen.textContent());
+
+        await this.moreButtonClick.click();
+        await this.bulkdownloadbuttonclick.isVisible();
+        console.log(await this.bulkdownloadbuttonclick.textContent());
+        await this.DeleteUsers.isVisible();
+        console.log(await this.DeleteUsers.textContent());
+        await this.DownloadUserDetails.isVisible();
+        console.log(await this.DownloadUserDetails.textContent());
+        await this.GenerateTempId.isVisible();
+        console.log(await this.GenerateTempId.textContent());
+        await this.AssignVenue.isVisible();
+        console.log(await this.AssignVenue.textContent());
+        await this.MarkerReportDownload.isVisible();
+        console.log(await this.MarkerReportDownload.textContent());
+
+
+
+    }
 
     async clickOnDraft() {
         await this.SearchDraftQuestions.click();
