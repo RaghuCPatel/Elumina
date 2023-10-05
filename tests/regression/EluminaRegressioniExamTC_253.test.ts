@@ -30,41 +30,42 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of candidate response using Image Viewer in exam*/
 
-// test(` . @LowPriorityiExamCases Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
-//     await test.step(`Navigate to Application`, async () => {
-//         await eluminaLoginPage.navigateToURL();
-//     });
-//     await test.step(`Login to Elumina application`, async () => {
-//         await eluminaLoginPage.loginToApplication();
-//     });
-//     await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
-//         await eluminaLoginPage.verifyProfilePage();
-//     });
-//     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-//         const newtab = await eluminaExamPage.iAuthorPageNavigation();
-//         await newtab.examTabNavigation();
-//         await newtab.createCommonExamWithViewer();
-//         await newtab.clickonNextBtnInExam();
-//         await newtab.createSection("1", "30");
-//         await newtab.addVSAQQuestions();
-//     });
-// });
+test(` . @LowPriorityiExamCases Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Elumina application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
+        await eluminaLoginPage.verifyProfilePage();
+    });
+    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
+        const newtab = await eluminaExamPage.iAuthorPageNavigation();
+        await newtab.examTabNavigation();
+        await newtab.createCommonExamWithViewer();
+        await newtab.clickonNextBtnInExam();
+        await newtab.createSection("1", "30");
+        await newtab.addVSAQQuestions();
+    });
+});
 
-// test(` . @LowPriorityiExamCases Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
-//     await test.step(`Navigate to Application`, async () => {
-//         await eluminaLoginPage.navigateToURL();
-//     });
-//     await test.step(`Login to Elumina application`, async () => {
-//         await eluminaLoginPage.loginToApplication();
-//     });
-//     await test.step(`Navigate to exam Tab and Create New user`, async () => {
-//         const newtab = await eluminaRegPage.iAuthorPageNavigations();
-//         await newtab.registrationTabNavigation();
-//         await newtab.addUserDetails();
-//         await newtab.BulkDownloadUserDetails("bulkUserCredentialForImageViewerLowPriExam.xlsx");
-//         await newtab.logoutClick();
-//     });
-// });
+test(` . @LowPriorityiExamCases Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Elumina application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Navigate to exam Tab and Create New user`, async () => {
+        const newtab = await eluminaRegPage.iAuthorPageNavigations();
+        await newtab.registrationTabNavigation();
+        await newtab.addMultipleUserDetails(0);
+        await newtab.BulkDownloadUserDetails("User_details.xlsx");
+        await newtab.addInv();
+        await newtab.searchUserForAddingInv(2, "User_details.xlsx")
+    });
+});
 
 test(` . @iExamSerialRegression Verify Validation of candidate response using Image Viewer in exam`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -72,7 +73,7 @@ test(` . @iExamSerialRegression Verify Validation of candidate response using Im
         await eluminaCandPage.waitforTime();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "bulkUserCredentialForImageViewerLowPriExam.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
         await eluminaCandPage.candidateStartOneVSAQwithViewer();
         const browser = await chromium.launch();
         const context1 = await browser.newContext();

@@ -62,7 +62,7 @@ test(` . @iExamRegression Validation of candidate able to submit the exam when n
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(3, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(22, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.NotAnsweringQuestion();

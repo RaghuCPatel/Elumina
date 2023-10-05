@@ -48,14 +48,17 @@ test(` . @iExamRegression Verify Validation of Survey screen and Validate Survey
 
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(3, "bulkUserCredentialForSurveyExam.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(6, "bulkUserCredentialForSurveyExam.xlsx");
+        await eluminaCandPage.candidateContentSectionVerifications();
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
+        await eluminaCandPage.waitforTime()
         await eluminaCandPage.candidateStartSAQ(100);
         await eluminaCandPage.candidateStartSJTAns();
+        await eluminaCandPage.waitforTime()
         await eluminaCandPage.candSubmitExam();
         await eluminaCandPage.examSectionValidation();
         await eluminaCandPage.candidateAnsSurveyQuestion();

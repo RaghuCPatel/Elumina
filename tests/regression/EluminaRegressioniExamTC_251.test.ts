@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 }
 /** Validation of exam paused for Candidate & Validation of exam extended for Candidate  */
 
-/*test(`Exam_Prerequisit_for_iEX_TC_ID_137. @iExamRegression  Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_137. @iExamRegression  Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -66,19 +66,19 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_137. @iExamRegression  Verify Elumina Regis
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.addMultipleUserDetails();
-        await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
-        await newtab.logoutClick();
+        await newtab.addMultipleUserDetails(0);
+        await newtab.BulkDownloadUserDetails("User_details.xlsx");
+        await newtab.addInv();
+        await newtab.searchUserForAddingInv(2, "User_details.xlsx")
     });
-});    */
+});
 
 test(`iEX_TC_ID_150. @iExamSerialRegression  Validation of Exam Invigilator Live monitor (View Response based on candidate) Negative scenario `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(8, "bulkUserCredentialForAllTypeQutnExam.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candidateStartOneMCQ();
@@ -116,7 +116,7 @@ test(`iEX_TC_ID_137. @iExamSerialRegression  Validation of Exam Invigilator Live
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(8, "bulkUserCredentialForAllTypeQutnExam.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candidateStartMCQ();
@@ -152,7 +152,7 @@ test(`iEX_TC_ID_137. @iExamSerialRegression  Validation of Exam Invigilator Live
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToAndValidateDashboard(8, "bulkUserCredentialForAllTypeQutnExam.xlsx");
+        await eluminaCandPage.candidateLoginToAndValidateDashboard(2, "User_details.xlsx");
         await eluminaCadInvPage.terminateCandidateValidation();
         await eluminaCandPage.waitforTime4();
     });

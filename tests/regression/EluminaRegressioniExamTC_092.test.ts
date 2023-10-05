@@ -79,7 +79,8 @@ test(`iEX_TC_ID_92. @iExamRegression Survey section > Flag for review.`, async (
 
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(5, "bulkUserCredentialForSurveyExam.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(8, "bulkUserCredentialForSurveyExam.xlsx");
+        await eluminaCandPage.candidateContentSectionVerifications();
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();

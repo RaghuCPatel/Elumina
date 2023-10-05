@@ -79,7 +79,8 @@ test(`iEX_TC_ID_93. @iExamRegression Validation of Survey section > Before Exam 
 
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(6, "bulkUserCredentialForSurveyExam.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(9, "bulkUserCredentialForSurveyExam.xlsx");
+        await eluminaCandPage.candidateContentSectionVerifications();
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.candidateAttendsAllQVSAQ(100);
         await eluminaCandPage.candidateStartISAWE();

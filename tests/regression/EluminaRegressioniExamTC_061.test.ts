@@ -50,7 +50,7 @@ test(`iEX_TC_ID_242,243,61. @iExamRegression Verify Validation of Candidate atte
 
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(3, "bulkUserCredentialForAllTypeQutnExam.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(7, "bulkUserCredentialForAllTypeQutnExam.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candidateStartOneMCQ();

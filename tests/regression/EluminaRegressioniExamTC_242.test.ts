@@ -28,7 +28,7 @@ else if (process.env.ENV == 'staging') {
 }
 
 //Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)
-/*test(` . @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(` . @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -58,11 +58,12 @@ test(` . @iExamRegression Verify Elumina RegistrationInv and add User and Invigi
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
+        await newtab.addMultipleUserDetails(0);
+        await newtab.BulkDownloadUserDetails("User_details.xlsx");
+        await newtab.addInv();
+        await newtab.searchUserForAddingInv(2, "User_details.xlsx")
     });
-});      */
+});
 
 test(` . @iExamSerialRegression Verify Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)`, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
@@ -70,8 +71,8 @@ test(` . @iExamSerialRegression Verify Validation of Invigilator Dashboard after
 
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(12, "bulkUserCredentialForMcqExamwithContentSection.xlsx");
-        await eluminaCandPage.candidateContentSection();
+        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        //await eluminaCandPage.candidateContentSection();
 
     });
     await test.step('Candidate start the exam', async () => {
