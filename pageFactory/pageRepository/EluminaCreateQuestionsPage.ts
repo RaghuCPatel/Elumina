@@ -284,6 +284,15 @@ export class EluminaCreateQuestionsPage {
     readonly MarkerReportDownload: Locator;
     readonly examMoreOptionsClick: Locator;
     readonly manageDeliveryoption: Locator;
+    readonly validateCandIdheader: Locator;
+    readonly validateCandUploadImageheader: Locator;
+    readonly validateCandClientIdheader: Locator;
+    readonly validateCandCandidateIdheader: Locator;
+    readonly validateCandName: Locator;
+    readonly validateCandRoleheader: Locator;
+    readonly validateCandStatusheader: Locator;
+    readonly validateCandEligibleheader: Locator;
+    readonly validateCandInviheader: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -539,6 +548,15 @@ export class EluminaCreateQuestionsPage {
         this.examMoreOptionsClick = page.locator('//table[@class="table"]//tbody//tr[1]//td[1]');
         this.manageDeliveryoption = page.locator('(//p[text()="Manage Deliveries"])[1]');
 
+        this.validateCandIdheader = page.locator('//table[@class="table"]//thead//tr//th[3]');
+        this.validateCandUploadImageheader = page.locator('//table[@class="table"]//thead//tr//th[4]');
+        this.validateCandClientIdheader = page.locator('//table[@class="table"]//thead//tr//th[5]');
+        this.validateCandCandidateIdheader = page.locator('//table[@class="table"]//thead//tr//th[6]');
+        this.validateCandName = page.locator('//table[@class="table"]//thead//tr//th[7]');
+        this.validateCandRoleheader = page.locator('//table[@class="table"]//thead//tr//th[8]');
+        this.validateCandStatusheader = page.locator('//table[@class="table"]//thead//tr//th[9]');
+        this.validateCandEligibleheader = page.locator('//table[@class="table"]//thead//tr//th[10]');
+        this.validateCandInviheader = page.locator('//table[@class="table"]//thead//tr//th[11]');
     }
 
     /**Method for Page Navigation */
@@ -612,7 +630,7 @@ export class EluminaCreateQuestionsPage {
         await this.manageDeliveryoption.click();
     }
 
-    /**method to manage delivery */
+    /**method to validate manage delivery */
     async manageDeliveries() {
         await this.manageDeliveryId.isVisible();
         console.log(await this.manageDeliveryId.textContent());
@@ -628,7 +646,10 @@ export class EluminaCreateQuestionsPage {
         console.log(await this.manageDeliveryworkflowStatus.textContent());
         await this.manageDeliveryFullScreen.isVisible();
         console.log(await this.manageDeliveryFullScreen.textContent());
+    }
 
+    /**Method to validate on more option in manage delivery page */
+    async moreOptionValidation() {
         await this.moreButtonClick.click();
         await this.bulkdownloadbuttonclick.isVisible();
         console.log(await this.bulkdownloadbuttonclick.textContent());
@@ -642,9 +663,28 @@ export class EluminaCreateQuestionsPage {
         console.log(await this.AssignVenue.textContent());
         await this.MarkerReportDownload.isVisible();
         console.log(await this.MarkerReportDownload.textContent());
+    }
 
-
-
+    /**Method to validateCandidatedashboradinManageDelivery */
+    async validateCandidatedashboradinManageDelivery() {
+        await this.validateCandIdheader.isVisible();
+        await expect(this.validateCandIdheader).toHaveText("ID");
+        await this.validateCandUploadImageheader.isVisible();
+        await expect(this.validateCandUploadImageheader).toHaveText("UPLOAD IMAGE");
+        await this.validateCandClientIdheader.isVisible();
+        await expect(this.validateCandClientIdheader).toHaveText("CLIENT ID");
+        await this.validateCandCandidateIdheader.isVisible();
+        await expect(this.validateCandCandidateIdheader).toHaveText("CANDIDATE ID");
+        await this.validateCandName.isVisible();
+        await expect(this.validateCandName).toHaveText("NAME");
+        await this.validateCandRoleheader.isVisible();
+        await expect(this.validateCandRoleheader).toHaveText("ROLE");
+        await this.validateCandStatusheader.isVisible();
+        await expect(this.validateCandStatusheader).toHaveText("STATUS");
+        await this.validateCandEligibleheader.isVisible();
+        await expect(this.validateCandEligibleheader).toHaveText("ELIGIBLE");
+        await this.validateCandInviheader.isVisible();
+        await expect(this.validateCandInviheader).toHaveText("INVIGILATOR");
     }
 
     async clickOnDraft() {

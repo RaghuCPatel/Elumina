@@ -110,6 +110,11 @@ export class EluminaRegistrationPage {
     readonly arrowClick: Locator;
     readonly closeButton: Locator;
     readonly SelectMarkerRole: Locator;
+    readonly DeleteUsers: Locator;
+    readonly DeleteUsersPopup: Locator;
+    readonly ClickOnDeleteUser: Locator;
+    readonly clickOnYes: Locator;
+    readonly DeleteUserPopUpfromOption: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -186,7 +191,11 @@ export class EluminaRegistrationPage {
         this.selectMarker = page.locator('//option[text()="Igs Marker"]');
         this.arrowClick = page.locator('(//div[@class="hideClass"])[1]');
         this.closeButton = page.locator('//button[text()="Close"]');
-
+        this.DeleteUsers = page.locator('//a[text()="Delete Users"]');
+        this.DeleteUsersPopup = page.locator('//span[text()="Please select at least one user"]');
+        this.ClickOnDeleteUser = page.locator('(//p[text()="Delete User"])[1]');
+        this.clickOnYes = page.locator('(//button[text()="Yes"])[2]');
+        this.DeleteUserPopUpfromOption = page.locator('//span[text()="Exam has already started. You cannot delete the user(s)"]');
     }
 
     /**Method for Page Navigation */
@@ -610,6 +619,43 @@ export class EluminaRegistrationPage {
         await this.ClickOnSaveBtn.click();
         await this.page.waitForTimeout(6000);
         await this.LeftArrow.click();
+    }
+
+    /**Method to click on cteated exam */
+    async clickOnCreatedExam(): Promise<void> {
+        await this.DeliveryMenu.click();
+        let examid = EluminaExamPage.examID;
+        console.log(EluminaExamPage.examID);
+        await this.searchExam.type(examid);
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnCreatedExam.click();
+    }
+
+    /**Method to click on Delete Users from more option */
+    async DeleteUser() {
+        await this.bulkDownloadButton.click();
+        await this.DeleteUsers.click();
+        await this.page.waitForTimeout(3000);
+        await expect(this.DeleteUsersPopup).toHaveText("Please select at least one user");
+        await this.page.waitForTimeout(3000);
+    }
+
+    /**Method to click on more options from candidate and delete user */
+    async DeleteUserFromMoreOption() {
+        await this.ClickOnDropdown.click();
+        await this.ClickOnDeleteUser.click();
+        await this.clickOnYes.click();
+        await this.DeleteUserPopUpfromOption.isVisible();
+        await expect(this.DeleteUserPopUpfromOption).toHaveText("Exam has already started. You cannot delete the user(s)");
+        await this.page.waitForTimeout(5000);
+    }
+
+    /**Method to click on more options from candidate and delete user */
+    async DeleteUserFromMoreOptionPositive() {
+        await this.ClickOnDropdown.click();
+        await this.ClickOnDeleteUser.click();
+        await this.clickOnYes.click();
+        await this.page.waitForTimeout(5000);
     }
 
     async searchCandidateforMarker(): Promise<void> {

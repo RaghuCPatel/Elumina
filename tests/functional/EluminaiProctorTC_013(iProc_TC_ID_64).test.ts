@@ -56,7 +56,7 @@ test(`iProc_TC_ID_64. @Smoke Verify Validation of "Mark Attendance" (All Candida
 
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
 
-        await newPage.waitForSelector('//select[1]', { timeout: 10000 });
+        await newPage.waitForSelector('(//select[1])[3]', { timeout: 10000 });
         const attendance = await newPage.$$('//select[1]');
         console.log(attendance.length)
         for (let i = 0; i <= attendance.length - 1; i++) {

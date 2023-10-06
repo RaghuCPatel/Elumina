@@ -55,7 +55,7 @@ test(`@Smoke Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, e
     });
 });
 
-test(`@Smoke Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`@Smoke Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaProctorReg, eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -63,10 +63,12 @@ test(`@Smoke Verify Elumina RegistrationInv and add User and Invigilator`, async
         await eluminaLoginPage.loginToApplication();
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaRegPage.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
+        const newtab = await eluminaProctorReg.iAuthorPageNavigations();
+        await newtab.registrationTabNavigationfromIExamPage();
+        await newtab.addMultipleUserDetails();
+        await newtab.BulkDownloadUserDetails();
+        await newtab.addExistingUsers();
+        await newtab.searchCandidate();
     });
 });
 
@@ -77,7 +79,7 @@ test(`iProc_TC_ID_11. @Smoke Validation of "I Authorise" checkbox - To access We
         await eluminaCandPage.waitforTime();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplications(2);
     });
 
     await test.step('Candidate start the exam', async () => {
@@ -93,7 +95,7 @@ test(`iProc_TC_ID_11. @Smoke Validation of "I Authorise" checkbox - To access We
 test(`iProc_TC_ID_34. @Smoke Validation of Exam section page (Offline Exam validation)`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step(' logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplications(2);
     });
 
     await test.step(`Candidate Login to application`, async () => {
@@ -111,11 +113,23 @@ test(`iProc_TC_ID_34. @Smoke Validation of Exam section page (Offline Exam valid
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
         await newPage.locator('//a[text()="Delivery"]').click();
+
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/ExamID.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Sheet1');
+            console.log("ExamId" + ws.getRow(1).getCell(1).value)
+            await newPage.locator('//input[@placeholder="Search Exam(s)"]').type(ws.getRow(1).getCell(1).value);
+            await newPage.waitForTimeout(3000);
+        })
+
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
 
-        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-        await newPage.locator('//a[@class="dropdown-toggle"]').click();
+        //await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+        await newPage.locator('(//a[@class="dropdown-toggle"])[3]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
         await newPage.waitForTimeout(3000);
@@ -137,7 +151,7 @@ test(`iProc_TC_ID_34. @Smoke Validation of Exam section page (Offline Exam valid
 test(`iProc_TC_ID_39. @Smoke Validation of submitting when the Candidate has not answered all Questions`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
-        await eluminaProctorCand.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplications(2);
     });
 
     await test.step(`Candidate Login to application`, async () => {
@@ -155,11 +169,23 @@ test(`iProc_TC_ID_39. @Smoke Validation of submitting when the Candidate has not
             await page1.locator('//div[text()="iAuthor"]').click()
         ]);
         await newPage.locator('//a[text()="Delivery"]').click();
+
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/ExamID.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Sheet1');
+            console.log("ExamId" + ws.getRow(1).getCell(1).value)
+            await newPage.locator('//input[@placeholder="Search Exam(s)"]').type(ws.getRow(1).getCell(1).value);
+            await newPage.waitForTimeout(3000);
+        })
+
         await newPage.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a').click();
         await newPage.locator('//a[text()="Live Monitor"]').click();
 
-        await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-        await newPage.locator('//a[@class="dropdown-toggle"]').click();
+        //await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
+        await newPage.locator('(//a[@class="dropdown-toggle"])[3]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
         await newPage.waitForTimeout(3000);

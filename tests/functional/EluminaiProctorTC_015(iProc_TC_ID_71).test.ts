@@ -57,7 +57,7 @@ test(`iProc_TC_ID_71. @Smoke Validation of all the events generated on the RHS o
 
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[1]//span)[1]').click();
         await newPage.locator('//*[@class="proctoringImg"]').click();
-        await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();
+        await newPage.locator('(//div[@class="candidate-name"]//div[1])[3]').click();
 
         const event = newPage.locator('(//*[@class="title"])[6]');
         console.log(await event.textContent());

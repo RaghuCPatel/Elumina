@@ -9,10 +9,10 @@ test(`iAU_TC_ID_177. @RegressionA Validation of Delivery->Manage Delivery page v
     await test.step(`Login to Application`, async () => {
         await eluminaLoginPage.loginToApplication();
     });
-    await test.step(`Navigate to iAuthor blueprint`, async () => {
+    await test.step(`Navigate to iAuthor`, async () => {
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.deliveryMenuClick();
         await newtab.moreOptionsClickinExam();
-        await newtab.manageDeliveries();
+        await newtab.moreOptionValidation();
     });
 });
