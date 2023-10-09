@@ -143,6 +143,12 @@ export class EluminaProctorExamPage {
   readonly downloadSpeedClick: Locator;
   readonly ClickOnViewer: Locator;
   readonly InternetDownloadSpeedicon: Locator;
+  readonly ClickOnUsers: Locator;
+  readonly ClickOnEditIcon: Locator;
+  readonly ClickOnAssignRoles: Locator;
+  readonly searchUsers: Locator;
+  readonly selectUser: Locator;
+  readonly verifyMessage: Locator;
 
 
   constructor(page: Page, context: BrowserContext) {
@@ -209,6 +215,12 @@ export class EluminaProctorExamPage {
     this.SelectNotepad = page.locator('(//div[@class="dropdown-main"])[6]//ul//li[2]//span[text()="Notepad"]');
     this.SelectCalculator = page.locator('(//div[@class="dropdown-main"])[6]//ul//li[1]//span[text()="Calculator"]');
     this.ClickOniProctoring = page.locator('//span[contains(text(),"Proctoring")]');
+    this.ClickOnUsers = page.locator('//span[@class="first-title"][normalize-space()="Users"]')
+    this.ClickOnEditIcon = page.locator('//i[@class="iconBg editIcon"]')
+    this.ClickOnAssignRoles = page.locator('//p[normalize-space()="Assign Roles"]')
+    this.searchUsers = page.locator('//input[@id="gsearchTextBox"]')
+    this.selectUser = page.locator('//div[@class="nameandemail"]//p')
+    this.verifyMessage = page.locator('//p[contains(text(),"You do not have the privilege to access the app. K")]')
     this.ClickonEnableiProctorExtension = page.locator('(//div[@class="switch--container"]//span)[5]');
     this.ClickOnInternetConnection = page.locator('(//span[@class="slider round"])[6]');
     this.ClickonPromptCandidate = page.locator('(//div[@class="labelVal-Create reqLabel"])[6]//input');
@@ -257,6 +269,40 @@ export class EluminaProctorExamPage {
     ]);
     await newPage.waitForLoadState();
     return new exports.EluminaProctorExamPage(newPage);
+  }
+
+  /**Method to click on Users in Admin sectiuon */
+  async clickOnUsersInAdmin() {
+    await this.ClickOnUsers.click();
+    await this.searchUsers.type("Rajakumar IGS")
+    await this.selectUser.click()
+    await this.page.waitForTimeout(200)
+  }
+
+  /**Method to click on Edit icon in Admin sectiuon */
+  async clickOnEditorIconInAdmin() {
+    await this.ClickOnEditIcon.click()
+  }
+
+  /**Method to click on AssignRole in Admin section */
+  async clickOnAssignRolesInAdmin() {
+    await this.ClickOnAssignRoles.click()
+  }
+
+  /**Method to remove Roles In Admin section */
+  async removeAllRoles() {
+    await this.page.waitForSelector('//div[@class="minus-btn"]')
+    const roles = await this.page.$$('//div[@class="minus-btn"]')
+    console.log(roles)
+    for (let i = 0; i < roles.length; i++) {
+      await roles[i].click()
+      await this.page.waitForTimeout(200)
+    }
+    await this.ClickOnSave.click();
+  }
+  /**Method to validate PopUp Message */
+  async verifyPopupoMessage() {
+    await expect(this.verifyMessage).toHaveText("You do not have the privilege to access the app. Kindly contact system administrator.")
   }
 
   /**Method for Exam Tab Navigation */

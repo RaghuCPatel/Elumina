@@ -922,6 +922,8 @@ export class EluminaCreateQuestionsPage {
     async adminLogout() {
         await this.ClickOnProfile.click();
         await this.ClickOnLogout.click()
+        await this.page.waitForTimeout(5000);
+        await this.page.close()
     }
 
     /**Method to create MCQ Questions */

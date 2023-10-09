@@ -52,6 +52,7 @@ export class EluminaLoginPage {
     readonly ValidateErrorMessageInForgotPswd: Locator;
     readonly ClickonContinueBtn: Locator;
     readonly OfflineMessage: Locator;
+    readonly sessionExpireMsg: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -79,12 +80,21 @@ export class EluminaLoginPage {
         this.ValidateErrorMessageInForgotPswd = page.locator('//div[contains(text(),"The selected email is invalid.")]')
         this.ClickonContinueBtn = page.locator('//div[@class="submit-btn"]')
         this.OfflineMessage = page.locator('//div[text()="You are offline!"]')
+        this.sessionExpireMsg = page.locator('//div[@class="message-txt"]')
 
     }
 
     /**Navigate to login URL */
     async navigateToURL(): Promise<void> {
         await this.page.goto("/");
+    }
+
+    async url() {
+        await this.page.goto(testData.ModuleURL);
+        if ((await this.sessionExpireMsg.textContent()) == ("Session expired. Please login again")) {
+            await this.loginToApplication()
+        }
+
     }
 
     /**Navigate to login URL Offline*/
