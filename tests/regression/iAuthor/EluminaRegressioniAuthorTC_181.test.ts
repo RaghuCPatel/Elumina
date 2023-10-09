@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Manage Delivery --> Delete Users*/
 
-test(` iAU_TC_ID_181. @Pre-Request Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(` iAU_TC_ID_181. @RegressionA Pre-Request Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -23,7 +23,7 @@ test(` iAU_TC_ID_181. @Pre-Request Verify Elumina Login and Create Exam`, async 
     });
 });
 
-test(` iAU_TC_ID_181.,iAU_TC_ID_183. @Pre-Request Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
+test(` iAU_TC_ID_181.,iAU_TC_ID_183. @RegressionA Pre-Request Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -55,7 +55,7 @@ test(`iAU_TC_ID_181. @RegressionA Validation of Manage Delivery --> Delete Users
     });
 });
 
-test(`iAU_TC_ID_182. @RegressionA Validation of Manage Delivery--> Delete Users (Negative Scenario) `, async ({ eluminaRegPage, eluminaLoginPage, eluminaExamPage, webActions }) => {
+test(`iAU_TC_ID_182.,iAU_TC_ID_184. @RegressionA Validation of Manage Delivery--> Delete Users (Negative Scenario) `, async ({ eluminaRegPage, eluminaLoginPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -66,5 +66,67 @@ test(`iAU_TC_ID_182. @RegressionA Validation of Manage Delivery--> Delete Users 
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.clickOnCreatedExam();
         await newtab.DeleteUserFromMoreOption();
+    });
+});
+
+
+test(` iAU_TC_ID_190. @RegressionA Validation of Manage Delivery--> Assign Venue and Booking Details`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Elumina application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Navigate to exam Tab and Create New user`, async () => {
+        const newtab = await eluminaRegPage.iAuthorPageNavigations();
+        await newtab.clickOnCreatedExam();
+        await newtab.AssignVenueBookingFromMoreOption();
+    });
+});
+
+test(` iAU_TC_ID_185. @RegressionA "Validation of Manage Delivery --> Download User Details "`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Elumina application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Navigate to exam Tab and Create New user`, async () => {
+        const newtab = await eluminaRegPage.iAuthorPageNavigations();
+        await newtab.clickOnCreatedExam();
+        await newtab.dropdownButton();
+        await newtab.downloadUserDetails();
+
+    });
+});
+
+test(` iAU_TC_ID_189. @RegressionA Validation of Manage Delivery--> Generate Temp ID`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Elumina application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Navigate to exam Tab and Create New user`, async () => {
+        await test.step(`Navigate to exam Tab and Create New user`, async () => {
+            const newtab = await eluminaRegPage.iAuthorPageNavigations();
+            await newtab.clickOnCreatedExam();
+            await newtab.GenerateTempID();
+        });
+    });
+});
+
+test(` iAU_TC_ID_187. @RegressionA Validation of Manage Delivery --> Bulk Download User Details `, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Elumina application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Navigate to exam Tab and Create New user`, async () => {
+        const newtab = await eluminaRegPage.iAuthorPageNavigations();
+        await newtab.registrationTabNavigation();
+        await newtab.addMultipleUserDetails(0);
+        await newtab.BulkDownloadUserDetails("bulk_user_details.xlsx");
     });
 });

@@ -115,7 +115,23 @@ export class EluminaRegistrationPage {
     readonly ClickOnDeleteUser: Locator;
     readonly clickOnYes: Locator;
     readonly DeleteUserPopUpfromOption: Locator;
-
+    readonly editClientId: Locator;
+    readonly editFirstName: Locator;
+    readonly editLastName: Locator;
+    readonly editEmail: Locator;
+    readonly downloadUserDetailsPopUp: Locator;
+    readonly bulkDownloadUserDetailsPopUp: Locator;
+    readonly bulkDownloadPopUp: Locator;
+    readonly GenerateTempid: Locator;
+    readonly GenerateTempidUser: Locator;
+    readonly generateTempIDPopUp: Locator;
+    readonly AssignVenueBooking: Locator;
+    readonly selectVenue: Locator;
+    readonly selectBookingStatus: Locator;
+    readonly saveButton: Locator;
+    readonly selectVenueType: Locator;
+    readonly selectBookingStatusType: Locator;
+    readonly selectCheckBox: Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -192,10 +208,28 @@ export class EluminaRegistrationPage {
         this.arrowClick = page.locator('(//div[@class="hideClass"])[1]');
         this.closeButton = page.locator('//button[text()="Close"]');
         this.DeleteUsers = page.locator('//a[text()="Delete Users"]');
+        this.GenerateTempid = page.locator('//a[text()="Delete Users"]');
+        this.GenerateTempidUser = page.locator('(//p[text()="Generate Temp ID"])[1]');
         this.DeleteUsersPopup = page.locator('//span[text()="Please select at least one user"]');
         this.ClickOnDeleteUser = page.locator('(//p[text()="Delete User"])[1]');
         this.clickOnYes = page.locator('(//button[text()="Yes"])[2]');
         this.DeleteUserPopUpfromOption = page.locator('//span[text()="Exam has already started. You cannot delete the user(s)"]');
+        this.editClientId = page.locator('(//input[@class="textField ng-untouched ng-dirty ng-valid"])[1]');
+        this.editFirstName = page.locator('(//input[@class="textField ng-untouched ng-dirty ng-valid"])[2]');
+        this.editLastName = page.locator('(//input[@class="textField ng-untouched ng-dirty ng-valid"])[3]');
+        this.editEmail = page.locator('(//input[@class="textField ng-untouched ng-dirty ng-valid"])[4]')
+        this.downloadUserDetailsPopUp = page.locator('//span[text()="Downloading user details. Please check your computer for the completed download."]');
+        this.bulkDownloadUserDetailsPopUp = page.locator('//span[text()="Your file is being currently prepared. Please wait ...."]');
+        this.bulkDownloadPopUp = page.locator('//span[text()="File downloaded successfully."]');
+        this.generateTempIDPopUp = page.locator('//span[text()="Exam id already generated for this User"]');
+        this.AssignVenueBooking = page.locator('//a[text()="Assign Venue And Booking Status"]');
+        this.selectVenue = page.locator('//input[@placeholder="Select Venue"]');
+        this.selectBookingStatus = page.locator('//input[@placeholder="Select Booking Status"]');
+        this.saveButton = page.locator('//button[text()="Save"]');
+        this.selectVenueType = page.locator('(//div[@class="open container-left-padding"])[1]');
+        this.selectBookingStatusType = page.locator('(//div[@class="open container-left-padding"])[2]');
+        this.selectCheckBox = page.locator('//table[@class="table"]//tbody//tr[1]//td[2]');
+
     }
 
     /**Method for Page Navigation */
@@ -320,6 +354,7 @@ export class EluminaRegistrationPage {
         await download.saveAs(filePath)
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
         await this.page.waitForTimeout(20000);
+        await expect(this.downloadUserDetailsPopUp).toHaveText("Downloading user details. Please check your computer for the completed download.");
     }
 
     async clickaddMoreUsersIcon(addMoreUsers) {
@@ -379,13 +414,16 @@ export class EluminaRegistrationPage {
         const downloadPromise = this.page.waitForEvent('download');
         await this.bulkDownloadButton.click();
         await this.bulkdownloadbuttonclick.click();
+        await expect(this.bulkDownloadUserDetailsPopUp).toHaveText("Your file is being currently prepared. Please wait ....");
         const download = await downloadPromise;
         // Wait for the download process to complete.
         console.log(await download.path());
         //const suggestedFileName = download.suggestedFilename();
         const filePath = 'download/' + file;
+        await this.page.waitForTimeout(15000);
         await download.saveAs(filePath)
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+        await expect(this.bulkDownloadPopUp).toHaveText("File downloaded successfully.");
         await this.page.waitForTimeout(15000);
     }
 
@@ -640,6 +678,20 @@ export class EluminaRegistrationPage {
         await this.page.waitForTimeout(3000);
     }
 
+    /**Method to click on Delete Users from more option */
+    async GenerateTempID() {
+        await this.bulkDownloadButton.click();
+        await this.GenerateTempid.click();
+        await this.page.waitForTimeout(3000);
+        await expect(this.DeleteUsersPopup).toHaveText("Please select at least one user");
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnDropdown.click();
+        await this.GenerateTempidUser.click();
+        await this.clickOnYes.click();
+        await expect(this.generateTempIDPopUp).toHaveText("Exam id already generated for this User");
+        await this.page.waitForTimeout(5000);
+    }
+
     /**Method to click on more options from candidate and delete user */
     async DeleteUserFromMoreOption() {
         await this.ClickOnDropdown.click();
@@ -656,6 +708,30 @@ export class EluminaRegistrationPage {
         await this.ClickOnDeleteUser.click();
         await this.clickOnYes.click();
         await this.page.waitForTimeout(5000);
+    }
+
+    /**Method to click on more options from candidate and delete user */
+    async AssignVenueBookingFromMoreOption() {
+        await this.selectCheckBox.click();
+        await this.bulkDownloadButton.click();
+        await this.AssignVenueBooking.click();
+        await this.selectVenue.click();
+        await this.selectVenue.type('Elumina Chennai');
+        await this.page.waitForTimeout(5000);
+        await this.selectVenueType.click();
+        await this.page.waitForTimeout(5000);
+        await this.selectBookingStatusType.click();
+        await this.selectBookingStatus.type('Booked');
+        await this.page.waitForTimeout(5000);
+        await this.selectBookingStatusType.click();
+        await this.page.waitForTimeout(5000);
+        await this.saveButton.click();
+    }
+
+    /**Method to click on dropdown button */
+    async dropdownButton() {
+        await this.ClickOnDropdown.click();
+        await this.page.waitForTimeout(3000);
     }
 
     async searchCandidateforMarker(): Promise<void> {
