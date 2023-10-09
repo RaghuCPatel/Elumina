@@ -9,7 +9,7 @@ test(`iAU_TC_ID_175. @RegressionA Validation of Delivery list page(Negative scen
     await test.step(`Login to Application`, async () => {
         await eluminaLoginPage.loginToApplication();
     });
-    await test.step(`Navigate to iAuthor blueprint`, async () => {
+    await test.step(`Navigate to iAuthor`, async () => {
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.deliveryMenuClick();
         await newtab.searchExamNegativeScenerio();

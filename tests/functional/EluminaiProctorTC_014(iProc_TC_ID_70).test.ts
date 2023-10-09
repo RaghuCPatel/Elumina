@@ -58,7 +58,7 @@ test(`iProc_TC_ID_70. @Smoke Validation of Questions answered / Inprogress on th
 
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[1]//span)[1]').click();
         await newPage.locator('//*[@class="proctoringImg"]').click();
-        await newPage.locator('(//div[@class="candidate-name"]//div[1])[1]').click();
+        await newPage.locator('(//div[@class="candidate-name"]//div[1])[3]').click();
 
         const events = newPage.locator('(//*[@class="title"])[5]');
         const questionScroll = newPage.locator('//div[@class="question-list scroll"]').scrollIntoViewIfNeeded();

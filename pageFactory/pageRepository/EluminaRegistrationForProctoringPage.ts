@@ -441,7 +441,7 @@ export class EluminaRegistrationForProctoringPage {
     async addExistingUsers(): Promise<void> {
         await this.ClickOnAddExistingUser.click();
         await this.SearchUsers.click();
-        await this.SearchUsers.type(testData.invigilatorName);
+        await this.SearchUsers.type(testData.iProctorinvigilatorUsername);
         await this.page.waitForTimeout(6000);
         await this.CLickOnUser.click();
         await this.ChooseExistingRole.click();

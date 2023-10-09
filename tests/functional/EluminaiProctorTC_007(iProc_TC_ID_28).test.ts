@@ -54,7 +54,7 @@ test(`iProc_TC_ID_28. @iProctorlink Verify Elumina Invigilator Dashboard`, async
         ]);
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]//input').click();
-        await newPage.locator('//a[@class="dropdown-toggle"]').click();
+        await newPage.locator('(//a[@class="dropdown-toggle"])[3]').click();
         await newPage.locator('//p[text()="Verify Identity"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
         await newPage.waitForTimeout(3000);

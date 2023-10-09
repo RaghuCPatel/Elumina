@@ -28,13 +28,12 @@ test(`iProc_TC_ID_1A. @Smoke Verify Elumina Registration`, async ({ eluminaLogin
     await test.step(`Login to Elumina application`, async () => {
         await eluminaLoginPage.loginToApplication();
     });
-
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaProctorReg.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
+        await newtab.addMultipleUserDetails();
+        await newtab.BulkDownloadUserDetails();
         await newtab.addExistingUsers();
-        await newtab.logoutClick();
+        await newtab.searchCandidate();
     });
 });

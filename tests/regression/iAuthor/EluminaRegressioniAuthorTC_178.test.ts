@@ -1,8 +1,8 @@
 import test from '@lib/BaseTest';
 
-/**Validation of Delivery->Manage Delivery page via Exam name link.    */
+/**Validation of Manage Delivery page Left side Panel. */
 
-test(`iAU_TC_ID_176. @RegressionA Validation of Delivery->Manage Delivery page via Exam name link.`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, eluminaExamPage, webActions }) => {
+test(`iAU_TC_ID_178. @RegressionA Validation of Manage Delivery page Left side Panel. `, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -13,7 +13,6 @@ test(`iAU_TC_ID_176. @RegressionA Validation of Delivery->Manage Delivery page v
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.deliveryMenuClick();
         await newtab.examLinkClick();
-        await newtab.validateCandidatedashboradinManageDelivery();
-
+        await newtab.manageDeliveries();
     });
 });
