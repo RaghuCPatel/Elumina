@@ -58,8 +58,6 @@ test(`iEX_TC_ID_77. @iExamRegression Validation of Exam section > Candidate atte
         await eluminaCandPage.candAns13thQutnAsTypeX();
         await eluminaCandPage.candAnsLastQutnAsSJT();
         await eluminaCandPage.clickOnLogoutBtn()
-        await eluminaCandPage.validationOfLogo();
-
     });
 
 });

@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:single": "npx playwright test EluminaRegressioniExamTC_241.test.ts --project=Chrome",
+    "test:single": "npx playwright test EluminaRegressioniExamTC_222.test.ts --project=Chrome",
     "test:elumina": "npx playwright test Elumina.test.ts --project=Chrome",
     "test:parallel": "npx playwright test --grep \"@iExamRegression|@LowPriorityiExamCases\" --project=Chrome",
-    "test:serial": "npx playwright test --grep @iExamSerialRegression --workers=1 --project=Chrome",
+    "test:serial": "npx playwright test --grep \"@Serial-Pre-Request|@iExamSerialRegression\" --workers=1 --project=Chrome",
     "test:ui": "npx playwright test --grep @Smoke --ui",
     "test:api": "npx playwright test --grep @API --workers=1 --project=Chrome",
     "test:db": "npx playwright test DB.test.ts --project=DB",

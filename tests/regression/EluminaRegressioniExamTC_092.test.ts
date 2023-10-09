@@ -88,7 +88,7 @@ test(`iEX_TC_ID_92. @iExamRegression Survey section > Flag for review.`, async (
         await eluminaCandPage.candidateStartTypeX();
         await eluminaCandPage.candidateStartTypeB();
         await eluminaCandPage.candidateStartSAQ(100);
-        await eluminaCandPage.waitforTime()
+        // await eluminaCandPage.waitforTime()
         await eluminaCandPage.candidateStartSJTReviewandSubmit();
         await eluminaCandPage.validatecandidateFlagForReviewSurveyQuestion();
 

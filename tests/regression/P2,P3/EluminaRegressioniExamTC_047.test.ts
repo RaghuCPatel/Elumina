@@ -12,6 +12,7 @@ test(`iEX_TC_ID_60. @LowPriorityiExamCases Verify candidate adds and saves Notes
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
+        await eluminaCandPage.candidateContentSection();
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candidateStartOneMCQ();
@@ -31,6 +32,7 @@ test(` . @LowPriorityiExamCases Candidate while attending exam - Online - try to
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
+        await eluminaCandPage.candidateContentSection();
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.verifyExamDashboardTimer();
@@ -49,6 +51,7 @@ test(` . @LowPriorityiExamCases No other key combinations could cause the candid
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
+        await eluminaCandPage.candidateContentSection();
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.verifyExamDashboardTimer();
@@ -68,6 +71,7 @@ test(` . @LowPriorityiExamCases Validation of Candidate Attending Exam in Online
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
+        await eluminaCandPage.candidateContentSection();
     });
     await test.step('Candidate start the exam and abort', async () => {
         await eluminaCandPage.candidateStartOneMCQ();
@@ -104,6 +108,7 @@ test(` . @LowPriorityiExamCases Verify Validation of Review Exam page  > Chat Ap
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
+        await eluminaCandPage.candidateContentSection();
     });
     await test.step('Candidate start the exam and abort', async () => {
         await eluminaCandPage.candidateStartOneMCQ();
