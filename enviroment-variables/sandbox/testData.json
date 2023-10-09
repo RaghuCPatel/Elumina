@@ -77,5 +77,8 @@
     "examRecoveryPwd": "123456",
     "Note": "All the best for the exam",
     "MarkerUsername": "markertestigs@yopmail.com",
-    "MarkerPassword": "B6P5dr#&"
+    "MarkerPassword": "B6P5dr#&",
+    "LoginURL": "https://sandbox.assessapp.com.au/login",
+    "ModuleURL": "https://sandbox.assessapp.com.au/landing-page",
+    "DashboardURL": "https://sandbox.assessapp.com.au/qms/dashboard"
 }

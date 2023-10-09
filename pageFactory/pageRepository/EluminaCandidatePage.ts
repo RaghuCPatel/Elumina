@@ -197,7 +197,7 @@ export class EluminaCandidatePage {
         webActions = new WebActions(this.page, this.context);
         this.CandidateUsername = page.locator('//input[@id="username"]');
         this.CandidatePassword = page.locator('//input[@id="password"]');
-        this.LOGIN_BUTTON = page.locator('//div[text()=" Login "]');
+        this.LOGIN_BUTTON = page.locator('(//div[contains(text(),"Login")])[2]');
         this.ClickStartExamLink = page.locator('//table[@class="table-container"]//tr[2]//td[6]');
         this.ClickOnStartExamBtn = page.locator('//div[@class="btn parent-body-container btn-primary"]');
         this.ClickOnNextBtn = page.locator('(//div[text()=" Next "])[1]');
@@ -260,8 +260,8 @@ export class EluminaCandidatePage {
         this.clearButton = page.locator('//div[@class="action-btn-container"]//div[text()="Clear"]');
         this.clickOnVSAQQuestions = page.locator('(//div[@class="question-number"])[6]');
         this.checklogo = page.locator('//div[@class="logo-container"]//div[@class="logo"]');
-        this.txtLogin = page.locator('//div[text()="Login"]');
-        this.txtUserIdPlaceholder = page.locator('//label[text()="User Id"]')
+        this.txtLogin = page.locator('(//div[contains(text(),"Login")])[1]');
+        this.txtUserIdPlaceholder = page.locator('//label[text()="Username"]')
         this.txtPassword = page.locator('//label[text()="Password"]');
 
         this.clickChatApp = page.frameLocator('//iframe[@title="Button to launch messaging window"]').locator('html');

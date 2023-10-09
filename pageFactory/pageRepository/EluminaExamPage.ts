@@ -980,7 +980,8 @@ export class EluminaExamPage {
   async logoutClick() {
     await this.MenuIconClick.click();
     await this.logoutbuttonClick.click();
-
+    await this.page.waitForTimeout(5000);
+    await this.page.close()
   }
 
   async addVSAQQuestions(): Promise<void> {
