@@ -28,7 +28,7 @@ else if (process.env.ENV == 'staging') {
 }
 
 //Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)
-test(` . @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(` . @Serial-Pre-Request  Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -48,7 +48,7 @@ test(` . @iExamRegression Verify Elumina Login and Create Exam`, async ({ elumin
     });
 });
 
-test(` . @iExamRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(` . @Serial-Pre-Request  Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -59,19 +59,21 @@ test(` . @iExamRegression Verify Elumina RegistrationInv and add User and Invigi
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
         await newtab.addMultipleUserDetails(0);
-        await newtab.BulkDownloadUserDetails("User_details.xlsx");
+        await newtab.BulkDownloadUserDetails("Serial_User_details.xlsx");
         await newtab.addInv();
-        await newtab.searchUserForAddingInv(2, "User_details.xlsx")
+        await newtab.searchUserForAddingInv(2, "Serial_User_details.xlsx")
     });
 });
 
 test(` . @iExamSerialRegression Verify Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)`, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime();
 
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
         //await eluminaCandPage.candidateContentSection();
 
     });

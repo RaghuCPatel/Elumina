@@ -36,7 +36,7 @@ test(` . @iExamSerialRegression Verify Validation of Extending Exam`, async ({ e
     });
 
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
 
     });
 

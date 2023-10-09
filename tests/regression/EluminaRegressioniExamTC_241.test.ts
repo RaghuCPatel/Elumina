@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
-test(` . @iExamRegression Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+test(` . @Serial-Pre-Request  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -51,7 +51,7 @@ test(` . @iExamRegression Verify Elumina Login and create exam `, async ({ elumi
 });
 
 
-test(` . @iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(` . @Serial-Pre-Request  Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -62,9 +62,9 @@ test(` . @iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPag
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
         await newtab.addMultipleUserDetails(0);
-        await newtab.BulkDownloadUserDetails("User_details.xlsx");
+        await newtab.BulkDownloadUserDetails("Serial_User_details.xlsx");
         await newtab.addInv();
-        await newtab.searchUserForAddingInv(2, "User_details.xlsx")
+        await newtab.searchUserForAddingInv(2, "Serial_User_details.xlsx")
     });
 });
 
@@ -75,7 +75,7 @@ test(` . @iExamSerialRegression Verify Validation of "Terminate Exam"  `, async 
         await eluminaCandPage.waitforTime();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
 
     });
     await test.step('Candidate start the exam', async () => {
@@ -109,7 +109,7 @@ test(` . @iExamSerialRegression Verify Validation of "Terminate Exam"  `, async 
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToAndValidateDashboard(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToAndValidateDashboard(2, "Serial_User_details.xlsx");
 
     });
 

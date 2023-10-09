@@ -36,7 +36,7 @@ else if (process.env.ENV == 'staging') {
 test(` . @iExamSerialRegression Validation of Candidate Login to Exam and getting Candidate Timing`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
         await eluminaCandPage.getCandidateClockText();
     });
 });

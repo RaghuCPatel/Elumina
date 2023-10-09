@@ -15,5 +15,4 @@ test(` . @iExamRegression Verify Validation of Browser back button after Exam St
         await eluminaCandPage.examSectionValidation()
     });
 
-
 });

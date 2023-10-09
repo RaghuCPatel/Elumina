@@ -37,7 +37,7 @@ test(` . @iExamSerialRegression Verify Validation of Reset Login`, async ({ elum
     });
 
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
 
     await test.step('Candidate start the exam', async () => {

@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 }
 
 // /**Validation of Exam Section > Highlighter tool highlights save scenario 2 */
-test(` . @LowPriorityiExamCases Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(` . @Serial-Pre-Request Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -50,7 +50,7 @@ test(` . @LowPriorityiExamCases Verify Elumina Login and Create Exam`, async ({ 
     });
 });
 
-test(` . @LowPriorityiExamCases Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
+test(` . @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -61,9 +61,9 @@ test(` . @LowPriorityiExamCases Verify Elumina RegistrationInv and add User and 
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
         await newtab.addMultipleUserDetails(0);
-        await newtab.BulkDownloadUserDetails("User_details.xlsx");
+        await newtab.BulkDownloadUserDetails("Serial_User_details.xlsx");
         await newtab.addInv();
-        await newtab.searchUserForAddingInv(2, "User_details.xlsx")
+        await newtab.searchUserForAddingInv(2, "Serial_User_details.xlsx")
     });
 });
 
@@ -71,9 +71,11 @@ test(` . @LowPriorityiExamCases Verify Elumina RegistrationInv and add User and 
 test(` . @iExamSerialRegression Validation of Exam Section > Highlighter tool highlights save scenario 2 `, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.UsingHighlighterForQuestions();
@@ -88,7 +90,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Notes in 
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.UsingCalculatorForQuestions();
@@ -136,7 +138,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Notes in 
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.AddingNotesToQuestion();
@@ -184,7 +186,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Highlight
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.UsingHighlighterForQuestions();
@@ -233,7 +235,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Calculato
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.AddingNotesToQuestion();
@@ -284,7 +286,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Highlight
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.AddingNotesToQuestion();
@@ -334,7 +336,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Calculato
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.UsingCalculatorForQuestions();
@@ -385,7 +387,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Calculato
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.UsingCalculatorForQuestions();
@@ -437,7 +439,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Flag + Hi
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.flagForQuestion();
@@ -488,7 +490,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Flag + No
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.flagForQuestion();

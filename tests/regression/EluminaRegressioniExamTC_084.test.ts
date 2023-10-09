@@ -58,7 +58,7 @@ test(` . @iExamRegression Verify Validation of Survey screen and Validate Survey
         await eluminaCandPage.waitforTime()
         await eluminaCandPage.candidateStartSAQ(100);
         await eluminaCandPage.candidateStartSJTAns();
-        await eluminaCandPage.waitforTime()
+        // await eluminaCandPage.waitforTime()
         await eluminaCandPage.candSubmitExam();
         await eluminaCandPage.examSectionValidation();
         await eluminaCandPage.candidateAnsSurveyQuestion();

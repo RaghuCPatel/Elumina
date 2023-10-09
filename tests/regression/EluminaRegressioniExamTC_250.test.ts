@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 }
 /** Validation of exam paused for Candidate & Validation of exam extended for Candidate  */
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @iExamRegression Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Serial-Pre-Request Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -56,7 +56,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @iExamRegression Verif
     });
 });
 
-test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @iExamRegression Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -67,18 +67,20 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @iExamRegression Verif
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
         await newtab.addMultipleUserDetails(0);
-        await newtab.BulkDownloadUserDetails("User_details.xlsx");
+        await newtab.BulkDownloadUserDetails("Serial_User_details.xlsx");
         await newtab.addInv();
-        await newtab.searchUserForAddingInv(2, "User_details.xlsx")
+        await newtab.searchUserForAddingInv(2, "Serial_User_details.xlsx")
     });
 });
 
 test(`iEX_TC_ID_239'. @iExamSerialRegression Verify Validation of Browser back button on Candidate Dashboard`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
+        await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.navigateBackFromExamattendPage();
@@ -103,7 +105,7 @@ test(`iEX_TC_ID_146. @iExamSerialRegression Validation of Long Essay Response (m
     });
 
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.candidateAttendsOneVSAQ(20000);
         await eluminaCandPage.waitforTime2();
@@ -139,7 +141,7 @@ test('iEX_TC_ID_154,iEX_TC_ID_155,iEX_TC_ID_156,iEX_TC_ID_157. @iExamSerialRegre
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Tap on Refresh button and check the Time update', async () => {
         const browser = await chromium.launch();
@@ -204,7 +206,7 @@ test('iEX_TC_ID_153. @iExamSerialRegression Validation of Add Notes in Live Moni
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Invigilator enters the note and save the save', async () => {
         const browser = await chromium.launch();
@@ -244,7 +246,7 @@ test(`iEX_TC_ID_122. @iExamSerialRegression Validation of exam paused for Candid
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
 
@@ -289,7 +291,7 @@ test(`iEX_TC_ID_142. @iExamSerialRegression Validation of Exam Invigilator Live 
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.examSectionValidation();
@@ -341,7 +343,7 @@ test(`iEX_TC_ID_123. @iExamSerialRegression Verify Validation of Extending Exam`
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.examSectionValidation();
@@ -390,7 +392,7 @@ test(`iEX_TC_ID_138. @iExamSerialRegression Validation of Exam Invigilator Live 
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
 
@@ -435,7 +437,7 @@ test(`iEX_TC_ID_124. @iExamSerialRegression Verify Validation of "Lock Exam" fro
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candidateStartOneMCQ();
@@ -482,11 +484,12 @@ test(`iEX_TC_ID_136. @iExamSerialRegression Validation of Exam Invigilator Live 
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
 
     });
     await test.step('Candidate start the exam', async () => {
-        await eluminaCandPage.candidateStartMCQ();
+        //await eluminaCandPage.candidateStartMCQ();
+        await eluminaCandPage.examSectionValidation()
 
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
@@ -523,7 +526,7 @@ test(`iEX_TC_ID_136. @iExamSerialRegression Validation of Exam Invigilator Live 
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToAndValidateDashboard(2, "User_details.xlsx");
+        await eluminaCandPage.candidateLoginToAndValidateDashboard(2, "Serial_User_details.xlsx");
         await eluminaCadInvPage.terminateCandidateValidation();
         await eluminaCandPage.waitforTime4();
     });
