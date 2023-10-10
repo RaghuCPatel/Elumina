@@ -23879,3 +23879,69 @@
 {"level":"info","message":"Test Case Started : iAU_TC_ID_18. @RegressionA Validation of Centralize Login page (Negative Scenario 1) "}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Test Case Completed : iAU_TC_ID_18. @RegressionA Validation of Centralize Login page (Negative Scenario 1)  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_18. @RegressionA Validation of Centralize Login page (Negative Scenario 1) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_18. @RegressionA Validation of Centralize Login page (Negative Scenario 1)  Status : passed"}
+{"level":"error","message":"File not found: C:\\Users\\Divyashree\\Desktop\\githubMerge\\10-10-2023\\Elumina\\html-report"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_181. @RegressionA Pre-Request Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_181. @RegressionA Pre-Request Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_181.,iAU_TC_ID_183.,iAU_TC_ID_199. @RegressionA Pre-Request \"Validation of Delivery --> Add New Users\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_181.,iAU_TC_ID_183.,iAU_TC_ID_199. @RegressionA Pre-Request \"Validation of Delivery --> Add New Users\" Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_181. @RegressionA Validation of Manage Delivery --> Delete Users "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_181. @RegressionA Validation of Manage Delivery --> Delete Users  Status : passed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_190. @RegressionA Validation of Manage Delivery--> Assign Venue and Booking Details"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_190. @RegressionA Validation of Manage Delivery--> Assign Venue and Booking Details Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_182.,iAU_TC_ID_184. @RegressionA Validation of Manage Delivery--> Delete Users (Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_182.,iAU_TC_ID_184. @RegressionA Validation of Manage Delivery--> Delete Users (Negative Scenario)  Status : passed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_185.,iAU_TC_ID_186. @RegressionA Validation of Manage Delivery --> Download User Details"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_185.,iAU_TC_ID_186. @RegressionA Validation of Manage Delivery --> Download User Details Status : passed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_189. @RegressionA Validation of Manage Delivery--> Generate Temp ID"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_189. @RegressionA Validation of Manage Delivery--> Generate Temp ID Status : passed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_196. @RegressionA Validation of Manage Delivery--> Reset Password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_196. @RegressionA Validation of Manage Delivery--> Reset Password Status : passed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_198. @RegressionA Validation of Manage Delivery --  Exam Administrator Manages Special Consideration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_198. @RegressionA Validation of Manage Delivery --  Exam Administrator Manages Special Consideration Status : passed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_187.,iAU_TC_ID_195.,iAU_TC_ID_200. @RegressionA Validation of Manage Delivery --> Bulk Download User Details , Validation of Delivery --> Add New Users(Negative scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_187.,iAU_TC_ID_195.,iAU_TC_ID_200. @RegressionA Validation of Manage Delivery --> Bulk Download User Details , Validation of Delivery --> Add New Users(Negative scenario)  Status : passed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_201. @RegressionA Validation of Delivery --> Add Existing Users"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_201. @RegressionA Validation of Delivery --> Add Existing Users Status : passed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_197. @RegressionA Validation of Manage Delivery --> Bulk Candidate Response Download"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_197. @RegressionA Validation of Manage Delivery --> Bulk Candidate Response Download Status : passed"}

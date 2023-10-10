@@ -132,6 +132,22 @@ export class EluminaRegistrationPage {
     readonly selectVenueType: Locator;
     readonly selectBookingStatusType: Locator;
     readonly selectCheckBox: Locator;
+    readonly invSuccessMessagePopup: Locator;
+    readonly resetPassword: Locator;
+    readonly resetPasswordCand: Locator;
+    readonly resetPasswordPopup: Locator;
+    readonly BulkCandResponse: Locator;
+    readonly manageSpecialConsideration: Locator;
+    readonly ManageSpecialConsiderationCheckbox: Locator;
+    readonly manageSpecialConsiderationNotes: Locator;
+    readonly manageSpecialConsiderationPopup: Locator;
+    readonly AddUsersPopUp: Locator;
+    readonly emailExistPopUp: Locator;
+    readonly userNameExistPopup: Locator;
+    readonly userAssignDifferentRolepopup: Locator;
+    readonly okButtonClick: Locator;
+
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -208,8 +224,9 @@ export class EluminaRegistrationPage {
         this.arrowClick = page.locator('(//div[@class="hideClass"])[1]');
         this.closeButton = page.locator('//button[text()="Close"]');
         this.DeleteUsers = page.locator('//a[text()="Delete Users"]');
-        this.GenerateTempid = page.locator('//a[text()="Delete Users"]');
+        this.GenerateTempid = page.locator('//a[text()="Generate Temp ID"]');
         this.GenerateTempidUser = page.locator('(//p[text()="Generate Temp ID"])[1]');
+        this.resetPasswordCand = page.locator('(//p[text()="Reset Password"])[1]');
         this.DeleteUsersPopup = page.locator('//span[text()="Please select at least one user"]');
         this.ClickOnDeleteUser = page.locator('(//p[text()="Delete User"])[1]');
         this.clickOnYes = page.locator('(//button[text()="Yes"])[2]');
@@ -228,8 +245,20 @@ export class EluminaRegistrationPage {
         this.saveButton = page.locator('//button[text()="Save"]');
         this.selectVenueType = page.locator('(//div[@class="open container-left-padding"])[1]');
         this.selectBookingStatusType = page.locator('(//div[@class="open container-left-padding"])[2]');
-        this.selectCheckBox = page.locator('//table[@class="table"]//tbody//tr[1]//td[2]');
-
+        this.selectCheckBox = page.locator('//table[@class="table"]//thead//th[2]');
+        this.invSuccessMessagePopup = page.locator('//span[text()="Invigilator has been assigned successfully"]');
+        this.resetPassword = page.locator('//a[text()="Reset Password"]');
+        this.resetPasswordPopup = page.locator('//span[text()="Password has been reset successfully"]');
+        this.BulkCandResponse = page.locator('//a[text()="Bulk Candidate Response Download"]');
+        this.manageSpecialConsideration = page.locator('(//p[text()="Manage Special Consideration"])[1]');
+        this.ManageSpecialConsiderationCheckbox = page.locator('//input[@name="chkbx"]');
+        this.manageSpecialConsiderationNotes = page.locator('//textarea[@name="txtara"]');
+        this.manageSpecialConsiderationPopup = page.locator('//span[text()="Special Consideration has been updated successfully"]');
+        this.AddUsersPopUp = page.locator('//span[text()="Please enter the details."]');
+        this.emailExistPopUp = page.locator('//table[@class="table"]//tbody//tr[1]//td[7]//span[@class="error_msg"]');
+        this.userNameExistPopup = page.locator('//table[@class="table"]//tbody//tr[1]//td[4]//span[@class="error_msg"]');
+        this.userAssignDifferentRolepopup = page.locator('(//div[@class="modal-body"])[3]')
+        this.okButtonClick = page.locator('(//button[@class="theme-button-blue"])[3]')
     }
 
     /**Method for Page Navigation */
@@ -494,6 +523,7 @@ export class EluminaRegistrationPage {
             await this.AssignUsersToCand.click();
             await this.AssignInvToCand.click();
             await this.ClickOnInvSaveBtn.click();
+            await expect(this.invSuccessMessagePopup).toHaveText("Invigilator has been assigned successfully");
             await this.page.waitForTimeout(5000);
         }
     }
@@ -502,7 +532,7 @@ export class EluminaRegistrationPage {
     async addExistingUsers1(): Promise<void> {
         await this.ClickOnAddExistingUser.click();
         await this.SearchUsers.click();
-        await this.SearchUsers.type('Roopam Chopra');
+        await this.SearchUsers.type(testData.UserEmail);
         await this.page.waitForTimeout(6000);
         await this.CLickOnUser.click();
         await this.ChooseExistingRole.click();
@@ -514,13 +544,26 @@ export class EluminaRegistrationPage {
         await this.SelectExBookingStatus.click();
         await this.SelectInvBookingStatus.click();
         await this.ClickOnSaveBtn.click();
-        await this.page.waitForTimeout(6000);
+        await expect(this.userAssignDifferentRolepopup).toHaveText("User(s) (Divyashree) had already assigned as a (Exam Administrator) in the same bank, So assign the users in the same role");
+        await this.page.waitForTimeout(3000);
+        await this.okButtonClick.click();
+        await this.page.waitForTimeout(5000);
+
         await this.LeftArrow.click();
-        await this.ClickOnDropdown2.click();
-        await this.ClickOnAssignInv.click();
-        await this.AssignUsersToCand.click();
-        await this.AssignInvToCand.click();
-        await this.ClickOnInvSaveBtn.click();
+        await this.ClickOnAddExistingUser.click();
+        await this.SearchUsers.click();
+        await this.SearchUsers.type('virat');
+        await this.page.waitForTimeout(6000);
+        await this.CLickOnUser.click();
+        await this.ChooseExistingRole.click();
+        await this.SelectInvRole.click();
+        await this.SelectExVenue.click();
+        await this.SelectInvVenue.click();
+        await this.SelectExEligible.click();
+        await this.SelectInvEligible.click();
+        await this.SelectExBookingStatus.click();
+        await this.SelectInvBookingStatus.click();
+        await this.ClickOnSaveBtn.click();
         await this.page.waitForTimeout(5000);
     }
 
@@ -720,7 +763,7 @@ export class EluminaRegistrationPage {
         await this.page.waitForTimeout(5000);
         await this.selectVenueType.click();
         await this.page.waitForTimeout(5000);
-        await this.selectBookingStatusType.click();
+        await this.selectBookingStatus.click();
         await this.selectBookingStatus.type('Booked');
         await this.page.waitForTimeout(5000);
         await this.selectBookingStatusType.click();
@@ -733,6 +776,64 @@ export class EluminaRegistrationPage {
         await this.ClickOnDropdown.click();
         await this.page.waitForTimeout(3000);
     }
+
+    /**Method to click on Reset password from more option */
+    async ResetPassword() {
+        await this.bulkDownloadButton.click();
+        await this.resetPassword.click();
+        await this.page.waitForTimeout(3000);
+        await expect(this.DeleteUsersPopup).toHaveText("Please select at least one user");
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnDropdown.click();
+        await this.resetPasswordCand.click();
+        await expect(this.resetPasswordPopup).toHaveText("Password has been reset successfully");
+        await this.page.waitForTimeout(5000);
+    }
+
+    /**Method to click on Bulk Candidate Response Download from more option */
+    async BulkCandResponseDownload() {
+        await this.bulkDownloadButton.click();
+        await this.BulkCandResponse.click();
+        await expect(this.bulkDownloadUserDetailsPopUp).toHaveText("Your file is being currently prepared. Please wait ....");
+        await this.page.waitForTimeout(3000);
+        await expect(this.bulkDownloadPopUp).toHaveText("File downloaded successfully.");
+        await this.page.waitForTimeout(5000);
+    }
+
+    /**Method to click on Bulk Candidate Response Download from more option */
+    async ManageSpecialConsideration() {
+        await this.ClickOnDropdown.click();
+        await this.manageSpecialConsideration.click();
+        await this.page.waitForTimeout(2000);
+        await this.ManageSpecialConsiderationCheckbox.click();
+        await this.manageSpecialConsiderationNotes.click();
+        await this.manageSpecialConsiderationNotes.type('Hello');
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnInvSaveBtn.click();
+        await expect(this.manageSpecialConsiderationPopup).toHaveText("Special Consideration has been updated successfully");
+        await this.page.waitForTimeout(3000);
+    }
+
+    /**Method to click on save button */
+    async saveButtonClick() {
+        await this.ClickOnSaveBtn.click();
+        await expect(this.AddUsersPopUp).toHaveText("Please enter the details.");
+        await this.page.waitForTimeout(3000);
+        await this.EnterClientID.type(makeid(testData.clientId) + Math.floor(Math.random() * 899 + 100));
+        await this.ChooseTitle.click();
+        await this.ChooseTitle.selectOption('Mr');
+        await this.TypeUsername.clear();
+        await this.TypeUsername.type("deep");
+        await this.page.waitForTimeout(3000);
+        await expect(this.userNameExistPopup).toHaveText("*Username already exist!");
+        await this.TypeFirstName.type(makeid(testData.clientFirstname));
+        await this.TypeLastName.type(makeid(testData.clientLastname));
+        await this.TypeEmail.clear();
+        await this.TypeEmail.type(testData.UserEmail);
+        await this.page.waitForTimeout(3000);
+        await expect(this.emailExistPopUp).toHaveText("*Email already exist!");
+    }
+
 
     async searchCandidateforMarker(): Promise<void> {
         await this.MarkingMenu.click();
