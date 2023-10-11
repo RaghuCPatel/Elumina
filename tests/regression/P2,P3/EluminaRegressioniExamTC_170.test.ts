@@ -8,7 +8,7 @@ test(` . @LowPriorityiExamCases Validation of Exam content section >  Chat App`,
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(26, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(24, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.chatApp();

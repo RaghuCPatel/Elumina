@@ -10,7 +10,7 @@ test(` . @LowPriorityiExamCases Validation of Exam content page -> Questions dow
     });
 
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplicationwithoutclickingLogin(3, "bulkUserCredentialForInlineViewerLowPriExam.xlsx");
+        await eluminaCandPage.candidateLoginToApplicationwithoutclickingLogin(16, "bulk_user_details.xlsx");
         await eluminaCandPage.HotKeyPress();
     });
 

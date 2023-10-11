@@ -7,6 +7,6 @@ test(` . @LowPriorityiExamCases Validation of copy paste in password field`, asy
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.enterCandidateCredetialonly(4, "bulkUserCredentialForInlineViewerLowPriExam.xlsx");
+        await eluminaCandPage.enterCandidateCredetialonly(8, "bulk_user_details.xlsx");
     });
 });

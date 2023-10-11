@@ -7,7 +7,7 @@ test(` . @iExamRegression Verify Validation of Changing Font Size to Decrease on
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToAndValidateDashboard(13, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToAndValidateDashboard(12, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.clickOnStartExam();

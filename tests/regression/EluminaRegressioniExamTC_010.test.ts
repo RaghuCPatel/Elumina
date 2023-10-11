@@ -7,7 +7,7 @@ test(`iEX_TC_ID_010. @iExamRegression Validation of Sign out at Exam Start Page`
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application with inactive user`, async () => {
-        await eluminaCandPage.candidateLoginToAndValidateDashboard(4, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToAndValidateDashboard(3, "bulk_user_details.xlsx");
     });
 
 });

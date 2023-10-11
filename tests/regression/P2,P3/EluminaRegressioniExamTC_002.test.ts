@@ -8,7 +8,7 @@ test(` . @LowPriorityiExamCases Validation of Client Logo and name, color, font 
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Click on Login without Username and Password`, async () => {
-        await eluminaCandPage.validationOfLogo();
+        await eluminaCandPage.validationOfLogoInCand();
     });
 });
 

@@ -7,7 +7,7 @@ test(` . @iExamRegression Verify Validation of the "Timer" - After clicking on "
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(14, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(13, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.verifyExamDashboardTimer();
