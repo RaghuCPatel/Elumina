@@ -146,6 +146,38 @@ export class EluminaRegistrationPage {
     readonly userNameExistPopup: Locator;
     readonly userAssignDifferentRolepopup: Locator;
     readonly okButtonClick: Locator;
+    readonly VenueSummaryClick: Locator;
+    readonly venueSummaryId: Locator;
+    readonly venueSummaryName: Locator;
+    readonly venueSummaryLocation: Locator;
+    readonly venueSummaryAvailableSeats: Locator;
+    readonly venueSummaryBookedSeats: Locator;
+    readonly venueSummaryRemainingSeats: Locator;
+    readonly selectCandidates: Locator;
+    readonly users: Locator;
+    readonly invCheckBox: Locator;
+    readonly liveDashboardClick: Locator;
+    readonly liveDashboardExamSession: Locator
+    readonly liveDashboardTotalRegCandidates: Locator;
+    readonly liveDashboardQuestionDownload: Locator;
+    readonly liveDashboardNotYetStarted: Locator;
+    readonly liveDashboardCompleted: Locator;
+    readonly liveDashboardLocationClick: Locator;
+    readonly liveDashboardVenueClick: Locator;
+    readonly liveDashboardSubmit: Locator;
+    readonly liveDashboardlocationselect: Locator;
+    readonly liveDashboardvenueselect: Locator;
+    readonly ClickOnEditUser: Locator;
+    readonly ClickeditClientId: Locator;
+    readonly clickeditUsername: Locator;
+    readonly clickeditFirstname: Locator;
+    readonly clickeditLastname: Locator;
+    readonly clickeditemail: Locator;
+    readonly clickeditphone: Locator;
+    readonly selectRole: Locator;
+    readonly closeXButton: Locator;
+
+
 
 
 
@@ -257,8 +289,41 @@ export class EluminaRegistrationPage {
         this.AddUsersPopUp = page.locator('//span[text()="Please enter the details."]');
         this.emailExistPopUp = page.locator('//table[@class="table"]//tbody//tr[1]//td[7]//span[@class="error_msg"]');
         this.userNameExistPopup = page.locator('//table[@class="table"]//tbody//tr[1]//td[4]//span[@class="error_msg"]');
-        this.userAssignDifferentRolepopup = page.locator('(//div[@class="modal-body"])[3]')
-        this.okButtonClick = page.locator('(//button[@class="theme-button-blue"])[3]')
+        this.userAssignDifferentRolepopup = page.locator('(//div[@class="modal-body"])[3]');
+        this.okButtonClick = page.locator('(//button[@class="theme-button-blue"])[3]');
+        this.VenueSummaryClick = page.locator('//a[normalize-space()="Venue Summary"]');
+        this.venueSummaryId = page.locator('//table[@class="table"]//tbody//tr[1]//td[3]');
+        this.venueSummaryName = page.locator('//table[@class="table"]//tbody//tr[1]//td[4]');
+        this.venueSummaryLocation = page.locator('//table[@class="table"]//tbody//tr[1]//td[6]');
+        this.venueSummaryAvailableSeats = page.locator('//table[@class="table"]//tbody//tr[1]//td[9]');
+        this.venueSummaryBookedSeats = page.locator('//table[@class="table"]//tbody//tr[1]//td[10]');
+        this.venueSummaryRemainingSeats = page.locator('//table[@class="table"]//tbody//tr[1]//td[11]');
+        this.selectCandidates = page.locator('//select[@id="candidate0"]//option[1]');
+        this.users = page.locator('//input[@placeholder="Select Users(s)"]');
+        this.invCheckBox = page.locator('//input[@class="open"]');
+        this.liveDashboardClick = page.locator('//a[normalize-space()="Live Dashboard"]');
+        this.liveDashboardExamSession = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[2]');
+        this.liveDashboardTotalRegCandidates = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]');
+        this.liveDashboardQuestionDownload = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[6]');
+        this.liveDashboardNotYetStarted = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[9]');
+        this.liveDashboardCompleted = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[11]');
+        this.liveDashboardLocationClick = page.locator('//input[@placeholder="Select Location"]');
+        this.liveDashboardVenueClick = page.locator('//input[@placeholder="Select Venue"]');
+        this.liveDashboardSubmit = page.locator('//div[text()="Submit"]');
+        this.liveDashboardlocationselect = page.locator('(//span[text()="Elumina Chennai"])[1]');
+        this.liveDashboardvenueselect = page.locator('//input[@class="open"]');
+        this.ClickOnEditUser = page.locator('(//p[text()="Edit User"])[2]');
+        this.ClickeditClientId = page.locator('(//input[@name="inputbox"])[1]');
+        this.clickeditUsername = page.locator('(//input[@name="inputbox"])[2]');
+        this.clickeditFirstname = page.locator('(//input[@name="inputbox"])[3]')
+        this.clickeditLastname = page.locator('(//input[@name="inputbox"])[4]');
+        this.clickeditemail = page.locator('(//input[@name="inputbox"])[5]');
+        this.clickeditphone = page.locator('(//input[@name="inputbox"])[6]');
+        this.selectRole = page.locator('//input[@placeholder="Select Role"]');
+        this.closeXButton = page.locator('(//button[text()="×"])[4]');
+
+
+
     }
 
     /**Method for Page Navigation */
@@ -832,6 +897,90 @@ export class EluminaRegistrationPage {
         await this.TypeEmail.type(testData.UserEmail);
         await this.page.waitForTimeout(3000);
         await expect(this.emailExistPopUp).toHaveText("*Email already exist!");
+    }
+
+    /**
+     * Method to click on Venue summary page
+     */
+    async venueSummary() {
+        await this.VenueSummaryClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.venueSummaryId.isVisible();
+        console.log(await this.venueSummaryId.textContent());
+        await this.venueSummaryName.isVisible();
+        console.log(await this.venueSummaryName.textContent());
+        await this.venueSummaryLocation.isVisible();
+        console.log(await this.venueSummaryLocation.textContent());
+        await this.venueSummaryAvailableSeats.isVisible();
+        console.log(await this.venueSummaryAvailableSeats.textContent());
+        await this.venueSummaryBookedSeats.isVisible();
+        console.log(await this.venueSummaryBookedSeats.textContent());
+        await this.venueSummaryRemainingSeats.isVisible();
+        console.log(await this.venueSummaryRemainingSeats.textContent());
+        await this.page.waitForTimeout(3000);
+        await this.ClickOnDropdown.click();
+        await this.ClickOnAssignInv.click();
+        await this.selectCandidates.click();
+        await this.users.click();
+        await this.page.waitForTimeout(5000);
+        await this.invCheckBox.click();
+        await this.page.waitForTimeout(5000);
+        await this.selectCandidates.click();
+        await this.saveButton.click();
+    }
+
+    /**
+    * Method to click on live Dashboard page
+    */
+    async liveDashboard() {
+        await this.liveDashboardClick.click();
+        await this.liveDashboardLocationClick.click();
+        await this.liveDashboardlocationselect.click();
+        await this.page.waitForTimeout(3000);
+        await this.liveDashboardVenueClick.click();
+        await this.liveDashboardvenueselect.click();
+        await this.page.waitForTimeout(3000);
+        await this.liveDashboardSubmit.click();
+
+        await this.liveDashboardExamSession.isVisible();
+        console.log(await this.liveDashboardExamSession.textContent());
+        await this.liveDashboardTotalRegCandidates.isVisible();
+        console.log(await this.liveDashboardTotalRegCandidates.textContent());
+        await this.liveDashboardQuestionDownload.isVisible();
+        console.log(await this.liveDashboardQuestionDownload.textContent());
+        await this.liveDashboardNotYetStarted.isVisible();
+        console.log(await this.liveDashboardNotYetStarted.textContent());
+        await this.liveDashboardCompleted.isVisible();
+        console.log(await this.liveDashboardCompleted.textContent());
+    }
+
+    /**
+     * Method to edit user
+     */
+    async editUser() {
+        await this.ClickOnDropdown2.click();
+        await this.ClickOnEditUser.click();
+        await this.closeXButton.isVisible();
+        await this.page.waitForTimeout(2000);
+        await this.ClickeditClientId.click();
+        await this.ClickeditClientId.clear();
+        await this.ClickeditClientId.type('Demo111')
+        await this.clickeditUsername.click();
+        await this.clickeditUsername.clear();
+        await this.clickeditUsername.type('Demo')
+        await this.clickeditFirstname.click();
+        await this.clickeditFirstname.clear();
+        await this.clickeditFirstname.type('Dem')
+        await this.clickeditLastname.click();
+        await this.clickeditLastname.clear();
+        await this.clickeditLastname.type('sad')
+        await this.clickeditemail.click();
+        await this.clickeditemail.clear();
+        await this.clickeditemail.type('demosad@yopmail.com');
+        await this.clickeditphone.click();
+        await this.clickeditphone.clear();
+        await this.clickeditphone.type('987654321');
+        await this.page.waitForTimeout(5000);
     }
 
 
