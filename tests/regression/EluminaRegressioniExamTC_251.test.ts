@@ -78,6 +78,8 @@ test(`iEX_TC_ID_150. @iExamSerialRegression  Validation of Exam Invigilator Live
         await eluminaCadInvPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime3();
+
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
@@ -102,7 +104,7 @@ test(`iEX_TC_ID_150. @iExamSerialRegression  Validation of Exam Invigilator Live
         await newPage.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]//a').click();
         await newPage.locator('//div[@class="question-section"]').isDisabled();
         await newPage.waitForTimeout(5000);
-        await newPage.locator('(//div[@class="question-number-container"]//div//p)[6]');
+        await newPage.locator('(//div[@class="question-number-container"]//div//p)[6]').click();
         await newPage.locator('(//div[@class="answer-text-editor"])[1]').isDisabled();
         await newPage.waitForTimeout(5000);
         await newPage.close();

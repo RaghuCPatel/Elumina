@@ -62,6 +62,10 @@ test(` . @iExamSerialRegression Verify Validation of Reset Login`, async ({ elum
         await newPage.locator('//a[@class="dropdown-toggle"]').click();
         await newPage.locator('//p[text()="Reset Login"]').click();
         await newPage.locator('(//button[text()="Yes"])[1]').click();
+        await newPage.close();
+        await page1.close();
+    });
+    await test.step(`Redirected to Candidate page`, async () => {
         await eluminaCandPage.againCandidateLogin();
     });
 

@@ -17,6 +17,7 @@ Archive Blueprint used in up coming exam"`, async ({ eluminaLoginPage, eluminaBl
         await newtab.clickOnCreateExam();
         await newtab.searchAndSelectBlueprintQtn();
         await newtab.createExam()
+        await newtab.selectAllTools()
         await newtab.createSection("1", "30")
         await newtab.addVSAQQuestions()
         await newtab.BlueprintMenuClick();

@@ -81,6 +81,7 @@ test(`iEX_TC_ID_81. @iExamSerialRegression Validation of Exam Review Exam page. 
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime3();
 
     });
 

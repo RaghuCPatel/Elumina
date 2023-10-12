@@ -24205,3 +24205,447 @@
 {"level":"info","message":"Executing Step : Login to Elumina application"}
 {"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
 {"level":"info","message":"Test Case Completed :  iAU_TC_ID_197. @RegressionA Validation of Manage Delivery --> Bulk Candidate Response Download Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_121. @RegressionA Validation of Blueprint Preview"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_121. @RegressionA Validation of Blueprint Preview Status : passed"}
+{"level":"error","message":"File not found: C:\\Elumina\\12-10-2023\\html-report"}
+{"level":"info","message":"Test Case Started :  . @Serial-Pre-Request  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Started :  . @Serial-Pre-Request  Verify Elumina Login and create exam "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed :  . @Serial-Pre-Request  Verify Elumina Login and create exam  Status : passed"}
+{"level":"info","message":"Test Case Started :  . @Serial-Pre-Request  Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  . @Serial-Pre-Request  Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Verify Validation of \"Terminate Exam\"  "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Verify Validation of \"Terminate Exam\"   Status : passed"}
+{"level":"info","message":"Test Case Started :  . @Serial-Pre-Request  Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  . @Serial-Pre-Request  Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started :  . @Serial-Pre-Request  Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  . @Serial-Pre-Request  Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Verify Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Inv Login to Elumina application"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Verify Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line) Status : passed"}
+{"level":"info","message":"Test Case Started :  . @Serial-Pre-Request  Verify Elumina Login and create exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  . @Serial-Pre-Request  Verify Elumina Login and create exam Status : passed"}
+{"level":"info","message":"Test Case Started :  . @Serial-Pre-Request  Verify Elumina Registration and user and invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  . @Serial-Pre-Request  Verify Elumina Registration and user and invigilator Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Validation of \"Start Exam\" (All Candidates) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Validation of \"Start Exam\" (All Candidates)  Status : failed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Verify Validation of \"Pause Exam\" from Live monitor"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Redirected to Candidate page"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Verify Validation of \"Pause Exam\" from Live monitor Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Verify Validation of Resume Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Verify Validation of Resume Exam Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Verify Validation of Extending Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Verify Validation of Extending Exam Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Verify Validation of Reset Login"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Verify Validation of Reset Login Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Verify Validation of Invigilator Dashboard"}
+{"level":"info","message":"Executing Step : Inv Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Verify Validation of Invigilator Dashboard Status : failed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Validation of invigilator remotely start the Exam for candidate EluminaRegressioniExamTC_086"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Validation of invigilator remotely start the Exam for candidate EluminaRegressioniExamTC_086 Status : failed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_109. @Serial-Pre-Request Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_109. @Serial-Pre-Request Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_109. @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_109. @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_81. @iExamSerialRegression Validation of Exam Review Exam page. (Offline)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_81. @iExamSerialRegression Validation of Exam Review Exam page. (Offline) Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_144. @iExamSerialRegression Validation of Check Individual Candidate Timer is in Sync  (Individual Candidate)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_144. @iExamSerialRegression Validation of Check Individual Candidate Timer is in Sync  (Individual Candidate) Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_109. @iExamSerialRegression Validation of Candidate attending Exam in Online - Offline and submit in Offline Mode"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_109. @iExamSerialRegression Validation of Candidate attending Exam in Online - Offline and submit in Offline Mode Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Serial-Pre-Request Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Serial-Pre-Request Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_122., iEX_TC_ID_123. @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_239'. @iExamSerialRegression Verify Validation of Browser back button on Candidate Dashboard"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_239'. @iExamSerialRegression Verify Validation of Browser back button on Candidate Dashboard Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_128. @iExamSerialRegression Validation of Exam Invigilator Live monitor"}
+{"level":"info","message":"Executing Step : Inv Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_128. @iExamSerialRegression Validation of Exam Invigilator Live monitor Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_146. @iExamSerialRegression Validation of Long Essay Response (more than 200 lines)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Invigilator Login start the exam"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_146. @iExamSerialRegression Validation of Long Essay Response (more than 200 lines) Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_154,iEX_TC_ID_155,iEX_TC_ID_156,iEX_TC_ID_157. @iExamSerialRegression Validation of Refresh Live Monitor and status Auto update "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Tap on Refresh button and check the Time update"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_154,iEX_TC_ID_155,iEX_TC_ID_156,iEX_TC_ID_157. @iExamSerialRegression Validation of Refresh Live Monitor and status Auto update  Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_153. @iExamSerialRegression Validation of Add Notes in Live Monitor "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Invigilator enters the note and save the save"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_153. @iExamSerialRegression Validation of Add Notes in Live Monitor  Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_122. @iExamSerialRegression Validation of exam paused for Candidate "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Redirected to Candidate page"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_122. @iExamSerialRegression Validation of exam paused for Candidate  Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_142. @iExamSerialRegression Validation of Exam Invigilator Live monitor > Extend Timer.  (Individual Candidate)  Extend Candidate Exam beyond session end date/time "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : again navigate to candidate page"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_142. @iExamSerialRegression Validation of Exam Invigilator Live monitor > Extend Timer.  (Individual Candidate)  Extend Candidate Exam beyond session end date/time  Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_123. @iExamSerialRegression Verify Validation of Extending Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_123. @iExamSerialRegression Verify Validation of Extending Exam Status : failed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_138. @iExamSerialRegression Validation of Exam Invigilator Live monitor > Resume exam.  (Individual Candidate) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Redirected to Candidate page"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_138. @iExamSerialRegression Validation of Exam Invigilator Live monitor > Resume exam.  (Individual Candidate)  Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_124. @iExamSerialRegression Verify Validation of \"Lock Exam\" from Live monitor Proctor "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Redirected to Candidate page"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_124. @iExamSerialRegression Verify Validation of \"Lock Exam\" from Live monitor Proctor  Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_136. @iExamSerialRegression Validation of Exam Invigilator Live monitor > Terminate exam.  (Individual Candidate)\"  "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_136. @iExamSerialRegression Validation of Exam Invigilator Live monitor > Terminate exam.  (Individual Candidate)\"   Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_137. @Serial-Pre-Request  Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_137. @Serial-Pre-Request  Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started : Exam_Prerequisit_for_iEX_TC_ID_137. @Serial-Pre-Request  Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : Exam_Prerequisit_for_iEX_TC_ID_137. @Serial-Pre-Request  Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_150. @iExamSerialRegression  Validation of Exam Invigilator Live monitor (View Response based on candidate) Negative scenario "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_150. @iExamSerialRegression  Validation of Exam Invigilator Live monitor (View Response based on candidate) Negative scenario  Status : passed"}
+{"level":"info","message":"Test Case Started : iEX_TC_ID_137. @iExamSerialRegression  Validation of Exam Invigilator Live monitor > Terminate exam.  (All Candidate)\"  "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iEX_TC_ID_137. @iExamSerialRegression  Validation of Exam Invigilator Live monitor > Terminate exam.  (All Candidate)\"   Status : failed"}
+{"level":"info","message":"Test Case Started :  . @Serial-Pre-Request Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  . @Serial-Pre-Request Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started :  . @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  . @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Validation of Exam Section > Highlighter tool highlights save scenario 2 "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Validation of Exam Section > Highlighter tool highlights save scenario 2  Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Validation of candidate response using Notes in exam TC-179"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Validation of candidate response using Notes in exam TC-179 Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Validation of candidate response using Notes in exam TC-180"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Validation of candidate response using Notes in exam TC-180 Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Validation of candidate response using Highlighter in exam TC-181"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Validation of candidate response using Highlighter in exam TC-181 Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Validation of candidate response using Calculator, Notes and Highlighter in exam TC-182"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Validation of candidate response using Calculator, Notes and Highlighter in exam TC-182 Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Validation of candidate response using Highlighter and Notes in exam TC-184"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Validation of candidate response using Highlighter and Notes in exam TC-184 Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Validation of candidate response using Calculator and Highlighter in exam TC-185"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Validation of candidate response using Calculator and Highlighter in exam TC-185 Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Validation of candidate response using Calculator and Note in exam. TC-186"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Validation of candidate response using Calculator and Note in exam. TC-186 Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Validation of candidate response using Flag + Highlighter  in exam. TC-187"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Validation of candidate response using Flag + Highlighter  in exam. TC-187 Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Validation of candidate response using Flag + Note in exam TC-188"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Executing Step : Candidate start the exam"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Validation of candidate response using Flag + Note in exam TC-188 Status : passed"}
+{"level":"info","message":"Test Case Started :  . @Serial-Pre-Request Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  . @Serial-Pre-Request Verify Elumina Login and Create Exam Status : failed"}
+{"level":"info","message":"Test Case Started :  . @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  . @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Invigilator Status : failed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Verify Validation of candidate response using Image Viewer in exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Verify Validation of candidate response using Image Viewer in exam Status : failed"}
+{"level":"info","message":"Test Case Started :  . @Serial-Pre-Request Verify Elumina Login and Create Exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  . @Serial-Pre-Request Verify Elumina Login and Create Exam Status : passed"}
+{"level":"info","message":"Test Case Started :  . @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Invigilator"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed :  . @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Invigilator Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Verify Validation of candidate response using Image Viewer in exam"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Verify Validation of candidate response using Image Viewer in exam Status : passed"}
+{"level":"info","message":"Test Case Started :  . @iExamSerialRegression Validation of Candidate Login to Exam and getting Candidate Timing"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed :  . @iExamSerialRegression Validation of Candidate Login to Exam and getting Candidate Timing Status : passed"}
+{"level":"info","message":"Test Case Started : @iExamSerialRegression Validation of invigilator Livemonitor Timing "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : @iExamSerialRegression Validation of invigilator Livemonitor Timing  Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_129. @RegressionA Validation of Create Exam – How do you want to get started ?:"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_129. @RegressionA Validation of Create Exam – How do you want to get started ?: Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_129. @RegressionA Validation of Create Exam – How do you want to get started ?:"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_129. @RegressionA Validation of Create Exam – How do you want to get started ?: Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_130. @RegressionA Validation of Create Exam – Start from scratch"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_130. @RegressionA Validation of Create Exam – Start from scratch Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_130. @RegressionA Validation of Create Exam – Start from scratch"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_130. @RegressionA Validation of Create Exam – Start from scratch Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_130. @RegressionA Validation of Create Exam – Start from scratch"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_130. @RegressionA Validation of Create Exam – Start from scratch Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_130. @RegressionA Validation of Create Exam – Start from scratch"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_130. @RegressionA Validation of Create Exam – Start from scratch Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_130. @RegressionA Validation of Create Exam – Start from scratch"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_130. @RegressionA Validation of Create Exam – Start from scratch Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_131. @RegressionA Validation of Create Exam – Start from scratch(Negative Scenario)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_131. @RegressionA Validation of Create Exam – Start from scratch(Negative Scenario) Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_131. @RegressionA Validation of Create Exam – Start from scratch(Negative Scenario)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_131. @RegressionA Validation of Create Exam – Start from scratch(Negative Scenario) Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_131. @RegressionA Validation of Create Exam – Start from scratch(Negative Scenario)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_131. @RegressionA Validation of Create Exam – Start from scratch(Negative Scenario) Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_131. @RegressionA Validation of Create Exam – Start from scratch(Negative Scenario)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_131. @RegressionA Validation of Create Exam – Start from scratch(Negative Scenario) Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_131. @RegressionA Validation of Create Exam – Start from scratch(Negative Scenario)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_131. @RegressionA Validation of Create Exam – Start from scratch(Negative Scenario) Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_131. @RegressionA Validation of Create Exam – Start from scratch(Negative Scenario)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_131. @RegressionA Validation of Create Exam – Start from scratch(Negative Scenario) Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_131. @RegressionA Validation of Create Exam – Start from scratch(Negative Scenario)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_131. @RegressionA Validation of Create Exam – Start from scratch(Negative Scenario)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_131. @RegressionA Validation of Create Exam – Start from scratch(Negative Scenario) Status : passed"}

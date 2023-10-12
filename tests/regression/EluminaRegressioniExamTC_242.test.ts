@@ -70,6 +70,7 @@ test(` . @iExamSerialRegression Verify Validation of Invigilator Dashboard after
         await eluminaCadInvPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime3();
 
     });
     await test.step(`Candidate Login to application`, async () => {
