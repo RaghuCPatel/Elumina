@@ -49,7 +49,7 @@ Exam name, Candidate name, Exam timer, no of questions as per exam created Elumi
 
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(7, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.examSectionValidation();
@@ -62,7 +62,7 @@ test(` . @iExamRegression Validation of candidate able to submit the exam when n
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(22, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(8, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.NotAnsweringQuestion();

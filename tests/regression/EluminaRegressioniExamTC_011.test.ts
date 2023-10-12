@@ -7,7 +7,7 @@ test(` . @iExamRegression Validation of Candidate Start Exam`, async ({ eluminaC
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application with and start exam`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(5, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(4, "bulk_user_details.xlsx");
         await eluminaCandPage.examSectionValidation();
     });
 

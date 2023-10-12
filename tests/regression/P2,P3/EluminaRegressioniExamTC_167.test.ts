@@ -9,7 +9,7 @@ test(` . @LowPriorityiExamCases Validation of Candidate Dashboard page - Chat Ap
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToAndValidateDashboard(24, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToAndValidateDashboard(22, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.validsationOfChatApp();

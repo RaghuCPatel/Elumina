@@ -32,11 +32,11 @@ test(` . @Pre-Request Verify Elumina RegistrationInv and add User and Invigilato
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.clickaddMoreUsersIcon(20)
-        await newtab.addMultipleUserDetails(29);
+        await newtab.clickaddMoreUsersIcon(25)
+        await newtab.addMultipleUserDetails(34);
         await newtab.BulkDownloadUserDetails("bulk_user_details.xlsx");
         await newtab.addInv();
-        await newtab.searchUserForAddingInv(5, "bulk_user_details.xlsx")
+        await newtab.searchUserForAddingInv(2, "bulk_user_details.xlsx")
     });
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -82,16 +82,16 @@ test(` . @Pre-Request Verify Elumina RegistrationInv and add User and Invigilato
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.clickaddMoreUsersIcon(1)
-        await newtab.addMultipleUserDetails(10);
+        await newtab.clickaddMoreUsersIcon(5)
+        await newtab.addMultipleUserDetails(13);
         await newtab.BulkDownloadUserDetails("bulkUserCredentialForSurveyExam.xlsx");
         await newtab.addInv();
-        await newtab.searchUserForAddingInv(5, "bulkUserCredentialForSurveyExam.xlsx")
+        await newtab.searchUserForAddingInv(2, "bulkUserCredentialForSurveyExam.xlsx")
     });
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-test(` . @Pre-Request Verify Elumina Login and create exam3 `, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, webActions }) => {
+test(` . @Pre-Request Verify Elumina Login and create exam3 `, async ({ eluminaLoginPage, eluminaMinimalTimeExamPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -102,11 +102,12 @@ test(` . @Pre-Request Verify Elumina Login and create exam3 `, async ({ eluminaL
         await eluminaLoginPage.verifyProfilePage();
     });
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminaMinimalTimeExamPage.iAuthorPageNavigation();
+        const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
-        await newtab.createExam(1);
+        await newtab.createCommonExam();
+        await newtab.selectAllTools();
         await newtab.createSection("0", "1");
-        await newtab.addMCQQuestions();
+        await newtab.addTenMCQQuestions();
     });
 });
 
@@ -119,12 +120,11 @@ test(` . @Pre-Request Verify Elumina RegistrationInv and add User and Invigilato
     });
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
-        await newtab.registrationTabNavigationforMinimaltime();
-        //await newtab.clickaddMoreUsersIcon(1)
+        await newtab.registrationTabNavigation();
         await newtab.addMultipleUserDetails(4);
         await newtab.BulkDownloadUserDetails("bulkUserCredentialForMinimalTimeExam.xlsx");
         await newtab.addInv();
-        await newtab.searchUserForAddingInv(5, "bulkUserCredentialForMinimalTimeExam.xlsx")
+        await newtab.searchUserForAddingInv(2, "bulkUserCredentialForMinimalTimeExam.xlsx")
     });
 });
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -162,11 +162,11 @@ test(` . @Pre-Request Verify Elumina Registration4`, async ({ eluminaLoginPage, 
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.clickaddMoreUsersIcon(2)
-        await newtab.addMultipleUserDetails(11);
+        await newtab.clickaddMoreUsersIcon(5)
+        await newtab.addMultipleUserDetails(13);
         await newtab.BulkDownloadUserDetails("bulkUserCredentialForMcqExamwithContentSection.xlsx");
         await newtab.addInv();
-        await newtab.searchUserForAddingInv(5, "bulkUserCredentialForMcqExamwithContentSection.xlsx")
+        await newtab.searchUserForAddingInv(2, "bulkUserCredentialForMcqExamwithContentSection.xlsx")
     });
 });
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -208,11 +208,11 @@ test(` . @Pre-Request Verify Elumina Registration5`, async ({ eluminaLoginPage, 
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.clickaddMoreUsersIcon(2)
-        await newtab.addMultipleUserDetails(11);
+        await newtab.clickaddMoreUsersIcon(4)
+        await newtab.addMultipleUserDetails(13);
         await newtab.BulkDownloadUserDetails("bulkUserCredentialForAllTypeQutnExam.xlsx");
         await newtab.addInv();
-        await newtab.searchUserForAddingInv(5, "bulkUserCredentialForAllTypeQutnExam.xlsx")
+        await newtab.searchUserForAddingInv(2, "bulkUserCredentialForAllTypeQutnExam.xlsx")
     });
 });
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -300,92 +300,92 @@ test(` . @Pre-Request  Verify Elumina Registration1P`, async ({ eluminaLoginPage
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.clickaddMoreUsersIcon(10)
-        await newtab.addMultipleUserDetails(18);
+        await newtab.clickaddMoreUsersIcon(13)
+        await newtab.addMultipleUserDetails(20);
         await newtab.BulkDownloadUserDetails("bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
         await newtab.addInv();
-        await newtab.searchUserForAddingInv(5, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx")
+        await newtab.searchUserForAddingInv(2, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx")
     });
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-test(` . @Pre-Request  Verify Elumina Login and Create Exam2P`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
-        await eluminaLoginPage.verifyProfilePage();
-    });
-    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminaExamPage.iAuthorPageNavigation();
-        await newtab.examTabNavigation();
-        await newtab.createCommonExamWithViewer();
-        await newtab.clickonNextBtnInExam();
-        await newtab.createSection("1", "30");
-        await newtab.addVSAQQuestions();
-    });
-});
+// test(` . @Pre-Request  Verify Elumina Login and Create Exam2P`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+//     await test.step(`Navigate to Application`, async () => {
+//         await eluminaLoginPage.navigateToURL();
+//     });
+//     await test.step(`Login to Elumina application`, async () => {
+//         await eluminaLoginPage.loginToApplication();
+//     });
+//     await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
+//         await eluminaLoginPage.verifyProfilePage();
+//     });
+//     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
+//         const newtab = await eluminaExamPage.iAuthorPageNavigation();
+//         await newtab.examTabNavigation();
+//         await newtab.createCommonExamWithViewer();
+//         await newtab.clickonNextBtnInExam();
+//         await newtab.createSection("1", "30");
+//         await newtab.addVSAQQuestions();
+//     });
+// });
 
-test(` . @Pre-Request  Verify Elumina RegistrationInv and add User and Invigilator2P`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaRegPage.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
-        //await newtab.clickaddMoreUsersIcon(1)
-        await newtab.addMultipleUserDetails(1);
-        await newtab.BulkDownloadUserDetails("bulkUserCredentialForImageViewerLowPriExam.xlsx");
-        //await newtab.addInv();
-        //await newtab.searchUserForAddingInv(2, "bulkUserCredentialForImageViewerLowPriExam.xlsx")
-    });
-});
-///////////////////////////////////////////////////////////////////////////////////////////////
+// test(` . @Pre-Request  Verify Elumina RegistrationInv and add User and Invigilator2P`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+//     await test.step(`Navigate to Application`, async () => {
+//         await eluminaLoginPage.navigateToURL();
+//     });
+//     await test.step(`Login to Elumina application`, async () => {
+//         await eluminaLoginPage.loginToApplication();
+//     });
+//     await test.step(`Navigate to exam Tab and Create New user`, async () => {
+//         const newtab = await eluminaRegPage.iAuthorPageNavigations();
+//         await newtab.registrationTabNavigation();
+//         //await newtab.clickaddMoreUsersIcon(1)
+//         await newtab.addMultipleUserDetails(1);
+//         await newtab.BulkDownloadUserDetails("bulkUserCredentialForImageViewerLowPriExam.xlsx");
+//         //await newtab.addInv();
+//         //await newtab.searchUserForAddingInv(2, "bulkUserCredentialForImageViewerLowPriExam.xlsx")
+//     });
+// });
+// ///////////////////////////////////////////////////////////////////////////////////////////////
 
-test(` . @Pre-Request  Verify Elumina Login and Create Exam3P`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
-        await eluminaLoginPage.verifyProfilePage();
-    });
-    await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
-        const newtab = await eluminaExamPage.iAuthorPageNavigation();
-        await newtab.examTabNavigation();
-        await newtab.createCommonExam();
-        await newtab.clickonNextBtnInExam();
-        await newtab.createSection("1", "30");
-        await newtab.addVSAQQuestions();
-    });
-});
+// test(` . @Pre-Request  Verify Elumina Login and Create Exam3P`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+//     await test.step(`Navigate to Application`, async () => {
+//         await eluminaLoginPage.navigateToURL();
+//     });
+//     await test.step(`Login to Elumina application`, async () => {
+//         await eluminaLoginPage.loginToApplication();
+//     });
+//     await test.step(`Verify User is logged in and navigated to Elumina Homepage`, async () => {
+//         await eluminaLoginPage.verifyProfilePage();
+//     });
+//     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
+//         const newtab = await eluminaExamPage.iAuthorPageNavigation();
+//         await newtab.examTabNavigation();
+//         await newtab.createCommonExam();
+//         await newtab.clickonNextBtnInExam();
+//         await newtab.createSection("1", "30");
+//         await newtab.addVSAQQuestions();
+//     });
+// });
 
-test(` . @Pre-Request  Verify Elumina RegistrationInv and add User and Invigilator3P`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Elumina application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Navigate to exam Tab and Create New user`, async () => {
-        const newtab = await eluminaRegPage.iAuthorPageNavigations();
-        await newtab.registrationTabNavigation();
-        //await newtab.clickaddMoreUsersIcon(1)
-        await newtab.addMultipleUserDetails(1);
-        await newtab.BulkDownloadUserDetails("bulkUserCredentialForInlineViewerLowPriExam.xlsx");
-        // await newtab.addInv();
-        //await newtab.searchUserForAddingInv(2, "bulkUserCredentialForInlineViewerLowPriExam.xlsx")
-    });
-});
+// test(` . @Pre-Request  Verify Elumina RegistrationInv and add User and Invigilator3P`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+//     await test.step(`Navigate to Application`, async () => {
+//         await eluminaLoginPage.navigateToURL();
+//     });
+//     await test.step(`Login to Elumina application`, async () => {
+//         await eluminaLoginPage.loginToApplication();
+//     });
+//     await test.step(`Navigate to exam Tab and Create New user`, async () => {
+//         const newtab = await eluminaRegPage.iAuthorPageNavigations();
+//         await newtab.registrationTabNavigation();
+//         //await newtab.clickaddMoreUsersIcon(1)
+//         await newtab.addMultipleUserDetails(1);
+//         await newtab.BulkDownloadUserDetails("bulkUserCredentialForInlineViewerLowPriExam.xlsx");
+//         // await newtab.addInv();
+//         //await newtab.searchUserForAddingInv(2, "bulkUserCredentialForInlineViewerLowPriExam.xlsx")
+//     });
+//});
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 /**AM */

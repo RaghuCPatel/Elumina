@@ -8,7 +8,7 @@ test(` . @iExamRegression Verify Validation of Flag for Review`, async ({ elumin
     });
 
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(2, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(20, "bulk_user_details.xlsx");
     });
     await test.step('Candidate marks flag for review to all questions in the exam', async () => {
         await eluminaCandPage.candidateFlagForReviewAllQuestions();
@@ -22,7 +22,7 @@ test(`iEX_TC_ID_59. @iExamRegression Verify candidate adds and saves Notes Elumi
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(3, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.AddingNotesToQuestionSinglelast();
@@ -37,7 +37,7 @@ test(` . @iExamRegression Verify Validation of using Calculator EluminaRegressio
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(4, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(3, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.UsingCalculatorForQuestions();
@@ -53,7 +53,7 @@ test(` . @iExamRegression Verify Validation of using Highlighter EluminaRegressi
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(5, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(4, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.UsingHighlighterForQuestions();
@@ -68,7 +68,7 @@ test(` . @iExamRegression Verify Validation of VSAQ Question type EluminaRegress
     });
 
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(6, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(5, "bulk_user_details.xlsx");
         await eluminaCandPage.candidateStartVSAQ();
     });
 
@@ -81,7 +81,7 @@ test(` . @iExamRegression Verify Validation of Candidate dashboard - Exam schedu
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(21, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(6, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.candidateStartMCQandSAQ_RevieweandSubmit();
@@ -96,6 +96,6 @@ test(` . @iExamRegression Verify Validation of Candidate dashboard - Exam schedu
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(21, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToAndValidateDashboard(6, "bulk_user_details.xlsx");
     });
 });

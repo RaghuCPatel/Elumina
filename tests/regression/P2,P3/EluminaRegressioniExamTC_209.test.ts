@@ -52,7 +52,7 @@ test(`iEX_TC_ID_53. @LowPriorityiExamCases Validation of Exam content page -> Qu
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(9, "bulkUserCredentialForAllTypeQutnExam.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(8, "bulkUserCredentialForAllTypeQutnExam.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.setOffline(true);
@@ -75,7 +75,7 @@ test(`iEX_TC_ID_108,iEX_TC_ID_115. @LowPriorityiExamCases Validation of Candidat
     });
 
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(10, "bulkUserCredentialForAllTypeQutnExam.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(9, "bulkUserCredentialForAllTypeQutnExam.xlsx");
         //await eluminaCandPage.candidateContentSectionVerifications();
         await eluminaCandPage.candidateStartOneMCQ();
         await eluminaCandPage.setOffline(true);

@@ -44,7 +44,7 @@ test(` . @LowPriorityiExamCases Verify Validation of Exam section page  > Chat A
 
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(27, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(25, "bulk_user_details.xlsx");
     });
     await test.step('Candidate uses chat app in Exam page', async () => {
         await eluminaCandPage.enterFieldsInChatApp(false);
@@ -57,7 +57,7 @@ test(`iEX_TC_ID_198. @LowPriorityiExamCases Validate when user go offline while 
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(28, "bulk_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(26, "bulk_user_details.xlsx");
     });
     await test.step('Candidate uses chat app in Exam page', async () => {
         await eluminaCandPage.enterFieldsInChatApp(true);

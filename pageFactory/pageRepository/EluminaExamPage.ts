@@ -887,6 +887,8 @@ export class EluminaExamPage {
     await this.ClickOnNextBtn.click();
     await this.page.waitForTimeout(5000);
     await this.ClickOnSubmitAndApproveBtn.click();
+    await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+    await this.page.waitForTimeout(5000);
   }
 
   /*Add all Questions in an Exam*/

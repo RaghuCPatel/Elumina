@@ -89,10 +89,29 @@ export class EluminaLoginPage {
         await this.page.goto("/");
     }
 
-    async url() {
+    async enterModuleURL() {
         await this.page.goto(testData.ModuleURL);
         if ((await this.sessionExpireMsg.textContent()) == ("Session expired. Please login again")) {
             await this.loginToApplication()
+            await expect(this.AUTHOR).toHaveText("iAuthor")
+        }
+        else {
+            await expect(this.AUTHOR).toHaveText("iAuthor")
+            await this.AUTHOR.click();
+        }
+
+    }
+
+    async enterDashboardURL() {
+        await this.page.goto(testData.DashboardURL);
+        if ((await this.sessionExpireMsg.textContent()) != ("Session expired. Please login again")) {
+            await this.loginToApplication()
+            await this.page.waitForTimeout(15000);
+            await expect(this.EXAMSMENU).toHaveText("Exams")
+        }
+        else {
+            await expect(this.EXAMSMENU).toHaveText("Exams")
+            await this.EXAMSMENU.click();
         }
 
     }
@@ -152,6 +171,20 @@ export class EluminaLoginPage {
             await this.USERNAME_EDITBOX.fill(testData.UserEmail);
             await this.PASSWORD_EDITBOX.clear();
             await this.PASSWORD_EDITBOX.fill(testData.InactivePassword);
+            await this.LOGIN_BUTTON.click();
+        }
+        await this.RatelimitLogin.isVisible();
+        console.log(await this.RatelimitLogin.textContent());
+    }
+
+    /**Navigate to Login Application */
+    async RateloginattemptcheckAsAdmin(): Promise<void> {
+        //const decipherPassword = await webActions.decipherPassword();
+        for (let i = 1; i <= 4; i++) {
+            await this.USERNAME_EDITBOX.clear();
+            await this.USERNAME_EDITBOX.fill(testData.InvalidAdminUsername);
+            await this.PASSWORD_EDITBOX.clear();
+            await this.PASSWORD_EDITBOX.fill(testData.InvalidAdminPassword);
             await this.LOGIN_BUTTON.click();
         }
         await this.RatelimitLogin.isVisible();
