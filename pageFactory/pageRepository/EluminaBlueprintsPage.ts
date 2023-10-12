@@ -1,5 +1,6 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
+import { parseForESLint } from '@typescript-eslint/parser';
 
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
@@ -199,6 +200,7 @@ export class EluminaBlueprintsPage {
     readonly clickOnViewBtn: Locator;
     readonly fetchblueprintTitle: Locator;
     readonly clickOnLeftArrow: Locator;
+    readonly previewPageTitle: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -357,6 +359,7 @@ export class EluminaBlueprintsPage {
         this.clickOnViewBtn = page.locator('(//button[@class="btn btn-default"])[1]')
         this.fetchblueprintTitle = page.locator('//input[@class="textField ng-touched ng-dirty ng-valid"]')
         this.clickOnLeftArrow = page.locator('//i[@class="iconBg leftArrow"]')
+        this.previewPageTitle = page.locator('(//h4[text()="Preview"])[2]')
 
     }
     /**Method for Exam Tab Navigation */
@@ -1032,6 +1035,12 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(2000);
         await this.previewCloseButtonClick.click();
         await this.page.waitForTimeout(2000)
+    }
+
+    /**Method to verify Preview Page */
+    async verifyPreviewPage() {
+        await expect(this.previewPageTitle).toHaveText("Preview")
+        await this.page.waitForTimeout(30000)
     }
 
     /**Method to remove questions from cart*/
