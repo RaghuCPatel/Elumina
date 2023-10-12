@@ -74,6 +74,8 @@ test(` . @iExamSerialRegression Verify Validation of Extending Exam`, async ({ e
         await newPage.locator('//button[@class="theme-btn theme-primary-btn"]').click();
         await newPage.waitForTimeout(5000);
         console.log("Candidate is able to see the exam timer is extended")
+        await newPage.close();
+        await page1.close();
 
     });
 });

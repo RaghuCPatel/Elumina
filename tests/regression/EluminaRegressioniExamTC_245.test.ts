@@ -66,6 +66,11 @@ test(` . @iExamSerialRegression Verify Validation of Resume Exam`, async ({ elum
         await newPage.locator('(//button[text()="Yes"])[2]').click();
         await newPage.waitForTimeout(5000);
 
+        await newPage.close();
+        await page1.close();
+
+    });
+    await test.step(`Redirected to Candidate page`, async () => {
         await eluminaCandPage.againCandidateLogin();
         console.log("Candidate is able to attend the exam after invigilator resumes the exam")
 

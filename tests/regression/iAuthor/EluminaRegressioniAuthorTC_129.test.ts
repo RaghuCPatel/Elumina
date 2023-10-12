@@ -1,8 +1,7 @@
 import test from '@lib/BaseTest';
 
-/**Validation of Blueprint Version History */
-
-test(`iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History`, async ({ eluminaLoginPage, eluminaBlueprintsPage, webActions }) => {
+/**Validation of Create Exam – How do you want to get started ?: */
+test(`iAU_TC_ID_129. @RegressionA Validation of Create Exam – How do you want to get started ?:`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -11,9 +10,9 @@ test(`iAU_TC_ID_123. @RegressionA Validation of Blueprint Version History`, asyn
     });
     await test.step(`Navigate to iAuthor blueprint`, async () => {
         const newtab = await eluminaBlueprintsPage.iAuthorPageNavigation();
-        await newtab.BlueprintMenuClick();
-        await newtab.searchDraftBlueprintQuestionToApprove();
-        await newtab.addQuestionsToCart()
-        await newtab.verifyVersion()
+        await newtab.examTabNavigation();
+        await newtab.clickOnCreateExam();
+        await newtab.verifyExamPage()
+            ;
     });
 });

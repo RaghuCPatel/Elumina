@@ -52,7 +52,6 @@ test(` . @iExamSerialRegression Validation of invigilator remotely start the Exa
         await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
-        await eluminaCadInvPage.candidateStartExamsValidationInv();
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
         const page1 = await context1.newPage();

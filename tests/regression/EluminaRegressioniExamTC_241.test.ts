@@ -73,6 +73,8 @@ test(` . @iExamSerialRegression Verify Validation of "Terminate Exam"  `, async 
         await eluminaCadInvPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime3();
+
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");

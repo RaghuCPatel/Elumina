@@ -39,7 +39,6 @@ test(` . @iExamSerialRegression Verify Validation of "Pause Exam" from Live moni
 
     });
     await test.step('Candidate start the exam', async () => {
-        //await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();
         await eluminaCandPage.examSectionValidation();
 
         const browser = await chromium.launch();
