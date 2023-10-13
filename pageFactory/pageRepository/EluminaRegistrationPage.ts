@@ -176,8 +176,13 @@ export class EluminaRegistrationPage {
     readonly clickeditphone: Locator;
     readonly selectRole: Locator;
     readonly closeXButton: Locator;
-
-
+    readonly BulkAssignInvigilatorDetails: Locator;
+    readonly selectInvVenue: Locator;
+    readonly selectInvVenueClick: Locator;
+    readonly bulkassignInv: Locator;
+    readonly selectCandidate1: Locator;
+    readonly selectInv: Locator;
+    readonly bulkAssignInvPopup: Locator;
 
 
 
@@ -299,6 +304,7 @@ export class EluminaRegistrationPage {
         this.venueSummaryBookedSeats = page.locator('//table[@class="table"]//tbody//tr[1]//td[10]');
         this.venueSummaryRemainingSeats = page.locator('//table[@class="table"]//tbody//tr[1]//td[11]');
         this.selectCandidates = page.locator('//select[@id="candidate0"]//option[1]');
+        this.selectCandidate1 = page.locator('//select[@id="candidate1"]//option[2]');
         this.users = page.locator('//input[@placeholder="Select Users(s)"]');
         this.invCheckBox = page.locator('//input[@class="open"]');
         this.liveDashboardClick = page.locator('//a[normalize-space()="Live Dashboard"]');
@@ -321,8 +327,12 @@ export class EluminaRegistrationPage {
         this.clickeditphone = page.locator('(//input[@name="inputbox"])[6]');
         this.selectRole = page.locator('//input[@placeholder="Select Role"]');
         this.closeXButton = page.locator('(//button[text()="×"])[4]');
-
-
+        this.BulkAssignInvigilatorDetails = page.locator('//a[text()="Bulk Assign Invigilator"]');
+        this.selectInvVenue = page.locator('(//input[@placeholder="Select Venue"])[2]');
+        this.selectInvVenueClick = page.locator('(//span[text()="Elumina Chennai"])[2]');
+        this.bulkassignInv = page.locator('//li[normalize-space()="Assign By Invigilator"]');
+        this.selectInv = page.locator('(//span[text()="IGS Invigilator Two"])[2]');
+        this.bulkAssignInvPopup = page.locator('//span[text()="Please fill all the mandatory fields!"]');
 
     }
 
@@ -983,6 +993,58 @@ export class EluminaRegistrationPage {
         await this.page.waitForTimeout(5000);
     }
 
+    /**
+     * Method for Bulk Assign Invigilator By Candidate
+     */
+    async BulkAssignInvigilatorbycand(): Promise<void> {
+        await this.bulkDownloadButton.click();
+        await this.BulkAssignInvigilatorDetails.click();
+        await this.selectInvVenue.click();
+        await this.selectInvVenueClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.selectCandidates.click();
+        await this.users.click();
+        await this.page.waitForTimeout(5000);
+        await this.invCheckBox.click();
+        await this.page.waitForTimeout(5000);
+        await this.selectCandidates.click();
+        await this.ClickOnInvSaveBtn.click();
+        await expect(this.invSuccessMessagePopup).toHaveText("Invigilator has been assigned successfully");
+        await this.page.waitForTimeout(20000);
+    }
+
+    /**
+     * Method for Bulk Assign Invigilator by Invigilator
+     */
+    async BulkAssignInvigilatorbyInv(): Promise<void> {
+        await this.bulkDownloadButton.click();
+        await this.BulkAssignInvigilatorDetails.click();
+        await this.selectInvVenue.click();
+        await this.selectInvVenueClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.bulkassignInv.click();
+        await this.page.waitForTimeout(2000);
+        await this.users.click();
+        await this.selectInv.click();
+        await this.page.waitForTimeout(5000);
+        await this.selectCandidate1.click();
+        await this.ClickOnInvSaveBtn.click();
+        await expect(this.invSuccessMessagePopup).toHaveText("Invigilator has been assigned successfully");
+        await this.page.waitForTimeout(20000);
+    }
+
+    /**
+     * Method to check without entering mandtory feilds(negative scenerio)
+     */
+    async BulkAssignInvempty() {
+        await this.bulkDownloadButton.click();
+        await this.BulkAssignInvigilatorDetails.click();
+        await this.ClickOnInvSaveBtn.click();
+        await this.page.waitForTimeout(10000);
+        await expect(this.bulkAssignInvPopup).toHaveText("Please fill all the mandatory fields!");
+        await this.closeXButton.click();
+        await this.page.waitForTimeout(20000);
+    }
 
     async searchCandidateforMarker(): Promise<void> {
         await this.MarkingMenu.click();
