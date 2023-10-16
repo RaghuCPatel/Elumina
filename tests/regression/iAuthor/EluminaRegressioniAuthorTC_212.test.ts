@@ -1,8 +1,8 @@
 import test from '@lib/BaseTest';
 
-/**Validation of Delivery --> Venue Summary*/
+/**Validation of Delivery --> Live Monitor*/
 
-test(` iAU_TC_ID_205. @RegressionA Pre-Request Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(` iAU_TC_ID_212. @RegressionA Pre-Request Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -23,7 +23,7 @@ test(` iAU_TC_ID_205. @RegressionA Pre-Request Verify Elumina Login and Create E
     });
 });
 
-test(` iAU_TC_ID_205. @RegressionA Pre-Request "Validation of Delivery --> Add New Users"`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
+test(` iAU_TC_ID_212. @RegressionA Pre-Request "Validation of Delivery --> Add New Users"`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -41,7 +41,7 @@ test(` iAU_TC_ID_205. @RegressionA Pre-Request "Validation of Delivery --> Add N
     });
 });
 
-test(`iAU_TC_ID_180. @RegressionA Validation of Manage Delivery --> Edit user `, async ({ eluminaRegPage, eluminaLoginPage, eluminaCreateQuestionsPage, eluminaExamPage, webActions }) => {
+test(`iAU_TC_ID_212.,iAU_TC_ID_213. @RegressionA Validation of Delivery --> Live Monitor `, async ({ eluminaRegPage, eluminaLoginPage, eluminaCreateQuestionsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -51,12 +51,11 @@ test(`iAU_TC_ID_180. @RegressionA Validation of Manage Delivery --> Edit user `,
     await test.step(`Navigate to iAuthor`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.clickOnCreatedExam();
-        await newtab.editUser();
+        await newtab.liveMonitor();
     });
 });
 
-
-test(`iAU_TC_ID_205. @RegressionA Validation of Delivery --> Venue Summary `, async ({ eluminaRegPage, eluminaLoginPage, eluminaCreateQuestionsPage, eluminaExamPage, webActions }) => {
+test(`iAU_TC_ID_215. @RegressionA Validation of Delivery--> Live Monitor all exam status  `, async ({ eluminaRegPage, eluminaLoginPage, eluminaCreateQuestionsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -66,21 +65,6 @@ test(`iAU_TC_ID_205. @RegressionA Validation of Delivery --> Venue Summary `, as
     await test.step(`Navigate to iAuthor`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.clickOnCreatedExam();
-        await newtab.venueSummary();
-    });
-});
-
-
-test(`iAU_TC_ID_206.,iAU_TC_ID_210.,iAU_TC_ID_209.,iAU_TC_ID_211 @RegressionA Validation of Delivery --> Live Dashboard `, async ({ eluminaRegPage, eluminaLoginPage, eluminaCreateQuestionsPage, eluminaExamPage, webActions }) => {
-    await test.step(`Navigate to Application`, async () => {
-        await eluminaLoginPage.navigateToURL();
-    });
-    await test.step(`Login to Application`, async () => {
-        await eluminaLoginPage.loginToApplication();
-    });
-    await test.step(`Navigate to iAuthor`, async () => {
-        const newtab = await eluminaRegPage.iAuthorPageNavigations();
-        await newtab.clickOnCreatedExam();
-        await newtab.liveDashboard();
+        await newtab.liveMonitorExamStatus();
     });
 });

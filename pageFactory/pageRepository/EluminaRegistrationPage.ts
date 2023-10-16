@@ -176,13 +176,48 @@ export class EluminaRegistrationPage {
     readonly clickeditphone: Locator;
     readonly selectRole: Locator;
     readonly closeXButton: Locator;
-    readonly BulkAssignInvigilatorDetails: Locator;
-    readonly selectInvVenue: Locator;
-    readonly selectInvVenueClick: Locator;
-    readonly bulkassignInv: Locator;
-    readonly selectCandidate1: Locator;
-    readonly selectInv: Locator;
-    readonly bulkAssignInvPopup: Locator;
+    readonly selectChooseRole: Locator;
+    readonly spanX: Locator;
+    readonly assignMarkerExamName: Locator;
+    readonly assignMarkerSession: Locator;
+    readonly assignMarkerCandidateName: Locator;
+    readonly nomarkersAvailable: Locator;
+    readonly liveDashboardOne: Locator;
+    readonly liveDashboardZero: Locator
+    readonly liveDashboradMoreOptions: Locator;
+    readonly liveDashboardDisableCheck: Locator;
+    readonly liveDashboradEnableCheck: Locator;
+    readonly liveMonitorClick: Locator;
+    readonly liveDashboradAutoRefresh: Locator;
+
+    readonly StartExam: Locator;
+    readonly PauseExam: Locator;
+    readonly ResumeExam: Locator;
+    readonly ExtendExam: Locator;
+    readonly LockExam: Locator;
+    readonly terminateExam: Locator;
+
+    readonly Attendance: Locator;
+    readonly clientId: Locator;
+    readonly candidateId: Locator;
+    readonly firstName: Locator
+    readonly LastName: Locator;
+    readonly ExamVenue: Locator;
+    readonly Location: Locator;
+    readonly specialConsideration: Locator;
+    readonly ExamStatus: Locator;
+    readonly questionDownloadStatus: Locator
+    readonly currentSection: Locator;
+    readonly examStatusandSection: Locator;
+    readonly TimeRemaining: Locator;
+    readonly DropDownToggle: Locator;
+    readonly addNotes: Locator;
+    readonly specialConsiderationNotes: Locator;
+    readonly restoreExam: Locator;
+    readonly downloadCandResponsePdf: Locator;
+    readonly liveMonitorVenueselect: Locator;
+    readonly liveMonitorExamStatusclick: Locator;
+
 
 
 
@@ -226,7 +261,7 @@ export class EluminaRegistrationPage {
         this.ChooseExistingRole = page.locator('//div[@class="btn-selected-list"]//div//ul');
 
         this.SelectInvRole = page.locator('//span[normalize-space()="Invigilator"]');
-        this.SelectMarkerRole = page.locator('(//span[normalize-space()="Marker"])[1]');
+        this.SelectMarkerRole = page.locator('(//span[normalize-space()="Marker"])[2]');
 
         this.SelectExVenue = page.locator('//input[@placeholder="Select Venue"]');
         this.SelectInvVenue = page.locator('//span[text()="Elumina Chennai"]');
@@ -258,7 +293,7 @@ export class EluminaRegistrationPage {
         this.AssignMarkers = page.locator('(//p[text()="Assign Markers"])[1]');
         this.selectAllQuestions = page.locator('//option[text()="All Questions"]');
         this.selectMarker = page.locator('//option[text()="Igs Marker"]');
-        this.arrowClick = page.locator('(//div[@class="hideClass"])[1]');
+        this.arrowClick = page.locator('//div[@class="showClass"]');
         this.closeButton = page.locator('//button[text()="Close"]');
         this.DeleteUsers = page.locator('//a[text()="Delete Users"]');
         this.GenerateTempid = page.locator('//a[text()="Generate Temp ID"]');
@@ -304,7 +339,6 @@ export class EluminaRegistrationPage {
         this.venueSummaryBookedSeats = page.locator('//table[@class="table"]//tbody//tr[1]//td[10]');
         this.venueSummaryRemainingSeats = page.locator('//table[@class="table"]//tbody//tr[1]//td[11]');
         this.selectCandidates = page.locator('//select[@id="candidate0"]//option[1]');
-        this.selectCandidate1 = page.locator('//select[@id="candidate1"]//option[2]');
         this.users = page.locator('//input[@placeholder="Select Users(s)"]');
         this.invCheckBox = page.locator('//input[@class="open"]');
         this.liveDashboardClick = page.locator('//a[normalize-space()="Live Dashboard"]');
@@ -327,12 +361,47 @@ export class EluminaRegistrationPage {
         this.clickeditphone = page.locator('(//input[@name="inputbox"])[6]');
         this.selectRole = page.locator('//input[@placeholder="Select Role"]');
         this.closeXButton = page.locator('(//button[text()="×"])[4]');
-        this.BulkAssignInvigilatorDetails = page.locator('//a[text()="Bulk Assign Invigilator"]');
-        this.selectInvVenue = page.locator('(//input[@placeholder="Select Venue"])[2]');
-        this.selectInvVenueClick = page.locator('(//span[text()="Elumina Chennai"])[2]');
-        this.bulkassignInv = page.locator('//li[normalize-space()="Assign By Invigilator"]');
-        this.selectInv = page.locator('(//span[text()="IGS Invigilator Two"])[2]');
-        this.bulkAssignInvPopup = page.locator('//span[text()="Please fill all the mandatory fields!"]');
+        this.selectChooseRole = page.locator('//input[@placeholder="Select Choose Role"]');
+        this.spanX = page.locator('//span[text()="x"]');
+        this.assignMarkerExamName = page.locator('(//span[@class="break-heading"])[1]');
+        this.assignMarkerCandidateName = page.locator('(//span[@class="break-heading"])[2]');
+        this.assignMarkerSession = page.locator('(//span[@class="break-heading"])[3]');
+        this.nomarkersAvailable = page.locator('//option[text()="No markers available"]');
+        this.liveDashboardOne = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[8]');
+        this.liveDashboardZero = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[10]');
+        this.liveDashboradMoreOptions = page.locator('//table[@class="table table-spacing"]//thead//th[1]');
+        this.liveDashboardDisableCheck = page.locator('//input[@value="Exam Session"]');
+        this.liveDashboradEnableCheck = page.locator('//input[@value="Exam - In Progress"]');
+        this.liveDashboradAutoRefresh = page.locator('//div[@class="switch-value"]');
+        this.liveMonitorClick = page.locator('//a[normalize-space()="Live Monitor"]');
+        this.StartExam = page.locator('//div[normalize-space()="Start Exam"]');
+        this.PauseExam = page.locator('//div[normalize-space()="Pause Exam"]');
+        this.ResumeExam = page.locator('//div[normalize-space()="Resume Exam"]');
+        this.ExtendExam = page.locator('//div[normalize-space()="Extend Exam"]');
+        this.LockExam = page.locator('//div[normalize-space()="Lock Exam"]');
+        this.terminateExam = page.locator('//div[normalize-space()="Terminate Exam"]');
+        this.Attendance = page.locator('//table[@class="table table-spacing"]//thead//th[3]');
+        this.clientId = page.locator('//table[@class="table table-spacing"]//thead//th[4]');
+        this.candidateId = page.locator('//table[@class="table table-spacing"]//thead//th[5]');
+        this.firstName = page.locator('//table[@class="table table-spacing"]//thead//th[6]');
+        this.LastName = page.locator('//table[@class="table table-spacing"]//thead//th[7]');
+        this.ExamVenue = page.locator('//table[@class="table table-spacing"]//thead//th[8]');
+        this.Location = page.locator('//table[@class="table table-spacing"]//thead//th[9]');
+        this.specialConsideration = page.locator('//table[@class="table table-spacing"]//thead//th[10]');
+        this.ExamStatus = page.locator('//table[@class="table table-spacing"]//thead//th[11]');
+        this.questionDownloadStatus = page.locator('//table[@class="table table-spacing"]//thead//th[12]')
+        this.currentSection = page.locator('//table[@class="table table-spacing"]//thead//th[1]');
+        this.examStatusandSection = page.locator('//table[@class="table table-spacing"]//thead//th[14]');
+        this.TimeRemaining = page.locator('//table[@class="table table-spacing"]//thead//th[15]');
+        this.DropDownToggle = page.locator('(//a[@class="dropdown-toggle"])[1]');
+        this.addNotes = page.locator('(//p[text()="Add Notes"])[1]');
+        this.specialConsiderationNotes = page.locator('(//p[text()="Special Consideration Notes"])[1]');
+        this.restoreExam = page.locator('(//p[text()="Restore Exam"])[1]');
+        this.downloadCandResponsePdf = page.locator('(//p[text()="Download Candidate Response PDF"])[1]');
+        this.liveMonitorVenueselect = page.locator('(//input[@class="open"])[20]');
+        this.liveMonitorExamStatusclick = page.locator('//input[@placeholder="Select Exam Status"]');
+        //this.liveMonitorstatus = page.locator('//input[@class="open"]');
+
 
     }
 
@@ -758,14 +827,21 @@ export class EluminaRegistrationPage {
         await this.page.waitForTimeout(5000);
     }
 
+    /**
+     * Method to add Marker
+     */
     async addMarker() {
         await this.ClickOnAddExistingUser.click();
         await this.SearchUsers.click();
         await this.SearchUsers.type(testData.MarkerUsername);
         await this.page.waitForTimeout(6000);
         await this.CLickOnUser.click();
-        await this.ChooseExistingRole.click();
+        await this.page.waitForTimeout(2000);
+        await this.spanX.click();
+        await this.selectChooseRole.click();
+        await this.selectChooseRole.type('Marker');
         await this.SelectMarkerRole.click();
+        await this.page.waitForTimeout(6000);
         await this.SelectExVenue.click();
         await this.SelectInvVenue.click();
         await this.SelectExEligible.click();
@@ -943,11 +1019,12 @@ export class EluminaRegistrationPage {
     * Method to click on live Dashboard page
     */
     async liveDashboard() {
+        //205
         await this.liveDashboardClick.click();
         await this.liveDashboardLocationClick.click();
         await this.liveDashboardlocationselect.click();
         await this.page.waitForTimeout(3000);
-        await this.liveDashboardVenueClick.click();
+        await this.liveMonitorVenueselect.click();
         await this.liveDashboardvenueselect.click();
         await this.page.waitForTimeout(3000);
         await this.liveDashboardSubmit.click();
@@ -962,6 +1039,98 @@ export class EluminaRegistrationPage {
         console.log(await this.liveDashboardNotYetStarted.textContent());
         await this.liveDashboardCompleted.isVisible();
         console.log(await this.liveDashboardCompleted.textContent());
+
+        //209
+        await this.liveDashboradMoreOptions.click();
+        await this.liveDashboardDisableCheck.isDisabled();
+        await this.liveDashboradEnableCheck.isEnabled();
+
+        //210
+        await this.liveDashboardOne.isVisible();
+        console.log(await this.liveDashboardOne.textContent());
+        await expect(this.liveDashboardOne).toHaveCSS('background', 'rgb(251, 254, 214) none repeat scroll 0% 0% / auto padding-box border-box');
+        await this.liveDashboardZero.isVisible();
+        console.log(await this.liveDashboardZero.textContent());
+
+        //211
+        await this.liveDashboradAutoRefresh.isVisible();
+        await this.page.waitForTimeout(61000);
+        await this.liveDashboardVenueClick.isVisible();
+        await this.liveDashboardOne.isVisible();
+        console.log("Value after Auto Refresh:" + await this.liveDashboardOne.textContent());
+        console.log('Autofreshed after 60secs')
+    }
+
+    /**
+    * Method to Validate on live Monitor page
+    */
+    async liveMonitor() {
+        await this.liveMonitorClick.click();
+        await this.liveDashboardLocationClick.isVisible();
+        await this.liveDashboardLocationClick.click();
+        await this.liveDashboardlocationselect.click();
+        await this.page.waitForTimeout(3000);
+        await this.liveDashboardVenueClick.isVisible();
+        await this.liveDashboardVenueClick.click();
+        await this.liveMonitorVenueselect.click();
+        await this.page.waitForTimeout(3000);
+
+        await this.StartExam.isVisible();
+        await this.PauseExam.isVisible();
+        await this.ExtendExam.isVisible();
+        await this.terminateExam.isVisible();
+        await this.ResumeExam.isVisible();
+        await this.ExtendExam.isVisible();
+
+        await this.liveDashboradMoreOptions.click();
+        await this.Attendance.isVisible();
+        await this.Attendance.click();
+        await this.page.waitForTimeout(2000);
+        await this.Attendance.click();
+        await this.clientId.isVisible();
+        await this.firstName.isVisible();
+        await this.LastName.isVisible();
+        await this.candidateId.isVisible();
+        await this.ExamVenue.isVisible();
+        await this.Location.isVisible();
+        await this.specialConsideration.isVisible();
+        await this.ExamStatus.isVisible();
+        await this.questionDownloadStatus.isVisible();
+        await this.currentSection.isVisible();
+        await this.examStatusandSection.isVisible();
+        await this.TimeRemaining.isVisible();
+
+        await this.DropDownToggle.click();
+        await this.addNotes.isVisible();
+        await this.specialConsiderationNotes.isVisible();
+        await this.restoreExam.isVisible();
+        await this.downloadCandResponsePdf.isVisible();
+        await this.resetPasswordCand.isVisible();
+        await this.page.waitForTimeout(5000);
+
+        //213
+        await this.liveDashboradAutoRefresh.isVisible();
+        await this.page.waitForTimeout(61000);
+        await this.liveDashboardVenueClick.isVisible();
+        await this.liveDashboardOne.isVisible();
+        console.log("Value after Auto Refresh:" + await this.liveDashboardOne.textContent());
+        console.log('Autofreshed after 60secs')
+    }
+
+    /**
+     * method to validate live monitor exam status
+     */
+    async liveMonitorExamStatus() {
+        await this.liveMonitorClick.click();
+        await this.liveMonitorExamStatusclick.click();
+        await this.page.waitForSelector('//input[@class="open"]')
+        const checks = await this.page.$$('//input[@class="open"]')
+        for (let i = 0; i < 20; i++) {
+            await checks[i].isVisible();
+            let statusCheck = await checks[i];
+            console.log('Live Monitor Exam status:' + statusCheck.textContent());
+            await this.page.waitForTimeout(2000);
+        }
     }
 
     /**
@@ -994,87 +1163,51 @@ export class EluminaRegistrationPage {
     }
 
     /**
-     * Method for Bulk Assign Invigilator By Candidate
+     * Method to Assign Markers to candidate
      */
-    async BulkAssignInvigilatorbycand(): Promise<void> {
-        await this.bulkDownloadButton.click();
-        await this.BulkAssignInvigilatorDetails.click();
-        await this.selectInvVenue.click();
-        await this.selectInvVenueClick.click();
-        await this.page.waitForTimeout(2000);
-        await this.selectCandidates.click();
-        await this.users.click();
-        await this.page.waitForTimeout(5000);
-        await this.invCheckBox.click();
-        await this.page.waitForTimeout(5000);
-        await this.selectCandidates.click();
-        await this.ClickOnInvSaveBtn.click();
-        await expect(this.invSuccessMessagePopup).toHaveText("Invigilator has been assigned successfully");
-        await this.page.waitForTimeout(20000);
-    }
-
-    /**
-     * Method for Bulk Assign Invigilator by Invigilator
-     */
-    async BulkAssignInvigilatorbyInv(): Promise<void> {
-        await this.bulkDownloadButton.click();
-        await this.BulkAssignInvigilatorDetails.click();
-        await this.selectInvVenue.click();
-        await this.selectInvVenueClick.click();
-        await this.page.waitForTimeout(2000);
-        await this.bulkassignInv.click();
-        await this.page.waitForTimeout(2000);
-        await this.users.click();
-        await this.selectInv.click();
-        await this.page.waitForTimeout(5000);
-        await this.selectCandidate1.click();
-        await this.ClickOnInvSaveBtn.click();
-        await expect(this.invSuccessMessagePopup).toHaveText("Invigilator has been assigned successfully");
-        await this.page.waitForTimeout(20000);
-    }
-
-    /**
-     * Method to check without entering mandtory feilds(negative scenerio)
-     */
-    async BulkAssignInvempty() {
-        await this.bulkDownloadButton.click();
-        await this.BulkAssignInvigilatorDetails.click();
-        await this.ClickOnInvSaveBtn.click();
-        await this.page.waitForTimeout(10000);
-        await expect(this.bulkAssignInvPopup).toHaveText("Please fill all the mandatory fields!");
-        await this.closeXButton.click();
-        await this.page.waitForTimeout(20000);
-    }
-
     async searchCandidateforMarker(): Promise<void> {
         await this.MarkingMenu.click();
+        await this.ClickOnDropdown.click();
+        await this.AssignMarkers.click();
+        await this.selectAllQuestions.click();
+        await this.page.waitForTimeout(5000);
+        await this.selectMarker.click();
+        await this.page.waitForTimeout(5000);
+        await this.arrowClick.click();
+        await this.page.waitForTimeout(5000);
+        await this.closeButton.click();
+        await this.page.waitForTimeout(5000);
+        await this.LeftArrow.click();
+        await this.page.waitForTimeout(5000);
 
-        for (let i = 2; i <= 4; i++) {
-            const ExcelJS = require('exceljs');
-            const wb = new ExcelJS.Workbook();
-            const fileName = './download/bulk_user_details.xlsx';
-            //const fileName = './User_details (30).xlsx';
-            wb.xlsx.readFile(fileName).then(async () => {
-                let data: any;
-                const ws = wb.getWorksheet('users');
-                console.log(ws.actualRowCount)
-                console.log(ws.getRow(2).getCell(1).value)
-                console.log(ws.getRow(2).getCell(4).value)
-                await this.SearchUsers.click();
-                await this.SearchUsers.clear();
-                await this.SearchUsers.type(ws.getRow(i).getCell(1).value)
-            })
-            await this.page.waitForTimeout(7000);
-            await this.ClickOnDropdown.click();
-            await this.AssignMarkers.click();
-            await this.selectAllQuestions.click();
-            await this.selectMarker.click();
-            await this.arrowClick.click();
-            await this.closeButton.click();
-            // await this.AssignUsersToCand.click();
-            // await this.AssignInvToCand.click();
-            await this.LeftArrow.click();
-            await this.page.waitForTimeout(5000);
-        }
+    }
+
+    /**
+     * Method to Validate Markers 
+     */
+    async ValidateMarker(): Promise<void> {
+        await this.MarkingMenu.click();
+        await this.ClickOnDropdown.click();
+        await this.AssignMarkers.click();
+        await this.assignMarkerExamName.isVisible();
+        console.log(await this.assignMarkerExamName.textContent());
+        await this.assignMarkerSession.isVisible();
+        console.log(await this.assignMarkerSession.textContent());
+        await this.assignMarkerCandidateName.isVisible();
+        console.log(await this.assignMarkerCandidateName.textContent());
+        await this.selectAllQuestions.isVisible();
+        await this.page.waitForTimeout(5000);
+        await this.selectMarker.isVisible();
+        await this.page.waitForTimeout(5000);
+        await this.arrowClick.isVisible();
+        await this.nomarkersAvailable.isVisible();
+        await expect(this.nomarkersAvailable).toHaveText("No markers available");
+        await this.page.waitForTimeout(5000);
+        await this.closeButton.isVisible();
+        await this.closeButton.click();
+        await this.page.waitForTimeout(5000);
+        await this.LeftArrow.click();
+        await this.page.waitForTimeout(5000);
+
     }
 }
