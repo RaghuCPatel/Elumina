@@ -401,7 +401,7 @@ export class EluminaCreateQuestionsPage {
         this.QuestionSuccessMessage = page.locator('//span[text()="Question created successfully"]');
         this.Marks = page.locator('//div[@id="parentAccord0"]//input[@type="number"]');
         this.correctAnswerMarks = page.locator('//div[@id="childAccord00"]//app-correct-answer-editor//input[@type="number"]');
-        this.MarkMarks = page.locator('//div[@id="editing-view-port"]');
+        this.MarkMarks = page.locator('//div[@class="da--container"]//input');
         this.SaveDraft = page.locator('//button[text()="Save Draft"]');
         this.clickImage = page.locator('(//img[@class="block-img"])[4]');
 
@@ -1097,14 +1097,13 @@ export class EluminaCreateQuestionsPage {
         await this.Question.click();
         await this.Question.type(testData.TypeBStatement);
         await this.page.waitForTimeout(2000);
-        await this.OptionA.click();
-        await this.page.waitForTimeout(2000);
         await this.AddImage.click();
         await this.page.waitForTimeout(2000);
         await this.clickImage.click()
         await this.page.waitForTimeout(2000);
         await this.InsertImageClick.click();
         await this.page.waitForTimeout(2000);
+        await this.OptionA.click();
         await this.OptionA.type(testData.Answer);
         await this.page.waitForTimeout(2000);
         await this.ClickOnAppropriateRadioBtn.click();
@@ -1558,8 +1557,6 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(2000);
         await this.Question.click();
         await this.Question.type(testData.TypeBStatement);
-        await this.page.waitForTimeout(2000);
-        await this.OptionA.click();
         await this.page.waitForTimeout(2000);
         await this.AddImage.click();
         await this.page.waitForTimeout(2000);
