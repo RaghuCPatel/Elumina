@@ -213,6 +213,17 @@ export class EluminaBlueprintsPage {
     readonly EnterInvigilatorPswd: Locator;
     readonly clickOnCloseIcon: Locator;
     readonly clickOnMinusicon: Locator;
+    readonly clickOnPlusIcon: Locator;
+    readonly selectitem: Locator;
+    readonly enterId: Locator;
+    readonly clickTikIcon: Locator;
+    readonly ClickOnCreateContentSection: Locator;
+    readonly selectMinutes: Locator;
+    readonly ClickonCreateContentPage: Locator;
+    readonly ClickOnAddContent: Locator;
+    readonly enterContentTitle: Locator;
+    readonly ClickOnContentLayout: Locator;
+    readonly ClickOnTermAndCondition: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -367,15 +378,13 @@ export class EluminaBlueprintsPage {
         this.ClickOnAddQuestion = page.locator('//i[@title="Create Exam Question"]');
         this.ClickOnSearchQuestion = page.locator('//input[@placeholder="Search Question(s)"]');
         this.ClickOnAddBtn = page.locator('//button[normalize-space()="Add"]');
-        // this.ClickOnSave = page.locator('//button[normalize-space()="Save"]');
-        // this.ClickOnNextBtn = page.locator('//button[normalize-space()="Next"]');
         this.ClickOnSubmitAndApproveBtn = page.locator('//button[normalize-space()="Submit & Approve"]');
         this.clickOnViewBtn = page.locator('(//button[@class="btn btn-default"])[1]')
         this.fetchblueprintTitle = page.locator('//input[@class="textField ng-touched ng-dirty ng-valid"]')
         this.clickOnLeftArrow = page.locator('//i[@class="iconBg leftArrow"]')
         this.previewPageTitle = page.locator('(//h4[text()="Preview"])[2]')
         this.clickOnComparisionBtn = page.locator('//button[@class="theme-btn theme-primary-btn"]')
-        this.comparisionPageTitle = page.locator('(//h4[@class="modal-title"])[5]')
+        this.comparisionPageTitle = page.locator('(//div[@class="modal-header"]//h4)[3]')
         this.ExamTools = page.locator('(//div[@class="input-wrap"])[6]');
         this.SelectNotepad = page.locator('(//div[@class="dropdown-main"])[6]//ul//li[2]//span[text()="Notepad"]');
         this.SelectCalculator = page.locator('(//div[@class="dropdown-main"])[6]//ul//li[1]//span[text()="Calculator"]');
@@ -383,6 +392,20 @@ export class EluminaBlueprintsPage {
         this.EnterInvigilatorPswd = page.locator('//input[@name="examInviglator"]');
         this.clickOnCloseIcon = page.locator('(//span[@class="msdd-close"])[1]')
         this.clickOnMinusicon = page.locator('//div[@class="minus-btn"]')
+        this.clickOnPlusIcon = page.locator('//button[@class="add-filter-button"]')
+        this.selectitem = page.locator('(//div[@class="filter-menu"]//select)[2]')
+        this.enterId = page.locator('//div[@class="filter-menu"]//input')
+        this.clickTikIcon = page.locator('//i[@class="tick-icon"]')
+        this.ClickOnCreateContentSection = page.getByText('Create Content Section');
+        this.selectMinutes = page.getByRole('combobox').nth(1);
+        this.ClickonCreateContentPage = page.locator('//i[@title="Create Content Page"]');
+        this.ClickOnAddContent = page.locator('//div[contains(text()," Add Content")]');
+        this.enterContentTitle = page.locator('//input[@name="inputbox"]');
+        this.ClickOnContentLayout = page.locator('//input[@placeholder="Select Content Layout"]');
+        this.ClickOnTermAndCondition = page.locator('//span[text()="Terms & Conditions"]');
+        this.ClickOnCreateSurveySection = page.getByText('Create Survey Section');
+        this.ClickOnAddSurveyQuestion = page.locator('//i[@title="Create Survey Question"]');
+
 
     }
     /**Method for Exam Tab Navigation */
@@ -404,6 +427,103 @@ export class EluminaBlueprintsPage {
     async BlueprintMenuClick(): Promise<void> {
         await this.Blueprint.click();
     }
+
+    /**
+     *  Method to Create Content Section 
+     */
+    async createContentSection(time): Promise<void> {
+        await this.CliCKOnCreateSection.click();
+        await this.ClickOnCreateContentSection.click();
+        await this.EnterSectionName.type('Content-' + Math.floor(Math.random()) * 89 + 10);
+        await this.page.waitForTimeout(5000);
+        await this.DescriptionMessage.click();
+        await this.DescriptionMessage.type('Hello World.....');
+        await this.page.waitForTimeout(5000);
+        await this.selectMinutes.selectOption(time);
+        await this.ClickOnSave.click();
+
+    }
+
+    /** 
+     * Method to Create a Content Section Page
+     */
+    async createContentPage(): Promise<void> {
+        await this.ClickonCreateContentPage.click();
+        await this.ClickOnAddContent.click();
+        await this.enterContentTitle.type('Content-A' + Math.floor(Math.random()) * 89 + 10);
+        await this.page.waitForTimeout(5000);
+        await this.DescriptionMessage.click();
+        await this.DescriptionMessage.type('Hello World.....');
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnContentLayout.click();
+        await this.ClickOnTermAndCondition.click();
+        await this.ClickOnSave.click();
+
+    }
+
+    /**
+     * Method to verify list of blueprint items
+     */
+    async verifyListOfBlueprint() {
+        await this.page.waitForTimeout(2000)
+        await this.page.waitForSelector('//table[@class="table"]//thead//tr//th//div//span[@class="thtext"]')
+        const items = await this.page.$$('//table[@class="table"]//thead//tr//th//div//span[@class="thtext"]')
+        for (let i = 0; i < items.length; i++) {
+            let item = await items[i].textContent();
+            console.log(item)
+            await expect(items.length).toBe(9)
+        }
+    }
+
+    /**
+     * Method to search text in search field
+     */
+    async searchtext() {
+        await this.searchBlueprint.fill('Draft')
+        await this.page.waitForTimeout(2000)
+        await this.clickOnPlusIcon.click()
+        await this.selectitem.click()
+        await this.selectitem.selectOption("ID")
+        await this.enterId.fill("70")
+        await this.clickTikIcon.click()
+    }
+
+    /**
+     * Create Survey Section
+     */
+    async createSurveySection(surveyTime) {
+        await this.page.waitForTimeout(5000);
+        await this.CliCKOnCreateSection.click();
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnCreateSurveySection.click();
+        await this.EnterSectionName.type('Survey-' + Math.floor(Math.random()) * 89 + 10);
+        await this.page.waitForTimeout(5000);
+        await this.DescriptionMessage.click();
+        await this.DescriptionMessage.type('Hello World.....');
+        await this.page.waitForTimeout(5000);
+        await this.selectMinutes.selectOption(surveyTime);
+        await this.ClickOnSave.click();
+
+    }
+    /**
+    * Create Survey Section Page
+    */
+    async createSurveyPage(): Promise<void> {
+        await this.ClickOnAddSurveyQuestion.click();
+        await this.ClickOnSearchQuestion.click()
+        await this.ClickOnSearchQuestion.type('MCQ');
+        await this.page.waitForTimeout(5000);
+        await this.page.locator('(//input[@type="checkbox"])[2]').click();
+        await this.ClickOnAddBtn.click()
+        await this.ClickOnSave.click();
+        await this.ClickOnNextBtn.click();
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnSubmitAndApproveBtn.click();
+        await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+        await this.page.waitForTimeout(5000);
+        await expect(this.verifyArchivePopup).toHaveText("Status has been updated successfuly.")
+    }
+
 
     /**Method to  click on Create Exam button */
     async clickOnCreateExam() {
@@ -889,6 +1009,24 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(5000);
     }
 
+    /*Create a Exam with All Tools*/
+    async selectAllToolsAndVerifyMsg() {
+        await this.EnterInvigilatorPswd.click();
+        await this.EnterInvigilatorPswd.type(testData.EnterInvigilatorPassword);
+        await this.page.waitForTimeout(5000);
+        await this.ExamTools.click();
+        await this.SelectCalculator.click();
+        await this.SelectNotepad.click();
+        await this.SelectHighlighter.click();
+        await this.ClickOnNextBtn.click();
+        await expect(this.verifyArchivePopup).toHaveText("Exam updated successfully")
+        await expect(this.VerifyExam_details).toBeVisible();
+        await expect(this.VerifyChoose_Question).toBeVisible();
+        await expect(this.VerifyChoose_Workflow).toBeVisible();
+        await expect(this.VerifyChoose_Confirmation).toBeVisible();
+        await this.page.waitForTimeout(5000);
+    }
+
     /**Create Exam Section */
     async createSection(hr, mins): Promise<void> {
         // EluminaExamPage.examID = await this.fectchExamID.textContent();
@@ -919,6 +1057,19 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(5000);
         await this.ClickOnSubmitAndApproveBtn.click();
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+        await this.page.waitForTimeout(5000);
+        await expect(this.verifyArchivePopup).toHaveText("Status has been updated successfuly.")
+    }
+
+
+    async addVSAQQuestionswithoutNext(): Promise<void> {
+        await this.ClickOnAddQuestion.click();
+        await this.ClickOnSearchQuestion.click()
+        await this.ClickOnSearchQuestion.type('VSAQ');
+        await this.page.waitForTimeout(5000);
+        await this.page.locator('(//input[@type="checkbox"])[2]').click();
+        await this.ClickOnAddBtn.click()
+        await this.ClickOnSave.click();
         await this.page.waitForTimeout(5000);
     }
 
@@ -1012,7 +1163,7 @@ export class EluminaBlueprintsPage {
             await circles[i].click()
         }
         await this.clickOnComparisionBtn.click();
-        await this.page.waitForTimeout(20000);
+        await this.page.waitForTimeout(5000);
         await expect(this.comparisionPageTitle).toBeVisible()
         await this.page.waitForTimeout(2000);
 
@@ -1118,6 +1269,24 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(5000);
 
     }
+
+    /**
+     * Method to create blueprint
+     */
+    async clickOnCreateBlueprint() {
+        await this.clickCreateBlueprint.click();
+    }
+
+    /**
+     * Method to verify appropriate message
+     */
+    async verifyMsgWithoutEnteringFildsAndClickOnNext() {
+        await this.nextButtonClick.click();
+        await expect(this.verifyArchivePopup).toHaveText('Please fill all the mandatory fields!')
+
+
+    }
+
 
     /**Method to create blueprint */
     async createBluePrint() {
