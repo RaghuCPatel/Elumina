@@ -41,7 +41,21 @@ test(` iAU_TC_ID_212. @RegressionA Pre-Request "Validation of Delivery --> Add N
     });
 });
 
-test(`iAU_TC_ID_212.,iAU_TC_ID_213. @RegressionA Validation of Delivery --> Live Monitor `, async ({ eluminaRegPage, eluminaLoginPage, eluminaCreateQuestionsPage, eluminaExamPage, webActions }) => {
+test(`iAU_TC_ID_217. @RegressionA Validation of Delivery--> Live Monitor - Candidate answer response Validation`, async ({ eluminaRegPage, eluminaLoginPage, eluminaCreateQuestionsPage, eluminaExamPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Navigate to iAuthor`, async () => {
+        const newtab = await eluminaRegPage.iAuthorPageNavigations();
+        await newtab.clickOnCreatedExam();
+        await newtab.LiveMonitorCandidateResponse();
+    });
+});
+
+test(`iAU_TC_ID_212.,iAU_TC_ID_213.,iAU_TC_ID_216. @RegressionA Validation of Delivery --> Live Monitor `, async ({ eluminaRegPage, eluminaLoginPage, eluminaCreateQuestionsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -68,3 +82,34 @@ test(`iAU_TC_ID_215. @RegressionA Validation of Delivery--> Live Monitor all exa
         await newtab.liveMonitorExamStatus();
     });
 });
+
+
+test(`iAU_TC_ID_204. @RegressionA Validation of Delivery –-> Bulk Upload Users(Negative scenario)  `, async ({ eluminaRegPage, eluminaLoginPage, eluminaCreateQuestionsPage, eluminaExamPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Navigate to iAuthor`, async () => {
+        const newtab = await eluminaRegPage.iAuthorPageNavigations();
+        await newtab.clickOnCreatedExam();
+        await newtab.bulkUploadUserswithinvalidfeilds();
+    });
+});
+
+test(`iAU_TC_ID_203. @RegressionA Validation of Delivery--> Bulk Upload Users - Sample csv  file`, async ({ eluminaRegPage, eluminaLoginPage, eluminaCreateQuestionsPage, eluminaExamPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Navigate to iAuthor`, async () => {
+        const newtab = await eluminaRegPage.iAuthorPageNavigations();
+        await newtab.clickOnCreatedExam();
+        await newtab.bulkUploadUserswithvalidfeilds();
+    });
+});
+
+

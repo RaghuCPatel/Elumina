@@ -5,6 +5,7 @@ import { EluminaExamPage } from './EluminaExamPage';
 import { EluminaMultipleExamsForPMPage } from './EluminaMultipleExamsForPMPage';
 import { EluminaMultipleExamsForAMPage } from './EluminaMultipleExamsForAMPage';
 import { EluminaMinimalTimeExamPage } from './EluminaMinimalTimeExamPage';
+import { EluminaProctorExamPage } from './EluminaProctorExamPage';
 const testENV = process.env.ENV;
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
@@ -217,8 +218,26 @@ export class EluminaRegistrationPage {
     readonly downloadCandResponsePdf: Locator;
     readonly liveMonitorVenueselect: Locator;
     readonly liveMonitorExamStatusclick: Locator;
-
-
+    readonly ClickOnBulkUploadUsers: Locator;
+    readonly ClickOnInsertFile: Locator;
+    readonly bulkUploadUsersErrorPopUp: Locator;
+    readonly nextButtonClick: Locator;
+    readonly fileUploadSuccessMessage: Locator;
+    readonly uploadType: Locator;
+    readonly newUserPassword: Locator;
+    readonly forcePasswordChange: Locator;
+    readonly emailRegistrationDetails: Locator;
+    readonly addNewOnly: Locator;
+    readonly feildRequiredInFile: Locator;
+    readonly ForcePwdNone: Locator;
+    readonly RegistrationDetails: Locator;
+    readonly clickoncandidateId: Locator;
+    readonly checkCandidateId: Locator;
+    readonly clickOniProctorCandidate: Locator;
+    readonly proctoringIconClick: Locator;
+    readonly selectAll: Locator;
+    readonly unselectAll: Locator;
+    readonly searchLiveMonitor: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -380,6 +399,8 @@ export class EluminaRegistrationPage {
         this.ExtendExam = page.locator('//div[normalize-space()="Extend Exam"]');
         this.LockExam = page.locator('//div[normalize-space()="Lock Exam"]');
         this.terminateExam = page.locator('//div[normalize-space()="Terminate Exam"]');
+        this.selectAll = page.locator('//div[normalize-space()="Select All"]');
+        this.unselectAll = page.locator('//div[normalize-space()="Unselect All"]');
         this.Attendance = page.locator('//table[@class="table table-spacing"]//thead//th[3]');
         this.clientId = page.locator('//table[@class="table table-spacing"]//thead//th[4]');
         this.candidateId = page.locator('//table[@class="table table-spacing"]//thead//th[5]');
@@ -400,7 +421,25 @@ export class EluminaRegistrationPage {
         this.downloadCandResponsePdf = page.locator('(//p[text()="Download Candidate Response PDF"])[1]');
         this.liveMonitorVenueselect = page.locator('(//input[@class="open"])[20]');
         this.liveMonitorExamStatusclick = page.locator('//input[@placeholder="Select Exam Status"]');
-        //this.liveMonitorstatus = page.locator('//input[@class="open"]');
+        this.ClickOnBulkUploadUsers = page.locator('//a[normalize-space()="Bulk Upload Users"]');
+        this.ClickOnInsertFile = page.locator('//label[@for="chooseFile"]');
+        this.bulkUploadUsersErrorPopUp = page.locator('//p[normalize-space()="Client Id, User Name, First Name fields are missing in the uploaded file."]');
+        this.nextButtonClick = page.locator('//button[text()="Next "]');
+        this.fileUploadSuccessMessage = page.locator('//span[text()="File uploaded successfully"]');
+        this.uploadType = page.locator('//input[@placeholder="Select Upload Type"]');
+        this.newUserPassword = page.locator('//input[@placeholder="Select New User Password"]');
+        this.forcePasswordChange = page.locator('//input[@placeholder="Select Force Password Change"]');
+        this.emailRegistrationDetails = page.locator('//input[@placeholder="Select Email Registration Details"]');
+        this.addNewOnly = page.locator('//span[text()="Add new only, skip existing users"]');
+        this.feildRequiredInFile = page.locator('//span[text()="Field required in file"]');
+        this.ForcePwdNone = page.locator('//span[text()="None"]');
+        this.RegistrationDetails = page.locator('//span[text()="Yes, Registration details and Login details"]');
+        this.clickoncandidateId = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]');
+        this.checkCandidateId = page.locator('//span[@class="tex-dis-details"]//span[1]');
+        this.clickOniProctorCandidate = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[7]');
+        this.proctoringIconClick = page.locator('//img[@title="Proctoring"]');
+        this.searchLiveMonitor = page.locator('//input[@placeholder="Search live monitor"]');
+
 
 
     }
@@ -863,6 +902,16 @@ export class EluminaRegistrationPage {
         await this.ClickOnCreatedExam.click();
     }
 
+    /**Method to click on cteated exam */
+    async clickOnCreatedExamProctoring(): Promise<void> {
+        await this.DeliveryMenu.click();
+        let examid = EluminaProctorExamPage.examID;
+        console.log(EluminaProctorExamPage.examID);
+        await this.searchExam.type(examid);
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnCreatedExam.click();
+    }
+
     /**Method to click on Delete Users from more option */
     async DeleteUser() {
         await this.bulkDownloadButton.click();
@@ -1082,6 +1131,7 @@ export class EluminaRegistrationPage {
         await this.ResumeExam.isVisible();
         await this.ExtendExam.isVisible();
 
+        //216
         await this.liveDashboradMoreOptions.click();
         await this.Attendance.isVisible();
         await this.Attendance.click();
@@ -1208,6 +1258,115 @@ export class EluminaRegistrationPage {
         await this.page.waitForTimeout(5000);
         await this.LeftArrow.click();
         await this.page.waitForTimeout(5000);
+    }
 
+    /**
+     * method to upload bulk users with invaild feilds
+     */
+    async bulkUploadUserswithinvalidfeilds() {
+        await this.ClickOnBulkUploadUsers.click();
+        await this.ClickOnInsertFile.setInputFiles('lib/Images/sample_users_invaild_feilds.csv');
+        await this.page.waitForTimeout(5000);
+        await this.nextButtonClick.click();
+        await this.page.waitForTimeout(8000);
+        await expect(this.bulkUploadUsersErrorPopUp).toHaveText("Client Id, User Name, First Name fields are missing in the uploaded file.");
+    }
+
+    /**
+    * method to upload bulk users with vaild feilds
+    */
+    async bulkUploadUserswithvalidfeilds() {
+        await this.ClickOnBulkUploadUsers.click();
+        await this.ClickOnInsertFile.setInputFiles('lib/Images/sample_users.csv');
+        await this.page.waitForTimeout(5000);
+        await this.nextButtonClick.click();
+        await this.page.waitForTimeout(8000);
+        await expect(this.fileUploadSuccessMessage).toHaveText("File uploaded successfully");
+        await this.uploadType.click();
+        await this.page.waitForTimeout(1000);
+        await this.addNewOnly.click();
+        await this.page.waitForTimeout(1000);
+        await this.newUserPassword.click();
+        await this.page.waitForTimeout(1000);
+        await this.feildRequiredInFile.click();
+        await this.page.waitForTimeout(1000);
+        await this.forcePasswordChange.click();
+        await this.page.waitForTimeout(1000);
+        await this.ForcePwdNone.click();
+        await this.page.waitForTimeout(1000);
+        await this.emailRegistrationDetails.click();
+        await this.page.waitForTimeout(1000);
+        await this.RegistrationDetails.click();
+        await this.page.waitForTimeout(1000);
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(1000);
+        await this.LeftArrow.click();
+        await this.page.waitForTimeout(1000);
+        await this.LeftArrow.click();
+    }
+
+    /**
+     * Method to check on live monitor candidate response validation
+     */
+    async LiveMonitorCandidateResponse() {
+        await this.liveMonitorClick.click();
+        let candidateId = await this.clickoncandidateId.textContent();
+        console.log(candidateId);
+        await this.clickoncandidateId.click();
+        await this.page.waitForTimeout(2000);
+        await this.checkCandidateId.isVisible();
+        await expect(this.checkCandidateId).toHaveText(candidateId);
+        await this.page.waitForTimeout(2000);
+    }
+
+    /**
+     * method to validate live monitor for proctoring
+     */
+    async liveMonitorProctoring() {
+        await this.liveMonitorClick.click();
+        await this.liveDashboardLocationClick.isVisible();
+        await this.liveDashboardLocationClick.click();
+        await this.liveDashboardlocationselect.click();
+        await this.page.waitForTimeout(3000);
+        await this.liveDashboardVenueClick.isVisible();
+        await this.liveDashboardVenueClick.click();
+        await this.liveMonitorVenueselect.click();
+        await this.liveDashboardSubmit.isVisible();
+        await this.liveMonitorVenueselect.click();
+        await this.page.waitForTimeout(3000);
+
+        await this.liveDashboradAutoRefresh.isVisible();
+        await this.page.waitForTimeout(61000);
+        await this.liveDashboardVenueClick.isVisible();
+        await this.liveDashboardOne.isVisible();
+        console.log("Value after Auto Refresh:" + await this.liveDashboardOne.textContent());
+        console.log('Autofreshed after 60secs');
+
+        await this.searchLiveMonitor.isVisible();
+        await this.proctoringIconClick.click();
+        await this.StartExam.isVisible();
+        await this.PauseExam.isVisible();
+        await this.ExtendExam.isVisible();
+        await this.terminateExam.isVisible();
+        await this.ResumeExam.isVisible();
+        await this.ExtendExam.isVisible();
+        await this.selectAll.isVisible();
+        await this.unselectAll.isVisible();
+
+        await this.liveMonitorClick.click();
+        let candidateId = await this.clickOniProctorCandidate.textContent();
+        console.log(candidateId);
+        await this.clickOniProctorCandidate.click();
+        await this.page.waitForTimeout(2000);
+        await this.checkCandidateId.isVisible();
+        await expect(this.checkCandidateId).toHaveText(candidateId);
+        await this.page.waitForTimeout(2000);
+    }
+
+    /**
+     * method to check on live streaming page
+     */
+    async liveStreamingPage() {
+        await this.liveMonitorClick.click();
     }
 }
