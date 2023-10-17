@@ -27,9 +27,9 @@ else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
-/*Validation of Dashboard Widget*/
+/*Validation of Assign Marker (for individual Candidate)*/
 
-test(` iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @iProctorRegression Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaExamPage, eluminaProctorExam, webActions }) => {
+test(` iAU_TC_ID_219. Exam_Prerequisit_for_iAU_TC_ID_219. @RegressionA Create iProctor exam with password`, async ({ eluminaLoginPage, eluminaExamPage, eluminaProctorExam, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -50,7 +50,7 @@ test(` iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @iProctorRegression Cr
     });
 });
 
-test(`iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @iProctorRegression Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, eluminaProctorReg, webActions }) => {
+test(`iAU_TC_ID_219.,iAU_TC_ID_220. Exam_Prerequisit_for_iAU_TC_ID_219. @RegressionA Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -60,10 +60,10 @@ test(`iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @iProctorRegression Ver
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.clickaddMoreUsersIcon(0)
         await newtab.addMultipleUserDetails(0);
         await newtab.BulkDownloadUserDetails("bulk_user_details.xlsx");
         await newtab.addMarker();
-        await newtab.searchCandidateforMarker()
+        await newtab.ValidateMarker();
+        await newtab.searchCandidateforMarker();
     });
 });

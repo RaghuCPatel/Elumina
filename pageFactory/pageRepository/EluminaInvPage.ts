@@ -173,6 +173,16 @@ export class EluminaInvPage {
         await this.page.waitForTimeout(2000);
     }
 
+    /**Method to login as iProctor invigilator */
+    async iProctorinvigilatorLogin(): Promise<void> {
+        await this.page.goto("/");
+        await this.InvUsername.type(testData.iProctorinvigilatorUsername);
+        await this.InvPssword.type(testData.iProctorinvigilatorPassword);
+        await this.page.waitForTimeout(1000);
+        await this.InvLoginBtn.click();
+        await this.page.waitForTimeout(2000);
+    }
+
     /**Method to check with invaild Invigilator login */
     async invalidInvigilatorLogin(): Promise<void> {
         await this.page.goto("/");
