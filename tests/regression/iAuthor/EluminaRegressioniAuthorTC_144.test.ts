@@ -13,6 +13,7 @@ test(`iAU_TC_ID_144. @RegressionA Validation of Blueprint  Approval Workflow `, 
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.ExamsMenuClick();
         await newtab.validateExamApprovalWorkflow();
+        await newtab.logoutClick()
     });
 
 });

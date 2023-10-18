@@ -18,6 +18,7 @@ test(`iAU_TC_ID_36. @RegressionA Validation of Create Question (VSAQ)-Negative S
         await newtab.selectBank()
         await newtab.enterRemainingVSAQField();
         await newtab.validateWorkFlow()
+        await newtab.logoutClick()
 
     });
 });

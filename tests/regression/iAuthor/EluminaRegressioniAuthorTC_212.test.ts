@@ -18,8 +18,11 @@ test(` iAU_TC_ID_212. @RegressionA Pre-Request Verify Elumina Login and Create E
         await newtab.createCommonExam();
         await newtab.selectAllTools();
         await newtab.createSection("1", "30");
+        await newtab.clickOnSave()
         await newtab.addMCQQuestionswithoutSave();
         await newtab.addVSAQQuestions();
+        await newtab.logoutClick()
+
     });
 });
 
@@ -52,6 +55,8 @@ test(`iAU_TC_ID_212.,iAU_TC_ID_213. @RegressionA Validation of Delivery --> Live
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.clickOnCreatedExam();
         await newtab.liveMonitor();
+        await newtab.logoutClick()
+
     });
 });
 
@@ -66,5 +71,6 @@ test(`iAU_TC_ID_215. @RegressionA Validation of Delivery--> Live Monitor all exa
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.clickOnCreatedExam();
         await newtab.liveMonitorExamStatus();
+        await newtab.logoutClick()
     });
 });

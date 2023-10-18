@@ -18,6 +18,7 @@ test(`iAU_TC_ID_40. @RegressionA Validation of Create Question (SAQ / Essay) - N
         await newtab.selectBank()
         await newtab.enterRemainingSAQField();
         await newtab.validateWorkFlow()
+        await newtab.logoutClick()
 
     });
 });

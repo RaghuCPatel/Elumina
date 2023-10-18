@@ -24837,3 +24837,224 @@
 {"level":"info","message":"Test Case Started :  . @Serial-Pre-Request  Verify Elumina Login and create exam "}
 {"level":"info","message":"Executing Step : Navigate to Application"}
 {"level":"info","message":"Test Case Completed :  . @Serial-Pre-Request  Verify Elumina Login and create exam  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_132. @RegressionA \"Validation of Choose Question Scenario- 1 -\nAdd 1x Session (i.e AM Session)and 1x Section (i.e Exam Section Only)\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_132. @RegressionA \"Validation of Choose Question Scenario- 1 -\nAdd 1x Session (i.e AM Session)and 1x Section (i.e Exam Section Only)\" Status : passed"}
+{"level":"error","message":"File not found: C:\\Elumina\\17-10-2023\\html-report"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_132. @RegressionA \"Validation of Choose Question Scenario- 1 -\nAdd 1x Session (i.e AM Session)and 1x Section (i.e Exam Section Only)\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_132. @RegressionA \"Validation of Choose Question Scenario- 1 -\nAdd 1x Session (i.e AM Session)and 1x Section (i.e Exam Section Only)\" Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_133. @RegressionA \"Validation of Choose Question Scenario- 2 -\nAdd 1x Session (i.e AM Session) and 2x Section( i.e. Content + Exam 1 Section)\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_133. @RegressionA \"Validation of Choose Question Scenario- 2 -\nAdd 1x Session (i.e AM Session) and 2x Section( i.e. Content + Exam 1 Section)\" Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_134. @RegressionA \"Validation of Choose Question Scenario- 3 -  Add 1x Session (i.e AM Session) and\nAdd 3 sections (i.e. Content + Exam Section + Survey Section)\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_134. @RegressionA \"Validation of Choose Question Scenario- 3 -  Add 1x Session (i.e AM Session) and\nAdd 3 sections (i.e. Content + Exam Section + Survey Section)\" Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_135. @RegressionA \"Validation of Choose Question Scenario- 4 - Add 1x Session (i.e AM Session) and\nAdd 4x sections (i.e Content + Exam 1 Section + Exam 2 Section + Exam 3 Section + Survey Section)\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_135. @RegressionA \"Validation of Choose Question Scenario- 4 - Add 1x Session (i.e AM Session) and\nAdd 4x sections (i.e Content + Exam 1 Section + Exam 2 Section + Exam 3 Section + Survey Section)\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_135. @RegressionA \"Validation of Choose Question Scenario- 4 - Add 1x Session (i.e AM Session) and\nAdd 4x sections (i.e Content + Exam 1 Section + Exam 2 Section + Exam 3 Section + Survey Section)\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_135. @RegressionA \"Validation of Choose Question Scenario- 4 - Add 1x Session (i.e AM Session) and\nAdd 4x sections (i.e Content + Exam 1 Section + Exam 2 Section + Exam 3 Section + Survey Section)\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_135. @RegressionA \"Validation of Choose Question Scenario- 4 - Add 1x Session (i.e AM Session) and\nAdd 4x sections (i.e Content + Exam 1 Section + Exam 2 Section + Exam 3 Section + Survey Section)\" Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_136. @RegressionA \"Validation of Choose Question Scenario- 5 -\nAdd 2x sessions  (i.e AM and PM Sessions (with duplicate sections)\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_136. @RegressionA \"Validation of Choose Question Scenario- 5 -\nAdd 2x sessions  (i.e AM and PM Sessions (with duplicate sections)\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_136. @RegressionA \"Validation of Choose Question Scenario- 5 -\nAdd 2x sessions  (i.e AM and PM Sessions (with duplicate sections)\" Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_136B. @RegressionA \"Validation of Choose Question Scenario- 5 -\nAdd 2x sessions (with duplicate sections)\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_136B. @RegressionA \"Validation of Choose Question Scenario- 5 -\nAdd 2x sessions (with duplicate sections)\" Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_136. @RegressionA \"Validation of Choose Question Scenario- 5 -\nAdd 2x sessions  (i.e AM and PM Sessions (with duplicate sections)\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_136. @RegressionA \"Validation of Choose Question Scenario- 5 -\nAdd 2x sessions  (i.e AM and PM Sessions (with duplicate sections)\" Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_136B. @RegressionA \"Validation of Choose Question Scenario- 5 -\nAdd 2x sessions (with duplicate sections)\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam and add MCQ Questions"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_136B. @RegressionA \"Validation of Choose Question Scenario- 5 -\nAdd 2x sessions (with duplicate sections)\" Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_159. @RegressionA Validation of Choose Question Scenario- 4 -\nAdd 4x sections (i.e Content + Exam 1 Section + Exam 2 Section + Exam 3 Section + Survey Section)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_159. @RegressionA Validation of Choose Question Scenario- 4 -\nAdd 4x sections (i.e Content + Exam 1 Section + Exam 2 Section + Exam 3 Section + Survey Section) Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_159. @RegressionA Validation of Choose Question Scenario- 4 -\nAdd 4x sections (i.e Content + Exam 1 Section + Exam 2 Section + Exam 3 Section + Survey Section)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_159. @RegressionA Validation of Choose Question Scenario- 4 -\nAdd 4x sections (i.e Content + Exam 1 Section + Exam 2 Section + Exam 3 Section + Survey Section) Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin) Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin) Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin) Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin) Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin) Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin) Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin) Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin) Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_160. @RegressionA Validation of Edit an Exam Section ( Previleges: Applicable only for Exam Admin) Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_223. @RegressionA \"Validation of Delivery--> Workflow\""}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_243. @RegressionA Validation Question of Submit for Approval"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_243. @RegressionA Validation Question of Submit for Approval"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_243. @RegressionA Validation Question of Submit for Approval Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_243. @RegressionA Validation Question of Submit for Approval"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_243. @RegressionA Validation Question of Submit for Approval Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_243. @RegressionA Validation Question of Submit for Approval"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_243. @RegressionA Validation Question of Submit for Approval Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_243. @RegressionA Validation Question of Submit for Approval"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_243. @RegressionA Validation Question of Submit for Approval Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_243. @RegressionA Validation Question of Submit for Approval"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_243. @RegressionA Validation Question of Submit for Approval Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_243B. @RegressionA Validation Question of Submit for Approval"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_243B. @RegressionA Validation Question of Submit for Approval Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_243B. @RegressionA Validation Question of Submit for Approval"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_243B. @RegressionA Validation Question of Submit for Approval Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_243. @RegressionA Validation Question of Submit for Approval"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_243. @RegressionA Validation Question of Submit for Approval Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_243B. @RegressionA Validation Question of Submit for Approval"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_243B. @RegressionA Validation Question of Submit for Approval Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_226. @RegressionA Validation of Gradebook list page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_226. @RegressionA Validation of Gradebook list page Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_226. @RegressionA Validation of Gradebook list page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_226. @RegressionA Validation of Gradebook list page Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_226. @RegressionA Validation of Gradebook list page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_226. @RegressionA Validation of Gradebook list page Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_170. @RegressionA Validation of Exam Delete "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_166. @RegressionA \"Validation of Exam Preview(WEB) \" "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_165. @RegressionA \"Validation of Exam Preview(PDF) \" "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_165. @RegressionA \"Validation of Exam Preview(PDF) \"  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_165. @RegressionA \"Validation of Exam Preview(PDF) \" "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_165. @RegressionA \"Validation of Exam Preview(PDF) \"  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_165. @RegressionA \"Validation of Exam Preview(PDF) \" "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_169. @RegressionA Validation of Exam Print "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_169. @RegressionA Validation of Exam Print  Status : passed"}

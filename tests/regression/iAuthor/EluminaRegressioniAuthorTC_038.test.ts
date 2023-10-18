@@ -18,6 +18,7 @@ test(`iAU_TC_ID_38. @RegressionA Validation of Create Question (ISAWE)-Negative 
         await newtab.selectBank()
         await newtab.enterRemainingISAWEField();
         await newtab.validateWorkFlow()
+        await newtab.logoutClick()
 
     });
 });

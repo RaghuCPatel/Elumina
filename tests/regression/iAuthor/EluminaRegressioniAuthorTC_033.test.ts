@@ -18,6 +18,7 @@ test(`iAU_TC_ID_33. @RegressionA Validation of Create Question (MCQ/Type A)-Nega
         await newtab.selectBank()
         await newtab.enterRemainingMCQField();
         await newtab.validateWorkFlow()
+        await newtab.logoutClick()
 
     });
 });

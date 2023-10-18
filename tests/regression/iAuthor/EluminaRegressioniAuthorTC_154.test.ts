@@ -21,7 +21,9 @@ Add 1x Session (i.e Exam Section Only)"`, async ({ eluminaLoginPage, eluminaBlue
         await newtab.createExam()
         await newtab.selectAllToolsAndVerifyMsg()
         await newtab.createSection("1", "30")
+        await newtab.clickOnSave()
         await newtab.addVSAQQuestions()
+        await newtab.logoutClick()
     });
 
 });

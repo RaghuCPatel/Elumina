@@ -23,7 +23,10 @@ Add 2x Sessions ( i.e. Content + Exam 1 Section)"`, async ({ eluminaLoginPage, e
         await newtab.createContentSection("1");
         await newtab.createContentPage();
         await newtab.createSection("1", "30")
+        await newtab.clickOnSave()
         await newtab.addVSAQQuestions()
+        await newtab.logoutClick()
+
     });
 
 });

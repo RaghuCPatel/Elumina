@@ -47,6 +47,7 @@ test(` iAU_TC_ID_219. Exam_Prerequisit_for_iAU_TC_ID_219. @RegressionA Create iP
         await newtab.createSection("1", "30");
         await newtab.addMCQQuestionswithoutSave();
         await newtab.addVSAQQuestions();
+        await newtab.logoutClick()
     });
 });
 
@@ -65,5 +66,7 @@ test(`iAU_TC_ID_219.,iAU_TC_ID_220. Exam_Prerequisit_for_iAU_TC_ID_219. @Regress
         await newtab.addMarker();
         await newtab.ValidateMarker();
         await newtab.searchCandidateforMarker();
+        await newtab.logoutClick()
+
     });
 });

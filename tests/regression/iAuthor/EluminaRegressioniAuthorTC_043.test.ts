@@ -13,6 +13,8 @@ test(`@RegressionA Validation of Create Question (Type-X)`, async ({ eluminaLogi
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.QuestionsMenuClick();
         await newtab.createTypeXQuestion();
+        await newtab.logoutClick()
+
     });
 
 });
