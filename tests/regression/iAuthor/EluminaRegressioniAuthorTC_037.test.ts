@@ -13,6 +13,8 @@ test(`@RegressionA Validation of Create Question (ISAWE)`, async ({ eluminaLogin
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.QuestionsMenuClick();
         await newtab.createISAWEQuestions();
+        await newtab.logoutClick()
+
     });
 
 });

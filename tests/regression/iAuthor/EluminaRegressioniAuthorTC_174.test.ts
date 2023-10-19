@@ -13,5 +13,6 @@ test(`iAU_TC_ID_174. @RegressionA Validation of Delivery list page`, async ({ el
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.deliveryMenuClick();
         await newtab.validationDelivery();
+        await newtab.logoutClick()
     });
 });

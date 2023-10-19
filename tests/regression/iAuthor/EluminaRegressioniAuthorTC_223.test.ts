@@ -14,6 +14,7 @@ test(`iAU_TC_ID_223. @RegressionA "Validation of Delivery--> Workflow"`, async (
         const newtab = await eluminaBlueprintsPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.clickOnDeliveryWithWorkFlow();
+        await newtab.logoutClick()
     });
 
 });

@@ -13,6 +13,8 @@ test(`@RegressionA Validation of Create Question (SJT)/ Rating `, async ({ elumi
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.QuestionsMenuClick();
         await newtab.createSJTQuestion();
+        await newtab.logoutClick()
+
     });
 
 });

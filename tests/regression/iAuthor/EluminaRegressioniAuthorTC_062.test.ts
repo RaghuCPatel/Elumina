@@ -18,6 +18,8 @@ test(`iAU_TC_ID_62. @RegressionA Validation of Create Question (SJT)/ Rating - N
         await newtab.selectBank()
         await newtab.enterRemainingSJTField();
         await newtab.validateWorkFlow()
+        await newtab.logoutClick()
+
 
     });
 });

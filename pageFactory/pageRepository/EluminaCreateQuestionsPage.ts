@@ -293,6 +293,10 @@ export class EluminaCreateQuestionsPage {
     readonly validateCandStatusheader: Locator;
     readonly validateCandEligibleheader: Locator;
     readonly validateCandInviheader: Locator;
+    readonly closeIcon: Locator;
+    readonly MenuIconClick: Locator;
+    readonly logoutbuttonClick: Locator;
+    readonly clickOnApprovalBtn: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -474,7 +478,7 @@ export class EluminaCreateQuestionsPage {
         this.saveAsNewVersion = page.locator('//a[normalize-space()="Save as New Version"]');
         this.ClickOnComment = page.locator('//textarea[@name="comments"]');
         this.clickOnVersionHistory = page.locator('//p[normalize-space()="Version History"]');
-        this.moreOptionClick = page.locator('(//a[text()="more"])[1]');
+        // this.moreOptionClick = page.locator('(//a[text()="more"])[1]');
         this.clickOnClose = page.locator('(//button[@type="button"][normalize-space()="×"])[1]');
         this.clickclose2 = page.locator('(//button[@type="button"][normalize-space()="×"])[4]');
         this.versionCheck1 = page.locator('//body/app-root/div/app-exam-history[@class="ng-star-inserted"]/div[@class="question-historyPage pageTop--div"]/div[@class="main-content-alt no-filter"]/div/div[@class="main"]/div[@class="middleColumn"]/div[@class="timeline--container"]/div[@class="history-column"]/app-vertical-stepper-exam[1]/div[1]/div[2]');
@@ -486,8 +490,8 @@ export class EluminaCreateQuestionsPage {
         this.selectApprover = page.locator('//input[@placeholder="Select Approver"]');
         this.checkReviwerQA = page.locator('//span[text()="Reviewer QA"]');
         this.approverQA = page.locator('//span[text()="approver QA"]');
-        this.submitandreviewclick = page.locator('//button[text()="Submit & Review"]');
-        this.workflowsuccessmessage = page.locator('//span[text()="Workflow has been created successfuly."]');
+        this.submitandreviewclick = page.locator('//button[text()="Submit For Review"]');
+        this.workflowsuccessmessage = page.locator('//div[@class="content-side"]//span');
         this.saveButtonClick = page.locator('//button[text()="Save"]');
         this.approverclick = page.locator('//div[normalize-space()="Approver"]');
 
@@ -557,6 +561,10 @@ export class EluminaCreateQuestionsPage {
         this.validateCandStatusheader = page.locator('//table[@class="table"]//thead//tr//th[9]');
         this.validateCandEligibleheader = page.locator('//table[@class="table"]//thead//tr//th[10]');
         this.validateCandInviheader = page.locator('//table[@class="table"]//thead//tr//th[11]');
+        this.closeIcon = page.locator('//span[@class="msdd-close"]')
+        this.MenuIconClick = page.locator('//i[@class="menuIcons profileIcon"]');
+        this.logoutbuttonClick = page.locator('//a[normalize-space()="Log out"]');
+        this.clickOnApprovalBtn = page.locator('//button[text()="Submit For Approval"]')
     }
 
     /**Method for Page Navigation */
@@ -567,6 +575,15 @@ export class EluminaCreateQuestionsPage {
         ]);
         await newPage.waitForLoadState();
         return new exports.EluminaCreateQuestionsPage(newPage);
+    }
+
+    /**
+    * Method for Logout 
+    */
+    async logoutClick() {
+        await this.MenuIconClick.click();
+        await this.logoutbuttonClick.click();
+        await this.page.waitForTimeout(5000);
     }
 
     /**Method to click on Delivery Menu */
@@ -969,6 +986,49 @@ export class EluminaCreateQuestionsPage {
         await this.ClickOnApprove.click()
         await this.page.waitForTimeout(3000);
         console.log(await this.ValidateSuccessfulPopMessage.textContent());
+    }
+
+    /**Method to create MCQ Questions without workflow*/
+    async createMCQQuestionswithoutWorkFlow(): Promise<void> {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.MCQQuestionsClick.click();
+        await this.NextButtonClick.click();
+        await this.SelectQuestionBank.click();
+        await this.SelectQuestionBank.type(testData.TestBank2);
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample MCQ Questions' + Math.floor(Math.random() * 8999 + 1000));
+        await this.page.waitForTimeout(2000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.QuestionAims);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.OptionA.click();
+        await this.OptionA.type(testData.OptionA);
+        await this.page.waitForTimeout(2000);
+        await this.ControlIndicator1.click();
+        await this.page.waitForTimeout(2000);
+        await this.OptionB.click();
+        await this.OptionB.type(testData.OptionB);
+        await this.page.waitForTimeout(2000);
+        await this.OptionC.click();
+        await this.OptionC.type(testData.OptionC);
+        await this.page.waitForTimeout(2000);
+        await this.OptionD.click();
+        await this.OptionD.type(testData.OptionD);
+        await this.page.waitForTimeout(2000);
+        await this.OptionE.click();
+        await this.OptionE.type(testData.OptionE);
+        await this.page.waitForTimeout(2000);
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveDraft.click();
+        await this.ClickOnEditQuestion.click();
+        await this.ClickOnWorkFlow.click()
+
     }
 
     /**Method to create VSAQ */
@@ -2421,5 +2481,45 @@ export class EluminaCreateQuestionsPage {
         await expect(this.workflowsuccessmessage).toHaveText('Workflow has been created successfuly.');
         await this.page.waitForTimeout(2000)
         await this.saveButtonClick.click();
+    }
+
+    /*
+    *Method to Validate Exam Approval Workflow
+    */
+    async validateQunApprovalWorkflow() {
+        await this.page.waitForTimeout(2000)
+        await this.closeIcon.click()
+        await this.workflowDropdown.click();
+        await this.page.waitForTimeout(2000)
+        await this.approvalWorkflowclick.click();
+        await this.page.waitForTimeout(2000)
+        await this.selectReviwer.click();
+        await this.page.waitForTimeout(2000)
+        await this.checkReviwerQA.click();
+        await this.page.waitForTimeout(2000)
+        await this.approverclick.click();
+        await this.page.waitForTimeout(1000)
+        await this.selectApprover.click();
+        await this.page.waitForTimeout(2000)
+        await this.approverQA.click();
+        await this.page.waitForTimeout(2000)
+        await this.submitandreviewclick.click();
+        await this.page.waitForTimeout(2000)
+        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfully.');
+        await this.page.waitForTimeout(2000)
+        await this.saveButtonClick.click();
+    }
+
+    /**
+     * Method to approve question as Reviewer
+     */
+    async clickOnIDAndclickOnApproval() {
+        await this.clickonQuestion.click()
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnWorkFlow.click()
+        await this.page.waitForTimeout(2000);
+        await this.clickOnApprovalBtn.click()
+        await this.page.waitForTimeout(2000);
+        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfully.');
     }
 }

@@ -12,5 +12,6 @@ test(`iAU_TC_ID_173. @RegressionA Validation of Exam Checkout`, async ({ elumina
     await test.step(`Navigate to iAuthor`, async () => {
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.ValidationOfExamCheckout();
+        await newtab.logoutClick()
     });
 });

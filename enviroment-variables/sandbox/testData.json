@@ -80,5 +80,7 @@
     "MarkerPassword": "B6P5dr#&",
     "LoginURL": "https://sandbox.assessapp.com.au/login",
     "ModuleURL": "https://sandbox.assessapp.com.au/landing-page",
-    "DashboardURL": "https://sandbox.assessapp.com.au/qms/dashboard"
+    "DashboardURL": "https://sandbox.assessapp.com.au/qms/dashboard",
+    "ReviewerUserID": "reviewerqa@yopmail.com",
+    "ReviewerPassword": "Driv@357"
 }

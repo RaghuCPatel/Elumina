@@ -16,6 +16,8 @@ test(`iAU_TC_ID_226. @RegressionA Validation of Gradebook list page`, async ({ e
         await newtab.verifyMoreOption()
         await newtab.clickOnUpAndDown()
         await newtab.verifyRowAndPageAndCandCounts()
+        await newtab.logoutClick()
+
     });
 
 });

@@ -18,8 +18,10 @@ test(` iAU_TC_ID_181. @RegressionA Pre-Request Verify Elumina Login and Create E
         await newtab.createCommonExam();
         await newtab.selectAllTools();
         await newtab.createSection("1", "30");
+        await newtab.clickOnSave()
         await newtab.addMCQQuestionswithoutSave();
         await newtab.addVSAQQuestions();
+        await newtab.logoutClick()
     });
 });
 
@@ -36,6 +38,7 @@ test(` iAU_TC_ID_181.,iAU_TC_ID_183.,iAU_TC_ID_199. @RegressionA Pre-Request "Va
         await newtab.addMultipleUserDetails(1);
         await newtab.BulkDownloadUserDetails("bulk_user_details.xlsx");
         await newtab.DeleteUserFromMoreOptionPositive();
+        await newtab.logoutClick()
     });
 });
 
@@ -50,6 +53,7 @@ test(`iAU_TC_ID_181. @RegressionA Validation of Manage Delivery --> Delete Users
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.clickOnCreatedExam();
         await newtab.DeleteUser();
+        await newtab.logoutClick()
     });
 });
 
@@ -65,6 +69,7 @@ test(` iAU_TC_ID_190. @RegressionA Validation of Manage Delivery--> Assign Venue
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.clickOnCreatedExam();
         await newtab.AssignVenueBookingFromMoreOption();
+        await newtab.logoutClick()
     });
 });
 
@@ -79,6 +84,7 @@ test(`iAU_TC_ID_182.,iAU_TC_ID_184. @RegressionA Validation of Manage Delivery--
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.clickOnCreatedExam();
         await newtab.DeleteUserFromMoreOption();
+        await newtab.logoutClick()
     });
 });
 
@@ -94,6 +100,7 @@ test(` iAU_TC_ID_185.,iAU_TC_ID_186. @RegressionA Validation of Manage Delivery 
         await newtab.clickOnCreatedExam();
         await newtab.dropdownButton();
         await newtab.downloadUserDetails();
+        await newtab.logoutClick()
     });
 });
 
@@ -109,6 +116,7 @@ test(` iAU_TC_ID_189. @RegressionA Validation of Manage Delivery--> Generate Tem
             const newtab = await eluminaRegPage.iAuthorPageNavigations();
             await newtab.clickOnCreatedExam();
             await newtab.GenerateTempID();
+            await newtab.logoutClick()
         });
     });
 });
@@ -171,6 +179,7 @@ test(` iAU_TC_ID_201. @RegressionA Validation of Delivery --> Add Existing Users
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.clickOnCreatedExam();
         await newtab.addExistingUsers1();
+        await newtab.logoutClick()
     });
 });
 

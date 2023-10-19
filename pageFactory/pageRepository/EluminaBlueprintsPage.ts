@@ -249,6 +249,13 @@ export class EluminaBlueprintsPage {
     readonly clickOnDownIconColumn: Locator;
     readonly viewRowsCount: Locator;
     readonly viewPageNo: Locator;
+    readonly clickOnPassSection: Locator;
+    readonly clickOnSelectYes: Locator;
+    readonly enterPassPercentage: Locator;
+    readonly MenuIconClick: Locator;
+    readonly logoutbuttonClick: Locator;
+    readonly clickOnSaveForDfatExam: Locator;
+    readonly clickOnEditQuestion: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -450,18 +457,30 @@ export class EluminaBlueprintsPage {
         this.EndBoookingHRS = page.locator('(//div[@class="dtp-main reqLabel dtp-main-half"])[2]');
         this.clickOnGradeBook = page.locator('//a[text()="Gradebook"]')
         this.searchInGradeBook = page.locator('//input[@placeholder="search"]')
-        this.verifyViewGradebook = page.locator('//p[text()="View Gradebook"]')
+        this.verifyViewGradebook = page.locator('(//p[text()="View Gradebook"])[1]')
         this.clickOnUpIconColumn = page.locator('(//table[@class="table"]//thead//tr[1]//th[3]//span)[2]//span[1]')
         this.clickOnDownIconColumn = page.locator('(//table[@class="table"]//thead//tr[1]//th[3]//span)[2]//span[2]')
         this.viewRowsCount = page.locator('//button[@class="btn btn-default dropdown-toggle"]')
         this.viewPageNo = page.locator('//li[@class="current"]')
-
-
+        this.clickOnPassSection = page.locator('//input[@placeholder="Select Pass Section"]')
+        this.clickOnSelectYes = page.locator('((//div[@class="open container-left-padding"])[1]//span)[1]')
+        this.enterPassPercentage = page.locator('(//input[@class="textField"])[2]')
+        this.MenuIconClick = page.locator('//i[@class="menuIcons profileIcon"]');
+        this.logoutbuttonClick = page.locator('//a[normalize-space()="Log out"]');
+        this.clickOnSaveForDfatExam = page.locator('(//button[contains(text(),"Save")])[1]')
+        this.clickOnEditQuestion = page.locator('//p[contains(text(),"Questions")]')
 
     }
     /**Method for Exam Tab Navigation */
     async examTabNavigation(): Promise<void> {
         await this.EXAMSMENU.click();
+    }
+
+    /**
+     * Method to click on Gradebook
+     */
+    async gradeBookMenu() {
+        await this.clickOnGradeBook.click()
     }
 
     /**Method for Page Navigation */
@@ -474,9 +493,19 @@ export class EluminaBlueprintsPage {
         return new exports.EluminaBlueprintsPage(newPage);
     }
 
+
     /**Method for Blueprint Menu click on Menu bar */
     async BlueprintMenuClick(): Promise<void> {
         await this.Blueprint.click();
+    }
+
+    /**
+     * Method for Logout 
+     */
+    async logoutClick() {
+        await this.MenuIconClick.click();
+        await this.logoutbuttonClick.click();
+        await this.page.waitForTimeout(5000);
     }
 
     /**
@@ -1004,6 +1033,144 @@ export class EluminaBlueprintsPage {
         await this.ClickOnAdd.click();
     }
 
+    /**
+     * Edit date in Exam
+     */
+    async editDate() {
+        let currentDate = new Date();
+        let datecurrent = currentDate.getDate();
+        console.log(datecurrent);
+        let pm = currentDate.getHours() >= 12;
+        let hour12 = currentDate.getHours() % 12;
+        if (!hour12)
+            hour12 += 12;
+        let minute = currentDate.getMinutes();
+        console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
+
+        let StartBookingMin = currentDate.getMinutes() + 2;
+        let EndBookingMin = currentDate.getMinutes() + 3;
+        let StartExamMin = currentDate.getMinutes() + 4;
+        let EndExamMin = currentDate.getMinutes() + 15;
+
+        await this.ExamStartCalender.click();
+        await this.ExamStartDate.click();
+
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (StartExamMin >= 60) {
+            let SEM = StartExamMin.toString();
+            SEM = "04"
+            await this.BooingStartMins.type(SEM);
+            //hrs+1
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            let BSH = hour12 + 1;
+            if (BSH == 12) {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSessions.check();
+
+            }
+            else if (BSH >= 13) {
+                BSH = 1;
+                await this.BookingStartHrs.type(BSH.toString());
+            }
+            else {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSession.check();
+            }
+        }
+        else {
+            await this.BooingStartMins.type(StartExamMin.toString());
+            //hrs
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            await this.BookingStartHrs.type(hour12.toString());
+            await this.ChooseBookingStartSession.check();
+        }
+        await this.BookingOK.click();
+
+        await this.ExamEndCalender.click();
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (StartExamMin >= 60) {
+            let SEM = StartExamMin.toString();
+            SEM = "04"
+            await this.BooingStartMins.type(SEM);
+            //hrs+1
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            let BSH = hour12 + 1;
+            if (BSH == 12) {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSessions.check();
+
+
+            }
+            else if (BSH >= 13) {
+                BSH = 1;
+                await this.BookingStartHrs.type(BSH.toString());
+            }
+            else {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSession.check();
+            }
+        }
+        else {
+            await this.BooingStartMins.type(StartExamMin.toString());
+            //hrs
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            await this.BookingStartHrs.type(hour12.toString());
+            await this.ChooseBookingStartSession.check();
+        }
+        await this.BookingOK.click();
+        await this.ExamEndCalender.click();
+
+
+        if (EndExamDate >= "30") {
+            console.log("Exam end date:" + EndExamDate);
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else if (EndExamDate >= "31") {
+            console.log("Exam end date:" + EndExamDate);
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+
+        else {
+            console.log("Exam end date:" + EndExamDate);
+            await this.ExamEndDate.click();
+        }
+        await this.BookingStartHrs.click();
+        await this.BookingStartHrs.clear();
+        await this.BookingStartHrs.type(hour12.toString());
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (EndExamMin >= 60) {
+            EndExamMin = 1;
+            await this.BooingStartMins.type(EndExamMin.toString());
+        }
+        else {
+            await this.BooingStartMins.type(EndExamMin.toString());
+        }
+        await this.ChooseBookingStartSession.check();
+        await this.BookingOK.click();
+        await this.clickOnSaveForDfatExam.click();
+        await expect(this.verifyArchivePopup).toHaveText("Exam updated successfully")
+
+    }
+
+    /**
+     * Edit Question in Exam
+     */
+    async editQuestion() {
+        await this.clickOnEditQuestion.click()
+    }
+
+
     /*Method to without selecting Date*/
     async withoutSelectingDate() {
         await this.SELECTBANK.click();
@@ -1342,8 +1509,6 @@ export class EluminaBlueprintsPage {
 
     /**Create Exam Section */
     async createSection(hr, mins): Promise<void> {
-        // EluminaExamPage.examID = await this.fectchExamID.textContent();
-        // console.log("Exam ID:" + EluminaExamPage.examID);
         await this.CliCKOnCreateSection.click();
         await this.ClickOnCreateExamSection.click();
         await this.EnterSectionName.type('Exam-' + Math.floor(Math.random() * 899 + 100));
@@ -1353,16 +1518,40 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(5000);
         await this.Choosehrs.selectOption(hr);
         await this.SelectTime.selectOption(mins);
+        await this.page.waitForTimeout(5000);
+
+    }
+    /**
+     * Method to click on Save
+     */
+    async clickOnSave() {
         await this.ClickOnSave.click();
         await this.page.waitForTimeout(5000);
-        // return EluminaExamPage.examID;
+    }
+
+    /**
+         * Method to click on Save
+         */
+    async clickOnSaveForEditQun() {
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(5000);
+    }
+
+    /**
+     * Method to setting of pass percentage
+     */
+    async settingPassPercentage() {
+        await this.clickOnCloseIcon.click()
+        await this.clickOnPassSection.click()
+        await this.clickOnSelectYes.click()
+        await this.enterPassPercentage.fill("35")
     }
 
     async addVSAQQuestions(): Promise<void> {
         await this.ClickOnAddQuestion.click();
         await this.ClickOnSearchQuestion.click()
         await this.ClickOnSearchQuestion.type('VSAQ');
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(10000);
         await this.page.locator('(//input[@type="checkbox"])[2]').click();
         await this.ClickOnAddBtn.click()
         await this.ClickOnSave.click();
@@ -1379,11 +1568,26 @@ export class EluminaBlueprintsPage {
         await this.ClickOnAddQuestion.click();
         await this.ClickOnSearchQuestion.click()
         await this.ClickOnSearchQuestion.type('VSAQ');
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(10000);
         await this.page.locator('(//input[@type="checkbox"])[2]').click();
         await this.ClickOnAddBtn.click()
         await this.ClickOnSave.click();
         await this.page.waitForTimeout(5000);
+    }
+
+    /**
+     * Method to add question
+     */
+    async addVSAQQuestionswithoutNextForEditQun(): Promise<void> {
+        await this.ClickOnAddQuestion.click();
+        await this.ClickOnSearchQuestion.click()
+        await this.ClickOnSearchQuestion.type('VSAQ');
+        await this.page.waitForTimeout(10000);
+        await this.page.locator('(//input[@type="checkbox"])[2]').click();
+        await this.ClickOnAddBtn.click()
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(5000);
+        await this.clickOnSaveForDfatExam.click();
     }
 
     /**
@@ -1393,7 +1597,7 @@ export class EluminaBlueprintsPage {
         await this.ClickOnAddQuestion2.click();
         await this.ClickOnSearchQuestion.click()
         await this.ClickOnSearchQuestion.type('MCQ');
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(10000);
         await this.page.locator('(//input[@type="checkbox"])[2]').click();
         await this.ClickOnAddBtn.click()
         await this.ClickOnSave.click();
@@ -1407,7 +1611,7 @@ export class EluminaBlueprintsPage {
         await this.ClickOnAddQuestion3.click();
         await this.ClickOnSearchQuestion.click()
         await this.ClickOnSearchQuestion.type('VSAQ');
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(10000);
         await this.page.locator('(//input[@type="checkbox"])[2]').click();
         await this.ClickOnAddBtn.click()
         await this.ClickOnSave.click();
@@ -1438,6 +1642,29 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(3000);
         await expect(this.verifyArchivePopup).toHaveText("Exam can not be approved since it doesn't have any question(s)")
 
+    }
+
+    /**
+     * Method to remove sections and questions
+     */
+    async removeSections() {
+        await this.page.waitForSelector('//i[@class="close"]')
+        const closeIcons = await this.page.$$('//i[@class="close"]')
+        for (let i = 0; i < closeIcons.length; i++) {
+            await closeIcons[i].click()
+            await this.page.locator('(//button[text()="Yes"])[5]').click()
+        }
+    }
+
+    /**
+     * Method to search draft exam
+     */
+    async searchDraftExam() {
+        await this.page.waitForTimeout(5000);
+        await this.searchFieldOnExam.type('Draft')
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(5000);
     }
 
     /**

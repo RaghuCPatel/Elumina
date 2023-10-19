@@ -2,11 +2,10 @@ import test from '@lib/BaseTest';
 
 /**"Validation of Choose Question
 
-Scenario- 3 -
-Add 3 sections (i.e. Content + Exam 1 Section + Exam 2 Section with Survey)"*/
-
-test(`iAU_TC_ID_156. @RegressionA "Validation of Choose Question Scenario- 3 -
-Add 3 sections (i.e. Content + Exam 1 Section + Exam 2 Section with Survey)"`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
+Scenario- 3 -  Add 1x Session (i.e AM Session) and
+Add 3 sections (i.e. Content + Exam Section + Survey Section)"*/
+test(`iAU_TC_ID_134. @RegressionA "Validation of Choose Question Scenario- 3 -  Add 1x Session (i.e AM Session) and
+Add 3 sections (i.e. Content + Exam Section + Survey Section)"`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -17,18 +16,18 @@ Add 3 sections (i.e. Content + Exam 1 Section + Exam 2 Section with Survey)"`, a
         const newtab = await eluminaBlueprintsPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.clickOnCreateExam();
-        await newtab.searchAndSelectBlueprintQtn();
+        await newtab.verifyExamPage()
+        await newtab.clickOnScratchFromExam()
         await newtab.createExam()
-        await newtab.selectAllToolsAndVerifyMsg()
+        await newtab.selectAllTools()
         await newtab.createContentSection("1");
         await newtab.createContentPage();
         await newtab.createSection("1", "30")
+        await newtab.settingPassPercentage()
         await newtab.clickOnSave()
         await newtab.addVSAQQuestionswithoutNext()
         await newtab.createSurveySection("6");
         await newtab.createSurveyPage();
         await newtab.logoutClick()
-
     });
-
 });

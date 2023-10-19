@@ -14,6 +14,7 @@ test(`iAU_TC_ID_207. @RegressionA "Validation of Delivery--> Live Dashboard filt
         const newtab = await eluminaBlueprintsPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.clickOnDelivery();
+        await newtab.logoutClick()
     });
 
 });
