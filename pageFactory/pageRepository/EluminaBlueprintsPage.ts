@@ -276,7 +276,7 @@ export class EluminaBlueprintsPage {
         this.tickIconClick = page.locator('//i[@class="tick-icon ng-star-inserted"]');
         this.SaveButtonClicks = page.locator('//button[text()="Save"]');
         this.FilterSuccessMessage = page.locator('//div[text()="Filter Saved Successfully"]');
-        this.closeButton = page.locator('(//button[@type="button"][normalize-space()="×"])[2]');
+        this.closeButton = page.locator('(//button[@type="button"][normalize-space()="×"])[1]');
         this.nextButtonClick = page.locator('//button[text()="Next"]');
         this.clickOnSaveDraft = page.locator('//button[text()="Save Draft"]');
         this.workflowSuccessMessage = page.locator('//span[text()="Workflow has been created successfuly"]');
@@ -1926,7 +1926,7 @@ export class EluminaBlueprintsPage {
         await this.typeTitle.type(testData.BluePrintTitle + currentDate);
         await this.page.waitForTimeout(2000);
         await this.SelectBank.click();
-        await this.SelectBank.type(testData.TestBank3);
+        await this.SelectBank.type(testData.TestBank2);
         await this.TestBank.click();
         await this.page.waitForTimeout(2000);
         await this.cartName.click();
@@ -1968,6 +1968,12 @@ export class EluminaBlueprintsPage {
         await this.saveButton.click();
         await this.page.waitForTimeout(2000);
         await expect(this.saveSuccessMessage).toHaveText("Cart Details updated successfully");
+    }
+
+    /**
+     * 
+     */
+    async workflowClick() {
         await this.workflowclick.click();
         await this.page.waitForTimeout(2000);
         await this.approveButtonClick.click();
@@ -2305,6 +2311,8 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(5000);
 
     }
+
+
 
 
 

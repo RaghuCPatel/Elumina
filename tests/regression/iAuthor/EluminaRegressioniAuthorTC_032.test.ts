@@ -16,5 +16,4 @@ test(`@RegressionA Validation of Create Question (MCQ-SBA)`, async ({ eluminaLog
         await newtab.logoutClick()
 
     });
-
 });

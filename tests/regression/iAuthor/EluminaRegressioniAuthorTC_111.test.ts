@@ -13,5 +13,6 @@ test(`@RegressionA Validation of Add Multiple cart in one blueprint`, async ({ e
         const newtab = await eluminaBlueprintsPage.iAuthorPageNavigation();
         await newtab.BlueprintMenuClick();
         await newtab.createBluePrint();
+        await newtab.workflowClick();
     });
 });

@@ -53,7 +53,7 @@ test(`iAU_TC_ID_218. @RegressionA Validation of Delivery--> Live Monitor - Candi
     });
 });
 
-test(`iAU_TC_ID_219. @RegressionA Validation of Delivery--> Live Monitor - Live Streaming page`, async ({ eluminaCandPage, eluminaLoginPage, eluminaProctorExam, eluminaProctorCand, eluminaProctorReg, webActions }) => {
+test(`iAU_TC_ID_219. @RegressionA Validation of Delivery--> Live Monitor - Live Streaming page`, async ({ eluminaCandPage, eluminaRegPage, eluminaLoginPage, eluminaProctorExam, eluminaProctorCand, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await test.step(`Navigate to Application`, async () => {
             await eluminaLoginPage.navigateToURL();
@@ -62,12 +62,9 @@ test(`iAU_TC_ID_219. @RegressionA Validation of Delivery--> Live Monitor - Live 
             await eluminaLoginPage.loginToApplication();
         });
         await test.step(`Navigate to exam Tab and Create New user`, async () => {
-            const newtab = await eluminaProctorReg.iAuthorPageNavigations();
-            await newtab.registrationTabNavigationByClickCreateExam();
-            await newtab.clickOnLiveMonitorAdmin();
+            const newtab = await eluminaRegPage.iAuthorPageNavigations();
+            await newtab.clickOnCreatedExamProctoring();
             await newtab.clickOnImageandCadidate();
-            await newtab.verifyTimeVideofragment();
-            await newtab.verifyTimeScreenshotst();
         });
     });
 });

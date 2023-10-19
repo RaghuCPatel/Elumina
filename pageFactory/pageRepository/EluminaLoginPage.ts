@@ -266,4 +266,14 @@ export class EluminaLoginPage {
         console.log(await this.InvaildUsernamePwd.textContent());
         await expect(this.InvaildUsernamePwd).toHaveText("Invalid username or password.");
     }
+
+    /**Navigate to Login Application */
+    async loginToApplicationWithApprover(): Promise<void> {
+        //const decipherPassword = await webActions.decipherPassword();
+        await this.USERNAME_EDITBOX.fill(testData.ApproverUsername);
+        await this.PASSWORD_EDITBOX.fill(testData.ApproverPassword);
+        await this.LOGIN_BUTTON.click();
+    }
+
+
 }
