@@ -297,6 +297,7 @@ export class EluminaCreateQuestionsPage {
     readonly MenuIconClick: Locator;
     readonly logoutbuttonClick: Locator;
     readonly clickOnApprovalBtn: Locator;
+    readonly Blueprint: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -565,6 +566,8 @@ export class EluminaCreateQuestionsPage {
         this.MenuIconClick = page.locator('//i[@class="menuIcons profileIcon"]');
         this.logoutbuttonClick = page.locator('//a[normalize-space()="Log out"]');
         this.clickOnApprovalBtn = page.locator('//button[text()="Submit For Approval"]')
+        this.Blueprint = page.locator('//a[@data-tour="Blueprints"]');
+
     }
 
     /**Method for Page Navigation */
@@ -584,6 +587,12 @@ export class EluminaCreateQuestionsPage {
         await this.MenuIconClick.click();
         await this.logoutbuttonClick.click();
         await this.page.waitForTimeout(5000);
+    }
+
+
+    /**Method for Blueprint Menu click on Menu bar */
+    async BlueprintMenuClick(): Promise<void> {
+        await this.Blueprint.click();
     }
 
     /**Method to click on Delivery Menu */
@@ -737,6 +746,7 @@ export class EluminaCreateQuestionsPage {
         const allcheckbox = await this.page.$$('//ul[@class="dropdown-menu dropdown-menu-columns"]//li//input')
         console.log(allcheckbox.length)
         for (let i = 1; i < allcheckbox.length; i++) {
+            await allcheckbox[i].hover()
             await allcheckbox[i].click()
             await this.page.waitForTimeout(8000);
         }
@@ -2523,6 +2533,7 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(2000);
         await this.ClickOnSaveDraft.click();
         await this.page.waitForTimeout(3000);
+    }
 
     /*
     *Method to Validate Exam Approval Workflow
@@ -2561,6 +2572,6 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(2000);
         await this.clickOnApprovalBtn.click()
         await this.page.waitForTimeout(2000);
-        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfully.');
+        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfuly.');
     }
 }

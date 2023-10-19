@@ -257,6 +257,20 @@ export class EluminaBlueprintsPage {
     readonly clickOnSaveForDfatExam: Locator;
     readonly clickOnEditQuestion: Locator;
 
+    readonly closeIcon: Locator;
+    readonly workflowDropdown: Locator;
+    readonly approvalWorkflowclick: Locator;
+    readonly selectReviwer: Locator;
+    readonly selectApprover: Locator;
+    readonly checkReviwerQA: Locator;
+    readonly approverQA: Locator;
+    readonly submitandreviewclick: Locator;
+    readonly workflowsuccessmessage: Locator;
+    readonly saveButtonClick: Locator;
+    readonly approverclick: Locator;
+    readonly submitAndReviewBtn: Locator;
+
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -276,7 +290,7 @@ export class EluminaBlueprintsPage {
         this.tickIconClick = page.locator('//i[@class="tick-icon ng-star-inserted"]');
         this.SaveButtonClicks = page.locator('//button[text()="Save"]');
         this.FilterSuccessMessage = page.locator('//div[text()="Filter Saved Successfully"]');
-        this.closeButton = page.locator('(//button[@type="button"][normalize-space()="×"])[1]');
+        this.closeButton = page.locator('(//button[@type="button"][normalize-space()="×"])[2]');
         this.nextButtonClick = page.locator('//button[text()="Next"]');
         this.clickOnSaveDraft = page.locator('//button[text()="Save Draft"]');
         this.workflowSuccessMessage = page.locator('//span[text()="Workflow has been created successfuly"]');
@@ -470,6 +484,19 @@ export class EluminaBlueprintsPage {
         this.clickOnSaveForDfatExam = page.locator('(//button[contains(text(),"Save")])[1]')
         this.clickOnEditQuestion = page.locator('//p[contains(text(),"Questions")]')
 
+        this.closeIcon = page.locator('//span[@class="msdd-close"]')
+        this.workflowDropdown = page.locator('(//div[@class="btn-selected-list"])[1]');
+        this.approvalWorkflowclick = page.locator('//span[text()="Approval Workflow"]');
+        this.selectReviwer = page.locator('//input[@placeholder="Select Reviewer"]');
+        this.selectApprover = page.locator('//input[@placeholder="Select Approver"]');
+        this.checkReviwerQA = page.locator('//span[text()="Reviewer QA"]');
+        this.approverQA = page.locator('//span[text()="approver QA"]');
+        this.submitandreviewclick = page.locator('//button[text()="Submit For Review"]');
+        this.workflowsuccessmessage = page.locator('//div[@class="content-side"]//span');
+        this.saveButtonClick = page.locator('//button[text()="Save"]');
+        this.approverclick = page.locator('//div[normalize-space()="Approver"]');
+        this.submitAndReviewBtn = page.locator('//button[text()="Submit & Review"]')
+
     }
     /**Method for Exam Tab Navigation */
     async examTabNavigation(): Promise<void> {
@@ -492,6 +519,21 @@ export class EluminaBlueprintsPage {
         await newPage.waitForLoadState();
         return new exports.EluminaBlueprintsPage(newPage);
     }
+
+    /**Method to click on refresh page */
+    async refreshPage() {
+        await this.page.reload();
+        console.log("Page Refreshed");
+        await this.page.waitForTimeout(5000);
+    }
+
+    async againCandidateLogin(): Promise<void> {
+        await this.page.waitForTimeout(1000);
+        await this.page.bringToFront();
+        await this.page.waitForTimeout(1000);
+        //await this.page.close();
+    }
+
 
 
     /**Method for Blueprint Menu click on Menu bar */
@@ -616,6 +658,61 @@ export class EluminaBlueprintsPage {
         await this.ClickOnSave.click();
 
     }
+
+    /*
+  *Method to Validate Exam Approval Workflow
+  */
+    async validateQunApprovalWorkflow() {
+        await this.page.waitForTimeout(2000)
+        await this.closeIcon.click()
+        await this.workflowDropdown.click();
+        await this.page.waitForTimeout(2000)
+        await this.approvalWorkflowclick.click();
+        await this.page.waitForTimeout(2000)
+        await this.selectReviwer.click();
+        await this.page.waitForTimeout(2000)
+        await this.checkReviwerQA.click();
+        await this.page.waitForTimeout(2000)
+        await this.approverclick.click();
+        await this.page.waitForTimeout(1000)
+        await this.selectApprover.click();
+        await this.page.waitForTimeout(2000)
+        await this.approverQA.click();
+        await this.page.waitForTimeout(2000)
+        await this.submitAndReviewBtn.click();
+        await this.page.waitForTimeout(10000)
+        await expect(this.workflowsuccessmessage).toHaveText('Workflow has been created successfuly.');
+        await this.page.waitForTimeout(2000)
+        //await this.saveButtonClick.click();
+    }
+
+    /*
+*Method to Validate Exam Approval Workflow
+*/
+    async validateQunApprovalWorkflow1() {
+        await this.page.waitForTimeout(2000)
+        await this.closeIcon.click()
+        await this.workflowDropdown.click();
+        await this.page.waitForTimeout(2000)
+        await this.approvalWorkflowclick.click();
+        await this.page.waitForTimeout(2000)
+        await this.selectReviwer.click();
+        await this.page.waitForTimeout(2000)
+        await this.checkReviwerQA.click();
+        await this.page.waitForTimeout(2000)
+        await this.approverclick.click();
+        await this.page.waitForTimeout(1000)
+        await this.selectApprover.click();
+        await this.page.waitForTimeout(2000)
+        await this.approverQA.click();
+        await this.page.waitForTimeout(2000)
+        await this.submitandreviewclick.click();
+        await this.page.waitForTimeout(10000)
+        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfuly');
+        await this.page.waitForTimeout(2000)
+        await this.saveButtonClick.click();
+    }
+
 
 
     /**
@@ -1530,8 +1627,8 @@ export class EluminaBlueprintsPage {
     }
 
     /**
-         * Method to click on Save
-         */
+    * Method to click on Save for edit question
+    */
     async clickOnSaveForEditQun() {
         await this.ClickOnSaveBtn.click();
         await this.page.waitForTimeout(5000);
@@ -1545,6 +1642,21 @@ export class EluminaBlueprintsPage {
         await this.clickOnPassSection.click()
         await this.clickOnSelectYes.click()
         await this.enterPassPercentage.fill("35")
+    }
+
+    /**
+    * Method to add question without click on approve button
+    */
+    async addVSAQQuestionswithoutApprove(): Promise<void> {
+        await this.ClickOnAddQuestion.click();
+        await this.ClickOnSearchQuestion.click()
+        await this.ClickOnSearchQuestion.type('VSAQ');
+        await this.page.waitForTimeout(10000);
+        await this.page.locator('(//input[@type="checkbox"])[2]').click();
+        await this.ClickOnAddBtn.click()
+        await this.ClickOnSave.click();
+        await this.ClickOnNextBtn.click();
+        await this.page.waitForTimeout(5000);
     }
 
     async addVSAQQuestions(): Promise<void> {
@@ -1826,7 +1938,7 @@ export class EluminaBlueprintsPage {
         await this.selectFilter1.selectOption('is equal to');
         await this.page.waitForTimeout(2000);
         await this.selectFilter2.click();
-        await this.selectFilter2.selectOption('MCQ');
+        await this.selectFilter2.selectOption('ISAWE');
         await this.page.waitForTimeout(2000);
         await this.tickIconClick.click();
         await this.page.waitForTimeout(2000);
@@ -1852,6 +1964,50 @@ export class EluminaBlueprintsPage {
         console.log(await this.ValidateSuccessfulPopMessage.textContent());
         await this.ClickOnVersionHistory.click()
     }
+
+    async addQuestionsToCartWithoutApprove() {
+        await this.ClickOnMoreIcon.click()
+        await this.EnterCartItem.click()
+        await this.EnterCartItem.type('Item4')
+        await this.page.waitForTimeout(5000)
+        await this.EnterNumberReq.click()
+        await this.EnterNumberReq.type("1")
+        await this.ClickOnAddFilter.click()
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter.click();
+        await this.selectFilter.selectOption('Type');
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter1.click();
+        await this.selectFilter1.selectOption('is equal to');
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter2.click();
+        await this.selectFilter2.selectOption('ISAWE');
+        await this.page.waitForTimeout(2000);
+        await this.tickIconClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.SaveButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.closeButton.click();
+        await this.page.waitForTimeout(2000)
+        await this.ClickOnAddCartBtn2.click()
+        await this.page.waitForTimeout(3000)
+        await this.page.waitForSelector('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        const checks = await this.page.$$('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        for (let i = 0; i < 1; i++) {
+            await checks[i].click()
+        }
+        await this.ClickOnToCart.click()
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(5000)
+        await this.ClickOnWorkFlow.click()
+        await this.page.waitForTimeout(3000);
+        // await this.ClickOnApprove.click();
+        // await this.page.waitForTimeout(3000);
+        // console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        // await this.ClickOnVersionHistory.click()
+    }
+
 
     /**Method to search a question */
     async searchBlueprintQuestion() {
@@ -1942,7 +2098,7 @@ export class EluminaBlueprintsPage {
         await this.selectFilter1.selectOption('is equal to');
         await this.page.waitForTimeout(2000);
         await this.selectFilter2.click();
-        await this.selectFilter2.selectOption('MCQ');
+        await this.selectFilter2.selectOption('ISAWE');
         await this.page.waitForTimeout(2000);
         await this.tickIconClick.click();
         await this.SaveButtonClicks.click();
@@ -1960,7 +2116,7 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(2000);
         await this.page.waitForSelector('(//table[@class="table"])[2]//tbody//tr//td[1]')
         const checks = await this.page.$$('(//table[@class="table"])[2]//tbody//tr//td[1]')
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 1; i++) {
             await checks[i].click()
         }
         await this.addToCart.click();
