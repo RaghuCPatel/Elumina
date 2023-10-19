@@ -27,6 +27,7 @@ import { EluminaCreateQuestionsPage } from '@pages/EluminaCreateQuestionsPage';
 import { EluminaBlueprintsPage } from '@pages/EluminaBlueprintsPage';
 import { EluminaGradeBookPage } from '@pages/EluminaGradeBookPage';
 import { EluminaApproverPage } from '@pages/EluminaApproverPage';
+import { EluminaMarkerPage } from '@pages/EluminaMarkerPage';
 
 const test = baseTest.extend<{
     webActions: WebActions;
@@ -57,6 +58,7 @@ const test = baseTest.extend<{
     eluminaBlueprintsPage: EluminaBlueprintsPage;
     eluminaGradeBookPage: EluminaGradeBookPage;
     eluminaApproverPage: EluminaApproverPage;
+    eluminaMarkerPage: EluminaMarkerPage;
 
 }>({
     webActions: async ({ page, context }, use) => {
@@ -142,6 +144,9 @@ const test = baseTest.extend<{
     },
     eluminaApproverPage: async ({ page, context }, use) => {
         await use(new EluminaApproverPage(page, context));
+    },
+    eluminaMarkerPage: async ({ page, context }, use) => {
+        await use(new EluminaMarkerPage(page, context));
     }
 
 })

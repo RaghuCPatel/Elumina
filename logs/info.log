@@ -25364,3 +25364,364 @@
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor"}
 {"level":"info","message":"Test Case Completed : iAU_TC_ID_250. @RegressionA Validation of Exam Approve Status : passed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_240. @RegressionA Validation of Score Card Page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_240. @RegressionA Validation of Score Card Page Status : failed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_240. @RegressionA Validation of Score Card Page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_240. @RegressionA Validation of Score Card Page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_240. @RegressionA Validation of Score Card Page Status : failed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_240. @RegressionA Validation of Score Card Page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_248. @RegressionA Prerequisite Validation of Create Question (MCQ-SBA)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_248. @RegressionA Prerequisite Validation of Create Question (MCQ-SBA) Status : failed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_240. @RegressionA Validation of Score Card Page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_240. @RegressionA Validation of Score Card Page Status : passed"}
+{"level":"error","message":"Error: duplicate test title \"iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration\", first declared in tests\\regression\\iAuthor\\EluminaRegressioniAuthorTC_239.test.ts:26"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_240. @RegressionA Validation of Score Card Page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_240. @RegressionA Validation of Score Card Page Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Status : passed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_240. @RegressionA Validation of Score Card Page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_240. @RegressionA Validation of Score Card Page Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_240. @RegressionA Validation of Score Card Page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_240. @RegressionA Validation of Score Card Page Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Status : passed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. @RegressionA candidate answering questions"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. @RegressionA candidate answering questions Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_240. @RegressionA Verify Marker score card"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_240. @RegressionA Verify Marker score card Status : failed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. @RegressionA candidate answering questions"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. @RegressionA candidate answering questions Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_240. @RegressionA Verify Marker score card"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_240. @RegressionA Verify Marker score card Status : failed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. @RegressionA candidate answering questions"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. @RegressionA candidate answering questions Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_240. @RegressionA Verify Marker score card"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_240. @RegressionA Verify Marker score card Status : failed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. @RegressionA candidate answering questions"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. @RegressionA candidate answering questions Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_240. @RegressionA Verify Marker score card"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_240. @RegressionA Verify Marker score card Status : failed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. @RegressionA candidate answering questions"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. @RegressionA candidate answering questions Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_240. @RegressionA Verify Marker score card"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_240. @RegressionA Verify Marker score card Status : failed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. @RegressionA candidate answering questions"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. @RegressionA candidate answering questions Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_240. @RegressionA Verify Marker score card"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_240. @RegressionA Verify Marker score card Status : interrupted"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. @RegressionA candidate answering questions"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. @RegressionA candidate answering questions Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_240. @RegressionA Verify Marker score card"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_240. @RegressionA Verify Marker score card Status : failed"}
+{"level":"info","message":"Test Case Started :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed :  iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Create iProctor exam with password Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Registration Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. @RegressionA candidate answering questions"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Candidate Login to application"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. @RegressionA candidate answering questions Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elumina Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_240. @RegressionA Verify Marker score card"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New user"}
