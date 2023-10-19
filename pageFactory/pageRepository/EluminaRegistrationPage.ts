@@ -238,6 +238,10 @@ export class EluminaRegistrationPage {
     readonly selectAll: Locator;
     readonly unselectAll: Locator;
     readonly searchLiveMonitor: Locator;
+    readonly liveMonitorBackButton: Locator;
+    readonly clickOnCadidateName: Locator;
+    readonly videoStreaming: Locator;
+    readonly Screenshots: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -439,8 +443,10 @@ export class EluminaRegistrationPage {
         this.clickOniProctorCandidate = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[7]');
         this.proctoringIconClick = page.locator('//img[@title="Proctoring"]');
         this.searchLiveMonitor = page.locator('//input[@placeholder="Search live monitor"]');
-
-
+        this.liveMonitorBackButton = page.locator('//div[@title="Live Monitor"]');
+        this.clickOnCadidateName = page.locator('(//div[@class="candidate-name"]//div[1])[3]');
+        this.videoStreaming = page.locator('//div[contains(text(),"Video(0)")]');
+        this.Screenshots = page.locator('//div[normalize-space()="Screenshots (0)"]');
 
     }
 
@@ -1329,8 +1335,6 @@ export class EluminaRegistrationPage {
         await this.liveDashboardlocationselect.click();
         await this.page.waitForTimeout(3000);
         await this.liveDashboardVenueClick.isVisible();
-        await this.liveDashboardVenueClick.click();
-        await this.liveMonitorVenueselect.click();
         await this.liveDashboardSubmit.isVisible();
         await this.liveMonitorVenueselect.click();
         await this.page.waitForTimeout(3000);
@@ -1353,7 +1357,7 @@ export class EluminaRegistrationPage {
         await this.selectAll.isVisible();
         await this.unselectAll.isVisible();
 
-        await this.liveMonitorClick.click();
+        await this.liveMonitorBackButton.click();
         let candidateId = await this.clickOniProctorCandidate.textContent();
         console.log(candidateId);
         await this.clickOniProctorCandidate.click();
@@ -1364,9 +1368,13 @@ export class EluminaRegistrationPage {
     }
 
     /**
-     * method to check on live streaming page
+     * 
+     Metods to click on Image and candidateName Monitor as a Admin 
      */
-    async liveStreamingPage() {
-        await this.liveMonitorClick.click();
+    async clickOnImageandCadidate() {
+        await this.proctoringIconClick.click();
+        await this.clickOnCadidateName.click();
+        await this.videoStreaming.isVisible();
+        await this.Screenshots.isVisible();
     }
 }

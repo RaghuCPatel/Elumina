@@ -2422,4 +2422,45 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(2000)
         await this.saveButtonClick.click();
     }
+
+    /**Method to create MCQ Questions */
+    async createMCQQuestionswithoutApprove(): Promise<void> {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.MCQQuestionsClick.click();
+        await this.NextButtonClick.click();
+        await this.SelectQuestionBank.click();
+        await this.SelectQuestionBank.type(testData.TestBank2);
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample MCQ Questions' + Math.floor(Math.random() * 8999 + 1000));
+        await this.page.waitForTimeout(2000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.QuestionAims);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.OptionA.click();
+        await this.OptionA.type(testData.OptionA);
+        await this.page.waitForTimeout(2000);
+        await this.ControlIndicator1.click();
+        await this.page.waitForTimeout(2000);
+        await this.OptionB.click();
+        await this.OptionB.type(testData.OptionB);
+        await this.page.waitForTimeout(2000);
+        await this.OptionC.click();
+        await this.OptionC.type(testData.OptionC);
+        await this.page.waitForTimeout(2000);
+        await this.OptionD.click();
+        await this.OptionD.type(testData.OptionD);
+        await this.page.waitForTimeout(2000);
+        await this.OptionE.click();
+        await this.OptionE.type(testData.OptionE);
+        await this.page.waitForTimeout(2000);
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveDraft.click();
+        await this.page.waitForTimeout(3000);
+    }
 }

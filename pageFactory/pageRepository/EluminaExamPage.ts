@@ -149,7 +149,7 @@ export class EluminaExamPage {
   readonly saveBtnInCreateExam: Locator;
   readonly ClickOnnewAddQuestion: Locator;
   readonly ValidateSuccessfulPopMessage: Locator;
-
+  readonly saveAsDraft: Locator;
 
   constructor(page: Page, context: BrowserContext) {
     this.page = page;
@@ -244,6 +244,7 @@ export class EluminaExamPage {
     this.saveBtnInCreateExam = page.locator('(//button[normalize-space()="Save"])[2]')
     this.ClickOnnewAddQuestion = page.locator('(//i[@title="Create Exam Question"])[1]');
     this.ValidateSuccessfulPopMessage = page.locator('//span[contains(text(),"Status has been updated successfuly")]');
+    this.saveAsDraft = page.locator('//button[normalize-space()="Save Draft"]');
 
   }
 
@@ -1480,5 +1481,22 @@ export class EluminaExamPage {
     let totalHrandMin = a + b;
     console.log(totalHrandMin);
     expect(totalHrandMin).not.toBe(TotalStartTime);
+  }
+
+  /**
+   * method to click on save draft
+   */
+
+  async saveDraft(): Promise<void> {
+    await this.ClickOnAddQuestion.click();
+    await this.ClickOnSearchQuestion.click()
+    await this.ClickOnSearchQuestion.type('VSAQ');
+    await this.page.waitForTimeout(5000);
+    await this.page.locator('(//input[@type="checkbox"])[2]').click();
+    await this.ClickOnAddBtn.click()
+    await this.ClickOnSave.click();
+    await this.ClickOnNextBtn.click();
+    await this.saveAsDraft.click();
+    await this.page.waitForTimeout(5000);
   }
 }
