@@ -25364,3 +25364,122 @@
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor"}
 {"level":"info","message":"Test Case Completed : iAU_TC_ID_250. @RegressionA Validation of Exam Approve Status : passed"}
+{"level":"error","message":"No tests found"}
+{"level":"error","message":"File not found: C:\\Elumina\\19-10-2023\\html-report"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_107. @RegressionA Validation of Blueprints list page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_107. @RegressionA Validation of Blueprints list page Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_107. @RegressionA Validation of Blueprints list page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_107. @RegressionA Validation of Blueprints list page Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_107. @RegressionA Validation of Blueprints list page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_107. @RegressionA Validation of Blueprints list page Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_107. @RegressionA Validation of Blueprints list page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_107. @RegressionA Validation of Blueprints list page Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario)  Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scenario) "}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Elumina application"}
+{"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
+{"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_107. @RegressionA Validation of Blueprints list page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_107. @RegressionA Validation of Blueprints list page Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_107. @RegressionA Validation of Blueprints list page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_107. @RegressionA Validation of Blueprints list page Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_107. @RegressionA Validation of Blueprints list page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_107. @RegressionA Validation of Blueprints list page Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_126. @RegressionA Validation of Blueprint  Direct workflow Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_245. @RegressionA Validation of Exam Submit for Approval"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_245. @RegressionA Validation of Exam Submit for Approval Status : failed"}

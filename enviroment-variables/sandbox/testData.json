@@ -71,7 +71,7 @@
     "BluePrintTitle": "TestBlueprint@",
     "cartName": "Cart1",
     "cartName1": "Cart2",
-    "cartItems": "4",
+    "cartItems": "1",
     "TType": "Type",
     "QuestionAims": "The inability to use or understand spoken or written language because of a brain lesion is known as?",
     "examRecoveryPwd": "123456",
@@ -85,5 +85,4 @@
     "ApproverPassword": "Driv@357",
     "ReviewerUserID": "reviewerqa@yopmail.com",
     "ReviewerPassword": "Driv@357"
-
 }

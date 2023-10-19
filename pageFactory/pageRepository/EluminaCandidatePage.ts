@@ -639,6 +639,21 @@ export class EluminaCandidatePage {
         await this.clickOnTermAndCondition.click();
     }
 
+    // Methode for go to Recovery File download page
+    async candidateSyncPageValidation(): Promise<void> {
+        await this.page.waitForTimeout(10000);
+        await this.page.keyboard.press('Alt+Shift+q');
+        await this.page.locator('(//input[@type="password"])[2]').click()
+        await this.page.locator('(//input[@type="password"])[2]').type("123456");
+        await this.clickOnOk.click();
+        await this.page.locator('//label[contains(text(),"Sync Remaining Responses")]').click();
+        const recoverymessage = await this.page.locator('//div[@class="recover-noresponse-description"]').textContent();
+        if (recoverymessage.startsWith("No recovery file")) {
+            await this.page.screenshot();
+            console.log("No Recovey file message ");
+        }
+    }
+
     /**Method to verify the candidate section if all the headers and values are displayed */
     async candidateContentSectionValidation() {
         await expect(this.verifyExamName).toBeVisible();
@@ -841,6 +856,13 @@ export class EluminaCandidatePage {
         await this.page.keyboard.press('Alt+Shift+Q');
         console.log("Key Pressed");
         await this.page.waitForTimeout(5000);
+    }
+
+    async ansVsaqQuestionCandidate(): Promise<void> {
+        await this.ansVSAQQuestion.click();
+        await this.ansVSAQQuestion.type(makeid(100));
+        const QuestiontextCandidate = await this.ansVSAQQuestion.textContent();
+        console.log("Candidate Answer Question " + QuestiontextCandidate);
     }
 
     /**Method to type Exam recovery Pwd */

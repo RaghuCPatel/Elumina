@@ -15,9 +15,6 @@ test(`iAU_TC_ID_243. @RegressionA Validation Question of Submit for Approval`, a
         await newtab.validateQunApprovalWorkflow()
         await newtab.logoutClick()
     });
-});
-
-test(`iAU_TC_ID_243B. @RegressionA Validation Question of Submit for Approval`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -30,4 +27,18 @@ test(`iAU_TC_ID_243B. @RegressionA Validation Question of Submit for Approval`, 
         await newtab.clickOnIDAndclickOnApproval();
         await newtab.logoutClick()
     });
+
+    // test(`iAU_TC_ID_243B. @RegressionA Validation Question of Submit for Approval`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+    //     await test.step(`Navigate to Application`, async () => {
+    //         await eluminaLoginPage.navigateToURL();
+    //     });
+    //     await test.step(`Login to Application`, async () => {
+    //         await eluminaLoginPage.loginToApplicationAsReviewer();
+    //     });
+    //     await test.step(`Navigate to iAuthor`, async () => {
+    //         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
+    //         await newtab.QuestionsMenuClick();
+    //         await newtab.clickOnIDAndclickOnApproval();
+    //         await newtab.logoutClick()
+    //     });
 });
