@@ -12,5 +12,6 @@ test(`iAU_TC_ID_143  Validation of Blueprint No Workflow`, async ({ eluminaLogin
     await test.step(`Navigate to iAuthor blueprint`, async () => {
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.searchDraftExamQuestionToApprove();
+        await newtab.logoutClick()
     });
 });

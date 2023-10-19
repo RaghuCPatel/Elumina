@@ -18,8 +18,11 @@ test(` iAU_TC_ID_192. @RegressionA Pre-Request Verify Elumina Login and Create E
         await newtab.createCommonExam();
         await newtab.selectAllTools();
         await newtab.createSection("1", "30");
+        await newtab.clickOnSave()
         await newtab.addMCQQuestionswithoutSave();
         await newtab.addVSAQQuestions();
+        await newtab.logoutClick()
+
     });
 });
 
@@ -57,6 +60,7 @@ test(`iAU_TC_ID_179. @RegressionA Validation of Delivery->Manage Delivery page v
         await newtab.moreOptionValidation();
         await newtab.validateCandidatedashboradinManageDelivery();
         await newtab.manageDeliveries();
+        await newtab.logoutClick()
     });
 });
 

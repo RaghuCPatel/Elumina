@@ -13,5 +13,7 @@ test(`iAU_TC_ID_175. @RegressionA Validation of Delivery list page(Negative scen
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.deliveryMenuClick();
         await newtab.searchExamNegativeScenerio();
+        await newtab.logoutClick()
+
     });
 });

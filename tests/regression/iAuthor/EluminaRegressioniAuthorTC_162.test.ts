@@ -14,6 +14,7 @@ test(`iAU_TC_ID_162. @RegressionA Validation of Exam Save as New version `, asyn
         await newtab.ExamsMenuClick();
         await newtab.ValidationOfExamDuplicate();
         await newtab.ValidationOfExamSaveNewVersion();
+        await newtab.logoutClick()
     });
 
 });

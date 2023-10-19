@@ -13,5 +13,7 @@ test(`@RegressionA Validation of Create Question (MCQ-SBA)`, async ({ eluminaLog
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.QuestionsMenuClick();
         await newtab.createMCQQuestions();
+        await newtab.logoutClick()
+
     });
 });

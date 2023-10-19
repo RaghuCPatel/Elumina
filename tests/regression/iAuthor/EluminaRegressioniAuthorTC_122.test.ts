@@ -13,5 +13,6 @@ test(`@RegressionA Validation of Blueprint Save as New version `, async ({ elumi
         const newtab = await eluminaBlueprintsPage.iAuthorPageNavigation();
         await newtab.BlueprintMenuClick();
         await newtab.SaveAsNewVersion();
+        await newtab.logoutClick()
     });
 });

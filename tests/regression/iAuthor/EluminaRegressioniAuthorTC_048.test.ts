@@ -18,6 +18,8 @@ test(`iAU_TC_ID_48. @RegressionA Validation of Create Question (Type-B) - Negati
         await newtab.selectBank()
         await newtab.enterRemainingTypeBField();
         await newtab.validateWorkFlow()
+        await newtab.logoutClick()
+
 
     });
 });

@@ -13,6 +13,8 @@ test(`@RegressionA Validation of Create Question (SAQ / Essay)`, async ({ elumin
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.QuestionsMenuClick();
         await newtab.createSAQQuestion();
+        await newtab.logoutClick()
+
     });
 
 });

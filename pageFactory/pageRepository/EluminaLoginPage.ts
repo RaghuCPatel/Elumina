@@ -130,6 +130,14 @@ export class EluminaLoginPage {
         await this.LOGIN_BUTTON.click();
     }
 
+    /**Navigate to Login Application */
+    async loginToApplicationAsReviewer(): Promise<void> {
+        //const decipherPassword = await webActions.decipherPassword();
+        await this.USERNAME_EDITBOX.fill(testData.ReviewerUserID);
+        await this.PASSWORD_EDITBOX.fill(testData.ReviewerPassword);
+        await this.LOGIN_BUTTON.click();
+    }
+
     /**Method to validate popup message */
     async validationOfOfflineMessage() {
         await expect(this.OfflineMessage).toBeVisible()

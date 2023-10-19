@@ -1,12 +1,14 @@
 import test from '@lib/BaseTest';
 
-/*"Validation of Choose Question Scenario- 5 -
-Add 2x sessions (with duplicate sections)"*/
+/*"Validation of Choose Question
+
+Scenario- 5 -
+Add 2x sessions  (i.e AM and PM Sessions (with duplicate sections)"*/
 
 
 /**AM */
-test(`iAU_TC_ID_158. @RegressionA "Validation of Choose Question Scenario- 5 -
-Add 2x sessions (with duplicate sections)"`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaCandPage, webActions }) => {
+test(`iAU_TC_ID_136. @RegressionA "Validation of Choose Question Scenario- 5 -
+Add 2x sessions  (i.e AM and PM Sessions (with duplicate sections)"`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -20,24 +22,25 @@ Add 2x sessions (with duplicate sections)"`, async ({ eluminaLoginPage, eluminaB
         const newtab = await eluminaBlueprintsPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.clickOnCreateExam();
-        await newtab.searchAndSelectBlueprintQtn();
-        await newtab.createAMExam()
-        await newtab.selectAllToolsAndVerifyMsg()
+        await newtab.verifyExamPage()
+        await newtab.clickOnScratchFromExam()
+        await newtab.createExam()
+        await newtab.selectAllTools()
         await newtab.createContentSection("1");
         await newtab.createContentPage();
         await newtab.createSection("1", "30")
+        await newtab.settingPassPercentage()
         await newtab.clickOnSave()
         await newtab.addVSAQQuestionswithoutNext()
         await newtab.createSurveySection("6");
         await newtab.createSurveyPage();
         await newtab.logoutClick()
-
     });
 });
 
 
 /**PM */
-test(`iAU_TC_ID_158B. @RegressionA "Validation of Choose Question Scenario- 5 -
+test(`iAU_TC_ID_136B. @RegressionA "Validation of Choose Question Scenario- 5 -
 Add 2x sessions (with duplicate sections)"`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
@@ -52,17 +55,18 @@ Add 2x sessions (with duplicate sections)"`, async ({ eluminaLoginPage, eluminaB
         const newtab = await eluminaBlueprintsPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.clickOnCreateExam();
-        await newtab.searchAndSelectBlueprintQtn();
-        await newtab.createPMExam()
-        await newtab.selectAllToolsAndVerifyMsg()
+        await newtab.verifyExamPage()
+        await newtab.clickOnScratchFromExam()
+        await newtab.createExam()
+        await newtab.selectAllTools()
         await newtab.createContentSection("1");
         await newtab.createContentPage();
         await newtab.createSection("1", "30")
+        await newtab.settingPassPercentage()
         await newtab.clickOnSave()
         await newtab.addVSAQQuestionswithoutNext()
         await newtab.createSurveySection("6");
         await newtab.createSurveyPage();
         await newtab.logoutClick()
-
     });
 });

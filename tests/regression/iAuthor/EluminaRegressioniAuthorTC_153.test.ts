@@ -16,6 +16,7 @@ test(`iAU_TC_ID_153. @RegressionA Validation of Create Exam – How do you want 
         await newtab.searchAndSelectBlueprintQtn();
         await newtab.createExam()
         await newtab.selectAllToolsAndVerifyMsg()
+        await newtab.logoutClick()
         // await newtab.createSection("1", "30")
         // await newtab.addVSAQQuestions()
     });

@@ -14,5 +14,6 @@ test(`iAU_TC_ID_177. @RegressionA Validation of Delivery->Manage Delivery page v
         await newtab.deliveryMenuClick();
         await newtab.moreOptionsClickinExam();
         await newtab.moreOptionValidation();
+        await newtab.logoutClick()
     });
 });

@@ -13,5 +13,7 @@ test(`iAU_TC_ID_125  Validation of Blueprint Approval Workflow`, async ({ elumin
         const newtab = await eluminaBlueprintsPage.iAuthorPageNavigation();
         await newtab.BlueprintMenuClick();
         await newtab.reviewToReviewer();
+        await newtab.logoutClick()
+
     });
 });

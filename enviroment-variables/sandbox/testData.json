@@ -82,5 +82,8 @@
     "ModuleURL": "https://sandbox.assessapp.com.au/landing-page",
     "DashboardURL": "https://sandbox.assessapp.com.au/qms/dashboard",
     "ApproverUsername": "approverqa@yopmail.com",
-    "ApproverPassword": "Driv@357"
+    "ApproverPassword": "Driv@357",
+    "ReviewerUserID": "reviewerqa@yopmail.com",
+    "ReviewerPassword": "Driv@357"
+
 }

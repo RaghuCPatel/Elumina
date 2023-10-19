@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Create Question (VSAQ)*/
 
-test(`@RegressionA Validation of Create Question (VSAQ)`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage,webActions }) => {
+test(`@RegressionA Validation of Create Question (VSAQ)`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -13,6 +13,8 @@ test(`@RegressionA Validation of Create Question (VSAQ)`, async ({ eluminaLoginP
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.QuestionsMenuClick();
         await newtab.createVSAQQuestion();
+        await newtab.logoutClick()
+
     });
 
 });

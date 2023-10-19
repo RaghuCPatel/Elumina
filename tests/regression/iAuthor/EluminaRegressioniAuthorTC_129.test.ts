@@ -12,7 +12,8 @@ test(`iAU_TC_ID_129. @RegressionA Validation of Create Exam – How do you want 
         const newtab = await eluminaBlueprintsPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.clickOnCreateExam();
-        await newtab.verifyExamPage()
-            ;
+        await newtab.verifyExamPage();
+        await newtab.logoutClick()
+
     });
 });

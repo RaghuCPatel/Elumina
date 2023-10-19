@@ -14,6 +14,7 @@ test(`iAU_TC_ID_163. @RegressionA Validation of Exam Version History `, async ({
         await newtab.ExamsMenuClick();
         await newtab.ValidationOfCompareVersion();
         await newtab.validationOfVersionHistory();
+        await newtab.logoutClick()
     });
 
 });

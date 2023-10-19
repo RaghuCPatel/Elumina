@@ -1,10 +1,11 @@
 import test from '@lib/BaseTest';
 
-/**"Validation of Blueprint  Archive Negative scenario(only for Approved Blueprints)
-Archive Blueprint used in up coming exam"*/
+/**"Validation of Choose Question
 
-test(`iAU_TC_ID_119. @RegressionA "Validation of Blueprint  Archive Negative scenario (only for Approved Blueprints)
-Archive Blueprint used in up coming exam"`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
+Scenario- 2 -
+Add 1x Session (i.e AM Session) and 2x Section( i.e. Content + Exam 1 Section)""*/
+test(`iAU_TC_ID_133. @RegressionA "Validation of Choose Question Scenario- 2 -
+Add 1x Session (i.e AM Session) and 2x Section( i.e. Content + Exam 1 Section)"`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -15,17 +16,17 @@ Archive Blueprint used in up coming exam"`, async ({ eluminaLoginPage, eluminaBl
         const newtab = await eluminaBlueprintsPage.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.clickOnCreateExam();
-        await newtab.searchAndSelectBlueprintQtn();
+        await newtab.verifyExamPage()
+        await newtab.clickOnScratchFromExam()
         await newtab.createExam()
         await newtab.selectAllTools()
+        await newtab.createContentSection("1");
+        await newtab.createContentPage();
         await newtab.createSection("1", "30")
+        await newtab.settingPassPercentage()
         await newtab.clickOnSave()
         await newtab.addVSAQQuestions()
-        await newtab.BlueprintMenuClick();
-        await newtab.blueprintArchiveErrorMsg()
         await newtab.logoutClick()
 
-
     });
-
 });
