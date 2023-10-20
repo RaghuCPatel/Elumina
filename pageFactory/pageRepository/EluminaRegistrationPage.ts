@@ -242,6 +242,10 @@ export class EluminaRegistrationPage {
     readonly clickOnCadidateName: Locator;
     readonly videoStreaming: Locator;
     readonly Screenshots: Locator;
+    readonly markingStatus: Locator;
+    readonly MarkersReport: Locator;
+    readonly chooseMarkers: Locator;
+    readonly markerCheckbox: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -313,6 +317,7 @@ export class EluminaRegistrationPage {
         this.logoutbuttonClick = page.locator('//a[normalize-space()="Log out"]');
         this.addMoreUsrs = page.locator('//table[@class="table"]//thead//tr//th[14]//span');
         this.MarkingMenu = page.locator('//a[text()="Marking"]');
+        this.MarkersReport = page.locator('//div[@class="leftColumn"]//div[5]//div[1]//ul//li[1]');
         this.AssignMarkers = page.locator('(//p[text()="Assign Markers"])[1]');
         this.selectAllQuestions = page.locator('//option[text()="All Questions"]');
         this.selectMarker = page.locator('//option[text()="Igs Marker"]');
@@ -447,6 +452,9 @@ export class EluminaRegistrationPage {
         this.clickOnCadidateName = page.locator('(//div[@class="candidate-name"]//div[1])[3]');
         this.videoStreaming = page.locator('//div[contains(text(),"Video(0)")]');
         this.Screenshots = page.locator('//div[normalize-space()="Screenshots (0)"]');
+        this.markingStatus = page.locator('//table[@class="table"]//tbody//tr[1]//td[9]');
+        this.chooseMarkers = page.locator('//input[@placeholder="Choose markers"]');
+        this.markerCheckbox = page.locator('//div[@class="open"]//input[@type="checkbox"]');
 
     }
 
@@ -1223,6 +1231,8 @@ export class EluminaRegistrationPage {
      */
     async searchCandidateforMarker(): Promise<void> {
         await this.MarkingMenu.click();
+        await this.markingStatus.isVisible();
+        console.log(await this.markingStatus.textContent());
         await this.ClickOnDropdown.click();
         await this.AssignMarkers.click();
         await this.selectAllQuestions.click();
@@ -1232,6 +1242,9 @@ export class EluminaRegistrationPage {
         await this.arrowClick.click();
         await this.page.waitForTimeout(5000);
         await this.closeButton.click();
+        await this.page.waitForTimeout(5000);
+        await this.markingStatus.isVisible();
+        console.log(await this.markingStatus.textContent());
         await this.page.waitForTimeout(5000);
         await this.LeftArrow.click();
         await this.page.waitForTimeout(5000);
@@ -1377,4 +1390,14 @@ export class EluminaRegistrationPage {
         await this.videoStreaming.isVisible();
         await this.Screenshots.isVisible();
     }
+
+    /**
+     * method to validate markers report
+     */
+    async markersReports() {
+        await this.MarkersReport.click();
+        await this.chooseMarkers.click();
+        await this.markerCheckbox.click();
+    }
+
 }

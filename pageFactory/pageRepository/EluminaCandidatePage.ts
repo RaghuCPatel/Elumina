@@ -2062,14 +2062,29 @@ export class EluminaCandidatePage {
 
     /**
     * To Validate each component displayed in the MCQ Section
-    * 
     */
-
-
     async McqPageValidations() {
         await expect(this.verifyExamTimer).toBeVisible();
         EluminaCandidatePage.Time = await this.verifyExamTimer.textContent();
         console.log('Time display' + EluminaCandidatePage.Time);
+    }
+
+    /**
+     * method to start MCQ without next button
+     */
+    async candidateStartVSAQWithoutNextButton(lines) {
+        await this.page.waitForTimeout(2000);
+        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
+        const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
+        for (let i = 0; i < 2; i++) {
+            await qutns[i].click();
+            await this.ansVSAQQuestion.click();
+            await this.ansVSAQQuestion.type(makeid(lines));
+            await this.ClickOnNextBtn.click();
+        }
+        await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
+        await this.ClickOnRevieweBtn.click();
+        await this.ClickOnSubmitBtn.click();
     }
 
 }

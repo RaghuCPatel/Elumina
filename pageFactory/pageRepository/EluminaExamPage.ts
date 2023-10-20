@@ -1499,4 +1499,15 @@ export class EluminaExamPage {
     await this.saveAsDraft.click();
     await this.page.waitForTimeout(5000);
   }
+
+  /**
+   * Method to click on submit and approve
+   */
+  async submitApprove() {
+    await this.ClickOnNextBtn.click();
+    await this.page.waitForTimeout(5000);
+    await this.ClickOnSubmitAndApproveBtn.click();
+    await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+    await this.page.waitForTimeout(5000);
+  }
 }
