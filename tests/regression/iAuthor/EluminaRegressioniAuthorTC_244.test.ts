@@ -13,7 +13,7 @@ test(`iAU_TC_ID_244. @RegressionA Validation of Blueprint Submit for Approval`, 
         await newtab.BlueprintMenuClick();
         await newtab.searchDraftBlueprintQuestionToApprove();
         await newtab.addQuestionsToCartWithoutApprove()
-        await newtab.validateQunApprovalWorkflow()
+        await newtab.validateQunApprovalWorkflow1()
         await newtab.logoutClick()
     });
     await test.step(`Navigate to Application`, async () => {

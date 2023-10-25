@@ -84,7 +84,7 @@ export class EluminaMarkerPage {
         this.notSatisfactory = page.locator('//span[text()="Not Satisfactory"]');
         this.leftArrowClick = page.locator('//i[@class="iconBg leftArrow"]');
         this.finishButton = page.locator('//button[text()=" Finish "]');
-        this.feedBack = page.locator('(//iframe[@title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help"])[4]').locator('html');
+        this.feedBack = page.frameLocator('(//iframe[@title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help"])[4]').locator('html');
         this.percentage = page.locator('//table[@class="table"]//tbody//tr//td[6]');
         this.markingStatus = page.locator('//table[@class="table"]//tbody//tr//td[7]');
     }

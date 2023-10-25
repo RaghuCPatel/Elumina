@@ -45,6 +45,7 @@ test(`iAU_TC_ID_239. @RegressionA candidate answering questions`, async ({ elumi
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime();
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication(2, "bulk_user_details.xlsx");
