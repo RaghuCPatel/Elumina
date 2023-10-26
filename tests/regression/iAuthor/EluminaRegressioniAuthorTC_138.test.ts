@@ -1,8 +1,13 @@
 import test from '@lib/BaseTest';
 
-/**Validation of Create Exam – Copy an existing exam  */
+/**"Validation of Choose Question
 
-test(`iAU_TC_ID_137. @RegressionA Validation of Create Exam – Copy an existing exam `, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
+Scenario- 1 -
+Add 1x Session (i.e Exam Section Only)"*/
+
+test(`iAU_TC_ID_138. @RegressionA "Validation of Choose Question
+Scenario- 1 -
+Add 1x Session (i.e Exam Section Only)"`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -16,6 +21,12 @@ test(`iAU_TC_ID_137. @RegressionA Validation of Create Exam – Copy an existing
         await newtab.clickOnMore()
         await newtab.editDateForDuplicateExam()
         await newtab.clickOnSave()
+        await newtab.clickOnQuestion()
+        await newtab.removeSectionsAll()
+        await newtab.createSection("1", "30")
+        await newtab.settingPassPercentage()
+        await newtab.clickOnSaveForEditQun()
+        await newtab.addVSAQQuestionswithoutNextForEditQun()
         await newtab.logoutClick()
     });
 });
