@@ -35,6 +35,6 @@ test(`iAU_TC_ID_252. @RegressionA (iAU_TC_ID_152)Validation of Exam Approve`, as
     await test.step(`Navigate to iAuthor`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.ExamTabNavigation();
-        await newtab.clickonWorkflow();
+        await newtab.clickonWorkflowExamTab();
     });
 });

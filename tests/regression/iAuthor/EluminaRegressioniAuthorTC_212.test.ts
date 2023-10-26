@@ -20,8 +20,6 @@ test(` iAU_TC_ID_212. @RegressionA Pre-Request Verify Elumina Login and Create E
         await newtab.createSection("1", "30");
         await newtab.addMCQQuestionswithoutSave();
         await newtab.addVSAQQuestions();
-        await newtab.logoutClick()
-
     });
 });
 
@@ -35,11 +33,10 @@ test(` iAU_TC_ID_212. @RegressionA Pre-Request "Validation of Delivery --> Add N
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.addMultipleUserDetails(1);
+        await newtab.addMultipleUserDetails(0);
         await newtab.BulkDownloadUserDetails("bulk_user_details.xlsx");
         await newtab.addInv();
-        await newtab.searchUserForAddingInv(2, "bulk_user_details.xlsx");
-        await newtab.logoutClick();
+        await newtab.searchUserForAddingInv(2, "bulk_user_details.xlsx")
     });
 });
 
@@ -73,7 +70,7 @@ test(`iAU_TC_ID_212.,iAU_TC_ID_213.,iAU_TC_ID_216. @RegressionA Validation of De
     });
 });
 
-test(`iAU_TC_ID_215. @RegressionA Validation of Delivery--> Live Monitor all exam status  `, async ({ eluminaRegPage, eluminaLoginPage, eluminaCreateQuestionsPage, eluminaExamPage, webActions }) => {
+test(`iAU_TC_ID_214.,iAU_TC_ID_215. @RegressionA Validation of Delivery--> Live Monitor all exam status  `, async ({ eluminaRegPage, eluminaLoginPage, eluminaCreateQuestionsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

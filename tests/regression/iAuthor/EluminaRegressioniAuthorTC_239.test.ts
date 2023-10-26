@@ -79,6 +79,7 @@ test(`iAU_TC_ID_240.,iAU_TC_ID_241. @RegressionA Verify Marker score card`, asyn
         const newtab = await eluminaMarkerPage.iAuthorPageNavigation();
         await newtab.clickonexamId();
         await newtab.validateScoreCard();
+        await newtab.feedBackIconClick();
     });
 });
 
