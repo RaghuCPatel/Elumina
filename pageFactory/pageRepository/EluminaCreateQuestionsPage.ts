@@ -299,6 +299,18 @@ export class EluminaCreateQuestionsPage {
     readonly clickOnApprovalBtn: Locator;
     readonly Blueprint: Locator;
 
+    readonly workFlowFieldDropDown: Locator;
+    readonly reviewerWorkflowDropdown: Locator;
+    readonly chooseApproveWorkFlow: Locator;
+    readonly reviewerDropDown: Locator;
+    readonly chooseReviewer: Locator;
+    readonly approverDropDown: Locator;
+    readonly chooseApprover: Locator;
+    readonly submitForReviewBtn: Locator;
+    readonly morebtnOnWorkFlow: Locator;
+    readonly selectReviewer: Locator;
+    readonly triangleClick: Locator;
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -567,6 +579,18 @@ export class EluminaCreateQuestionsPage {
         this.logoutbuttonClick = page.locator('//a[normalize-space()="Log out"]');
         this.clickOnApprovalBtn = page.locator('//button[text()="Submit For Approval"]')
         this.Blueprint = page.locator('//a[@data-tour="Blueprints"]');
+
+        this.workFlowFieldDropDown = page.locator('//ul[@class="ng-star-inserted"]');
+        this.triangleClick = page.locator('(//div[@class="msdd-triangle open msdd-triangle-down"])[1]');
+        this.chooseApproveWorkFlow = page.locator('(//span[@class="open"])[1]')
+        this.reviewerDropDown = page.locator('(//*[@class="input-wrap"])[2]')
+        this.chooseReviewer = page.locator('//input[@type="checkbox"]')
+        this.approverDropDown = page.locator('(//div[@class="input-wrap"])[3]')
+        this.chooseApprover = page.locator('(//li[@class="open ng-star-inserted"])[4]')
+        this.submitForReviewBtn = page.locator('//button[@class="theme-btn theme-primary-btn checkout-btn ng-star-inserted"]')
+        this.morebtnOnWorkFlow = page.locator('//button[@class="btn btn-default dotbutton"]');
+        this.reviewerWorkflowDropdown = page.locator('(//span[@class="open"])[2]');
+        this.selectReviewer = page.locator('(//div[@class="open container-left-padding"])[3]');
 
     }
 
@@ -2573,5 +2597,59 @@ export class EluminaCreateQuestionsPage {
         await this.clickOnApprovalBtn.click()
         await this.page.waitForTimeout(2000);
         await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfuly.');
+    }
+
+    async reviewToReviewer() {
+        await this.SearchDraftQuestions.type('Draft')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+
+        await this.ClickOnWorkFlow.click();
+        await this.page.waitForTimeout(3000);
+
+        await this.workFlowFieldDropDown.click();
+        await this.page.waitForTimeout(2000);
+        await this.chooseApproveWorkFlow.click();
+        await this.page.waitForTimeout(3000);
+        await this.reviewerDropDown.click();
+        await this.page.waitForTimeout(2000);
+        await this.chooseReviewer.click();
+        await this.page.waitForTimeout(2000);
+        await this.morebtnOnWorkFlow.click();
+        await this.page.waitForTimeout(2000);
+        await this.approverDropDown.click();
+        await this.page.waitForTimeout(2000);
+        await this.chooseApprover.click();
+        await this.page.waitForTimeout(2000);
+        await this.submitForReviewBtn.click();
+        await this.page.waitForTimeout(5000);
+        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        await this.page.waitForTimeout(5000);
+
+    }
+
+    async ReviewerWorkflow() {
+        await this.SearchDraftQuestions.type('Draft')
+        await this.page.waitForTimeout(3000)
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(2000)
+
+        await this.ClickOnWorkFlow.click();
+        await this.page.waitForTimeout(3000);
+
+        await this.triangleClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.reviewerWorkflowDropdown.click();
+        await this.page.waitForTimeout(3000);
+        await this.reviewerDropDown.click();
+        await this.page.waitForTimeout(2000);
+        await this.selectReviewer.click();
+        await this.page.waitForTimeout(2000);
+        await this.submitForReviewBtn.click();
+        await this.page.waitForTimeout(5000);
+        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        await this.page.waitForTimeout(5000);
+
     }
 }

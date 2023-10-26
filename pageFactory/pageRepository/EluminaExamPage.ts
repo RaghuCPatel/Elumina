@@ -169,6 +169,12 @@ export class EluminaExamPage {
   readonly downloadExam: Locator;
   readonly ErrorMessage: Locator;
   readonly examClick: Locator;
+  readonly searchExam: Locator;
+  readonly showRow: Locator;
+  readonly RowSelect: Locator;
+  readonly uploadImageIcon: Locator;
+  readonly uploadImageFile: Locator;
+  readonly uploadImagesFile: Locator;
 
   constructor(page: Page, context: BrowserContext) {
     this.page = page;
@@ -284,6 +290,13 @@ export class EluminaExamPage {
     this.downloadExam = page.locator('(//p[text()="Download Exam"])[1]');
     this.ErrorMessage = page.locator('//p[text()="No records found!"]');
     this.examClick = page.locator('//table[@class="table"]//tbody//tr[1]//td[3]');
+    this.searchExam = page.locator('//input[@placeholder="Search Exam(s)"]');
+    this.showRow = page.locator('//button[@class="btn btn-default dropdown-toggle"]');
+    this.RowSelect = page.locator('//ul[@class="dropdown-menu dropdown-color"]//li');
+    this.uploadImageIcon = page.locator('//i[@class="menuIcons image-Icon"]');
+    this.uploadImageFile = page.locator('//button[normalize-space()="Upload Image/File"]');
+    this.uploadImagesFile = page.locator('//div[@class="dz-text"]');
+
   }
 
   async waitforTime() {
@@ -1594,5 +1607,44 @@ export class EluminaExamPage {
   async clickOnUpAndDownArrowInTable() {
     await this.clickUpArrowBtnInTable.click()
     await this.clickDownArrowBtnInTable.click()
+  }
+
+  /**Method to enter invalid text in search field  */
+  async enterInvalidExamName() {
+    await this.searchExam.click();
+    await this.searchExam.type('ABC10')
+    await this.page.waitForTimeout(3000);
+    await expect(this.ValidateNorecordText).toBeVisible();
+    await expect(this.ValidateNorecordText).toHaveText("No records found!");
+    await this.page.waitForTimeout(3000);
+    await this.searchExam.clear();
+    await this.page.waitForTimeout(3000);
+
+  }
+
+  /**
+   * Method to validate show rows
+   */
+  async showRows() {
+    await this.showRow.click();
+    await this.page.waitForSelector('//ul[@class="dropdown-menu dropdown-color"]//li', { timeout: 10000 });
+    const selectRows = await this.page.$$('//ul[@class="dropdown-menu dropdown-color"]//li');
+    for (let i = 1; i <= 1; i++) {
+      await selectRows[i].click();
+      await this.page.waitForTimeout(3000);
+    }
+
+  }
+  /**
+  * Method to upload images
+  */
+  async imageUpload() {
+    await this.uploadImageIcon.click();
+    await this.page.waitForTimeout(1000);
+    await this.uploadImageFile.click();
+    await this.page.waitForTimeout(1000);
+    //await this.uploadImagesFile.click();
+    await this.uploadImagesFile.setInputFiles('lib/Images/kohli.jpeg');
+    await this.page.waitForTimeout(2000);
   }
 }

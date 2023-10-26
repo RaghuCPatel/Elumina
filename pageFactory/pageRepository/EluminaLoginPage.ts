@@ -55,6 +55,7 @@ export class EluminaLoginPage {
     readonly sessionExpireMsg: Locator;
 
 
+
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
         this.context = context;
@@ -80,7 +81,8 @@ export class EluminaLoginPage {
         this.ValidateErrorMessageInForgotPswd = page.locator('//div[contains(text(),"The selected email is invalid.")]')
         this.ClickonContinueBtn = page.locator('//div[@class="submit-btn"]')
         this.OfflineMessage = page.locator('//div[text()="You are offline!"]')
-        this.sessionExpireMsg = page.locator('//div[@class="message-txt"]')
+        this.sessionExpireMsg = page.locator('//div[@class="message-txt"]');
+
 
     }
 
@@ -282,5 +284,6 @@ export class EluminaLoginPage {
         await this.PASSWORD_EDITBOX.fill(testData.MarkerPassword);
         await this.LOGIN_BUTTON.click();
     }
+
 
 }

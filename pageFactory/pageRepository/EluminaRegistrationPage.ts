@@ -259,6 +259,18 @@ export class EluminaRegistrationPage {
     readonly checkExamClick: Locator;
     readonly NoRecordsFound: Locator;
 
+    readonly workFlowFieldDropDown: Locator;
+    readonly reviewerWorkflowDropdown: Locator;
+    readonly chooseApproveWorkFlow: Locator;
+    readonly reviewerDropDown: Locator;
+    readonly chooseReviewer: Locator;
+    readonly approverDropDown: Locator;
+    readonly chooseApprover: Locator;
+    readonly submitForReviewBtn: Locator;
+    readonly morebtnOnWorkFlow: Locator;
+    readonly selectReviewer: Locator;
+    readonly triangleClick: Locator;
+    readonly ValidateSuccessfulPopMessage: Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -478,8 +490,20 @@ export class EluminaRegistrationPage {
         this.workflowSuccessPopup = page.locator('//span[text()="Status has been updated successfuly."]');
         this.examStatusClick = page.locator('//div[normalize-space()="Exam Status"]');
         this.checkExamClick = page.locator('//div[@class="marg-btm middleColumn"]//div[3]//single-multi-select[1]//div[1]//span[1]//div[1]//div[2]//div[1]//ul[1]//li[2]');
-        this.NoRecordsFound = page.locator('//p[text()="No records found!"]')
+        this.NoRecordsFound = page.locator('//p[text()="No records found!"]');
 
+        this.workFlowFieldDropDown = page.locator('//ul[@class="ng-star-inserted"]');
+        this.triangleClick = page.locator('(//div[@class="msdd-triangle open msdd-triangle-down"])[1]');
+        this.chooseApproveWorkFlow = page.locator('(//span[@class="open"])[1]')
+        this.reviewerDropDown = page.locator('(//*[@class="input-wrap"])[2]')
+        this.chooseReviewer = page.locator('//input[@type="checkbox"]')
+        this.approverDropDown = page.locator('(//div[@class="input-wrap"])[3]')
+        this.chooseApprover = page.locator('(//li[@class="open ng-star-inserted"])[4]')
+        this.submitForReviewBtn = page.locator('(//button[@class="theme-btn theme-primary-btn"])[2]')
+        this.morebtnOnWorkFlow = page.locator('//button[@class="btn btn-default dotbutton"]');
+        this.reviewerWorkflowDropdown = page.locator('(//span[@class="open"])[2]');
+        this.selectReviewer = page.locator('(//div[@class="open container-left-padding"])[3]');
+        this.ValidateSuccessfulPopMessage = page.locator('//span[text()="Status has been updated successfully."]')
     }
 
     /**Method for Page Navigation */
@@ -503,7 +527,6 @@ export class EluminaRegistrationPage {
         await this.ClickOnAddNewUsers.click();
 
     }
-
 
     /**Method to register for the exam */
     async registrationTabNavigationPMExamPage(): Promise<void> {
@@ -1464,5 +1487,27 @@ export class EluminaRegistrationPage {
         await this.searchExam.type(examid);
         await this.page.waitForTimeout(5000);
         await this.ClickOnCreatedExam.click();
+    }
+
+    /**
+     * Method to check on Reviewer Workflow
+     */
+    async ReviewerWorkflow() {
+        await this.ClickOnWorkFlow.click();
+        await this.page.waitForTimeout(3000);
+
+        await this.triangleClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.reviewerWorkflowDropdown.click();
+        await this.page.waitForTimeout(3000);
+        await this.reviewerDropDown.click();
+        await this.page.waitForTimeout(2000);
+        await this.selectReviewer.click();
+        await this.page.waitForTimeout(2000);
+        await this.submitForReviewBtn.click();
+        await this.page.waitForTimeout(5000);
+        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        await this.page.waitForTimeout(5000);
+
     }
 }
