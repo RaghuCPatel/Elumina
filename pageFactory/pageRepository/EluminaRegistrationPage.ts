@@ -246,6 +246,13 @@ export class EluminaRegistrationPage {
     readonly MarkersReport: Locator;
     readonly chooseMarkers: Locator;
     readonly markerCheckbox: Locator;
+    readonly ClickOnWorkFlow: Locator;
+    readonly ClickOnApprove: Locator;
+    readonly markingdropdown: Locator;
+    readonly viewResponse: Locator;
+    readonly candId: Locator;
+    readonly candiId: Locator;
+    readonly ExamMenu: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -342,7 +349,7 @@ export class EluminaRegistrationPage {
         this.AssignVenueBooking = page.locator('//a[text()="Assign Venue And Booking Status"]');
         this.selectVenue = page.locator('//input[@placeholder="Select Venue"]');
         this.selectBookingStatus = page.locator('//input[@placeholder="Select Booking Status"]');
-        this.saveButton = page.locator('//button[text()="Save"]');
+        this.saveButton = page.locator('//button[normalize-space()="Save"]');
         this.selectVenueType = page.locator('(//div[@class="open container-left-padding"])[1]');
         this.selectBookingStatusType = page.locator('(//div[@class="open container-left-padding"])[2]');
         this.selectCheckBox = page.locator('//table[@class="table"]//thead//th[2]');
@@ -455,6 +462,13 @@ export class EluminaRegistrationPage {
         this.markingStatus = page.locator('//table[@class="table"]//tbody//tr[1]//td[9]');
         this.chooseMarkers = page.locator('//input[@placeholder="Choose markers"]');
         this.markerCheckbox = page.locator('//div[@class="open"]//input[@type="checkbox"]');
+        this.ExamMenu = page.locator('//a[text()="Exams"]');
+        this.ClickOnWorkFlow = page.locator('//a[normalize-space()="Workflow"]')
+        this.ClickOnApprove = page.locator('//button[normalize-space()="Approve"]');
+        this.markingdropdown = page.locator('//ul[@class="dropdown-menu more-btn pull-right"]');
+        this.viewResponse = page.locator('//p[normalize-space()="View Response"]');
+        this.candId = page.locator('(//table[@class="table"]//tbody//tr/td)[3]');
+        this.candiId = page.locator('(//span[@class="tex-dis-details"])[2]')
 
     }
 
@@ -1396,8 +1410,37 @@ export class EluminaRegistrationPage {
      */
     async markersReports() {
         await this.MarkersReport.click();
+        await this.page.waitForTimeout(2000);
         await this.chooseMarkers.click();
         await this.markerCheckbox.click();
+        await this.page.waitForTimeout(2000);
+        await this.candId.isVisible();
+        await this.markingdropdown.click();
+        await this.viewResponse.click();
+        await this.page.waitForTimeout(2000);
+        await this.candiId.isVisible();
     }
 
+
+    /**
+    * Method for workflow approve
+    */
+    async clickonWorkflow() {
+        await this.ClickOnWorkFlow.click()
+        await this.page.waitForTimeout(2000);
+        await this.saveButton.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnApprove.click()
+        await this.page.waitForTimeout(2000);
+    }
+
+    /**Method to register for the exam */
+    async ExamTabNavigation(): Promise<void> {
+        await this.ExamMenu.click();
+        let examid = EluminaExamPage.examID;
+        console.log(EluminaExamPage.examID);
+        await this.searchExam.type(examid);
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnCreatedExam.click();
+    }
 }

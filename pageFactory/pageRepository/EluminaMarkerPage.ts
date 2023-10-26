@@ -58,6 +58,14 @@ export class EluminaMarkerPage {
     readonly feedBack: Locator;
     readonly percentage: Locator;
     readonly markingStatus: Locator;
+    readonly saveButton: Locator;
+    readonly ClickOnWorkFlow: Locator;
+    readonly ClickOnApprove: Locator;
+    readonly AllCandCheckBox: Locator;
+    readonly dropDownToggle: Locator;
+    readonly submitAsFinal: Locator;
+    readonly YesButton: Locator;
+    readonly MarksSubmit: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -85,8 +93,16 @@ export class EluminaMarkerPage {
         this.leftArrowClick = page.locator('//i[@class="iconBg leftArrow"]');
         this.finishButton = page.locator('//button[text()=" Finish "]');
         this.feedBack = page.frameLocator('(//iframe[@title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help"])[4]').locator('html');
-        this.percentage = page.locator('//table[@class="table"]//tbody//tr//td[6]');
-        this.markingStatus = page.locator('//table[@class="table"]//tbody//tr//td[7]');
+        this.percentage = page.locator('(//table[@class="table"]//tbody//tr//td)[9]');
+        this.markingStatus = page.locator('(//table[@class="table"]//tbody//tr//td)[10]');
+        this.saveButton = page.locator('//button[@class="theme-btn theme-primary-btn"]');
+        this.ClickOnWorkFlow = page.locator('//a[normalize-space()="Workflow"]')
+        this.ClickOnApprove = page.locator('//button[normalize-space()="Approve"]');
+        this.AllCandCheckBox = page.locator('(//input[@class="ng-untouched ng-pristine ng-valid"])[1]');
+        this.dropDownToggle = page.locator('//a[@class="dropdown-toggle"]');
+        this.submitAsFinal = page.locator('//p[text()="Submit as Final"]');
+        this.YesButton = page.locator('(//button[text()="Yes"])[3]');
+        this.MarksSubmit = page.locator('//span[text()="Final marks submitted sucessfully"]');
     }
 
     /**Method for page navigation */
@@ -132,18 +148,53 @@ export class EluminaMarkerPage {
         await this.mark1.type('1');
         await this.page.waitForTimeout(2000);
         await this.feedBack.click();
+        await this.page.waitForTimeout(2000);
         await this.feedBack.type('Not Satisfied');
         await this.page.waitForTimeout(2000);
         await this.notSatisfactory.click();
         await this.page.waitForTimeout(2000);
         await this.finishButton.click();
-        await this.leftArrowClick.click();
         console.log(await this.question1.textContent());
+
+        await this.question1.click();
+        await this.page.waitForTimeout(2000);
+        await this.mark1.click();
+        await this.mark1.type('1');
+        await this.page.waitForTimeout(2000);
+        await this.feedBack.click();
+        await this.page.waitForTimeout(2000);
+        await this.feedBack.type('Not Satisfied');
+        await this.page.waitForTimeout(2000);
+        await this.notSatisfactory.click();
+        await this.page.waitForTimeout(2000);
+        await this.finishButton.click();
+        console.log(await this.question1.textContent());
+
+        await this.question1.click();
+        await this.page.waitForTimeout(2000);
+        await this.mark1.click();
+        await this.mark1.type('1');
+        await this.page.waitForTimeout(2000);
+        await this.feedBack.click();
+        await this.page.waitForTimeout(2000);
+        await this.feedBack.type('Not Satisfied');
+        await this.page.waitForTimeout(2000);
+        await this.notSatisfactory.click();
+        await this.page.waitForTimeout(2000);
+        await this.finishButton.click();
+        await this.page.waitForTimeout(2000);
 
         await this.percentage.isVisible();
         console.log(await this.percentage.textContent());
         await this.markingStatus.isVisible();
         console.log(await this.markingStatus.textContent());
+        await this.page.waitForTimeout(2000);
+        await this.AllCandCheckBox.click();
+        await this.dropDownToggle.click();
+        await this.submitAsFinal.click();
+        await this.YesButton.click();
+        await this.MarksSubmit.isVisible();
+        await expect(this.MarksSubmit).toHaveText("Final marks submitted sucessfully");
     }
 
 }

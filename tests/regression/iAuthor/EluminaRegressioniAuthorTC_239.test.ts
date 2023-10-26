@@ -68,7 +68,7 @@ test(`iAU_TC_ID_239. Exam_Prerequisit_for_iAU_TC_ID_239. @RegressionA Verify Elu
     });
 });
 
-test(`iAU_TC_ID_240. @RegressionA Verify Marker score card`, async ({ eluminaMarkerPage, eluminaLoginPage, eluminaRegPage, eluminaProctorReg, webActions }) => {
+test(`iAU_TC_ID_240.,iAU_TC_ID_241. @RegressionA Verify Marker score card`, async ({ eluminaMarkerPage, eluminaLoginPage, eluminaRegPage, eluminaProctorReg, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -79,5 +79,33 @@ test(`iAU_TC_ID_240. @RegressionA Verify Marker score card`, async ({ eluminaMar
         const newtab = await eluminaMarkerPage.iAuthorPageNavigation();
         await newtab.clickonexamId();
         await newtab.validateScoreCard();
+    });
+});
+
+test(`iAU_TC_ID_221.,iAU_TC_ID_222. @RegressionA Verify Elumina`, async ({ eluminaLoginPage, eluminaRegPage, eluminaProctorReg, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Elumina application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Navigate to exam Tab and Create New user`, async () => {
+        const newtab = await eluminaRegPage.iAuthorPageNavigations();
+        await newtab.registrationTabNavigation();
+        await newtab.markersReports();
+    });
+});
+
+test(`iAU_TC_ID_242. @RegressionA Verify Elumina Markers`, async ({ eluminaLoginPage, eluminaRegPage, eluminaProctorReg, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Elumina application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Navigate to exam Tab and Create New user`, async () => {
+        const newtab = await eluminaRegPage.iAuthorPageNavigations();
+        await newtab.registrationTabNavigation();
+        await newtab.clickonWorkflow();
     });
 });
