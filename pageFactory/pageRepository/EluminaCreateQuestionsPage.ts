@@ -715,7 +715,15 @@ export class EluminaCreateQuestionsPage {
 
     async clickOnDraft() {
         await this.SearchDraftQuestions.click();
+        await this.SearchDraftQuestions.clear()
         await this.SearchDraftQuestions.type('Draft')
+        await this.page.waitForTimeout(3000);
+    }
+
+    async clickOnApproved() {
+        await this.SearchDraftQuestions.click();
+        await this.SearchDraftQuestions.clear()
+        await this.SearchDraftQuestions.type('Approved')
         await this.page.waitForTimeout(3000);
     }
 
@@ -2572,6 +2580,6 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(2000);
         await this.clickOnApprovalBtn.click()
         await this.page.waitForTimeout(2000);
-        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfuly.');
+        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfully.');
     }
 }

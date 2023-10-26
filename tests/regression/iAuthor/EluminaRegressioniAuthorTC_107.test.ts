@@ -12,7 +12,17 @@ test(`iAU_TC_ID_107. @RegressionA Validation of Blueprints list page`, async ({ 
     await test.step(`Navigate to iAuthor blueprint`, async () => {
         const newtab = await eluminaBlueprintsPage.iAuthorPageNavigation();
         await newtab.BlueprintMenuClick();
+        await newtab.clickOnUpAndDownArrowInTable()
+        await newtab.clickOnUpAndDownForRespectiveColumn()
+        await newtab.clickOnRowsAndSelectRows()
+        await newtab.clickOnPagination()
+        await newtab.searchBluePrintDraftQutn()
+        await newtab.verifyMoreOptionInBlueprint()
         await newtab.verifyListOfBlueprint();
         await newtab.searchtext()
+        await newtab.uncheckAllQutnColumns()
+
+
+
     });
 });

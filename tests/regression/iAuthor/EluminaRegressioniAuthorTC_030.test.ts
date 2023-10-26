@@ -16,7 +16,10 @@ test(`iAU_TC_ID_30. @RegressionA Validation of Questions list page(Negative Scen
         await newtab.questionTabNavigation();
         await newtab.enterInvalidQutn();
         await newtab.validateFilter()
-        await newtab.uncheckAllQutnColumns()
+        // await newtab.uncheckAllQutnColumns()
+        await newtab.clickOnApproved()
+        await newtab.validateQuestionDelete()
+        await newtab.logoutClick()
 
     });
 });

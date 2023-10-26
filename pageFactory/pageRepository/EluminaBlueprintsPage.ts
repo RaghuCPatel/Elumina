@@ -269,6 +269,27 @@ export class EluminaBlueprintsPage {
     readonly saveButtonClick: Locator;
     readonly approverclick: Locator;
     readonly submitAndReviewBtn: Locator;
+    readonly selectExamTemplate: Locator;
+    readonly clickOnEdit: Locator;
+    readonly clickOnStartTime: Locator;
+    readonly selecStarttDate: Locator;
+    readonly enterStartHours: Locator;
+    readonly enterStartMins: Locator;
+    readonly clickOnPM: Locator;
+    readonly clickOnOK: Locator;
+    readonly clickOnEndDate: Locator;
+    readonly selectEndDate: Locator;
+    readonly clickOnAM: Locator;
+    readonly ClickOnCheckedAndUncheckedIcon: Locator;
+    readonly clickUpArrowBtnInTable: Locator;
+    readonly clickDownArrowBtnInTable: Locator;
+    readonly clickOnShowRowsBtn: Locator;
+    readonly selectNoOfRows: Locator;
+    readonly clickOnPaginationNext: Locator;
+    readonly clickOnPaginationPrevious: Locator;
+    readonly verifyDuplicate: Locator;
+    readonly verifyDelete: Locator;
+    readonly verifyPreview: Locator;
 
 
 
@@ -380,7 +401,7 @@ export class EluminaBlueprintsPage {
         this.EnterSectionName = page.locator('#section_name').getByRole('textbox');
         this.DescriptionMessage = page.frameLocator('iframe[title="Rich Text Area\\. Press ALT-F9 for menu\\. Press ALT-F10 for toolbar\\. Press ALT-0 for help"]').locator('html');
         this.SelectTime = page.getByRole('combobox').nth(1);
-        this.ClickOnSave = page.locator('//button[normalize-space()="Save"]');
+        this.ClickOnSave = page.locator('(//button[normalize-space()="Save"])[1]');
         this.nextButton = page.locator('//li[@class="next"]');
         this.Oneclick = page.locator('(//li//span[text()="1"])[1]');
         this.checkBoxClick = page.locator('((//table[@class="table"])[2]//tbody//tr//td[1])[1]')
@@ -420,7 +441,6 @@ export class EluminaBlueprintsPage {
         this.clickOnArchiveYes = page.locator('//div[@id="archiveModal"]//button[@type="button"][normalize-space()="Yes"]')
         this.verifyArchivePopup = page.locator('//div[@class="content-side"]//span')
         this.fetchTitle = page.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a')
-        this.searchBlueprint = page.locator('//input[@class="topbandSearchInpt ng-untouched ng-pristine ng-valid"]')
         this.clickOnSelectBtn = page.locator('(//button[@class="btn btn-blue"])[1]')
         this.Choosehrs = page.locator('//body//app-root//select[1]');
         this.ClickOnAddQuestion = page.locator('//i[@title="Create Exam Question"]');
@@ -496,6 +516,27 @@ export class EluminaBlueprintsPage {
         this.saveButtonClick = page.locator('//button[text()="Save"]');
         this.approverclick = page.locator('//div[normalize-space()="Approver"]');
         this.submitAndReviewBtn = page.locator('//button[text()="Submit & Review"]')
+        this.selectExamTemplate = page.locator('//select[@name="exam"]')
+        this.clickOnEdit = page.getByTitle('Edit Session');
+        this.clickOnStartTime = page.locator('date-time-picker').filter({ hasText: 'Start Time ×' }).locator('i')
+        this.selecStarttDate = page.locator('span').getByText(StartBookingDate, { exact: true })
+        this.enterStartHours = page.getByRole('spinbutton').first()
+        this.enterStartMins = page.getByRole('spinbutton').nth(1);
+        this.clickOnPM = page.getByLabel(period)
+        this.clickOnOK = page.locator('.dtpc-ok-svg')
+        this.clickOnEndDate = page.locator('date-time-picker').filter({ hasText: 'End Time ×' }).locator('i')
+        this.selectEndDate = page.locator('span').getByText(EndExamDate, { exact: true })
+        this.clickOnAM = page.getByLabel('AM')
+        this.ClickOnCheckedAndUncheckedIcon = page.locator('//table[@class="table"]//thead//tr//th[1]//a')
+        this.clickUpArrowBtnInTable = page.locator('//div[@class="sh-icon-top sh--top"]')
+        this.clickDownArrowBtnInTable = page.locator('//div[@class="sh-icon-top sh--bottom"]')
+        this.clickOnShowRowsBtn = page.locator('//button[@class="btn btn-default dropdown-toggle"]')
+        this.selectNoOfRows = page.locator('//ul[@class="dropdown-menu dropdown-color"]//li[1]')
+        this.clickOnPaginationNext = page.locator('//li[@class="pagination-next"]//a')
+        this.clickOnPaginationPrevious = page.locator('//li[@class="pagination-previous"]//a')
+        this.verifyDuplicate = page.locator('((//ul[@class="dropdown-menu more-btn pull-right"])[1]//p)[1]')
+        this.verifyDelete = page.locator('((//ul[@class="dropdown-menu more-btn pull-right"])[1]//p)[2]')
+        this.verifyPreview = page.locator('((//ul[@class="dropdown-menu more-btn pull-right"])[1]//p)[3]')
 
     }
     /**Method for Exam Tab Navigation */
@@ -508,6 +549,41 @@ export class EluminaBlueprintsPage {
      */
     async gradeBookMenu() {
         await this.clickOnGradeBook.click()
+    }
+
+    /**Method to unchecked the all question columns  */
+    async uncheckAllQutnColumns() {
+        await this.ClickOnCheckedAndUncheckedIcon.click();
+        await this.page.waitForTimeout(5000);
+        await this.page.waitForSelector('//ul[@class="dropdown-menu dropdown-menu-columns"]//li//input')
+        const allcheckbox = await this.page.$$('//ul[@class="dropdown-menu dropdown-menu-columns"]//li//input')
+        console.log(allcheckbox.length)
+        for (let i = 1; i < 2; i++) {
+            await allcheckbox[i].click()
+            await this.page.waitForTimeout(5000);
+        }
+        // await this.SearchDraftQuestions.type('Long Question')
+        await this.page.waitForTimeout(3000);
+        // await expect(this.ValidateNorecordText).toBeVisible()
+    }
+
+    /**
+     * Method to select a Rows
+     */
+    async clickOnRowsAndSelectRows() {
+        await this.clickOnShowRowsBtn.click()
+        await expect(this.selectNoOfRows).toBeVisible()
+        await this.selectNoOfRows.click()
+    }
+
+    /**
+     * Method to click On Pagination
+     */
+    async clickOnPagination() {
+        await this.clickOnPaginationNext.click()
+        await this.page.waitForTimeout(5000);
+        await this.clickOnPaginationPrevious.click()
+        await expect(this.clickOnPaginationNext).toBeVisible()
     }
 
     /**Method for Page Navigation */
@@ -539,6 +615,49 @@ export class EluminaBlueprintsPage {
     /**Method for Blueprint Menu click on Menu bar */
     async BlueprintMenuClick(): Promise<void> {
         await this.Blueprint.click();
+    }
+
+    /**
+    * Method to edit time while creating exam section
+    */
+    async editTime() {
+        let currentDate = new Date();
+        let datecurrent = currentDate.getDate();
+        console.log(datecurrent);
+        let pm = currentDate.getHours() >= 12;
+        let hour12 = currentDate.getHours() % 12;
+        if (!hour12)
+            hour12 += 12;
+        let minute = currentDate.getMinutes();
+        console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
+
+        let StartBookingMin = currentDate.getMinutes() - 2;
+        // let EndBookingMin = currentDate.getMinutes() + 3;
+        // let StartExamMin = currentDate.getMinutes() + 4;
+        let EndExamMin = currentDate.getMinutes() + 15;
+
+        await this.clickOnEdit.click()
+        await this.clickOnStartTime.click()
+        await this.selecStarttDate.click()
+        await this.enterStartHours.click()
+        await this.enterStartHours.clear()
+        await this.enterStartHours.fill(hour12.toString())
+        await this.enterStartMins.click()
+        await this.enterStartMins.clear()
+        await this.enterStartMins.fill(EndExamMin.toString())
+        await this.clickOnPM.click()
+        await this.clickOnOK.click()
+        await this.clickOnEndDate.click()
+        await this.selectEndDate.click()
+        await this.enterStartHours.click()
+        await this.enterStartHours.clear()
+        await this.enterStartHours.fill(hour12.toString())
+        await this.enterStartMins.click()
+        await this.enterStartMins.clear()
+        await this.enterStartMins.fill(StartBookingMin.toString())
+        await this.clickOnAM.click()
+        await this.clickOnOK.click()
+
     }
 
     /**
@@ -618,6 +737,26 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(2000)
 
     }
+
+    /**
+    * Method to up and down to respective column
+    */
+    async clickOnUpAndDownForRespectiveColumn() {
+        await this.clickOnUpIconColumn.click()
+        await this.page.waitForTimeout(2000)
+        await this.clickOnDownIconColumn.click()
+        await this.page.waitForTimeout(2000)
+
+    }
+
+    /**
+     * Method to click On Up and Down Arrow Icon
+     */
+    async clickOnUpAndDownArrowInTable() {
+        await this.clickUpArrowBtnInTable.click()
+        await this.clickDownArrowBtnInTable.click()
+    }
+
     /**
      * Method to verify Rows, Page and User count
      */
@@ -632,7 +771,9 @@ export class EluminaBlueprintsPage {
      * Method to search text in search field
      */
     async searchtext() {
-        await this.searchBlueprint.fill('Draft')
+        await this.SearchDraftQuestions.click()
+        await this.SearchDraftQuestions.clear()
+        await this.SearchDraftQuestions.fill('Draft')
         await this.page.waitForTimeout(2000)
         await this.clickOnPlusIcon.click()
         await this.selectitem.click()
@@ -680,6 +821,33 @@ export class EluminaBlueprintsPage {
         await this.approverQA.click();
         await this.page.waitForTimeout(2000)
         await this.submitAndReviewBtn.click();
+        await this.page.waitForTimeout(10000)
+        await expect(this.workflowsuccessmessage).toHaveText('Workflow has been created successfuly.');
+        await this.page.waitForTimeout(2000)
+        //await this.saveButtonClick.click();
+    }
+
+    /*
+*Method to Validate Exam Approval Workflow with submit and approve button
+*/
+    async validateQunApprovalWorkflowWithSubmitAndApprove() {
+        await this.page.waitForTimeout(2000)
+        await this.closeIcon.click()
+        await this.workflowDropdown.click();
+        await this.page.waitForTimeout(2000)
+        await this.approvalWorkflowclick.click();
+        await this.page.waitForTimeout(2000)
+        await this.selectReviwer.click();
+        await this.page.waitForTimeout(2000)
+        await this.checkReviwerQA.click();
+        await this.page.waitForTimeout(2000)
+        await this.approverclick.click();
+        await this.page.waitForTimeout(1000)
+        await this.selectApprover.click();
+        await this.page.waitForTimeout(2000)
+        await this.approverQA.click();
+        await this.page.waitForTimeout(2000)
+        await this.ClickOnSubmitAndApproveBtn.click();
         await this.page.waitForTimeout(10000)
         await expect(this.workflowsuccessmessage).toHaveText('Workflow has been created successfuly.');
         await this.page.waitForTimeout(2000)
@@ -959,7 +1127,7 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(5000);
         await this.ClickOnSubmitAndApproveBtn.click();
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(10000);
         await expect(this.verifyArchivePopup).toHaveText("Status has been updated successfuly.")
     }
 
@@ -1425,6 +1593,14 @@ export class EluminaBlueprintsPage {
         await expect(this.verifyArchivePopup).toHaveText("The exam venue field is required.")
     }
 
+    /**
+     * Method to close the popup
+     */
+    async closeIconInExam() {
+        await this.clickOnCloseIcon.click()
+
+    }
+
     /*Method to click on add*/
     async clickOnAddandclickOnNext() {
         let currentDate = new Date();
@@ -1440,7 +1616,7 @@ export class EluminaBlueprintsPage {
         let StartBookingMin = currentDate.getMinutes() + 2;
         let EndBookingMin = currentDate.getMinutes() + 3;
         let StartExamMin = currentDate.getMinutes() + 4;
-        let EndExamMin = currentDate.getMinutes() + 15;
+        let EndExamMin = currentDate.getMinutes() + 4;
 
         await this.clickOnCloseIcon.click()
         await this.SELECTBANK.click();
@@ -1671,7 +1847,7 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(5000);
         await this.ClickOnSubmitAndApproveBtn.click();
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(10000);
         await expect(this.verifyArchivePopup).toHaveText("Status has been updated successfuly.")
     }
 
@@ -1777,6 +1953,17 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(5000);
         await this.ClickOnQuestionID.click()
         await this.page.waitForTimeout(5000);
+    }
+
+
+    /**
+     * Method to verify More Options
+     */
+    async verifyMoreOptionInBlueprint() {
+        await this.clickOnMoreOption.click()
+        await expect(this.verifyDuplicate).toBeVisible()
+        await expect(this.verifyDelete).toBeVisible()
+        await expect(this.verifyPreview).toBeVisible()
     }
 
     /**
@@ -1897,6 +2084,14 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(4000)
     }
 
+    /**
+     * Method to search BluePrint Draft Questions
+     */
+    async searchBluePrintDraftQutn() {
+        await this.SearchDraftQuestions.type('Draft')
+        await this.page.waitForTimeout(3000)
+    }
+
     /**Method to verify Version */
     async verifyVersion() {
         await this.page.waitForSelector('//div[@class="verticalStepperCard verticalStepperCard__circle verticalStepperCard__circle--defualt"]')
@@ -1919,6 +2114,15 @@ export class EluminaBlueprintsPage {
         await expect(this.examPageTitle).toHaveText("How do you want to get started?")
 
 
+    }
+
+    /**
+     * Method to click on Copy from template
+     */
+    async clickOncopyTemplate() {
+        await this.copyTemplate.click()
+        await this.selectExamTemplate.selectOption('Elumina TestTemplate')
+        await this.nextButtonClick.click()
     }
 
 
