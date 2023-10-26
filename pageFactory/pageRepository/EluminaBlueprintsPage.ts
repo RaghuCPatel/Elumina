@@ -290,6 +290,7 @@ export class EluminaBlueprintsPage {
     readonly verifyDuplicate: Locator;
     readonly verifyDelete: Locator;
     readonly verifyPreview: Locator;
+    readonly clickOnSubmitBtn: Locator;
 
 
 
@@ -328,7 +329,7 @@ export class EluminaBlueprintsPage {
         this.ClickOnAddCartBtn = page.locator('//div[@class="cartAdd-btn ng-star-inserted"]');
         this.ClickOnAddCartBtn2 = page.locator('(//div[@class="cartAdd-btn ng-star-inserted"])[2]')
         this.ClickOnToCart = page.locator('//button[contains(text(),"Add to cart")]')
-        this.ClickOnSaveBtn = page.locator('(//button[text()="Save"])[2]')
+        this.ClickOnSaveBtn = page.locator('(//button[contains(text(),"Save")])[2]')
         this.ClickOnCancelButton = page.locator('(//button[text()="Cancel"])[2]')
         this.ClickOnMoreIcon = page.locator('//div[@class="plus-btn"]')
         this.EnterCartItem = page.locator('(//input[@class="inputtxt ng-untouched ng-pristine ng-valid ng-star-inserted"])[3]')
@@ -537,6 +538,7 @@ export class EluminaBlueprintsPage {
         this.verifyDuplicate = page.locator('((//ul[@class="dropdown-menu more-btn pull-right"])[1]//p)[1]')
         this.verifyDelete = page.locator('((//ul[@class="dropdown-menu more-btn pull-right"])[1]//p)[2]')
         this.verifyPreview = page.locator('((//ul[@class="dropdown-menu more-btn pull-right"])[1]//p)[3]')
+        this.clickOnSubmitBtn = page.locator('//button[text()="Submit"]')
 
     }
     /**Method for Exam Tab Navigation */
@@ -685,6 +687,21 @@ export class EluminaBlueprintsPage {
 
     }
 
+    /**
+*  Method to Create Content Section 
+*/
+    async createContentSectionwithoutSave(time): Promise<void> {
+        await this.CliCKOnCreateSection.click();
+        await this.ClickOnCreateContentSection.click();
+        await this.EnterSectionName.type('Content-' + Math.floor(Math.random() * 899 + 10));
+        await this.page.waitForTimeout(5000);
+        await this.DescriptionMessage.click();
+        await this.DescriptionMessage.type('Hello World.....');
+        await this.page.waitForTimeout(5000);
+        await this.selectMinutes.selectOption(time);
+
+    }
+
     /** 
      * Method to Create a Content Section Page
      */
@@ -700,6 +717,21 @@ export class EluminaBlueprintsPage {
         await this.ClickOnTermAndCondition.click();
         await this.ClickOnSave.click();
 
+    }
+
+    /** 
+     * Method to Create a Content Section Page
+     */
+    async createContentPagewithoutSave(): Promise<void> {
+        await this.ClickonCreateContentPage.click();
+        await this.ClickOnAddContent.click();
+        await this.enterContentTitle.type('Content-A' + Math.floor(Math.random()) * 89 + 10);
+        await this.page.waitForTimeout(5000);
+        await this.DescriptionMessage.click();
+        await this.DescriptionMessage.type('Hello World.....');
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnContentLayout.click();
+        await this.ClickOnTermAndCondition.click();
     }
 
     /**
@@ -1429,6 +1461,134 @@ export class EluminaBlueprintsPage {
     }
 
     /**
+   * Edit date for duplicate  Exam
+   */
+    async editDateForDuplicateExam() {
+        let currentDate = new Date();
+        let datecurrent = currentDate.getDate();
+        console.log(datecurrent);
+        let pm = currentDate.getHours() >= 12;
+        let hour12 = currentDate.getHours() % 12;
+        if (!hour12)
+            hour12 += 12;
+        let minute = currentDate.getMinutes();
+        console.log(`${hour12}:${minute} ${pm ? 'pm' : 'am'}`);
+
+        let StartBookingMin = currentDate.getMinutes() + 2;
+        let EndBookingMin = currentDate.getMinutes() + 3;
+        let StartExamMin = currentDate.getMinutes() + 4;
+        let EndExamMin = currentDate.getMinutes() + 15;
+
+        await this.ExamStartCalender.click();
+        await this.ExamStartDate.click();
+
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (StartExamMin >= 60) {
+            let SEM = StartExamMin.toString();
+            SEM = "04"
+            await this.BooingStartMins.type(SEM);
+            //hrs+1
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            let BSH = hour12 + 1;
+            if (BSH == 12) {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSessions.check();
+
+            }
+            else if (BSH >= 13) {
+                BSH = 1;
+                await this.BookingStartHrs.type(BSH.toString());
+            }
+            else {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSession.check();
+            }
+        }
+        else {
+            await this.BooingStartMins.type(StartExamMin.toString());
+            //hrs
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            await this.BookingStartHrs.type(hour12.toString());
+            await this.ChooseBookingStartSession.check();
+        }
+        await this.BookingOK.click();
+
+        await this.ExamEndCalender.click();
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (StartExamMin >= 60) {
+            let SEM = StartExamMin.toString();
+            SEM = "04"
+            await this.BooingStartMins.type(SEM);
+            //hrs+1
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            let BSH = hour12 + 1;
+            if (BSH == 12) {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSessions.check();
+
+
+            }
+            else if (BSH >= 13) {
+                BSH = 1;
+                await this.BookingStartHrs.type(BSH.toString());
+            }
+            else {
+                await this.BookingStartHrs.type(BSH.toString());
+                await this.ChooseBookingStartSession.check();
+            }
+        }
+        else {
+            await this.BooingStartMins.type(StartExamMin.toString());
+            //hrs
+            await this.BookingStartHrs.click();
+            await this.BookingStartHrs.clear();
+            await this.BookingStartHrs.type(hour12.toString());
+            await this.ChooseBookingStartSession.check();
+        }
+        await this.BookingOK.click();
+        await this.ExamEndCalender.click();
+
+
+        if (EndExamDate >= "30") {
+            console.log("Exam end date:" + EndExamDate);
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+        else if (EndExamDate >= "31") {
+            console.log("Exam end date:" + EndExamDate);
+            await this.page.waitForSelector('//li[@class="next"]');
+            await this.nextButton.click();
+            await this.Oneclick.click();
+        }
+
+        else {
+            console.log("Exam end date:" + EndExamDate);
+            await this.ExamEndDate.click();
+        }
+        await this.BookingStartHrs.click();
+        await this.BookingStartHrs.clear();
+        await this.BookingStartHrs.type(hour12.toString());
+        await this.BooingStartMins.click();
+        await this.BooingStartMins.clear();
+        if (EndExamMin >= 60) {
+            EndExamMin = 1;
+            await this.BooingStartMins.type(EndExamMin.toString());
+        }
+        else {
+            await this.BooingStartMins.type(EndExamMin.toString());
+        }
+        await this.ChooseBookingStartSession.check();
+        await this.BookingOK.click();
+    }
+
+
+    /**
      * Edit Question in Exam
      */
     async editQuestion() {
@@ -1762,6 +1922,18 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(5000);
     }
 
+    /**
+* Method to remove All sections and questions
+*/
+    async removeSectionsAll() {
+        await this.page.waitForSelector('//i[@class="close"]')
+        const closeIcons = await this.page.$$('//i[@class="close"]')
+        for (let i = 0; i < 2; i++) {
+            await closeIcons[i].click()
+            await this.page.locator('(//button[text()="Yes"])[5]').click()
+        }
+    }
+
     /*Create a Exam with All Tools*/
     async selectAllToolsAndVerifyMsg() {
         await this.EnterInvigilatorPswd.click();
@@ -1957,7 +2129,7 @@ export class EluminaBlueprintsPage {
 
 
     /**
-     * Method to verify More Options
+     * Method to verify More Options and verify
      */
     async verifyMoreOptionInBlueprint() {
         await this.clickOnMoreOption.click()
@@ -1965,6 +2137,26 @@ export class EluminaBlueprintsPage {
         await expect(this.verifyDelete).toBeVisible()
         await expect(this.verifyPreview).toBeVisible()
     }
+
+    /**
+    * Method to verify More Options
+    */
+    async clickOnMore() {
+        await this.clickOnMoreOption.click()
+        await this.verifyDuplicate.click()
+        await this.yesButtonClick.click()
+        await this.page.waitForTimeout(5000);
+        await this.clickOnSubmitBtn.click()
+        await this.page.waitForTimeout(5000);
+    }
+
+    /**
+     * Method to click on question
+     */
+    async clickOnQuestion() {
+        await this.clickOnQuestions.click()
+    }
+
 
     /**
      * Method to click on delivery
@@ -2114,6 +2306,13 @@ export class EluminaBlueprintsPage {
         await expect(this.examPageTitle).toHaveText("How do you want to get started?")
 
 
+    }
+
+    /**
+     * Method to click On Existing Exam
+     */
+    async clickOnCopyExistingExam() {
+        await this.copyExisting.click()
     }
 
     /**

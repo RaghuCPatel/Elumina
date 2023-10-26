@@ -25896,3 +25896,32 @@
 {"level":"info","message":"Executing Step : Login to Application"}
 {"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
 {"level":"info","message":"Test Case Completed : iAU_TC_ID_107. @RegressionA Validation of Blueprints list page Status : passed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_108. @RegressionA Validation of Blueprints list page(Negative Scenario)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_108. @RegressionA Validation of Blueprints list page(Negative Scenario) Status : failed"}
+{"level":"error","message":"File not found: C:\\Elumina\\26-10-2023\\html-report"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_108. @RegressionA Validation of Blueprints list page(Negative Scenario)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_108. @RegressionA Validation of Blueprints list page(Negative Scenario)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_108. @RegressionA Validation of Blueprints list page(Negative Scenario) Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_108. @RegressionA Validation of Blueprints list page(Negative Scenario)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_108. @RegressionA Validation of Blueprints list page(Negative Scenario) Status : failed"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_108. @RegressionA Validation of Blueprints list page(Negative Scenario)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Started : iAU_TC_ID_108. @RegressionA Validation of Blueprints list page(Negative Scenario)"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Login to Application"}
+{"level":"info","message":"Executing Step : Navigate to iAuthor blueprint"}
+{"level":"info","message":"Test Case Completed : iAU_TC_ID_108. @RegressionA Validation of Blueprints list page(Negative Scenario) Status : passed"}

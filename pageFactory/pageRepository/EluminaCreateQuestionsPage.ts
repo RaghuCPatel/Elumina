@@ -298,6 +298,7 @@ export class EluminaCreateQuestionsPage {
     readonly logoutbuttonClick: Locator;
     readonly clickOnApprovalBtn: Locator;
     readonly Blueprint: Locator;
+    readonly SearchDraftBluePrintQuestions: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -567,6 +568,7 @@ export class EluminaCreateQuestionsPage {
         this.logoutbuttonClick = page.locator('//a[normalize-space()="Log out"]');
         this.clickOnApprovalBtn = page.locator('//button[text()="Submit For Approval"]')
         this.Blueprint = page.locator('//a[@data-tour="Blueprints"]');
+        this.SearchDraftBluePrintQuestions = page.locator('//input[@placeholder="Search Blueprint(s)"]')
 
     }
 
@@ -691,6 +693,14 @@ export class EluminaCreateQuestionsPage {
         console.log(await this.MarkerReportDownload.textContent());
     }
 
+    /**Method to enter invalid text in search field  */
+    async enterInvalidBluePrintQutn() {
+        await this.SearchDraftBluePrintQuestions.click();
+        await this.SearchDraftBluePrintQuestions.type('Long Question')
+        await this.page.waitForTimeout(3000);
+        await expect(this.ValidateNorecordText).toBeVisible()
+    }
+
     /**Method to validateCandidatedashboradinManageDelivery */
     async validateCandidatedashboradinManageDelivery() {
         await this.validateCandIdheader.isVisible();
@@ -724,6 +734,16 @@ export class EluminaCreateQuestionsPage {
         await this.SearchDraftQuestions.click();
         await this.SearchDraftQuestions.clear()
         await this.SearchDraftQuestions.type('Approved')
+        await this.page.waitForTimeout(3000);
+    }
+
+    /**
+     * Method to search approved question
+     */
+    async clickOnBluePrintApproved() {
+        await this.SearchDraftBluePrintQuestions.click();
+        await this.SearchDraftBluePrintQuestions.clear()
+        await this.SearchDraftBluePrintQuestions.type('Approved')
         await this.page.waitForTimeout(3000);
     }
 
@@ -1355,6 +1375,14 @@ export class EluminaCreateQuestionsPage {
         await this.clickMoreOption.click();
         await this.clickDelete.click();
         await this.clickYes.click();
+    }
+
+    /**Method to validate blueprint question delete */
+    async validateBlueprintQuestionDelete() {
+        await this.clickQuestionId.click();
+        await this.clickMoreOption.click();;
+        await this.clickDelete.click();
+        await this.clickArchiveYes.click();
     }
 
     /**Method to validate duplicate question */
