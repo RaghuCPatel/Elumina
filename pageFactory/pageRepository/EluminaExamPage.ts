@@ -150,6 +150,25 @@ export class EluminaExamPage {
   readonly ClickOnnewAddQuestion: Locator;
   readonly ValidateSuccessfulPopMessage: Locator;
   readonly saveAsDraft: Locator;
+  readonly SearchDraftQuestions: Locator;
+  readonly ValidateNorecordText: Locator;
+  readonly ClickOnPlusIcon: Locator;
+  readonly ClickOnCheckedAndUncheckedIcon: Locator;
+  readonly ClickOnSelectOne: Locator;
+  readonly ClickOnGreenIcon: Locator;
+  readonly ValidateMessage: Locator;
+  readonly clickUpArrowBtnInTable: Locator;
+  readonly clickDownArrowBtnInTable: Locator;
+  readonly ClickOnCreatedExam: Locator;
+  readonly LeftArrow: Locator;
+  readonly dropdownclick: Locator;
+  readonly examNamecheckbox: Locator;
+  readonly TotalCount: Locator;
+  readonly pageNumber: Locator;
+  readonly moreOption: Locator;
+  readonly downloadExam: Locator;
+  readonly ErrorMessage: Locator;
+  readonly examClick: Locator;
 
   constructor(page: Page, context: BrowserContext) {
     this.page = page;
@@ -245,7 +264,26 @@ export class EluminaExamPage {
     this.ClickOnnewAddQuestion = page.locator('(//i[@title="Create Exam Question"])[1]');
     this.ValidateSuccessfulPopMessage = page.locator('//span[contains(text(),"Status has been updated successfuly")]');
     this.saveAsDraft = page.locator('//button[normalize-space()="Save Draft"]');
-
+    this.ValidateNorecordText = page.locator('//p[@class="no-record"]');
+    this.ClickOnPlusIcon = page.locator('//button[@class="add-filter-button"]')
+    this.ClickOnSelectOne = page.locator('(//select[@class="theme-dropdown ng-untouched ng-pristine ng-valid"])[2]')
+    this.ClickOnGreenIcon = page.locator('//i[@class="tick-icon"]');
+    this.ValidateMessage = page.locator('//span[contains(text(),"Please Choose or Enter Value")]')
+    this.ClickOnCheckedAndUncheckedIcon = page.locator('//table[@class="table"]//thead//tr//th[1]//a');
+    this.clickUpArrowBtnInTable = page.locator('//div[@class="sh-icon-top sh--top"]')
+    this.clickDownArrowBtnInTable = page.locator('//div[@class="sh-icon-top sh--bottom"]');
+    this.ClickOnCreatedExam = page.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a');
+    const examId: string = String(EluminaExamPage.examID);
+    console.log(examId);
+    this.LeftArrow = page.locator('//i[@class="iconBg leftArrow"]');
+    this.dropdownclick = page.locator('//table[@class="table"]//thead//tr//th[1]');
+    this.examNamecheckbox = page.locator('(//input[@type="checkbox"])[2]');
+    this.TotalCount = page.locator('//div[@class="tablefooter-left"]');
+    this.pageNumber = page.locator('//span[text()="2"]');
+    this.moreOption = page.locator('//table[@class="table"]//tbody//tr[1]//td[1]');
+    this.downloadExam = page.locator('(//p[text()="Download Exam"])[1]');
+    this.ErrorMessage = page.locator('//p[text()="No records found!"]');
+    this.examClick = page.locator('//table[@class="table"]//tbody//tr[1]//td[3]');
   }
 
   async waitforTime() {
@@ -310,6 +348,18 @@ export class EluminaExamPage {
   async examTabNavigation(): Promise<void> {
     await this.EXAMSMENU.click();
   }
+
+  /**Method to register for the exam */
+  async ExamTabNavigation(): Promise<void> {
+    await this.EXAMSMENU.click();
+    let examid = EluminaExamPage.examID;
+    console.log(EluminaExamPage.examID);
+    await this.searchFieldOnExam.type(examid);
+    await this.page.waitForTimeout(5000);
+    await this.ClickOnCreatedExam.click();
+    await this.LeftArrow.click();
+  }
+
 
   /*Create a Exam*/
   async createCommonExam(): Promise<void> {
@@ -1509,5 +1559,40 @@ export class EluminaExamPage {
     await this.ClickOnSubmitAndApproveBtn.click();
     await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
     await this.page.waitForTimeout(5000);
+  }
+
+  /**Method to validate Filter */
+  async validateFilter() {
+    await this.ClickOnPlusIcon.click()
+    await this.ClickOnSelectOne.click()
+    await this.ClickOnSelectOne.selectOption('ID')
+    await this.page.waitForTimeout(3000);
+    await this.ClickOnGreenIcon.click()
+    await this.page.waitForTimeout(3000);
+    await expect(this.ValidateMessage).toBeVisible()
+  }
+
+  /**Method to unchecked the all question columns  */
+  async uncheckAllQutnColumns() {
+    await this.dropdownclick.click();
+    await this.examNamecheckbox.click();
+    await this.page.waitForTimeout(3000);
+    await this.examNamecheckbox.click();
+    await this.page.waitForTimeout(3000);
+    await this.TotalCount.isVisible();
+    console.log(await this.TotalCount.textContent());
+    await this.moreOption.click();
+    await this.downloadExam.click();
+    await this.page.waitForTimeout(3000);
+    await this.pageNumber.click();
+
+  }
+
+  /**
+  * Method to click On Up and Down Arrow Icon
+  */
+  async clickOnUpAndDownArrowInTable() {
+    await this.clickUpArrowBtnInTable.click()
+    await this.clickDownArrowBtnInTable.click()
   }
 }

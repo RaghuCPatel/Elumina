@@ -253,6 +253,11 @@ export class EluminaRegistrationPage {
     readonly candId: Locator;
     readonly candiId: Locator;
     readonly ExamMenu: Locator;
+    readonly clickWorkflow: Locator;
+    readonly workflowSuccessPopup: Locator;
+    readonly examStatusClick: Locator;
+    readonly checkExamClick: Locator;
+    readonly NoRecordsFound: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -469,6 +474,11 @@ export class EluminaRegistrationPage {
         this.viewResponse = page.locator('//p[normalize-space()="View Response"]');
         this.candId = page.locator('(//table[@class="table"]//tbody//tr/td)[3]');
         this.candiId = page.locator('(//span[@class="tex-dis-details"])[2]')
+        this.clickWorkflow = page.locator('//p[normalize-space()="Workflow"]');
+        this.workflowSuccessPopup = page.locator('//span[text()="Status has been updated successfuly."]');
+        this.examStatusClick = page.locator('//div[normalize-space()="Exam Status"]');
+        this.checkExamClick = page.locator('//div[@class="marg-btm middleColumn"]//div[3]//single-multi-select[1]//div[1]//span[1]//div[1]//div[2]//div[1]//ul[1]//li[2]');
+        this.NoRecordsFound = page.locator('//p[text()="No records found!"]')
 
     }
 
@@ -1201,14 +1211,14 @@ export class EluminaRegistrationPage {
     async liveMonitorExamStatus() {
         await this.liveMonitorClick.click();
         await this.liveMonitorExamStatusclick.click();
-        await this.page.waitForSelector('//input[@class="open"]')
-        const checks = await this.page.$$('//input[@class="open"]')
-        for (let i = 0; i < 20; i++) {
-            await checks[i].isVisible();
-            let statusCheck = await checks[i];
-            console.log('Live Monitor Exam status:' + statusCheck.textContent());
-            await this.page.waitForTimeout(2000);
-        }
+        await this.checkExamClick.isVisible();
+        await this.checkExamClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.examStatusClick.click();
+        await this.liveDashboardSubmit.click();
+        await this.page.waitForTimeout(2000);
+        await this.NoRecordsFound.isVisible();
+        await expect(this.NoRecordsFound).toHaveText("No records found!");
     }
 
     /**
@@ -1432,6 +1442,18 @@ export class EluminaRegistrationPage {
         await this.page.waitForTimeout(2000);
         await this.ClickOnApprove.click()
         await this.page.waitForTimeout(2000);
+    }
+
+    /**
+   * Method for workflow approve
+   */
+    async clickonWorkflowExamTab() {
+        await this.clickWorkflow.click()
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnApprove.click()
+        await this.page.waitForTimeout(2000);
+        await this.workflowSuccessPopup.isVisible();
+        await expect(this.workflowSuccessPopup).toHaveText('Status has been updated successfuly.');
     }
 
     /**Method to register for the exam */

@@ -66,6 +66,9 @@ export class EluminaMarkerPage {
     readonly submitAsFinal: Locator;
     readonly YesButton: Locator;
     readonly MarksSubmit: Locator;
+    readonly feedBackIcon: Locator;
+    readonly enterFeedBack: Locator;
+    readonly feedbackSuccessMessage: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -103,6 +106,9 @@ export class EluminaMarkerPage {
         this.submitAsFinal = page.locator('//p[text()="Submit as Final"]');
         this.YesButton = page.locator('(//button[text()="Yes"])[3]');
         this.MarksSubmit = page.locator('//span[text()="Final marks submitted sucessfully"]');
+        this.feedBackIcon = page.locator('(//img[@class="cohort-image"])[1]');
+        this.enterFeedBack = page.frameLocator('(//iframe[@title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help"])').locator('html');
+        this.feedbackSuccessMessage = page.locator('//span[text()="Cohort feedback updated"]');
     }
 
     /**Method for page navigation */
@@ -195,6 +201,18 @@ export class EluminaMarkerPage {
         await this.YesButton.click();
         await this.MarksSubmit.isVisible();
         await expect(this.MarksSubmit).toHaveText("Final marks submitted sucessfully");
+    }
+
+    async feedBackIconClick() {
+        this.feedBackIcon.click();
+        this.enterFeedBack.click();
+        this.enterFeedBack.type('Good');
+        await this.page.waitForTimeout(2000);
+        this.saveButton.click();
+        await this.page.waitForTimeout(2000);
+        this.feedbackSuccessMessage.isVisible();
+        await expect(this.feedbackSuccessMessage).toHaveText("Cohort feedback updated");
+        await this.page.waitForTimeout(2000);
     }
 
 }
