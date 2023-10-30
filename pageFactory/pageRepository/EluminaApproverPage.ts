@@ -44,6 +44,10 @@ export class EluminaApproverPage {
     readonly Blueprint: Locator;
     readonly EXAMSMENU: Locator;
     readonly ClickOnSubmitAndApproveBtn: Locator;
+    readonly questionIdClick: Locator;
+    readonly clickOnSubmitForApproval: Locator;
+    readonly rejectButtonClick: Locator;
+    readonly successPopup: Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -58,6 +62,11 @@ export class EluminaApproverPage {
         this.Blueprint = page.locator('//a[@data-tour="Blueprints"]');
         this.EXAMSMENU = page.locator('//a[text()="Exams"]');
         this.ClickOnSubmitAndApproveBtn = page.locator('//button[normalize-space()="Submit & Approve"]');
+        this.questionIdClick = page.locator('(//table[@class="table"]//tbody[@class="tableBody"]//tr//td[2])[1]//span//a');
+        this.ClickOnWorkFlow = page.locator('//p[normalize-space()="Workflow"]');
+        this.clickOnSubmitForApproval = page.locator('//button[text()="Submit For Approval"]');
+        this.rejectButtonClick = page.locator('//button[text()="Reject"]');
+        this.successPopup = page.locator('//span[text()="Status has been updated successfuly."]');
     }
 
     /**Method for page navigation */
@@ -102,5 +111,20 @@ export class EluminaApproverPage {
         await this.ClickOnWorkFlow.click()
         await this.ClickOnSubmitAndApproveBtn.click();
         await this.page.waitForTimeout(3000);
+    }
+
+    /**
+     * Method for Questions Menu click on Menu bar
+     */
+    async todoListApprover(): Promise<void> {
+        await this.questionIdClick.click();
+        await this.page.waitForTimeout(2000)
+        await this.ClickOnWorkFlow.click();
+        await this.page.waitForTimeout(2000)
+        await this.rejectButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.successPopup.isVisible();
+        await this.page.waitForTimeout(2000);
+
     }
 }

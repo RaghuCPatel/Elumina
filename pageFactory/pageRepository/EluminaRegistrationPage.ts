@@ -271,6 +271,62 @@ export class EluminaRegistrationPage {
     readonly selectReviewer: Locator;
     readonly triangleClick: Locator;
     readonly ValidateSuccessfulPopMessage: Locator;
+    readonly viewResponses: Locator;
+    readonly markersReporting: Locator;
+    readonly doFinalMarking: Locator;
+    readonly publishResults: Locator;
+    readonly downloadResponse: Locator;
+    readonly uploadResponse: Locator;
+    readonly downloadGradeReport: Locator;
+    readonly searchMarking: Locator;
+    readonly tableContent: Locator;
+    readonly moreOptionsInMarking: Locator;
+    readonly assignMarkersFromMarkingOption: Locator;
+    readonly swapMarkers: Locator;
+    readonly totalCount: Locator;
+    readonly showRowsDropdown: Locator;
+    readonly manageDeliveryId: Locator;
+    readonly manageDeliveryName: Locator;
+    readonly manageDeliveryStartDate: Locator;
+    readonly manageDeliveryEndDate: Locator;
+    readonly manageDeliveryStatus: Locator;
+    readonly manageDeliveryworkflowStatus: Locator;
+    readonly manageDeliveryFullScreen: Locator;
+    readonly addExamID: Locator;
+    readonly Admin: Locator;
+    readonly ClickOnGradeBook: Locator;
+    readonly ClickOncreateGradeBook: Locator;
+    readonly gradeBookName: Locator;
+    readonly selectExamName: Locator;
+    readonly selectSessionName: Locator;
+    readonly selectSessionNamecheckBox: Locator
+    readonly gradeScale: Locator;
+    readonly gradeScaleMerit: Locator;
+    readonly gradeScaleAggregate: Locator;
+    readonly sessionWeight: Locator;
+    readonly passpercent: Locator;
+    readonly fromMarkFail: Locator;
+    readonly fromMarkPass: Locator;
+    readonly toMarkFail: Locator;
+    readonly toMarkPass: Locator;
+    readonly clickOnCompareExamResults: Locator;
+    readonly failFinalResult: Locator;
+    readonly passFinalResult: Locator;
+    readonly failClick: Locator;
+    readonly passClick: Locator;
+    readonly ButtonSave: Locator;
+    readonly gradebookSuccessMessage: Locator;
+    readonly GradeBookMenu: Locator;
+    readonly selectGradeBookName: Locator;
+    readonly gradeBookCandId: Locator;
+    readonly gradeBookClientId: Locator;
+    readonly gradeBookpassfail: Locator;
+    readonly gradeBookTotal: Locator;
+    readonly gradeBookPercent: Locator;
+    readonly gradeBookResult: Locator;
+    readonly gradeBookapprove: Locator;
+    readonly gradeBookSuccess: Locator;
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -331,8 +387,10 @@ export class EluminaRegistrationPage {
         this.bulkdownloadbuttonclick = page.locator('//a[text()="Bulk Download User Details"]');
         this.SelectCadVenue = page.locator('//span[text()="Elumina Chennai"]')
         this.DeliveryMenu = page.locator('//a[text()="Delivery"]');
+        this.GradeBookMenu = page.locator('//a[text()="Gradebook"]');
         this.SelectBookingStatusExistinguser = page.locator('//div[@class="dropdown-main"]//div//ul//li//div//span');
 
+        this.addExamID = page.locator('//div[@class="userInfo userInfo__lable"][2]');
         const examId: string = String(EluminaExamPage.examID);
         console.log(examId);
         const examId1: string = String(EluminaMultipleExamsForPMPage.examID);
@@ -504,6 +562,60 @@ export class EluminaRegistrationPage {
         this.reviewerWorkflowDropdown = page.locator('(//span[@class="open"])[2]');
         this.selectReviewer = page.locator('(//div[@class="open container-left-padding"])[3]');
         this.ValidateSuccessfulPopMessage = page.locator('//span[text()="Status has been updated successfully."]')
+
+        this.viewResponses = page.locator('(//p[text()="View Responses"])[1]');
+        this.markersReporting = page.locator('(//p[text()="Marker’s Report"])[1]');
+        this.doFinalMarking = page.locator('(//p[text()="Do Final Marking"])[1]');
+        this.publishResults = page.locator('(//p[text()="Publish Results"])[1]');
+        this.downloadResponse = page.locator('(//p[text()="Download Response"])[1]');
+        this.uploadResponse = page.locator('(//p[text()="Upload Response"])[1]');
+        this.downloadGradeReport = page.locator('(//p[text()="Download Grade Report"])[1]');
+        this.searchMarking = page.locator('//input[@placeholder="Search Marking"]');
+        this.tableContent = page.locator('//table[@class="table"]//tbody//tr//td');
+        this.moreOptionsInMarking = page.locator('//button[normalize-space()="..."]');
+        this.assignMarkersFromMarkingOption = page.locator('//a[normalize-space()="Assign Markers"]');
+        this.swapMarkers = page.locator('//a[normalize-space()="Swap Markers"]');
+        this.totalCount = page.locator('//div[@class="tablefooter-left"]//span[1]');
+        this.showRowsDropdown = page.locator('//button[@class="btn btn-default dropdown-toggle"]');
+        this.manageDeliveryId = page.locator('(//div[@class="userInfo userInfo__lable"])[1]');
+        this.manageDeliveryName = page.locator('(//div[@class="userInfo userInfo__lable"])[2]');
+        this.manageDeliveryStartDate = page.locator('(//div[@class="userInfo userInfo__lable"])[3]');
+        this.manageDeliveryEndDate = page.locator('(//div[@class="userInfo userInfo__lable"])[4]');
+        this.manageDeliveryStatus = page.locator('(//div[@class="userInfo userInfo__lable"])[5]');
+        this.manageDeliveryworkflowStatus = page.locator('(//div[@class="userInfo userInfo__lable"])[6]');
+        this.manageDeliveryFullScreen = page.locator('(//div[@class="userInfo userInfo__lable"])[7]');
+        this.Admin = page.locator('//div[contains(text(),"Assess App Admin")]');
+        this.ClickOnGradeBook = page.locator('//span[contains(text(),"Grade Book")]');
+        this.ClickOncreateGradeBook = page.locator('//button[normalize-space()="Create Grade Book"]');
+        this.gradeBookName = page.locator('//input[@name="test"]');
+        this.selectExamName = page.locator('//input[@placeholder="Select Exam(s)"]');
+        this.selectGradeBookName = page.locator('//input[@placeholder="search"]')
+        this.selectSessionName = page.locator('input[placeholder="Select Session(s)"]');
+        this.selectSessionNamecheckBox = page.locator('//div[@class="open"]');
+        this.gradeScale = page.locator('//input[@placeholder="Select Grade Scale"]');
+        this.gradeScaleMerit = page.locator('(//div[@class="open container-left-padding"]//span)[3]');
+        this.gradeScaleAggregate = page.locator('//div[normalize-space()="Grade Aggregation"]');
+        this.sessionWeight = page.locator('(//input[@type="number"])[1]');
+        this.passpercent = page.locator('(//input[@type="number"])[3]');
+        this.fromMarkFail = page.locator('(//input[@type="number"])[5]');
+        this.toMarkFail = page.locator('(//input[@type="number"])[6]');
+        this.fromMarkPass = page.locator('(//input[@type="number"])[7]');
+        this.toMarkPass = page.locator('(//input[@type="number"])[8]');
+        this.clickOnCompareExamResults = page.locator('(//input[@type="radio"])[1]');
+        this.failFinalResult = page.locator('(//input[@placeholder="Select final result"])[1]');
+        //this.passFinalResult = page.locator('(//input[@placeholder="Select final result"])[2]');
+        this.failClick = page.locator('//div[@class="open container-left-padding"]');
+        this.ButtonSave = page.locator('//button[text()="Save"]');
+        this.gradebookSuccessMessage = page.locator('//span[text()="Grade Book saved successfully"]');
+        this.gradeBookCandId = page.locator('(//table[@class="table"]//tbody//tr/td)[1]');
+        this.gradeBookClientId = page.locator('(//table[@class="table"]//tbody//tr/td)[2]');
+        this.gradeBookpassfail = page.locator('(//table[@class="table"]//tbody//tr/td)[3]');
+        this.gradeBookTotal = page.locator('(//table[@class="table"]//tbody//tr/td)[4]');
+        this.gradeBookPercent = page.locator('(//table[@class="table"]//tbody//tr/td)[5]');
+        this.gradeBookResult = page.locator('(//table[@class="table"]//tbody//tr/td)[6]');
+        this.gradeBookapprove = page.locator('//button[text()=" Approve "]');
+        this.gradeBookSuccess = page.locator('//span[text()="Grade book approved & published successfully"]');
+
     }
 
     /**Method for Page Navigation */
@@ -511,6 +623,17 @@ export class EluminaRegistrationPage {
         const [newPage] = await Promise.all([
             this.context.waitForEvent('page'),
             await this.AUTHOR.click()
+        ]);
+        await newPage.waitForLoadState();
+        return new exports.EluminaRegistrationPage(newPage);
+    }
+
+
+    /**Method of Admin Page Navigation */
+    async AdminPageNavigation() {
+        const [newPage] = await Promise.all([
+            this.context.waitForEvent('page'),
+            await this.Admin.click()
         ]);
         await newPage.waitForLoadState();
         return new exports.EluminaRegistrationPage(newPage);
@@ -525,7 +648,22 @@ export class EluminaRegistrationPage {
         await this.page.waitForTimeout(5000);
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
+    }
 
+    /**Method to register for the exam */
+    async registrationTabNavigationforMarker(): Promise<void> {
+        await this.DeliveryMenu.click();
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/MarkerExamID.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Sheet1');
+            console.log("ExamId" + ws.getRow(1).getCell(1).value)
+            await this.searchExam.type(ws.getRow(1).getCell(1).value);
+            await this.page.waitForTimeout(5000);
+        })
+        await this.ClickOnCreatedExam.click();
     }
 
     /**Method to register for the exam */
@@ -561,6 +699,11 @@ export class EluminaRegistrationPage {
         await this.page.waitForTimeout(5000);
         await this.ClickOnCreatedExam.click();
         await this.ClickOnAddNewUsers.click();
+    }
+
+    /**Method to click on GradeBook in Admin section*/
+    async clickOnGradeBookInAdmin(): Promise<void> {
+        await this.ClickOnGradeBook.click();
     }
 
     /**Method to Add User Details */
@@ -676,6 +819,14 @@ export class EluminaRegistrationPage {
             await this.ClickOnSaveBtn.click();
             await this.page.waitForTimeout(3000);
         }
+        const ExcelJS = require('exceljs');
+        const workbook = new ExcelJS.Workbook();
+        const worksheet = workbook.addWorksheet('Sheet1');
+        let Eexamid = await this.addExamID.textContent();
+        let fetchExamID = Eexamid.split(':')[1];
+        console.log("Inside Registration:" + fetchExamID);
+        worksheet.getCell('A1').value = fetchExamID;
+        await workbook.xlsx.writeFile('download/MarkerExamID.xlsx');
         await this.LeftArrow.click();
         // await this.ClickOnDropdown.click();
 
@@ -1508,6 +1659,147 @@ export class EluminaRegistrationPage {
         await this.page.waitForTimeout(5000);
         console.log(await this.ValidateSuccessfulPopMessage.textContent());
         await this.page.waitForTimeout(5000);
+    }
+
+    /**
+    * Method to Validate Marker Menu
+    */
+    async validateMarkerMenu(): Promise<void> {
+        await this.MarkingMenu.click();
+        await this.ClickOnDropdown.click();
+        await this.AssignMarkers.isVisible();
+        await this.viewResponses.isVisible();
+        await this.markersReporting.isVisible();
+        await this.doFinalMarking.isVisible();
+        await this.publishResults.isVisible();
+        await this.downloadResponse.isVisible();
+        await this.uploadResponse.isVisible();
+        await this.downloadGradeReport.isVisible();
+        await this.page.waitForTimeout(5000);
+        await this.searchMarking.isVisible();
+        await this.page.waitForSelector('//table[@class="table"]//thead//tr//th', { timeout: 10000 });
+        let rowss = await this.page.$$('//table[@class="table"]//thead//tr//th');
+        for (let i = 3; i <= 10; i++) {
+            await rowss[i].isVisible();
+            console.log(await rowss[i].textContent());
+            await this.page.waitForTimeout(2000);
+        }
+
+        await this.moreOptionsInMarking.click();
+        await this.assignMarkersFromMarkingOption.isVisible();
+        await this.swapMarkers.isVisible();
+
+        await this.totalCount.isVisible();
+        console.log(await this.totalCount.textContent());
+        await this.showRowsDropdown.isVisible();
+        await this.showRowsDropdown.click();
+
+        await this.manageDeliveryId.isVisible();
+        console.log(await this.manageDeliveryId.textContent());
+        await this.manageDeliveryName.isVisible();
+        console.log(await this.manageDeliveryName.textContent());
+        await this.manageDeliveryStartDate.isVisible();
+        console.log(await this.manageDeliveryStartDate.textContent());
+        await this.manageDeliveryEndDate.isVisible();
+        console.log(await this.manageDeliveryEndDate.textContent());
+        await this.manageDeliveryStatus.isVisible();
+        console.log(await this.manageDeliveryStatus.textContent());
+        await this.manageDeliveryworkflowStatus.isVisible();
+        console.log(await this.manageDeliveryworkflowStatus.textContent());
+        await this.manageDeliveryFullScreen.isVisible();
+        console.log(await this.manageDeliveryFullScreen.textContent());
+    }
+
+    /**
+     * method to create grade Book
+     */
+    async createGradeBook() {
+        await this.ClickOncreateGradeBook.click();
+        await this.page.waitForTimeout(5000);
+        await this.gradeBookName.click();
+        await this.gradeBookName.type('Marking Exam' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.selectExamName.click();
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/MarkerExamID.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Sheet1');
+            console.log("ExamId" + ws.getRow(1).getCell(1).value)
+            await this.selectExamName.type(ws.getRow(1).getCell(1).value);
+            await this.page.waitForTimeout(10000);
+            await this.selectSessionNamecheckBox.click();
+            await this.page.waitForTimeout(10000);
+        })
+        await this.page.waitForTimeout(10000);
+        await this.gradeScaleAggregate.click();
+        await this.selectSessionName.click();
+        await this.selectSessionNamecheckBox.click();
+        await this.page.waitForTimeout(10000);
+        await this.gradeScaleAggregate.click();
+        await this.gradeScale.click();
+        await this.gradeScaleMerit.click();
+        await this.page.waitForTimeout(10000);
+        await this.sessionWeight.click();
+        await this.sessionWeight.type('100');
+        await this.page.waitForTimeout(5000);
+        await this.passpercent.click();
+        await this.passpercent.type('6');
+        await this.page.waitForTimeout(5000);
+        await this.fromMarkFail.click();
+        await this.fromMarkFail.type('0');
+        await this.page.waitForTimeout(5000);
+        await this.toMarkFail.click();
+        await this.toMarkFail.type('3');
+        await this.page.waitForTimeout(5000);
+        await this.fromMarkPass.click();
+        await this.fromMarkPass.type('4');
+        await this.page.waitForTimeout(5000);
+        await this.toMarkPass.click();
+        await this.toMarkPass.type('6');
+        await this.page.waitForTimeout(5000);
+        await this.clickOnCompareExamResults.click();
+        await this.failFinalResult.click();
+        await this.failFinalResult.type('Fail');
+        await this.failClick.click();
+        await this.page.waitForTimeout(5000);
+        await this.failFinalResult.click();
+        await this.failFinalResult.type('Pass');
+        await this.failClick.click();
+        await this.page.waitForTimeout(5000);
+        await this.saveButton.click();
+        await this.page.waitForTimeout(5000);
+        await this.gradebookSuccessMessage.isVisible();
+
+    }
+
+    /**
+     * Method to check gradebook
+     */
+    async gradeBookCheck() {
+        await this.GradeBookMenu.click();
+        await this.page.waitForTimeout(5000);
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/MarkerExamID.xlsx';
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Sheet1');
+            console.log("ExamId" + ws.getRow(1).getCell(1).value)
+            await this.selectGradeBookName.type(ws.getRow(1).getCell(1).value);
+            await this.page.waitForTimeout(5000);
+        })
+        await this.gradeBookCandId.isVisible();
+        await this.gradeBookClientId.isVisible();
+        await this.gradeBookpassfail.isVisible();
+        await this.gradeBookTotal.isVisible();
+        await this.gradeBookPercent.isVisible();
+        await this.gradeBookResult.isVisible();
+        await this.page.waitForTimeout(5000);
+        await this.gradeBookapprove.click();
+        await this.page.waitForTimeout(5000);
+        await this.gradeBookSuccess.isVisible();
 
     }
 }
