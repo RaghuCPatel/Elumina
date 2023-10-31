@@ -113,6 +113,7 @@ export class EluminaProctorExamPage {
   readonly SelectNotepad: Locator;
   readonly SelectCalculator: Locator;
   readonly ClickOniProctoring: Locator;
+
   readonly ClickonEnableiProctorExtension: Locator;
   readonly ClickOnInternetConnection: Locator;
   readonly ClickonPromptCandidate: Locator;
@@ -215,6 +216,7 @@ export class EluminaProctorExamPage {
     this.SelectNotepad = page.locator('(//div[@class="dropdown-main"])[6]//ul//li[2]//span[text()="Notepad"]');
     this.SelectCalculator = page.locator('(//div[@class="dropdown-main"])[6]//ul//li[1]//span[text()="Calculator"]');
     this.ClickOniProctoring = page.locator('//span[contains(text(),"Proctoring")]');
+
     this.ClickOnUsers = page.locator('//span[@class="first-title"][normalize-space()="Users"]')
     this.ClickOnEditIcon = page.locator('//i[@class="iconBg editIcon"]')
     this.ClickOnAssignRoles = page.locator('//p[normalize-space()="Assign Roles"]')
@@ -314,6 +316,7 @@ export class EluminaProctorExamPage {
   async clickOnProctoringInAdmin(): Promise<void> {
     await this.ClickOniProctoring.click();
   }
+
 
   /**Method to click On Question Type in Admin */
   async clickOnQuestionTypeInAdmin() {

@@ -285,5 +285,11 @@ export class EluminaLoginPage {
         await this.LOGIN_BUTTON.click();
     }
 
-
+    /**Navigate to Login Application */
+    async loginToApplicationWithReviwerer(): Promise<void> {
+        //const decipherPassword = await webActions.decipherPassword();
+        await this.USERNAME_EDITBOX.fill(testData.ReviewerUserID);
+        await this.PASSWORD_EDITBOX.fill(testData.ReviewerPassword);
+        await this.LOGIN_BUTTON.click();
+    }
 }
