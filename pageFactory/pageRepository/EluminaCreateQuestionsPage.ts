@@ -311,6 +311,8 @@ export class EluminaCreateQuestionsPage {
     readonly morebtnOnWorkFlow: Locator;
     readonly selectReviewer: Locator;
     readonly triangleClick: Locator;
+    readonly moreOptionDropDown: Locator;
+    readonly markersReport: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -504,7 +506,7 @@ export class EluminaCreateQuestionsPage {
         this.selectApprover = page.locator('//input[@placeholder="Select Approver"]');
         this.checkReviwerQA = page.locator('//span[text()="Reviewer QA"]');
         this.approverQA = page.locator('//span[text()="approver QA"]');
-        this.submitandreviewclick = page.locator('//button[text()="Submit For Review"]');
+        this.submitandreviewclick = page.locator('//button[text()="Submit & Review"]');
         this.workflowsuccessmessage = page.locator('//div[@class="content-side"]//span');
         this.saveButtonClick = page.locator('//button[text()="Save"]');
         this.approverclick = page.locator('//div[normalize-space()="Approver"]');
@@ -593,6 +595,8 @@ export class EluminaCreateQuestionsPage {
         this.morebtnOnWorkFlow = page.locator('//button[@class="btn btn-default dotbutton"]');
         this.reviewerWorkflowDropdown = page.locator('(//span[@class="open"])[2]');
         this.selectReviewer = page.locator('(//div[@class="open container-left-padding"])[3]');
+        this.moreOptionDropDown = page.locator('//button[normalize-space()="..."]');
+        this.markersReport = page.locator('//a[normalize-space()="Markers Report Download"]');
 
     }
 
@@ -2553,7 +2557,7 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(2000)
         await this.submitandreviewclick.click();
         await this.page.waitForTimeout(2000)
-        await expect(this.workflowsuccessmessage).toHaveText('Workflow has been created successfuly.');
+        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfuly.');
         await this.page.waitForTimeout(2000)
         await this.saveButtonClick.click();
     }
@@ -2691,6 +2695,30 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(5000);
         console.log(await this.ValidateSuccessfulPopMessage.textContent());
         await this.page.waitForTimeout(5000);
+    }
+
+    /**
+     * Method for marker's report download
+     */
+    async markersReportDownload(file) {
+        await this.moreOptionDropDown.click();
+        await this.page.waitForTimeout(5000);
+        await this.markersReport.click();
+        await this.page.waitForTimeout(5000);
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/' + file;
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Manual Marking');
+            console.log(ws.actualRowCount)
+            console.log(ws.getRow(2).getCell(1).value)
+            console.log(ws.getRow(2).getCell(4).value)
+            // await this.SearchUsers.click()
+            // await this.SearchUsers.clear()
+            // await this.SearchUsers.type(ws.getRow(i).getCell(1).value);
+        })
 
     }
+
 }
