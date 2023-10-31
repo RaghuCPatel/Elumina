@@ -291,6 +291,13 @@ export class EluminaBlueprintsPage {
     readonly verifyDelete: Locator;
     readonly verifyPreview: Locator;
     readonly clickOnSubmitBtn: Locator;
+    readonly clickOnQuestionMenu: Locator;
+    readonly ClickOnPlusIcon: Locator;
+    readonly ClickOnSelectOne: Locator;
+    readonly ClickOnGreenIcon: Locator;
+    readonly ValidateMessage: Locator;
+    readonly clickOnCheckOut: Locator;
+    readonly clickOnYes: Locator;
 
 
 
@@ -310,7 +317,7 @@ export class EluminaBlueprintsPage {
         this.selectFilter1 = page.locator('//body//app-root//select[3]');
         this.selectFilter2 = page.locator('//body//app-root//select[4]');
         this.tickIconClick = page.locator('//i[@class="tick-icon ng-star-inserted"]');
-        this.SaveButtonClicks = page.locator('//button[text()="Save"]');
+        this.SaveButtonClicks = page.locator('(//button[text()="Save"])[1]');
         this.FilterSuccessMessage = page.locator('//div[text()="Filter Saved Successfully"]');
         this.closeButton = page.locator('(//button[@type="button"][normalize-space()="×"])[2]');
         this.nextButtonClick = page.locator('//button[text()="Next"]');
@@ -539,11 +546,23 @@ export class EluminaBlueprintsPage {
         this.verifyDelete = page.locator('((//ul[@class="dropdown-menu more-btn pull-right"])[1]//p)[2]')
         this.verifyPreview = page.locator('((//ul[@class="dropdown-menu more-btn pull-right"])[1]//p)[3]')
         this.clickOnSubmitBtn = page.locator('//button[text()="Submit"]')
+        this.clickOnQuestionMenu = page.locator('//a[text()="Questions"]')
+        this.ClickOnPlusIcon = page.locator('//button[@class="add-filter-button"]')
+        this.ClickOnSelectOne = page.locator('(//select[@class="theme-dropdown ng-untouched ng-pristine ng-valid"])[2]')
+        this.ClickOnGreenIcon = page.locator('//i[@class="tick-icon"]')
+        this.ValidateMessage = page.locator('//span[contains(text(),"Please Choose or Enter Value")]')
+        this.clickOnCheckOut = page.locator('//a[text()="Check Out"]')
+        this.clickOnYes = page.locator('(//button[text()="Yes"])[6]')
 
     }
     /**Method for Exam Tab Navigation */
     async examTabNavigation(): Promise<void> {
         await this.EXAMSMENU.click();
+    }
+
+    /**Method for Question Tab Navigation */
+    async clickOnQuestionMenuTab() {
+        await this.clickOnQuestionMenu.click()
     }
 
     /**
@@ -613,6 +632,34 @@ export class EluminaBlueprintsPage {
     }
 
 
+    /**Method to validate Filter */
+    async validateFilter() {
+        await this.ClickOnPlusIcon.click()
+        await this.ClickOnSelectOne.click()
+        await this.ClickOnSelectOne.selectOption('Type')
+        await this.page.waitForTimeout(3000);
+        await this.selectFilter2.click();
+        await this.selectFilter2.selectOption('VSAQ');
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnGreenIcon.click()
+        await this.page.waitForTimeout(3000);
+    }
+    /**
+     * Method to try to delete the question and verify proper message
+     */
+    async tryToDeleteTheExamAddedQutn() {
+        await this.moreOptionClick.click()
+        await this.clickOnCheckOut.click()
+        await this.clickOnYes.click()
+        await this.page.waitForTimeout(3000);
+        await this.SaveButtonClicks.click()
+        await this.page.waitForTimeout(10000);
+        await this.moreOptionClick.click()
+        await this.DeleteButtonClick.click()
+        await this.yesButtonClick.click()
+        await this.page.waitForTimeout(3000);
+        await expect(this.verifyArchivePopup).toHaveText('Question can not be deleted since its used in some exam')
+    }
 
     /**Method for Blueprint Menu click on Menu bar */
     async BlueprintMenuClick(): Promise<void> {
@@ -830,6 +877,23 @@ export class EluminaBlueprintsPage {
         await this.selectMinutes.selectOption(surveyTime);
         await this.ClickOnSave.click();
 
+    }
+
+
+    /**
+     * Create Survey Section
+     */
+    async createSurveySectionWithoutSave(surveyTime) {
+        await this.page.waitForTimeout(5000);
+        await this.CliCKOnCreateSection.click();
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnCreateSurveySection.click();
+        await this.EnterSectionName.type('Survey-' + Math.floor(Math.random()) * 89 + 10);
+        await this.page.waitForTimeout(5000);
+        await this.DescriptionMessage.click();
+        await this.DescriptionMessage.type('Hello World.....');
+        await this.page.waitForTimeout(5000);
+        await this.selectMinutes.selectOption(surveyTime);
     }
 
     /*
@@ -1161,6 +1225,21 @@ export class EluminaBlueprintsPage {
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
         await this.page.waitForTimeout(10000);
         await expect(this.verifyArchivePopup).toHaveText("Status has been updated successfuly.")
+    }
+
+    /**
+    * Create Survey Section Page
+    */
+    async createSurveyPageWithoutApprove(): Promise<void> {
+        await this.ClickOnAddSurveyQuestion.click();
+        await this.ClickOnSearchQuestion.click()
+        await this.ClickOnSearchQuestion.type('MCQ');
+        await this.page.waitForTimeout(5000);
+        await this.page.locator('(//input[@type="checkbox"])[2]').click();
+        await this.ClickOnAddBtn.click()
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnSave.click();
     }
 
 
@@ -2007,6 +2086,14 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(5000);
     }
 
+    /**
+    * Method to search for approved questions
+    */
+    async searchApprovedQuestions() {
+        await this.ClickOnSearchQuestion.type('Approved')
+        await this.page.waitForTimeout(10000);
+    }
+
     async addVSAQQuestions(): Promise<void> {
         await this.ClickOnAddQuestion.click();
         await this.ClickOnSearchQuestion.click()
@@ -2040,6 +2127,21 @@ export class EluminaBlueprintsPage {
      */
     async addVSAQQuestionswithoutNextForEditQun(): Promise<void> {
         await this.ClickOnAddQuestion.click();
+        await this.ClickOnSearchQuestion.click()
+        await this.ClickOnSearchQuestion.type('VSAQ');
+        await this.page.waitForTimeout(10000);
+        await this.page.locator('(//input[@type="checkbox"])[2]').click();
+        await this.ClickOnAddBtn.click()
+        await this.ClickOnSaveBtn.click();
+        await this.page.waitForTimeout(5000);
+        await this.clickOnSaveForDfatExam.click();
+    }
+
+    /**
+   * Method to add question
+   */
+    async addVSAQQuestionswithoutNextForEditQun2(): Promise<void> {
+        await this.ClickOnAddQuestion2.click();
         await this.ClickOnSearchQuestion.click()
         await this.ClickOnSearchQuestion.type('VSAQ');
         await this.page.waitForTimeout(10000);
@@ -2122,6 +2224,15 @@ export class EluminaBlueprintsPage {
     async searchDraftExam() {
         await this.page.waitForTimeout(5000);
         await this.searchFieldOnExam.type('Draft')
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(5000);
+    }
+
+    /**
+    * Method to search draft exam
+    */
+    async clickOnQuestionID() {
         await this.page.waitForTimeout(5000);
         await this.ClickOnQuestionID.click()
         await this.page.waitForTimeout(5000);
