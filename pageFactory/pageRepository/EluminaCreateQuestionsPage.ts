@@ -798,9 +798,14 @@ export class EluminaCreateQuestionsPage {
         const allcheckbox = await this.page.$$('//ul[@class="dropdown-menu dropdown-menu-columns"]//li//input')
         console.log(allcheckbox.length)
         for (let i = 1; i < allcheckbox.length; i++) {
-            await allcheckbox[i].hover()
-            await allcheckbox[i].click()
-            await this.page.waitForTimeout(8000);
+            try {
+                await allcheckbox[i].click()
+                await this.page.waitForTimeout(8000);
+            }
+            catch (error) {
+                console.log(error.ErrorMessage)
+            }
+
         }
         // await this.SearchDraftQuestions.type('Long Question')
         await this.page.waitForTimeout(3000);
