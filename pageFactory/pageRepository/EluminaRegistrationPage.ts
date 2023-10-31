@@ -271,6 +271,15 @@ export class EluminaRegistrationPage {
     readonly selectReviewer: Locator;
     readonly triangleClick: Locator;
     readonly ValidateSuccessfulPopMessage: Locator;
+
+    readonly clickOnAdminModule: Locator;
+    readonly clickOnImport: Locator;
+    readonly clickOnImportStatistics: Locator;
+    readonly selectExam: Locator;
+    readonly clickOncreatedExam: Locator;
+    readonly clickCSVFileLink: Locator;
+    readonly clickOnImportBtn: Locator;
+
     readonly viewResponses: Locator;
     readonly markersReporting: Locator;
     readonly doFinalMarking: Locator;
@@ -326,6 +335,7 @@ export class EluminaRegistrationPage {
     readonly gradeBookResult: Locator;
     readonly gradeBookapprove: Locator;
     readonly gradeBookSuccess: Locator;
+
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -563,6 +573,15 @@ export class EluminaRegistrationPage {
         this.selectReviewer = page.locator('(//div[@class="open container-left-padding"])[3]');
         this.ValidateSuccessfulPopMessage = page.locator('//span[text()="Status has been updated successfully."]')
 
+        this.clickOnAdminModule = page.locator('//div[text()="Assess App Admin"]')
+        this.clickOnImport = page.locator('//span[text()="Import"]')
+        this.clickOnImportStatistics = page.locator('//p[contains(text(),"Import Exam Statistics")]')
+        this.selectExam = page.locator('//input[@placeholder="Select Exam"]')
+        this.clickOncreatedExam = page.locator('(//div[@class="open container-left-padding"]//span)[1]')
+        this.clickCSVFileLink = page.locator('//a[contains(text(),".xlsx,")]')
+        this.clickOnImportBtn = page.locator('//button[text()="Import"]')
+
+
         this.viewResponses = page.locator('(//p[text()="View Responses"])[1]');
         this.markersReporting = page.locator('(//p[text()="Marker’s Report"])[1]');
         this.doFinalMarking = page.locator('(//p[text()="Do Final Marking"])[1]');
@@ -616,6 +635,7 @@ export class EluminaRegistrationPage {
         this.gradeBookapprove = page.locator('//button[text()=" Approve "]');
         this.gradeBookSuccess = page.locator('//span[text()="Grade book approved & published successfully"]');
 
+
     }
 
     /**Method for Page Navigation */
@@ -628,15 +648,37 @@ export class EluminaRegistrationPage {
         return new exports.EluminaRegistrationPage(newPage);
     }
 
+    /**Method for Page Navigation */
+    async adminPageNavigation() {
+        const [newPage] = await Promise.all([
+            this.context.waitForEvent('page'),
+            await this.clickOnAdminModule.click()
+
 
     /**Method of Admin Page Navigation */
     async AdminPageNavigation() {
         const [newPage] = await Promise.all([
             this.context.waitForEvent('page'),
             await this.Admin.click()
+
         ]);
         await newPage.waitForLoadState();
         return new exports.EluminaRegistrationPage(newPage);
+    }
+
+
+    /**
+     * Method to click on import
+     */
+    async clickOnImportInAdmin() {
+        await this.clickOnImport.click()
+        await this.clickOnImportStatistics.click()
+        await this.page.waitForTimeout(5000);
+        let examid = EluminaExamPage.examID;
+        await this.selectExam.click()
+        await this.selectExam.type(examid)
+        await this.clickOncreatedExam.click()
+        await this.page.waitForTimeout(10000);
     }
 
     /**Method to register for the exam */
@@ -832,6 +874,47 @@ export class EluminaRegistrationPage {
 
     }
 
+
+    /**Method for Bulk Download the User Details */
+    async csvFileDownload(file): Promise<void> {
+        const downloadPromise = this.page.waitForEvent('download');
+        await this.clickCSVFileLink.click();
+        const download = await downloadPromise;
+        // Wait for the download process to complete.
+        console.log(await download.path());
+        //const suggestedFileName = download.suggestedFilename();
+        const filePath = 'download/' + file;
+        await this.page.waitForTimeout(15000);
+        await download.saveAs(filePath)
+        await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+        await this.page.waitForTimeout(3000);
+    }
+
+    /**Method to modify excel */
+    async modifyTheQuestions(file): Promise<void> {
+        const ExcelJS = require('exceljs');
+        const wb = new ExcelJS.Workbook();
+        const fileName = './download/' + file;
+        await this.page.waitForTimeout(5000);
+        wb.xlsx.readFile(fileName).then(async () => {
+            let data: any;
+            const ws = wb.getWorksheet('Import_statistics_template');
+            await this.page.waitForTimeout(5000);
+            console.log(ws.actualRowCount)
+            console.log(ws.getRow(2).getCell(19).value)
+            ws.getRow(2).getCell(4).clear()
+            console.log(ws.getRow(2).getCell(4).type("NN").value)
+        })
+    }
+
+    /**
+     * Method to import excel
+     */
+    async importExcel() {
+        await this.clickOnImportBtn.click()
+        await this.clickOnImportBtn.setInputFiles('download/CSVFile_details.xlsx')
+        await this.page.waitForTimeout(5000);
+    }
 
     /**Method for Bulk Download the User Details */
     async BulkDownloadUserDetails(file): Promise<void> {
