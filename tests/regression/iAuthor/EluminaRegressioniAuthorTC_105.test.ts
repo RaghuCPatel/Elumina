@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Question Preview */
 
-test(`@RegressionA Validation of Question Preview`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
+test(`iAU_TC_ID_105. @RegressionA Validation of Question Preview`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

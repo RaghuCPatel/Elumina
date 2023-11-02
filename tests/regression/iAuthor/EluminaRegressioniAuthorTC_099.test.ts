@@ -1,8 +1,8 @@
 import test from '@lib/BaseTest';
 
-/**Validation of Question Save as New version */
+/**Validation of Question  No Workflow */
 
-test(`@RegressionA Validation of Question Save as New version  `, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
+test(`iAU_TC_ID_99. @RegressionA Validation of Question  No Workflow  `, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

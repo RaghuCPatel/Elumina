@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Edit Blueprint */
 
-test(`@RegressionA Validation of Edit Blueprint`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
+test(`iAU_TC_ID_112. @RegressionA Validation of Edit Blueprint`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

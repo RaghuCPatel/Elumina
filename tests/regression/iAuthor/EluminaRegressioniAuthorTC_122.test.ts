@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Blueprint Save as New version  */
 
-test(`@RegressionA Validation of Blueprint Save as New version `, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
+test(`iAU_TC_ID_122. @RegressionA Validation of Blueprint Save as New version `, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

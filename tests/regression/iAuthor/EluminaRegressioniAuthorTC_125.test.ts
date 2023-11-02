@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Blueprint Approval Workflow */
 
-test(`iAU_TC_ID_125  Validation of Blueprint Approval Workflow`, async ({ eluminaLoginPage, eluminaBlueprintsPage, webActions }) => {
+test(`iAU_TC_ID_125.  Validation of Blueprint Approval Workflow`, async ({ eluminaLoginPage, eluminaBlueprintsPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

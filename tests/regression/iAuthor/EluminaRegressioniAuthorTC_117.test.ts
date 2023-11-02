@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Duplicate & Delete Blueprint */
 
-test(`@RegressionA Validation of Duplicate Blueprint`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
+test(`iAU_TC_ID_117A. @RegressionA Validation of Duplicate Blueprint`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -16,7 +16,7 @@ test(`@RegressionA Validation of Duplicate Blueprint`, async ({ eluminaLoginPage
     });
 });
 
-test(`@RegressionA Validation of Delete Blueprint`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
+test(`iAU_TC_ID_117B. @RegressionA Validation of Delete Blueprint`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
