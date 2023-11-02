@@ -44,7 +44,7 @@ test(`Exam_Prerequisit_for_iEX_TC_ID_242,243,61. @iExamRegression Verify Elumina
     });
 });      */
 
-test(`iEX_TC_ID_242,243,61. @iExamRegression Verify Validation of Candidate attend Practice Exam`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_242,243,iEX_TC_ID_244,iEX_TC_ID_234,iEX_TC_ID_241. @iExamRegression Verify Validation of Candidate attend Practice Exam`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
 

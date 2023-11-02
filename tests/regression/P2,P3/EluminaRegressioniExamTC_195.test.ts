@@ -4,7 +4,7 @@ import test from '@lib/BaseTest';
 /**Validation of Exam content page -> Questions download at content section-> Browser shut down */
 
 
-test(` . @LowPriorityiExamCases Validation of Exam content page -> Questions download at content section-> Browser shut down`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_52. @LowPriorityiExamCases Validation of Exam content page -> Questions download at content section-> Browser shut down`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

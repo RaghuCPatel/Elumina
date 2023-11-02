@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 }
 
 // /**Validation of Exam Section > Highlighter tool highlights save scenario 2 */
-test(` . @Serial-Pre-Request Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`iEX_TC_ID_65,iEX_TC_ID_63. @Serial-Pre-Request Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -50,7 +50,7 @@ test(` . @Serial-Pre-Request Verify Elumina Login and Create Exam`, async ({ elu
     });
 });
 
-test(` . @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
+test(`iEX_TC_ID_65. @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -68,7 +68,7 @@ test(` . @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Inv
 });
 
 
-test(` . @iExamSerialRegression Validation of Exam Section > Highlighter tool highlights save scenario 2 `, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_65. @iExamSerialRegression Validation of Exam Section > Highlighter tool highlights save scenario 2 `, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
@@ -86,7 +86,7 @@ test(` . @iExamSerialRegression Validation of Exam Section > Highlighter tool hi
 });
 
 //Validation of candidate response using calculator in exam
-test(` . @iExamSerialRegression Validation of candidate response using Notes in exam TC-179`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_202. @iExamSerialRegression Validation of candidate response using Notes in exam TC-179`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -134,7 +134,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Notes in 
 });
 
 //Validation of candidate response using Notes in exam
-test(` . @iExamSerialRegression Validation of candidate response using Notes in exam TC-180`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_203. @iExamSerialRegression Validation of candidate response using Notes in exam TC-180`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -182,7 +182,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Notes in 
 });
 
 //Validation of candidate response using Highlighter in exam
-test(` . @iExamSerialRegression Validation of candidate response using Highlighter in exam TC-181`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_204. @iExamSerialRegression Validation of candidate response using Highlighter in exam TC-181`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -231,7 +231,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Highlight
 });
 
 //Validation of candidate response using Calculator, Notes and Highlighter in exam
-test(` . @iExamSerialRegression Validation of candidate response using Calculator, Notes and Highlighter in exam TC-182`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_205. @iExamSerialRegression Validation of candidate response using Calculator, Notes and Highlighter in exam TC-182`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -282,7 +282,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Calculato
 });
 
 //Validation of candidate response using Highlighter and Notes in exam
-test(` . @iExamSerialRegression Validation of candidate response using Highlighter and Notes in exam TC-184`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_207,iEX_TC_ID_206. @iExamSerialRegression Validation of candidate response using Highlighter and Notes in exam TC-184`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -332,7 +332,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Highlight
 });
 
 //Validation of candidate response using Calculator and Highlighter in exam
-test(` . @iExamSerialRegression Validation of candidate response using Calculator and Highlighter in exam TC-185`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_208. @iExamSerialRegression Validation of candidate response using Calculator and Highlighter in exam TC-185`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -383,7 +383,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Calculato
 });
 
 //Validation of candidate response using Calculator and Note in exam.
-test(` . @iExamSerialRegression Validation of candidate response using Calculator and Note in exam. TC-186`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_209. @iExamSerialRegression Validation of candidate response using Calculator and Note in exam. TC-186`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -435,7 +435,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Calculato
 
 
 //Validation of candidate response using Flag + Highlighter  in exam
-test(` . @iExamSerialRegression Validation of candidate response using Flag + Highlighter  in exam. TC-187`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_210. @iExamSerialRegression Validation of candidate response using Flag + Highlighter  in exam. TC-187`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -486,7 +486,7 @@ test(` . @iExamSerialRegression Validation of candidate response using Flag + Hi
 });
 
 //Validation of candidate response using Flag + Note in exam
-test(` . @iExamSerialRegression Validation of candidate response using Flag + Note in exam TC-188`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_211. @iExamSerialRegression Validation of candidate response using Flag + Note in exam TC-188`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

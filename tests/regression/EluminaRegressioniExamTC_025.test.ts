@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 //Validation of Browser back button after Exam Starts
 
-test(` . @iExamRegression Verify Validation of Browser back button after Exam Starts`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_32,iEX_TC_ID_42. @iExamRegression Verify Validation of Browser back button after Exam Starts`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

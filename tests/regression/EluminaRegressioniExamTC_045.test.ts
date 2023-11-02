@@ -42,7 +42,7 @@ test(` . @iExamRegression Verify Elumina RegistrationInv and add User and Invigi
 });        */
 
 /**Validation of Candidate Exam section - exam name, candidate name, exam timer and no of questions in the exam as per exam settings.*/
-test(` . @iExamRegression Verify Validation of the following in the Exam Section
+test(`iEX_TC_ID_55,iEX_TC_ID_238. @iExamRegression Verify Validation of the following in the Exam Section
 Exam name, Candidate name, Exam timer, no of questions as per exam created EluminaRegressioniExamTC_051`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
@@ -57,7 +57,7 @@ Exam name, Candidate name, Exam timer, no of questions as per exam created Elumi
 
 });
 
-test(` . @iExamRegression Validation of candidate able to submit the exam when not answering all questions`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_83. @iExamRegression Validation of candidate able to submit the exam when not answering all questions`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

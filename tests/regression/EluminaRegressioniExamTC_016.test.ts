@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of multiple candidate trying to login to same Exam*/
 
-test(` . @iExamRegression Validation of multiple candidate trying to login to same Exam`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_18. @iExamRegression Validation of multiple candidate trying to login to same Exam`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

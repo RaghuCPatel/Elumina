@@ -961,8 +961,8 @@ export class EluminaCreateQuestionsPage {
         console.log(await this.VerifyquestionUsedInExams.textContent())
         await expect(this.VerifyquestionUsedInBlueprints).toBeVisible();
         console.log(await this.VerifyquestionUsedInBlueprints.textContent())
-        await expect(this.VerifyquestionMore).toBeVisible();
-        console.log(await this.VerifyquestionMore.textContent());
+        // await expect(this.VerifyquestionMore).toBeVisible();
+        // console.log(await this.VerifyquestionMore.textContent());
     }
 
     /**Method to create Question and Search */

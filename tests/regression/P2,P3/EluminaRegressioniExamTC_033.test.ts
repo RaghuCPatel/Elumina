@@ -3,7 +3,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Exam content page -> (Terms & Conditions) Font size validation */
 
-test(` . @LowPriorityiExamCases Validation of Login using Invalid credentials Scenario 1 TC-09`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_11. @LowPriorityiExamCases Validation of Login using Invalid credentials Scenario 1 TC-09`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -12,7 +12,7 @@ test(` . @LowPriorityiExamCases Validation of Login using Invalid credentials Sc
     });
 });
 
-test(` . @LowPriorityiExamCases Validation of Login using Invalid credentials Scenario 2 TC-10`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_12,iEX_TC_ID_13. @LowPriorityiExamCases Validation of Login using Invalid credentials Scenario 2 TC-10`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -31,7 +31,7 @@ test(`iEX_TC_ID_229. @LowPriorityiExamCases Verify Validation of Login using val
 });
 
 
-test(` . @LowPriorityiExamCases Validation of Sign out at Candidate Dashboard Page TC-14`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_17. @LowPriorityiExamCases Validation of Sign out at Candidate Dashboard Page TC-14`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -40,7 +40,7 @@ test(` . @LowPriorityiExamCases Validation of Sign out at Candidate Dashboard Pa
     });
 });
 
-test(` . @LowPriorityiExamCases Validation of Sign out at Exam Start Page TC-15`, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
+test(`iEX_TC_ID_17. @LowPriorityiExamCases Validation of Sign out at Exam Start Page TC-15`, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -53,7 +53,7 @@ test(` . @LowPriorityiExamCases Validation of Sign out at Exam Start Page TC-15`
     });
 });
 
-test(` . @LowPriorityiExamCases Validation of Candidate dashboard > Exam Start page Font size validation. TC-27`, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
+test(`iEX_TC_ID_36. @LowPriorityiExamCases Validation of Candidate dashboard > Exam Start page Font size validation. TC-27`, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -70,7 +70,7 @@ test(` . @LowPriorityiExamCases Validation of Candidate dashboard > Exam Start p
     });
 });
 
-test(` . @LowPriorityiExamCases Validation of Exam content page -> (Terms & Conditions) Font size validation TC-33`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_44. @LowPriorityiExamCases Validation of Exam content page -> (Terms & Conditions) Font size validation TC-33`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -86,7 +86,7 @@ test(` . @LowPriorityiExamCases Validation of Exam content page -> (Terms & Cond
 });
 
 
-test(` . @LowPriorityiExamCases Validation of Exam content page -> Questions download at content section-> Browser shut down TC-40`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_52. @LowPriorityiExamCases Validation of Exam content page -> Questions download at content section-> Browser shut down TC-40`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -101,7 +101,7 @@ test(` . @LowPriorityiExamCases Validation of Exam content page -> Questions dow
     });
 });
 
-test(` . @LowPriorityiExamCases Validation of textbox capabilities of chat app. TC-174`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_197. @LowPriorityiExamCases Validation of textbox capabilities of chat app. TC-174`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -118,7 +118,7 @@ test(` . @LowPriorityiExamCases Validation of textbox capabilities of chat app. 
 
 });
 
-test(` . @LowPriorityiExamCases Verify Validation of Candidate attends All Question type`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_114. @LowPriorityiExamCases Verify Validation of Candidate attends All Question type`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -140,7 +140,7 @@ test(` . @LowPriorityiExamCases Verify Validation of Candidate attends All Quest
 
 /**Validation of Submit Exam page  > Chat App*/
 
-test(` . @LowPriorityiExamCases Verify Validation of Submit Exam page  > Chat App TC-173`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_196. @LowPriorityiExamCases Verify Validation of Submit Exam page  > Chat App TC-173`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();

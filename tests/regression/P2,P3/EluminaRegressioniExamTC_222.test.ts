@@ -1,8 +1,10 @@
 import test from '@lib/BaseTest';
 
-/**Validation of multiple candidate trying to login to same Exam*/
+/**"Validation of 
+exam response recovery page with no recovery file available in Download offline recovery file"*/
 
-test(` . @LowPriorityiExamCases Validation of multiple candidate trying to login to same Exam`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_222. @LowPriorityiExamCases "Validation of 
+exam response recovery page with no recovery file available in Download offline recovery file"`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
