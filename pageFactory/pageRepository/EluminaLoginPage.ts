@@ -78,7 +78,7 @@ export class EluminaLoginPage {
         this.Forgot_Password = page.locator('//a[@class="forgot-pwd"]');
         this.InvaildUsernamePwd = page.locator('//div[text()="Invalid username or password."]');
         this.ClickOnForgotPswd = page.locator('//a[@class="forgot-pwd"]')
-        this.ValidateErrorMessageInForgotPswd = page.locator('//div[contains(text(),"The selected email is invalid.")]')
+        this.ValidateErrorMessageInForgotPswd = page.locator('//div[contains(text(),"Please enter a valid Email ID")]')
         this.ClickonContinueBtn = page.locator('//div[@class="submit-btn"]')
         this.OfflineMessage = page.locator('//div[text()="You are offline!"]')
         this.sessionExpireMsg = page.locator('//div[@class="message-txt"]');

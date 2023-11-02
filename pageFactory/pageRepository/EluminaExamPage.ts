@@ -272,7 +272,7 @@ export class EluminaExamPage {
     this.saveAsDraft = page.locator('//button[normalize-space()="Save Draft"]');
     this.ValidateNorecordText = page.locator('//p[@class="no-record"]');
     this.ClickOnPlusIcon = page.locator('//button[@class="add-filter-button"]')
-    this.ClickOnSelectOne = page.locator('(//select[@class="theme-dropdown ng-untouched ng-pristine ng-valid"])[2]')
+    this.ClickOnSelectOne = page.locator('(//select[@name="operation"])[2]')
     this.ClickOnGreenIcon = page.locator('//i[@class="tick-icon"]');
     this.ValidateMessage = page.locator('//span[contains(text(),"Please Choose or Enter Value")]')
     this.ClickOnCheckedAndUncheckedIcon = page.locator('//table[@class="table"]//thead//tr//th[1]//a');
@@ -1588,7 +1588,7 @@ export class EluminaExamPage {
   async uncheckAllQutnColumns() {
     await this.dropdownclick.click();
     await this.examNamecheckbox.click();
-    await this.page.waitForTimeout(3000);
+    await this.page.waitForTimeout(5000);
     await this.examNamecheckbox.click();
     await this.page.waitForTimeout(3000);
     await this.TotalCount.isVisible();

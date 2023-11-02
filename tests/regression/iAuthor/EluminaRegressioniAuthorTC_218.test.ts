@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Delivery --> Live Monitor*/
 
-test(` iAU_TC_ID_212. @RegressionA Pre-Request Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaProctorExam, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(` iAU_TC_ID_218. @RegressionA Pre-Request Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaProctorExam, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -21,7 +21,7 @@ test(` iAU_TC_ID_212. @RegressionA Pre-Request Verify Elumina Login and Create E
     });
 });
 
-test(` iAU_TC_ID_212. @RegressionA Pre-Request "Validation of Delivery --> Add New Users"`, async ({ eluminaLoginPage, eluminaProctorReg, eluminaRegInvPage, eluminaRegPage, webActions }) => {
+test(` iAU_TC_ID_218. @RegressionA Pre-Request "Validation of Delivery --> Add New Users"`, async ({ eluminaLoginPage, eluminaProctorReg, eluminaRegInvPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
