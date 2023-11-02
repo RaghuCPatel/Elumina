@@ -28,7 +28,7 @@ else if (process.env.ENV == 'staging') {
 }
 
 //Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)
-test(` . @Serial-Pre-Request  Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`iEX_TC_ID_147. @Serial-Pre-Request  Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -48,7 +48,7 @@ test(` . @Serial-Pre-Request  Verify Elumina Login and Create Exam`, async ({ el
     });
 });
 
-test(` . @Serial-Pre-Request  Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`iEX_TC_ID_147. @Serial-Pre-Request  Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -65,7 +65,7 @@ test(` . @Serial-Pre-Request  Verify Elumina RegistrationInv and add User and In
     });
 });
 
-test(` . @iExamSerialRegression Verify Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)`, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
+test(`iEX_TC_ID_147. @iExamSerialRegression Verify Validation of Invigilator Dashboard after the Exam Completion by candidate (With in the specified time line)`, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
@@ -96,7 +96,7 @@ test(` . @iExamSerialRegression Verify Validation of Invigilator Dashboard after
 
 
         await newPage.locator('(//table[@class="table"]//tbody//tr[1]//td[2]//span)[1]').click();
-
+        await newPage.waitForTimeout(8000);
         //await newPage.locator('//table[@class="table table-spacing"]//thead//tr//th[2]//input').click();
         await newPage.locator('//span[@class="thtext"]//input[@type="checkbox"]').click();
         await newPage.locator('//div[@class="main-fx--container fx-left action-list"]//div[5]').click();

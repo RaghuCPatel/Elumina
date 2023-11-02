@@ -37,7 +37,7 @@ test(` . @iExamRegression Verify Elumina RegistrationInv and add User and Invigi
     });
 });                  */
 
-test(` . @iExamRegression Validation of Invigilator Dashboard after the Exam Completion by candidate (once the time exceeds)`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_148. @iExamRegression Validation of Invigilator Dashboard after the Exam Completion by candidate (once the time exceeds)`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
 
@@ -53,7 +53,7 @@ test(` . @iExamRegression Validation of Invigilator Dashboard after the Exam Com
     });
 });
 
-test(` . @iExamRegression Verify Validation of Invigilator Dashboard `, async ({ eluminaInvPage, webActions }) => {
+test(`iEX_TC_ID_148B. @iExamRegression Verify Validation of Invigilator Dashboard `, async ({ eluminaInvPage, webActions }) => {
 
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaInvPage.invigilatorLogin();

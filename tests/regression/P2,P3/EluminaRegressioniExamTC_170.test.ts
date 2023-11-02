@@ -3,7 +3,7 @@ import test from '@lib/BaseTest';
 
 //Validation of Exam content section >  Chat App
 
-test(` . @LowPriorityiExamCases Validation of Exam content section >  Chat App`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_193. @LowPriorityiExamCases Validation of Exam content section >  Chat App`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

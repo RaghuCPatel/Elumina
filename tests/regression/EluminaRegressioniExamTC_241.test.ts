@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
     testData = stagingTestData;
 }
 
-test(` . @Serial-Pre-Request  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
+test(`iEX_TC_ID_136. @Serial-Pre-Request  Verify Elumina Login and create exam `, async ({ eluminaLoginPage, eluminaCandPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -51,7 +51,7 @@ test(` . @Serial-Pre-Request  Verify Elumina Login and create exam `, async ({ e
 });
 
 
-test(` . @Serial-Pre-Request  Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`iEX_TC_ID_136. @Serial-Pre-Request  Verify Elumina Registration`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -68,7 +68,7 @@ test(` . @Serial-Pre-Request  Verify Elumina Registration`, async ({ eluminaLogi
     });
 });
 
-test(` . @iExamSerialRegression Verify Validation of "Terminate Exam"  `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
+test(`iEX_TC_ID_136. @iExamSerialRegression Verify Validation of "Terminate Exam"  `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

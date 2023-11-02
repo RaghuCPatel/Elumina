@@ -89,7 +89,7 @@ test(`iEX_TC_ID_239'. @iExamSerialRegression Verify Validation of Browser back b
 });
 
 
-test(`iEX_TC_ID_128. @iExamSerialRegression Validation of Exam Invigilator Live monitor`, async ({ eluminaInvPage, webActions }) => {
+test(`iEX_TC_ID_130. @iExamSerialRegression Validation of Exam Invigilator Live monitor`, async ({ eluminaInvPage, webActions }) => {
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaInvPage.invigilatorLogin();
     });
@@ -287,7 +287,7 @@ test(`iEX_TC_ID_122. @iExamSerialRegression Validation of exam paused for Candid
 });
 
 
-test(`iEX_TC_ID_142. @iExamSerialRegression Validation of Exam Invigilator Live monitor > Extend Timer.  (Individual Candidate)  Extend Candidate Exam beyond session end date/time `, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_142,iEX_TC_ID_143. @iExamSerialRegression Validation of Exam Invigilator Live monitor > Extend Timer.  (Individual Candidate)  Extend Candidate Exam beyond session end date/time `, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -339,7 +339,7 @@ test(`iEX_TC_ID_142. @iExamSerialRegression Validation of Exam Invigilator Live 
     });
 });
 
-test(`iEX_TC_ID_123. @iExamSerialRegression Verify Validation of Extending Exam`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_123,iEX_TC_ID_140. @iExamSerialRegression Verify Validation of Extending Exam`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -433,7 +433,7 @@ test(`iEX_TC_ID_138. @iExamSerialRegression Validation of Exam Invigilator Live 
     });
 });
 
-test(`iEX_TC_ID_124. @iExamSerialRegression Verify Validation of "Lock Exam" from Live monitor Proctor `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
+test(`iEX_TC_ID_124,iEX_TC_ID_134. @iExamSerialRegression Verify Validation of "Lock Exam" from Live monitor Proctor `, async ({ eluminaCandPage, eluminaCadInvPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

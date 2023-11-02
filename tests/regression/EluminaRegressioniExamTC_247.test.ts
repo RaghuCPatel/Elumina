@@ -30,7 +30,7 @@ else if (process.env.ENV == 'staging') {
 
 /** Validate 'Reset login' for candidate by exam invigilator */
 
-test(` . @iExamSerialRegression Verify Validation of Reset Login`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_131. @iExamSerialRegression Verify Validation of Reset Login`, async ({ eluminaCandPage, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();

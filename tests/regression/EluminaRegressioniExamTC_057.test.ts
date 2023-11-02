@@ -40,7 +40,7 @@ test(` . @iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPag
     });
 });            */
 
-test(` . @iExamRegression Verify Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected
+test(`iEX_TC_ID_71. @iExamRegression Verify Validate the Exam sheet where the Question numbers are displayed in Red, when Flag for Review is selected
 Verification of Timer Expires Alert Box  in Exam Content page`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();

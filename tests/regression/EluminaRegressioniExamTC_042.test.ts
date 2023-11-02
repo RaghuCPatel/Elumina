@@ -54,7 +54,7 @@ import test from '@lib/BaseTest';
 // });
 
 
-test(` . @iExamRegression Verify Validation of Candidate attends All Question type`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_68. @iExamRegression Verify Validation of Candidate attends All Question type`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
 
