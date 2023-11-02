@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Blueprint No Workflow */
 
-test(`iAU_TC_ID_124  Validation of Blueprint No Workflow`, async ({ eluminaLoginPage, eluminaBlueprintsPage, webActions }) => {
+test(`iAU_TC_ID_124.  Validation of Blueprint No Workflow`, async ({ eluminaLoginPage, eluminaBlueprintsPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Add Multiple cart in one blueprint */
 
-test(`@RegressionA Validation of Add Multiple cart in one blueprint`, async ({ eluminaLoginPage, eluminaBlueprintsPage, webActions }) => {
+test(`iAU_TC_ID_111. @RegressionA Validation of Add Multiple cart in one blueprint`, async ({ eluminaLoginPage, eluminaBlueprintsPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

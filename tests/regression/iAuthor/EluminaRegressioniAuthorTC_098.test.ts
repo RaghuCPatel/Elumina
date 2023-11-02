@@ -1,8 +1,8 @@
 import test from '@lib/BaseTest';
 
-/**Validation of Question Save as New version */
+/**Validation of Question  Version Histroy */
 
-test(`@RegressionA Validation of Question Save as New version  `, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
+test(`iAU_TC_ID_98. @RegressionA Validation of Question  Version Histroy `, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
