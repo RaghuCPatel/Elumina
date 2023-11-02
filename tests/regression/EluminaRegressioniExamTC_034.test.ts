@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of "Flag for Review" option */
 
-test(` . @iExamRegression Verify Validation of Flag for Review`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_74. @iExamRegression Verify Validation of Flag for Review`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -32,7 +32,7 @@ test(`iEX_TC_ID_59. @iExamRegression Verify candidate adds and saves Notes Elumi
 });
 
 /**Validate Candidate using Calculator in Exam */
-test(` . @iExamRegression Verify Validation of using Calculator EluminaRegressioniExamTC_039 `, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_62. @iExamRegression Verify Validation of using Calculator EluminaRegressioniExamTC_039 `, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -48,7 +48,7 @@ test(` . @iExamRegression Verify Validation of using Calculator EluminaRegressio
 
 /**Validate Candidate using Highlighter in Exam */
 
-test(` . @iExamRegression Verify Validation of using Highlighter EluminaRegressioniExamTC_040 `, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_64. @iExamRegression Verify Validation of using Highlighter EluminaRegressioniExamTC_040 `, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -62,7 +62,7 @@ test(` . @iExamRegression Verify Validation of using Highlighter EluminaRegressi
 
 });
 
-test(` . @iExamRegression Verify Validation of VSAQ Question type EluminaRegressioniExamTC_043`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_99. @iExamRegression Verify Validation of VSAQ Question type EluminaRegressioniExamTC_043`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -76,7 +76,7 @@ test(` . @iExamRegression Verify Validation of VSAQ Question type EluminaRegress
 
 //Validation of Candidate dashboard - Exam scheduled Date / Time is over.
 
-test(` . @iExamRegression Verify Validation of Candidate dashboard - Exam scheduled Date / Time is over EluminaRegressioniExamTC_024`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_30. @iExamRegression Verify Validation of Candidate dashboard - Exam scheduled Date / Time is over EluminaRegressioniExamTC_024`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -91,7 +91,7 @@ test(` . @iExamRegression Verify Validation of Candidate dashboard - Exam schedu
 
 });
 
-test(` . @iExamRegression Verify Validation of Candidate dashboard - Exam scheduled Date / Time is over EluminaRegressioniExamTC_024A`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_30B. @iExamRegression Verify Validation of Candidate dashboard - Exam scheduled Date / Time is over EluminaRegressioniExamTC_024A`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

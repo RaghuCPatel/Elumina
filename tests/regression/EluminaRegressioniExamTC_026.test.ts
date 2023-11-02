@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 //Validation of Browser Reload option after Exam Starts
 
-test(` . @iExamRegression Verify Validation of Browser Reload option after Exam Starts`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_41. @iExamRegression Verify Validation of Browser Reload option after Exam Starts`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

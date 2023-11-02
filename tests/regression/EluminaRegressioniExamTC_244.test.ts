@@ -29,7 +29,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of "Pause Exam" from Live monitor
 
-test(` . @iExamSerialRegression Verify Validation of "Pause Exam" from Live monitor`, async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
+test(`iEX_TC_ID_133,iEX_TC_ID_132. @iExamSerialRegression Verify Validation of "Pause Exam" from Live monitor`, async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });

@@ -41,7 +41,7 @@ test(` . @iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPag
     });
 });       */
 
-test(` . @iExamRegression Verify Validation of Survey screen and Validate Survey screen where candidate
+test(`iEX_TC_ID_90,iEX_TC_ID_96. @iExamRegression Verify Validation of Survey screen and Validate Survey screen where candidate
     can provide feedback in comment section TC-084 and TC-085`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();

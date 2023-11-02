@@ -32,7 +32,7 @@ else if (process.env.ENV == 'staging') {
 }
 
 /**Validation of Exam Section > Candidate and Live Monitor Time Sync */
-test(` . @Serial-Pre-Request Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`iEX_TC_ID_149. @Serial-Pre-Request Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -48,7 +48,7 @@ test(` . @Serial-Pre-Request Verify Elumina Login and Create Exam`, async ({ elu
         await newtab.addVSAQQuestions();
     });
 });
-test(` . @Serial-Pre-Request Verify Elumina Registration add User`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
+test(`iEX_TC_ID_149. @Serial-Pre-Request Verify Elumina Registration add User`, async ({ eluminaLoginPage, eluminaRegInvPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

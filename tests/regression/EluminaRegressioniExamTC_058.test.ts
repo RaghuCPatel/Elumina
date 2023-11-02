@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validate the Exam sheet where the Question numbers are displayed in Orange when In Progress*/
 
-test(` . @iExamRegression Validate the Exam sheet where the Question numbers are displayed in Orange when In Progress`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_72. @iExamRegression Validate the Exam sheet where the Question numbers are displayed in Orange when In Progress`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

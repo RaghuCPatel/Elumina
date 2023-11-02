@@ -30,7 +30,7 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of Invigilator Dashboard
 
-test(` . @iExamSerialRegression Verify Validation of Invigilator Dashboard`, async ({ eluminaInvPage, webActions }) => {
+test(`iEX_TC_ID_129. @iExamSerialRegression Verify Validation of Invigilator Dashboard`, async ({ eluminaInvPage, webActions }) => {
 
     await test.step(`Inv Login to Elumina application`, async () => {
         await eluminaInvPage.invigilatorLogin();
@@ -44,7 +44,7 @@ test(` . @iExamSerialRegression Verify Validation of Invigilator Dashboard`, asy
 });
 
 //Validation of "Start Exam" (All Candidates)
-test(` . @iExamSerialRegression Validation of invigilator remotely start the Exam for candidate EluminaRegressioniExamTC_086`, async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
+test(`iEX_TC_ID_37. @iExamSerialRegression Validation of invigilator remotely start the Exam for candidate EluminaRegressioniExamTC_086`, async ({ eluminaCandPage, eluminaCadInvPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });

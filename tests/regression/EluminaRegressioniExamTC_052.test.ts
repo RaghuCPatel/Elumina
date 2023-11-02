@@ -41,7 +41,7 @@ test(` . @iExamRegression Verify Elumina Registration`, async ({ eluminaLoginPag
     });
 });     */
 
-test(` . @iExamRegression Verify Timer Expires Alert Box  in Exam Content page`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_48. @iExamRegression Verify Timer Expires Alert Box  in Exam Content page`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

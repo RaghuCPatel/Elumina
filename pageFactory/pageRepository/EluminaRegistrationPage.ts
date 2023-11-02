@@ -549,7 +549,7 @@ export class EluminaRegistrationPage {
         this.markerCheckbox = page.locator('//div[@class="open"]//input[@type="checkbox"]');
         this.ExamMenu = page.locator('//a[text()="Exams"]');
         this.ClickOnWorkFlow = page.locator('//a[normalize-space()="Workflow"]')
-        this.ClickOnApprove = page.locator('//button[normalize-space()="Approve"]');
+        this.ClickOnApprove = page.locator('(//div[@class="sub--right-menu"]//button)[2]');
         this.markingdropdown = page.locator('//ul[@class="dropdown-menu more-btn pull-right"]');
         this.viewResponse = page.locator('//p[normalize-space()="View Response"]');
         this.candId = page.locator('(//table[@class="table"]//tbody//tr/td)[3]');
@@ -653,6 +653,10 @@ export class EluminaRegistrationPage {
         const [newPage] = await Promise.all([
             this.context.waitForEvent('page'),
             await this.clickOnAdminModule.click()
+        ]);
+        await newPage.waitForLoadState();
+        return new exports.EluminaRegistrationPage(newPage);
+    }
 
 
     /**Method of Admin Page Navigation */
@@ -1720,7 +1724,7 @@ export class EluminaRegistrationPage {
         console.log(EluminaExamPage.examID);
         await this.searchExam.type(examid);
         await this.page.waitForTimeout(5000);
-        await this.ClickOnCreatedExam.click();
+        await this.candId.click();
     }
 
     /**

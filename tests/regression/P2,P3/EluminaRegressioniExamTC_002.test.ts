@@ -3,7 +3,7 @@ import test from '@lib/BaseTest';
 /**Validation of Client Logo and name, color, font size and font type of different elements in the login page*/
 
 
-test(` . @LowPriorityiExamCases Validation of Client Logo and name, color, font size and font type of different elements in the login page`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_3. @LowPriorityiExamCases Validation of Client Logo and name, color, font size and font type of different elements in the login page`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

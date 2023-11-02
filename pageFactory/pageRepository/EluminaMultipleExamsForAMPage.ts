@@ -366,7 +366,7 @@ export class EluminaMultipleExamsForAMPage {
     await this.ClickOnAddQuestion.click();
     await this.ClickOnSearchQuestion.click()
     await this.ClickOnSearchQuestion.type('MCQ');
-    await this.page.waitForTimeout(5000);
+    await this.page.waitForTimeout(10000);
     await this.page.waitForSelector('//div[@class="eqc-question-info"]//input', { timeout: 10000 });
     const McqQuestions = await this.page.$$('//div[@class="eqc-question-info"]//input');
     for (let i = 0; i <= McqQuestions.length - 22; i++) {

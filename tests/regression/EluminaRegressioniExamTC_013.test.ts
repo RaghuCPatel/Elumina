@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Candidate App Dashboard Details*/
 
-test(` . @iExamRegression Validation of Candidate App Dashboard Details`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_19. @iExamRegression Validation of Candidate App Dashboard Details`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

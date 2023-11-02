@@ -1,10 +1,10 @@
 import test from '@lib/BaseTest';
 
 
-/**Validation of Candidate Dashboard page - Chat App */
+/**Validation of Candidate Login page. > Chat App */
 
 
-test(` . @LowPriorityiExamCases Validation of Candidate Dashboard page - Chat App`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_191. @LowPriorityiExamCases Validation of Candidate Login page. > Chat App`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

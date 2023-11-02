@@ -38,7 +38,7 @@ import test from '@lib/BaseTest';
 //     });
 // });
 
-test(` . @iExamRegression Validation of "Time Remaining" pop-up when the just before the exam time runs out`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_88. @iExamRegression Validation of "Time Remaining" pop-up when the just before the exam time runs out`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
