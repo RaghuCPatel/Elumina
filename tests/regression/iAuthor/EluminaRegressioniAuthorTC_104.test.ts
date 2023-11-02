@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Question Duplicate */
 
-test(`@RegressionA Validation of Question Duplicate`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
+test(`iAU_TC_ID_104. @RegressionA Validation of Question Duplicate`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

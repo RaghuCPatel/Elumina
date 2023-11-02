@@ -5,9 +5,7 @@ import test from '@lib/BaseTest';
 Scenario- 1 -
 Add 1x Session (i.e Exam Section Only)"*/
 
-test(`iAU_TC_ID_138. @RegressionA "Validation of Choose Question
-Scenario- 1 -
-Add 1x Session (i.e Exam Section Only)"`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
+test(`iAU_TC_ID_138. @RegressionA "Validation of Choose Question Scenario- 1 - Add 1x Session (i.e Exam Section Only)"`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

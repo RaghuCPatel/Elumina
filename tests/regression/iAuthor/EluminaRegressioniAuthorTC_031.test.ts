@@ -1,7 +1,7 @@
 import test from '@lib/BaseTest';
 
 /**Validation of Question > Choose question */
-test(`@RegressionA Validation of Question > Choose question`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage,eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`iAU_TC_ID_31. @RegressionA Validation of Question > Choose question`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -16,6 +16,6 @@ test(`@RegressionA Validation of Question > Choose question`, async ({ eluminaLo
         await newtab.questionTabNavigation();
         await newtab.createQuestionAndSearch();
         await newtab.adminLogout()
-       
+
     });
 });

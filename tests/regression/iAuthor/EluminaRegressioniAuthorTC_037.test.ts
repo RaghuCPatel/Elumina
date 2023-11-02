@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Create Question (ISAWE) */
 
-test(`@RegressionA Validation of Create Question (ISAWE)`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
+test(`iAU_TC_ID_37. @RegressionA Validation of Create Question (ISAWE)`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
