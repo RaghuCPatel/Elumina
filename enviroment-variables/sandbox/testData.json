@@ -51,7 +51,7 @@
     "InternetSpeed": "512kbps",
     "InvalidAdminUsername": "anonymouslogin@gmail.com",
     "InvalidAdminPassword": "mrinvalid",
-    "InvalidAdminUserEmail": "divya002.r@igsindia.net",
+    "InvalidAdminUserEmail": "divya002.r@igsindia",
     "InvalidAdminUserPassword": "XEy!3001",
     "SearchQuestion": "MCQ",
     "Question": "Which of the following is transcribed correctly?",
@@ -84,5 +84,7 @@
     "ApproverUsername": "approverqa@yopmail.com",
     "ApproverPassword": "Driv@357",
     "ReviewerUserID": "reviewerqa@yopmail.com",
-    "ReviewerPassword": "Driv@357"
+    "ReviewerPassword": "Driv@357",
+    "ApproverQA": "approver QA",
+    "ReviewerQA": "Reviewer QA"
 }

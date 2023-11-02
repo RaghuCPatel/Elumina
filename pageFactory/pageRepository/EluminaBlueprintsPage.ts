@@ -1914,7 +1914,7 @@ export class EluminaBlueprintsPage {
         await this.SelectNotepad.click();
         await this.SelectHighlighter.click();
         await this.ClickOnNextBtn.click();
-        await expect(this.verifyArchivePopup).toHaveText("Exam created successfully")
+        await expect(this.verifyArchivePopup).toHaveText("Exam updated successfully")
         await expect(this.VerifyExam_details).toBeVisible();
         await expect(this.VerifyChoose_Question).toBeVisible();
         await expect(this.VerifyChoose_Workflow).toBeVisible();
@@ -2232,7 +2232,7 @@ export class EluminaBlueprintsPage {
         await this.clickOnArchive.click()
         await this.clickOnArchiveYes.click()
         await this.page.waitForTimeout(5000)
-        await expect(this.verifyArchivePopup).toHaveText('Blueprint can not be archived since its used in upcoming exam')
+        await expect(this.verifyArchivePopup).toHaveText('Blueprint has been archived')
     }
 
 

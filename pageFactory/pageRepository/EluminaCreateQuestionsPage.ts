@@ -356,7 +356,7 @@ export class EluminaCreateQuestionsPage {
         this.VerifyquestionLastDateUpdated = page.locator('(//table[@class="table"]//thead//tr//th[12]//div//span[1])[1]')
         this.VerifyquestionUsedInExams = page.locator('(//table[@class="table"]//thead//tr//th[13]//div//span[1])[1]')
         this.VerifyquestionUsedInBlueprints = page.locator('(//table[@class="table"]//thead//tr//th[14]//div//span[1])[1]')
-        this.VerifyquestionMore = page.locator('//table[@class="table"]//thead//tr//th[15]')
+        this.VerifyquestionMore = page.locator('//table[@class="table"]//thead//tr//th[1]')
         this.ClickOnCreateQuestion = page.locator('//button[normalize-space()="Create Question"]')
         this.SearchQuestion = page.locator('//input[@placeholder="Search Question Type"]')
         this.ClickOnSearchedQuestion = page.locator('//div[@class="card-container"]//p')
@@ -374,7 +374,7 @@ export class EluminaCreateQuestionsPage {
         this.VerifyquestionLastDateUpdated = page.locator('(//table[@class="table"]//thead//tr//th[12]//div//span[1])[1]')
         this.VerifyquestionUsedInExams = page.locator('(//table[@class="table"]//thead//tr//th[13]//div//span[1])[1]')
         this.VerifyquestionUsedInBlueprints = page.locator('(//table[@class="table"]//thead//tr//th[14]//div//span[1])[1]')
-        this.VerifyquestionMore = page.locator('//table[@class="table"]//thead//tr//th[15]')
+        this.VerifyquestionMore = page.locator('//table[@class="table"]//thead//tr//th[1]')
 
         this.ClickOnCreateQuestion = page.locator('//button[normalize-space()="Create Question"]')
         this.SearchQuestion = page.locator('//input[@placeholder="Search Question Type"]')
@@ -504,8 +504,8 @@ export class EluminaCreateQuestionsPage {
         this.approvalWorkflowclick = page.locator('//span[text()="Approval Workflow"]');
         this.selectReviwer = page.locator('//input[@placeholder="Select Reviewer"]');
         this.selectApprover = page.locator('//input[@placeholder="Select Approver"]');
-        this.checkReviwerQA = page.locator('//span[text()="Reviewer QA"]');
-        this.approverQA = page.locator('//span[text()="approver QA"]');
+        this.checkReviwerQA = page.locator('(//span[@class="open"])[3]');
+        this.approverQA = page.locator('(//span[@class="open"])[4]');
         this.submitandreviewclick = page.locator('//button[text()="Submit & Review"]');
         this.workflowsuccessmessage = page.locator('//div[@class="content-side"]//span');
         this.saveButtonClick = page.locator('//button[text()="Save"]');
@@ -1292,15 +1292,17 @@ export class EluminaCreateQuestionsPage {
         await this.MarkMarks.type('2');
         await this.page.waitForTimeout(2000);
         await this.NextButtonClick.click();
+        await this.page.waitForTimeout(3000);
         await expect(this.QuestionSuccessMessage).toHaveText('Question created successfully');
         await this.page.waitForTimeout(2000);
         await this.ClickOnSaveDraft.click();
         await this.ClickOnEditQuestion.click();
         await this.ClickOnWorkFlow.click()
         await this.ClickOnApprove.click()
-        await this.page.waitForTimeout(3000);
+        await this.page.waitForTimeout(2000);
         console.log(await this.ValidateSuccessfulPopMessage.textContent());
-        await expect(this.QuestionSuccessMessage).toHaveText('Status has been updated successfully.');
+        await expect(this.ValidateSuccessfulPopMessage).toHaveText('Status has been updated successfully.');
+        await this.page.waitForTimeout(3000);
     }
 
     /**Method to create SAQ */
@@ -2542,12 +2544,14 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(2000)
         await this.selectReviwer.click();
         await this.page.waitForTimeout(2000)
+        await this.selectReviwer.type(testData.ReviewerQA);
         await this.checkReviwerQA.click();
         await this.page.waitForTimeout(2000)
         await this.approverclick.click();
         await this.page.waitForTimeout(1000)
         await this.selectApprover.click();
         await this.page.waitForTimeout(2000)
+        await this.selectApprover.type(testData.ApproverQA);
         await this.approverQA.click();
         await this.page.waitForTimeout(2000)
         await this.submitandreviewclick.click();
