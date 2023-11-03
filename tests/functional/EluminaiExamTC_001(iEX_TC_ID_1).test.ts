@@ -16,7 +16,7 @@ test(`iEX_TC_ID_1. @Smoke Verify Elumina Login and Create Exam`, async ({ elumin
     await test.step(`Navigate to exam Tab and Create New Exam`, async () => {
         const newtab = await eluminaExamPage.iAuthorPageNavigation();
         await newtab.createExam();
-        await newtab.createSection();
+        await newtab.createSection("1", "30");
         await newtab.addMCQQuestions();
 
     });
@@ -32,9 +32,10 @@ test(`iEX_TC_ID_1A. @Smoke Verify Elumina RegistrationInv and add User and Invig
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
-        await newtab.addExistingUsers();
-        await newtab.logoutClick();
+        //await newtab.clickaddMoreUsersIcon(25)
+        await newtab.addMultipleUserDetails(0);
+        await newtab.BulkDownloadUserDetails("bulk_user_details.xlsx");
+        await newtab.addInv();
+        await newtab.searchUserForAddingInv(2, "bulk_user_details.xlsx")
     });
 });

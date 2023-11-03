@@ -37,7 +37,7 @@ test(` . @LowPriorityiExamCases Verify Elumina RegistrationInv and add User and 
     });
 });     */
 
-test(` . @LowPriorityiExamCases Verify Validation of Exam section page  > Chat App`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_194. @LowPriorityiExamCases Verify Validation of Exam section page  > Chat App`, async ({ eluminaCandPage, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();

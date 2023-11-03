@@ -30,7 +30,7 @@ else if (process.env.ENV == 'staging') {
 
 /**Validation of candidate response using Image Inline in exam*/
 
-test(` . @Serial-Pre-Request Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`iEX_TC_ID_201. @Serial-Pre-Request Verify Elumina Login and Create Exam`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -50,7 +50,7 @@ test(` . @Serial-Pre-Request Verify Elumina Login and Create Exam`, async ({ elu
     });
 });
 
-test(` . @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
+test(`iEX_TC_ID_201. @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Invigilator`, async ({ eluminaLoginPage, eluminaRegPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -68,7 +68,7 @@ test(` . @Serial-Pre-Request Verify Elumina RegistrationInv and add User and Inv
 });
 
 
-test(` . @iExamSerialRegression Verify Validation of candidate response using Image Viewer in exam`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_201. @iExamSerialRegression Verify Validation of candidate response using Image Viewer in exam`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();

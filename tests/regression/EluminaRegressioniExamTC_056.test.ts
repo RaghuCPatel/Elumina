@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validate the Exam sheet where the Question numbers are displayed are Gray by Default*/
 
-test(` . @iExamRegression Validate the Exam sheet where the Question numbers are displayed are Gray by Default`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_70. @iExamRegression Validate the Exam sheet where the Question numbers are displayed are Gray by Default`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });

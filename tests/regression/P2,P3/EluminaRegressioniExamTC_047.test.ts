@@ -23,7 +23,7 @@ test(`iEX_TC_ID_60. @LowPriorityiExamCases Verify candidate adds and saves Notes
 
 /**Candidate while attending exam - Online - try to press any F1 to F12 keys */
 
-test(` . @LowPriorityiExamCases Candidate while attending exam - Online - try to press any F1 to F12 keys TC-201`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_224. @LowPriorityiExamCases Candidate while attending exam - Online - try to press any F1 to F12 keys TC-201`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -42,7 +42,7 @@ test(` . @LowPriorityiExamCases Candidate while attending exam - Online - try to
 
 });
 
-test(` . @LowPriorityiExamCases No other key combinations could cause the candidates to logout and/or lose data TC-205`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_228. @LowPriorityiExamCases No other key combinations could cause the candidates to logout and/or lose data TC-205`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -62,7 +62,7 @@ test(` . @LowPriorityiExamCases No other key combinations could cause the candid
 /**Validation of Candidate Attending Exam in Online (Abort and Resume Exam) */
 
 
-test(` . @LowPriorityiExamCases Validation of Candidate Attending Exam in Online (Abort and Resume Exam)`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_116. @LowPriorityiExamCases Validation of Candidate Attending Exam in Online (Abort and Resume Exam)`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -82,7 +82,7 @@ test(` . @LowPriorityiExamCases Validation of Candidate Attending Exam in Online
     });
 });
 
-test(` . @LowPriorityiExamCases Validation Candidate Login again`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_116B. @LowPriorityiExamCases Validation Candidate Login again`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
     });
@@ -98,7 +98,7 @@ test(` . @LowPriorityiExamCases Validation Candidate Login again`, async ({ elum
 
 /**Validation of Review Exam page  > Chat App*/
 
-test(` . @LowPriorityiExamCases Verify Validation of Review Exam page  > Chat App TC-173`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_195. @LowPriorityiExamCases Verify Validation of Review Exam page  > Chat App TC-173`, async ({ eluminaCadInvPage, eluminaCandPage, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();

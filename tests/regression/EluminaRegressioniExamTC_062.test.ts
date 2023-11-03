@@ -40,7 +40,7 @@ test(` . @iExamRegression add user and download user details`, async ({ eluminaL
     });
 });     */
 
-test(` . @iExamRegression Verify Validation of Exam content section page contents and details`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
+test(`iEX_TC_ID_39. @iExamRegression Verify Validation of Exam content section page contents and details`, async ({ eluminaCandPage, eluminaProctorCand, webActions }) => {
     await test.step('Candidate logging into application', async () => {
         await eluminaProctorCand.candidateNavigateToURL();
         await eluminaCandPage.candidateLoginToApplication(8, "bulkUserCredentialForMcqExamwithContentSection.xlsx");

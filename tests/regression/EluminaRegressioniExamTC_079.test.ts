@@ -4,7 +4,7 @@ import { testConfig } from '../../testConfig';
 
 /** Validation of Invigilator marks attendance for All candidates */
 
-test(` . @iExamRegression Verify Invigilator marks attendance for All candidates`, async ({ eluminaInvPage, webActions }) => {
+test(`iEX_TC_ID_152. @iExamRegression Verify Invigilator marks attendance for All candidates`, async ({ eluminaInvPage, webActions }) => {
     await test.step('Invigilator logging into application', async () => {
         await eluminaInvPage.invigilatorLogin();
     });

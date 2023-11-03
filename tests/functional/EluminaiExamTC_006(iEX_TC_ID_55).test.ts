@@ -8,7 +8,7 @@ Exam name, Candidate name, Exam timer, no of questions as per exam created`, asy
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaCadInvPage.candidateLoginToApplications(2, "bulk_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCadInvPage.enterInvgilatorPaswordAndClickOnNext();

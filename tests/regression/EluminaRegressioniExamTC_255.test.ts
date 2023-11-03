@@ -33,14 +33,14 @@ else if (process.env.ENV == 'staging') {
 
 // /**Validation of Exam Section > Candidate and Live Monitor Time Sync */
 
-test(` . @iExamSerialRegression Validation of Candidate Login to Exam and getting Candidate Timing`, async ({ eluminaCandPage, webActions }) => {
+test(`iEX_TC_ID_145. @iExamSerialRegression Validation of Candidate Login to Exam and getting Candidate Timing`, async ({ eluminaCandPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
         await eluminaCandPage.getCandidateClockText();
     });
 });
-test('@iExamSerialRegression Validation of invigilator Livemonitor Timing ', async ({ eluminaCandPage, webActions }) => {
+test('iEX_TC_ID_145B. @iExamSerialRegression Validation of invigilator Livemonitor Timing ', async ({ eluminaCandPage, webActions }) => {
     await test.step('Navigate to Application', async () => {
         const browser = await chromium.launch();
         const context1 = await browser.newContext();
