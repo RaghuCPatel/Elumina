@@ -2546,9 +2546,9 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(2000)
         await this.selectReviwer.type(testData.ReviewerQA);
         await this.checkReviwerQA.click();
+        await this.page.waitForTimeout(3000)
+        await this.morebtnOnWorkFlow.click();
         await this.page.waitForTimeout(2000)
-        await this.approverclick.click();
-        await this.page.waitForTimeout(1000)
         await this.selectApprover.click();
         await this.page.waitForTimeout(2000)
         await this.selectApprover.type(testData.ApproverQA);

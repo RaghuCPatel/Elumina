@@ -1590,13 +1590,14 @@ export class EluminaExamPage {
     await this.dropdownclick.click();
     await this.examNamecheckbox.click();
     await this.page.waitForTimeout(5000);
-    await this.examNamecheckbox.click();
-    await this.page.waitForTimeout(3000);
+    // await this.examNamecheckbox.click();
+    // await this.page.waitForTimeout(3000);
+    await this.TotalCount.click();
     await this.TotalCount.isVisible();
     console.log(await this.TotalCount.textContent());
     await this.moreOption.click();
-    await this.downloadExam.click();
-    await this.page.waitForTimeout(3000);
+    // await this.downloadExam.click();
+    // await this.page.waitForTimeout(3000);
     await this.pageNumber.click();
 
   }

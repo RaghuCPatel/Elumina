@@ -327,6 +327,14 @@ export class EluminaRegistrationPage {
     readonly gradeBookapprove: Locator;
     readonly gradeBookSuccess: Locator;
 
+    readonly BulkAssignInvigilatorDetails: Locator;
+    readonly selectInvVenue: Locator;
+    readonly selectInvVenueClick: Locator;
+    readonly bulkassignInv: Locator;
+    readonly selectCandidate1: Locator;
+    readonly selectInv: Locator;
+    readonly bulkAssignInvPopup: Locator;
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -616,6 +624,13 @@ export class EluminaRegistrationPage {
         this.gradeBookapprove = page.locator('//button[text()=" Approve "]');
         this.gradeBookSuccess = page.locator('//span[text()="Grade book approved & published successfully"]');
 
+        this.BulkAssignInvigilatorDetails = page.locator('//a[text()="Bulk Assign Invigilator"]');
+        this.selectInvVenue = page.locator('(//input[@placeholder="Select Venue"])[2]');
+        this.selectInvVenueClick = page.locator('(//span[text()="Elumina Chennai"])[2]');
+        this.bulkassignInv = page.locator('//li[normalize-space()="Assign By Invigilator"]');
+        this.selectInv = page.locator('(//span[text()="IGS Invigilator Two"])[2]');
+        this.bulkAssignInvPopup = page.locator('//span[text()="Please fill all the mandatory fields!"]');
+        this.selectCandidate1 = page.locator('//select[@id="candidate1"]//option[2]');
     }
 
     /**Method for Page Navigation */
@@ -1583,6 +1598,7 @@ export class EluminaRegistrationPage {
      Metods to click on Image and candidateName Monitor as a Admin 
      */
     async clickOnImageandCadidate() {
+        await this.liveMonitorClick.click();
         await this.proctoringIconClick.click();
         await this.clickOnCadidateName.click();
         await this.videoStreaming.isVisible();
@@ -1802,4 +1818,59 @@ export class EluminaRegistrationPage {
         await this.gradeBookSuccess.isVisible();
 
     }
+
+    /**
+ * Method for Bulk Assign Invigilator By Candidate
+ */
+    async BulkAssignInvigilatorbycand(): Promise<void> {
+        await this.bulkDownloadButton.click();
+        await this.BulkAssignInvigilatorDetails.click();
+        await this.selectInvVenue.click();
+        await this.selectInvVenueClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.selectCandidates.click();
+        await this.users.click();
+        await this.page.waitForTimeout(5000);
+        await this.invCheckBox.click();
+        await this.page.waitForTimeout(5000);
+        await this.selectCandidates.click();
+        await this.ClickOnInvSaveBtn.click();
+        await expect(this.invSuccessMessagePopup).toHaveText("Invigilator has been assigned successfully");
+        await this.page.waitForTimeout(20000);
+    }
+
+    /**
+     * Method for Bulk Assign Invigilator by Invigilator
+     */
+    async BulkAssignInvigilatorbyInv(): Promise<void> {
+        await this.bulkDownloadButton.click();
+        await this.BulkAssignInvigilatorDetails.click();
+        await this.selectInvVenue.click();
+        await this.selectInvVenueClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.bulkassignInv.click();
+        await this.page.waitForTimeout(2000);
+        await this.users.click();
+        await this.selectInv.click();
+        await this.page.waitForTimeout(5000);
+        await this.selectCandidate1.click();
+        await this.ClickOnInvSaveBtn.click();
+        await expect(this.invSuccessMessagePopup).toHaveText("Invigilator has been assigned successfully");
+        await this.page.waitForTimeout(20000);
+    }
+
+    /**
+     * Method to check without entering mandtory feilds(negative scenerio)
+     */
+    async BulkAssignInvempty() {
+        await this.bulkDownloadButton.click();
+        await this.BulkAssignInvigilatorDetails.click();
+        await this.ClickOnInvSaveBtn.click();
+        await this.page.waitForTimeout(10000);
+        await expect(this.bulkAssignInvPopup).toHaveText("Please fill all the mandatory fields!");
+        await this.closeXButton.click();
+        await this.page.waitForTimeout(20000);
+    }
+
+
 }

@@ -69,7 +69,7 @@ test.describe(() => {
         });
     });
 
-    test(`iAU_TC_ID_218. @RegressionA "Validation of Delivery--> Marking"`, async ({ eluminaLoginPage, eluminaRegPage, eluminaProctorReg, webActions }) => {
+    test(`iAU_TC_ID_218A. @RegressionA "Validation of Delivery--> Marking"`, async ({ eluminaLoginPage, eluminaRegPage, eluminaProctorReg, webActions }) => {
         await test.step(`Navigate to Application`, async () => {
             await eluminaLoginPage.navigateToURL();
         });
