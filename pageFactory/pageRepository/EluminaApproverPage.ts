@@ -48,6 +48,8 @@ export class EluminaApproverPage {
     readonly clickOnSubmitForApproval: Locator;
     readonly rejectButtonClick: Locator;
     readonly successPopup: Locator;
+    readonly ClickOnQuestionID: Locator;
+    readonly ClickOnMoreOption: Locator;
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
@@ -67,6 +69,8 @@ export class EluminaApproverPage {
         this.clickOnSubmitForApproval = page.locator('//button[text()="Submit For Approval"]');
         this.rejectButtonClick = page.locator('//button[text()="Reject"]');
         this.successPopup = page.locator('//span[text()="Status has been updated successfuly."]');
+        this.ClickOnMoreOption = page.locator('//table[@class="table"]//tbody//tr[1]//td[1]//a');
+        this.ClickOnQuestionID = page.locator('//table[@class="table"]//tbody//tr[1]//td[2]//a')
     }
 
     /**Method for page navigation */
@@ -77,6 +81,11 @@ export class EluminaApproverPage {
         ]);
         await newPage.waitForLoadState();
         return new exports.EluminaApproverPage(newPage);
+    }
+
+    async clickOnQutnId() {
+        //await this.ClickOnMoreOption.click();
+        await this.ClickOnQuestionID.click()
     }
 
     /**
@@ -93,6 +102,7 @@ export class EluminaApproverPage {
      */
     async workflowApprove() {
         await this.ClickOnWorkFlow.click()
+        await this.page.waitForTimeout(3000);
         await this.ClickOnApprove.click()
         await this.page.waitForTimeout(3000);
         console.log(await this.ValidateSuccessfulPopMessage.textContent());

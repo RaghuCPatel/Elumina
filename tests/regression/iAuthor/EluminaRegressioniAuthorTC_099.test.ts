@@ -11,6 +11,8 @@ test(`iAU_TC_ID_99. @RegressionA Validation of Question  No Workflow  `, async (
     });
     await test.step(`Navigate to iAuthor`, async () => {
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
+        // await newtab.BlueprintMenuClick()
+        // await newtab.createBluePrint()
         await newtab.QuestionsMenuClick();
         await newtab.clickOnDraft();
         await newtab.validateEditQuestion();

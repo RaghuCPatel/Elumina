@@ -47,6 +47,7 @@ test.describe(() => {
             await eluminaCandPage.candidateNavigateToURL();
             await eluminaCandPage.waitforTime();
             await eluminaCandPage.waitforTime();
+            await eluminaCandPage.waitforTime();
         });
         await test.step(`Candidate Login to application`, async () => {
             await eluminaCandPage.candidateLoginToApplication(2, "bulk_user_details.xlsx");
@@ -112,7 +113,7 @@ test.describe(() => {
         });
     });
 
-    test(`iAU_TC_ID_242. @RegressionA Verify Elumina Markers`, async ({ eluminaLoginPage, eluminaRegPage, eluminaProctorReg, webActions }) => {
+    test(`iAU_TC_ID_242,iAU_TC_ID_223. @RegressionA Verify Elumina Markers`, async ({ eluminaLoginPage, eluminaRegPage, eluminaProctorReg, webActions }) => {
         await test.step(`Navigate to Application`, async () => {
             await eluminaLoginPage.navigateToURL();
         });

@@ -558,7 +558,7 @@ export class EluminaRegistrationPage {
         this.ExamMenu = page.locator('//a[text()="Exams"]');
         this.ClickOnWorkFlow = page.locator('//a[normalize-space()="Workflow"]')
         this.ClickOnApprove = page.locator('(//div[@class="sub--right-menu"]//button)[2]');
-        this.markingdropdown = page.locator('//ul[@class="dropdown-menu more-btn pull-right"]');
+        this.markingdropdown = page.locator('//div[@class="dropdown closed more-btn--width"]//a');
         this.viewResponse = page.locator('//p[normalize-space()="View Response"]');
         this.candId = page.locator('(//table[@class="table"]//tbody//tr/td)[3]');
         this.candiId = page.locator('(//span[@class="tex-dis-details"])[2]')
@@ -1524,6 +1524,7 @@ export class EluminaRegistrationPage {
         await this.clickeditphone.click();
         await this.clickeditphone.clear();
         await this.clickeditphone.type('987654321');
+        await this.ClickOnInvSaveBtn.click()
         await this.page.waitForTimeout(5000);
     }
 
@@ -1729,7 +1730,7 @@ export class EluminaRegistrationPage {
         await this.clickWorkflow.click()
         await this.page.waitForTimeout(2000);
         await this.ClickOnApprove.click()
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(5000);
         await this.workflowSuccessPopup.isVisible();
         await expect(this.workflowSuccessPopup).toHaveText('Status has been updated successfuly.');
     }

@@ -29,6 +29,7 @@ test(`iAU_TC_ID_249. @RegressionA Validation of Blueprint Approve`, async ({ elu
     await test.step(`Navigate to iAuthor`, async () => {
         const newtab = await eluminaApproverPage.iAuthorPageNavigation();
         await newtab.BlueprintMenuClick();
+        await newtab.clickOnQutnId()
         await newtab.workflowApprove();
     });
 });

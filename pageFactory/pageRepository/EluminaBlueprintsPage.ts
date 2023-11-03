@@ -319,7 +319,7 @@ export class EluminaBlueprintsPage {
         this.tickIconClick = page.locator('//i[@class="tick-icon ng-star-inserted"]');
         this.SaveButtonClicks = page.locator('(//button[text()="Save"])[1]');
         this.FilterSuccessMessage = page.locator('//div[text()="Filter Saved Successfully"]');
-        this.closeButton = page.locator('(//button[@type="button"][normalize-space()="×"])[2]');
+        this.closeButton = page.locator('(//button[@type="button"][normalize-space()="×"])[1]');
         this.nextButtonClick = page.locator('//button[text()="Next"]');
         this.clickOnSaveDraft = page.locator('//button[text()="Save Draft"]');
         this.workflowSuccessMessage = page.locator('//span[text()="Workflow has been created successfuly"]');
@@ -1971,8 +1971,8 @@ export class EluminaBlueprintsPage {
         }
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
-        await this.ClickOnAdd.click();
-        await this.clickOnMinusicon.click()
+        // await this.ClickOnAdd.click();
+        // await this.clickOnMinusicon.click()
         await this.ClickOnExamVenue.click();
         await this.ChooseExamVenue.click();
         await this.ClickOnAdd.click();

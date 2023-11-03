@@ -73,6 +73,8 @@ test(`iEX_TC_ID_201. @iExamSerialRegression Verify Validation of candidate respo
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime();
+
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");

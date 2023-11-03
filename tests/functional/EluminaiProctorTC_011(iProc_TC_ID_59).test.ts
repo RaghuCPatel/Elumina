@@ -37,8 +37,6 @@ test(`iProc_TC_ID_59. @iProctorlink Verify Validation of "Lock Exam" from Live m
     });
     await test.step(`Candidate Login to application`, async () => {
         await eluminaProctorCand.candidateLoginToApplications(2);
-
-
     });
     await test.step('Candidate start the exam', async () => {
         // await eluminaCadInvPage.candidateStartExamsValidationInv();
