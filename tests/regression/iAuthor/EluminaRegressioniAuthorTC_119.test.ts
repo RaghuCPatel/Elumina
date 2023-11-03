@@ -22,7 +22,7 @@ Archive Blueprint used in up coming exam"`, async ({ eluminaLoginPage, eluminaBl
         await newtab.clickOnSave()
         await newtab.addVSAQQuestions()
         await newtab.BlueprintMenuClick();
-        await newtab.blueprintArchive()
+        await newtab.blueprintArchiveErrorMsg()
         await newtab.logoutClick()
 
 

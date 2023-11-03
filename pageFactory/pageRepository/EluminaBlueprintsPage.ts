@@ -2337,13 +2337,13 @@ export class EluminaBlueprintsPage {
 
     /**Method to Blueprint archive */
     async blueprintArchiveErrorMsg() {
-        await this.SearchDraftQuestions.type(Title)
+        await this.SearchDraftQuestions.type('Approved')
         await this.page.waitForTimeout(10000)
         await this.clickOnMoreOption.click()
         await this.clickOnArchive.click()
         await this.clickOnArchiveYes.click()
         await this.page.waitForTimeout(5000)
-        await expect(this.verifyArchivePopup).toHaveText('Blueprint has been archived')
+        await expect(this.verifyArchivePopup).toHaveText('Blueprint can not be archived since its used in upcoming exam')
     }
 
 
