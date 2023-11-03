@@ -73,7 +73,7 @@ test(`iEX_TC_ID_136. @iExamSerialRegression Verify Validation of "Terminate Exam
         await eluminaCadInvPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime();
 
     });
     await test.step(`Candidate Login to application`, async () => {

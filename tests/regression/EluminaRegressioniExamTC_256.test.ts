@@ -71,6 +71,7 @@ test(`iEX_TC_ID_149. @iExamSerialRegression Validation of Candidate Login to Exa
         await eluminaCandPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime();
+        await eluminaCandPage.waitforTime();
         await eluminaCandPage.candidateLoginToApplication(2, "Serial_User_details.xlsx");
         await eluminaCandPage.ansVsaqQuestionCandidate();
 

@@ -313,6 +313,22 @@ export class EluminaCreateQuestionsPage {
     readonly triangleClick: Locator;
     readonly moreOptionDropDown: Locator;
     readonly markersReport: Locator;
+    readonly clickCreateBlueprint: Locator;
+    readonly typeTitle: Locator;
+    readonly SelectBank: Locator;
+    readonly cartName: Locator;
+    readonly cartItemsRequired: Locator;
+    readonly AddFilter: Locator;
+    readonly selectFilter: Locator;
+    readonly selectFilter1: Locator;
+    readonly selectFilter2: Locator;
+    readonly tickIconClick: Locator;
+    readonly SaveButtonClicks: Locator;
+    readonly FilterSuccessMessage: Locator;
+    readonly closeButton: Locator;
+    readonly nextButtonClick: Locator;
+    readonly TestBank: Locator;
+    readonly clickOnSaveDraft: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -430,7 +446,7 @@ export class EluminaCreateQuestionsPage {
         this.clickMoreOption = page.locator('//button[normalize-space()="..."]');
         this.clickCheckout = page.locator('//a[text()="Check Out"]');
         this.clickDelete = page.locator('//a[text()="Delete"]');
-        this.clickYes = page.locator('(//button[@type="button"][normalize-space()="Yes"])[5]');
+        this.clickYes = page.locator('(//button[@type="button"][normalize-space()="Yes"])[6]');
         this.clickYesDuplicate = page.locator('(//button[@type="button"][normalize-space()="Yes"])[4]');
         this.clickonDuplicate = page.locator('//a[text()="Duplicate"]');
         this.clickonArchive = page.locator('//a[text()="Archive"]')
@@ -439,7 +455,7 @@ export class EluminaCreateQuestionsPage {
         this.ArchiveSuccessMessage = page.locator('//span[text()="Question has been archived successfully"]');
         this.clickonPreview = page.locator('//a[text()="Preview"]')
 
-        this.ClickOnMoreOption = page.locator('//table[@class="table"]//tbody//tr[1]//td[15]//a');
+        this.ClickOnMoreOption = page.locator('//table[@class="table"]//tbody//tr[1]//td[1]//a');
         this.ClickOnQuestionID = page.locator('//table[@class="table"]//tbody//tr[1]//td[2]//a')
         this.ClickOnPreview = page.locator('(//p[normalize-space()="Preview"])[1]');
         this.ValidatePreviewPage = page.locator('//h4[text()="Preview"]')
@@ -580,7 +596,7 @@ export class EluminaCreateQuestionsPage {
         this.closeIcon = page.locator('//span[@class="msdd-close"]')
         this.MenuIconClick = page.locator('//i[@class="menuIcons profileIcon"]');
         this.logoutbuttonClick = page.locator('//a[normalize-space()="Log out"]');
-        this.clickOnApprovalBtn = page.locator('//button[text()="Submit For Approval"]')
+        this.clickOnApprovalBtn = page.locator('(//div[@class="sub--right-menu ng-star-inserted"]//button)[2]')
         this.Blueprint = page.locator('//a[@data-tour="Blueprints"]');
         this.SearchDraftBluePrintQuestions = page.locator('//input[@placeholder="Search Blueprint(s)"]')
 
@@ -597,6 +613,22 @@ export class EluminaCreateQuestionsPage {
         this.selectReviewer = page.locator('(//div[@class="open container-left-padding"])[3]');
         this.moreOptionDropDown = page.locator('//button[normalize-space()="..."]');
         this.markersReport = page.locator('//a[normalize-space()="Markers Report Download"]');
+        this.clickCreateBlueprint = page.locator('//button[text()="Create Blueprint"]');
+        this.typeTitle = page.locator('//input[@name="inputbox"]');
+        this.SelectBank = page.locator('//input[@placeholder="Select Bank"]');
+        this.TestBank = page.locator('(//div[@class="dropdown-main"])[1]//li//span[@class="open"]')
+        this.cartName = page.locator('//input[@placeholder="Cart"]');
+        this.cartItemsRequired = page.locator('(//input[@placeholder="0"])[2]');
+        this.AddFilter = page.locator('(//button[@class="btn btn-blue"])[1]');
+        this.selectFilter = page.locator('//body//app-root//select[2]');
+        this.selectFilter1 = page.locator('//body//app-root//select[3]');
+        this.selectFilter2 = page.locator('//body//app-root//select[4]');
+        this.tickIconClick = page.locator('//i[@class="tick-icon ng-star-inserted"]');
+        this.SaveButtonClicks = page.locator('(//button[text()="Save"])[1]');
+        this.FilterSuccessMessage = page.locator('//div[text()="Filter Saved Successfully"]');
+        this.closeButton = page.locator('(//button[@type="button"][normalize-space()="×"])[1]');
+        this.nextButtonClick = page.locator('//button[text()="Next"]');
+        this.clickOnSaveDraft = page.locator('//button[text()="Save Draft"]');
 
     }
 
@@ -684,6 +716,59 @@ export class EluminaCreateQuestionsPage {
         await this.examMoreOptionsClick.click();
         await this.page.waitForTimeout(3000);
         await this.manageDeliveryoption.click();
+    }
+
+    /**Method to create blueprint */
+    async createBluePrint() {
+        await this.clickCreateBlueprint.click();
+        await this.typeTitle.click();
+        await this.page.waitForTimeout(2000);
+        await this.typeTitle.type(testData.BluePrintTitle + currentDate);
+        await this.page.waitForTimeout(2000);
+        await this.SelectBank.click();
+        await this.SelectBank.type(testData.TestBank2);
+        await this.TestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.cartName.click();
+        await this.cartName.type(testData.cartName);
+        await this.cartItemsRequired.click();
+        await this.cartItemsRequired.type(testData.cartItems);
+        await this.AddFilter.click();
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter.click();
+        await this.selectFilter.selectOption('Type');
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter1.click();
+        await this.selectFilter1.selectOption('is equal to');
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter2.click();
+        await this.selectFilter2.selectOption('ISAWE');
+        await this.page.waitForTimeout(2000);
+        await this.tickIconClick.click();
+        await this.SaveButtonClicks.click();
+        await this.page.waitForTimeout(2000);
+        await this.closeButton.click();
+        await this.page.waitForTimeout(2000);
+        await this.nextButtonClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickOnSaveDraft.click();
+        await this.page.waitForTimeout(3000);
+        // console.log(await this.workflowSuccessMessage.textContent());
+        // await expect(this.workflowSuccessMessage).toHaveText("Workflow has been created successfuly");
+        // await this.editBlueprint.click();
+        // await this.page.waitForTimeout(2000);
+        // await this.cartButtonClick.click();
+        // await this.page.waitForTimeout(2000);
+        // await this.page.waitForSelector('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        // const checks = await this.page.$$('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        // for (let i = 0; i < 1; i++) {
+        //     await checks[i].click()
+        // }
+        // await this.addToCart.click();
+        // await this.page.waitForTimeout(2000);
+        // await this.saveButton.click();
+        // await this.page.waitForTimeout(2000);
+        // await expect(this.saveSuccessMessage).toHaveText("Cart Details updated successfully");
     }
 
     /**method to validate manage delivery */
@@ -823,6 +908,7 @@ export class EluminaCreateQuestionsPage {
     }
     /**Method to validate Version Historey */
     async validationOfVersionHistory() {
+        await this.ClickOnVersionHistory.click()
         await this.page.waitForSelector('//h5[@class="verticalStepperCard__list--title"]')
         const versions = await this.page.$$('//h5[@class="verticalStepperCard__list--title"]')
         for (let i = 0; i < versions.length; i++) {
@@ -883,6 +969,7 @@ export class EluminaCreateQuestionsPage {
     /**Method for Question Menu click on Menu bar */
     async QuestionsMenuClick(): Promise<void> {
         await this.Questions.click();
+        await this.page.waitForTimeout(3000);
     }
 
     /**Method for Exams Menu click on Menu bar */
@@ -2560,7 +2647,7 @@ export class EluminaCreateQuestionsPage {
         await this.approverQA.click();
         await this.page.waitForTimeout(2000)
         await this.submitandreviewclick.click();
-        await this.page.waitForTimeout(2000)
+        await this.page.waitForTimeout(5000)
         await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfuly.');
         await this.page.waitForTimeout(2000)
         await this.saveButtonClick.click();
@@ -2628,8 +2715,8 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(2000)
         await this.approverQA.click();
         await this.page.waitForTimeout(2000)
-        await this.submitandreviewclick.click();
-        await this.page.waitForTimeout(2000)
+        await this.clickOnApprovalBtn.click()
+        await this.page.waitForTimeout(5000)
         await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfully.');
         await this.page.waitForTimeout(2000)
         await this.saveButtonClick.click();
@@ -2644,8 +2731,8 @@ export class EluminaCreateQuestionsPage {
         await this.ClickOnWorkFlow.click()
         await this.page.waitForTimeout(2000);
         await this.clickOnApprovalBtn.click()
-        await this.page.waitForTimeout(2000);
-        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfully.');
+        await this.page.waitForTimeout(5000);
+        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfuly.');
     }
 
     async reviewToReviewer() {

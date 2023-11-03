@@ -78,7 +78,7 @@ test(`iEX_TC_ID_150. @iExamSerialRegression  Validation of Exam Invigilator Live
         await eluminaCadInvPage.candidateNavigateToURL();
         await eluminaCandPage.waitforTime();
         await eluminaCandPage.waitforTime();
-        await eluminaCandPage.waitforTime3();
+        await eluminaCandPage.waitforTime();
 
     });
     await test.step(`Candidate Login to application`, async () => {
