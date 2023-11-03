@@ -30,12 +30,12 @@ else if (process.env.ENV == 'staging') {
 
 //Validation of "Mark Attendance" (All Candidates) (Proctor)
 
-test(`iProc_TC_ID_64. @Smoke Verify Validation of "Mark Attendance" (All Candidates) Proctor`, async ({ eluminaCadInvPage, webActions }) => {
+test(`iProc_TC_ID_64. @Smoke Verify Validation of "Mark Attendance" (All Candidates) Proctor`, async ({ eluminaCadInvPage, eluminaProctorCand, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplications(2);
 
     });
     await test.step('Candidate start the exam', async () => {

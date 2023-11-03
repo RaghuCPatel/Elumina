@@ -30,14 +30,14 @@ else if (process.env.ENV == 'staging') {
 
 /*Validation of Navigating to an exam from the dashboard to invigilate*/
 
-test(`iProc_TC_ID_57. @Smoke Validation of Navigating to an exam from the dashboard to invigilate`, async ({ eluminaCadInvPage, webActions }) => {
+test(`iProc_TC_ID_57. @Smoke Validation of Navigating to an exam from the dashboard to invigilate`, async ({ eluminaCadInvPage, eluminaProctorCand, webActions }) => {
 
     await test.step(`Navigate to Application`, async () => {
         await eluminaCadInvPage.candidateNavigateToURL();
     });
 
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplications();
+        await eluminaProctorCand.candidateLoginToApplications(2);
     });
 
     await test.step('Candidate start the exam', async () => {

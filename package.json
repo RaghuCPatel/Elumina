@@ -12,7 +12,7 @@
     "test:iExamPrerequest": "npx playwright test --grep @Pre-Request --workers=1 --project=Chrome",
     "test:iExamParallel": "npx playwright test --grep \"@iExamRegression|@LowPriorityiExamCases\" --workers=4 --project=Chrome",
     "test:iExamSerial": "npx playwright test --grep \"@Serial-Pre-Request|@iExamSerialRegression\" --workers=1 --project=Chrome",
-    "test:iProctor": "npx playwright test --grep \"@iProctorRegression|@LowPriorityiProctorCases\" --workers=1 --project=Chrome",
+    "test:iProctor": "npx playwright test --grep \"@Smoke|@iProctorlink\" --workers=1 --project=Chrome",
     "test:iAuthorParallel": "npx playwright test --grep @RegressionA --workers=4 --project=Chrome",
     "test:iAuthorSerial": "npx playwright test --grep @RegressionA --workers=1 --project=Chrome",
     "test:ui": "npx playwright test --grep @Smoke --ui",
