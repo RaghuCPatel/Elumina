@@ -329,6 +329,10 @@ export class EluminaCreateQuestionsPage {
     readonly nextButtonClick: Locator;
     readonly TestBank: Locator;
     readonly clickOnSaveDraft: Locator;
+    readonly clickOnStatusTitle: Locator;
+    readonly clickOnApprovalButton: Locator;
+    readonly clickOnCloseIcon: Locator;
+    readonly moreOptionClick2: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -446,7 +450,7 @@ export class EluminaCreateQuestionsPage {
         this.clickMoreOption = page.locator('//button[normalize-space()="..."]');
         this.clickCheckout = page.locator('//a[text()="Check Out"]');
         this.clickDelete = page.locator('//a[text()="Delete"]');
-        this.clickYes = page.locator('(//button[@type="button"][normalize-space()="Yes"])[6]');
+        this.clickYes = page.locator('(//div[@class="modal-footer"])[6]//button[2]');
         this.clickYesDuplicate = page.locator('(//button[@type="button"][normalize-space()="Yes"])[4]');
         this.clickonDuplicate = page.locator('//a[text()="Duplicate"]');
         this.clickonArchive = page.locator('//a[text()="Archive"]')
@@ -510,7 +514,7 @@ export class EluminaCreateQuestionsPage {
         this.saveAsNewVersion = page.locator('//a[normalize-space()="Save as New Version"]');
         this.ClickOnComment = page.locator('//textarea[@name="comments"]');
         this.clickOnVersionHistory = page.locator('//p[normalize-space()="Version History"]');
-        // this.moreOptionClick = page.locator('(//a[text()="more"])[1]');
+        this.moreOptionClick2 = page.locator('(//a[text()="more"])[1]');
         this.clickOnClose = page.locator('(//button[@type="button"][normalize-space()="×"])[1]');
         this.clickclose2 = page.locator('(//button[@type="button"][normalize-space()="×"])[4]');
         this.versionCheck1 = page.locator('//body/app-root/div/app-exam-history[@class="ng-star-inserted"]/div[@class="question-historyPage pageTop--div"]/div[@class="main-content-alt no-filter"]/div/div[@class="main"]/div[@class="middleColumn"]/div[@class="timeline--container"]/div[@class="history-column"]/app-vertical-stepper-exam[1]/div[1]/div[2]');
@@ -573,7 +577,7 @@ export class EluminaCreateQuestionsPage {
         this.manageDeliveryEndDate = page.locator('(//div[@class="userInfo userInfo__lable"])[4]');
         this.manageDeliveryStatus = page.locator('(//div[@class="userInfo userInfo__lable"])[5]');
         this.manageDeliveryworkflowStatus = page.locator('(//div[@class="userInfo userInfo__lable"])[6]');
-        this.manageDeliveryFullScreen = page.locator('(//div[@class="userInfo userInfo__lable"])[7]');
+        this.manageDeliveryFullScreen = page.locator('(//div[@class="userInfo userInfo__lable"])[6]');
         this.moreButtonClick = page.locator('//button[normalize-space()="..."]');
         this.bulkdownloadbuttonclick = page.locator('//a[text()="Bulk Download User Details"]');
         this.DeleteUsers = page.locator('//a[text()="Delete Users"]');
@@ -581,7 +585,7 @@ export class EluminaCreateQuestionsPage {
         this.GenerateTempId = page.locator('//a[text()="Generate Temp ID"]');
         this.AssignVenue = page.locator('//a[text()="Assign Venue And Booking Status"]');
         this.MarkerReportDownload = page.locator('//a[text()="Markers Report Download"]');
-        this.examMoreOptionsClick = page.locator('//table[@class="table"]//tbody//tr[1]//td[1]');
+        this.examMoreOptionsClick = page.locator('//table[@class="table"]//tbody//tr[1]//td[1]//a');
         this.manageDeliveryoption = page.locator('(//p[text()="Manage Deliveries"])[1]');
 
         this.validateCandIdheader = page.locator('//table[@class="table"]//thead//tr//th[3]');
@@ -596,7 +600,8 @@ export class EluminaCreateQuestionsPage {
         this.closeIcon = page.locator('//span[@class="msdd-close"]')
         this.MenuIconClick = page.locator('//i[@class="menuIcons profileIcon"]');
         this.logoutbuttonClick = page.locator('//a[normalize-space()="Log out"]');
-        this.clickOnApprovalBtn = page.locator('(//div[@class="sub--right-menu ng-star-inserted"]//button)[2]')
+        this.clickOnApprovalBtn = page.locator('(//div[@class="sub--right-menu"]//button)[2]')
+        this.clickOnApprovalButton = page.locator('(//div[@class="sub--right-menu ng-star-inserted"]//button)[2]')
         this.Blueprint = page.locator('//a[@data-tour="Blueprints"]');
         this.SearchDraftBluePrintQuestions = page.locator('//input[@placeholder="Search Blueprint(s)"]')
 
@@ -624,11 +629,13 @@ export class EluminaCreateQuestionsPage {
         this.selectFilter1 = page.locator('//body//app-root//select[3]');
         this.selectFilter2 = page.locator('//body//app-root//select[4]');
         this.tickIconClick = page.locator('//i[@class="tick-icon ng-star-inserted"]');
-        this.SaveButtonClicks = page.locator('(//button[text()="Save"])[1]');
+        this.SaveButtonClicks = page.locator('(//button[contains(text(),"Save")])[1]');
         this.FilterSuccessMessage = page.locator('//div[text()="Filter Saved Successfully"]');
         this.closeButton = page.locator('(//button[@type="button"][normalize-space()="×"])[1]');
         this.nextButtonClick = page.locator('//button[text()="Next"]');
         this.clickOnSaveDraft = page.locator('//button[text()="Save Draft"]');
+        this.clickOnStatusTitle = page.locator('(//label[@class="accordian-none"])[2]')
+        this.clickOnCloseIcon = page.locator('(//button[@class="close"])[1]')
 
     }
 
@@ -646,6 +653,7 @@ export class EluminaCreateQuestionsPage {
     * Method for Logout 
     */
     async logoutClick() {
+        await this.page.waitForTimeout(5000);
         await this.MenuIconClick.click();
         await this.logoutbuttonClick.click();
         await this.page.waitForTimeout(5000);
@@ -683,11 +691,27 @@ export class EluminaCreateQuestionsPage {
         await this.sortButtonDownClick.isVisible();
         await this.sortButtonDownClick.click();
         await this.page.waitForTimeout(3000);
+        await this.ClickOnPlusIcon.click()
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter.click();
+        await this.selectFilter.selectOption('Status');
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter1.click();
+        await this.selectFilter1.selectOption('is equal to');
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter2.click();
+        await this.selectFilter2.selectOption('Approved');
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnGreenIcon.click();
+        await this.SaveButtonClicks.click();
+        await this.clickOnCloseIcon.click()
+        await this.page.waitForTimeout(2000);
         await this.dropdownclick.click();
         await this.examNamecheckbox.click();
         await this.page.waitForTimeout(3000);
         await this.examNamecheckbox.click();
         await this.page.waitForTimeout(3000);
+        await this.dropdownclick.click();
         await this.TotalCount.isVisible();
         console.log(await this.TotalCount.textContent());
         await this.moreOption.click();
@@ -783,8 +807,8 @@ export class EluminaCreateQuestionsPage {
         console.log(await this.manageDeliveryEndDate.textContent());
         await this.manageDeliveryStatus.isVisible();
         console.log(await this.manageDeliveryStatus.textContent());
-        await this.manageDeliveryworkflowStatus.isVisible();
-        console.log(await this.manageDeliveryworkflowStatus.textContent());
+        // await this.manageDeliveryworkflowStatus.isVisible();
+        // console.log(await this.manageDeliveryworkflowStatus.textContent());
         await this.manageDeliveryFullScreen.isVisible();
         console.log(await this.manageDeliveryFullScreen.textContent());
     }
@@ -1057,7 +1081,7 @@ export class EluminaCreateQuestionsPage {
         await this.ClickOnCreateQuestion.click()
         await this.SearchQuestion.click()
         await this.SearchQuestion.type(testData.SearchQuestion)
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(5000);
         await this.ClickOnSearchedQuestion.click()
         await this.page.waitForTimeout(2000);
         await this.ClickOnNextBtn.click();
@@ -1200,7 +1224,7 @@ export class EluminaCreateQuestionsPage {
         await this.SelectTestBank.click();
         await this.page.waitForTimeout(2000);
         await this.QuestionTopic.type('Sample VSAQ Questions' + Math.floor(Math.random() * 8999 + 1000));
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(5000);
         await this.QuestionAims.click();
         await this.QuestionAims.type(testData.Question);
         await this.page.waitForTimeout(2000);
@@ -1308,7 +1332,7 @@ export class EluminaCreateQuestionsPage {
         await this.SelectTestBank.click();
         await this.page.waitForTimeout(2000);
         await this.QuestionTopic.type('Sample SJT Questions' + Math.floor(Math.random() * 8999 + 1000));
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(5000);
         await this.QuestionAims.click();
         await this.QuestionAims.type(testData.Question);
         await this.page.waitForTimeout(2000);
@@ -1329,6 +1353,7 @@ export class EluminaCreateQuestionsPage {
         await this.EnterMarksInSJT.click();
         await this.EnterMarksInSJT.clear();
         await this.EnterMarksInSJT.type("2");
+        await this.page.waitForTimeout(2000);
         // await this.EnterMarksInAns.click()
         // await this.EnterMarksInAns.clear()
         // await this.EnterMarksInAns.type("2")
@@ -1354,7 +1379,7 @@ export class EluminaCreateQuestionsPage {
         await this.SelectTestBank.click();
         await this.page.waitForTimeout(2000);
         await this.QuestionTopic.type('Renewable Energy ISAWE' + Math.floor(Math.random() * 899 + 100));
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(5000);
         await this.Question.click();
         await this.Question.type(testData.Scenario);
         await this.page.waitForTimeout(2000);
@@ -1408,7 +1433,7 @@ export class EluminaCreateQuestionsPage {
         await this.SelectTestBank.click();
         await this.page.waitForTimeout(2000);
         await this.QuestionTopic.type('Sample SAQ Questions' + Math.floor(Math.random() * 899 + 100));
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(5000);
         await this.QuestionAims.click();
         await this.QuestionAims.type(testData.Question);
         await this.page.waitForTimeout(2000);
@@ -1450,7 +1475,7 @@ export class EluminaCreateQuestionsPage {
         await this.SelectTestBank.click();
         await this.page.waitForTimeout(2000);
         await this.QuestionTopic.type('Sample TypeX Questions' + Math.floor(Math.random() * 899 + 100));
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(5000);
         await this.QuestionAims.click();
         await this.QuestionAims.type(testData.Question);
         await this.page.waitForTimeout(2000);
@@ -1652,7 +1677,7 @@ export class EluminaCreateQuestionsPage {
         await this.SelectTestBank.click();
         await this.page.waitForTimeout(2000);
         await this.QuestionTopic.type('Sample VSAQ Questions' + Math.floor(Math.random() * 8999 + 1000));
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(5000);
         await this.QuestionAims.click();
         await this.QuestionAims.type(testData.Question);
         await this.page.waitForTimeout(2000);
@@ -1683,7 +1708,7 @@ export class EluminaCreateQuestionsPage {
         await this.SelectTestBank.click();
         await this.page.waitForTimeout(2000);
         await this.QuestionTopic.type('Renewable Energy ISAWE' + Math.floor(Math.random() * 899 + 100));
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(5000);
         await this.Question.click();
         await this.Question.type(testData.Scenario);
         await this.page.waitForTimeout(2000);
@@ -1719,7 +1744,7 @@ export class EluminaCreateQuestionsPage {
         await this.SelectTestBank.click();
         await this.page.waitForTimeout(2000);
         await this.QuestionTopic.type('Sample SAQ Questions' + Math.floor(Math.random() * 899 + 100));
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(5000);
         await this.QuestionAims.click();
         await this.QuestionAims.type(testData.Question);
         await this.page.waitForTimeout(2000);
@@ -1751,7 +1776,7 @@ export class EluminaCreateQuestionsPage {
         await this.SelectTestBank.click();
         await this.page.waitForTimeout(2000);
         await this.QuestionTopic.type('Sample TypeB Questions' + Math.floor(Math.random() * 8999 + 1000));
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(5000);
         await this.QuestionAims.click();
         await this.QuestionAims.type(testData.Question);
         await this.page.waitForTimeout(2000);
@@ -1779,7 +1804,7 @@ export class EluminaCreateQuestionsPage {
         await this.SelectTestBank.click();
         await this.page.waitForTimeout(2000);
         await this.QuestionTopic.type('Sample SJT Questions' + Math.floor(Math.random() * 8999 + 1000));
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(5000);
         await this.QuestionAims.click();
         await this.QuestionAims.type(testData.Question);
         await this.page.waitForTimeout(2000);
@@ -1828,7 +1853,7 @@ export class EluminaCreateQuestionsPage {
             await this.SelectTestBank.click();
             await this.page.waitForTimeout(2000);
             await this.QuestionTopic.type('Sample TypeB Questions' + Math.floor(Math.random() * 8999 + 1000));
-            await this.page.waitForTimeout(2000);
+            await this.page.waitForTimeout(5000);
             await this.QuestionAims.click();
             await this.QuestionAims.type(testData.Question);
             await this.page.waitForTimeout(2000);
@@ -2335,7 +2360,8 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(3000);
         await this.moreOptionClick.click();
         await this.page.waitForTimeout(3000);
-        await this.ClickOnPreviewPDF.click();
+        await this.ClickOnPreviewPDF.click()
+        await this.page.waitForTimeout(3000);
         await expect(this.ValidationOfPreviewPDFTitle).toBeVisible();
 
     }
@@ -2614,7 +2640,7 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(2000)
         await this.clickOnVersionHistory.click();
         await this.page.waitForTimeout(2000)
-        await this.moreOptionClick.click();
+        await this.moreOptionClick2.click();
         await this.page.waitForTimeout(2000)
         await this.clickOnClose.click();
         await this.page.waitForTimeout(2000)
@@ -2639,7 +2665,7 @@ export class EluminaCreateQuestionsPage {
         await this.selectReviwer.type(testData.ReviewerQA);
         await this.checkReviwerQA.click();
         await this.page.waitForTimeout(3000)
-        await this.morebtnOnWorkFlow.click();
+        await this.clickOnStatusTitle.click();
         await this.page.waitForTimeout(2000)
         await this.selectApprover.click();
         await this.page.waitForTimeout(2000)
@@ -2648,7 +2674,7 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(2000)
         await this.submitandreviewclick.click();
         await this.page.waitForTimeout(5000)
-        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfuly.');
+        await expect(this.workflowsuccessmessage).toHaveText('Workflow has been created successfuly.');
         await this.page.waitForTimeout(2000)
         await this.saveButtonClick.click();
     }
@@ -2665,7 +2691,7 @@ export class EluminaCreateQuestionsPage {
         await this.SelectTestBank.click();
         await this.page.waitForTimeout(2000);
         await this.QuestionTopic.type('Sample MCQ Questions' + Math.floor(Math.random() * 8999 + 1000));
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(5000);
         await this.QuestionAims.click();
         await this.QuestionAims.type(testData.QuestionAims);
         await this.page.waitForTimeout(2000);
@@ -2715,7 +2741,7 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(2000)
         await this.approverQA.click();
         await this.page.waitForTimeout(2000)
-        await this.clickOnApprovalBtn.click()
+        await this.clickOnApprovalButton.click()
         await this.page.waitForTimeout(5000)
         await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfully.');
         await this.page.waitForTimeout(2000)
@@ -2729,10 +2755,10 @@ export class EluminaCreateQuestionsPage {
         await this.clickonQuestion.click()
         await this.page.waitForTimeout(5000);
         await this.ClickOnWorkFlow.click()
-        await this.page.waitForTimeout(2000);
-        await this.clickOnApprovalBtn.click()
+        await this.page.waitForTimeout(3000);
+        await this.clickOnApprovalButton.click()
         await this.page.waitForTimeout(5000);
-        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfuly.');
+        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfully.');
     }
 
     async reviewToReviewer() {
