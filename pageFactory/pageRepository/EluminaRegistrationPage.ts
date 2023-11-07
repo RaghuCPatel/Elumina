@@ -1257,6 +1257,7 @@ export class EluminaRegistrationPage {
         await this.ClickOnDropdown.click();
         await this.ClickOnDeleteUser.click();
         await this.clickOnYes.click();
+        await this.page.waitForTimeout(3000);
         await this.DeleteUserPopUpfromOption.isVisible();
         await expect(this.DeleteUserPopUpfromOption).toHaveText("Exam has already started. You cannot delete the user(s)");
         await this.page.waitForTimeout(5000);
