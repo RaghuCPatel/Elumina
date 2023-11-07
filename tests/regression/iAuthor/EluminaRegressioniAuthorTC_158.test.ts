@@ -25,7 +25,7 @@ Add 2x sessions (with duplicate sections)"`, async ({ eluminaLoginPage, eluminaB
         await newtab.selectAllToolsAndVerifyMsg()
         await newtab.createContentSection("1");
         await newtab.createContentPage();
-        await newtab.createSection("1", "30")
+        await newtab.createSection("1", "0")
         await newtab.clickOnSave()
         await newtab.addVSAQQuestionswithoutNext()
         await newtab.createSurveySection("6");
@@ -57,7 +57,7 @@ Add 2x sessions (with duplicate sections)"`, async ({ eluminaLoginPage, eluminaB
         await newtab.selectAllToolsAndVerifyMsg()
         await newtab.createContentSection("1");
         await newtab.createContentPage();
-        await newtab.createSection("1", "30")
+        await newtab.createSection("1", "0")
         await newtab.clickOnSave()
         await newtab.addVSAQQuestionswithoutNext()
         await newtab.createSurveySection("6");

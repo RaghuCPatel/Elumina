@@ -333,6 +333,8 @@ export class EluminaCreateQuestionsPage {
     readonly clickOnApprovalButton: Locator;
     readonly clickOnCloseIcon: Locator;
     readonly moreOptionClick2: Locator;
+    readonly clickOnYes: Locator;
+    readonly YesBtnClick: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -451,6 +453,8 @@ export class EluminaCreateQuestionsPage {
         this.clickCheckout = page.locator('//a[text()="Check Out"]');
         this.clickDelete = page.locator('//a[text()="Delete"]');
         this.clickYes = page.locator('(//div[@class="modal-footer"])[6]//button[2]');
+        this.clickOnYes = page.locator('(//button[@type="button"][normalize-space()="Yes"])[4]')
+        this.YesBtnClick = page.locator('(//button[@type="button"][normalize-space()="Yes"])[3]')
         this.clickYesDuplicate = page.locator('(//button[@type="button"][normalize-space()="Yes"])[4]');
         this.clickonDuplicate = page.locator('//a[text()="Duplicate"]');
         this.clickonArchive = page.locator('//a[text()="Archive"]')
@@ -737,6 +741,7 @@ export class EluminaCreateQuestionsPage {
     /**Method to click on more options in exam link */
     async moreOptionsClickinExam() {
         await this.page.waitForTimeout(3000);
+        // await this.SearchDraftExams.type('Approved');
         await this.examMoreOptionsClick.click();
         await this.page.waitForTimeout(3000);
         await this.manageDeliveryoption.click();
@@ -1517,11 +1522,11 @@ export class EluminaCreateQuestionsPage {
         await this.clickQuestionId.click();
         await this.clickMoreOption.click();
         await this.clickCheckout.click();
-        await this.clickYes.click();
+        await this.clickOnYes.click();
         await this.page.waitForTimeout(5000);
         await this.clickMoreOption.click();
         await this.clickDelete.click();
-        await this.clickYes.click();
+        await this.clickOnYes.click();
     }
 
     /**Method to validate blueprint question delete */
@@ -1553,8 +1558,7 @@ export class EluminaCreateQuestionsPage {
         await this.clickMoreOption.click();
         await this.clickonArchive.click();
         await this.page.waitForTimeout(2000);
-        await this.clickYes.click();
-        await this.page.waitForTimeout(2000);
+        await this.YesBtnClick.click();
         console.log(await this.ArchiveSuccessMessage.textContent());
     }
 
@@ -2675,7 +2679,7 @@ export class EluminaCreateQuestionsPage {
         await this.approverQA.click();
         await this.page.waitForTimeout(2000)
         await this.submitandreviewclick.click();
-        await this.page.waitForTimeout(5000)
+        await this.page.waitForTimeout(2000)
         await expect(this.workflowsuccessmessage).toHaveText('Workflow has been created successfuly.');
         await this.page.waitForTimeout(2000)
         await this.saveButtonClick.click();
@@ -2759,7 +2763,7 @@ export class EluminaCreateQuestionsPage {
         await this.ClickOnWorkFlow.click()
         await this.page.waitForTimeout(3000);
         await this.clickOnApprovalButton.click()
-        await this.page.waitForTimeout(5000);
+        await this.page.waitForTimeout(2000);
         await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfully.');
     }
 

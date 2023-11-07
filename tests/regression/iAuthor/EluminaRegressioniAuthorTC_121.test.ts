@@ -12,6 +12,7 @@ test(`iAU_TC_ID_121. @RegressionA Validation of Blueprint Preview`, async ({ elu
     await test.step(`Navigate to iAuthor blueprint`, async () => {
         const newtab = await eluminaBlueprintsPage.iAuthorPageNavigation();
         await newtab.BlueprintMenuClick();
+        await newtab.createDraftBluePrint()
         await newtab.EditBlueprintQuestionwithPreview();
         await newtab.verifyPreviewPage()
     });

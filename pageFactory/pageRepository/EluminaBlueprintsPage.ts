@@ -337,7 +337,7 @@ export class EluminaBlueprintsPage {
         this.approveButtonClick = page.locator('//button[contains(text(),"Approve")]');
         this.SearchDraftQuestions = page.locator('//input[@placeholder="Search Blueprint(s)"]')
         this.ClickOnQuestionID = page.locator('//table[@class="table"]//tbody//tr[1]//td[2]//a')
-        this.ClickOnAddCartBtn = page.locator('//div[@class="cartAdd-btn ng-star-inserted"]');
+        this.ClickOnAddCartBtn = page.locator('(//div[@class="cartAdd-btn ng-star-inserted"])[1]');
         this.ClickOnAddCartBtn2 = page.locator('(//div[@class="cartAdd-btn ng-star-inserted"])[2]')
         this.ClickOnToCart = page.locator('//button[contains(text(),"Add to cart")]')
         this.ClickOnSaveBtn = page.locator('(//button[contains(text(),"Save")])[2]')
@@ -1228,8 +1228,8 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(5000);
         await this.ClickOnSubmitAndApproveBtn.click();
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
-        await this.page.waitForTimeout(10000);
-        await expect(this.verifyArchivePopup).toHaveText("Status has been updated successfuly.")
+        await this.page.waitForTimeout(5000);
+        await expect(this.verifyArchivePopup).toHaveText("Session(s) Updated successfully")
     }
 
     /**
@@ -1976,8 +1976,8 @@ export class EluminaBlueprintsPage {
         }
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
-        // await this.ClickOnAdd.click();
-        // await this.clickOnMinusicon.click()
+        await this.ClickOnAdd.click();
+        await this.clickOnMinusicon.click()
         await this.ClickOnExamVenue.click();
         await this.ChooseExamVenue.click();
         await this.ClickOnAdd.click();
@@ -1998,7 +1998,7 @@ export class EluminaBlueprintsPage {
         await this.SelectNotepad.click();
         await this.SelectHighlighter.click();
         await this.ClickOnNextBtn.click();
-        await expect(this.verifyArchivePopup).toHaveText("Exam updated successfully")
+        await expect(this.verifyArchivePopup).toHaveText("Exam created successfully")
         await expect(this.VerifyExam_details).toBeVisible();
         await expect(this.VerifyChoose_Question).toBeVisible();
         await expect(this.VerifyChoose_Workflow).toBeVisible();
@@ -2947,8 +2947,9 @@ export class EluminaBlueprintsPage {
 
     /**Method to verify Preview Page */
     async verifyPreviewPage() {
+        await this.page.waitForTimeout(5000)
         await expect(this.previewPageTitle).toHaveText("Preview")
-        await this.page.waitForTimeout(10000)
+        await this.page.waitForTimeout(2000)
     }
 
     /**Method to remove questions from cart*/
@@ -2956,7 +2957,7 @@ export class EluminaBlueprintsPage {
         await this.SearchDraftQuestions.type('Draft')
         await this.page.waitForTimeout(3000)
         await this.ClickOnQuestionID.click()
-        await this.page.waitForTimeout(2000)
+        await this.page.waitForTimeout(10000)
 
         await this.removeCartButtonClick.click();
         await this.page.waitForTimeout(10000)
