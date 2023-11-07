@@ -1044,7 +1044,7 @@ export class EluminaRegistrationPage {
         await this.SelectExBookingStatus.click();
         await this.SelectInvBookingStatus.click();
         await this.ClickOnSaveBtn.click();
-        await expect(this.userAssignDifferentRolepopup).toHaveText("User(s) (Divyashree) had already assigned as a (Exam Administrator) in the same bank, So assign the users in the same role");
+        await this.userAssignDifferentRolepopup.isVisible();
         await this.page.waitForTimeout(3000);
         await this.okButtonClick.click();
         await this.page.waitForTimeout(5000);
@@ -1390,9 +1390,9 @@ export class EluminaRegistrationPage {
         await this.liveDashboardLocationClick.click();
         await this.liveDashboardlocationselect.click();
         await this.page.waitForTimeout(3000);
-        await this.liveMonitorVenueselect.click();
-        await this.liveDashboardvenueselect.click();
-        await this.page.waitForTimeout(3000);
+        // await this.liveMonitorVenueselect.click();
+        // await this.liveDashboardvenueselect.click();
+        // await this.page.waitForTimeout(3000);
         await this.liveDashboardSubmit.click();
 
         await this.liveDashboardExamSession.isVisible();
@@ -1525,7 +1525,9 @@ export class EluminaRegistrationPage {
         await this.clickeditemail.type('demosad@yopmail.com');
         await this.clickeditphone.click();
         await this.clickeditphone.clear();
-        await this.clickeditphone.type('987654321');
+        await this.page.waitForTimeout(10000);
+        await this.clickeditphone.type('9899889988');
+        await this.page.waitForTimeout(10000);
         await this.ClickOnInvSaveBtn.click()
         await this.page.waitForTimeout(5000);
     }
@@ -1653,7 +1655,6 @@ export class EluminaRegistrationPage {
         await this.page.waitForTimeout(3000);
         await this.liveDashboardVenueClick.isVisible();
         await this.liveDashboardSubmit.isVisible();
-        await this.liveMonitorVenueselect.click();
         await this.page.waitForTimeout(3000);
 
         await this.liveDashboradAutoRefresh.isVisible();

@@ -2,6 +2,22 @@ import test from '@lib/BaseTest';
 
 /** "Validation of Edit Blueprint Add question Cart" */
 
+
+test(`iAU_TC_ID_114A. @RegressionA Validation of Question  No Workflow  `, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
+    await test.step(`Navigate to Application`, async () => {
+        await eluminaLoginPage.navigateToURL();
+    });
+    await test.step(`Login to Application`, async () => {
+        await eluminaLoginPage.loginToApplication();
+    });
+    await test.step(`Navigate to iAuthor`, async () => {
+        const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
+        await newtab.BlueprintMenuClick()
+        await newtab.createBluePrint()
+    });
+
+});
+
 test(`iAU_TC_ID_114. @RegressionA "Validation of Edit Blueprint Add question Cart"`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();

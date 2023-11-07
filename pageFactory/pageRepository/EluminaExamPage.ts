@@ -1588,8 +1588,8 @@ export class EluminaExamPage {
   async uncheckAllQutnColumns() {
     await this.dropdownclick.click();
     await this.examNamecheckbox.click();
-    await this.page.waitForTimeout(5000);
-    // await this.examNamecheckbox.click();
+    await this.page.waitForTimeout(1000);
+    await this.examNamecheckbox.click();
     // await this.page.waitForTimeout(3000);
     await this.TotalCount.click();
     await this.TotalCount.isVisible();

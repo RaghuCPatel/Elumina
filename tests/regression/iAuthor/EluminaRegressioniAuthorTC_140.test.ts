@@ -5,9 +5,7 @@ import test from '@lib/BaseTest';
 Scenario- 3 -
 Add 3 sections (i.e. Content + Exam 1 Section + Exam 2 Section with Survey)"*/
 
-test(`iAU_TC_ID_140. @RegressionA "Validation of Choose Question
-Scenario- 3 -
-Add 3 sections (i.e. Content + Exam 1 Section + Exam 2 Section with Survey)"`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
+test(`iAU_TC_ID_140. @RegressionA "Validation of Choose Question Scenario- 3 -Add 3 sections (i.e. Content + Exam 1 Section + Exam 2 Section with Survey)"`, async ({ eluminaLoginPage, eluminaBlueprintsPage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
