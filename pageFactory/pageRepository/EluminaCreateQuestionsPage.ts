@@ -446,7 +446,7 @@ export class EluminaCreateQuestionsPage {
         this.clickMoreOption = page.locator('//button[normalize-space()="..."]');
         this.clickCheckout = page.locator('//a[text()="Check Out"]');
         this.clickDelete = page.locator('//a[text()="Delete"]');
-        this.clickYes = page.locator('(//button[@type="button"][normalize-space()="Yes"])[6]');
+        this.clickYes = page.locator('(//button[@type="button"][normalize-space()="Yes"])[5]');
         this.clickYesDuplicate = page.locator('(//button[@type="button"][normalize-space()="Yes"])[4]');
         this.clickonDuplicate = page.locator('//a[text()="Duplicate"]');
         this.clickonArchive = page.locator('//a[text()="Archive"]')
@@ -736,13 +736,13 @@ export class EluminaCreateQuestionsPage {
         await this.AddFilter.click();
         await this.page.waitForTimeout(2000);
         await this.selectFilter.click();
-        await this.selectFilter.selectOption('Type');
+        await this.selectFilter.selectOption('Status');
         await this.page.waitForTimeout(2000);
         await this.selectFilter1.click();
         await this.selectFilter1.selectOption('is equal to');
         await this.page.waitForTimeout(2000);
         await this.selectFilter2.click();
-        await this.selectFilter2.selectOption('ISAWE');
+        await this.selectFilter2.selectOption('Approved');
         await this.page.waitForTimeout(2000);
         await this.tickIconClick.click();
         await this.SaveButtonClicks.click();
@@ -1522,6 +1522,8 @@ export class EluminaCreateQuestionsPage {
 
     /**Method to Validation of Question Archive */
     async ValidationQuestionArchive() {
+        await this.SearchDraftQuestions.type('Approved')
+        await this.page.waitForTimeout(3000)
         await this.clickQuestionId.click();
         await this.clickMoreOption.click();
         await this.clickonArchive.click();

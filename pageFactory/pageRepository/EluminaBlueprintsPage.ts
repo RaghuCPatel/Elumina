@@ -1993,7 +1993,7 @@ export class EluminaBlueprintsPage {
         await this.SelectNotepad.click();
         await this.SelectHighlighter.click();
         await this.ClickOnNextBtn.click();
-        await expect(this.verifyArchivePopup).toHaveText("Exam created successfully")
+        await expect(this.verifyArchivePopup).toHaveText("Exam updated successfully")
         await expect(this.VerifyExam_details).toBeVisible();
         await expect(this.VerifyChoose_Question).toBeVisible();
         await expect(this.VerifyChoose_Workflow).toBeVisible();
@@ -2126,6 +2126,7 @@ export class EluminaBlueprintsPage {
      * Method to add question
      */
     async addVSAQQuestionswithoutNextForEditQun(): Promise<void> {
+        await this.page.waitForTimeout(10000);
         await this.ClickOnAddQuestion.click();
         await this.ClickOnSearchQuestion.click()
         await this.ClickOnSearchQuestion.type('VSAQ');
@@ -2141,6 +2142,7 @@ export class EluminaBlueprintsPage {
    * Method to add question
    */
     async addVSAQQuestionswithoutNextForEditQun2(): Promise<void> {
+        await this.page.waitForTimeout(10000);
         await this.ClickOnAddQuestion2.click();
         await this.ClickOnSearchQuestion.click()
         await this.ClickOnSearchQuestion.type('VSAQ');
@@ -2337,6 +2339,7 @@ export class EluminaBlueprintsPage {
 
     /**Method to Blueprint archive */
     async blueprintArchiveErrorMsg() {
+        await this.page.waitForTimeout(10000)
         await this.SearchDraftQuestions.type('Approved')
         await this.page.waitForTimeout(10000)
         await this.clickOnMoreOption.click()
@@ -2528,9 +2531,12 @@ export class EluminaBlueprintsPage {
         await this.SearchDraftQuestions.click();
         await this.SearchDraftQuestions.type('Draft')
         await this.page.waitForTimeout(3000)
-        await this.clickonQuestion.click()
-        await this.typeTitle.click()
+        await this.clickonQuestion.click();
+        await this.typeTitle.click();
+        await this.typeTitle.clear();
+        await this.page.waitForTimeout(3000)
         await this.typeTitle.type("8");
+        await this.page.waitForTimeout(3000)
     }
     /**Method to click on cancel Button Validation */
     async clickOnCancelBtn() {
@@ -2879,7 +2885,7 @@ export class EluminaBlueprintsPage {
     /**Method to verify Preview Page */
     async verifyPreviewPage() {
         await expect(this.previewPageTitle).toHaveText("Preview")
-        await this.page.waitForTimeout(30000)
+        await this.page.waitForTimeout(10000)
     }
 
     /**Method to remove questions from cart*/
