@@ -55,8 +55,6 @@ test.describe(() => {
             const newtab = await eluminaRegPage.iAuthorPageNavigations();
             await newtab.clickOnCreatedExam();
             await newtab.editUser();
-            await newtab.logoutClick()
-
         });
     });
 

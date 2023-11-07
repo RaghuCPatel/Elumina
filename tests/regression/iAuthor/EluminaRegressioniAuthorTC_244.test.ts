@@ -11,6 +11,7 @@ test(`iAU_TC_ID_244. @RegressionA Validation of Blueprint Submit for Approval`, 
     await test.step(`Navigate to iAuthor`, async () => {
         const newtab = await eluminaBlueprintsPage.iAuthorPageNavigation();
         await newtab.BlueprintMenuClick();
+        await newtab.createDraftBluePrint()
         await newtab.searchDraftBlueprintQuestionToApprove();
         await newtab.addQuestionsToCartWithoutApprove()
         await newtab.validateQunApprovalWorkflow1()
