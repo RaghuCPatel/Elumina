@@ -298,6 +298,9 @@ export class EluminaBlueprintsPage {
     readonly ValidateMessage: Locator;
     readonly clickOnCheckOut: Locator;
     readonly clickOnYes: Locator;
+    readonly closeBtn: Locator;
+    readonly clickOnCloseInVersion: Locator;
+
 
 
 
@@ -320,6 +323,7 @@ export class EluminaBlueprintsPage {
         this.SaveButtonClicks = page.locator('(//button[text()="Save"])[1]');
         this.FilterSuccessMessage = page.locator('//div[text()="Filter Saved Successfully"]');
         this.closeButton = page.locator('(//button[@type="button"][normalize-space()="×"])[1]');
+        this.closeBtn = page.locator('(//div[@class="subMenu"])[4]//button')
         this.nextButtonClick = page.locator('//button[text()="Next"]');
         this.clickOnSaveDraft = page.locator('//button[text()="Save Draft"]');
         this.workflowSuccessMessage = page.locator('//span[text()="Workflow has been created successfuly"]');
@@ -460,7 +464,7 @@ export class EluminaBlueprintsPage {
         this.clickOnLeftArrow = page.locator('//i[@class="iconBg leftArrow"]')
         this.previewPageTitle = page.locator('(//h4[text()="Preview"])[2]')
         this.clickOnComparisionBtn = page.locator('//button[@class="theme-btn theme-primary-btn"]')
-        this.comparisionPageTitle = page.locator('(//div[@class="modal-header"]//h4)[3]')
+        this.comparisionPageTitle = page.locator('(//div[@class="modal-header"])[3]//h4')
         this.ExamTools = page.locator('(//div[@class="input-wrap"])[6]');
         this.SelectNotepad = page.locator('(//div[@class="dropdown-main"])[6]//ul//li[2]//span[text()="Notepad"]');
         this.SelectCalculator = page.locator('(//div[@class="dropdown-main"])[6]//ul//li[1]//span[text()="Calculator"]');
@@ -553,6 +557,7 @@ export class EluminaBlueprintsPage {
         this.ValidateMessage = page.locator('//span[contains(text(),"Please Choose or Enter Value")]')
         this.clickOnCheckOut = page.locator('//a[text()="Check Out"]')
         this.clickOnYes = page.locator('(//button[text()="Yes"])[6]')
+        this.clickOnCloseInVersion = page.locator('(//button[@id="addProductCloseButton"])[3]')
 
     }
     /**Method for Exam Tab Navigation */
@@ -2408,6 +2413,7 @@ export class EluminaBlueprintsPage {
         await this.clickOnComparisionBtn.click();
         await this.page.waitForTimeout(5000);
         await expect(this.comparisionPageTitle).toBeVisible()
+        await this.clickOnCloseInVersion.click()
         await this.page.waitForTimeout(2000);
 
     }
@@ -2449,19 +2455,19 @@ export class EluminaBlueprintsPage {
         await this.ClickOnAddFilter.click()
         await this.page.waitForTimeout(2000);
         await this.selectFilter.click();
-        await this.selectFilter.selectOption('Type');
+        await this.selectFilter.selectOption('Status');
         await this.page.waitForTimeout(2000);
         await this.selectFilter1.click();
         await this.selectFilter1.selectOption('is equal to');
         await this.page.waitForTimeout(2000);
         await this.selectFilter2.click();
-        await this.selectFilter2.selectOption('ISAWE');
+        await this.selectFilter2.selectOption('Approved');
         await this.page.waitForTimeout(2000);
         await this.tickIconClick.click();
         await this.page.waitForTimeout(2000);
         await this.SaveButtonClick.click();
         await this.page.waitForTimeout(2000);
-        await this.closeButton.click();
+        await this.closeBtn.click();
         await this.page.waitForTimeout(2000)
         await this.ClickOnAddCartBtn2.click()
         await this.page.waitForTimeout(3000)
@@ -2492,19 +2498,19 @@ export class EluminaBlueprintsPage {
         await this.ClickOnAddFilter.click()
         await this.page.waitForTimeout(2000);
         await this.selectFilter.click();
-        await this.selectFilter.selectOption('Type');
+        await this.selectFilter.selectOption('Status');
         await this.page.waitForTimeout(2000);
         await this.selectFilter1.click();
         await this.selectFilter1.selectOption('is equal to');
         await this.page.waitForTimeout(2000);
         await this.selectFilter2.click();
-        await this.selectFilter2.selectOption('ISAWE');
+        await this.selectFilter2.selectOption('Approved');
         await this.page.waitForTimeout(2000);
         await this.tickIconClick.click();
         await this.page.waitForTimeout(2000);
         await this.SaveButtonClick.click();
         await this.page.waitForTimeout(2000);
-        await this.closeButton.click();
+        await this.closeBtn.click();
         await this.page.waitForTimeout(2000)
         await this.ClickOnAddCartBtn2.click()
         await this.page.waitForTimeout(3000)
@@ -2612,13 +2618,13 @@ export class EluminaBlueprintsPage {
         await this.AddFilter.click();
         await this.page.waitForTimeout(2000);
         await this.selectFilter.click();
-        await this.selectFilter.selectOption('Type');
+        await this.selectFilter.selectOption('Status');
         await this.page.waitForTimeout(2000);
         await this.selectFilter1.click();
         await this.selectFilter1.selectOption('is equal to');
         await this.page.waitForTimeout(2000);
         await this.selectFilter2.click();
-        await this.selectFilter2.selectOption('ISAWE');
+        await this.selectFilter2.selectOption('Approved');
         await this.page.waitForTimeout(2000);
         await this.tickIconClick.click();
         await this.SaveButtonClicks.click();
@@ -2644,6 +2650,63 @@ export class EluminaBlueprintsPage {
         await this.saveButton.click();
         await this.page.waitForTimeout(2000);
         await expect(this.saveSuccessMessage).toHaveText("Cart Details updated successfully");
+    }
+
+    /**Method to create blueprint */
+    async createDraftBluePrint() {
+        await this.clickCreateBlueprint.click();
+        await this.typeTitle.click();
+        await this.page.waitForTimeout(2000);
+        await this.typeTitle.type(testData.BluePrintTitle + currentDate);
+        await this.page.waitForTimeout(2000);
+        await this.SelectBank.click();
+        await this.SelectBank.type(testData.TestBank2);
+        await this.TestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.cartName.click();
+        await this.cartName.type(testData.cartName);
+        await this.cartItemsRequired.click();
+        await this.cartItemsRequired.type(testData.cartItems);
+        await this.AddFilter.click();
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter.click();
+        await this.selectFilter.selectOption('Status');
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter1.click();
+        await this.selectFilter1.selectOption('is equal to');
+        await this.page.waitForTimeout(2000);
+        await this.selectFilter2.click();
+        await this.selectFilter2.selectOption('Approved');
+        await this.page.waitForTimeout(2000);
+        await this.tickIconClick.click();
+        await this.SaveButtonClicks.click();
+        await this.page.waitForTimeout(2000);
+        await this.closeButton.click();
+        await this.page.waitForTimeout(2000);
+        await this.nextButtonClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickOnSaveDraft.click();
+        await this.page.waitForTimeout(5000);
+        await this.ClickOnBackArrowBtn.click()
+        await this.page.waitForTimeout(5000);
+        await this.Blueprint.click()
+        await this.page.waitForTimeout(2000);
+        // console.log(await this.workflowSuccessMessage.textContent());
+        // await expect(this.workflowSuccessMessage).toHaveText("Workflow has been created successfuly");
+        // await this.editBlueprint.click();
+        // await this.page.waitForTimeout(2000);
+        // await this.cartButtonClick.click();
+        // await this.page.waitForTimeout(2000);
+        // await this.page.waitForSelector('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        // const checks = await this.page.$$('(//table[@class="table"])[2]//tbody//tr//td[1]')
+        // for (let i = 0; i < 1; i++) {
+        //     await checks[i].click()
+        // }
+        // await this.addToCart.click();
+        // await this.page.waitForTimeout(2000);
+        // await this.saveButton.click();
+        // await this.page.waitForTimeout(2000);
+        // await expect(this.saveSuccessMessage).toHaveText("Cart Details updated successfully");
     }
 
     /**

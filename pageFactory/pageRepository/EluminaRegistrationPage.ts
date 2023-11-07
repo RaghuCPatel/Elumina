@@ -343,6 +343,7 @@ export class EluminaRegistrationPage {
     readonly selectCandidate1: Locator;
     readonly selectInv: Locator;
     readonly bulkAssignInvPopup: Locator;
+    readonly clickongradebookId: Locator;
 
 
 
@@ -354,6 +355,7 @@ export class EluminaRegistrationPage {
         this.RegistrationMenu = page.locator('//a[text()="Registration"]');
         this.ClickOnCreatedExam = page.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a');
         this.ClickOnAddNewUsers = page.locator('//a[normalize-space()="Add New Users"]');
+        this.clickongradebookId = page.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a')
 
         this.EnterClientID = page.locator('//table[@class="table"]//tbody//tr[1]//td[2]//input');
         this.ChooseTitle = page.locator('//table[@class="table"]//tbody//tr[1]//td[3]//select');
@@ -479,7 +481,7 @@ export class EluminaRegistrationPage {
         this.liveDashboardVenueClick = page.locator('//input[@placeholder="Select Venue"]');
         this.liveDashboardSubmit = page.locator('//div[text()="Submit"]');
         this.liveDashboardlocationselect = page.locator('(//span[text()="Elumina Chennai"])[1]');
-        this.liveDashboardvenueselect = page.locator('//input[@class="open"]');
+        this.liveDashboardvenueselect = page.locator('//div[@class="open"]//input');
         this.ClickOnEditUser = page.locator('(//p[text()="Edit User"])[2]');
         this.ClickeditClientId = page.locator('(//input[@name="inputbox"])[1]');
         this.clickeditUsername = page.locator('(//input[@name="inputbox"])[2]');
@@ -528,7 +530,7 @@ export class EluminaRegistrationPage {
         this.specialConsiderationNotes = page.locator('(//p[text()="Special Consideration Notes"])[1]');
         this.restoreExam = page.locator('(//p[text()="Restore Exam"])[1]');
         this.downloadCandResponsePdf = page.locator('(//p[text()="Download Candidate Response PDF"])[1]');
-        this.liveMonitorVenueselect = page.locator('(//input[@class="open"])[20]');
+        this.liveMonitorVenueselect = page.locator('(//div[@class="input-wrap"])[3]//input');
         this.liveMonitorExamStatusclick = page.locator('//input[@placeholder="Select Exam Status"]');
         this.ClickOnBulkUploadUsers = page.locator('//a[normalize-space()="Bulk Upload Users"]');
         this.ClickOnInsertFile = page.locator('//label[@for="chooseFile"]');
@@ -1885,6 +1887,7 @@ export class EluminaRegistrationPage {
      */
     async gradeBookCheck() {
         await this.GradeBookMenu.click();
+        await this.clickongradebookId.click()
         await this.page.waitForTimeout(5000);
         const ExcelJS = require('exceljs');
         const wb = new ExcelJS.Workbook();

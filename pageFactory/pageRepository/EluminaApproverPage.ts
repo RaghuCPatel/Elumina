@@ -60,7 +60,7 @@ export class EluminaApproverPage {
         this.ClickOnCreatedExam = page.locator('//table[@class="table"]//tbody//tr[1]//td[3]//a');
         this.ClickOnWorkFlow = page.locator('//p[normalize-space()="Workflow"]')
         this.ClickOnApprove = page.locator('//button[normalize-space()="Approve"]')
-        this.ValidateSuccessfulPopMessage = page.locator('//span[text()="Status has been updated successfully."]')
+        this.ValidateSuccessfulPopMessage = page.locator('//div[@class="content-side"]//span')
         this.Blueprint = page.locator('//a[@data-tour="Blueprints"]');
         this.EXAMSMENU = page.locator('//a[text()="Exams"]');
         this.ClickOnSubmitAndApproveBtn = page.locator('//button[normalize-space()="Submit & Approve"]');
@@ -105,7 +105,7 @@ export class EluminaApproverPage {
         await this.page.waitForTimeout(3000);
         await this.ClickOnApprove.click()
         await this.page.waitForTimeout(3000);
-        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        await expect(this.ValidateSuccessfulPopMessage).toBeVisible();
     }
 
     /**Method for Blueprint Menu click on Menu bar */
