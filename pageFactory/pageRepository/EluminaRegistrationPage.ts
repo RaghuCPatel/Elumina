@@ -1388,9 +1388,9 @@ export class EluminaRegistrationPage {
         await this.liveDashboardLocationClick.click();
         await this.liveDashboardlocationselect.click();
         await this.page.waitForTimeout(3000);
-        await this.liveMonitorVenueselect.click();
-        await this.liveDashboardvenueselect.click();
-        await this.page.waitForTimeout(3000);
+        // await this.liveMonitorVenueselect.click();
+        // await this.liveDashboardvenueselect.click();
+        // await this.page.waitForTimeout(3000);
         await this.liveDashboardSubmit.click();
 
         await this.liveDashboardExamSession.isVisible();
@@ -1523,7 +1523,9 @@ export class EluminaRegistrationPage {
         await this.clickeditemail.type('demosad@yopmail.com');
         await this.clickeditphone.click();
         await this.clickeditphone.clear();
+        await this.page.waitForTimeout(10000);
         await this.clickeditphone.type('9899889988');
+        await this.page.waitForTimeout(10000);
         await this.ClickOnInvSaveBtn.click()
         await this.page.waitForTimeout(5000);
     }
