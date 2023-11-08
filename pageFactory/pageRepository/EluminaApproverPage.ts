@@ -104,7 +104,7 @@ export class EluminaApproverPage {
         await this.ClickOnWorkFlow.click()
         await this.page.waitForTimeout(3000);
         await this.ClickOnApprove.click()
-        await this.page.waitForTimeout(3000);
+        await this.page.waitForTimeout(2000);
         await expect(this.ValidateSuccessfulPopMessage).toBeVisible();
     }
 

@@ -27,7 +27,7 @@ Add 2x Sessions ( i.e. Content + Exam 1 Section)"`, async ({ eluminaLoginPage, e
         await newtab.clickOnSaveForEditQun()
         await newtab.createContentPagewithoutSave();
         await newtab.clickOnSaveForEditQun()
-        await newtab.createSection("1", "30")
+        await newtab.createSection("1", "0")
         await newtab.settingPassPercentage()
         await newtab.clickOnSaveForEditQun()
         await newtab.addVSAQQuestionswithoutNextForEditQun()
