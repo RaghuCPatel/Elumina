@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:single": "npx playwright test EluminaRegressioniAuthorTC_104.test.ts --project=Chrome",
+    "test:single": "npx playwright test EluminaRegressioniAuthorTC_033.test.ts --project=Chrome",
     "test:elumina": "npx playwright test Elumina.test.ts --project=Chrome",
     "test:parallel": "npx playwright test --grep \"@iExamRegression|@LowPriorityiExamCases\" --workers=4 --project=Chrome",
     "test:serial": "npx playwright test --grep \"@Serial-Pre-Request|@iExamSerialRegression\" --workers=1 --project=Chrome",
@@ -21,9 +21,8 @@
     "test:record": "npx playwright codegen",
     "test:visual": "npx playwright test visualComparision.test.ts --project=Chrome",
     "test:device": "npx playwright test Emulation.test.ts --project=Device",
-    "allureReport": "allure generate ./allure-results && allure open",
-    "lighthouse": "node tests/lighthouse/Lighthouse.js",
-    "clean": "rimraf allure-report/ && rimraf allure-results && rimraf test-results"
+    "allureReport": "allure serve",
+    "lighthouse": "node tests/lighthouse/Lighthouse.js"
   },
   "author": "IGS",
   "license": "MIT",
