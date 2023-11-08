@@ -620,7 +620,7 @@ export class EluminaRegistrationPage {
         this.selectExamName = page.locator('//input[@placeholder="Select Exam(s)"]');
         this.selectGradeBookName = page.locator('//input[@placeholder="search"]')
         this.selectSessionName = page.locator('input[placeholder="Select Session(s)"]');
-        this.selectSessionNamecheckBox = page.locator('//div[@class="open"]');
+        this.selectSessionNamecheckBox = page.locator('//input[@type="checkbox"]');
         this.gradeScale = page.locator('//input[@placeholder="Select Grade Scale"]');
         this.gradeScaleMerit = page.locator('(//div[@class="open container-left-padding"]//span)[3]');
         this.gradeScaleAggregate = page.locator('//div[normalize-space()="Grade Aggregation"]');
@@ -1391,9 +1391,6 @@ export class EluminaRegistrationPage {
         await this.liveDashboardLocationClick.click();
         await this.liveDashboardlocationselect.click();
         await this.page.waitForTimeout(3000);
-        // await this.liveMonitorVenueselect.click();
-        // await this.liveDashboardvenueselect.click();
-        // await this.page.waitForTimeout(3000);
         await this.liveDashboardSubmit.click();
 
         await this.liveDashboardExamSession.isVisible();
@@ -1524,11 +1521,7 @@ export class EluminaRegistrationPage {
         await this.clickeditemail.click();
         await this.clickeditemail.clear();
         await this.clickeditemail.type('demosad@yopmail.com');
-        await this.clickeditphone.click();
-        await this.clickeditphone.clear();
-        await this.page.waitForTimeout(10000);
-        await this.clickeditphone.type('9899889988');
-        await this.page.waitForTimeout(10000);
+        await this.clickeditphone.isVisible();
         await this.ClickOnInvSaveBtn.click()
         await this.page.waitForTimeout(5000);
     }
@@ -1837,7 +1830,7 @@ export class EluminaRegistrationPage {
             const ws = wb.getWorksheet('Sheet1');
             console.log("ExamId" + ws.getRow(1).getCell(1).value)
             await this.selectExamName.type(ws.getRow(1).getCell(1).value);
-            await this.page.waitForTimeout(10000);
+            await this.page.waitForTimeout(20000);
             await this.selectSessionNamecheckBox.click();
             await this.page.waitForTimeout(10000);
         })
