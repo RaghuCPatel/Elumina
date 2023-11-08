@@ -333,8 +333,10 @@ export class EluminaCreateQuestionsPage {
     readonly clickOnApprovalButton: Locator;
     readonly clickOnCloseIcon: Locator;
     readonly moreOptionClick2: Locator;
+    readonly clickYesDelete: Locator;
     readonly clickOnYes: Locator;
     readonly YesBtnClick: Locator;
+
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -639,7 +641,9 @@ export class EluminaCreateQuestionsPage {
         this.nextButtonClick = page.locator('//button[text()="Next"]');
         this.clickOnSaveDraft = page.locator('//button[text()="Save Draft"]');
         this.clickOnStatusTitle = page.locator('(//label[@class="accordian-none"])[2]')
-        this.clickOnCloseIcon = page.locator('(//button[@class="close"])[1]')
+        this.clickOnCloseIcon = page.locator('(//button[@class="close"])[1]');
+        this.clickYesDelete = page.locator('(//button[@class="theme-button-blue"])[9]')
+
 
     }
 
@@ -1526,7 +1530,7 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(5000);
         await this.clickMoreOption.click();
         await this.clickDelete.click();
-        await this.clickOnYes.click();
+        await this.clickYesDelete.click();
     }
 
     /**Method to validate blueprint question delete */
@@ -2763,8 +2767,9 @@ export class EluminaCreateQuestionsPage {
         await this.ClickOnWorkFlow.click()
         await this.page.waitForTimeout(3000);
         await this.clickOnApprovalButton.click()
-        await this.page.waitForTimeout(2000);
-        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfully.');
+        await this.page.waitForTimeout(5000);
+        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfuly');
+
     }
 
     async reviewToReviewer() {

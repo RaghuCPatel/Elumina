@@ -20,7 +20,7 @@ Add 3 sections (i.e. Content + Exam Section + Survey Section)"`, async ({ elumin
         await newtab.verifyExamPage()
         await newtab.clickOnScratchFromExam()
         await newtab.createExam()
-        await newtab.selectAllTools()
+        await newtab.selectAllToolswithCreated()
         await newtab.createContentSection("1");
         await newtab.createContentPage();
         await newtab.createSection("1", "30")
