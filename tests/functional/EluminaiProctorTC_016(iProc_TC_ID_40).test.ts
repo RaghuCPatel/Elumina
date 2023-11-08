@@ -42,9 +42,9 @@ test(`Exam_Prerequisit_ID_01. @iProctorlink Verify Create Exam With Content Sect
         const newtab = await eluminaProctorExam.iAuthorPageNavigation();
         await newtab.examTabNavigation();
         await newtab.createExam();
-        await newtab.createContentSection();
+        await newtab.createContentSection("1");
         await newtab.createContentPage();
-        await newtab.createSections();
+        await newtab.createSections("1", "30");
         await newtab.addMCQQuestions();
     });
 });
@@ -60,10 +60,10 @@ test(`Reg_Prerequisit_ID_01A. @iProctorlink Verify Elumina Registration`, async 
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaProctorReg.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.addUserDetails();
-        await newtab.downloadUserDetails();
+        await newtab.addMultipleUserDetails();
+        await newtab.BulkDownloadUserDetails();
         await newtab.addExistingUsers();
-        await newtab.logoutClick();
+        await newtab.searchCandidate();
     });
 });
 

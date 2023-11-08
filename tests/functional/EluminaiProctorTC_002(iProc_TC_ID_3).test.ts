@@ -9,7 +9,7 @@ test(`iProc_TC_ID_3. @Smoke Verify CandidatesInvExam`, async ({ eluminaCadInvPag
     });
 
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCadInvPage.candidateLoginToApplicationsByEnteringUsername();
+        await eluminaCadInvPage.candidateLoginToApplicationsByEnteringUsername(2);
         //await eluminaCadInvPage.logoutClick();
     });
 });
