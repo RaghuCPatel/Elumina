@@ -1976,8 +1976,8 @@ export class EluminaBlueprintsPage {
         }
         await this.ChooseBookingStartSession.check();
         await this.BookingOK.click();
-        await this.ClickOnAdd.click();
-        await this.clickOnMinusicon.click()
+        // await this.ClickOnAdd.click();
+        // await this.clickOnMinusicon.click()
         await this.ClickOnExamVenue.click();
         await this.ChooseExamVenue.click();
         await this.ClickOnAdd.click();

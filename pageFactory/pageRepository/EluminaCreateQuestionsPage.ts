@@ -453,7 +453,7 @@ export class EluminaCreateQuestionsPage {
         this.clickCheckout = page.locator('//a[text()="Check Out"]');
         this.clickDelete = page.locator('//a[text()="Delete"]');
         this.clickYes = page.locator('(//div[@class="modal-footer"])[6]//button[2]');
-        this.clickOnYes = page.locator('(//button[@type="button"][normalize-space()="Yes"])[4]')
+        this.clickOnYes = page.locator('(//button[@type="button"][normalize-space()="Yes"])[5]')
         this.YesBtnClick = page.locator('(//button[@type="button"][normalize-space()="Yes"])[3]')
         this.clickYesDuplicate = page.locator('(//button[@type="button"][normalize-space()="Yes"])[4]');
         this.clickonDuplicate = page.locator('//a[text()="Duplicate"]');
@@ -1522,7 +1522,7 @@ export class EluminaCreateQuestionsPage {
         await this.clickQuestionId.click();
         await this.clickMoreOption.click();
         await this.clickCheckout.click();
-        await this.clickOnYes.click();
+        await this.clickYes.click();
         await this.page.waitForTimeout(5000);
         await this.clickMoreOption.click();
         await this.clickDelete.click();
@@ -1577,7 +1577,7 @@ export class EluminaCreateQuestionsPage {
         await this.MCQQuestionsClick.click();
         await this.NextButtonClick.click();
         await this.NextButtonClick.click();
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(1000);
         await expect(this.EmptyFieldErrorMessage).toBeVisible()
     }
 
@@ -1588,7 +1588,7 @@ export class EluminaCreateQuestionsPage {
         await this.ClickOnVSAQ.click();
         await this.NextButtonClick.click();
         await this.NextButtonClick.click();
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(1000);
         await expect(this.EmptyFieldErrorMessage).toBeVisible()
     }
 
@@ -1600,7 +1600,7 @@ export class EluminaCreateQuestionsPage {
         await this.ISAWEQuestionsClick.click();
         await this.NextButtonClick.click();
         await this.NextButtonClick.click();
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(1000);
         await expect(this.EmptyFieldErrorMessage).toBeVisible()
     }
 
@@ -1611,7 +1611,7 @@ export class EluminaCreateQuestionsPage {
         await this.ClickOnSAQ.click();
         await this.NextButtonClick.click();
         await this.NextButtonClick.click();
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(1000);
         await expect(this.EmptyFieldErrorMessage).toBeVisible()
     }
 
@@ -1622,7 +1622,7 @@ export class EluminaCreateQuestionsPage {
         await this.ClickOnTypeB.click();
         await this.NextButtonClick.click();
         await this.NextButtonClick.click();
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(1000);
         await expect(this.EmptyFieldErrorMessage).toBeVisible()
     }
 
@@ -2764,7 +2764,7 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(3000);
         await this.clickOnApprovalButton.click()
         await this.page.waitForTimeout(2000);
-        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfully.');
+        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfuly');
     }
 
     async reviewToReviewer() {
