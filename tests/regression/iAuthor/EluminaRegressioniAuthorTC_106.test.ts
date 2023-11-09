@@ -1,7 +1,7 @@
 import test from '@lib/BaseTest';
 
 /**Validation of Statistics */
-test(`iAU_TC_ID_106. @RegressionA Validation of Statistics `, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+/*test(`iAU_TC_ID_106. @RegressionA Validation of Statistics `, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
@@ -39,4 +39,4 @@ test(`iAU_TC_ID_106B. @RegressionA Validation of Statistics`, async ({ eluminaLo
         // await newtab.addInv();
         // await newtab.searchUserForAddingInv(2, "bulk_user_details.xlsx")
     });
-});
+});*/

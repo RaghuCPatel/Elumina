@@ -20,7 +20,7 @@ Add 1x Session (i.e AM Session) and 2x Section( i.e. Content + Exam 1 Section)"`
         await newtab.verifyExamPage()
         await newtab.clickOnScratchFromExam()
         await newtab.createExam()
-        await newtab.selectAllTools()
+        await newtab.selectAllToolswithCreated()
         await newtab.createContentSection("1");
         await newtab.createContentPage();
         await newtab.createSection("1", "30")

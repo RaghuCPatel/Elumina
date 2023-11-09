@@ -20,7 +20,7 @@ Add 4x sections (i.e Content + Exam 1 Section + Exam 2 Section + Exam 3 Section 
         await newtab.verifyExamPage()
         await newtab.clickOnScratchFromExam()
         await newtab.createExam()
-        await newtab.selectAllTools()
+        await newtab.selectAllToolswithCreated()
         await newtab.createContentSection("1");
         await newtab.createContentPage();
         await newtab.createSection("1", "30")

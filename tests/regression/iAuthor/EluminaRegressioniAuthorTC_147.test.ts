@@ -20,7 +20,7 @@ Add 1x Session (i.e Exam Section Only)"`, async ({ eluminaLoginPage, eluminaBlue
         await newtab.clickOnCreateExam();
         await newtab.clickOncopyTemplate()
         await newtab.clickOnAddandclickOnNext()
-        await newtab.selectAllTools()
+        await newtab.selectAllToolswithCreated()
         await newtab.editTime()
         await newtab.clickOnSave()
         await newtab.createSection("1", "30")

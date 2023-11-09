@@ -20,7 +20,7 @@ Add 3 sections (i.e. Content + Exam 1 Section + Exam 2 Section with Survey)"`, a
         await newtab.clickOnCreateExam();
         await newtab.clickOncopyTemplate()
         await newtab.clickOnAddandclickOnNext()
-        await newtab.selectAllTools()
+        await newtab.selectAllToolswithCreated()
         await newtab.editTime()
         await newtab.clickOnSave()
         await newtab.createContentSection("1");

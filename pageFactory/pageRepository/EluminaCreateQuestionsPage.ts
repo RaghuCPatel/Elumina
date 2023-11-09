@@ -456,7 +456,7 @@ export class EluminaCreateQuestionsPage {
         this.clickDelete = page.locator('//a[text()="Delete"]');
         this.clickYes = page.locator('(//div[@class="modal-footer"])[6]//button[2]');
         this.clickOnYes = page.locator('(//button[@type="button"][normalize-space()="Yes"])[5]')
-        this.YesBtnClick = page.locator('(//button[@type="button"][normalize-space()="Yes"])[3]')
+        this.YesBtnClick = page.locator('(//button[@type="button"][normalize-space()="Yes"])[7]')
         this.clickYesDuplicate = page.locator('(//button[@type="button"][normalize-space()="Yes"])[4]');
         this.clickonDuplicate = page.locator('//a[text()="Duplicate"]');
         this.clickonArchive = page.locator('//a[text()="Archive"]')
@@ -1523,6 +1523,8 @@ export class EluminaCreateQuestionsPage {
 
     /**Method tp validate question delete */
     async validateQuestionDelete() {
+        await this.SearchDraftQuestions.type('Approved')
+        await this.page.waitForTimeout(3000)
         await this.clickQuestionId.click();
         await this.clickMoreOption.click();
         await this.clickCheckout.click();
@@ -1562,7 +1564,7 @@ export class EluminaCreateQuestionsPage {
         await this.clickMoreOption.click();
         await this.clickonArchive.click();
         await this.page.waitForTimeout(2000);
-        await this.YesBtnClick.click();
+        await this.clickYesDuplicate.click();
         console.log(await this.ArchiveSuccessMessage.textContent());
     }
 
@@ -1617,6 +1619,7 @@ export class EluminaCreateQuestionsPage {
         await this.NextButtonClick.click();
         await this.page.waitForTimeout(1000);
         await expect(this.EmptyFieldErrorMessage).toBeVisible()
+        await this.page.waitForTimeout(1000);
     }
 
     /**Method to validate TypeB Question */
@@ -2767,8 +2770,9 @@ export class EluminaCreateQuestionsPage {
         await this.ClickOnWorkFlow.click()
         await this.page.waitForTimeout(3000);
         await this.clickOnApprovalButton.click()
+        await this.page.waitForTimeout(7000);
+        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfully.');
         await this.page.waitForTimeout(5000);
-        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfuly');
     }
 
     async reviewToReviewer() {
