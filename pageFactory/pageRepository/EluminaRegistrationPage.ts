@@ -344,6 +344,8 @@ export class EluminaRegistrationPage {
     readonly selectInv: Locator;
     readonly bulkAssignInvPopup: Locator;
     readonly clickongradebookId: Locator;
+    readonly clickOnExistingUserDetails: Locator;
+    readonly seletOverridefile: Locator;
 
 
 
@@ -541,10 +543,12 @@ export class EluminaRegistrationPage {
         this.newUserPassword = page.locator('//input[@placeholder="Select New User Password"]');
         this.forcePasswordChange = page.locator('//input[@placeholder="Select Force Password Change"]');
         this.emailRegistrationDetails = page.locator('//input[@placeholder="Select Email Registration Details"]');
-        this.addNewOnly = page.locator('//span[text()="Add new only, skip existing users"]');
+        this.addNewOnly = page.locator('//span[text()="Add new and update existing users "]');
         this.feildRequiredInFile = page.locator('//span[text()="Field required in file"]');
+        this.clickOnExistingUserDetails = page.locator('//input[@placeholder="Select Existing User Details"]')
+        this.seletOverridefile = page.locator('//span[text()="Override with file"]')
         this.ForcePwdNone = page.locator('//span[text()="None"]');
-        this.RegistrationDetails = page.locator('//span[text()="Yes, Registration details and Login details"]');
+        this.RegistrationDetails = page.locator('(//span[text()="No"])[2]');
         this.clickoncandidateId = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[5]');
         this.checkCandidateId = page.locator('//span[@class="tex-dis-details"]//span[1]');
         this.clickOniProctorCandidate = page.locator('//table[@class="table table-spacing"]//tbody//tr[1]//td[7]');
@@ -1594,9 +1598,9 @@ export class EluminaRegistrationPage {
     /**
     * method to upload bulk users with vaild feilds
     */
-    async bulkUploadUserswithvalidfeilds() {
+    async bulkUploadUserswithvalidfeilds(bulkusers) {
         await this.ClickOnBulkUploadUsers.click();
-        await this.ClickOnInsertFile.setInputFiles('lib/Images/sample_users.csv');
+        await this.ClickOnInsertFile.setInputFiles(bulkusers);
         await this.page.waitForTimeout(5000);
         await this.nextButtonClick.click();
         await this.page.waitForTimeout(8000);
@@ -1608,6 +1612,10 @@ export class EluminaRegistrationPage {
         await this.newUserPassword.click();
         await this.page.waitForTimeout(1000);
         await this.feildRequiredInFile.click();
+        await this.page.waitForTimeout(1000);
+        await this.clickOnExistingUserDetails.click()
+        await this.page.waitForTimeout(1000);
+        await this.seletOverridefile.click()
         await this.page.waitForTimeout(1000);
         await this.forcePasswordChange.click();
         await this.page.waitForTimeout(1000);

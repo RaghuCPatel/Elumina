@@ -513,7 +513,7 @@ export class EluminaExamPage {
     await this.ClickOnAdd.click();
     await this.EnterNoOfCandidates.click();
     await this.EnterNoOfCandidates.clear();
-    await this.EnterNoOfCandidates.type('50');
+    await this.EnterNoOfCandidates.type('200');
     await this.ClickOnAdd.click();
   }
 

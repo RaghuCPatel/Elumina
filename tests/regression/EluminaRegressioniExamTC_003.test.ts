@@ -32,8 +32,8 @@ test(` . @Pre-Request Verify Elumina RegistrationInv and add User and Invigilato
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.clickaddMoreUsersIcon(25)
-        await newtab.addMultipleUserDetails(34);
+        await newtab.bulkUploadUserswithvalidfeilds('lib/Images/Sample User_1-32.csv')
+        // await newtab.addMultipleUserDetails(34);
         await newtab.BulkDownloadUserDetails("bulk_user_details.xlsx");
         await newtab.addInv();
         await newtab.searchUserForAddingInv(2, "bulk_user_details.xlsx")
@@ -82,8 +82,8 @@ test(` . @Pre-Request Verify Elumina RegistrationInv and add User and Invigilato
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.clickaddMoreUsersIcon(5)
-        await newtab.addMultipleUserDetails(13);
+        await newtab.bulkUploadUserswithvalidfeilds('lib/Images/Sample User_33-48.csv')
+        //await newtab.addMultipleUserDetails(13);
         await newtab.BulkDownloadUserDetails("bulkUserCredentialForSurveyExam.xlsx");
         await newtab.addInv();
         await newtab.searchUserForAddingInv(2, "bulkUserCredentialForSurveyExam.xlsx")
@@ -121,7 +121,7 @@ test(` . @Pre-Request Verify Elumina RegistrationInv and add User and Invigilato
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.addMultipleUserDetails(4);
+        await newtab.bulkUploadUserswithvalidfeilds('lib/Images/Sample User_50-57.csv')
         await newtab.BulkDownloadUserDetails("bulkUserCredentialForMinimalTimeExam.xlsx");
         await newtab.addInv();
         await newtab.searchUserForAddingInv(2, "bulkUserCredentialForMinimalTimeExam.xlsx")
@@ -162,8 +162,8 @@ test(` . @Pre-Request Verify Elumina Registration4`, async ({ eluminaLoginPage, 
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.clickaddMoreUsersIcon(5)
-        await newtab.addMultipleUserDetails(13);
+        await newtab.bulkUploadUserswithvalidfeilds('lib/Images/Sample User_62-71.csv')
+        //await newtab.addMultipleUserDetails(13);
         await newtab.BulkDownloadUserDetails("bulkUserCredentialForMcqExamwithContentSection.xlsx");
         await newtab.addInv();
         await newtab.searchUserForAddingInv(2, "bulkUserCredentialForMcqExamwithContentSection.xlsx")
@@ -208,8 +208,8 @@ test(` . @Pre-Request Verify Elumina Registration5`, async ({ eluminaLoginPage, 
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.clickaddMoreUsersIcon(4)
-        await newtab.addMultipleUserDetails(13);
+        await newtab.bulkUploadUserswithvalidfeilds('lib/Images/Sample User_72-82.csv')
+        // await newtab.addMultipleUserDetails(13);
         await newtab.BulkDownloadUserDetails("bulkUserCredentialForAllTypeQutnExam.xlsx");
         await newtab.addInv();
         await newtab.searchUserForAddingInv(2, "bulkUserCredentialForAllTypeQutnExam.xlsx")
@@ -300,8 +300,8 @@ test(` . @Pre-Request  Verify Elumina Registration1P`, async ({ eluminaLoginPage
     await test.step(`Navigate to exam Tab and Create New user`, async () => {
         const newtab = await eluminaRegPage.iAuthorPageNavigations();
         await newtab.registrationTabNavigation();
-        await newtab.clickaddMoreUsersIcon(13)
-        await newtab.addMultipleUserDetails(20);
+        await newtab.bulkUploadUserswithvalidfeilds('lib/Images/Sample User_92-100.csv')
+        //await newtab.addMultipleUserDetails(20);
         await newtab.BulkDownloadUserDetails("bulkUserCredentialForAllTypeQutnExamwithContent.xlsx");
         await newtab.addInv();
         await newtab.searchUserForAddingInv(2, "bulkUserCredentialForAllTypeQutnExamwithContent.xlsx")
