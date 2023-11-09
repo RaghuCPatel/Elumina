@@ -1998,7 +1998,9 @@ export class EluminaBlueprintsPage {
         await this.SelectNotepad.click();
         await this.SelectHighlighter.click();
         await this.ClickOnNextBtn.click();
-        await expect(this.verifyArchivePopup).toHaveText("Exam created successfully")
+        await this.page.waitForTimeout(3000);
+        await expect(this.verifyArchivePopup).toHaveText("Exam updated successfully")
+        await this.page.waitForTimeout(3000);
         await expect(this.VerifyExam_details).toBeVisible();
         await expect(this.VerifyChoose_Question).toBeVisible();
         await expect(this.VerifyChoose_Workflow).toBeVisible();

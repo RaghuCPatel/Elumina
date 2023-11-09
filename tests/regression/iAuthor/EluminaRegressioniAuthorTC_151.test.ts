@@ -25,7 +25,7 @@ Add 2x sessions (with duplicate sections)"`, async ({ eluminaLoginPage, eluminaB
         await newtab.clickOnCreateExam();
         await newtab.clickOncopyTemplate()
         await newtab.clickOnAddandclickOnNext()
-        await newtab.selectAllTools()
+        await newtab.selectAllToolswithCreated()
         await newtab.editTime()
         await newtab.clickOnSave()
         await newtab.createContentSection("1");
@@ -60,7 +60,7 @@ Add 2x sessions (with duplicate sections)"`, async ({ eluminaLoginPage, eluminaB
         await newtab.clickOnCreateExam();
         await newtab.clickOncopyTemplate()
         await newtab.clickOnAddandclickOnNext()
-        await newtab.selectAllTools()
+        await newtab.selectAllToolswithCreated()
         await newtab.editTime()
         await newtab.clickOnSave()
         await newtab.createContentSection("1");

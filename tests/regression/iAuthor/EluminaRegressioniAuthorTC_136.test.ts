@@ -25,7 +25,7 @@ Add 2x sessions  (i.e AM and PM Sessions (with duplicate sections)"`, async ({ e
         await newtab.verifyExamPage()
         await newtab.clickOnScratchFromExam()
         await newtab.createExam()
-        await newtab.selectAllTools()
+        await newtab.selectAllToolswithCreated()
         await newtab.createContentSection("1");
         await newtab.createContentPage();
         await newtab.createSection("1", "30")
@@ -58,7 +58,7 @@ Add 2x sessions (with duplicate sections)"`, async ({ eluminaLoginPage, eluminaB
         await newtab.verifyExamPage()
         await newtab.clickOnScratchFromExam()
         await newtab.createExam()
-        await newtab.selectAllTools()
+        await newtab.selectAllToolswithCreated()
         await newtab.createContentSection("1");
         await newtab.createContentPage();
         await newtab.createSection("1", "30")

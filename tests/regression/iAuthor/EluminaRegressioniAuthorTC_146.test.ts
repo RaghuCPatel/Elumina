@@ -15,7 +15,7 @@ test(`iAU_TC_ID_146. @RegressionA Validation of Create Exam – Copy from templa
         await newtab.clickOnCreateExam();
         await newtab.clickOncopyTemplate()
         await newtab.clickOnAddandclickOnNext()
-        await newtab.selectAllTools()
+        await newtab.selectAllToolswithCreated()
         await newtab.logoutClick()
     });
 
