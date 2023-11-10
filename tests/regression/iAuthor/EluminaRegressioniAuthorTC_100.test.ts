@@ -13,7 +13,5 @@ test(`iAU_TC_ID_100. @RegressionA Validation of Question Approval Workflow`, asy
         const newtab = await eluminaCreateQuestionsPage.iAuthorPageNavigation();
         await newtab.QuestionsMenuClick();
         await newtab.reviewToReviewer();
-        await newtab.logoutClick()
-
     });
 });
