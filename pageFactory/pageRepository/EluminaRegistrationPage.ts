@@ -1019,9 +1019,17 @@ export class EluminaRegistrationPage {
                 await this.SearchUsers.click()
                 await this.SearchUsers.clear()
                 await this.SearchUsers.type(ws.getRow(i).getCell(1).value);
+                await this.page.waitForTimeout(6000);
+                // await this.ClickOnDropdown.click();
+                // await this.ClickOnAssignInv.click();
+                // await this.AssignUsersToCand.click();
+                // await this.AssignInvToCand.click();
+                // await this.ClickOnInvSaveBtn.click();
+                // await expect(this.invSuccessMessagePopup).toHaveText("Invigilator has been assigned successfully");
+                // await this.page.waitForTimeout(5000);
 
             })
-            await this.page.waitForTimeout(3000);
+            await this.page.waitForTimeout(5000);
             await this.ClickOnDropdown.click();
             await this.ClickOnAssignInv.click();
             await this.AssignUsersToCand.click();
@@ -1099,6 +1107,7 @@ export class EluminaRegistrationPage {
 
     /**Method for logout */
     async logoutClick() {
+        await this.page.waitForTimeout(2000);
         await this.MenuIconClick.click();
         await this.logoutbuttonClick.click();
 

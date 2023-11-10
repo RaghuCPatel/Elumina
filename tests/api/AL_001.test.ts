@@ -19,9 +19,18 @@ test("To verify if an admin can successfully log in to an Assess App", async ({ 
             }
         });
     console.log(await response.json())
+    //Status code validation
     expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+
 
     var res = await response.json()
     token = res.access_token
+    //Verify Response Payload
     expect(await res.message).toEqual("Login Successful")
 })
