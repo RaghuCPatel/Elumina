@@ -25,7 +25,6 @@ Archive Blueprint used in up coming exam"`, async ({ eluminaLoginPage, eluminaBl
         await newtab.blueprintArchiveErrorMsg()
         await newtab.logoutClick()
 
-
     });
 
 });

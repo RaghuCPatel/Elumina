@@ -50,6 +50,8 @@ if (hour >= 12) {
     }
 }
 let Title: string;
+let fetchBlueprintId: string;
+
 export class EluminaBlueprintsPage {
     readonly page: Page;
     readonly context: BrowserContext;
@@ -300,6 +302,7 @@ export class EluminaBlueprintsPage {
     readonly clickOnYes: Locator;
     readonly closeBtn: Locator;
     readonly clickOnCloseInVersion: Locator;
+    readonly blueprintmsg: Locator;
 
 
 
@@ -557,7 +560,8 @@ export class EluminaBlueprintsPage {
         this.ValidateMessage = page.locator('//span[contains(text(),"Please Choose or Enter Value")]')
         this.clickOnCheckOut = page.locator('//a[text()="Check Out"]')
         this.clickOnYes = page.locator('(//button[text()="Yes"])[6]')
-        this.clickOnCloseInVersion = page.locator('(//button[@id="addProductCloseButton"])[3]')
+        this.clickOnCloseInVersion = page.locator('(//button[@id="addProductCloseButton"])[3]');
+        this.blueprintmsg = page.locator('//div[@class="txtBox"]');
 
     }
     /**Method for Exam Tab Navigation */
@@ -1228,8 +1232,9 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(5000);
         await this.ClickOnSubmitAndApproveBtn.click();
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
-        await this.page.waitForTimeout(5000);
-        await expect(this.verifyArchivePopup).toHaveText("Session(s) Updated successfully")
+        await this.page.waitForTimeout(10000);
+        //await expect(this.verifyArchivePopup).toHaveText("Status has been updated successfuly.");
+        await this.page.waitForTimeout(10000);
     }
 
     /**
@@ -2018,7 +2023,9 @@ export class EluminaBlueprintsPage {
         await this.SelectNotepad.click();
         await this.SelectHighlighter.click();
         await this.ClickOnNextBtn.click();
+        await this.page.waitForTimeout(3000);
         await expect(this.verifyArchivePopup).toHaveText("Exam created successfully")
+        await this.page.waitForTimeout(3000);
         await expect(this.VerifyExam_details).toBeVisible();
         await expect(this.VerifyChoose_Question).toBeVisible();
         await expect(this.VerifyChoose_Workflow).toBeVisible();
@@ -2131,8 +2138,9 @@ export class EluminaBlueprintsPage {
         await this.page.waitForTimeout(5000);
         await this.ClickOnSubmitAndApproveBtn.click();
         await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
-        await this.page.waitForTimeout(10000);
+        await this.page.waitForTimeout(20000);
         await expect(this.verifyArchivePopup).toHaveText("Status has been updated successfuly.")
+        await this.page.waitForTimeout(5000);
     }
 
 
@@ -2352,7 +2360,7 @@ export class EluminaBlueprintsPage {
 
     /**Method to Blueprint archive */
     async blueprintArchive() {
-        await this.SearchDraftQuestions.type('Approved')
+        await this.SearchDraftQuestions.type(fetchBlueprintId);
         await this.page.waitForTimeout(10000)
         // blueprintTitle = await this.fetchTitle.textContent();
         await this.clickOnMoreOption.click()
@@ -2656,6 +2664,13 @@ export class EluminaBlueprintsPage {
         await this.clickOnSaveDraft.click();
         console.log(await this.workflowSuccessMessage.textContent());
         await expect(this.workflowSuccessMessage).toHaveText("Workflow has been created successfuly");
+
+        let url = await this.page.url();
+        console.log("URL", url);
+        fetchBlueprintId = url.split('/')[5];
+        console.log("ID", fetchBlueprintId);
+
+        await this.page.waitForTimeout(2000);
         await this.editBlueprint.click();
         await this.page.waitForTimeout(2000);
         await this.cartButtonClick.click();

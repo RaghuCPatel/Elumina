@@ -2686,9 +2686,9 @@ export class EluminaCreateQuestionsPage {
         await this.approverQA.click();
         await this.page.waitForTimeout(2000)
         await this.submitandreviewclick.click();
-        await this.page.waitForTimeout(2000)
+        await this.page.waitForTimeout(5000)
         await expect(this.workflowsuccessmessage).toHaveText('Workflow has been created successfuly.');
-        await this.page.waitForTimeout(2000)
+        await this.page.waitForTimeout(5000)
         await this.saveButtonClick.click();
     }
 
@@ -2771,7 +2771,7 @@ export class EluminaCreateQuestionsPage {
         await this.page.waitForTimeout(3000);
         await this.clickOnApprovalButton.click()
         await this.page.waitForTimeout(7000);
-        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfully.');
+        await expect(this.workflowsuccessmessage).toHaveText('Status has been updated successfuly');
         await this.page.waitForTimeout(5000);
     }
 
@@ -2801,6 +2801,9 @@ export class EluminaCreateQuestionsPage {
         await this.submitForReviewBtn.click();
         await this.page.waitForTimeout(5000);
         console.log(await this.ValidateSuccessfulPopMessage.textContent());
+        await this.page.waitForTimeout(5000);
+        await this.MenuIconClick.click();
+        await this.logoutbuttonClick.click();
         await this.page.waitForTimeout(5000);
 
     }

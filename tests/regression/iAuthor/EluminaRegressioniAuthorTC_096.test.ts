@@ -15,7 +15,7 @@ test(`iAU_TC_ID_96. @RegressionA Validation of Question Checkout and delete whic
         await newtab.verifyExamPage()
         await newtab.clickOnScratchFromExam()
         await newtab.createExam()
-        await newtab.selectAllTools()
+        await newtab.selectAllToolswithCreated()
         await newtab.createSection("1", "30")
         await newtab.clickOnSave()
         await newtab.addVSAQQuestions()

@@ -17,7 +17,7 @@ test(`iAU_TC_ID_131. @RegressionA Validation of Create Exam – Start from scrat
         await newtab.withoutSelectingDate()
         await newtab.withoutClickOnAdd()
         await newtab.clickOnAddandclickOnNext()
-        await newtab.selectAllTools()
+        await newtab.selectAllToolswithCreated()
         await newtab.logoutClick()
 
     });
