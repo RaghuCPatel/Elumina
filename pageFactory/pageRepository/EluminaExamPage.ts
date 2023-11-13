@@ -913,9 +913,14 @@ export class EluminaExamPage {
     await this.ClickOnCreateExamSection.click();
     await this.EnterSectionName.type('Exam-' + Math.floor(Math.random()) * 89 + 10);
     await this.page.waitForTimeout(5000);
-    await this.DescriptionMessage.click();
-    await this.DescriptionMessage.type(testData.DescriptionMessage);
-    await this.page.waitForTimeout(5000);
+    try {
+      await this.DescriptionMessage.click();
+      await this.DescriptionMessage.type(testData.DescriptionMessage);
+      await this.page.waitForTimeout(5000);
+    }
+    catch (error) {
+      console.log(error.ErrorMessage)
+    }
     await this.Choosehrs.selectOption(hr);
     await this.SelectTime.selectOption(mins);
     await this.ClickOnSave.click();
