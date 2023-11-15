@@ -2040,8 +2040,10 @@ export class EluminaBlueprintsPage {
         await this.page.waitForSelector('//i[@class="close"]')
         const closeIcons = await this.page.$$('//i[@class="close"]')
         for (let i = 0; i < 2; i++) {
+            await this.page.waitForTimeout(5000);
             await closeIcons[i].click()
             await this.page.locator('(//button[text()="Yes"])[5]').click()
+            await this.page.waitForTimeout(3000);
         }
     }
 
