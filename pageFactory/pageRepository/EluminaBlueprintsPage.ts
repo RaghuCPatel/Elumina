@@ -1690,7 +1690,9 @@ export class EluminaBlueprintsPage {
         await this.SELECTBANK.click();
         await this.SELECTBANK.type(testData.TestBank2);
         await this.TESTBANK.click();
+        await this.EXAMNAME.clear();
         await this.EXAMNAME.type('DEMO' + Math.floor(Math.random() * 899999 + 100000));
+        await this.EXAMCODE.clear();
         await this.EXAMCODE.type('D' + Math.floor(Math.random() * 89 + 100));
         await this.ClickOnExamVenue.click();
         await this.ChooseExamVenue.click();
@@ -1871,7 +1873,9 @@ export class EluminaBlueprintsPage {
         await this.SELECTBANK.click();
         await this.SELECTBANK.type(testData.TestBank2);
         await this.TESTBANK.click();
+        await this.EXAMNAME.clear();
         await this.EXAMNAME.type('DEMO' + Math.floor(Math.random() * 899999 + 100000));
+        await this.EXAMCODE.clear();
         await this.EXAMCODE.type('D' + Math.floor(Math.random() * 89 + 100));
 
 
@@ -1983,9 +1987,9 @@ export class EluminaBlueprintsPage {
         await this.BookingOK.click();
         // await this.ClickOnAdd.click();
         // await this.clickOnMinusicon.click()
-        await this.ClickOnExamVenue.click();
-        await this.ChooseExamVenue.click();
-        await this.ClickOnAdd.click();
+        // await this.ClickOnExamVenue.click();
+        // await this.ChooseExamVenue.click();
+        // await this.ClickOnAdd.click();
         await this.EnterNoOfCandidates.click();
         await this.EnterNoOfCandidates.clear();
         await this.EnterNoOfCandidates.type('30');

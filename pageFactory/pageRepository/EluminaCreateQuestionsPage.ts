@@ -1523,12 +1523,14 @@ export class EluminaCreateQuestionsPage {
 
     /**Method tp validate question delete */
     async validateQuestionDelete() {
+        await this.SearchDraftQuestions.clear();
+        await this.page.waitForTimeout(2000)
         await this.SearchDraftQuestions.type('Approved')
         await this.page.waitForTimeout(3000)
         await this.clickQuestionId.click();
         await this.clickMoreOption.click();
         await this.clickCheckout.click();
-        await this.clickYes.click();
+        await this.YesBtnClick.click();
         await this.page.waitForTimeout(5000);
         await this.clickMoreOption.click();
         await this.clickDelete.click();
