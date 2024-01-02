@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { exam_ID } from 'tests/api/ES_exam.test';
+import { exam_ID } from 'tests/api/Api_ES_exam.test';
 
 let dateObj = new Date();
 let month = dateObj.getUTCMonth() + 1; //months from 1-12

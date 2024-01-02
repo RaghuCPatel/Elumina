@@ -39032,3 +39032,514 @@
 {"level":"info","message":"Executing Step : Login to Elumina application"}
 {"level":"info","message":"Executing Step : Verify User is logged in and navigated to Elumina Homepage"}
 {"level":"info","message":"Executing Step : Navigate to exam Tab and Create New Exam"}
+{"level":"info","message":"Test Case Started : AL_002. @API To verify the response when passing an invalid endpoint."}
+{"level":"info","message":"Test Case Completed : AL_002. @API To verify the response when passing an invalid endpoint. Status : passed"}
+{"level":"info","message":"Test Case Started : AL_003. @API To verify the response when an incorrect HTTP method is used for a request."}
+{"level":"info","message":"Test Case Completed : AL_003. @API To verify the response when an incorrect HTTP method is used for a request. Status : passed"}
+{"level":"info","message":"Test Case Started : AL_004. @API To verify the response on passing invalid webreferer in the header field."}
+{"level":"info","message":"Test Case Completed : AL_004. @API To verify the response on passing invalid webreferer in the header field. Status : failed"}
+{"level":"info","message":"Test Case Started : AL_005. @API To verify the response on passing empty webreferer in the header field."}
+{"level":"info","message":"Test Case Completed : AL_005. @API To verify the response on passing empty webreferer in the header field. Status : failed"}
+{"level":"info","message":"Test Case Started : AL_006. @API To verify the response on passing invalid username in the request field."}
+{"level":"info","message":"Test Case Completed : AL_006. @API To verify the response on passing invalid username in the request field. Status : failed"}
+{"level":"info","message":"Test Case Started : AL_007. @API To verify the response on passing empty username in the request field."}
+{"level":"info","message":"Test Case Completed : AL_007. @API To verify the response on passing empty username in the request field. Status : failed"}
+{"level":"info","message":"Test Case Started : AL_008. @API To verify the response on passing invalid password in the request field."}
+{"level":"info","message":"Test Case Completed : AL_008. @API To verify the response on passing invalid password in the request field. Status : failed"}
+{"level":"info","message":"Test Case Started : AL_009. @API To verify the response on passing empty password in the request field."}
+{"level":"info","message":"Test Case Completed : AL_009. @API To verify the response on passing empty password in the request field. Status : failed"}
+{"level":"info","message":"Test Case Started : AL_001. @API Admin Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : AL_001. @API Admin Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : QS_067. @API Validation of ISAWE-CASE question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_067. @API Validation of ISAWE-CASE question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_068. @API Validation of edit ISAWE-CASE question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_068. @API Validation of edit ISAWE-CASE question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_069. @API Validation of ISAWE-CASE question Approved message."}
+{"level":"info","message":"Test Case Completed : QS_069. @API Validation of ISAWE-CASE question Approved message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_070. @API Validation of ISAWE-CASE question checkout message."}
+{"level":"info","message":"Test Case Completed : QS_070. @API Validation of ISAWE-CASE question checkout message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_069A. @API Validation of ISAWE-CASE question Approved message (again)."}
+{"level":"info","message":"Test Case Completed : QS_069A. @API Validation of ISAWE-CASE question Approved message (again). Status : passed"}
+{"level":"info","message":"Test Case Started : QS_071. @API ISAWE-CASE endpoint validation"}
+{"level":"info","message":"Test Case Completed : QS_071. @API ISAWE-CASE endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : QS_072. @API ISAWE-CASE Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : QS_072. @API ISAWE-CASE Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : QS_073. @API ISAWE-CASE Header field validation - invalid"}
+{"level":"info","message":"Test Case Completed : QS_073. @API ISAWE-CASE Header field validation - invalid Status : passed"}
+{"level":"info","message":"Test Case Started : QS_074. @API Validation of empty title field for ISAWE-CASE"}
+{"level":"info","message":"Test Case Completed : QS_074. @API Validation of empty title field for ISAWE-CASE Status : failed"}
+{"level":"info","message":"Test Case Started : AL_001. @API Admin Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : AL_001. @API Admin Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : QS_035. @API Validation of ISAWE question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_035. @API Validation of ISAWE question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_036. @API Validation of edit ISAWE question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_036. @API Validation of edit ISAWE question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_037. @API Validation of ISAWE question Approved message."}
+{"level":"info","message":"Test Case Completed : QS_037. @API Validation of ISAWE question Approved message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_038. @API Validation of ISAWE question checkout message."}
+{"level":"info","message":"Test Case Completed : QS_038. @API Validation of ISAWE question checkout message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_037A. @API Validation of ISAWE question Approved message (again)."}
+{"level":"info","message":"Test Case Completed : QS_037A. @API Validation of ISAWE question Approved message (again). Status : passed"}
+{"level":"info","message":"Test Case Started : QS_039. @API endpoint validation"}
+{"level":"info","message":"Test Case Completed : QS_039. @API endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : QS_040. @API Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : QS_040. @API Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : QS_041. @API Header field validation - invalid"}
+{"level":"info","message":"Test Case Completed : QS_041. @API Header field validation - invalid Status : passed"}
+{"level":"info","message":"Test Case Started : QS_042. @API Validation of empty title field."}
+{"level":"info","message":"Test Case Completed : QS_042. @API Validation of empty title field. Status : failed"}
+{"level":"info","message":"Test Case Started : AL_001. @API Admin Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : AL_001. @API Admin Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : QS_001. @API Validation of MCQ question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_001. @API Validation of MCQ question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_002. @API Validation of edit MCQ question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_002. @API Validation of edit MCQ question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_003. @API Validation of MCQ question Approved message."}
+{"level":"info","message":"Test Case Completed : QS_003. @API Validation of MCQ question Approved message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_005. @API Validation of MCQ question checkout message."}
+{"level":"info","message":"Test Case Completed : QS_005. @API Validation of MCQ question checkout message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_003A. @API Validation of MCQ question Approved message (again)."}
+{"level":"info","message":"Test Case Completed : QS_003A. @API Validation of MCQ question Approved message (again). Status : passed"}
+{"level":"info","message":"Test Case Started : QS_004. @API Validation of create question page."}
+{"level":"info","message":"Test Case Completed : QS_004. @API Validation of create question page. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_006. @API endpoint validation"}
+{"level":"info","message":"Test Case Completed : QS_006. @API endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : QS_007. @API Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : QS_007. @API Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : QS_008. @API Header field validation - invalid"}
+{"level":"info","message":"Test Case Completed : QS_008. @API Header field validation - invalid Status : passed"}
+{"level":"info","message":"Test Case Started : QS_009. @API Validation of empty title field."}
+{"level":"info","message":"Test Case Completed : QS_009. @API Validation of empty title field. Status : failed"}
+{"level":"info","message":"Test Case Started : AL_001. @API Admin Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : AL_001. @API Admin Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : QS_107. @API Validation of Ranking question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_107. @API Validation of Ranking question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_108. @API Validation of edit Ranking question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_108. @API Validation of edit Ranking question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_109. @API Validation of Ranking question Approved message."}
+{"level":"info","message":"Test Case Completed : QS_109. @API Validation of Ranking question Approved message. Status : failed"}
+{"level":"info","message":"Test Case Started : QS_110. @API Validation of Ranking question checkout message."}
+{"level":"info","message":"Test Case Completed : QS_110. @API Validation of Ranking question checkout message. Status : failed"}
+{"level":"info","message":"Test Case Started : QS_109A. @API Validation of Ranking question Approved message (again)."}
+{"level":"info","message":"Test Case Completed : QS_109A. @API Validation of Ranking question Approved message (again). Status : failed"}
+{"level":"info","message":"Test Case Started : QS_111. @API Ranking question endpoint validation"}
+{"level":"info","message":"Test Case Completed : QS_111. @API Ranking question endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : QS_112. @API Ranking question Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : QS_112. @API Ranking question Method validation-  incorrect HTTP method Status : failed"}
+{"level":"info","message":"Test Case Started : QS_113. @API Ranking question Header field validation - invalid"}
+{"level":"info","message":"Test Case Completed : QS_113. @API Ranking question Header field validation - invalid Status : passed"}
+{"level":"info","message":"Test Case Started : QS_114. @API Validation of empty title field for Ranking question"}
+{"level":"info","message":"Test Case Completed : QS_114. @API Validation of empty title field for Ranking question Status : failed"}
+{"level":"info","message":"Test Case Started : AL_001. @API Admin Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : AL_001. @API Admin Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : QS_107. @API Validation of Ranking question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_107. @API Validation of Ranking question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_108. @API Validation of edit Ranking question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_108. @API Validation of edit Ranking question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_109. @API Validation of Ranking question Approved message."}
+{"level":"info","message":"Test Case Completed : QS_109. @API Validation of Ranking question Approved message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_110. @API Validation of Ranking question checkout message."}
+{"level":"info","message":"Test Case Completed : QS_110. @API Validation of Ranking question checkout message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_109A. @API Validation of Ranking question Approved message (again)."}
+{"level":"info","message":"Test Case Completed : QS_109A. @API Validation of Ranking question Approved message (again). Status : passed"}
+{"level":"info","message":"Test Case Started : QS_111. @API Ranking question endpoint validation"}
+{"level":"info","message":"Test Case Completed : QS_111. @API Ranking question endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : QS_112. @API Ranking question Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : QS_112. @API Ranking question Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : QS_113. @API Ranking question Header field validation - invalid"}
+{"level":"info","message":"Test Case Completed : QS_113. @API Ranking question Header field validation - invalid Status : passed"}
+{"level":"info","message":"Test Case Started : QS_114. @API Validation of empty title field for Ranking question"}
+{"level":"info","message":"Test Case Completed : QS_114. @API Validation of empty title field for Ranking question Status : failed"}
+{"level":"info","message":"Test Case Started : AL_001. @API Admin Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : AL_001. @API Admin Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : QS_059. @API Validation of Scenario question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_059. @API Validation of Scenario question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_060. @API Validation of edit Scenario question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_060. @API Validation of edit Scenario question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_061. @API Validation of Scenario question Approved message."}
+{"level":"info","message":"Test Case Completed : QS_061. @API Validation of Scenario question Approved message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_062. @API Validation of Scenario question checkout message."}
+{"level":"info","message":"Test Case Completed : QS_062. @API Validation of Scenario question checkout message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_061A. @API Validation of Scenario question Approved message (again)."}
+{"level":"info","message":"Test Case Completed : QS_061A. @API Validation of Scenario question Approved message (again). Status : passed"}
+{"level":"info","message":"Test Case Started : QS_039. @API Scenario question endpoint validation"}
+{"level":"info","message":"Test Case Completed : QS_039. @API Scenario question endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : QS_040. @API Scenario question- Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : QS_040. @API Scenario question- Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : QS_041. @API Scenario question- Header field validation - invalid"}
+{"level":"info","message":"Test Case Completed : QS_041. @API Scenario question- Header field validation - invalid Status : passed"}
+{"level":"info","message":"Test Case Started : QS_042. @API Validation of empty title field for Scenario question"}
+{"level":"info","message":"Test Case Completed : QS_042. @API Validation of empty title field for Scenario question Status : failed"}
+{"level":"info","message":"Test Case Started : AL_001. @API Admin Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : AL_001. @API Admin Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : QS_059. @API Validation of Scenario question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_059. @API Validation of Scenario question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_060. @API Validation of edit Scenario question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_060. @API Validation of edit Scenario question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_061. @API Validation of Scenario question Approved message."}
+{"level":"info","message":"Test Case Completed : QS_061. @API Validation of Scenario question Approved message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_062. @API Validation of Scenario question checkout message."}
+{"level":"info","message":"Test Case Completed : QS_062. @API Validation of Scenario question checkout message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_061A. @API Validation of Scenario question Approved message (again)."}
+{"level":"info","message":"Test Case Completed : QS_061A. @API Validation of Scenario question Approved message (again). Status : passed"}
+{"level":"info","message":"Test Case Started : QS_063. @API Scenario question endpoint validation"}
+{"level":"info","message":"Test Case Completed : QS_063. @API Scenario question endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : QS_064. @API Scenario question- Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : QS_064. @API Scenario question- Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : QS_065. @API Scenario question- Header field validation - invalid"}
+{"level":"info","message":"Test Case Completed : QS_065. @API Scenario question- Header field validation - invalid Status : passed"}
+{"level":"info","message":"Test Case Started : QS_066. @API Validation of empty title field for Scenario question"}
+{"level":"info","message":"Test Case Completed : QS_066. @API Validation of empty title field for Scenario question Status : failed"}
+{"level":"info","message":"Test Case Started : AL_001. @API Admin Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : AL_001. @API Admin Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : QS_051. @API Validation of SJT question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_051. @API Validation of SJT question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_052. @API Validation of edit SJT question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_052. @API Validation of edit SJT question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_053. @API Validation of SJT question Approved message."}
+{"level":"info","message":"Test Case Completed : QS_053. @API Validation of SJT question Approved message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_054. @API Validation of SJT question checkout message."}
+{"level":"info","message":"Test Case Completed : QS_054. @API Validation of SJT question checkout message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_053A. @API Validation of SJT question Approved message (again)."}
+{"level":"info","message":"Test Case Completed : QS_053A. @API Validation of SJT question Approved message (again). Status : passed"}
+{"level":"info","message":"Test Case Started : QS_055. @API endpoint validation"}
+{"level":"info","message":"Test Case Completed : QS_055. @API endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : QS_056. @API Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : QS_056. @API Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : QS_057. @API Header field validation - invalid"}
+{"level":"info","message":"Test Case Completed : QS_057. @API Header field validation - invalid Status : passed"}
+{"level":"info","message":"Test Case Started : QS_058. @API Validation of empty title field."}
+{"level":"info","message":"Test Case Completed : QS_058. @API Validation of empty title field. Status : failed"}
+{"level":"info","message":"Test Case Started : AL_001. @API Admin Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : AL_001. @API Admin Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : QS_027. @API Validation of Type-B question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_027. @API Validation of Type-B question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_028. @API Validation of edit Type-B question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_028. @API Validation of edit Type-B question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_029. @API Validation of Type-B question Approved message."}
+{"level":"info","message":"Test Case Completed : QS_029. @API Validation of Type-B question Approved message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_030. @API Validation of Type-B question checkout message."}
+{"level":"info","message":"Test Case Completed : QS_030. @API Validation of Type-B question checkout message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_029A. @API Validation of Type-B question Approved message (again)."}
+{"level":"info","message":"Test Case Completed : QS_029A. @API Validation of Type-B question Approved message (again). Status : passed"}
+{"level":"info","message":"Test Case Started : QS_031. @API endpoint validation"}
+{"level":"info","message":"Test Case Completed : QS_031. @API endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : QS_032. @API Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : QS_032. @API Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : QS_033. @API Header field validation - invalid"}
+{"level":"info","message":"Test Case Completed : QS_033. @API Header field validation - invalid Status : passed"}
+{"level":"info","message":"Test Case Started : QS_034. @API Validation of empty title field."}
+{"level":"info","message":"Test Case Completed : QS_034. @API Validation of empty title field. Status : failed"}
+{"level":"info","message":"Test Case Started : AL_001. @API Admin Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : AL_001. @API Admin Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : QS_043. @API Validation of Type-X question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_043. @API Validation of Type-X question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_044. @API Validation of edit Type-X question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_044. @API Validation of edit Type-X question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_045. @API Validation of Type-X question Approved message."}
+{"level":"info","message":"Test Case Completed : QS_045. @API Validation of Type-X question Approved message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_046. @API Validation of Type-X question checkout message."}
+{"level":"info","message":"Test Case Completed : QS_046. @API Validation of Type-X question checkout message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_045A. @API Validation of Type-X question Approved message (again)."}
+{"level":"info","message":"Test Case Completed : QS_045A. @API Validation of Type-X question Approved message (again). Status : passed"}
+{"level":"info","message":"Test Case Started : QS_047. @API endpoint validation"}
+{"level":"info","message":"Test Case Completed : QS_047. @API endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : QS_048. @API Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : QS_048. @API Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : QS_049. @API Header field validation - invalid"}
+{"level":"info","message":"Test Case Completed : QS_049. @API Header field validation - invalid Status : passed"}
+{"level":"info","message":"Test Case Started : QS_050. @API Validation of empty title field."}
+{"level":"info","message":"Test Case Completed : QS_050. @API Validation of empty title field. Status : failed"}
+{"level":"info","message":"Test Case Started : AL_001. @API Admin Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : AL_001. @API Admin Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : QS_019. @API Validation of VSAQ question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_019. @API Validation of VSAQ question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_020. @API Validation of edit VSAQ question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_020. @API Validation of edit VSAQ question successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_021. @API Validation of VSAQ question Approved message."}
+{"level":"info","message":"Test Case Completed : QS_021. @API Validation of VSAQ question Approved message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_022. @API Validation of VSAQ question checkout message."}
+{"level":"info","message":"Test Case Completed : QS_022. @API Validation of VSAQ question checkout message. Status : passed"}
+{"level":"info","message":"Test Case Started : QS_021A. @API Validation of VSAQ question Approved message (again)."}
+{"level":"info","message":"Test Case Completed : QS_021A. @API Validation of VSAQ question Approved message (again). Status : passed"}
+{"level":"info","message":"Test Case Started : QS_023. @API endpoint validation"}
+{"level":"info","message":"Test Case Completed : QS_023. @API endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : QS_024. @API Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : QS_024. @API Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : QS_025. @API Header field validation - invalid"}
+{"level":"info","message":"Test Case Completed : QS_025. @API Header field validation - invalid Status : passed"}
+{"level":"info","message":"Test Case Started : QS_026. @API Validation of empty title field."}
+{"level":"info","message":"Test Case Completed : QS_026. @API Validation of empty title field. Status : failed"}
+{"level":"info","message":"Test Case Started : AL_001. @API Admin Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : AL_001. @API Admin Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : QS_010. @API Validation of SAQ question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_010. @API Validation of SAQ question successfull message. Status : failed"}
+{"level":"info","message":"Test Case Started : QS_011. @API Validation of edit SAQ question successfull message."}
+{"level":"info","message":"Test Case Completed : QS_011. @API Validation of edit SAQ question successfull message. Status : failed"}
+{"level":"info","message":"Test Case Started : QS_012. @API Validation of SAQ question Approved message."}
+{"level":"info","message":"Test Case Completed : QS_012. @API Validation of SAQ question Approved message. Status : failed"}
+{"level":"info","message":"Test Case Started : QS_014. @API Validation of SAQ question checkout message."}
+{"level":"info","message":"Test Case Completed : QS_014. @API Validation of SAQ question checkout message. Status : failed"}
+{"level":"info","message":"Test Case Started : QS_012A. @API Validation of SAQ question Approved message (again)."}
+{"level":"info","message":"Test Case Completed : QS_012A. @API Validation of SAQ question Approved message (again). Status : failed"}
+{"level":"info","message":"Test Case Started : QS_015. @API endpoint validation"}
+{"level":"info","message":"Test Case Completed : QS_015. @API endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : QS_016. @API Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : QS_016. @API Method validation-  incorrect HTTP method Status : failed"}
+{"level":"info","message":"Test Case Started : QS_017. @API Header field validation - invalid"}
+{"level":"info","message":"Test Case Completed : QS_017. @API Header field validation - invalid Status : passed"}
+{"level":"info","message":"Test Case Started : QS_018. @API Validation of empty title field."}
+{"level":"info","message":"Test Case Completed : QS_018. @API Validation of empty title field. Status : failed"}
+{"level":"info","message":"Test Case Started : AL_001. @API Admin Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : AL_001. @API Admin Login Success with Mandatory Fields Status : failed"}
+{"level":"info","message":"Test Case Started : ES_001. @API Validation of Exam creation successfull message."}
+{"level":"info","message":"Test Case Completed : ES_001. @API Validation of Exam creation successfull message. Status : failed"}
+{"level":"info","message":"Test Case Started : ES_002. @API Validation of Exam section and add questions successfull message."}
+{"level":"info","message":"Test Case Completed : ES_002. @API Validation of Exam section and add questions successfull message. Status : failed"}
+{"level":"info","message":"Test Case Started : ES_003. @API Validation of Approved Exam  successfull message."}
+{"level":"info","message":"Test Case Completed : ES_003. @API Validation of Approved Exam  successfull message. Status : failed"}
+{"level":"info","message":"Test Case Started : ES_004. @API Validation of add user successful message."}
+{"level":"info","message":"Test Case Started : AL_001. @API Admin Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : AL_001. @API Admin Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : ES_001. @API Validation of Exam creation successfull message."}
+{"level":"info","message":"Test Case Completed : ES_001. @API Validation of Exam creation successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : ES_002. @API Validation of Exam section and add questions successfull message."}
+{"level":"info","message":"Test Case Completed : ES_002. @API Validation of Exam section and add questions successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : ES_003. @API Validation of Approved Exam  successfull message."}
+{"level":"info","message":"Test Case Completed : ES_003. @API Validation of Approved Exam  successfull message. Status : failed"}
+{"level":"info","message":"Test Case Started : ES_004. @API Validation of add user successful message."}
+{"level":"info","message":"Test Case Completed : ES_004. @API Validation of add user successful message. Status : failed"}
+{"level":"info","message":"Test Case Started : ES_005. @API Validation of Empty Exam name field in Exam Page."}
+{"level":"info","message":"Test Case Completed : ES_005. @API Validation of Empty Exam name field in Exam Page. Status : failed"}
+{"level":"info","message":"Test Case Started : ES_006. @API Exam creation-endpoint validation"}
+{"level":"info","message":"Test Case Completed : ES_006. @API Exam creation-endpoint validation Status : failed"}
+{"level":"info","message":"Test Case Started : ES_007. @API Exam creation-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : ES_007. @API Exam creation-Method validation-  incorrect HTTP method Status : failed"}
+{"level":"info","message":"Test Case Started : ES_008. @API Exam creation-Header field validation - invalid"}
+{"level":"info","message":"Test Case Completed : ES_008. @API Exam creation-Header field validation - invalid Status : failed"}
+{"level":"info","message":"Test Case Started : AL_001. @API Admin Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : AL_001. @API Admin Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : ES_001. @API Validation of Exam creation successfull message."}
+{"level":"info","message":"Test Case Completed : ES_001. @API Validation of Exam creation successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : ES_002. @API Validation of Exam section and add questions successfull message."}
+{"level":"info","message":"Test Case Completed : ES_002. @API Validation of Exam section and add questions successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : ES_003. @API Validation of Approved Exam  successfull message."}
+{"level":"info","message":"Test Case Completed : ES_003. @API Validation of Approved Exam  successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : ES_004. @API Validation of add user successful message."}
+{"level":"info","message":"Test Case Completed : ES_004. @API Validation of add user successful message. Status : passed"}
+{"level":"info","message":"Test Case Started : ES_005. @API Validation of Empty Exam name field in Exam Page."}
+{"level":"info","message":"Test Case Completed : ES_005. @API Validation of Empty Exam name field in Exam Page. Status : failed"}
+{"level":"info","message":"Test Case Started : ES_006. @API Exam creation-endpoint validation"}
+{"level":"info","message":"Test Case Completed : ES_006. @API Exam creation-endpoint validation Status : failed"}
+{"level":"info","message":"Test Case Started : ES_007. @API Exam creation-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : ES_007. @API Exam creation-Method validation-  incorrect HTTP method Status : failed"}
+{"level":"info","message":"Test Case Started : ES_008. @API Exam creation-Header field validation - invalid"}
+{"level":"info","message":"Test Case Completed : ES_008. @API Exam creation-Header field validation - invalid Status : failed"}
+{"level":"info","message":"Test Case Started : CS_001. @API Candidate Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : CS_001. @API Candidate Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : CS_013. @API candidate dashboard Header field validation - invalid"}
+{"level":"info","message":"Test Case Completed : CS_013. @API candidate dashboard Header field validation - invalid Status : failed"}
+{"level":"info","message":"Test Case Started : CS_002. @API Canidate Login endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_002. @API Canidate Login endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_003. @API Canidate Login-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_003. @API Canidate Login-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_004. @API Canidate Login Header field validation - invalid"}
+{"level":"info","message":"Test Case Completed : CS_004. @API Canidate Login Header field validation - invalid Status : failed"}
+{"level":"info","message":"Test Case Started : CS_005. @API Canidate Login Header field validation - empty"}
+{"level":"info","message":"Test Case Completed : CS_005. @API Canidate Login Header field validation - empty Status : failed"}
+{"level":"info","message":"Test Case Started : CS_006. @API Canidate Login Username validation- invalid"}
+{"level":"info","message":"Test Case Completed : CS_006. @API Canidate Login Username validation- invalid Status : failed"}
+{"level":"info","message":"Test Case Started : CS_007. @API Canidate Login Username validation - empty"}
+{"level":"info","message":"Test Case Completed : CS_007. @API Canidate Login Username validation - empty Status : failed"}
+{"level":"info","message":"Test Case Started : CS_008. @API Canidate Login Password validation - invalid"}
+{"level":"info","message":"Test Case Completed : CS_008. @API Canidate Login Password validation - invalid Status : failed"}
+{"level":"info","message":"Test Case Started : CS_009. @API Canidate Login Password validation- empty"}
+{"level":"info","message":"Test Case Completed : CS_009. @API Canidate Login Password validation- empty Status : failed"}
+{"level":"info","message":"Test Case Started : CS_011. @API candidate dashboard endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_011. @API candidate dashboard endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_012. @API candidate dashboard Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_012. @API candidate dashboard Method validation-  incorrect HTTP method Status : failed"}
+{"level":"info","message":"Test Case Started : CS_001A. @API Candidate Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : CS_001A. @API Candidate Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : CS_010. @API Validate candidate dashboard."}
+{"level":"info","message":"Test Case Completed : CS_010. @API Validate candidate dashboard. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_014. @API candidate dashboard Header field validation - empty"}
+{"level":"info","message":"Test Case Completed : CS_014. @API candidate dashboard Header field validation - empty Status : failed"}
+{"level":"info","message":"Test Case Started : CS_001B. @API Candidate Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : CS_001B. @API Candidate Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : CS_010A. @API Validate candidate dashboard."}
+{"level":"info","message":"Test Case Completed : CS_010A. @API Validate candidate dashboard. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_015. @API Validation of successful message for invigilator password."}
+{"level":"info","message":"Test Case Completed : CS_015. @API Validation of successful message for invigilator password. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_016. @API Validation of invalid invigilator password."}
+{"level":"info","message":"Test Case Completed : CS_016. @API Validation of invalid invigilator password. Status : failed"}
+{"level":"info","message":"Test Case Started : CS_017. @API Validation of empty invigilator password."}
+{"level":"info","message":"Test Case Completed : CS_017. @API Validation of empty invigilator password. Status : failed"}
+{"level":"info","message":"Test Case Started : CS_001C. @API Candidate Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : CS_001C. @API Candidate Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : CS_010B. @API Validate candidate dashboard."}
+{"level":"info","message":"Test Case Completed : CS_010B. @API Validate candidate dashboard. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_015A. @API Validation of successful message for invigilator password."}
+{"level":"info","message":"Test Case Completed : CS_015A. @API Validation of successful message for invigilator password. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_018. @API Validation of Candiate Exam status- Before exam start"}
+{"level":"info","message":"Test Case Completed : CS_018. @API Validation of Candiate Exam status- Before exam start Status : passed"}
+{"level":"info","message":"Test Case Started : CS_019. @API Before exam star-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_019. @API Before exam star-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_020. @API Validation of Candiate Exam status- After exam start"}
+{"level":"info","message":"Test Case Completed : CS_020. @API Validation of Candiate Exam status- After exam start Status : passed"}
+{"level":"info","message":"Test Case Started : CS_021. @API After exam star-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_021. @API After exam star-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_024. @API Validation of Candiate info."}
+{"level":"info","message":"Test Case Completed : CS_024. @API Validation of Candiate info. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_025. @API  Candiate info-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_025. @API  Candiate info-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_026. @API  Candiate info-endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_026. @API  Candiate info-endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_027. @API Validation of candidate events."}
+{"level":"info","message":"Test Case Completed : CS_027. @API Validation of candidate events. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_028. @API candidate events-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_028. @API candidate events-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_029. @API candidate events-endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_029. @API candidate events-endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_030. @API Validation of candidate instruction."}
+{"level":"info","message":"Test Case Completed : CS_030. @API Validation of candidate instruction. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_031. @API  candidate instruction-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_031. @API  candidate instruction-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_032. @API  candidate instruction-endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_032. @API  candidate instruction-endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_033. @API Validation of download exam content page."}
+{"level":"info","message":"Test Case Completed : CS_033. @API Validation of download exam content page. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_034. @API exam content page-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_034. @API exam content page-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_035. @API exam content page-endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_035. @API exam content page-endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_036. @API Validation of Candidate exam page download."}
+{"level":"info","message":"Test Case Completed : CS_036. @API Validation of Candidate exam page download. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_037. @API  Candidate exam page download-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_037. @API  Candidate exam page download-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_038. @API  Candidate exam page download-endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_038. @API  Candidate exam page download-endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_039. @API Validation of candidate all notes."}
+{"level":"info","message":"Test Case Completed : CS_039. @API Validation of candidate all notes. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_040. @API candidate all notes-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_040. @API candidate all notes-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_041. @API candidate all notes-endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_041. @API candidate all notes-endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_042. @API Validation of question download status."}
+{"level":"info","message":"Test Case Completed : CS_042. @API Validation of question download status. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_043. @API question download status-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_043. @API question download status-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_044. @API question download status-endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_044. @API question download status-endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_045. @API Validation of candidate save notes."}
+{"level":"info","message":"Test Case Completed : CS_045. @API Validation of candidate save notes. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_046. @API candidate save notes-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_046. @API candidate save notes-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_047. @API candidate save notes-endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_047. @API candidate save notes-endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_048. @API Validaton of Save highlight text."}
+{"level":"info","message":"Test Case Completed : CS_048. @API Validaton of Save highlight text. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_049. @API Save highlight text-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_049. @API Save highlight text-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_050. @API Save highlight text-endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_050. @API Save highlight text-endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_051. @API Validaton of remove saved highlight text."}
+{"level":"info","message":"Test Case Completed : CS_051. @API Validaton of remove saved highlight text. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_052. @API remove saved highlight text-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_052. @API remove saved highlight text-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_053. @API remove saved highlight text-endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_053. @API remove saved highlight text-endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_054. @API Validation of Exam survey page."}
+{"level":"info","message":"Test Case Completed : CS_054. @API Validation of Exam survey page. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_055. @API Exam survey page-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_055. @API Exam survey page-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_056. @API Exam survey page-endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_056. @API Exam survey page-endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_057. @API Validation of Exam Practice Result"}
+{"level":"info","message":"Test Case Completed : CS_057. @API Validation of Exam Practice Result Status : passed"}
+{"level":"info","message":"Test Case Started : CS_058. @API  Exam Practice Result-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_058. @API  Exam Practice Result-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_059. @API  Exam Practice Result-endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_059. @API  Exam Practice Result-endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_060. @API Validation of Exam Practice Question Result"}
+{"level":"info","message":"Test Case Completed : CS_060. @API Validation of Exam Practice Question Result Status : passed"}
+{"level":"info","message":"Test Case Started : CS_061. @API Exam Practice Question Result-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_061. @API Exam Practice Question Result-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_062. @API Exam Practice Question Result-endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_062. @API Exam Practice Question Result-endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_066. @API Validation of Candidate question response save."}
+{"level":"info","message":"Test Case Completed : CS_066. @API Validation of Candidate question response save. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_067. @API Candidate question response save-Method validation-  incorrect HTTP method"}
+{"level":"info","message":"Test Case Completed : CS_067. @API Candidate question response save-Method validation-  incorrect HTTP method Status : passed"}
+{"level":"info","message":"Test Case Started : CS_068. @API Candidate question response save-endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_068. @API Candidate question response save-endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_069. @API Validation of candidate current time."}
+{"level":"info","message":"Test Case Completed : CS_069. @API Validation of candidate current time. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_070. @API candidate current time-endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_070. @API candidate current time-endpoint validation Status : passed"}
+{"level":"info","message":"Test Case Started : CS_071. @API Validation of candidate chat setting."}
+{"level":"info","message":"Test Case Completed : CS_071. @API Validation of candidate chat setting. Status : passed"}
+{"level":"info","message":"Test Case Started : CS_072. @API candidate chat setting endpoint validation"}
+{"level":"info","message":"Test Case Completed : CS_072. @API candidate chat setting endpoint validation Status : passed"}
+{"level":"error","message":"Error: test file \"tests\\api\\Api_ES_exam.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_isawe-case.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_isawe.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_mcq.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_ranking.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_saq.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_scenario.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_sjt.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_type-b.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_type-x.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_vsaq.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\Api_ES_exam.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_isawe-case.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_isawe.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_mcq.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_ranking.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_saq.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_scenario.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_sjt.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_type-b.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_type-x.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_vsaq.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"info","message":"Test Case Started : AL_001. @API Admin Login Success with Mandatory Fields"}
+{"level":"info","message":"Test Case Completed : AL_001. @API Admin Login Success with Mandatory Fields Status : passed"}
+{"level":"info","message":"Test Case Started : ES_001. @API Validation of Exam creation successfull message."}
+{"level":"info","message":"Test Case Completed : ES_001. @API Validation of Exam creation successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : ES_002. @API Validation of Exam section and add questions successfull message."}
+{"level":"info","message":"Test Case Completed : ES_002. @API Validation of Exam section and add questions successfull message. Status : passed"}
+{"level":"info","message":"Test Case Started : ES_003. @API Validation of Approved Exam  successfull message."}
+{"level":"error","message":"Error: test file \"tests\\api\\Api_ES_exam.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_isawe-case.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_isawe.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_mcq.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_ranking.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_saq.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_scenario.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_sjt.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_type-b.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_type-x.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_vsaq.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\Api_ES_exam.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_isawe-case.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_isawe.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_mcq.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_ranking.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_saq.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_scenario.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_sjt.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_type-b.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_type-x.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_vsaq.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\Api_ES_exam.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_isawe-case.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_isawe.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_mcq.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_ranking.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_saq.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_scenario.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_sjt.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_type-b.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_type-x.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}
+{"level":"error","message":"Error: test file \"tests\\api\\QS_vsaq.test.ts\" should not import test file \"tests\\api\\adminToken.test.ts\""}

@@ -199,7 +199,7 @@ test("QS_061A. @API Validation of Scenario question Approved message (again).", 
 })
 
 
-test("QS_039. @API Scenario question endpoint validation", async ({ request }) => {
+test("QS_063. @API Scenario question endpoint validation", async ({ request }) => {
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/tttquestion-api/v1/question',
@@ -226,7 +226,7 @@ test("QS_039. @API Scenario question endpoint validation", async ({ request }) =
     var res = await response.json()
 })
 
-test("QS_040. @API Scenario question- Method validation-  incorrect HTTP method", async ({ request }) => {
+test("QS_064. @API Scenario question- Method validation-  incorrect HTTP method", async ({ request }) => {
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/question-api/v1/question',
@@ -248,7 +248,7 @@ test("QS_040. @API Scenario question- Method validation-  incorrect HTTP method"
     expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
 })
 
-test("QS_041. @API Scenario question- Header field validation - invalid", async ({ request }) => {
+test("QS_065. @API Scenario question- Header field validation - invalid", async ({ request }) => {
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question',
@@ -271,7 +271,7 @@ test("QS_041. @API Scenario question- Header field validation - invalid", async 
     var res = await response.json()
 })
 
-test("QS_042. @API Validation of empty title field for Scenario question", async ({ request }) => {
+test("QS_066. @API Validation of empty title field for Scenario question", async ({ request }) => {
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question',
