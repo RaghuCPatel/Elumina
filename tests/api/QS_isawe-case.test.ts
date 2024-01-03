@@ -2,7 +2,7 @@
 import { test, expect } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
-import { token } from './adminToken.test';
+//import { token } from './adminToken.test';
 import { ValidationResponse } from '../../utils/validationUtiles/ResponseValidation';
 
 let verifyResponse = new ValidationResponse;
@@ -14,17 +14,58 @@ const Ajv = require('ajv')
 const avj = new Ajv()
 
 //var token;
+var jsonpath1;
 var jsonpath;
 var mcqID: any;
 var schemajsonpath;
-jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+
+export let token;
+var jschemasonpath;
+jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+
+test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
 
 test("QS_067. @API Validation of ISAWE-CASE question successfull message.", async ({ request }) => {
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/mcqSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question',
         {
-            data: jsonpath.isawe_case.body,
+            data: jsonpath1.isawe_case.body,
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
@@ -34,7 +75,7 @@ test("QS_067. @API Validation of ISAWE-CASE question successfull message.", asyn
     console.log(await response.json())
 
     //Validation of response time
-    verifyResponse.validateTime(jsonpath.responseDuration);
+    verifyResponse.validateTime(jsonpath1.responseDuration);
 
     //Status code validation
     expect(response.status()).toBe(200);
@@ -62,7 +103,7 @@ test("QS_068. @API Validation of edit ISAWE-CASE question successfull message.",
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/editquestion/' + mcqID + '/?type=typea',
         {
-            data: jsonpath.isawe_case.editisawe_casebody,
+            data: jsonpath1.isawe_case.editisawe_casebody,
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
@@ -72,7 +113,7 @@ test("QS_068. @API Validation of edit ISAWE-CASE question successfull message.",
     console.log(await response.json())
 
     //Validation of response time
-    verifyResponse.validateTime(jsonpath.responseDuration);
+    verifyResponse.validateTime(jsonpath1.responseDuration);
 
     //Status code validation
     expect(response.status()).toBe(200);
@@ -98,7 +139,7 @@ test("QS_069. @API Validation of ISAWE-CASE question Approved message.", async (
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question/workflow/save/' + mcqID,
         {
-            data: jsonpath.mcq.approvequestion,
+            data: jsonpath1.mcq.approvequestion,
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
@@ -108,7 +149,7 @@ test("QS_069. @API Validation of ISAWE-CASE question Approved message.", async (
     console.log(await response.json())
 
     //Validation of response time
-    verifyResponse.validateTime(jsonpath.responseDuration);
+    verifyResponse.validateTime(jsonpath1.responseDuration);
 
     //Status code validation
     expect(response.status()).toBe(200);
@@ -144,7 +185,7 @@ test("QS_070. @API Validation of ISAWE-CASE question checkout message.", async (
     console.log(await response.json())
 
     //Validation of response time
-    verifyResponse.validateTime(jsonpath.responseDuration);
+    verifyResponse.validateTime(jsonpath1.responseDuration);
 
     //Status code validation
     expect(response.status()).toBe(200);
@@ -169,7 +210,7 @@ test("QS_069A. @API Validation of ISAWE-CASE question Approved message (again)."
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question/workflow/save/' + mcqID,
         {
-            data: jsonpath.mcq.approvequestion,
+            data: jsonpath1.mcq.approvequestion,
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
@@ -179,7 +220,7 @@ test("QS_069A. @API Validation of ISAWE-CASE question Approved message (again)."
     console.log(await response.json())
 
     //Validation of response time
-    verifyResponse.validateTime(jsonpath.responseDuration);
+    verifyResponse.validateTime(jsonpath1.responseDuration);
 
     //Status code validation
     expect(response.status()).toBe(200);
@@ -199,7 +240,7 @@ test("QS_071. @API ISAWE-CASE endpoint validation", async ({ request }) => {
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/tttquestion-api/v1/question',
         {
-            data: jsonpath.isawe_case.body,
+            data: jsonpath1.isawe_case.body,
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
@@ -209,7 +250,7 @@ test("QS_071. @API ISAWE-CASE endpoint validation", async ({ request }) => {
     console.log(await response.json())
 
     //Validation of response time
-    verifyResponse.validateTime(jsonpath.responseDuration);
+    verifyResponse.validateTime(jsonpath1.responseDuration);
 
     //Status code validation
     expect(response.status()).toBe(404);
@@ -232,7 +273,7 @@ test("QS_072. @API ISAWE-CASE Method validation-  incorrect HTTP method", async 
             }
         });
     //Validation of response time
-    verifyResponse.validateTime(jsonpath.responseDuration);
+    verifyResponse.validateTime(jsonpath1.responseDuration);
 
     //Status code validation
     expect(response.status()).toBe(405);
@@ -246,13 +287,13 @@ test("QS_073. @API ISAWE-CASE Header field validation - invalid", async ({ reque
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question',
         {
-            data: jsonpath.isawe_case.body,
-            headers: jsonpath.mcq.invalidheader,
+            data: jsonpath1.isawe_case.body,
+            headers: jsonpath1.mcq.invalidheader,
         });
     console.log(await response.json())
 
     //Validation of response time
-    verifyResponse.validateTime(jsonpath.responseDuration);
+    verifyResponse.validateTime(jsonpath1.responseDuration);
 
     //Status code validation
     expect(response.status()).toBe(401);
@@ -268,7 +309,7 @@ test("QS_074. @API Validation of empty title field for ISAWE-CASE", async ({ req
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question',
         {
-            data: jsonpath.isawe_case.emptyTitleBody,
+            data: jsonpath1.isawe_case.emptyTitleBody,
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
@@ -278,7 +319,7 @@ test("QS_074. @API Validation of empty title field for ISAWE-CASE", async ({ req
     console.log(await response.json())
 
     //Validation of response time
-    verifyResponse.validateTime(jsonpath.responseDuration);
+    verifyResponse.validateTime(jsonpath1.responseDuration);
 
     //Status code validation
     expect(response.status).toBe(401);

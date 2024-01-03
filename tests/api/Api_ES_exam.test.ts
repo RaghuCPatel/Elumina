@@ -2,9 +2,12 @@
 import { test, expect } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
-import { token } from './adminToken.test';
+//import { token } from './adminToken.test';
 import { jsonObject } from 'pageFactory/pageRepository/ApiPage'
 import { log } from 'winston';
+import { ValidationResponse } from '../../utils/validationUtiles/ResponseValidation';
+
+let verifyResponse = new ValidationResponse;
 
 //const apiActions = new APIActions();
 const baseURL = "https://api.assessappglobal.com.au"
@@ -15,6 +18,45 @@ const avj = new Ajv()
 var jsonpath;
 var schemajsonpath;
 export let exam_ID;
+export let token;
+var jschemasonpath;
+
+test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
 
 test("ES_001. @API Validation of Exam creation successfull message.", async ({ request }) => {
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))
@@ -261,7 +303,7 @@ test("ES_008. @API Exam creation-Header field validation - invalid", async ({ re
             data: jsonObject.createExam,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
                 "authorization": token
             }
         });

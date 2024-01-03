@@ -222,4 +222,4 @@ test("AL_009. @API To verify the response on passing empty password in the reque
     var res = await response.json()
     //Verify error message
     expect(res.error).toBe("invalidRequest")
-})  
+})    

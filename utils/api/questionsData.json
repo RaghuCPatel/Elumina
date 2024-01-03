@@ -151,7 +151,7 @@
     },
     "saq": {
         "body": {
-            "type": "SAQ",
+            "type": "SAQ / Essay",
             "bank": 1,
             "title": "SAQ Automation TEST Question",
             "text": "<p>SAQ TEST Question</p>",
@@ -180,7 +180,7 @@
             ]
         },
         "editsaqbody": {
-            "type": "SAQ",
+            "type": "SAQ / Essay",
             "bank": 1,
             "title": "SAQ Sample Question",
             "text": "<p>SAQ Sample Question</p>",
@@ -209,7 +209,7 @@
             ]
         },
         "emptyTitleBody": {
-            "type": "SAQ",
+            "type": "SAQ / Essay",
             "bank": 1,
             "title": "",
             "text": "<p>SAQ TEST Question>",

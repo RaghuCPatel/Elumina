@@ -16,7 +16,7 @@
     "test:iAuthorParallel": "npx playwright test --grep @RegressionA --workers=4 --project=Chrome",
     "test:iAuthorSerial": "npx playwright test --grep @RegressionA --workers=1 --project=Chrome",
     "test:ui": "npx playwright test --grep @Smoke --ui",
-    "test:api": "npx playwright test --grep @API --workers=1 --project=Chrome",
+    "test:api": "npx playwright test --grep @API --workers=1 --project=API",
     "test:db": "npx playwright test DB.test.ts --project=DB",
     "test:record": "npx playwright codegen",
     "test:visual": "npx playwright test visualComparision.test.ts --project=Chrome",
