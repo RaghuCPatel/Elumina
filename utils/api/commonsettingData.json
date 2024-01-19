@@ -1,0 +1,77 @@
+{
+    "responseDuration": 4500,
+    "Admin_add_user_address_save": {
+        "body": {
+            "street": "chennai",
+            "city_id": "cheennai",
+            "state_id": "tamilnadu",
+            "zipcode": "767676",
+            "language_id": "[{\"id\":1,\"name\":\"Afar\"}]",
+            "timezone_id": "[{\"id\":1,\"name\":\"(UTC-12:00) International Date Line West\"}]"
+        },
+        "empty_state_idbody": {
+            "street": "chennai",
+            "city_id": "cheennai",
+            "state_id": "",
+            "zipcode": "767676",
+            "language_id": "[{\"id\":1,\"name\":\"Afar\"}]",
+            "timezone_id": "[{\"id\":1,\"name\":\"(UTC-12:00) International Date Line West\"}]"
+        }
+    },
+    "Admin_user_setting_save": {
+        "body": {
+            "authentication_method": "[{\"id\":1,\"name\":\"Simple\"}]",
+            "status": true,
+            "specialties": ""
+        }
+    },
+    "Admin_user_role_save": {
+        "body": {
+            "banks_and_roles": "[{\"product_id\":1,\"name\":\"QMS\",\"value\":[{\"bank_id\":3,\"bank_name\":\"Test Bank update\",\"role_id\":0,\"role\":[{\"role_id\":1,\"role_name\":\"Administrator\",\"product_id\":1,\"checked\":true},{\"role_id\":2,\"role_name\":\"Examiner\",\"product_id\":1,\"checked\":false},{\"role_id\":3,\"role_name\":\"Reviewer\",\"product_id\":1,\"checked\":false},{\"role_id\":4,\"role_name\":\"Approver\",\"product_id\":1,\"checked\":false},{\"role_id\":11,\"role_name\":\"Data Analyst\",\"product_id\":1,\"checked\":false},{\"role_id\":12,\"role_name\":\"Lead SME\",\"product_id\":1,\"checked\":false},{\"role_id\":14,\"role_name\":\"Test Role\",\"product_id\":1,\"checked\":false},{\"role_id\":19,\"role_name\":\"Dummy role Test\",\"product_id\":1,\"checked\":false},{\"role_id\":20,\"role_name\":\"SME\",\"product_id\":1,\"checked\":false},{\"role_id\":21,\"role_name\":\"ERG\",\"product_id\":1,\"checked\":false},{\"role_id\":22,\"role_name\":\"test\",\"product_id\":1,\"checked\":false},{\"role_id\":26,\"role_name\":\"globaltest\",\"product_id\":1,\"checked\":false},{\"role_id\":27,\"role_name\":\"globaltest1\",\"product_id\":1,\"checked\":false},{\"role_id\":34,\"role_name\":\"tests (1)\",\"product_id\":1,\"checked\":false},{\"role_id\":49,\"role_name\":\"test role\",\"product_id\":1,\"checked\":false},{\"role_id\":64,\"role_name\":\"Role Test 27\",\"product_id\":1,\"checked\":false}]}],\"role_arr\":[{\"role_id\":1,\"role_name\":\"Administrator\",\"product_id\":1,\"checked\":false},{\"role_id\":2,\"role_name\":\"Examiner\",\"product_id\":1,\"checked\":false},{\"role_id\":3,\"role_name\":\"Reviewer\",\"product_id\":1,\"checked\":false},{\"role_id\":4,\"role_name\":\"Approver\",\"product_id\":1,\"checked\":false},{\"role_id\":11,\"role_name\":\"Data Analyst\",\"product_id\":1,\"checked\":false},{\"role_id\":12,\"role_name\":\"Lead SME\",\"product_id\":1,\"checked\":false},{\"role_id\":14,\"role_name\":\"Test Role\",\"product_id\":1,\"checked\":false},{\"role_id\":19,\"role_name\":\"Dummy role Test\",\"product_id\":1,\"checked\":false},{\"role_id\":20,\"role_name\":\"SME\",\"product_id\":1,\"checked\":false},{\"role_id\":21,\"role_name\":\"ERG\",\"product_id\":1,\"checked\":false},{\"role_id\":22,\"role_name\":\"test\",\"product_id\":1,\"checked\":false},{\"role_id\":26,\"role_name\":\"globaltest\",\"product_id\":1,\"checked\":false},{\"role_id\":27,\"role_name\":\"globaltest1\",\"product_id\":1,\"checked\":false},{\"role_id\":34,\"role_name\":\"tests (1)\",\"product_id\":1,\"checked\":false},{\"role_id\":49,\"role_name\":\"test role\",\"product_id\":1,\"checked\":false},{\"role_id\":64,\"role_name\":\"Role Test 27\",\"product_id\":1,\"checked\":false}],\"enableMultiRole\":false},{\"product_id\":2,\"name\":\"OE\",\"value\":[{\"bank_id\":3,\"bank_name\":\"Test Bank update\",\"role_id\":0,\"role\":[{\"role_id\":5,\"role_name\":\"Exam Administrator\",\"product_id\":2,\"checked\":true},{\"role_id\":6,\"role_name\":\"Committee Chair\",\"product_id\":2,\"checked\":false},{\"role_id\":7,\"role_name\":\"Subject Leader\",\"product_id\":2,\"checked\":false},{\"role_id\":8,\"role_name\":\"Invigilator\",\"product_id\":2,\"checked\":false},{\"role_id\":9,\"role_name\":\"Candidate\",\"product_id\":2,\"checked\":false},{\"role_id\":10,\"role_name\":\"Marker\",\"product_id\":2,\"checked\":false},{\"role_id\":32,\"role_name\":\"Markers\",\"product_id\":2,\"checked\":false},{\"role_id\":65,\"role_name\":\"Role Test QA 27\",\"product_id\":2,\"checked\":false}]}],\"role_arr\":[{\"role_id\":5,\"role_name\":\"Exam Administrator\",\"product_id\":2,\"checked\":false},{\"role_id\":6,\"role_name\":\"Committee Chair\",\"product_id\":2,\"checked\":false},{\"role_id\":7,\"role_name\":\"Subject Leader\",\"product_id\":2,\"checked\":false},{\"role_id\":8,\"role_name\":\"Invigilator\",\"product_id\":2,\"checked\":false},{\"role_id\":9,\"role_name\":\"Candidate\",\"product_id\":2,\"checked\":false},{\"role_id\":10,\"role_name\":\"Marker\",\"product_id\":2,\"checked\":false},{\"role_id\":32,\"role_name\":\"Markers\",\"product_id\":2,\"checked\":false},{\"role_id\":65,\"role_name\":\"Role Test QA 27\",\"product_id\":2,\"checked\":false}],\"enableMultiRole\":false}]"
+        }
+    },
+    "Admin_user_address_edit_update_body": {
+        "street": "chennai",
+        "city_id": "cheennai",
+        "state_id": "tamilnadu",
+        "country_id": "india",
+        "zipcode": "767676",
+        "language_id": "[{\"id\":1,\"name\":\"Afar\"}]",
+        "timezone_id": "[{\"id\":1,\"name\":\"(UTC-12:00) International Date Line West\"}]"
+    },
+    "Admin_user_setting_edit_update": {
+        "authentication_method": "[{\"id\":1,\"name\":\"Simple\"}]",
+        "status": true
+    },
+    "Admin_user_role_edit_update": {
+        "banks_and_roles": "[{\"product_id\":1,\"name\":\"QMS\",\"value\":[{\"bank_id\":3,\"bank_name\":\"Test Bank update\",\"role_id\":1,\"role\":[{\"role_id\":1,\"role_name\":\"Administrator\",\"product_id\":1,\"checked\":true},{\"role_id\":2,\"role_name\":\"Examiner\",\"product_id\":1,\"checked\":false},{\"role_id\":3,\"role_name\":\"Reviewer\",\"product_id\":1,\"checked\":false},{\"role_id\":4,\"role_name\":\"Approver\",\"product_id\":1,\"checked\":false},{\"role_id\":11,\"role_name\":\"Data Analyst\",\"product_id\":1,\"checked\":false},{\"role_id\":12,\"role_name\":\"Lead SME\",\"product_id\":1,\"checked\":false},{\"role_id\":14,\"role_name\":\"Test Role\",\"product_id\":1,\"checked\":false},{\"role_id\":19,\"role_name\":\"Dummy role Test\",\"product_id\":1,\"checked\":false},{\"role_id\":20,\"role_name\":\"SME\",\"product_id\":1,\"checked\":false},{\"role_id\":21,\"role_name\":\"ERG\",\"product_id\":1,\"checked\":false},{\"role_id\":22,\"role_name\":\"test\",\"product_id\":1,\"checked\":false},{\"role_id\":26,\"role_name\":\"globaltest\",\"product_id\":1,\"checked\":false},{\"role_id\":27,\"role_name\":\"globaltest1\",\"product_id\":1,\"checked\":false},{\"role_id\":34,\"role_name\":\"tests (1)\",\"product_id\":1,\"checked\":false},{\"role_id\":49,\"role_name\":\"test role\",\"product_id\":1,\"checked\":false},{\"role_id\":64,\"role_name\":\"Role Test 27\",\"product_id\":1,\"checked\":false}]},{\"bank_id\":40,\"bank_name\":\"Admin 123\",\"role_id\":1,\"role\":[{\"role_id\":1,\"role_name\":\"Administrator\",\"product_id\":1,\"checked\":true},{\"role_id\":2,\"role_name\":\"Examiner\",\"product_id\":1,\"checked\":false},{\"role_id\":3,\"role_name\":\"Reviewer\",\"product_id\":1,\"checked\":false},{\"role_id\":4,\"role_name\":\"Approver\",\"product_id\":1,\"checked\":false},{\"role_id\":11,\"role_name\":\"Data Analyst\",\"product_id\":1,\"checked\":false},{\"role_id\":12,\"role_name\":\"Lead SME\",\"product_id\":1,\"checked\":false},{\"role_id\":14,\"role_name\":\"Test Role\",\"product_id\":1,\"checked\":false},{\"role_id\":19,\"role_name\":\"Dummy role Test\",\"product_id\":1,\"checked\":false},{\"role_id\":20,\"role_name\":\"SME\",\"product_id\":1,\"checked\":false},{\"role_id\":21,\"role_name\":\"ERG\",\"product_id\":1,\"checked\":false},{\"role_id\":22,\"role_name\":\"test\",\"product_id\":1,\"checked\":false},{\"role_id\":26,\"role_name\":\"globaltest\",\"product_id\":1,\"checked\":false},{\"role_id\":27,\"role_name\":\"globaltest1\",\"product_id\":1,\"checked\":false},{\"role_id\":34,\"role_name\":\"tests (1)\",\"product_id\":1,\"checked\":false},{\"role_id\":49,\"role_name\":\"test role\",\"product_id\":1,\"checked\":false},{\"role_id\":64,\"role_name\":\"Role Test 27\",\"product_id\":1,\"checked\":false}]}],\"role_arr\":[{\"role_id\":1,\"role_name\":\"Administrator\",\"product_id\":1,\"checked\":false},{\"role_id\":2,\"role_name\":\"Examiner\",\"product_id\":1,\"checked\":false},{\"role_id\":3,\"role_name\":\"Reviewer\",\"product_id\":1,\"checked\":false},{\"role_id\":4,\"role_name\":\"Approver\",\"product_id\":1,\"checked\":false},{\"role_id\":11,\"role_name\":\"Data Analyst\",\"product_id\":1,\"checked\":false},{\"role_id\":12,\"role_name\":\"Lead SME\",\"product_id\":1,\"checked\":false},{\"role_id\":14,\"role_name\":\"Test Role\",\"product_id\":1,\"checked\":false},{\"role_id\":19,\"role_name\":\"Dummy role Test\",\"product_id\":1,\"checked\":false},{\"role_id\":20,\"role_name\":\"SME\",\"product_id\":1,\"checked\":false},{\"role_id\":21,\"role_name\":\"ERG\",\"product_id\":1,\"checked\":false},{\"role_id\":22,\"role_name\":\"test\",\"product_id\":1,\"checked\":false},{\"role_id\":26,\"role_name\":\"globaltest\",\"product_id\":1,\"checked\":false},{\"role_id\":27,\"role_name\":\"globaltest1\",\"product_id\":1,\"checked\":false},{\"role_id\":34,\"role_name\":\"tests (1)\",\"product_id\":1,\"checked\":false},{\"role_id\":49,\"role_name\":\"test role\",\"product_id\":1,\"checked\":false},{\"role_id\":64,\"role_name\":\"Role Test 27\",\"product_id\":1,\"checked\":false}],\"enableMultiRole\":false},{\"product_id\":2,\"name\":\"OE\",\"value\":[{\"bank_id\":3,\"bank_name\":\"Test Bank update\",\"role_id\":5,\"role\":[{\"role_id\":5,\"role_name\":\"Exam Administrator\",\"product_id\":2,\"checked\":true},{\"role_id\":6,\"role_name\":\"Committee Chair\",\"product_id\":2,\"checked\":false},{\"role_id\":7,\"role_name\":\"Subject Leader\",\"product_id\":2,\"checked\":false},{\"role_id\":8,\"role_name\":\"Invigilator\",\"product_id\":2,\"checked\":false},{\"role_id\":9,\"role_name\":\"Candidate\",\"product_id\":2,\"checked\":false},{\"role_id\":10,\"role_name\":\"Marker\",\"product_id\":2,\"checked\":false},{\"role_id\":32,\"role_name\":\"Markers\",\"product_id\":2,\"checked\":false},{\"role_id\":65,\"role_name\":\"Role Test QA 27\",\"product_id\":2,\"checked\":false}]},{\"bank_id\":40,\"bank_name\":\"Admin 123\",\"role_id\":5,\"role\":[{\"role_id\":5,\"role_name\":\"Exam Administrator\",\"product_id\":2,\"checked\":true},{\"role_id\":6,\"role_name\":\"Committee Chair\",\"product_id\":2,\"checked\":false},{\"role_id\":7,\"role_name\":\"Subject Leader\",\"product_id\":2,\"checked\":false},{\"role_id\":8,\"role_name\":\"Invigilator\",\"product_id\":2,\"checked\":false},{\"role_id\":9,\"role_name\":\"Candidate\",\"product_id\":2,\"checked\":false},{\"role_id\":10,\"role_name\":\"Marker\",\"product_id\":2,\"checked\":false},{\"role_id\":32,\"role_name\":\"Markers\",\"product_id\":2,\"checked\":false},{\"role_id\":65,\"role_name\":\"Role Test QA 27\",\"product_id\":2,\"checked\":false}]}],\"role_arr\":[{\"role_id\":5,\"role_name\":\"Exam Administrator\",\"product_id\":2,\"checked\":false},{\"role_id\":6,\"role_name\":\"Committee Chair\",\"product_id\":2,\"checked\":false},{\"role_id\":7,\"role_name\":\"Subject Leader\",\"product_id\":2,\"checked\":false},{\"role_id\":8,\"role_name\":\"Invigilator\",\"product_id\":2,\"checked\":false},{\"role_id\":9,\"role_name\":\"Candidate\",\"product_id\":2,\"checked\":false},{\"role_id\":10,\"role_name\":\"Marker\",\"product_id\":2,\"checked\":false},{\"role_id\":32,\"role_name\":\"Markers\",\"product_id\":2,\"checked\":false},{\"role_id\":65,\"role_name\":\"Role Test QA 27\",\"product_id\":2,\"checked\":false}],\"enableMultiRole\":false}]"
+    },
+    "Admin_users_search": {
+        "freeText": [
+            "admin"
+        ]
+    },
+    "Admin_Save_logout_settings": {
+        "logout_value": "120"
+    },
+    "Admin_save_rate_limit_login": {
+        "max_attempts": "3",
+        "decay_minutes": "1"
+    },
+    "Admin_role_list_pagination": {
+        "freeText": [
+            ""
+        ],
+        "pagination": 10
+    },
+    "Admin_roles_list_column_hiden": {
+        "freeText": [
+            ""
+        ],
+        "showColumns": [
+            "CREATED BY",
+            "MODIFIED BY",
+            "mappings"
+        ]
+    }
+}
