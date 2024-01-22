@@ -23,6 +23,7 @@ var schemajsonpath;
 export let token;
 let UserId;
 let roleId;
+let user_activity_name;
 var jschemasonpath;
 jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
 
@@ -2603,6 +2604,244 @@ test("Admin_091. @API Admin delete-role_validation of incorrect HTTP method", as
 
     //Verify Response Headers
     expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Admin_128. @API Admin fetch the user-activities-filter", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/filters/useractivities',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+})
+
+test("Admin_129. @API Endpoint validation for user-activities-filter", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/filters/useractivitiesIGS',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Admin_131. @API Admin_user-activities-list", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/useractivities',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json();
+})
+
+test("Admin_132. @API Admin user-activities-list_validation of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/useractivities',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Admin_133. @API Admin user-activities-list_validation of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/useractivitiesIGS',
+        {
+            data: jsonObject.Admin_Role.Admin_role_update,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Admin_134. @API Admin_user-activities-list-pagination", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/useractivities?page=2',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json();
+    user_activity_name = res.useractivities.data[0]["user name"]
+    console.log("User activity name:", user_activity_name)
+})
+
+test("Admin_135. @API Admin user-activities-list-pagination_validation of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/useractivities?page=2',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Admin_136. @API Admin user-activities-list-pagination_validation of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/useractivitiesIGS?page=2',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Admin_0130. @API Admin user-activities-filter-Header field validation - invalid", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/filters/useractivities',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("AL_001T. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
 })
 
 test("Admin_090. @API Admin delete-role-Header field validation - invalid", async ({ request }) => {

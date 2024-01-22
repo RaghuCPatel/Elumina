@@ -1909,5 +1909,306 @@
                 }
             ]
         }
+    },
+    "spot_question": {
+        "body": {
+            "type": "Spot Question",
+            "bank": 41,
+            "title": "question spot2",
+            "description": "<p>question descrip</p>",
+            "text": "<p>case scena</p>",
+            "image": [],
+            "spotanswer": [
+                {
+                    "position": 1,
+                    "question_text": "<p>question1 text&nbsp;</p>",
+                    "question_text_title": "Question Text",
+                    "question_text_required": true,
+                    "question_mark": 10,
+                    "question_mark_title": "Mark",
+                    "question_mark_required": false,
+                    "image": [],
+                    "image_options_arr": [],
+                    "image_title": "Image",
+                    "image_required": false,
+                    "answer_keys": [
+                        {
+                            "position": 1,
+                            "header": "",
+                            "required": "",
+                            "total_sum": 0,
+                            "answer_key_childs": [
+                                {
+                                    "position": 1,
+                                    "parameter": "answer key1",
+                                    "required": "required",
+                                    "mark": 10,
+                                    "mark_required": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "position": 2,
+                    "question_text": "<p>quest2</p>",
+                    "correct_answer": "",
+                    "question_text_required": "required",
+                    "image_required": "",
+                    "question_text_title": "Question Text",
+                    "image_title": "Image",
+                    "question_mark": 10,
+                    "image": "",
+                    "image_options_arr": "",
+                    "answer_keys": [
+                        {
+                            "position": 1,
+                            "header": "",
+                            "answer_key_childs": [
+                                {
+                                    "position": 1,
+                                    "parameter": "ans q2",
+                                    "mark": 10,
+                                    "mark_required": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "editspotbody": {
+            "type": "Spot Question",
+            "bank": 41,
+            "title": "question spot2 edit",
+            "description": "<p>question descrip</p>",
+            "text": "<p>case scena</p>",
+            "image": [],
+            "spotanswer": [
+                {
+                    "position": 1,
+                    "question_text": "<p>question1 text&nbsp;</p>",
+                    "question_text_title": "Question Text",
+                    "question_text_required": true,
+                    "correct_answer": "",
+                    "correct_answer_title": "Correct Answer",
+                    "correct_answer_required": true,
+                    "question_mark": 10,
+                    "question_mark_title": "Mark",
+                    "question_mark_required": false,
+                    "image": [],
+                    "image_options_arr": [],
+                    "image_title": "Image",
+                    "image_required": false,
+                    "answer_keys": [
+                        {
+                            "position": 1,
+                            "header": "",
+                            "required": "",
+                            "total_sum": 10,
+                            "answer_key_childs": [
+                                {
+                                    "position": 1,
+                                    "parameter": "answer key1",
+                                    "required": "required",
+                                    "mark": 10,
+                                    "mark_required": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "position": 2,
+                    "question_text": "<p>quest2</p>",
+                    "question_text_title": "Question Text",
+                    "question_text_required": true,
+                    "correct_answer": "",
+                    "correct_answer_title": "Correct Answer",
+                    "correct_answer_required": true,
+                    "question_mark": 10,
+                    "question_mark_title": "Mark",
+                    "question_mark_required": false,
+                    "image": [],
+                    "image_options_arr": [],
+                    "image_title": "Image",
+                    "image_required": false,
+                    "answer_keys": [
+                        {
+                            "position": 1,
+                            "header": "",
+                            "required": "",
+                            "total_sum": 10,
+                            "answer_key_childs": [
+                                {
+                                    "position": 1,
+                                    "parameter": "ans q2",
+                                    "required": "required",
+                                    "mark": 10,
+                                    "mark_required": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "emptyTitleBody": {
+            "type": "Spot Question",
+            "bank": 41,
+            "title": "",
+            "description": "<p>question descrip</p>",
+            "text": "<p>case scena</p>",
+            "image": [],
+            "spotanswer": [
+                {
+                    "position": 1,
+                    "question_text": "<p>question1 text&nbsp;</p>",
+                    "question_text_title": "Question Text",
+                    "question_text_required": true,
+                    "question_mark": 10,
+                    "question_mark_title": "Mark",
+                    "question_mark_required": false,
+                    "image": [],
+                    "image_options_arr": [],
+                    "image_title": "Image",
+                    "image_required": false,
+                    "answer_keys": [
+                        {
+                            "position": 1,
+                            "header": "",
+                            "required": "",
+                            "total_sum": 0,
+                            "answer_key_childs": [
+                                {
+                                    "position": 1,
+                                    "parameter": "answer key1",
+                                    "required": "required",
+                                    "mark": 10,
+                                    "mark_required": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "position": 2,
+                    "question_text": "<p>quest2</p>",
+                    "correct_answer": "",
+                    "question_text_required": "required",
+                    "image_required": "",
+                    "question_text_title": "Question Text",
+                    "image_title": "Image",
+                    "question_mark": 10,
+                    "image": "",
+                    "image_options_arr": "",
+                    "answer_keys": [
+                        {
+                            "position": 1,
+                            "header": "",
+                            "answer_key_childs": [
+                                {
+                                    "position": 1,
+                                    "parameter": "ans q2",
+                                    "mark": 10,
+                                    "mark_required": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "longAnswer": {
+        "body": {
+            "type": "Long Answer",
+            "bank": 41,
+            "title": "question title long 2",
+            "description": "<p>question des</p>",
+            "text": "<p>case scen</p>",
+            "question_marks": {
+                "correct_answer": "<p>correct ans</p>",
+                "question_mark": 10
+            },
+            "image": [],
+            "longanswer": [
+                {
+                    "position": 1,
+                    "header": "anskey",
+                    "required": "",
+                    "total_sum": 0,
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>text</p>",
+                            "required": "required",
+                            "mark": 5,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        "editlonganswerbody": {
+            "type": "Long Answer",
+            "bank": 41,
+            "title": "question title long edite",
+            "description": "<p>question des</p>",
+            "text": "<p>case scen</p>",
+            "question_marks": {
+                "correct_answer": "<p>correct ans</p>",
+                "question_mark": 10
+            },
+            "image": [],
+            "mandatorytags": "[]",
+            "longanswer": [
+                {
+                    "position": 1,
+                    "header": "anskey",
+                    "required": "",
+                    "total_sum": 0,
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>text</p>",
+                            "required": "required",
+                            "mark": 5,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ],
+            "tags": []
+        },
+        "emptyTitleBody": {
+            "type": "Long Answer",
+            "bank": 41,
+            "title": "",
+            "description": "<p>question des</p>",
+            "text": "<p>case scen</p>",
+            "question_marks": {
+                "correct_answer": "<p>correct ans</p>",
+                "question_mark": 10
+            },
+            "image": [],
+            "longanswer": [
+                {
+                    "position": 1,
+                    "header": "anskey",
+                    "required": "",
+                    "total_sum": 0,
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>text</p>",
+                            "required": "required",
+                            "mark": 5,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ]
+        }
     }
 }
