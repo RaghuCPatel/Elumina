@@ -1,0 +1,433 @@
+{
+    "responseDuration": 4500,
+    "Admin_add_user_address_save": {
+        "body": {
+            "street": "chennai",
+            "city_id": "cheennai",
+            "state_id": "tamilnadu",
+            "zipcode": "767676",
+            "language_id": "[{\"id\":1,\"name\":\"Afar\"}]",
+            "timezone_id": "[{\"id\":1,\"name\":\"(UTC-12:00) International Date Line West\"}]"
+        },
+        "empty_state_idbody": {
+            "street": "chennai",
+            "city_id": "cheennai",
+            "state_id": "",
+            "zipcode": "767676",
+            "language_id": "[{\"id\":1,\"name\":\"Afar\"}]",
+            "timezone_id": "[{\"id\":1,\"name\":\"(UTC-12:00) International Date Line West\"}]"
+        }
+    },
+    "Admin_user_setting_save": {
+        "body": {
+            "authentication_method": "[{\"id\":1,\"name\":\"Simple\"}]",
+            "status": true,
+            "specialties": ""
+        }
+    },
+    "Admin_user_role_save": {
+        "body": {
+            "banks_and_roles": "[{\"product_id\":1,\"name\":\"QMS\",\"value\":[{\"bank_id\":3,\"bank_name\":\"Test Bank update\",\"role_id\":0,\"role\":[{\"role_id\":1,\"role_name\":\"Administrator\",\"product_id\":1,\"checked\":true},{\"role_id\":2,\"role_name\":\"Examiner\",\"product_id\":1,\"checked\":false},{\"role_id\":3,\"role_name\":\"Reviewer\",\"product_id\":1,\"checked\":false},{\"role_id\":4,\"role_name\":\"Approver\",\"product_id\":1,\"checked\":false},{\"role_id\":11,\"role_name\":\"Data Analyst\",\"product_id\":1,\"checked\":false},{\"role_id\":12,\"role_name\":\"Lead SME\",\"product_id\":1,\"checked\":false},{\"role_id\":14,\"role_name\":\"Test Role\",\"product_id\":1,\"checked\":false},{\"role_id\":19,\"role_name\":\"Dummy role Test\",\"product_id\":1,\"checked\":false},{\"role_id\":20,\"role_name\":\"SME\",\"product_id\":1,\"checked\":false},{\"role_id\":21,\"role_name\":\"ERG\",\"product_id\":1,\"checked\":false},{\"role_id\":22,\"role_name\":\"test\",\"product_id\":1,\"checked\":false},{\"role_id\":26,\"role_name\":\"globaltest\",\"product_id\":1,\"checked\":false},{\"role_id\":27,\"role_name\":\"globaltest1\",\"product_id\":1,\"checked\":false},{\"role_id\":34,\"role_name\":\"tests (1)\",\"product_id\":1,\"checked\":false},{\"role_id\":49,\"role_name\":\"test role\",\"product_id\":1,\"checked\":false},{\"role_id\":64,\"role_name\":\"Role Test 27\",\"product_id\":1,\"checked\":false}]}],\"role_arr\":[{\"role_id\":1,\"role_name\":\"Administrator\",\"product_id\":1,\"checked\":false},{\"role_id\":2,\"role_name\":\"Examiner\",\"product_id\":1,\"checked\":false},{\"role_id\":3,\"role_name\":\"Reviewer\",\"product_id\":1,\"checked\":false},{\"role_id\":4,\"role_name\":\"Approver\",\"product_id\":1,\"checked\":false},{\"role_id\":11,\"role_name\":\"Data Analyst\",\"product_id\":1,\"checked\":false},{\"role_id\":12,\"role_name\":\"Lead SME\",\"product_id\":1,\"checked\":false},{\"role_id\":14,\"role_name\":\"Test Role\",\"product_id\":1,\"checked\":false},{\"role_id\":19,\"role_name\":\"Dummy role Test\",\"product_id\":1,\"checked\":false},{\"role_id\":20,\"role_name\":\"SME\",\"product_id\":1,\"checked\":false},{\"role_id\":21,\"role_name\":\"ERG\",\"product_id\":1,\"checked\":false},{\"role_id\":22,\"role_name\":\"test\",\"product_id\":1,\"checked\":false},{\"role_id\":26,\"role_name\":\"globaltest\",\"product_id\":1,\"checked\":false},{\"role_id\":27,\"role_name\":\"globaltest1\",\"product_id\":1,\"checked\":false},{\"role_id\":34,\"role_name\":\"tests (1)\",\"product_id\":1,\"checked\":false},{\"role_id\":49,\"role_name\":\"test role\",\"product_id\":1,\"checked\":false},{\"role_id\":64,\"role_name\":\"Role Test 27\",\"product_id\":1,\"checked\":false}],\"enableMultiRole\":false},{\"product_id\":2,\"name\":\"OE\",\"value\":[{\"bank_id\":3,\"bank_name\":\"Test Bank update\",\"role_id\":0,\"role\":[{\"role_id\":5,\"role_name\":\"Exam Administrator\",\"product_id\":2,\"checked\":true},{\"role_id\":6,\"role_name\":\"Committee Chair\",\"product_id\":2,\"checked\":false},{\"role_id\":7,\"role_name\":\"Subject Leader\",\"product_id\":2,\"checked\":false},{\"role_id\":8,\"role_name\":\"Invigilator\",\"product_id\":2,\"checked\":false},{\"role_id\":9,\"role_name\":\"Candidate\",\"product_id\":2,\"checked\":false},{\"role_id\":10,\"role_name\":\"Marker\",\"product_id\":2,\"checked\":false},{\"role_id\":32,\"role_name\":\"Markers\",\"product_id\":2,\"checked\":false},{\"role_id\":65,\"role_name\":\"Role Test QA 27\",\"product_id\":2,\"checked\":false}]}],\"role_arr\":[{\"role_id\":5,\"role_name\":\"Exam Administrator\",\"product_id\":2,\"checked\":false},{\"role_id\":6,\"role_name\":\"Committee Chair\",\"product_id\":2,\"checked\":false},{\"role_id\":7,\"role_name\":\"Subject Leader\",\"product_id\":2,\"checked\":false},{\"role_id\":8,\"role_name\":\"Invigilator\",\"product_id\":2,\"checked\":false},{\"role_id\":9,\"role_name\":\"Candidate\",\"product_id\":2,\"checked\":false},{\"role_id\":10,\"role_name\":\"Marker\",\"product_id\":2,\"checked\":false},{\"role_id\":32,\"role_name\":\"Markers\",\"product_id\":2,\"checked\":false},{\"role_id\":65,\"role_name\":\"Role Test QA 27\",\"product_id\":2,\"checked\":false}],\"enableMultiRole\":false}]"
+        }
+    },
+    "Admin_user_address_edit_update_body": {
+        "street": "chennai",
+        "city_id": "cheennai",
+        "state_id": "tamilnadu",
+        "country_id": "india",
+        "zipcode": "767676",
+        "language_id": "[{\"id\":1,\"name\":\"Afar\"}]",
+        "timezone_id": "[{\"id\":1,\"name\":\"(UTC-12:00) International Date Line West\"}]"
+    },
+    "Admin_user_setting_edit_update": {
+        "authentication_method": "[{\"id\":1,\"name\":\"Simple\"}]",
+        "status": true
+    },
+    "Admin_user_role_edit_update": {
+        "banks_and_roles": "[{\"product_id\":1,\"name\":\"QMS\",\"value\":[{\"bank_id\":3,\"bank_name\":\"Test Bank update\",\"role_id\":1,\"role\":[{\"role_id\":1,\"role_name\":\"Administrator\",\"product_id\":1,\"checked\":true},{\"role_id\":2,\"role_name\":\"Examiner\",\"product_id\":1,\"checked\":false},{\"role_id\":3,\"role_name\":\"Reviewer\",\"product_id\":1,\"checked\":false},{\"role_id\":4,\"role_name\":\"Approver\",\"product_id\":1,\"checked\":false},{\"role_id\":11,\"role_name\":\"Data Analyst\",\"product_id\":1,\"checked\":false},{\"role_id\":12,\"role_name\":\"Lead SME\",\"product_id\":1,\"checked\":false},{\"role_id\":14,\"role_name\":\"Test Role\",\"product_id\":1,\"checked\":false},{\"role_id\":19,\"role_name\":\"Dummy role Test\",\"product_id\":1,\"checked\":false},{\"role_id\":20,\"role_name\":\"SME\",\"product_id\":1,\"checked\":false},{\"role_id\":21,\"role_name\":\"ERG\",\"product_id\":1,\"checked\":false},{\"role_id\":22,\"role_name\":\"test\",\"product_id\":1,\"checked\":false},{\"role_id\":26,\"role_name\":\"globaltest\",\"product_id\":1,\"checked\":false},{\"role_id\":27,\"role_name\":\"globaltest1\",\"product_id\":1,\"checked\":false},{\"role_id\":34,\"role_name\":\"tests (1)\",\"product_id\":1,\"checked\":false},{\"role_id\":49,\"role_name\":\"test role\",\"product_id\":1,\"checked\":false},{\"role_id\":64,\"role_name\":\"Role Test 27\",\"product_id\":1,\"checked\":false}]},{\"bank_id\":40,\"bank_name\":\"Admin 123\",\"role_id\":1,\"role\":[{\"role_id\":1,\"role_name\":\"Administrator\",\"product_id\":1,\"checked\":true},{\"role_id\":2,\"role_name\":\"Examiner\",\"product_id\":1,\"checked\":false},{\"role_id\":3,\"role_name\":\"Reviewer\",\"product_id\":1,\"checked\":false},{\"role_id\":4,\"role_name\":\"Approver\",\"product_id\":1,\"checked\":false},{\"role_id\":11,\"role_name\":\"Data Analyst\",\"product_id\":1,\"checked\":false},{\"role_id\":12,\"role_name\":\"Lead SME\",\"product_id\":1,\"checked\":false},{\"role_id\":14,\"role_name\":\"Test Role\",\"product_id\":1,\"checked\":false},{\"role_id\":19,\"role_name\":\"Dummy role Test\",\"product_id\":1,\"checked\":false},{\"role_id\":20,\"role_name\":\"SME\",\"product_id\":1,\"checked\":false},{\"role_id\":21,\"role_name\":\"ERG\",\"product_id\":1,\"checked\":false},{\"role_id\":22,\"role_name\":\"test\",\"product_id\":1,\"checked\":false},{\"role_id\":26,\"role_name\":\"globaltest\",\"product_id\":1,\"checked\":false},{\"role_id\":27,\"role_name\":\"globaltest1\",\"product_id\":1,\"checked\":false},{\"role_id\":34,\"role_name\":\"tests (1)\",\"product_id\":1,\"checked\":false},{\"role_id\":49,\"role_name\":\"test role\",\"product_id\":1,\"checked\":false},{\"role_id\":64,\"role_name\":\"Role Test 27\",\"product_id\":1,\"checked\":false}]}],\"role_arr\":[{\"role_id\":1,\"role_name\":\"Administrator\",\"product_id\":1,\"checked\":false},{\"role_id\":2,\"role_name\":\"Examiner\",\"product_id\":1,\"checked\":false},{\"role_id\":3,\"role_name\":\"Reviewer\",\"product_id\":1,\"checked\":false},{\"role_id\":4,\"role_name\":\"Approver\",\"product_id\":1,\"checked\":false},{\"role_id\":11,\"role_name\":\"Data Analyst\",\"product_id\":1,\"checked\":false},{\"role_id\":12,\"role_name\":\"Lead SME\",\"product_id\":1,\"checked\":false},{\"role_id\":14,\"role_name\":\"Test Role\",\"product_id\":1,\"checked\":false},{\"role_id\":19,\"role_name\":\"Dummy role Test\",\"product_id\":1,\"checked\":false},{\"role_id\":20,\"role_name\":\"SME\",\"product_id\":1,\"checked\":false},{\"role_id\":21,\"role_name\":\"ERG\",\"product_id\":1,\"checked\":false},{\"role_id\":22,\"role_name\":\"test\",\"product_id\":1,\"checked\":false},{\"role_id\":26,\"role_name\":\"globaltest\",\"product_id\":1,\"checked\":false},{\"role_id\":27,\"role_name\":\"globaltest1\",\"product_id\":1,\"checked\":false},{\"role_id\":34,\"role_name\":\"tests (1)\",\"product_id\":1,\"checked\":false},{\"role_id\":49,\"role_name\":\"test role\",\"product_id\":1,\"checked\":false},{\"role_id\":64,\"role_name\":\"Role Test 27\",\"product_id\":1,\"checked\":false}],\"enableMultiRole\":false},{\"product_id\":2,\"name\":\"OE\",\"value\":[{\"bank_id\":3,\"bank_name\":\"Test Bank update\",\"role_id\":5,\"role\":[{\"role_id\":5,\"role_name\":\"Exam Administrator\",\"product_id\":2,\"checked\":true},{\"role_id\":6,\"role_name\":\"Committee Chair\",\"product_id\":2,\"checked\":false},{\"role_id\":7,\"role_name\":\"Subject Leader\",\"product_id\":2,\"checked\":false},{\"role_id\":8,\"role_name\":\"Invigilator\",\"product_id\":2,\"checked\":false},{\"role_id\":9,\"role_name\":\"Candidate\",\"product_id\":2,\"checked\":false},{\"role_id\":10,\"role_name\":\"Marker\",\"product_id\":2,\"checked\":false},{\"role_id\":32,\"role_name\":\"Markers\",\"product_id\":2,\"checked\":false},{\"role_id\":65,\"role_name\":\"Role Test QA 27\",\"product_id\":2,\"checked\":false}]},{\"bank_id\":40,\"bank_name\":\"Admin 123\",\"role_id\":5,\"role\":[{\"role_id\":5,\"role_name\":\"Exam Administrator\",\"product_id\":2,\"checked\":true},{\"role_id\":6,\"role_name\":\"Committee Chair\",\"product_id\":2,\"checked\":false},{\"role_id\":7,\"role_name\":\"Subject Leader\",\"product_id\":2,\"checked\":false},{\"role_id\":8,\"role_name\":\"Invigilator\",\"product_id\":2,\"checked\":false},{\"role_id\":9,\"role_name\":\"Candidate\",\"product_id\":2,\"checked\":false},{\"role_id\":10,\"role_name\":\"Marker\",\"product_id\":2,\"checked\":false},{\"role_id\":32,\"role_name\":\"Markers\",\"product_id\":2,\"checked\":false},{\"role_id\":65,\"role_name\":\"Role Test QA 27\",\"product_id\":2,\"checked\":false}]}],\"role_arr\":[{\"role_id\":5,\"role_name\":\"Exam Administrator\",\"product_id\":2,\"checked\":false},{\"role_id\":6,\"role_name\":\"Committee Chair\",\"product_id\":2,\"checked\":false},{\"role_id\":7,\"role_name\":\"Subject Leader\",\"product_id\":2,\"checked\":false},{\"role_id\":8,\"role_name\":\"Invigilator\",\"product_id\":2,\"checked\":false},{\"role_id\":9,\"role_name\":\"Candidate\",\"product_id\":2,\"checked\":false},{\"role_id\":10,\"role_name\":\"Marker\",\"product_id\":2,\"checked\":false},{\"role_id\":32,\"role_name\":\"Markers\",\"product_id\":2,\"checked\":false},{\"role_id\":65,\"role_name\":\"Role Test QA 27\",\"product_id\":2,\"checked\":false}],\"enableMultiRole\":false}]"
+    },
+    "Admin_users_search": {
+        "freeText": [
+            "admin"
+        ]
+    },
+    "Admin_Save_logout_settings": {
+        "logout_value": "120"
+    },
+    "Admin_save_rate_limit_login": {
+        "max_attempts": "3",
+        "decay_minutes": "1"
+    },
+    "Admin_role_list_pagination": {
+        "freeText": [
+            ""
+        ],
+        "pagination": 10
+    },
+    "Admin_roles_list_column_hiden": {
+        "freeText": [
+            ""
+        ],
+        "showColumns": [
+            "CREATED BY",
+            "MODIFIED BY",
+            "mappings"
+        ]
+    },
+    "Admin_securitycontrol_save": [
+        {
+            "Question": {
+                "roles": [
+                    {
+                        "name": "Question",
+                        "privileges": [
+                            {
+                                "id": 1,
+                                "name": "Create",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 2,
+                                "name": "Search",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 3,
+                                "name": "Edit",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 4,
+                                "name": "Preview",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 5,
+                                "name": "Duplicate",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 6,
+                                "name": "Delete",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 7,
+                                "name": "Print",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 8,
+                                "name": "Export",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 9,
+                                "name": "Archive",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 53,
+                                "name": "Checkout",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 56,
+                                "name": "View",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 64,
+                                "name": "Download Question Paper",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 65,
+                                "name": "Submit & Review",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 67,
+                                "name": "Submit & Approve",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 142,
+                                "name": "Public Filter",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 130,
+                                "name": "Preview (WEB)",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 153,
+                                "name": "View (My Item)",
+                                "is_show": 0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Images",
+                        "privileges": [
+                            {
+                                "id": 16,
+                                "name": "Upload",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 17,
+                                "name": "Search",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 18,
+                                "name": "Edit",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 20,
+                                "name": "Delete",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 62,
+                                "name": "View",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 143,
+                                "name": "Public Filter",
+                                "is_show": 1
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Exam",
+                        "privileges": [
+                            {
+                                "id": 22,
+                                "name": "Create",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 23,
+                                "name": "Search",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 24,
+                                "name": "Edit",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 26,
+                                "name": "Duplicate",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 28,
+                                "name": "Print",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 49,
+                                "name": "Export",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 51,
+                                "name": "Delete",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 30,
+                                "name": "Archive",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 52,
+                                "name": "Checkout",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 59,
+                                "name": "View",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 25,
+                                "name": "Preview (WEB)",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 63,
+                                "name": "Preview (PDF)",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 66,
+                                "name": "Submit & Review",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 68,
+                                "name": "Submit & Approve",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 131,
+                                "name": "Save Draft",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 144,
+                                "name": "Public Filter",
+                                "is_show": 0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Blueprint",
+                        "privileges": [
+                            {
+                                "id": 31,
+                                "name": "Create",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 32,
+                                "name": "Search",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 33,
+                                "name": "Edit",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 34,
+                                "name": "Preview",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 35,
+                                "name": "Duplicate",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 36,
+                                "name": "Delete",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 37,
+                                "name": "Print",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 38,
+                                "name": "Export",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 39,
+                                "name": "Archive",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 57,
+                                "name": "View",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 58,
+                                "name": "Unlock",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 145,
+                                "name": "Public Filter",
+                                "is_show": 0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Reports",
+                        "privileges": [
+                            {
+                                "id": 81,
+                                "name": "Create",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 82,
+                                "name": "Search",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 83,
+                                "name": "Edit",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 84,
+                                "name": "Preview",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 85,
+                                "name": "Duplicate",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 86,
+                                "name": "Delete",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 87,
+                                "name": "Print",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 88,
+                                "name": "Export",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 89,
+                                "name": "Archive",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 90,
+                                "name": "View",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 146,
+                                "name": "Public Filter",
+                                "is_show": 0
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "Admin_user_activities_filter_search": {
+        "filterArray": [
+            {
+                "filterId": "User Name",
+                "operator": "eq",
+                "displayText": "User Name <span><strong>is equal to</strong></span> ",
+                "filterValue1": "\t SAAS QA marker",
+                "filterValue2": "",
+                "operation": ""
+            }
+        ],
+        "freeText": []
+    }
+}

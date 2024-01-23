@@ -1909,5 +1909,608 @@
                 }
             ]
         }
+    },
+    "spot_question": {
+        "body": {
+            "type": "Spot Question",
+            "bank": 41,
+            "title": "question spot2",
+            "description": "<p>question descrip</p>",
+            "text": "<p>case scena</p>",
+            "image": [],
+            "spotanswer": [
+                {
+                    "position": 1,
+                    "question_text": "<p>question1 text&nbsp;</p>",
+                    "question_text_title": "Question Text",
+                    "question_text_required": true,
+                    "question_mark": 10,
+                    "question_mark_title": "Mark",
+                    "question_mark_required": false,
+                    "image": [],
+                    "image_options_arr": [],
+                    "image_title": "Image",
+                    "image_required": false,
+                    "answer_keys": [
+                        {
+                            "position": 1,
+                            "header": "",
+                            "required": "",
+                            "total_sum": 0,
+                            "answer_key_childs": [
+                                {
+                                    "position": 1,
+                                    "parameter": "answer key1",
+                                    "required": "required",
+                                    "mark": 10,
+                                    "mark_required": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "position": 2,
+                    "question_text": "<p>quest2</p>",
+                    "correct_answer": "",
+                    "question_text_required": "required",
+                    "image_required": "",
+                    "question_text_title": "Question Text",
+                    "image_title": "Image",
+                    "question_mark": 10,
+                    "image": "",
+                    "image_options_arr": "",
+                    "answer_keys": [
+                        {
+                            "position": 1,
+                            "header": "",
+                            "answer_key_childs": [
+                                {
+                                    "position": 1,
+                                    "parameter": "ans q2",
+                                    "mark": 10,
+                                    "mark_required": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "editspotbody": {
+            "type": "Spot Question",
+            "bank": 41,
+            "title": "question spot2 edit",
+            "description": "<p>question descrip</p>",
+            "text": "<p>case scena</p>",
+            "image": [],
+            "spotanswer": [
+                {
+                    "position": 1,
+                    "question_text": "<p>question1 text&nbsp;</p>",
+                    "question_text_title": "Question Text",
+                    "question_text_required": true,
+                    "correct_answer": "",
+                    "correct_answer_title": "Correct Answer",
+                    "correct_answer_required": true,
+                    "question_mark": 10,
+                    "question_mark_title": "Mark",
+                    "question_mark_required": false,
+                    "image": [],
+                    "image_options_arr": [],
+                    "image_title": "Image",
+                    "image_required": false,
+                    "answer_keys": [
+                        {
+                            "position": 1,
+                            "header": "",
+                            "required": "",
+                            "total_sum": 10,
+                            "answer_key_childs": [
+                                {
+                                    "position": 1,
+                                    "parameter": "answer key1",
+                                    "required": "required",
+                                    "mark": 10,
+                                    "mark_required": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "position": 2,
+                    "question_text": "<p>quest2</p>",
+                    "question_text_title": "Question Text",
+                    "question_text_required": true,
+                    "correct_answer": "",
+                    "correct_answer_title": "Correct Answer",
+                    "correct_answer_required": true,
+                    "question_mark": 10,
+                    "question_mark_title": "Mark",
+                    "question_mark_required": false,
+                    "image": [],
+                    "image_options_arr": [],
+                    "image_title": "Image",
+                    "image_required": false,
+                    "answer_keys": [
+                        {
+                            "position": 1,
+                            "header": "",
+                            "required": "",
+                            "total_sum": 10,
+                            "answer_key_childs": [
+                                {
+                                    "position": 1,
+                                    "parameter": "ans q2",
+                                    "required": "required",
+                                    "mark": 10,
+                                    "mark_required": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "emptyTitleBody": {
+            "type": "Spot Question",
+            "bank": 41,
+            "title": "",
+            "description": "<p>question descrip</p>",
+            "text": "<p>case scena</p>",
+            "image": [],
+            "spotanswer": [
+                {
+                    "position": 1,
+                    "question_text": "<p>question1 text&nbsp;</p>",
+                    "question_text_title": "Question Text",
+                    "question_text_required": true,
+                    "question_mark": 10,
+                    "question_mark_title": "Mark",
+                    "question_mark_required": false,
+                    "image": [],
+                    "image_options_arr": [],
+                    "image_title": "Image",
+                    "image_required": false,
+                    "answer_keys": [
+                        {
+                            "position": 1,
+                            "header": "",
+                            "required": "",
+                            "total_sum": 0,
+                            "answer_key_childs": [
+                                {
+                                    "position": 1,
+                                    "parameter": "answer key1",
+                                    "required": "required",
+                                    "mark": 10,
+                                    "mark_required": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "position": 2,
+                    "question_text": "<p>quest2</p>",
+                    "correct_answer": "",
+                    "question_text_required": "required",
+                    "image_required": "",
+                    "question_text_title": "Question Text",
+                    "image_title": "Image",
+                    "question_mark": 10,
+                    "image": "",
+                    "image_options_arr": "",
+                    "answer_keys": [
+                        {
+                            "position": 1,
+                            "header": "",
+                            "answer_key_childs": [
+                                {
+                                    "position": 1,
+                                    "parameter": "ans q2",
+                                    "mark": 10,
+                                    "mark_required": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "longAnswer": {
+        "body": {
+            "type": "Long Answer",
+            "bank": 41,
+            "title": "question title long 2",
+            "description": "<p>question des</p>",
+            "text": "<p>case scen</p>",
+            "question_marks": {
+                "correct_answer": "<p>correct ans</p>",
+                "question_mark": 10
+            },
+            "image": [],
+            "longanswer": [
+                {
+                    "position": 1,
+                    "header": "anskey",
+                    "required": "",
+                    "total_sum": 0,
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>text</p>",
+                            "required": "required",
+                            "mark": 5,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        "editlonganswerbody": {
+            "type": "Long Answer",
+            "bank": 41,
+            "title": "question title long edite",
+            "description": "<p>question des</p>",
+            "text": "<p>case scen</p>",
+            "question_marks": {
+                "correct_answer": "<p>correct ans</p>",
+                "question_mark": 10
+            },
+            "image": [],
+            "mandatorytags": "[]",
+            "longanswer": [
+                {
+                    "position": 1,
+                    "header": "anskey",
+                    "required": "",
+                    "total_sum": 0,
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>text</p>",
+                            "required": "required",
+                            "mark": 5,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ],
+            "tags": []
+        },
+        "emptyTitleBody": {
+            "type": "Long Answer",
+            "bank": 41,
+            "title": "",
+            "description": "<p>question des</p>",
+            "text": "<p>case scen</p>",
+            "question_marks": {
+                "correct_answer": "<p>correct ans</p>",
+                "question_mark": 10
+            },
+            "image": [],
+            "longanswer": [
+                {
+                    "position": 1,
+                    "header": "anskey",
+                    "required": "",
+                    "total_sum": 0,
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>text</p>",
+                            "required": "required",
+                            "mark": 5,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "Translation": {
+        "body": {
+            "type": "Translation Question",
+            "bank": 1,
+            "title": "test topic",
+            "text": "<p>test question stem</p>",
+            "description": "<p>test question aims</p>",
+            "sourceLanguage": [
+                {
+                    "id": 1,
+                    "name": "Afar"
+                }
+            ],
+            "translationLanguage": [
+                {
+                    "id": 2,
+                    "name": "Abkhazian"
+                }
+            ],
+            "sourcetext": "<p dir=\"ltr\">test siurce</p>",
+            "question_marks": {
+                "correct_answer": "<p dir=\"ltr\">test model</p>",
+                "question_mark": 0
+            },
+            "image": [],
+            "tags": [
+                {
+                    "label": "Test tag",
+                    "id": 1,
+                    "tag_type_id": 1,
+                    "tagstatus": true,
+                    "tagVal": "Test tag value",
+                    "editor": "",
+                    "control_id": 1,
+                    "control_name": "input",
+                    "option_arr": [],
+                    "status": ""
+                }
+            ],
+            "translation": [
+                {
+                    "header": "anskey1",
+                    "position": 1,
+                    "required": "",
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>test des</p>",
+                            "required": "required",
+                            "isForJsonSchema": true,
+                            "mark": 0,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        "editTranslatonbody": {
+            "type": "Translation Question",
+            "bank": 1,
+            "title": "test topic",
+            "text": "<p>test question stem</p>",
+            "description": "<p>test question aims</p>",
+            "sourceLanguage": [
+                {
+                    "id": 1,
+                    "name": "Afar"
+                }
+            ],
+            "translationLanguage": [
+                {
+                    "id": 2,
+                    "name": "Abkhazian"
+                }
+            ],
+            "sourcetext": "<p>test siurcew</p>",
+            "question_marks": {
+                "correct_answer": "<p>1test model</p>",
+                "question_mark": 10
+            },
+            "image": [],
+            "tags": [
+                {
+                    "id": 1,
+                    "tag_type_id": 1,
+                    "tag_type_name": "Test tag",
+                    "name": "Test tag value",
+                    "control_id": 1,
+                    "control_name": "input",
+                    "editor": "",
+                    "value": "",
+                    "label": "Test tag",
+                    "tagVal": "Test tag value",
+                    "tagstatus": true
+                }
+            ],
+            "translation": [
+                {
+                    "position": 1,
+                    "header": "anskey1",
+                    "required": "",
+                    "total_sum": 0,
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>test des</p>",
+                            "required": "required",
+                            "mark": 10,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        "emptyTitleBody": {
+            "type": "Translation Question",
+            "bank": 1,
+            "title": "",
+            "text": "<p>test question stem</p>",
+            "description": "<p>test question aims</p>",
+            "sourceLanguage": [
+                {
+                    "id": 1,
+                    "name": "Afar"
+                }
+            ],
+            "translationLanguage": [
+                {
+                    "id": 2,
+                    "name": "Abkhazian"
+                }
+            ],
+            "sourcetext": "<p dir=\"ltr\">test siurce</p>",
+            "question_marks": {
+                "correct_answer": "<p dir=\"ltr\">test model</p>",
+                "question_mark": 0
+            },
+            "image": [],
+            "tags": [
+                {
+                    "label": "Test tag",
+                    "id": 1,
+                    "tag_type_id": 1,
+                    "tagstatus": true,
+                    "tagVal": "Test tag value",
+                    "editor": "",
+                    "control_id": 1,
+                    "control_name": "input",
+                    "option_arr": [],
+                    "status": ""
+                }
+            ],
+            "translation": [
+                {
+                    "header": "anskey1",
+                    "position": 1,
+                    "required": "",
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>test des</p>",
+                            "required": "required",
+                            "isForJsonSchema": true,
+                            "mark": 0,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "Revision": {
+        "body": {
+            "type": "Revision Question",
+            "bank": 1,
+            "title": "test rev",
+            "text": "<p>rev</p>",
+            "description": "<p>rev qusest</p>",
+            "sourceLanguage": [
+                {
+                    "id": 1,
+                    "name": "Afar"
+                }
+            ],
+            "translationLanguage": [
+                {
+                    "id": 3,
+                    "name": "Afrikaans"
+                }
+            ],
+            "sourcetext": "<p dir=\"ltr\">sour</p>",
+            "reviewtext": "<p dir=\"ltr\">test text</p>",
+            "question_marks": {
+                "correct_answer": "<p dir=\"ltr\">module ans</p>",
+                "question_mark": 10
+            },
+            "image": [],
+            "revision": [
+                {
+                    "header": "ans key",
+                    "position": 1,
+                    "required": "",
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>key ver</p>",
+                            "required": "required",
+                            "isForJsonSchema": true,
+                            "mark": 10,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        "editRevisionbody": {
+            "type": "Revision Question",
+            "bank": 1,
+            "title": "test rev",
+            "text": "<p>rev</p>",
+            "description": "<p>rev qusest</p>",
+            "sourceLanguage": [
+                {
+                    "id": 1,
+                    "name": "Afar"
+                }
+            ],
+            "translationLanguage": [
+                {
+                    "id": 3,
+                    "name": "Afrikaans"
+                }
+            ],
+            "sourcetext": "<p dir=\"ltr\">sour</p>",
+            "reviewtext": "<p dir=\"ltr\">test text</p>",
+            "question_marks": {
+                "correct_answer": "<p dir=\"ltr\">module ans</p>",
+                "question_mark": 10
+            },
+            "image": [],
+            "revision": [
+                {
+                    "position": 1,
+                    "header": "ans key",
+                    "required": "",
+                    "total_sum": 0,
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>key ver</p>",
+                            "required": "required",
+                            "mark": 10,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        "emptyTitleBody": {
+            "type": "Revision Question",
+            "bank": 1,
+            "title": "",
+            "text": "<p>rev</p>",
+            "description": "<p>rev qusest</p>",
+            "sourceLanguage": [
+                {
+                    "id": 1,
+                    "name": "Afar"
+                }
+            ],
+            "translationLanguage": [
+                {
+                    "id": 3,
+                    "name": "Afrikaans"
+                }
+            ],
+            "sourcetext": "<p dir=\"ltr\">sour</p>",
+            "reviewtext": "<p dir=\"ltr\">test text</p>",
+            "question_marks": {
+                "correct_answer": "<p dir=\"ltr\">module ans</p>",
+                "question_mark": 10
+            },
+            "image": [],
+            "revision": [
+                {
+                    "header": "ans key",
+                    "position": 1,
+                    "required": "",
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>key ver</p>",
+                            "required": "required",
+                            "isForJsonSchema": true,
+                            "mark": 10,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ]
+        }
     }
 }
