@@ -386,5 +386,57 @@
         "required": [
             "Response"
         ]
+    },
+    "Admin_securitycontrol_save": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Status": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Status"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "Admin_custom_filter_save_public_or_privet": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    },
+                    "filter_id": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success",
+                    "filter_id"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
     }
 }

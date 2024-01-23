@@ -2210,5 +2210,307 @@
                 }
             ]
         }
+    },
+    "Translation": {
+        "body": {
+            "type": "Translation Question",
+            "bank": 1,
+            "title": "test topic",
+            "text": "<p>test question stem</p>",
+            "description": "<p>test question aims</p>",
+            "sourceLanguage": [
+                {
+                    "id": 1,
+                    "name": "Afar"
+                }
+            ],
+            "translationLanguage": [
+                {
+                    "id": 2,
+                    "name": "Abkhazian"
+                }
+            ],
+            "sourcetext": "<p dir=\"ltr\">test siurce</p>",
+            "question_marks": {
+                "correct_answer": "<p dir=\"ltr\">test model</p>",
+                "question_mark": 0
+            },
+            "image": [],
+            "tags": [
+                {
+                    "label": "Test tag",
+                    "id": 1,
+                    "tag_type_id": 1,
+                    "tagstatus": true,
+                    "tagVal": "Test tag value",
+                    "editor": "",
+                    "control_id": 1,
+                    "control_name": "input",
+                    "option_arr": [],
+                    "status": ""
+                }
+            ],
+            "translation": [
+                {
+                    "header": "anskey1",
+                    "position": 1,
+                    "required": "",
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>test des</p>",
+                            "required": "required",
+                            "isForJsonSchema": true,
+                            "mark": 0,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        "editTranslatonbody": {
+            "type": "Translation Question",
+            "bank": 1,
+            "title": "test topic",
+            "text": "<p>test question stem</p>",
+            "description": "<p>test question aims</p>",
+            "sourceLanguage": [
+                {
+                    "id": 1,
+                    "name": "Afar"
+                }
+            ],
+            "translationLanguage": [
+                {
+                    "id": 2,
+                    "name": "Abkhazian"
+                }
+            ],
+            "sourcetext": "<p>test siurcew</p>",
+            "question_marks": {
+                "correct_answer": "<p>1test model</p>",
+                "question_mark": 10
+            },
+            "image": [],
+            "tags": [
+                {
+                    "id": 1,
+                    "tag_type_id": 1,
+                    "tag_type_name": "Test tag",
+                    "name": "Test tag value",
+                    "control_id": 1,
+                    "control_name": "input",
+                    "editor": "",
+                    "value": "",
+                    "label": "Test tag",
+                    "tagVal": "Test tag value",
+                    "tagstatus": true
+                }
+            ],
+            "translation": [
+                {
+                    "position": 1,
+                    "header": "anskey1",
+                    "required": "",
+                    "total_sum": 0,
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>test des</p>",
+                            "required": "required",
+                            "mark": 10,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        "emptyTitleBody": {
+            "type": "Translation Question",
+            "bank": 1,
+            "title": "",
+            "text": "<p>test question stem</p>",
+            "description": "<p>test question aims</p>",
+            "sourceLanguage": [
+                {
+                    "id": 1,
+                    "name": "Afar"
+                }
+            ],
+            "translationLanguage": [
+                {
+                    "id": 2,
+                    "name": "Abkhazian"
+                }
+            ],
+            "sourcetext": "<p dir=\"ltr\">test siurce</p>",
+            "question_marks": {
+                "correct_answer": "<p dir=\"ltr\">test model</p>",
+                "question_mark": 0
+            },
+            "image": [],
+            "tags": [
+                {
+                    "label": "Test tag",
+                    "id": 1,
+                    "tag_type_id": 1,
+                    "tagstatus": true,
+                    "tagVal": "Test tag value",
+                    "editor": "",
+                    "control_id": 1,
+                    "control_name": "input",
+                    "option_arr": [],
+                    "status": ""
+                }
+            ],
+            "translation": [
+                {
+                    "header": "anskey1",
+                    "position": 1,
+                    "required": "",
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>test des</p>",
+                            "required": "required",
+                            "isForJsonSchema": true,
+                            "mark": 0,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "Revision": {
+        "body": {
+            "type": "Revision Question",
+            "bank": 1,
+            "title": "test rev",
+            "text": "<p>rev</p>",
+            "description": "<p>rev qusest</p>",
+            "sourceLanguage": [
+                {
+                    "id": 1,
+                    "name": "Afar"
+                }
+            ],
+            "translationLanguage": [
+                {
+                    "id": 3,
+                    "name": "Afrikaans"
+                }
+            ],
+            "sourcetext": "<p dir=\"ltr\">sour</p>",
+            "reviewtext": "<p dir=\"ltr\">test text</p>",
+            "question_marks": {
+                "correct_answer": "<p dir=\"ltr\">module ans</p>",
+                "question_mark": 10
+            },
+            "image": [],
+            "revision": [
+                {
+                    "header": "ans key",
+                    "position": 1,
+                    "required": "",
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>key ver</p>",
+                            "required": "required",
+                            "isForJsonSchema": true,
+                            "mark": 10,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        "editRevisionbody": {
+            "type": "Revision Question",
+            "bank": 1,
+            "title": "test rev",
+            "text": "<p>rev</p>",
+            "description": "<p>rev qusest</p>",
+            "sourceLanguage": [
+                {
+                    "id": 1,
+                    "name": "Afar"
+                }
+            ],
+            "translationLanguage": [
+                {
+                    "id": 3,
+                    "name": "Afrikaans"
+                }
+            ],
+            "sourcetext": "<p dir=\"ltr\">sour</p>",
+            "reviewtext": "<p dir=\"ltr\">test text</p>",
+            "question_marks": {
+                "correct_answer": "<p dir=\"ltr\">module ans</p>",
+                "question_mark": 10
+            },
+            "image": [],
+            "revision": [
+                {
+                    "position": 1,
+                    "header": "ans key",
+                    "required": "",
+                    "total_sum": 0,
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>key ver</p>",
+                            "required": "required",
+                            "mark": 10,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        "emptyTitleBody": {
+            "type": "Revision Question",
+            "bank": 1,
+            "title": "",
+            "text": "<p>rev</p>",
+            "description": "<p>rev qusest</p>",
+            "sourceLanguage": [
+                {
+                    "id": 1,
+                    "name": "Afar"
+                }
+            ],
+            "translationLanguage": [
+                {
+                    "id": 3,
+                    "name": "Afrikaans"
+                }
+            ],
+            "sourcetext": "<p dir=\"ltr\">sour</p>",
+            "reviewtext": "<p dir=\"ltr\">test text</p>",
+            "question_marks": {
+                "correct_answer": "<p dir=\"ltr\">module ans</p>",
+                "question_mark": 10
+            },
+            "image": [],
+            "revision": [
+                {
+                    "header": "ans key",
+                    "position": 1,
+                    "required": "",
+                    "answer_key_childs": [
+                        {
+                            "position": 1,
+                            "parameter": "<p>key ver</p>",
+                            "required": "required",
+                            "isForJsonSchema": true,
+                            "mark": 10,
+                            "mark_required": false
+                        }
+                    ]
+                }
+            ]
+        }
     }
 }

@@ -296,12 +296,10 @@ test("QS_089. @API Long Answer  question- Header field validation - invalid", as
             data: jsonpath.longAnswer.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
                 "authorization": token
             },
         });
-    console.log(await response.json())
-
     //Validation of response time
     verifyResponse.validateTime(jsonpath.responseDuration);
 

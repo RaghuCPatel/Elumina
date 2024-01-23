@@ -73,5 +73,361 @@
             "MODIFIED BY",
             "mappings"
         ]
+    },
+    "Admin_securitycontrol_save": [
+        {
+            "Question": {
+                "roles": [
+                    {
+                        "name": "Question",
+                        "privileges": [
+                            {
+                                "id": 1,
+                                "name": "Create",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 2,
+                                "name": "Search",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 3,
+                                "name": "Edit",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 4,
+                                "name": "Preview",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 5,
+                                "name": "Duplicate",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 6,
+                                "name": "Delete",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 7,
+                                "name": "Print",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 8,
+                                "name": "Export",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 9,
+                                "name": "Archive",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 53,
+                                "name": "Checkout",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 56,
+                                "name": "View",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 64,
+                                "name": "Download Question Paper",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 65,
+                                "name": "Submit & Review",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 67,
+                                "name": "Submit & Approve",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 142,
+                                "name": "Public Filter",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 130,
+                                "name": "Preview (WEB)",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 153,
+                                "name": "View (My Item)",
+                                "is_show": 0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Images",
+                        "privileges": [
+                            {
+                                "id": 16,
+                                "name": "Upload",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 17,
+                                "name": "Search",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 18,
+                                "name": "Edit",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 20,
+                                "name": "Delete",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 62,
+                                "name": "View",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 143,
+                                "name": "Public Filter",
+                                "is_show": 1
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Exam",
+                        "privileges": [
+                            {
+                                "id": 22,
+                                "name": "Create",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 23,
+                                "name": "Search",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 24,
+                                "name": "Edit",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 26,
+                                "name": "Duplicate",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 28,
+                                "name": "Print",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 49,
+                                "name": "Export",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 51,
+                                "name": "Delete",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 30,
+                                "name": "Archive",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 52,
+                                "name": "Checkout",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 59,
+                                "name": "View",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 25,
+                                "name": "Preview (WEB)",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 63,
+                                "name": "Preview (PDF)",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 66,
+                                "name": "Submit & Review",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 68,
+                                "name": "Submit & Approve",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 131,
+                                "name": "Save Draft",
+                                "is_show": 1
+                            },
+                            {
+                                "id": 144,
+                                "name": "Public Filter",
+                                "is_show": 0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Blueprint",
+                        "privileges": [
+                            {
+                                "id": 31,
+                                "name": "Create",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 32,
+                                "name": "Search",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 33,
+                                "name": "Edit",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 34,
+                                "name": "Preview",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 35,
+                                "name": "Duplicate",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 36,
+                                "name": "Delete",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 37,
+                                "name": "Print",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 38,
+                                "name": "Export",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 39,
+                                "name": "Archive",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 57,
+                                "name": "View",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 58,
+                                "name": "Unlock",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 145,
+                                "name": "Public Filter",
+                                "is_show": 0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Reports",
+                        "privileges": [
+                            {
+                                "id": 81,
+                                "name": "Create",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 82,
+                                "name": "Search",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 83,
+                                "name": "Edit",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 84,
+                                "name": "Preview",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 85,
+                                "name": "Duplicate",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 86,
+                                "name": "Delete",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 87,
+                                "name": "Print",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 88,
+                                "name": "Export",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 89,
+                                "name": "Archive",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 90,
+                                "name": "View",
+                                "is_show": 0
+                            },
+                            {
+                                "id": 146,
+                                "name": "Public Filter",
+                                "is_show": 0
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "Admin_user_activities_filter_search": {
+        "filterArray": [
+            {
+                "filterId": "User Name",
+                "operator": "eq",
+                "displayText": "User Name <span><strong>is equal to</strong></span> ",
+                "filterValue1": "\t SAAS QA marker",
+                "filterValue2": "",
+                "operation": ""
+            }
+        ],
+        "freeText": []
     }
 }

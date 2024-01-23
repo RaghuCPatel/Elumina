@@ -58,13 +58,13 @@ test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request 
 
 })
 
-test("QS_091. @API Validation of Spot question successfull message.", async ({ request }) => {
+test("QS_115. @API Validation of Translation question successfull message.", async ({ request }) => {
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/mcqSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question',
         {
-            data: jsonpath.spot_question.body,
+            data: jsonpath.Translation.body,
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
@@ -97,13 +97,13 @@ test("QS_091. @API Validation of Spot question successfull message.", async ({ r
     expect(isValid).toBeTruthy()
 })
 
-test("QS_092. @API Validation of edit Spot question successfull message.", async ({ request }) => {
+test("QS_116. @API Validation of edit Translation question successfull message.", async ({ request }) => {
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/mcqSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/editquestion/' + mcqID + '/?type=typea',
         {
-            data: jsonpath.spot_question.editspotbody,
+            data: jsonpath.Translation.editTranslatonbody,
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
@@ -134,7 +134,7 @@ test("QS_092. @API Validation of edit Spot question successfull message.", async
     expect(isValid).toBeTruthy()
 })
 
-test("QS_093. @API Validation of Spot question Approved message.", async ({ request }) => {
+test("QS_117. @API Validation of Translation question Approved message.", async ({ request }) => {
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/mcqSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
@@ -172,7 +172,7 @@ test("QS_093. @API Validation of Spot question Approved message.", async ({ requ
 })
 
 
-test("QS_094. @API Validation of Spot question checkout message.", async ({ request }) => {
+test("QS_118. @API Validation of Translation question checkout message.", async ({ request }) => {
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/mcqSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
@@ -208,7 +208,7 @@ test("QS_094. @API Validation of Spot question checkout message.", async ({ requ
     expect(isValid).toBeTruthy()
 })
 
-test("QS_093A. @API Validation of Spot question Approved message. (again).", async ({ request }) => {
+test("QS_117A. @API Validation of Translation question Approved message.(again).", async ({ request }) => {
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question/workflow/save/' + mcqID,
@@ -239,12 +239,12 @@ test("QS_093A. @API Validation of Spot question Approved message. (again).", asy
 })
 
 
-test("QS_095. @API Spot question endpoint validation", async ({ request }) => {
+test("QS_119. @API Translation question endpoint validation", async ({ request }) => {
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/tttquestion-api/v1/question',
         {
-            data: jsonpath.spot_question.body,
+            data: jsonpath.Translation.body,
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
@@ -266,7 +266,7 @@ test("QS_095. @API Spot question endpoint validation", async ({ request }) => {
     var res = await response.json()
 })
 
-test("QS_096. @API Spot question- Method validation-  incorrect HTTP method", async ({ request }) => {
+test("QS_120. @API Translation  question- Method validation-  incorrect HTTP method", async ({ request }) => {
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/question-api/v1/question',
@@ -288,17 +288,17 @@ test("QS_096. @API Spot question- Method validation-  incorrect HTTP method", as
     expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
 })
 
-test("QS_097. @API Spot question- Header field validation - invalid", async ({ request }) => {
+test("QS_121. @API Translation question- Header field validation - invalid", async ({ request }) => {
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question',
         {
-            data: jsonpath.spot_question.body,
+            data: jsonpath.Translation.body,
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
                 "authorization": token
-            }
+            },
         });
     //Validation of response time
     verifyResponse.validateTime(jsonpath.responseDuration);
@@ -313,12 +313,12 @@ test("QS_097. @API Spot question- Header field validation - invalid", async ({ r
     var res = await response.json()
 })
 
-test("QS_098. @API Validation of empty title field for Spot question", async ({ request }) => {
+test("QS_122. @API Validation of empty title field for Translation question", async ({ request }) => {
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question',
         {
-            data: jsonpath.spot_question.emptyTitleBody,
+            data: jsonpath.Translation.emptyTitleBody,
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
