@@ -429,5 +429,120 @@
             }
         ],
         "freeText": []
+    },
+    "Admin_email_templates_filter_search": {
+        "filterArray": [
+            {
+                "filterId": "Template Name",
+                "operator": "eq",
+                "displayText": "Template Name <span>is equal to</span> ",
+                "filterValue1": "User Welcome mail",
+                "filterValue2": "",
+                "operation": ""
+            }
+        ],
+        "freeText": []
+    },
+    "Admin_email_templates_list_field_column_hide": {
+        "freeText": [],
+        "showColumns": [
+            "STATUS",
+            "mappings"
+        ]
+    },
+    "Admin_email_template_update": {
+        "name": "Bulk Schedule mail",
+        "subject": "Bulk Schedule",
+        "content": "<p>Dear $name!</p>\n                <p>We have successfully imported your schedule(s) from the excel file.</p>\n                <p>Thank you</p>",
+        "status": true,
+        "event": "[{\"id\":32,\"name\":\"Bulk Schedule\"}]"
+    },
+    "Admin_dashboards_filter_search": {
+        "filterArray": [
+            {
+                "filterId": "Dashboard",
+                "operator": "eq",
+                "displayText": "Dashboard <span>is equal to</span> ",
+                "filterValue1": "QMS Dashboard",
+                "filterValue2": "",
+                "operation": ""
+            }
+        ],
+        "freeText": [
+            ""
+        ]
+    },
+    "Admin_dashboards_list_field_column_hide": {
+        "freeText": [
+            ""
+        ],
+        "showColumns": [
+            "MODIFIED BY",
+            "CREATED BY",
+            "mappings"
+        ]
+    },
+    "Admin_chat_settings_save": {
+        "enable_chat": true,
+        "select_chat": [
+            {
+                "id": "ZOHO",
+                "name": "ZOHO"
+            }
+        ],
+        "script": "test"
+    },
+    "Admin_training_centres_field_column_show_and_hide": {
+        "freeText": [
+            ""
+        ],
+        "showColumns": [
+            "MODIFIED BY",
+            "mappings"
+        ]
+    },
+    "Admin_training_centres_pagination": {
+        "freeText": [
+            ""
+        ],
+        "pagination": 10
+    },
+    "Admin_training_sites_field_cloumn_hide_and_show": {
+        "freeText": [
+            ""
+        ],
+        "showColumns": [
+            "MODIFIED BY",
+            "mappings"
+        ]
+    },
+    "Admin_training_sites_pagination": {
+        "freeText": [
+            ""
+        ]
+    },
+    "Admin_grade_scale_list": {
+        "freeText": [],
+        "showColumns": []
+    },
+    "Admin_grade_scale_field_column_hide": {
+        "filterArray": [],
+        "freeText": [
+            ""
+        ],
+        "pagination": null,
+        "showColumns": [
+            "LAST DATE UPDATED",
+            "mappings",
+            "tags"
+        ]
+    },
+    "Admin_grade_scale_pagination": {
+        "filterArray": [],
+        "freeText": [
+            ""
+        ],
+        "pagination": 5,
+        "showColumns": null
     }
 }
