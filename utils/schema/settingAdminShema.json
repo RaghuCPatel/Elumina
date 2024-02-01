@@ -438,5 +438,561 @@
         "required": [
             "Response"
         ]
+    },
+    "Admin_email_template_save_body": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "Admin_custom_filter_save": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    },
+                    "filter_id": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success",
+                    "filter_id"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "Admin_email_template_update": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "Admin_create_dashboard_save": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "Admin_custom_filter_save_public_or_private": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    },
+                    "filter_id": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success",
+                    "filter_id"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "Admin_dashboard_update": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "Admin_duplicate_dashboard": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "Admin_delete_dashboard": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "Admin_chat_settings_save": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "Admin_training_centre_save": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer"
+                            },
+                            "training_centre_name": {
+                                "type": "string"
+                            },
+                            "short_name": {
+                                "type": "string"
+                            },
+                            "slug": {
+                                "type": "string"
+                            },
+                            "status": {
+                                "type": "integer"
+                            },
+                            "created_by": {
+                                "type": "integer"
+                            },
+                            "updated_by": {
+                                "type": "integer"
+                            },
+                            "created_at": {
+                                "type": "string"
+                            },
+                            "updated_at": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "integer"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "displayName": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "training_centre_name",
+                            "short_name",
+                            "slug",
+                            "status",
+                            "created_by",
+                            "updated_by",
+                            "created_at",
+                            "updated_at",
+                            "value",
+                            "name",
+                            "displayName"
+                        ]
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success",
+                    "data"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "Admin_training_centre_update": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer"
+                            },
+                            "training_centre_name": {
+                                "type": "string"
+                            },
+                            "short_name": {
+                                "type": "string"
+                            },
+                            "slug": {
+                                "type": "string"
+                            },
+                            "status": {
+                                "type": "integer"
+                            },
+                            "created_by": {
+                                "type": "integer"
+                            },
+                            "updated_by": {
+                                "type": "integer"
+                            },
+                            "created_at": {
+                                "type": "string"
+                            },
+                            "updated_at": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "integer"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "displayName": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "training_centre_name",
+                            "short_name",
+                            "slug",
+                            "status",
+                            "created_by",
+                            "updated_by",
+                            "created_at",
+                            "updated_at",
+                            "value",
+                            "name",
+                            "displayName"
+                        ]
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success",
+                    "data"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "Admin_training_centre_custom_filter_save": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    },
+                    "filter_id": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success",
+                    "filter_id"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "Admin_training_site_save": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    },
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer"
+                            },
+                            "training_centre_id": {
+                                "type": "integer"
+                            },
+                            "training_site_name": {
+                                "type": "string"
+                            },
+                            "short_name": {
+                                "type": "string"
+                            },
+                            "slug": {
+                                "type": "string"
+                            },
+                            "status": {
+                                "type": "integer"
+                            },
+                            "created_by": {
+                                "type": "integer"
+                            },
+                            "updated_by": {
+                                "type": "integer"
+                            },
+                            "created_at": {
+                                "type": "string"
+                            },
+                            "updated_at": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "training_centre_id",
+                            "training_site_name",
+                            "short_name",
+                            "slug",
+                            "status",
+                            "created_by",
+                            "updated_by",
+                            "created_at",
+                            "updated_at"
+                        ]
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success",
+                    "data"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "Admin_training_site_custom_filter_save": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    },
+                    "filter_id": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success",
+                    "filter_id"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "Admin_save_grade_scale": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "message": {
+                "type": "string"
+            },
+            "status": {
+                "type": "integer"
+            }
+        },
+        "required": [
+            "message",
+            "status"
+        ]
+    },
+    "Admin_grade_scale_custom_filter_save": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    },
+                    "filter_id": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success",
+                    "filter_id"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
     }
 }
