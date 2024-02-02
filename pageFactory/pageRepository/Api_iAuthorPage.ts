@@ -1,6 +1,9 @@
+
+//import {BankId} from 'tests/api/iAuthorSettings.test'
+
 function makeid(length) {
     let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     const charactersLength = characters.length;
     let counter = 0;
     
@@ -14,6 +17,7 @@ function makeid(length) {
 let bankName = makeid(8);
 let tagName = makeid(8);
 let locationname = makeid(8);
+let questionname = makeid(8)
 let questionType =(Math.floor(Math.random() * 89 + 100));
 
 export var jsonObject =
@@ -243,6 +247,8 @@ export var jsonObject =
 "Save_Proctoring":{
     "body":{"video_recording":true,"audio_recording":true,"screenshot_enable":true,"video_fragment_size":[{"id":"5","name":"5 seconds"}],"face_recognition_match":[{"id":"70","name":"70%"}],"screenshot_capture_interval":[{"id":"30","name":"30 seconds"}],"enforce_hardware_check":false,"camera_link":"https://support.assessapp.com.au/portal/en/kb/articles/troubleshoot-webcam-28-7-2020","microphone_link":"https://support.assessapp.com.au/portal/en/kb/articles/troubleshoot-webcam-28-7-2020","browsercheck_link":"https://success.eluminaelearning.com.au/portal/en/kb/articles/troubleshoot-browser","termsandcondition":"<p>All the best!!!All the best!!!All the best!!!</p>","iproctor_extension":true,"internet_connection_check":true,"internet_upload_speed":[{"id":"2","name":"1mbps"}],"internet_download_speed":[{"id":"2","name":"1mbps"}],"prompt_candidate":"Your assessment is now being proctored - you can return to the exam","extension_version_message":"Please ensure that you are using the current version of the extension ($version)"}
 },
+
+
 "Admin_question_type_Create_Form":{
     "body":{
         "question_types": [
@@ -253,8 +259,8 @@ export var jsonObject =
         ],
         "banks": [
             {
-                "id":questionType,
-                "name": "api bank2 (1)"
+                "id": questionType,
+                "name": bankName
             }
         ],
         "description": "<p>test description</p>",
@@ -296,7 +302,7 @@ export var jsonObject =
 "Question_type_Search_Form":{
     "body":{
         "freeText": [
-            "api bank2 (1)"
+            "Practice bank"
         ]
     }
 },
@@ -312,7 +318,7 @@ export var jsonObject =
         "banks": [
             {
                 "id": questionType,
-                "name": "Elumina - Bank"
+                "name": bankName
             }
         ],
         "description": "<p>testt</p>",
@@ -408,8 +414,8 @@ export var jsonObject =
         ],
         "banks": [
             {
-                "id": questionType,
-                "name": "Practice Bank"
+                "id": 56,
+                "name": bankName
             }
         ],
         "description": "<p>Test Bank&nbsp;</p>",

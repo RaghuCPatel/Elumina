@@ -2512,5 +2512,29 @@
                 }
             ]
         }
+    },
+    "OSCE_question": {
+        "OSCE_question_schema": {
+            "type": "OSCE Question",
+            "bank": 1,
+            "title": "osce q 212",
+            "description": "<p>osce description</p>",
+            "station_title": "station title",
+            "station_type": [
+                {
+                    "id": "Examination",
+                    "name": "Examination"
+                }
+            ],
+            "information_for_candidate": "<p>infom for candidate</p>",
+            "information_for_examiner": "<p>onfom for examinar</p>",
+            "alert": "",
+            "patient_instructions": "<p>patient</p>",
+            "requirements": "<p>request equipment</p>",
+            "compulsary_feedback_display_text": "<p>compulsory feedback</p>",
+            "mandatorytags": "[]",
+            "comment": "<p>comments</p>",
+            "tags": []
+        }
     }
 }

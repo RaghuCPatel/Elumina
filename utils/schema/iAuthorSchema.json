@@ -5933,5 +5933,328 @@
   "required": [
     "Response"
   ]
-}
+},
+"Question_Type_Delete_Schema":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Message",
+        "Success"
+      ]
+    }
+  },
+  "required": [
+    "Response"
+  ]
+},
+"Question_type_Search":{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "questiontypes": {
+        "type": "object",
+        "properties": {
+          "current_page": {
+            "type": "integer"
+          },
+          "data": {
+            "type": "array",
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "question type": {
+                    "type": "string"
+                  },
+                  "bank": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "created date": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "question type",
+                  "bank",
+                  "description",
+                  "created date"
+                ]
+              }
+            ]
+          },
+          "first_page_url": {
+            "type": "string"
+          },
+          "from": {
+            "type": "integer"
+          },
+          "last_page": {
+            "type": "integer"
+          },
+          "last_page_url": {
+            "type": "string"
+          },
+          "next_page_url": {
+            "type": "null"
+          },
+          "path": {
+            "type": "string"
+          },
+          "per_page": {
+            "type": "integer"
+          },
+          "prev_page_url": {
+            "type": "null"
+          },
+          "to": {
+            "type": "integer"
+          },
+          "total": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "current_page",
+          "data",
+          "first_page_url",
+          "from",
+          "last_page",
+          "last_page_url",
+          "next_page_url",
+          "path",
+          "per_page",
+          "prev_page_url",
+          "to",
+          "total"
+        ]
+      },
+      "columns": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "show": {
+                "type": "integer"
+              },
+              "readonly": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "class",
+              "show",
+              "readonly"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "show": {
+                "type": "integer"
+              },
+              "readonly": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "class",
+              "show",
+              "readonly"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "show": {
+                "type": "integer"
+              },
+              "readonly": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "class",
+              "show",
+              "readonly"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "show": {
+                "type": "integer"
+              },
+              "readonly": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "class",
+              "show",
+              "readonly"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "show": {
+                "type": "integer"
+              },
+              "readonly": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "class",
+              "show",
+              "readonly"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "show": {
+                "type": "integer"
+              },
+              "readonly": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "class",
+              "show",
+              "readonly"
+            ]
+          }
+        ]
+      },
+      "show_column": {
+        "type": "array",
+        "items": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "default_column": {
+        "type": "string"
+      },
+      "pagination": {
+        "type": "integer"
+      },
+      "more_actions": {
+        "type": "array",
+        "items": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "required": [
+      "questiontypes",
+      "columns",
+      "show_column",
+      "default_column",
+      "pagination",
+      "more_actions"
+    ]
+  }
 }
