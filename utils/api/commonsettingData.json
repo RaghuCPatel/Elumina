@@ -544,5 +544,134 @@
         ],
         "pagination": 5,
         "showColumns": null
+    },
+    "Common_Setting_Authentication_Simple_Authentication": {
+        "data": {
+            "simple_authentication": true
+        },
+        "type": "simple_authentication"
+    },
+    "Comman_Setting_Authentication_Multi_factor_Auth": {
+        "data": {
+            "multifactor_authentication": true,
+            "communication_gateway": "2",
+            "communication_type": 1
+        },
+        "type": "multifactor_authentication"
+    },
+    "Comman_Setting_Authentication_Azure_saml": {
+        "data": {
+            "azure_saml_authentication": true,
+            "base_url": "/common/v3/authenticationservice/ssoAzureResponse/",
+            "entity_id": "/",
+            "idp_url": "https://sts.windows.net/5b43c50d-aebf-44da-af0e-9cf38028d18c/",
+            "metadata_saml_idp": "a:8:{s:8:\"entityid\";s:61:\"https://sts.windows.net/5b43c50d-aebf-44da-af0e-9cf38028d18c/\";s:8:\"contacts\";a:0:{}s:12:\"metadata-set\";s:17:\"saml20-idp-remote\";s:19:\"SingleSignOnService\";a:2:{i:0;a:2:{s:7:\"Binding\";s:50:\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\";s:8:\"Location\";s:76:\"https://login.microsoftonline.com/5b43c50d-aebf-44da-af0e-9cf38028d18c/saml2\";}i:1;a:2:{s:7:\"Binding\";s:46:\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\";s:8:\"Location\";s:76:\"https://login.microsoftonline.com/5b43c50d-aebf-44da-af0e-9cf38028d18c/saml2\";}}s:19:\"SingleLogoutService\";a:1:{i:0;a:2:{s:7:\"Binding\";s:50:\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\";s:8:\"Location\";s:76:\"https://login.microsoftonline.com/5b43c50d-aebf-44da-af0e-9cf38028d18c/saml2\";}}s:25:\"ArtifactResolutionService\";a:0:{}s:13:\"NameIDFormats\";a:0:{}s:4:\"keys\";a:1:{i:0;a:4:{s:10:\"encryption\";b:0;s:7:\"signing\";b:1;s:4:\"type\";s:15:\"X509Certificate\";s:15:\"X509Certificate\";s:1008:\"MIIC8DCCAdigAwIBAgIQU6Jh+CLThZFI68jj5+c3MTANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNyb3NvZnQgQXp1cmUgRmVkZXJhdGVkIFNTTyBDZXJ0aWZpY2F0ZTAeFw0yMzA2MjIxMTAwMTZaFw0yNjA2MjIxMTAwMTZaMDQxMjAwBgNVBAMTKU1pY3Jvc29mdCBBenVyZSBGZWRlcmF0ZWQgU1NPIENlcnRpZmljYXRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoORm+oW1P2Fvi2dr4XbGYtqi3PXFH2dZvUZRI5X5805B6k5H27NyUg/4ZRAfjrxtawmJZMrUmAWYjAiGTQVCUTAlPBFGWnNP8po1XLhQJCq5Wv56wG86avOx/c64FhhdpDZ1q7fAXvDdd+kCVHj+lGnF8BFNx4tMGvP+aq8OKB5Vfpkxs3Ff0zb53s1scilEZS+QPKWKzdaKGLO9Vr9Bw2xZWm+DYtYrCZH2YS8yHaIdWHZEEubAGnP6Hy6qyy3A+NIumG+z9U57L+jrEAj0ILi2M1kleZpPzUNn3kNWwgE/7BOMFXyX7Rinx3GwZ97q8r6+3Py2SdKJY8f2OL6ilQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAldKSz5TiSbcIj4ouLUgY+YS0n/L+1mDCKvvAWVoWdFMeC4EFwXFMlTtTxQitxaU8M8knP2O5uCznYBgoWaeT6VkFPBkqeL4ASBct5Bp7Rk0wfIRYzHnlW5xPT87ryYyHV0VmH4cndm+5P1jkFxvq/vHGCSaTdaTcdkan4Lxs+xQu3qxK9SgQXmE43umzeKYVrTC4KQrivy0iJkoYpf/WB/ctva1h0Apd0t9mo3Uidy7B29xrN7e03n1+nEerx6+U/Akcka7prUUMlCK9zpYtkWLVyKXH4w80n2j8htgzLTV9qt7p9EkUgbJQTdCcY1XL5VaNlLLm7wZLoltd94EAt\";}}}",
+            "login_url": "/common/v3/authenticationservice/ssoAzureResponse/",
+            "logout_url": "https://login.microsoftonline.com/5b43c50d-aebf-44da-af0e-9cf38028d18c/saml2"
+        },
+        "type": "azure_saml_authentication"
+    },
+    "Comman_Setting_Authentication_Azure_Open": {
+        "data": {
+            "azure_openid_authentication": false,
+            "base_url": "dfdggg",
+            "redirect_url": "fdsf",
+            "client_id": "sdfsd",
+            "tenant_id": "fsdf",
+            "secret_id": "dsfdsf"
+        },
+        "type": "azure_openid_authentication"
+    },
+    "Comman_Setting_Authentication_portal_sso_auth": {
+        "data": {
+            "portal_sso_authentication": true,
+            "wp_portal_url": "portal url",
+            "not_authorized_message": "sdfgewr",
+            "portal_notification": true,
+            "portal_notification_url": "sdger"
+        },
+        "type": "portal_sso_authentication"
+    },
+    "Comman_Setting_Grade_Settings_Grade_Book_Grade_Create": {
+        "exams": [],
+        "gradeBookId": 0
+    },
+    "Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_get_ExamSession": {
+        "examId": [
+            {
+                "id": 3,
+                "name": "Proctoring Exam 1"
+            }
+        ]
+    },
+    "Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_grade_book_create_form_exam_select": {
+        "exams": [
+            {
+                "id": 3,
+                "name": "Proctoring Exam 1"
+            }
+        ]
+    },
+    "Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_grade_book_create_form_session_select": {
+        "exams": [
+            {
+                "id": 3,
+                "name": "Proctoring Exam 1"
+            }
+        ],
+        "sessions": [
+            {
+                "id": 9,
+                "name": "Exam Main Session (Proctoring Exam 1)",
+                "exam_id": 3
+            }
+        ],
+        "gradeAggregation": [
+            {
+                "id": 1,
+                "name": "Average"
+            }
+        ],
+        "gradeScale": [
+            {
+                "id": 2,
+                "name": "Rating Scale"
+            }
+        ]
+    },
+    "grade_book_list": {
+        "freeText": [],
+        "showColumns": []
+    },
+    "grade_book_filter_search ": {
+        "filterArray": [
+            {
+                "filterId": "Name",
+                "operator": "like",
+                "displayText": "Name <span>is like</span> ",
+                "filterValue1": "happy",
+                "filterValue2": "",
+                "operation": ""
+            }
+        ],
+        "freeText": [],
+        "pagination": 25,
+        "showColumns": null
+    },
+    "grade_book_field_column_hide": {
+        "filterArray": [],
+        "freeText": [],
+        "pagination": null,
+        "showColumns": [
+            "LAST DATE UPDATED",
+            "mappings",
+            "tags"
+        ]
+    },
+    "grade_book_pagination": {
+        "filterArray": [],
+        "freeText": [],
+        "pagination": 10,
+        "showColumns": null
     }
 }

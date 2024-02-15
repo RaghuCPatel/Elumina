@@ -17,6 +17,7 @@ let dashboadr_name = makeid(9)
 let training_center_name = makeid(10)
 let training_site_name = makeid(9)
 let grade_scale_name = makeid(10)
+let gradeBookName = makeid(12)
 export var jsonObject =
 {
     //User related payload 
@@ -354,6 +355,159 @@ export var jsonObject =
                 }
             ]
         }
-    }
+    },
+    "Grade_Book": {
+        "Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_save_grade_book":
+        {
+            "gradeBookId": null,
+            "gradeBookName": gradeBookName,
+            "exams": [
+                {
+                    "id": 3,
+                    "name": "Test Proctoring Exam 1"
+                }
+            ],
+            "gradeAggregation": [
+                {
+                    "id": 1,
+                    "name": "Average"
+                }
+            ],
+            "examDetails": [
+                {
+                    "name": "Test Proctoring Exam 1",
+                    "id": 2,
+                    "sessions": [
+                        {
+                            "maximumMarks": {
+                                "title": "Maximum Marks",
+                                "value": 40
+                            },
+                            "weightage": {
+                                "title": "Weightage (%)",
+                                "value": 100
+                            },
+                            "session_id": 6,
+                            "name": "Exam Main Session",
+                            "sections": [
+                                {
+                                    "id": 8,
+                                    "name": "Exam Section",
+                                    "maximumMarks": {
+                                        "title": "Maximum Marks",
+                                        "value": 40
+                                    },
+                                    "passPercentage": {
+                                        "title": "Pass Percentage (%)",
+                                        "value": 50
+                                    },
+                                    "grades": [
+                                        {
+                                            "scale": 4,
+                                            "fromMark": 15,
+                                            "toMark": 30,
+                                            "id": ""
+                                        },
+                                        {
+                                            "scale": 5,
+                                            "fromMark": 0,
+                                            "toMark": 14,
+                                            "id": ""
+                                        },
+                                        {
+                                            "scale": 6,
+                                            "fromMark": 31,
+                                            "toMark": 40,
+                                            "id": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "finalSettings": {
+                "combinations": [
+                    {
+                        "8": 4
+                    },
+                    {
+                        "8": 5
+                    },
+                    {
+                        "8": 6
+                    }
+                ],
+                "finalResult": [
+                    {
+                        "Test Proctoring Exam 1 Exam Section": 4,
+                        "Final Result": 4,
+                        "combinationId": 126
+                    },
+                    {
+                        "Test Proctoring Exam 1 Exam Section": 5,
+                        "Final Result": 5,
+                        "combinationId": 127
+                    },
+                    {
+                        "Test Proctoring Exam 1 Exam Section": 6,
+                        "Final Result": 6,
+                        "combinationId": 128
+                    }
+                ],
+                "finalGrades": [
+                    {
+                        "scale": 4,
+                        "fromMark": "",
+                        "toMark": ""
+                    },
+                    {
+                        "scale": 5,
+                        "fromMark": "",
+                        "toMark": ""
+                    },
+                    {
+                        "scale": 6,
+                        "fromMark": "",
+                        "toMark": ""
+                    }
+                ]
+            },
+            "finalResultCategory": 1,
+            "gradeScale": [
+                {
+                    "id": 2,
+                    "name": "Rating Scale"
+                }
+            ]
+        },
+        "grade_book_search": {
+            "freeText": [
+                gradeBookName
+            ],
+            "pagination": 25,
+            "showColumns": null
+        },
+        "grade_book_custom_filter_save_public_orprivate": {
+            "filterArray": {
+                "filterName": "{{grade_book_filter_name}}",
+                "filterType": "public",
+                "filterPage": "grade-book",
+                "filter_id": ""
+            },
+            "customFilter": [
+                {
+                    "filterId": "Name",
+                    "operator": "like",
+                    "displayText": "Name <span>is like</span> ",
+                    "filterValue1": "happy",
+                    "filterValue2": "",
+                    "operation": ""
+                }
+            ]
 
+        }
+
+    }
 }
