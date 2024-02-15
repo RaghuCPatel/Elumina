@@ -241,6 +241,15 @@ npx cross-env ENV=qa npm run test:ui
 - <b>Failure Report</b>
   ![Failure Report Screenshot][failure-report-screenshot]
 
+## Zephyr Integration
+To update Automation results in Zephyr follow the below steps
+a.In 'zephyr_Integration_Data.json' file Make sure 'projectKey','testCycleKey','webreferer' and 'authorization' of zephyr scale are update.
+b.Update the 'projectKey' with the respective Project under which testcycle need to be executed
+c.Update Zephyr 'testCycleKey' with the repspective test cycle created under the project.
+c.Update 'webreferer' as per execution environment.
+d.Update 'authorization' based on the “API keys” available under zyphr scale.
+e.Import the variable and call the variable for reaspective tests file if any new test files created.
+
 ## SonarQube
 
 Once you have completed setup for SonarQube given in Prerequisites section, configure SonarQube as given below
