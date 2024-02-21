@@ -17,8 +17,12 @@ function makeid(length) {
 let bankName = makeid(8);
 let tagName = makeid(8);
 let locationname = makeid(8);
-let questionname = makeid(8)
+let questionname = makeid(8);
 let questionType =(Math.floor(Math.random() * 89 + 100));
+let specilaityName = makeid(8);
+let specilaityType =(Math.floor(Math.random() * 89 + 100));
+let notificationname =makeid(8);
+let notificationemail = (makeid(7) + Math.floor(Math.random() * 899 + 100) + '@yopmail.com')
 
 export var jsonObject =
 {
@@ -452,6 +456,226 @@ export var jsonObject =
             }
         ]
     }
-}
+},
 
+"Admin_Create_Specilaity" :{
+    "body" :{
+        
+            "name": specilaityName,
+            "description": "<p>desc</p>",
+        
+    }
+},
+
+"Admin_Specilaity_Search_form" :{
+    "body" :{
+        
+            "freeText": [
+                specilaityName,
+            ]
+        
+    }
+},
+"Admin_Specilaity_Edit_form" :{
+    "body": {
+        "name": specilaityName,
+        "description": "<p>desc</p>"
+    }
+},
+"Admin_specialty_filter_search":{
+    "body":{
+        "filterArray": [
+            {
+                "filterId": "Specialty",
+                "operator": "like",
+                "displayText": "Specialty <span>is like</span> ",
+                "filterValue1": "Elumina",
+                "filterValue2": "",
+                "operation": ""
+            }
+        ],
+        "freeText": []
+    }
+},
+"Admin_specialty_custom_filter":{
+    "body":{
+        "filterArray": {
+            "filterName": specilaityName,
+            "filterType": "public",
+            "filterPage": "view-speciality",
+            "filter_id": ""
+        },
+        "customFilter": [
+            {
+                "filterId": "Specialty",
+                "operator": "like",
+                "displayText": "Specialty <span>is like</span> ",
+                "filterValue1": "Elumina",
+                "filterValue2": "",
+                "operation": ""
+            }
+        ]
+    }
+},
+"Admin_specialty_field_cloumn_hide_show":{
+    "body":{
+        "freeText": [],
+        "showColumns": [
+            "mappings"
+        ]
+    }
+},
+"Admin_specialty_pagination":{
+    "body":{
+        "pagination": 10
+    }
+},
+"Admin_Create_notificationemail":{
+    "body":{
+        "first_name": notificationname,
+        "last_name":   notificationname,
+        "email": notificationemail,
+        "purpose": "[{\"id\":2,\"name\":\"iRegistration\"}]",
+        "status": true
+    }
+},
+"Admin_notification_emails_Search_form":{
+    "body":{
+        "freeText": [
+            notificationname
+        ]
+    }
+},
+"Admin_notification_email_update":{
+    "body":{
+        "first_name":notificationname ,
+        "last_name": notificationname,
+        "email": notificationemail,
+        "purpose": "[{\"id\":2,\"name\":\"iRegistration\"}]",
+        "status": true
+    }
+},
+"Admin_notification_emails_filter_search":{
+    "body":{
+        "filterArray": [
+            {
+                "filterId": "First Name",
+                "operator": "like",
+                "displayText": "First Name <span>is like</span> ",
+                "filterValue1": "QA",
+                "filterValue2": "",
+                "operation": ""
+            }
+        ],
+        "freeText": [
+            notificationname
+        ]
+    }
+},
+"Admin_notification_custom_filter":{
+    "body":{
+        "filterArray": {
+            "filterName": notificationname,
+            "filterType": "public",
+            "filterPage": "/notification_emails",
+            "filter_id": ""
+        },
+        "customFilter": [
+            {
+                "filterId": "Last Name",
+                "operator": "like",
+                "displayText": "Last Name <span>is like</span> ",
+                "filterValue1": "QA",
+                "filterValue2": "",
+                "operation": ""
+            }
+        ]
+    }
+},
+"Admin_notification_field_cloumn_hide_show":{
+    "body":{
+        "freeText": [
+            ""
+        ],
+        "showColumns": [
+            "PURPOSE",
+            "mappings"
+        ]
+    }
+},
+"Xlsx_file_download":{
+    "body":{
+        "exam": [],
+        "version": []
+      }
+},
+"csv_file_download":{
+    "body":{
+        "exam": [],
+        "version": []
+      }
+},
+"exam_statistics_form":{
+    "body":[{"id":1,
+    "name":"Test Exam 1"}]
+},
+"xlsx_file_download":{
+    "body":{
+        "banks": [],
+        "module_type": []
+      }
+},
+"Question_csv_file_download":{
+    "body":{
+        "banks": [],
+        "module_type": []
+    }
+},
+"import_module_type":{
+    "body": false
+},
+"exam_export_download":{
+    "body":{
+        "exam": [
+            {
+                "id": 490,
+                "name": "import"
+            }
+        ],
+        "file_format": [
+            {
+                "id": "zip",
+                "name": "ZIP"
+            }
+        ]
+    }
+},
+"export_questions_download":{
+    "body":{
+        "banks": [
+            {
+                "id": 1,
+                "name": "Practice Bank"
+            }
+        ],
+        "questiontype": "[{\"id\":5,\"name\":\"VSAQ\"}]",
+        "fromdate": "NODATE",
+        "todate": "NODATE",
+        "status": "[]",
+        "created_by": "[]",
+        "modified_by": "[]",
+        "file_format": [
+            {
+                "id": "xls",
+                "name": "XLS"
+            }
+        ]
+    }
+},
+"exam_import_statistics":{
+    "body":{
+        "exams":([{"id":1,"name":"Test Exam 1"}]),
+         "version": ([{"id":2,"name":"2"}])
+    }
+}
 }
