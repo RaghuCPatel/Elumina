@@ -6256,5 +6256,1945 @@
       "pagination",
       "more_actions"
     ]
-  }
+  },
+  "Create_Specilaity": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "Response": {
+        "type": "object",
+        "properties": {
+          "Message": {
+            "type": "string"
+          },
+          "Success": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "Message",
+          "Success"
+        ]
+      }
+    },
+    "required": [
+      "Response"
+    ]
+  },
+  "Specilaity_Search_Schema":{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "getspecialty": {
+        "type": "object",
+        "properties": {
+          "current_page": {
+            "type": "integer"
+          },
+          "data": {
+            "type": "array",
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "specialty": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "created date": {
+                    "type": "string"
+                  },
+                  "last modified date": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "specialty",
+                  "description",
+                  "created date",
+                  "last modified date"
+                ]
+              }
+            ]
+          },
+          "first_page_url": {
+            "type": "string"
+          },
+          "from": {
+            "type": "integer"
+          },
+          "last_page": {
+            "type": "integer"
+          },
+          "last_page_url": {
+            "type": "string"
+          },
+          "next_page_url": {
+            "type": "null"
+          },
+          "path": {
+            "type": "string"
+          },
+          "per_page": {
+            "type": "integer"
+          },
+          "prev_page_url": {
+            "type": "null"
+          },
+          "to": {
+            "type": "integer"
+          },
+          "total": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "current_page",
+          "data",
+          "first_page_url",
+          "from",
+          "last_page",
+          "last_page_url",
+          "next_page_url",
+          "path",
+          "per_page",
+          "prev_page_url",
+          "to",
+          "total"
+        ]
+      },
+      "columns": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "show": {
+                "type": "integer"
+              },
+              "readonly": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "class",
+              "show",
+              "readonly"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "show": {
+                "type": "integer"
+              },
+              "readonly": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "class",
+              "show",
+              "readonly"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "show": {
+                "type": "integer"
+              },
+              "readonly": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "class",
+              "show",
+              "readonly"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "show": {
+                "type": "integer"
+              },
+              "readonly": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "class",
+              "show",
+              "readonly"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "show": {
+                "type": "integer"
+              },
+              "readonly": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "class",
+              "show",
+              "readonly"
+            ]
+          }
+        ]
+      },
+      "show_column": {
+        "type": "array",
+        "items": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "default_column": {
+        "type": "string"
+      },
+      "pagination": {
+        "type": "integer"
+      },
+      "more_actions": {
+        "type": "array",
+        "items": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "required": [
+      "getspecialty",
+      "columns",
+      "show_column",
+      "default_column",
+      "pagination",
+      "more_actions"
+    ]
+  },
+  "Specilaity_Edit_Schema" :{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "Response": {
+        "type": "object",
+        "properties": {
+          "Message": {
+            "type": "string"
+          },
+          "Success": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "Message",
+          "Success"
+        ]
+      },
+      "Updated": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "Response",
+      "Updated"
+    ]
+  },
+  "Specilaity_Filter_Schema":{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "filters": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "page_name": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "null"
+              },
+              "status": {
+                "type": "integer"
+              },
+              "grid_position": {
+                "type": "null"
+              },
+              "control": {
+                "type": "string"
+              },
+              "filter_type": {
+                "type": "string"
+              },
+              "field_id": {
+                "type": "null"
+              },
+              "form_id": {
+                "type": "null"
+              },
+              "role_id": {
+                "type": "null"
+              },
+              "control_id": {
+                "type": "null"
+              },
+              "layout_id": {
+                "type": "null"
+              },
+              "layout_version_id": {
+                "type": "null"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "filter_operator": {
+                "type": "array",
+                "items": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "page_name",
+              "name",
+              "slug",
+              "status",
+              "grid_position",
+              "control",
+              "filter_type",
+              "field_id",
+              "form_id",
+              "role_id",
+              "control_id",
+              "layout_id",
+              "layout_version_id",
+              "created_at",
+              "updated_at",
+              "filter_operator"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "page_name": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "null"
+              },
+              "status": {
+                "type": "integer"
+              },
+              "grid_position": {
+                "type": "null"
+              },
+              "control": {
+                "type": "string"
+              },
+              "filter_type": {
+                "type": "string"
+              },
+              "field_id": {
+                "type": "null"
+              },
+              "form_id": {
+                "type": "null"
+              },
+              "role_id": {
+                "type": "null"
+              },
+              "control_id": {
+                "type": "null"
+              },
+              "layout_id": {
+                "type": "null"
+              },
+              "layout_version_id": {
+                "type": "null"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "filter_operator": {
+                "type": "array",
+                "items": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "page_name",
+              "name",
+              "slug",
+              "status",
+              "grid_position",
+              "control",
+              "filter_type",
+              "field_id",
+              "form_id",
+              "role_id",
+              "control_id",
+              "layout_id",
+              "layout_version_id",
+              "created_at",
+              "updated_at",
+              "filter_operator"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "page_name": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "null"
+              },
+              "status": {
+                "type": "integer"
+              },
+              "grid_position": {
+                "type": "null"
+              },
+              "control": {
+                "type": "string"
+              },
+              "filter_type": {
+                "type": "string"
+              },
+              "field_id": {
+                "type": "null"
+              },
+              "form_id": {
+                "type": "null"
+              },
+              "role_id": {
+                "type": "null"
+              },
+              "control_id": {
+                "type": "null"
+              },
+              "layout_id": {
+                "type": "null"
+              },
+              "layout_version_id": {
+                "type": "null"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "filter_operator": {
+                "type": "array",
+                "items": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "page_name",
+              "name",
+              "slug",
+              "status",
+              "grid_position",
+              "control",
+              "filter_type",
+              "field_id",
+              "form_id",
+              "role_id",
+              "control_id",
+              "layout_id",
+              "layout_version_id",
+              "created_at",
+              "updated_at",
+              "filter_operator"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "page_name": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "null"
+              },
+              "status": {
+                "type": "integer"
+              },
+              "grid_position": {
+                "type": "null"
+              },
+              "control": {
+                "type": "string"
+              },
+              "filter_type": {
+                "type": "string"
+              },
+              "field_id": {
+                "type": "null"
+              },
+              "form_id": {
+                "type": "null"
+              },
+              "role_id": {
+                "type": "null"
+              },
+              "control_id": {
+                "type": "null"
+              },
+              "layout_id": {
+                "type": "null"
+              },
+              "layout_version_id": {
+                "type": "null"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "filter_operator": {
+                "type": "array",
+                "items": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "dsl": {
+                        "type": "string"
+                      },
+                      "control": {
+                        "type": "integer"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_id": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "operator",
+                      "dsl",
+                      "control",
+                      "display_text",
+                      "filter_id",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "page_name",
+              "name",
+              "slug",
+              "status",
+              "grid_position",
+              "control",
+              "filter_type",
+              "field_id",
+              "form_id",
+              "role_id",
+              "control_id",
+              "layout_id",
+              "layout_version_id",
+              "created_at",
+              "updated_at",
+              "filter_operator"
+            ]
+          }
+        ]
+      },
+      "saved_filters": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "filter_name": {
+                "type": "string"
+              },
+              "product_id": {
+                "type": "integer"
+              },
+              "component": {
+                "type": "string"
+              },
+              "page_name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "filter_type": {
+                "type": "string"
+              },
+              "filter_status_id": {
+                "type": "null"
+              },
+              "status": {
+                "type": "integer"
+              },
+              "created_by": {
+                "type": "integer"
+              },
+              "updated_by": {
+                "type": "null"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "report_id": {
+                "type": "null"
+              },
+              "filter_details": {
+                "type": "array",
+                "items": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "custom_filter_id": {
+                        "type": "integer"
+                      },
+                      "criteria_text": {
+                        "type": "string"
+                      },
+                      "criteria_id": {
+                        "type": "null"
+                      },
+                      "filter_control_id": {
+                        "type": "integer"
+                      },
+                      "filter_control": {
+                        "type": "string"
+                      },
+                      "display_text": {
+                        "type": "string"
+                      },
+                      "filter_value1": {
+                        "type": "string"
+                      },
+                      "filter_value2": {
+                        "type": "string"
+                      },
+                      "operation": {
+                        "type": "string"
+                      },
+                      "created_by": {
+                        "type": "null"
+                      },
+                      "updated_by": {
+                        "type": "null"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      },
+                      "filter_value3": {
+                        "type": "null"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "custom_filter_id",
+                      "criteria_text",
+                      "criteria_id",
+                      "filter_control_id",
+                      "filter_control",
+                      "display_text",
+                      "filter_value1",
+                      "filter_value2",
+                      "operation",
+                      "created_by",
+                      "updated_by",
+                      "created_at",
+                      "updated_at",
+                      "filter_value3"
+                    ]
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "filter_name",
+              "product_id",
+              "component",
+              "page_name",
+              "url",
+              "filter_type",
+              "filter_status_id",
+              "status",
+              "created_by",
+              "updated_by",
+              "created_at",
+              "updated_at",
+              "report_id",
+              "filter_details"
+            ]
+          }
+        ]
+      }
+    },
+    "required": [
+      "filters",
+      "saved_filters"
+    ]
+  },
+  "Specialty_custom_filter":{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "Response": {
+        "type": "object",
+        "properties": {
+          "Message": {
+            "type": "string"
+          },
+          "Success": {
+            "type": "integer"
+          },
+          "filter_id": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "Message",
+          "Success",
+          "filter_id"
+        ]
+      }
+    },
+    "required": [
+      "Response"
+    ]
+  },
+  "Specilaity_Duplicate_Schema":{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "Response": {
+        "type": "object",
+        "properties": {
+          "Message": {
+            "type": "string"
+          },
+          "Success": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "Message",
+          "Success"
+        ]
+      }
+    },
+    "required": [
+      "Response"
+    ]
+  },
+  "Specilaity_Delete_Schema":{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "Response": {
+        "type": "object",
+        "properties": {
+          "Message": {
+            "type": "string"
+          },
+          "Success": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "Message",
+          "Success"
+        ]
+      },
+      "Deleted": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "Response",
+      "Deleted"
+    ]
+  },
+  "Create_notificationemail":{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "Response": {
+        "type": "object",
+        "properties": {
+          "Message": {
+            "type": "string"
+          },
+          "Success": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "Message",
+          "Success"
+        ]
+      }
+    },
+    "required": [
+      "Response"
+    ]
+  },
+  "notification_Edit_Schema":{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "Response": {
+        "type": "object",
+        "properties": {
+          "Message": {
+            "type": "string"
+          },
+          "Success": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "Message",
+          "Success"
+        ]
+      }
+    },
+    "required": [
+      "Response"
+    ]
+  },
+  "Notification_Duplicate_Schema":{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "Response": {
+        "type": "object",
+        "properties": {
+          "Message": {
+            "type": "string"
+          },
+          "Success": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "Message",
+          "Success"
+        ]
+      }
+    },
+    "required": [
+      "Response"
+    ]
+  },
+  "Notification_Email_Delete_Schema":{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "Response": {
+        "type": "object",
+        "properties": {
+          "Message": {
+            "type": "string"
+          },
+          "Success": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "Message",
+          "Success"
+        ]
+      }
+    },
+    "required": [
+      "Response"
+    ]
+  },
+"Exam_Statistics":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Message",
+        "Success"
+      ]
+    }
+  },
+  "required": [
+    "Response"
+  ]
+},
+"Question_Import":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "error_arr": {
+      "type": "array",
+      "items": {}
+    },
+    "Message": {
+      "type": "string"
+    },
+    "Success": {
+      "type": "integer"
+    },
+    "Status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "error_arr",
+    "Message",
+    "Success",
+    "Status"
+  ]
+},
+"Question_File_Import":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "question_import_log_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Message",
+        "Success",
+        "Status",
+        "question_import_log_id"
+      ]
+    }
+  },
+  "required": [
+    "Response"
+  ]
 }
+}
+
