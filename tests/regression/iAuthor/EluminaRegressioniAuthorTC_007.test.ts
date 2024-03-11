@@ -1,7 +1,7 @@
 import test from '@lib/BaseTest';
 
 /**Validation of Login using valid credentials with Username and Password*/
-test(`iAU_TC_ID_07. @RegressionA Validation of Login using valid credentials with Username and Password`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`[T2789] @RegressionA1 Validation of Login using valid credentials with Username and Password`, async ({ eluminaLoginPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

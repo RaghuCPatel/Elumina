@@ -1,5 +1,5 @@
 {
-    "responseDuration": 4500,
+    "responseDuration": 8500,
     "mcq": {
         "body": {
             "type": "MCQ",

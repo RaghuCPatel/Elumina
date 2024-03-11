@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of password Field*/
 
-test(`iAU_TC_ID_05. @RegressionA Validation of password Field`, async ({ eluminaLoginPage, webActions }) => {
+test(`[T2787] @RegressionA1 Validation of password Field`, async ({ eluminaLoginPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });
