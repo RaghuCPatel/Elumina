@@ -6,7 +6,6 @@ import { jsonObject } from 'pageFactory/pageRepository/candidateApiPage';
 import { ValidationResponse } from '../../utils/validationUtiles/ResponseValidation';
 
 //const apiActions = new APIActions();
-const baseURL = "https://api.assessappglobal.com.au"
 
 const Ajv = require('ajv')
 const avj = new Ajv()
@@ -23,8 +22,8 @@ export let sectionIdInvCheck;
 export let pageIdInvCheck;
 export let questionIdInvcheck;
 //verifyResponse: ValidationResponse;
-
-
+jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+const baseURL = jsonpath.url
 
 test("CS_001. @API Candidate Login Success with Mandatory Fields", async ({ request }) => {
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/candidateData.json'), 'utf-8'))
@@ -448,9 +447,9 @@ test("CS_015. @API Validation of successful message for invigilator password.", 
             data: {
                 "examId": activeExamID,
                 "sessionId": activeSessionID,
-                "password": "eyJjdCI6IlRRK1hvczhRUWwwV0NGd3NXYVZxZ1E9PSIsIml2IjoiMTgxMjMyYWFiZGNhMjA4NGRjNDQwNWJlMjM4MDBkOTQiLCJzIjoiMzliYWViYTE4MWM1YWNmOCJ9",
+                "password": "eyJjdCI6IjRONlFEc2FYZ3k2L2RvZGVuZDBFRWc9PSIsIml2IjoiNTJlNjIyYTYyZGY1MmUxOWNmMmM4MmM4NTRhZDRjZmYiLCJzIjoiMjg5NmZkYTk3MTMzNmFhYiJ9",
                 "preview": 0,
-                "timestamp": "2023-8-7 13:25:8.300"
+                "timestamp": "2024-2-28 10:7:12.400"
             },
             headers: {
                 "accept": "application/json",

@@ -8,7 +8,6 @@ import { ValidationResponse } from '../../utils/validationUtiles/ResponseValidat
 let verifyResponse = new ValidationResponse;
 
 //const apiActions = new APIActions();
-const baseURL = "https://api.assessappglobal.com.au"
 
 const Ajv = require('ajv')
 const avj = new Ajv()
@@ -21,6 +20,8 @@ var schemajsonpath;
 
 export let token;
 var jschemasonpath;
+jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+const baseURL = jsonpath.url
 
 test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
 

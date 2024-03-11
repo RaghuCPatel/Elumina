@@ -86,6 +86,7 @@ export var jsonObject =
                 "examMinutes": EndExamMin
             }
         ],
+        exam_invigilator_password: "ABCDE",
         "exam_venue": [
             {
                 "id": 3,

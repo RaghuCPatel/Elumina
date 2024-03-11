@@ -80,7 +80,7 @@ test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request 
 
 })
 
-/*test("Admin_017. @API Admin add the user and save", async ({ request }) => {
+test("Admin_017. @API Admin add the user and save", async ({ request }) => {
 
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
@@ -7593,7 +7593,7 @@ test("Admin_539. @API Admin fetch the grade-scale-filters_invalid access token",
     var res = await response.json()
     //Verify Response Payload
     expect(await res.error_description).toEqual("The access token is invalid or has expired")
-})    */
+})
 
 test("Admin_540. @API Admin verify  the save-auth-methods information", async ({ request }) => {
     jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
@@ -10260,7 +10260,6 @@ test("Admin_524. @API Admin_roles-list-search_invalid name", async ({ request })
         });
     //Validation of response time
     verifyResponse.validateTime(jsonpath.responseDuration);
-    console.log(await response.json())
 
     //Status code validation
     expect(response.status()).toBe(400);
@@ -10268,7 +10267,6 @@ test("Admin_524. @API Admin_roles-list-search_invalid name", async ({ request })
     //Verify Response Headers
     expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
 
-    var res = await response.json()
 })
 
 test("AL_001Zx. @API Admin Login Success with Mandatory Fields", async ({ request }) => {

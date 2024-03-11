@@ -1,0 +1,163 @@
+{
+    "create_Blueprint": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    },
+                    "BlueprintID": {
+                        "type": "string"
+                    },
+                    "showMsg": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success",
+                    "BlueprintID",
+                    "showMsg"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "Blueprint_workflow_save": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    },
+                    "Title": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success",
+                    "Title"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "blueprint_cart_lock": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "blueprint_workflow_save": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    },
+                    "Title": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success",
+                    "Title"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    },
+    "blueprint_list_custom_filter_save_public_or_privet": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    },
+                    "filter_id": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success",
+                    "filter_id"
+                ]
+            }
+        }
+    },
+    "blueprint_unlock": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "Response": {
+                "type": "object",
+                "properties": {
+                    "Message": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Message",
+                    "Success"
+                ]
+            }
+        },
+        "required": [
+            "Response"
+        ]
+    }
+}
