@@ -5,6 +5,7 @@ import path from 'path';
 import { jsonObject } from 'pageFactory/pageRepository/Api_iAuthorPage';
 import { ValidationResponse } from '../../utils/validationUtiles/ResponseValidation';
 import { Console } from 'winston/lib/winston/transports';
+import { exam_ID } from './Api_ES_exam.test';
 
 
 
@@ -39,6 +40,8 @@ var QuestionId;
 var SpecialityId
 let bankName = makeid(8);
 var NotificationId;
+var VenueId;
+var iExamId
 
 
 test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
@@ -7351,7 +7354,7 @@ test("Admin_476. @API Admin add the save-proctoring  of invalid endpoint.", asyn
 
 })
 
-*/
+
 
 
 /////////////Specilaity ///////////////////////////
@@ -11868,7 +11871,7 @@ test("Admin_696. @API Admin question_import-success -Header field validation - i
 //     //Validation of response time
 //     verifyResponse.validateTime(jsonpath.responseDuration);
 //     console.log(await response.json())
-
+F
 //     //Status code validation
 //     expect(response.status()).toBe(200);
 //     expect(response.ok()).toBeTruthy()
@@ -11884,3 +11887,9105 @@ test("Admin_696. @API Admin question_import-success -Header field validation - i
 //     expect(await res.message).toEqual("Login Successful")
 
 // })
+
+*/
+
+////////VENUE//////////////////
+
+//Create Venue
+
+test("Admin_785. @API Admin add the Venue-Save information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/racp_venue',
+        {
+            data: jsonObject.Admin_Venue_Create.body,
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+    //Verify Response Payload
+  expect(await res.Response.Message).toEqual("Venue added successfully")
+
+    //Schema validation
+    const schema = jschemasonpath.Create_Specilaity
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+test("Admin_786. @API Admin add the  Venue-Save _validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/admin-api/v1/racp_venue',
+        {
+            data: jsonObject.Admin_Venue_Create.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+test("Admin_787. @API Admin add the Venue-Save _validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/racp_venueIGS',
+        {
+            data: jsonObject.Admin_Venue_Create.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+/////////////Search Venue////////////////////
+
+test("Admin_758. @API Admin add the Venue search information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/racp_venues',
+        {
+            data: jsonObject.Admin_Venue_Search_form.body,
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+
+    var res = await response.json()
+    VenueId = res.venues.data[0].id
+    console.log("VenueId is" +VenueId)
+  
+    
+    // //Schema validation
+    // const schema = jschemasonpath.Specilaity_Search_Schema
+    // const validate = avj.compile(schema)
+    // const isValid = validate(res)
+    // expect(isValid).toBeTruthy()
+
+})
+
+
+test("Admin_759. @API Admin add the Venue search _validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/racp_venues',
+        {
+            data: jsonObject.Admin_Venue_Search_form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_760. @API Admin add the Venue search _validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/racp_venues/IGS',
+        {
+            data: jsonObject.Admin_Venue_Search_form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+///Edit Location
+
+////////////Edit Location////////////////////
+    
+test("Admin_792. @API Admin fetch the Venue-edit-form  information", async ({ request }) => {
+    
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/racp_venue/' +VenueId,
+        {
+            data: jsonObject.Venue_Edit_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+ 
+    //Verify Response Payload
+  expect(await res.Response.Message).toEqual("Venue updated successfully")
+
+//Schema validation
+const schema = jschemasonpath.Venue_Edit
+const validate = avj.compile(schema)
+const isValid = validate(res)
+expect(isValid).toBeTruthy()
+
+})
+
+test("Admin_793. @API Admin add the venue-edit-update _validation of incorrect HTTP method", async ({ request }) => {
+
+jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+verifyResponse.fetchrequestTime();
+const response = await request.put(baseURL + '/admin-api/v1/racp_venue/'+VenueId,
+    {
+        data: jsonObject.Venue_Edit_Form.body,
+        headers: {
+            "accept": "application/json",
+            "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+            "authorization": token
+        }
+    });
+//Validation of response time
+verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+//Status code validation
+expect(response.status()).toBe(405);
+
+
+//Verify Response Headers
+expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+// var res = await response.json()
+
+
+})
+
+
+test("Admin_794. @API Admin add the Venue-edit-update _validation of invalid endpoint", async ({ request }) => {
+
+jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+verifyResponse.fetchrequestTime();
+const response = await request.post(baseURL + '/admin-api/v1/racp_venueIGS/'+VenueId,
+    {
+        data: jsonObject.Venue_Edit_Form.body,
+        headers: {
+            "accept": "application/json",
+            "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+            "authorization": token
+        }
+    });
+//Validation of response time
+verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+//Status code validation
+expect(response.status()).toBe(404);
+
+
+//Verify Response Headers
+expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+// var res = await response.json()
+
+
+})
+
+
+//Get method
+
+test("Admin_773. @API Admin fetch the duplicate-venue information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/duplicateracp_venue/'+VenueId,
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+     //  Verify Response Payload
+     expect(await res.Response.Message).toEqual("Venue duplicated successfully")
+
+
+    //Schema validation
+    const schema = jschemasonpath.duplicate_venue
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+test("Admin_774. @API Endpoint validation for duplicate-venue  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/duplicateracp_venue/'+VenueId+'/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_775. @API Access token validation for duplicate-venue_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/duplicateracp_venue/'+VenueId,
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+//Get method
+
+test("Admin_777. @API Admin fetch the deactivate-Venue-information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/deactivate_racp_venue/'+VenueId,
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+    //  Verify Response Payload
+    expect(await res.Response.Message).toEqual("Venue deactivated successfully")
+
+
+    //Schema validation
+    const schema = jschemasonpath.Venue_Deactivate_Schema
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+test("Admin_778. @API Endpoint validation for -deactivate-venue information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/deactivate_racp_venue/'+VenueId+'/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_779. @API Access token validation for deactivate-venue_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/deactivate_racp_venue/'+VenueId,
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+        
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_780. @API Admin deactivate-Venue-Header field validation - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/deactivate_racp_venue/'+VenueId,
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": " https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001efo. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+
+
+test("Admin_776. @API Admin duplicate-Venue -Header field validation - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/duplicateracp_venue/'+VenueId,
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     //console.log(res);
+    
+
+})
+
+
+test("AL_001ef. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+
+test("Admin_751. @API Admin create the Venues-list information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/racp_venues',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+
+test("Admin_752. @API Admin add  the venues-list of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/racp_venues',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_753. @API Admin add the Venues-list  of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/racp_venuesIGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+})
+
+
+test("Admin_761. @API Admin add the Venue-Filter-search  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/racp_venues',
+        {
+            data: jsonObject.Venue_Filter_Search.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+ 
+
+})
+
+
+
+test("Admin_762. @API Admin add the  Venue-Filter-search_validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/racp_venues',
+        {
+            data: jsonObject.Venue_Filter_Search.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_763. @API Admin add the  Venue-Filter-search _validation of invalid endpoint.", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/racp_venuesIGS',
+        {
+            data: jsonObject.Venue_Filter_Search.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+//Get method
+
+test("Admin_754. @API Admin fetch the Venue-filters-information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/getvenuefilter',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+   // console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+
+})
+
+
+test("Admin_755. @API Endpoint validation for Venue-filters  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/getvenuefilterIGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_756. @API Access token validation for venue-filters_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/getvenuefilter',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_757. @API Admin  venues-filters-Header field validation - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/getvenuefilter',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+test("AL_001bcy. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+test("Admin_764. @API Admin add the Venue-custom-filter-save public or privet information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/custom-filter',
+        {
+            data: jsonObject.Venue_Custom_Filters_public.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+
+         //Verify Response Payload
+   expect(await res.Response.Message).toEqual("Filter saved successfully")
+
+   //Schema validation
+   const schema = jschemasonpath.Venue_cutom_filter_schema
+   const validate = avj.compile(schema)
+   const isValid = validate(res)
+   expect(isValid).toBeTruthy()
+  
+})
+
+
+
+test("Admin_765. @API Admin add the venue-custom-filter-save public or privet_validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/custom-filter',
+        {
+            data: jsonObject.Venue_Custom_Filters_public.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_766. @API Admin add the  venue-custom-filter-save public or privet_validation of invalid endpoint.", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/custom-filterIGS',
+        {
+            data: jsonObject.Venue_Custom_Filters_public.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_767. @API Admin add the venue-pagination information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/racp_venues?page=2',
+        {
+            data: jsonObject.Venue_Pagination.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_768. @API Admin add the Venue-pagination_validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/racp_venues?page=2',
+        {
+            data: jsonObject.Venue_Pagination.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_769. @API Admin add the Venue-pagination _validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/racp_venuesIGS?page=2',
+        {
+            data: jsonObject.Venue_Pagination.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_770. @API Admin add the Venues-show-column information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/racp_venues?page=1',
+        {
+            data: jsonObject.Venue_Show_Column.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_771. @API Admin add the Venues-show-column _validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/racp_venues?page=1',
+        {
+            data: jsonObject.Venue_Show_Column.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_772. @API Admin add the  Venues-show-column _validation of invalid endpoint.", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/racp_venuesIGS?page=1',
+        {
+            data: jsonObject.Venue_Show_Column.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+//Get method
+
+test("Admin_781. @API Admin fetch the Venue-create-form  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/racp_venue',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+   // console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+
+})
+
+
+test("Admin_782. @API Endpoint validation for Venue-create-form  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/racp_venueIGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_783. @API Access token validatio Venue-create-form for _information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/racp_venue',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_784. @API Admin venue-create-form field validation - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/racp_venue',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+test("AL_001dcd. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Get method
+
+test("Admin_788. @API Admin fetch the venue-edit-form  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/racp_venue/'+VenueId,
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+
+    
+
+})
+
+
+test("Admin_789. @API Endpoint validation for venue-edit-form  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/racp_venue/'+VenueId+'/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_790. @API Access token validatio venue-edit-form_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/racp_venue/'+VenueId,
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_791. @API Admin add the Venue-edit-form information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/racp_venue/'+VenueId,
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fj. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+
+
+////////////iExam  Settings//////
+
+
+//////Create iExam /////////////
+
+
+test("Admin_818. @API Admin add the iExam-Templete  Save information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exam/save-details',
+        {
+            data: jsonObject.Admin_iExam_Create.body,
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    var res1 = res.Response
+    var resarry = [];
+    for (var i in res1)
+        resarry.push([i, res1[i]]);
+
+    iExamId = (resarry[2])[1];
+    console.log("Exam id is:", iExamId) 
+       
+       
+       //Verify Response Payload
+  expect(await res.Response.Message).toEqual("Exam template created successfully")
+
+    //Schema validation
+    const schema = jschemasonpath.Create_iExam_Template
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+test("Admin_819. @API Admin add the  iExam-Template Save _validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/exam-api/v1.2/template-exam/save-details',
+        {
+            data: jsonObject.Admin_iExam_Create.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+test("Admin_820. @API Admin add the iExam-template Save _validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/save-detailsIGS',
+        {
+            data: jsonObject.Admin_iExam_Create.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Admin_802. @API Admin add the template-exam-create-exam-section-form information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exam/layout/'+iExamId+'/session/0/section/exam/form',
+        {
+            data: jsonObject.Admin_template_exam_Create.body,
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+   // console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+
+})
+
+
+test("Admin_803. @API Admin add the template-exam-create-exam-section-form _validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/exam-api/v1.2/template-exam/layout/'+iExamId+'/session/0/section/exam/form',
+        {
+            data: jsonObject.Admin_template_exam_Create.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+test("Admin_804. @API Admin add the template-exam-create-exam-section-form  validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exam/layout/'+iExamId+'/session/0/section/exam/formIGS',
+        {
+            data: jsonObject.Admin_template_exam_Create.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Admin_805. @API Admin add the template-exam-section-content-form information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exam/layout/'+iExamId+'/session/0/section/content/form',
+        {
+            data: jsonObject.Admin_template_exam_section.body,
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+
+})
+
+
+test("Admin_806. @API Admin add the template-exam-section-content-form_validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/exam-api/v1.2/template-exam/layout/'+iExamId+'/session/0/section/content/form',
+        {
+            data: jsonObject.Admin_template_exam_section.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+test("Admin_807. @API Admin add the template-exam-section-content-form  validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exam/layout/'+iExamId+'/session/0/section/content/formIGS',
+        {
+            data: jsonObject.Admin_template_exam_section.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Admin_808. @API Admin add the template-exam-section-survey-form information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exam/layout/'+iExamId+'/session/0/section/survey/form',
+        {
+            data: jsonObject.Admin_template_exam_survey.body,
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+
+})
+
+
+test("Admin_809. @API Admin add the template-exam-section-survey-form_validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/exam-api/v1.2/template-exam/layout/'+iExamId+'/session/0/section/survey/form',
+        {
+            data: jsonObject.Admin_template_exam_survey.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+test("Admin_810. @API Admin add the template-exam-section-survey-form  validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exam/layout/'+iExamId+'/session/0/section/survey/formIGS',
+        {
+            data: jsonObject.Admin_template_exam_survey.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+/////////////Search iExam////////////////////
+
+test("Admin_841. @API Admin add the iExam-Template search information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exams',
+        {
+            data: jsonObject.Admin_iExam_Search_form.body,
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+   
+
+})
+
+
+test("Admin_842. @API Admin add the iExam-template search _validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exams',
+        {
+            data: jsonObject.Admin_iExam_Search_form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_843. @API Admin add the iExam-Template search _validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exams/IGS',
+        {
+            data: jsonObject.Admin_iExam_Search_form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+//Edit Iexam Template
+
+
+test("Admin_811 @API Admin add the template-exam-save-form information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exam/save-sessions/'+iExamId,
+        {
+            data: jsonObject.Admin_template_exam_save.body,
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+  expect(await res.message).toEqual("Session(s) Updated successfully")
+
+  //Schema validation
+  const schema = jschemasonpath.Create_template_Exam
+  const validate = avj.compile(schema)
+  const isValid = validate(res)
+  expect(isValid).toBeTruthy()
+    
+
+})
+
+
+test("Admin_812. @API Admin add the template-exam-save_validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/exam-api/v1.2/template-exam/save-sessions/'+ iExamId,
+        {
+            data: jsonObject.Admin_template_exam_save.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+test("Admin_813. @API Admin add the template-exam-save  validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exam/save-sessions/2/IGS',
+        {
+            data: jsonObject.Admin_template_exam_save.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+    
+test("Admin_795. @API Admin fetch the exam-templates-edit-form  information", async ({ request }) => {
+    
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/exam-templates/layout/'+iExamId+'/form',
+        {
+            data: jsonObject.iExam_Edit_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+ 
+    
+
+})
+
+test("Admin_796. @API Admin add the exam-templates-edit-form _validation of incorrect HTTP method", async ({ request }) => {
+
+jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+verifyResponse.fetchrequestTime();
+const response = await request.get(baseURL + '/exam-api/v1.2/exam-templates/layout/'+iExamId+'/form',
+    {
+        
+        headers: {
+            "accept": "application/json",
+            "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+            "authorization": token
+        }
+    });
+//Validation of response time
+verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+//Status code validation
+expect(response.status()).toBe(405);
+
+
+//Verify Response Headers
+expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+// var res = await response.json()
+
+
+})
+
+
+test("Admin_797. @API Admin add the exam-templates-edit-form_validation of invalid endpoint", async ({ request }) => {
+
+jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+verifyResponse.fetchrequestTime();
+const response = await request.post(baseURL + '/exam-api/v1.2/exam-templates/layout/'+iExamId+'/form/IGS',
+    {
+        data: jsonObject.iExam_Edit_Form.body,
+        headers: {
+            "accept": "application/json",
+            "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+            "authorization": token
+        }
+    });
+
+//Validation of response time
+verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+//Status code validation
+expect(response.status()).toBe(404);
+
+
+//Verify Response Headers
+expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+// var res = await response.json()
+
+})
+
+
+
+
+    
+test("Admin_825. @API Admin fetch the template-exam-update  information", async ({ request }) => {
+    
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exam/update-details/'+iExamId,
+        {
+            data: jsonObject.template_exam_update.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+ 
+    //Verify Response Payload
+  expect(await res.Response.Message).toEqual("Exam template updated successfully")
+
+  //Schema validation
+  const schema = jschemasonpath.template_exam_update
+  const validate = avj.compile(schema)
+  const isValid = validate(res)
+  expect(isValid).toBeTruthy()
+
+})
+
+test("Admin_826. @API Admin add the template-exam-update_validation of incorrect HTTP method", async ({ request }) => {
+
+jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+verifyResponse.fetchrequestTime();
+const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/update-details/'+iExamId,
+    {
+        
+        headers: {
+            "accept": "application/json",
+            "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+            "authorization": token
+        }
+    });
+//Validation of response time
+verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+//Status code validation
+expect(response.status()).toBe(405);
+
+
+//Verify Response Headers
+expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+// var res = await response.json()
+
+
+})
+
+
+test("Admin_827. @API Admin add the template-exam-update_validation of invalid endpoint", async ({ request }) => {
+
+jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+verifyResponse.fetchrequestTime();
+const response = await request.post(baseURL + '/exam-api/v1.2/template-exam/update-details/'+iExamId+'/IGS',
+    {
+        data: jsonObject.template_exam_update.body,
+
+        headers: {
+            "accept": "application/json",
+            "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+            "authorization": token
+        }
+    });
+
+//Validation of response time
+verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+//Status code validation
+expect(response.status()).toBe(404);
+
+
+//Verify Response Headers
+expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+// var res = await response.json()
+
+})
+
+
+    
+test("Admin_828. @API Admin fetch the exam-templates-editsection-form  information", async ({ request }) => {
+    
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/exam-templates/layout/'+iExamId+'/form',
+        {
+            data: jsonObject.iExam_Edit_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+ 
+    
+
+})
+
+test("Admin_829. @API Admin add the exam-templates-editsection-form_validation of incorrect HTTP method", async ({ request }) => {
+
+jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+verifyResponse.fetchrequestTime();
+const response = await request.get(baseURL + '/exam-api/v1.2/exam-templates/layout/'+iExamId+'/form',
+    {
+        
+        headers: {
+            "accept": "application/json",
+            "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+            "authorization": token
+        }
+    });
+//Validation of response time
+verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+//Status code validation
+expect(response.status()).toBe(405);
+
+
+//Verify Response Headers
+expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+// var res = await response.json()
+
+
+})
+
+
+test("Admin_830. @API Admin add the exam-templates-editsection-form_validation of invalid endpoint", async ({ request }) => {
+
+jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+verifyResponse.fetchrequestTime();
+const response = await request.post(baseURL + '/exam-api/v1.2/exam-templates/layout/'+iExamId+'/form/IGS',
+    {
+        data: jsonObject.iExam_Edit_Form.body,
+        headers: {
+            "accept": "application/json",
+            "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+            "authorization": token
+        }
+    });
+
+//Validation of response time
+verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+//Status code validation
+expect(response.status()).toBe(404);
+
+
+//Verify Response Headers
+expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+// var res = await response.json()
+
+})
+
+    
+test("Admin_831. @API Admin fetch the template-exam-save-sessions  information", async ({ request }) => {
+    
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exam/save-sessions/'+iExamId,
+        {
+            data: jsonObject.template_exam_save_sessions.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+ 
+
+    //Verify Response Payload
+  expect(await res.message).toEqual("Session(s) Updated successfully")
+
+  //Schema validation
+  const schema = jschemasonpath.template_exam_save
+  const validate = avj.compile(schema)
+  const isValid = validate(res)
+  expect(isValid).toBeTruthy()
+    
+
+})
+
+test("Admin_832. @API Admin add the template-exam-save-sessions_validation of incorrect HTTP method", async ({ request }) => {
+
+jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+verifyResponse.fetchrequestTime();
+const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/save-sessions/'+iExamId,
+    {
+        
+        headers: {
+            "accept": "application/json",
+            "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+            "authorization": token
+        }
+    });
+//Validation of response time
+verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+//Status code validation
+expect(response.status()).toBe(405);
+
+
+//Verify Response Headers
+expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+// var res = await response.json()
+
+
+})
+
+
+test("Admin_833. @API Admin add the template-exam-save-sessions_validation of invalid endpoint", async ({ request }) => {
+
+jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+verifyResponse.fetchrequestTime();
+const response = await request.post(baseURL + '/exam-api/v1.2/template-exam/save-sessions/'+iExamId+'/IGS',
+    {
+        data: jsonObject.template_exam_save_sessions.body,
+
+        headers: {
+            "accept": "application/json",
+            "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+            "authorization": token
+        }
+    });
+
+//Validation of response time
+verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+//Status code validation
+expect(response.status()).toBe(404);
+
+
+//Verify Response Headers
+expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+// var res = await response.json()
+
+})
+
+
+//Get method
+
+test("Admin_853. @API Admin fetch the template-exam-duplicate  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/duplicate/'+iExamId,
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+  expect(await res.Response.Message).toEqual("Exam duplicated successfully")
+
+  //Schema validation
+  const schema = jschemasonpath.template_exam_duplicate
+  const validate = avj.compile(schema)
+  const isValid = validate(res)
+  expect(isValid).toBeTruthy()
+    
+
+})
+
+
+test("Admin_854. @API Endpoint validation for template-exam-duplicate  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/duplicate/'+iExamId+'/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_855. @API Access token validatio template-exam-duplicate_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/duplicate/'+iExamId,
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+//Delete Exam Template
+
+test("Admin_857. @API Admin fetch the deactive-template-exams", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.delete(baseURL + '/exam-api/v1.2/template-exams/'+iExamId+'/delete',
+        {   
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+  
+    
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Exam deactivated successfully.")
+
+
+    //Schema validation
+    const schema = jschemasonpath.Exam_Deactivated 
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("Admin_858. @API Admin deactive-emplate-exams_validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exams/'+iExamId+'/delete',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+test("Admin_859. @API Endpoint validation for deactive-emplate-exams ", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.delete(baseURL + '/exam-api/v1.2/template-exams/'+iExamId+'/delete/IGS',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_860. @API Admin fetch the template-exams-active", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.delete(baseURL + '/exam-api/v1.2/template-exams/'+iExamId+'/active',
+        {   
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+  
+    
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Exam activated successfully.")
+
+
+    //Schema validation
+    const schema = jschemasonpath.Exam_Activated 
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+
+
+test("Admin_861. @API Admin template-exams-active_validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exams/'+iExamId+'/active',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+test("Admin_862. @API Endpoint validation for template-exams-active ", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.delete(baseURL + '/exam-api/v1.2/template-exams/'+iExamId+'/active/IGS',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+//Get method
+
+test("Admin_821. @API Admin fetch the exam-sections  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/details/'+iExamId,
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+
+    
+
+})
+
+
+test("Admin_822. @API Endpoint validation for exam-sections information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/detailsIGS/'+iExamId,
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_823. @API Access token validatio exam-sections _information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/details/'+iExamId,
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_824. @API Admin add the exam-sections information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/details/'+iExamId,
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fv9. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+test("Admin_856. @API Admin add the template-exam-duplicate  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/duplicate/'+iExamId,
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fvh. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+//Get method
+
+test("Admin_814. @API Admin fetch the template-exam-create-form   information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/create/0',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+
+})
+
+
+test("Admin_815. @API Endpoint validation for template-exam-create-form   information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/create/0/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_816. @API Access token validatio template-exam-create-form _information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/create/0',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_817. @API Admin add the template-exam-create-form  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/create/0',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001f. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+
+///////////////////7/3/2024///////////////////////
+
+//Get method
+
+test("Admin_798. @API Admin fetch the exam-sections  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/sections',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+
+    
+
+})
+
+
+test("Admin_799. @API Endpoint validation for exam-sections   information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/sectionsIGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_800. @API Access token validatio exam-sections _information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/sections',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_801. @API Admin add the exam-sections information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/sections',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fv. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+
+
+test("Admin_834. @API Admin add the template-exam-list information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exams',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+
+})
+
+
+test("Admin_835. @API Admin add the template-exam-list_validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/exam-api/v1.2/template-exams',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+test("Admin_836. @API Admin add the template-exam-list  validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exams/IGS',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+//Get method
+
+test("Admin_837. @API Admin fetch the template-exam-filters  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/filters',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+
+    
+
+})
+
+
+test("Admin_838. @API Endpoint validation for template-exam-filters  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/filtersIGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_839. @API Access token validatio template-exam-filters _information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/filters',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_840. @API Admin add the template-exam-filters information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/filters',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fvr. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//////////////8/3/2024////////////////////////
+
+
+/////////////Search iExam////////////////////
+
+test("Admin_844. @API Admin add the iExam-Template-filter search information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exams',
+        {
+            data: jsonObject.Admin_iExam_filter_Search_form.body,
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+
+
+    var res = await response.json()
+
+
+})
+
+
+test("Admin_845. @API Admin add the iExam-template-filter search _validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exams',
+        {
+            data: jsonObject.Admin_iExam_filter_Search_form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_846. @API Admin add the iExam-Template-filter search _validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exams/IGS',
+        {
+            data: jsonObject.Admin_iExam_filter_Search_form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Admin_847. @API Admin add the template-exam-custom-filter-save information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exam/custom-filter',
+        {
+            data: jsonObject.Admin_iExam_custom_filter_save.body,
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+  expect(await res.Response.Message).toEqual("Filter saved successfully!")
+
+  //Schema validation
+  const schema = jschemasonpath.iExam_custom_filter_save
+  const validate = avj.compile(schema)
+  const isValid = validate(res)
+  expect(isValid).toBeTruthy()
+
+})
+
+
+test("Admin_848. @API Admin add the template-exam-custom-filter-save_validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exam/custom-filter',
+        {
+            data: jsonObject.Admin_iExam_custom_filter_save.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_849. @API Admin add the template-exam-custom-filter-save_validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exam/custom-filter/IGS',
+        {
+            data: jsonObject.Admin_iExam_custom_filter_save.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Admin_850. @API Admin add the template-exams-field-column-hide and show information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exams',
+        {
+            data: jsonObject.Admin_iExam_column_hide_show.body,
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+test("Admin_851. @API Admin add the template-exams-field-column-hide and show validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/template-exams',
+        {
+            data: jsonObject.Admin_iExam_column_hide_show.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_852. @API Admin add the template-exams-field-column-hide and show validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/template-exams/IGS',
+        {
+            data: jsonObject.Admin_iExam_column_hide_show.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+
+
+
+//////////////////Offline Exam//////////////////////
+
+
+test("Admin_867. @API Admin add the save-offline-exam  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/save-offline-exam',
+        {
+
+            data: jsonObject.save_offline_exam.body,
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+   // console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Recovery Details Updated")
+
+
+    //Schema validation
+    const schema = jschemasonpath.Recovery_Details 
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+test("Admin_868. @API Admin add the save-offline-exam _validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/save-offline-exam',
+        {
+            data: jsonObject.save_offline_exam.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_869. @API Admin add the save-offline-exam   validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/save-offline-exam/IGS',
+        {
+            data: jsonObject.save_offline_exam.body,
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+//Get method
+
+test("Admin_863. @API Admin fetch the create-offline-exam-form   information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/create-offline-exam',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+  
+    
+
+})
+
+
+test("Admin_864. @API Endpoint validation for create-offline-exam-form  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/create-offline-exam/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_865. @API Access token validatio create-offline-exam-form _information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/create-offline-exam',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_866. @API Admin add the create-offline-exam-form  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/create-offline-exam',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fvj. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+//////Live Monitor///////////
+
+
+test("Admin_874. @API Admin add the save-livemonitor-settings  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/save-livemonitor-settings',
+        {
+
+            data: jsonObject.livemonitor_settings.body,
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+   // console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Live monitor refresh time updated successfully")
+
+
+    //Schema validation
+    const schema = jschemasonpath.livemonitor_Details 
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+test("Admin_875. @API Admin add the save-livemonitor-settings _validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/admin-api/v1/save-livemonitor-settings',
+        {
+            data: jsonObject.livemonitor_settings.body,
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+test("Admin_876. @API Admin add the save-livemonitor-settings   validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/save-livemonitor-settingsIGS',
+        {
+            data: jsonObject.livemonitor_settings.body,
+
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+//Get method
+
+test("Admin_870. @API Admin fetch the livemonitor-settings-form  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/get-livemonitor-settings',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+
+test("Admin_871. @API Endpoint validation for livemonitor-settings-form  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/get-livemonitor-settings/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_872. @API Access token validatio livemonitor-settings-form_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/get-livemonitor-settings',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_873. @API Admin add the livemonitor-settings-form  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/get-livemonitor-settings',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fvq. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+/////////Ofline Action////////////
+
+
+test("Admin_881. @API Admin add the offline-action-update  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/offline-action',
+        {
+
+            data: jsonObject.Offline_Action.body,
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+   // console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Offline Action settings has been updated successfully")
+
+
+    //Schema validation
+    const schema = jschemasonpath.Offline_Action 
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+test("Admin_882. @API Admin add the offline-action-update _validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/admin-api/v1/offline-action',
+        {
+            data: jsonObject.Offline_Action.body,
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+test("Admin_883. @API Admin add the offline-action-update  validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/offline-actionIGS',
+        {
+            data: jsonObject.Offline_Action.body,
+
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+//Get method
+
+test("Admin_877. @API Admin fetch the offline-action-form   information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/offline-action',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+
+test("Admin_878. @API Endpoint validation for offline-action-form   information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/offline-action/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_879. @API Access token validatio offline-action-form _information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/offline-action',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_880. @API Admin add the offline-action-form   information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/offline-action',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fpq. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+/////////////////Registration Portal/////////////////////////////
+
+test("Admin_888. @API Admin add the save-Iregistration-List  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v2/saveIregistrationList',
+        {
+
+            data: jsonObject.save_Iregistration_List.body,
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+   // console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Iregistration settings have been updated successfully")
+
+
+    //Schema validation
+    const schema = jschemasonpath.iResgistration_List 
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+test("Admin_889. @API Admin add the save-Iregistration-List _validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/admin-api/v2/saveIregistrationList',
+        {
+            data: jsonObject.save_Iregistration_List.body,
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+test("Admin_890. @API Admin add the save-Iregistration-List   validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v2/saveIregistrationListIGS',
+        {
+            data: jsonObject.save_Iregistration_List.body,
+
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+//Get method
+
+test("Admin_891. @API Admin fetch the iRegistration-List   information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v2/getIregistrationList',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+
+test("Admin_892. @API Endpoint validation for iRegistration-List    information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v2/getIregistrationList/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_893. @API Access token validatio iRegistration-List   _information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v2/getIregistrationList',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_894. @API Admin add the iRegistration-List    information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v2/getIregistrationList',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fgq. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+///////////////////isawe-case-settings/////////////////
+
+test("Admin_895. @API Admin add the save-isawe-case-setting  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/save-isawe-case-setting',
+        {
+
+            data: jsonObject.save_isawe_case_setting.body,
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+   // console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("ISAWE-CASE settings has been updated successfully")
+
+
+    //Schema validation
+    const schema = jschemasonpath.iSaw_Case_Schema 
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+test("Admin_896. @API Admin add the save-isawe-case-setting_validation of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/admin-api/v1/save-isawe-case-setting',
+        {
+            data: jsonObject.save_isawe_case_setting.body,
+
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+test("Admin_897. @API Admin add the save-isawe-case-setting  validation of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/save-isawe-case-settingIGS',
+        {
+            data: jsonObject.save_isawe_case_setting.body,
+
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+//Get method
+
+test("Admin_891. @API Admin fetch the isawe-case-setting-form   information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/isawe-case-setting',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+
+test("Admin_892. @API Endpoint validation for isawe-case-setting-form   information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/isawe-case-setting/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_893. @API Access token validation  isawe-case-setting-form  _information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/isawe-case-setting',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_894. @API Admin add the isawe-case-setting-form  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/isawe-case-setting',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fdt. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+
+///////////////DashBoard////////////////////////
+
+
+//Get method
+
+test("Admin_898. @API Admin fetch the show-widget response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+
+test("Admin_899: @API Endpoint validation for show-widget response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_900. @API Access token validation  show-widget response _information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_901. @API Admin add the show-widget response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fdq. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Get method
+
+test("Admin_902. @API Admin fetch the user-details response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/user/18',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+
+test("Admin_903: @API Endpoint validation for user-details response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/user/18/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_904. @API Access token validation  user-details response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/user/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_905. @API Admin add the user-details response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/user/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fdi. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Get method
+
+test("Admin_906. @API Admin fetch the exam-marking-listwidget response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + 'exam-registration-api/v1/exammarkinglistwidget/18',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+
+test("Admin_907: @API Endpoint validation for exam-marking-listwidget response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/exammarkinglistwidget/18/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_908. @API Access token validation  exam-marking-listwidget response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/exammarkinglistwidget/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_909. @API Admin add the exam-marking-listwidget response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/exammarkinglistwidget/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fdo. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+//Get method
+
+test("Admin_910. @API Admin fetch the user-exam-listwidget response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/userexamlistwidget/18',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+
+test("Admin_911: @API Endpoint validation for user-exam-listwidget response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/userexamlistwidget/18/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_912. @API Access token validation  user-exam-listwidget response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/userexamlistwidget/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_913. @API Admin add the user-exam-listwidget response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/userexamlistwidget/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fdl. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+//Get method
+
+test("Admin_914. @API Admin fetch the exam-marking-listwidget-pagination response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/exammarkinglistwidget/18?page=2',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+    //Verify Response Payload
+  expect(await res.Response.Message).toEqual("No exams assigned to you")
+
+  //Schema validation
+  const schema = jschemasonpath.exam_marking_listwidget_Pagination
+  const validate = avj.compile(schema)
+  const isValid = validate(res)
+  expect(isValid).toBeTruthy()
+
+
+})
+
+
+test("Admin_915: @API Endpoint validation for exam-marking-listwidget-pagination response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/exammarkinglistwidget/18/IGS?page=2',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_916. @API Access token validation  exam-marking-listwidget-pagination response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/exammarkinglistwidget/18?page=2',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_917. @API Admin add the exam-marking-listwidget-pagination response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/exammarkinglistwidget/18?page=2',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fd1. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+
+
+//Get method
+
+test("Admin_918. @API Admin fetch the showwidget-hide response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/5/0',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+    //Verify Response Payload
+  expect(await res.Response.Message).toEqual("Widget successfully hide.")
+
+  //Schema validation
+  const schema = jschemasonpath.showwidget_hide
+  const validate = avj.compile(schema)
+  const isValid = validate(res)
+  expect(isValid).toBeTruthy()
+
+
+})
+
+
+test("Admin_919: @API Endpoint validation for showwidget-hide response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/5/0/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_920. @API Access token validation  showwidget-hide response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/5/0',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_921. @API Admin add the showwidget-hide response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/5/0',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fs1. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+//
+
+//Get method
+
+test("Admin_922. @API Admin fetch the showwidget-shown  response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/5/1',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+//Verify Response Payload
+expect(await res.Response.Message).toEqual("Widget successfully shown.")
+
+//Schema validation
+const schema = jschemasonpath.showwidget_Shown
+const validate = avj.compile(schema)
+const isValid = validate(res)
+expect(isValid).toBeTruthy()
+
+})
+
+
+test("Admin_923: @API Endpoint validation for showwidget-shown  response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/5/1/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_924. @API Access token validation  showwidget-shown  response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/5/1',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_925. @API Admin add the showwidget-shown  response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/5/1',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001ft1. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Get method
+
+test("Admin_926. @API Admin fetch the showwidget-list  response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+
+test("Admin_927: @API Endpoint validation for showwidget-list  response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_928. @API Access token validation  showwidget-list  response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_929. @API Admin add the showwidget-list  response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fp1. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Get method
+
+test("Admin_933. @API Admin fetch the  login-user-information  response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/user/18',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+test("Admin_934: @API Endpoint validation for login-user-information  response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/user/18/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_935. @API Access token validation  login-user-information  response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/user/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_936. @API Admin add the login-user-information  response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/user/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fp2. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+test("Admin_930. @API Admin getAuth-role-permission-list information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/getAuth',
+        {
+         data: {"user_id":"18"},
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+    
+})
+
+
+
+test("Admin_931. @API Admin add  the getAuth-role-permission-list of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/admin-api/v1/getAuth',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    
+
+})
+
+
+test("Admin_932. @API Admin add the getAuth-role-permission-list  of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/getAuth/IGS',
+        {
+            data: {"user_id":"18"},
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+// //Get method
+
+// test("Admin_933. @API Admin fetch the getAuth-role-permission-list  response information", async ({ request }) => {
+
+//     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+//     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+//     verifyResponse.fetchrequestTime();
+//     const response = await request.get(baseURL + '/admin-api/v1/user/18',
+//         {
+           
+//             headers: {
+//                 "accept": "application/json",
+//                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+//                 "authorization": token
+//             }
+//         });
+//     //Validation of response time
+//     verifyResponse.validateTime(jsonpath.responseDuration);
+//     //console.log(await response.json())
+
+//     //Status code validation
+//     expect(response.status()).toBe(200);
+//     expect(response.ok()).toBeTruthy()
+//     expect(response.statusText()).toBe("OK");
+
+//     //Verify Response Headers
+//     expect(response.headers()['content-type']).toBe('application/json')
+
+//     var res = await response.json()
+
+
+
+// })
+
+
+// test("Admin_934: @API Endpoint validation for getAuth-role-permission-list  response  information", async ({ request }) => {
+
+//     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+//     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+//     verifyResponse.fetchrequestTime();
+//     const response = await request.get(baseURL + '/admin-api/v1/user/18/IGS',
+//         {
+//            // data: jsonpath.adminLogin.body,
+//             headers: {
+//                 "accept": "application/json",
+//                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+//                 "authorization": token
+//             }
+//         });
+//     //Validation of response time
+//     verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+//     //Status code validation
+//     expect(response.status()).toBe(404);
+ 
+
+//     //Verify Response Headers
+//     expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+//     // var res = await response.json()
+    
+
+// })
+
+
+// test("Admin_935. @API Access token validation  getAuth-role-permission-list  response_information", async ({ request }) => {
+
+//     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+//     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+//     verifyResponse.fetchrequestTime();
+//     const response = await request.get(baseURL + '/admin-api/v1/user/18',
+//         {
+//            // data: jsonpath.adminLogin.body,
+//             headers: {
+//                 "accept": "application/json",
+//                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+//                 "authorization": ""
+//             }
+//         });
+//     //Validation of response time
+//     verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+//     //Status code validation
+//     expect(response.status()).toBe(401);
+ 
+
+//     //Verify Response Headers
+//     expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+//     // var res = await response.json()
+    
+
+// })
+
+
+
+// test("Admin_936. @API Admin add the getAuth-role-permission-list  response  information - invalid", async ({ request }) => {
+
+//     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+//     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+//     verifyResponse.fetchrequestTime();
+//     const response = await request.get(baseURL + '/admin-api/v1/user/18',
+//         {
+//            // data: jsonpath.adminLogin.body,
+//             headers: {
+//                 "accept": "application/json",
+//                 "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+//                 "authorization": token
+//             }
+//         });
+//     //Validation of response time
+//     verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+//     //Status code validation
+//     expect(response.status()).toBe(401);
+ 
+
+//     //Verify Response Headers
+//     expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+//      var res = await response.json()
+//      console.log(res);
+    
+
+// })
+
+
+// test("AL_001fp2. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+//     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+//     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+//     verifyResponse.fetchrequestTime();
+//     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+//         {
+//             data: jsonpath.adminLogin.body,
+//             headers: jsonpath.adminLogin.header
+//         });
+//     //Validation of response time
+//     verifyResponse.validateTime(jsonpath.responseDuration);
+//     console.log(await response.json())
+
+//     //Status code validation
+//     expect(response.status()).toBe(200);
+//     expect(response.ok()).toBeTruthy()
+//     expect(response.statusText()).toBe("OK");
+
+//     //Verify Response Headers
+//     expect(response.headers()['content-type']).toBe('application/json')
+
+//     var res = await response.json()
+//     token = res.access_token
+//     //Verify Response Payload
+//     console.log("Access token is:", token)
+//     expect(await res.message).toEqual("Login Successful")
+
+//     //Schema validation
+//     const schema = jschemasonpath
+//     const validate = avj.compile(schema)
+//     const isValid = validate(res)
+//     expect(isValid).toBeTruthy()
+
+// })
+
+
+
+
+//Get method
+
+test("Admin_937. @API Admin fetch the  todolist-data   response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/todolist/18',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+test("Admin_938: @API Endpoint validation for   todolist-data  response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/todolist/18/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_939. @API Access token validation   todolist-data  response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/todolist/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_940. @API Admin add the  todolist-data  response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/todolist/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fp6. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Get method
+
+test("Admin_941. @API Admin fetch the recent-list-data  response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/recentlist/18',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+
+test("Admin_942: @API Endpoint validation for recent-list-data  response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/recentlist/18/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_943. @API Access token validation  recent-list-data  response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/recentlist/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_944. @API Admin add the recent-list-data  response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/recentlist/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fp8. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Get method
+
+test("Admin_945. @API Admin fetch the user-filteruser-filters   response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/userfilters/18',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+
+test("Admin_946: @API Endpoint validation for user-filteruser-filters   response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/userfilters/18/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_947. @API Access token validation user-filteruser-filters  response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/userfilters/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_948. @API Admin add the user-filteruser-filters   response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/userfilters/18',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001f42. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Get method
+
+test("Admin_949. @API Admin fetch the question-filters  response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/question-filters',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+
+test("Admin_950: @API Endpoint validation for question-filters response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/question-filtersIGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_951. @API Access token validation  question-filters response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/question-filters',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_952. @API Admin add the question-filters  response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/question-filters',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fp0. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Post method
+
+test("Admin_953. @API Admin  questions-status-list information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questions',
+        {
+         data: {"pagination":"","pageName":"dashboard-questions"},
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+    
+})
+
+
+
+test("Admin_954. @API Admin add  the questions-status-list of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/questions',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    
+
+})
+
+
+test("Admin_955. @API Admin add the questions-status-list  of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questions/IGS',
+        {
+            data: {"pagination":"","pageName":"dashboard-questions"},
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+//Get method
+
+test("Admin_956. @API Admin fetch the show-widget-hide  response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/1/0',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+//Verify Response Payload
+expect(await res.Response.Message).toEqual("Widget successfully hide.")
+
+
+//Schema validation
+const schema = jschemasonpath.show_widget_hide
+const validate = avj.compile(schema)
+const isValid = validate(res)
+expect(isValid).toBeTruthy()
+
+
+})
+
+
+test("Admin_957: @API Endpoint validation for show-widget-hide response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/1/0/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_958. @API Access token validation  show-widget-hide  response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/1/0',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_959. @API Admin add the show-widget-hide  response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/1/0',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001f72. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Get method
+
+test("Admin_960. @API Admin fetch the show-widget-shown   response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/7/1',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+//Verify Response Payload
+expect(await res.Response.Message).toEqual("Widget successfully shown.")
+
+
+//Schema validation
+const schema = jschemasonpath.show_widget_shown
+const validate = avj.compile(schema)
+const isValid = validate(res)
+expect(isValid).toBeTruthy()
+
+})
+
+
+test("Admin_961: @API Endpoint validation for show-widget-shown   response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/7/1/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_962. @API Access token validation  show-widget-shown   response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/7/1',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_963. @API Admin add the show-widget-shown   response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/showwidget/18/7/1',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001f12. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Get method
+
+test("Admin_964. @API Admin fetch the user-filters-paggination  response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/userfilters/18?page=2',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+
+test("Admin_965: @API Endpoint validation for user-filters-paggination  response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/userfilters/18/IGS?page=2',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_966. @API Access token validation  user-filters-paggination  response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/userfilters/18?page=2',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_967. @API Admin add the user-filters-paggination  response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/userfilters/18?page=2',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001f52. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Get method
+
+test("Admin_968. @API Admin fetch the recent-list-pagination  response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/recentlist/18?page=2',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+
+test("Admin_969: @API Endpoint validation for recent-list-pagination  response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/recentlist/18/IGS?page=2',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_970. @API Access token validation recent-list-pagination  response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/recentlist/18?page=2',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_971. @API Admin add the recent-list-pagination  response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/recentlist/18?page=2',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001f22. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Get method
+
+test("Admin_972. @API Admin fetch the to-do-list-pagination  response information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/todolist/18?page=2',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+//Verify Response Payload
+expect(await res.Response.Message).toEqual("No items available for your action.")
+
+
+//Schema validation
+const schema = jschemasonpath.to_do_list_pagination
+const validate = avj.compile(schema)
+const isValid = validate(res)
+expect(isValid).toBeTruthy()
+
+
+})
+
+
+test("Admin_973: @API Endpoint validation for to-do-list-pagination  response  information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/todolist/18/IGS?page=2',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_974. @API Access token validation  to-do-list-pagination  response_information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/todolist/18?page=2',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Admin_975. @API Admin add the to-do-list-pagination  response  information - invalid", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/todolist/18?page=2',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fpe. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+//post method
+
+test("Admin_976. @API Admin questions-status-filter-search information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questions',
+        {
+            data: jsonObject.Admin_Question_Status_filter_search.body,
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+    
+})
+
+
+
+test("Admin_977. @API Admin add  the questions-status-filter-search of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/questions',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    
+
+})
+
+
+test("Admin_978. @API Admin add the questions-status-filter-search  of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/admin-api/v1/getAuth/IGS',
+        {
+            data: jsonObject.Admin_Question_Status_filter_search.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Admin_979. @API Admin save-custom-filter-save-privet information", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/custom-filter',
+        {
+            data: jsonObject.Admin_save_custom_privet.body,
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    
+
+       //Verify Response Payload
+  expect(await res.Response.Message).toEqual("Filter saved successfully!")
+
+  //Schema validation
+  const schema = jschemasonpath.Custom_Filter_Saved
+  const validate = avj.compile(schema)
+  const isValid = validate(res)
+  expect(isValid).toBeTruthy()
+    
+})
+
+
+
+test("Admin_980. @API Admin add  the save-custom-filter-save-privet of incorrect HTTP method", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/custom-filter',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+
+
+})
+
+
+test("Admin_981. @API Admin add the save-custom-filter-save-privet  of invalid endpoint", async ({ request }) => {
+
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/custom-filter/IGS',
+        {
+                    data: jsonObject.Admin_save_custom_privet.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+

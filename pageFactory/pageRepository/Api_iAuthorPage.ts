@@ -22,6 +22,9 @@ let questionType =(Math.floor(Math.random() * 89 + 100));
 let specilaityName = makeid(8);
 let specilaityType =(Math.floor(Math.random() * 89 + 100));
 let notificationname =makeid(8);
+let venueName= makeid(8);
+let iExamName = makeid(8);
+let Dashboardname = makeid(8);
 let notificationemail = (makeid(7) + Math.floor(Math.random() * 899 + 100) + '@yopmail.com')
 
 export var jsonObject =
@@ -676,6 +679,1106 @@ export var jsonObject =
     "body":{
         "exams":([{"id":1,"name":"Test Exam 1"}]),
          "version": ([{"id":2,"name":"2"}])
+    }
+},
+"Admin_Venue_Create" :{
+    "body":{
+        "name": venueName,
+        "city_suburb": 2,
+        "country": 0,
+        "amenities": [],
+        "image_thumbnail": [],
+        "status": 1
+    }
+},
+"Admin_Venue_Search_form":{
+    "body":{
+        "freeText":[
+        venueName
+    ]
+}
+},
+"Venue_Edit_Form":{
+    "body":{
+        "name": venueName,
+        "short_name": "Test loca",
+        "description": "<p>test description</p>",
+        "address_1": "add1",
+        "address_2": "add2",
+        "city_suburb": 2,
+        "country": 2,
+        "amenities": [
+            {
+                "id": 1,
+                "name": "Private rooms (for religious reasons, learning difficulties, breastfeeding, etc.)"
+            }
+        ],
+        "image_thumbnail": [],
+        "status": 1
+    }
+},
+"Venue_Filter_Search":{
+    "body":{"filterArray":[{"filterId":"Name","operator":"like","displayText":"Name <span><strong>is like</strong></span> ","filterValue1":"Chennai","filterValue2":"","operation":""}],"freeText":[]}
+},
+"Venue_Custom_Filters_public":{
+    "body":{"filterArray":{"filterName":venueName,"filterType":"public","filterPage":"view-venue","filter_id":""},"customFilter":[{"filterId":"Name","operator":"like","displayText":"Name <span><strong>is like</strong></span> ","filterValue1":"Chennai","filterValue2":"","operation":""}]}
+},
+"Venue_Pagination":{
+    "body":{"freeText":[],"pagination":10}
+},
+"Venue_Show_Column":{
+    "body":{
+        "freeText": [],
+        "showColumns": [
+            "NAME",
+            "mappings"
+        ]
+    }
+},
+"Admin_iExam_Create":{
+    "body":{
+        "exam_bank": [
+            {
+                "id": 1,
+                "name": iExamName
+            }
+        ],
+        "exam_name": "api exam",
+        "exam_description": "<p>asfwe</p>",
+        "exam_start_date_time": [
+            {
+                "enableOption": 1,
+                "examDate": "2023-11-18",
+                "examHours": "12",
+                "examMinutes": "04"
+            }
+        ],
+        "exam_end_date_time": [
+            {
+                "enableOption": 1,
+                "examDate": "2023-12-17",
+                "examHours": "12",
+                "examMinutes": "04"
+            }
+        ],
+        "exam_venue": [
+            {
+                "id": 3,
+                "name": "Chennai, India",
+                "seats": "100",
+                "max_seats": "100"
+            }
+        ],
+        "exam_booking_start_date_time": "2023-11-17T14:04:00",
+        "exam_booking_end_date_time": "2023-11-17T17:04:00",
+        "question_display_type": [
+            {
+                "id": 102,
+                "name": "Standard"
+            }
+        ],
+        "questions_per_page": [
+            {
+                "id": 91,
+                "name": "1"
+            }
+        ],
+        "image_View": "142",
+        "shuffle_within_questions": [
+            {
+                "id": 104,
+                "name": "No"
+            }
+        ],
+        "select_exam_tools": [],
+        "browser_security": [
+            {
+                "id": 138,
+                "name": "None",
+                "examKey": null
+            }
+        ],
+        "security_role": "[{\"id\":9,\"name\":\"Candidate\",\"network_security\":{\"id\":1,\"name\":\"Allow All\"},\"options\":{\"options_arr\":[{\"id\":1,\"name\":\"Allow All\",\"visibleStatus\":1},{\"id\":2,\"name\":\"Allow IP Address Range\",\"visibleStatus\":2},{\"id\":3,\"name\":\"Allow Specific IP Address\",\"visibleStatus\":3}],\"singleSelect\":true,\"title\":\"Candidate\",\"isForJsonSchema\":false,\"value\":1}}]"
+    }
+},
+"Admin_iExam_Search_form":{
+    "body":{
+        "freeText": [
+            iExamName
+        ]
+    }
+},
+"Admin_template_exam_Create":{
+    "body":{
+        "mode":"write_mode"
+    }
+},
+"Admin_template_exam_section":{
+    "body":{
+        "mode": "write_mode"
+    }
+},
+"Admin_template_exam_survey":{
+    "body":{
+        "mode": "write_mode"
+    }
+},
+"Admin_template_exam_save":{
+    "body":{
+        "data": [
+            {
+                "id": "2",
+                "type": "exam",
+                "mode": "write_mode",
+                "display_name": "api exam",
+                "question_per_page": {
+                    "id": 91,
+                    "name": "1"
+                },
+                "items": [
+                    {
+                        "id": 1575,
+                        "display_name": "Exam Main Session",
+                        "type": "session",
+                        "mode": "write_mode",
+                        "items": [
+                            {
+                                "id": null,
+                                "display_name": "zfg",
+                                "type": "section_content",
+                                "items": [
+                                    {
+                                        "id": null,
+                                        "display_name": "Page 1",
+                                        "type": "page",
+                                        "items": [
+                                            {
+                                                "id": null,
+                                                "display_name": "sdf",
+                                                "type": "content",
+                                                "items": [],
+                                                "data": {
+                                                    "content_title": "sdf",
+                                                    "content": "<p>zxfew</p>",
+                                                    "attachment_1": "[{\"filename\":\"65570c58aef63.jpeg\",\"destination_path\":\"saas-qa.assessappglobal.com.au/content_section/files\",\"extension\":\"jpeg\",\"type\":\"Image\",\"size\":\"15.09 KB\",\"path\":\"saas-qa.assessappglobal.com.au/content_section/files/65570c58aef63.jpeg\"}]",
+                                                    "attachment_2": "[]",
+                                                    "content_layout": "[{\"id\":2,\"name\":\"Terms & Conditions\"}]"
+                                                },
+                                                "path": "~/0/0/0/0/0",
+                                                "mode": "write_mode"
+                                            }
+                                        ],
+                                        "data": {
+                                            "examId": "2",
+                                            "flag": "create"
+                                        },
+                                        "path": "~/0/0/0/0",
+                                        "mode": "write_mode"
+                                    }
+                                ],
+                                "mode": "write_mode",
+                                "path": "~/0/0/0",
+                                "data": {
+                                    "section_name": "zfg",
+                                    "section_type": "content",
+                                    "section_description": "<p>zfg</p>",
+                                    "time_settings": "{\"duration\":[{\"id\":1,\"name\":1}],\"remainingTime\":41759}"
+                                },
+                                "sessionStart": "2023-11-18 12:04:00",
+                                "sessionEnd": "2023-12-17 12:04:00"
+                            },
+                            {
+                                "id": null,
+                                "display_name": "zxs",
+                                "type": "section_exam",
+                                "items": [
+                                    {
+                                        "id": null,
+                                        "display_name": "Page 1",
+                                        "type": "page",
+                                        "items": [
+                                            {
+                                                "id": "347",
+                                                "title": "VSAQ 171023",
+                                                "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.VSAQ",
+                                                "type": "question",
+                                                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.VSAQ",
+                                                "station type": "",
+                                                "bank": "Practice Bank",
+                                                "created by": "Ashraf Begam",
+                                                "created by id": "84",
+                                                "last modified by": "SaasQA ApproverTest",
+                                                "status": "Approved",
+                                                "tag": [],
+                                                "tags": "",
+                                                "tag dates": [],
+                                                "tag nested": [],
+                                                "tag date nested": [],
+                                                "created date": "17-10-2023",
+                                                "last date updated": "17-10-2023",
+                                                "last exam name": "demo972342",
+                                                "no of exams": "9",
+                                                "correct %": "0",
+                                                "used in exams": [
+                                                    "demo107919",
+                                                    "exam06112023",
+                                                    "exam06112023- updated",
+                                                    "exam07112023",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "exam06112023",
+                                                    "demo972342"
+                                                ],
+                                                "exam name": [
+                                                    "demo107919",
+                                                    "exam06112023",
+                                                    "exam06112023- updated",
+                                                    "exam07112023",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "exam06112023",
+                                                    "demo972342"
+                                                ],
+                                                "used in blueprints": [
+                                                    "Blueprint 171023"
+                                                ],
+                                                "updated datetime": "1697578537",
+                                                "exam date": [
+                                                    "09-11-2023",
+                                                    "06-11-2023",
+                                                    "07-11-2023",
+                                                    "08-11-2023",
+                                                    "08-11-2023",
+                                                    "09-11-2023",
+                                                    "09-11-2023",
+                                                    "09-11-2023",
+                                                    "06-11-2023",
+                                                    "11-11-2023"
+                                                ],
+                                                "total mark": "5",
+                                                "no of attempts": "0",
+                                                "discriminator": "",
+                                                "percentage": "",
+                                                "legacy item id": "",
+                                                "checked": true,
+                                                "questionType": "VSAQ",
+                                                "page_name": "Page 1",
+                                                "error": false,
+                                                "items": [],
+                                                "mode": "write_mode"
+                                            }
+                                        ],
+                                        "data": {},
+                                        "path": "~/0/0/1/0",
+                                        "mode": "write_mode"
+                                    },
+                                    {
+                                        "id": null,
+                                        "display_name": "Page 2",
+                                        "type": "page",
+                                        "items": [
+                                            {
+                                                "id": "351",
+                                                "title": "Type X ",
+                                                "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Type x",
+                                                "type": "question",
+                                                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Type X",
+                                                "station type": "",
+                                                "bank": "Practice Bank",
+                                                "created by": "Ashraf Begam",
+                                                "created by id": "84",
+                                                "last modified by": "SaasQA ApproverTest",
+                                                "status": "Approved",
+                                                "tag": [],
+                                                "tags": "",
+                                                "tag dates": [],
+                                                "tag nested": [],
+                                                "tag date nested": [],
+                                                "created date": "17-10-2023",
+                                                "last date updated": "17-10-2023",
+                                                "last exam name": "import",
+                                                "no of exams": "9",
+                                                "correct %": "0",
+                                                "used in exams": [
+                                                    "demo107919",
+                                                    "exam06112023",
+                                                    "exam06112023- updated",
+                                                    "exam07112023",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "exam06112023",
+                                                    "import"
+                                                ],
+                                                "exam name": [
+                                                    "demo107919",
+                                                    "exam06112023",
+                                                    "exam06112023- updated",
+                                                    "exam07112023",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "exam06112023",
+                                                    "import"
+                                                ],
+                                                "used in blueprints": [
+                                                    "Blueprint 171023"
+                                                ],
+                                                "updated datetime": "1697578507",
+                                                "exam date": [
+                                                    "09-11-2023",
+                                                    "06-11-2023",
+                                                    "07-11-2023",
+                                                    "08-11-2023",
+                                                    "08-11-2023",
+                                                    "09-11-2023",
+                                                    "09-11-2023",
+                                                    "09-11-2023",
+                                                    "06-11-2023",
+                                                    "18-11-2023"
+                                                ],
+                                                "total mark": "5",
+                                                "no of attempts": "0",
+                                                "discriminator": "",
+                                                "percentage": "",
+                                                "legacy item id": "",
+                                                "checked": true,
+                                                "questionType": "Type X",
+                                                "page_name": "Page 2",
+                                                "error": false,
+                                                "items": [],
+                                                "mode": "write_mode"
+                                            }
+                                        ],
+                                        "data": {},
+                                        "path": "~/0/0/1/1",
+                                        "mode": "write_mode"
+                                    }
+                                ],
+                                "mode": "write_mode",
+                                "path": "~/0/0/1",
+                                "data": {
+                                    "section_identifier": "zxcvd",
+                                    "section_name": "zxs",
+                                    "section_type": "exam",
+                                    "section_description": "<p>zcer</p>",
+                                    "time_settings": "{\"duration\":[{\"id\":60,\"name\":60}],\"remainingTime\":41699}",
+                                    "pass_section": "[{\"id\":\"no\",\"name\":\"No\"}]",
+                                    "pass_percentage": ""
+                                },
+                                "sessionStart": "2023-11-18 12:04:00",
+                                "sessionEnd": "2023-12-17 12:04:00"
+                            },
+                            {
+                                "id": null,
+                                "display_name": "xcer",
+                                "type": "section_survey",
+                                "items": [
+                                    {
+                                        "id": null,
+                                        "display_name": "Page 1",
+                                        "mode": "write_mode",
+                                        "type": "page",
+                                        "items": [
+                                            {
+                                                "id": "353",
+                                                "title": "SAQ",
+                                                "text": "when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+                                                "type": "question",
+                                                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                                                "station type": "",
+                                                "bank": "Practice Bank",
+                                                "created by": "Ashraf Begam",
+                                                "created by id": "84",
+                                                "last modified by": "SaasQA ApproverTest",
+                                                "status": "Approved",
+                                                "tag": [],
+                                                "tags": "",
+                                                "tag dates": [],
+                                                "tag nested": [],
+                                                "tag date nested": [],
+                                                "created date": "17-10-2023",
+                                                "last date updated": "17-10-2023",
+                                                "last exam name": "exam06112023",
+                                                "no of exams": "8",
+                                                "correct %": "0",
+                                                "used in exams": [
+                                                    "demo107919",
+                                                    "exam06112023",
+                                                    "exam06112023- updated",
+                                                    "exam07112023",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "exam06112023"
+                                                ],
+                                                "exam name": [
+                                                    "exam06112023",
+                                                    "exam06112023- updated",
+                                                    "exam07112023",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "exam06112023"
+                                                ],
+                                                "used in blueprints": [
+                                                    "Blueprint 171023"
+                                                ],
+                                                "updated datetime": "1697578490",
+                                                "exam date": [
+                                                    "06-11-2023",
+                                                    "07-11-2023",
+                                                    "08-11-2023",
+                                                    "08-11-2023",
+                                                    "09-11-2023",
+                                                    "09-11-2023",
+                                                    "09-11-2023",
+                                                    "06-11-2023"
+                                                ],
+                                                "total mark": "0",
+                                                "no of attempts": "0",
+                                                "discriminator": "",
+                                                "percentage": "",
+                                                "legacy item id": "",
+                                                "checked": true,
+                                                "questionType": "SAQ / Essay",
+                                                "page_name": "Page 1",
+                                                "error": false,
+                                                "items": [],
+                                                "mode": "write_mode"
+                                            }
+                                        ],
+                                        "data": {},
+                                        "path": "~/0/0/2/0"
+                                    },
+                                    {
+                                        "id": null,
+                                        "display_name": "Page 2",
+                                        "mode": "write_mode",
+                                        "type": "page",
+                                        "items": [
+                                            {
+                                                "id": "354",
+                                                "title": "SJT",
+                                                "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.?",
+                                                "type": "question",
+                                                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.?",
+                                                "station type": "",
+                                                "bank": "Practice Bank",
+                                                "created by": "Ashraf Begam",
+                                                "created by id": "84",
+                                                "last modified by": "Ashraf Begam",
+                                                "status": "Approved",
+                                                "tag": [
+                                                    "test value"
+                                                ],
+                                                "tags": "test value",
+                                                "tag dates": [],
+                                                "tag nested": [
+                                                    {
+                                                        "tag": "test____value",
+                                                        "tag_type_id": 1
+                                                    }
+                                                ],
+                                                "tag date nested": [],
+                                                "created date": "17-10-2023",
+                                                "last date updated": "17-10-2023",
+                                                "last exam name": "exam06112023",
+                                                "no of exams": "5",
+                                                "correct %": "0",
+                                                "used in exams": [
+                                                    "demo107919",
+                                                    "exam06112023",
+                                                    "exam06112023- updated",
+                                                    "exam07112023",
+                                                    "exam06112023"
+                                                ],
+                                                "exam name": [
+                                                    "exam06112023",
+                                                    "exam06112023- updated",
+                                                    "exam07112023",
+                                                    "exam06112023"
+                                                ],
+                                                "used in blueprints": [
+                                                    "Blueprint 171023"
+                                                ],
+                                                "updated datetime": "1697576707",
+                                                "exam date": [
+                                                    "06-11-2023",
+                                                    "07-11-2023",
+                                                    "08-11-2023",
+                                                    "08-11-2023",
+                                                    "06-11-2023"
+                                                ],
+                                                "total mark": "10",
+                                                "no of attempts": "0",
+                                                "discriminator": "",
+                                                "percentage": "",
+                                                "legacy item id": "",
+                                                "checked": true,
+                                                "questionType": "SJT",
+                                                "page_name": "Page 2",
+                                                "error": false,
+                                                "items": [],
+                                                "mode": "write_mode"
+                                            }
+                                        ],
+                                        "data": {},
+                                        "path": "~/0/0/2/1"
+                                    }
+                                ],
+                                "path": "~/0/0/2",
+                                "mode": "write_mode",
+                                "data": {
+                                    "section_name": "xcer",
+                                    "section_type": "survey",
+                                    "section_description": "<p>xcger</p>",
+                                    "time_settings": "{\"duration\":[{\"id\":60,\"name\":60}],\"remainingTime\":41639}"
+                                },
+                                "sessionStart": "2023-11-18 12:04:00",
+                                "sessionEnd": "2023-12-17 12:04:00"
+                            }
+                        ],
+                        "meta": {
+                            "key": "Start Date",
+                            "value": "start_time"
+                        },
+                        "data": {
+                            "session_name": "Exam Main Session",
+                            "session_description": "Exam Main Session Description",
+                            "session_duration": {
+                                "examHours": 696,
+                                "examMinutes": 0,
+                                "examSeconds": 0,
+                                "enableOption": 1
+                            },
+                            "exam_start_time": "2023-11-18 12:04:00",
+                            "exam_end_time": "2023-12-17 12:04:00",
+                            "exam_start_date": "2023-11-18T12:04",
+                            "exam_end_date": "2023-12-17T12:04"
+                        },
+                        "path": "~/0/0"
+                    }
+                ],
+                "path": "~/0"
+            }
+        ]
+    }
+},
+"Admin_iExam_filter_Search_form":{
+    "body":{
+        "freeText": [
+            ""
+        ],
+        "filterArray": [
+            {
+                "filterId": "Exam Name",
+                "operator": "like",
+                "displayText": "Exam Name <span>is like</span> ",
+                "filterValue1": "Elumina",
+                "filterValue2": "",
+                "operation": ""
+            }
+        ]
+    }
+},
+"Admin_iExam_custom_filter_save":{
+    "body":{
+        "filterArray": {
+            "filterName": iExamName,
+            "filterType": "public",
+            "filterPage": "showtemplateexams",
+            "filter_id": ""
+        },
+        "customFilter": [
+            {
+                "filterId": "Exam Name",
+                "operator": "like",
+                "displayText": "Exam Name <span>is like</span> ",
+                "filterValue1": "Elumina",
+                "filterValue2": "",
+                "operation": ""
+            }
+        ]
+    }
+},
+"Admin_iExam_column_hide_show":{
+    "body":{
+        "freeText": [
+            ""
+        ],
+        "showColumns": [
+            "LAST DATE UPDATED",
+            "mappings"
+        ]
+    }
+},
+"save_offline_exam":{
+    "body":{
+        "hot_keys": "Q",
+        "recovery_password": "123456",
+        "restore_password": "123456",
+        "expiry_duration": "11"
+    }
+},
+"livemonitor_settings":{
+    "body":{
+        "live_monitor_refresh": [
+            {
+                "id": "20",
+                "name": "20"
+            }
+        ]
+    }
+},
+"Offline_Action":{
+    "body":{
+        "hot_keys": "R",
+        "offline_action_password": "123456"
+    }
+},
+"save_Iregistration_List":{
+    "body":{
+        "contact_mail": "eluminaadmin@assessappglobal.com.au",
+        "email_booking_content": "<p>Your selected venue for the upcoming examination is confirmed.</p>",
+        "booking_instructions_content": "<p>Please review your selected venue details below and click Book Now to proceed with your booking. You must accept the Terms and Conditions before you can proceed with your confirmation.</p>",
+        "booking_details_content": "\n        Thank you for booking your examination. You will receive an email confirming the details of your booking. If you have any issues or queries please contact the College via <a href=\"mailto:$contact_mail\">$contact_mail</a>        \n        ",
+        "booking_time_plus": "20",
+        "booking_terms_and_conditions_content": "\n        <p>I have read and understood the information on the Divisional Written Examination webpage.</p>\n        <p>I have read and understood the information around the withdrawal from examinations.</p>\n        <p>I understand that I am responsible for submitting my withdrawal from the examination within the Exam Booking System.</p>\n        <p>I understand that I am responsible for contacting the College to confirm  my withdrawal from the examination.</p>",
+        "booking_withdraw_content": "Thank you for confirming your withdrawal from the examination. You will receive an email confirmation shortly. A record of your withdrawal will be kept on file. If you have any issues or queries please contact the College via <a href=\"mailto:$contact_mail\">$contact_mail</a>",
+        "withdraw_booking_content": "<p>Your request to withdraw from the upcoming examination is confirmed. Please contact the College directly to inform them of your decision to withdraw.</p>",
+        "special_arrangement_content": "<p>test</p>",
+        "booking_withdraw_terms": "\n        <p>I have read and understood the information on the Divisional Written Examination webpage.</p>\n        <p>I have read and understood the information around the withdrawal from examinations.</p>\n        <p>I understand that I am responsible for submitting my withdrawal from the examination within the Exam Booking System.</p>\n        <p>I understand that I am responsible for contacting the College to confirm  my withdrawal from the examination.</p>\n        ",
+        "exam_statistics_sync_time": "02:00",
+        "iregistrationLoginError": "You are not allowed to book exam in the exam booking portal. Please check with the Exam Administrator.",
+        "iregistration_login_title": "RACP Exam Registration Portal",
+        "waitlisted_booking_content": "<p>email</p>",
+        "member_portal_url": "http/ss"
+    }
+},
+"save_isawe_case_setting":{
+    "body":{
+        "msmg_maximum_distractors": 10,
+        "msmg_maximum_answer_selection": 5,
+        "vsaqmg_maximum_answer_keys": 10,
+        "vsaqmg_maximum_written_answers": 5,
+        "isaweCaseId": 1
+    }
+},
+"Admin_Question_Status_filter_search":{
+    "body":{
+        "filterArray": [
+            {
+                "filterId": "Type",
+                "operator": "eq",
+                "displayText": "Type <span>is equal to</span> ",
+                "filterValue1": "MCQ",
+                "filterValue2": "select6",
+                "filterValue3": "",
+                "operation": ""
+            }
+        ],
+        "pagination": "",
+        "pageName": "dashboard-questions"
+    }
+},
+
+"Admin_save_custom_privet":{
+    "body":
+    {
+        "filterArray": {
+            "filterName": Dashboardname,
+            "filterType": "private",
+            "filterPage": "showquestions",
+            "filter_id": ""
+        },
+        "customFilter": [
+            {
+                "filterId": "Type",
+                "operator": "eq",
+                "displayText": "Type <span>is equal to</span> ",
+                "filterValue1": "MCQ",
+                "filterValue2": "select6",
+                "filterValue3": "",
+                "operation": ""
+            }
+        ]
+    }    
+},
+"iExam_Edit_Form":{
+    "body":{
+        
+    }
+},
+"template_exam_update":{
+    "body":{
+        "exam_bank": [
+            {
+                "id": 1,
+                "name": "Practice Bank"
+            }
+        ],
+        "exam_name": "api exam",
+        "exam_description": "<p>asfwe</p>",
+        "exam_start_date_time": [
+            {
+                "enableOption": 1,
+                "examDate": "2023-11-18",
+                "examHours": "12",
+                "examMinutes": "04"
+            }
+        ],
+        "exam_end_date_time": [
+            {
+                "enableOption": 1,
+                "examDate": "2023-12-17",
+                "examHours": "12",
+                "examMinutes": "04"
+            }
+        ],
+        "exam_venue": [
+            {
+                "id": 3,
+                "name": "Chennai, India",
+                "seats": 100,
+                "max_seats": "100"
+            }
+        ],
+        "exam_booking_start_date_time": "2023-11-17 14:04:00",
+        "exam_booking_end_date_time": "2023-11-17T17:04:00",
+        "exam_booking_status": false,
+        "question_display_type": [
+            {
+                "id": 102,
+                "name": "Standard"
+            }
+        ],
+        "questions_per_page": [
+            {
+                "id": 91,
+                "name": "1"
+            }
+        ],
+        "image_View": "142",
+        "shuffle_within_questions": [
+            {
+                "id": 104,
+                "name": "No"
+            }
+        ],
+        "select_exam_tools": [],
+        "browser_security": [
+            {
+                "id": "138",
+                "name": "None",
+                "examKey": null
+            }
+        ],
+        "security_role": "[{\"id\":9,\"name\":\"Candidate\",\"network_security\":{\"id\":1,\"name\":\"Allow All\"},\"options\":{\"options_arr\":[{\"id\":1,\"name\":\"Allow All\",\"visibleStatus\":1},{\"id\":2,\"name\":\"Allow IP Address Range\",\"visibleStatus\":2},{\"id\":3,\"name\":\"Allow Specific IP Address\",\"visibleStatus\":3}],\"singleSelect\":true,\"title\":\"Candidate\",\"isForJsonSchema\":false,\"value\":1}}]",
+        "exam_id": "4"
+    }
+},
+"template_exam_save_sessions":{
+    "body":{
+        "data": [
+            {
+                "id": "2",
+                "type": "exam",
+                "mode": "write_mode",
+                "display_name": "api exam",
+                "question_per_page": {
+                    "id": 91,
+                    "name": "1"
+                },
+                "items": [
+                    {
+                        "id": 1578,
+                        "display_name": "Exam Main Session",
+                        "type": "session",
+                        "mode": "write_mode",
+                        "items": [
+                            {
+                                "id": 2722,
+                                "display_name": "zfg",
+                                "duration": 0,
+                                "type": "section_content",
+                                "mode": "write_mode",
+                                "items": [
+                                    {
+                                        "id": 15292,
+                                        "display_name": "Page 1",
+                                        "type": "page",
+                                        "mode": "write_mode",
+                                        "items": [
+                                            {
+                                                "id": 610,
+                                                "display_name": "sdf",
+                                                "type": "content",
+                                                "mode": "write_mode",
+                                                "data": {
+                                                    "content_title": "sdf",
+                                                    "attachment_1": "[{\"filename\":\"65570c58aef63.jpeg\",\"destination_path\":\"saas-qa.assessappglobal.com.au\\/content_section\\/files\",\"extension\":\"jpeg\",\"type\":\"Image\",\"path\":\"saas-qa.assessappglobal.com.au\\/content_section\\/files\\/65570c58aef63.jpeg\"}]",
+                                                    "attachment_2": "[]",
+                                                    "content": "<p>zxfew</p>",
+                                                    "content_layout": "[{\"id\":2,\"name\":\"Terms & Conditions\"}]"
+                                                }
+                                            }
+                                        ],
+                                        "data": {
+                                            "page_name": "Page 1"
+                                        },
+                                        "path": "~/0/0/0/0"
+                                    }
+                                ],
+                                "data": {
+                                    "section_identifier": "",
+                                    "section_name": "zfg",
+                                    "section_type": "content",
+                                    "section_description": "<p>zfg</p>",
+                                    "pass_section": "",
+                                    "pass_percentage": 0,
+                                    "time_settings": "{\"duration\":[{\"id\":\"1\",\"name\":\"1\"}],\"remainingTime\":\"41759\",\"totalTime\":100}"
+                                },
+                                "path": "~/0/0/0",
+                                "sessionStart": "2023-11-18 12:04:00",
+                                "sessionEnd": "2023-12-17 12:04:00"
+                            },
+                            {
+                                "id": 2723,
+                                "display_name": "zxs",
+                                "duration": 1,
+                                "type": "section_exam",
+                                "mode": "write_mode",
+                                "items": [
+                                    {
+                                        "id": 15293,
+                                        "display_name": "Page 1",
+                                        "type": "page",
+                                        "mode": "write_mode",
+                                        "items": [
+                                            {
+                                                "id": 347,
+                                                "title": "VSAQ 171023",
+                                                "type": "question",
+                                                "mode": "write_mode",
+                                                "bank": "Practice Bank",
+                                                "questionType": "VSAQ",
+                                                "created by": "Ashraf Begam",
+                                                "last modified by": "SaasQA ApproverTest",
+                                                "status": "Approved",
+                                                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.VSAQ",
+                                                "used in exams": [
+                                                    "demo107919",
+                                                    "exam06112023",
+                                                    "exam06112023- updated",
+                                                    "exam07112023",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "exam06112023",
+                                                    "demo972342"
+                                                ],
+                                                "used in blueprints": [
+                                                    "Blueprint 171023"
+                                                ],
+                                                "no of exams": null,
+                                                "checked": true,
+                                                "page_name": "Page 1",
+                                                "new_version_found": 0,
+                                                "exam_status": "Draft"
+                                            }
+                                        ],
+                                        "data": {
+                                            "page_name": "Page 1"
+                                        },
+                                        "path": "~/0/0/1/0"
+                                    },
+                                    {
+                                        "id": 15294,
+                                        "display_name": "Page 2",
+                                        "type": "page",
+                                        "mode": "write_mode",
+                                        "items": [
+                                            {
+                                                "id": 351,
+                                                "title": "Type X ",
+                                                "type": "question",
+                                                "mode": "write_mode",
+                                                "bank": "Practice Bank",
+                                                "questionType": "Type X",
+                                                "created by": "Ashraf Begam",
+                                                "last modified by": "SaasQA ApproverTest",
+                                                "status": "Approved",
+                                                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Type X",
+                                                "used in exams": [
+                                                    "demo107919",
+                                                    "exam06112023",
+                                                    "exam06112023- updated",
+                                                    "exam07112023",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "exam06112023",
+                                                    "import"
+                                                ],
+                                                "used in blueprints": [
+                                                    "Blueprint 171023"
+                                                ],
+                                                "no of exams": null,
+                                                "checked": true,
+                                                "page_name": "Page 2",
+                                                "new_version_found": 0,
+                                                "exam_status": "Draft"
+                                            }
+                                        ],
+                                        "data": {
+                                            "page_name": "Page 2"
+                                        },
+                                        "path": "~/0/0/1/1"
+                                    }
+                                ],
+                                "data": {
+                                    "section_identifier": "zxcvd",
+                                    "section_name": "zxs",
+                                    "section_type": "exam",
+                                    "section_description": "<p>zcer</p>",
+                                    "pass_section": "[{\"id\":\"no\",\"name\":\"No\"}]",
+                                    "pass_percentage": 0,
+                                    "time_settings": "{\"duration\":[{\"id\":\"60\",\"name\":\"60\"}],\"remainingTime\":\"41699\",\"totalTime\":100}"
+                                },
+                                "path": "~/0/0/1",
+                                "sessionStart": "2023-11-18 12:04:00",
+                                "sessionEnd": "2023-12-17 12:04:00"
+                            },
+                            {
+                                "id": 2724,
+                                "display_name": "xcer",
+                                "duration": 1,
+                                "type": "section_survey",
+                                "mode": "write_mode",
+                                "items": [
+                                    {
+                                        "id": 15295,
+                                        "display_name": "Page 1",
+                                        "type": "page",
+                                        "mode": "write_mode",
+                                        "items": [
+                                            {
+                                                "id": 353,
+                                                "title": "SAQ",
+                                                "type": "question",
+                                                "mode": "write_mode",
+                                                "bank": "Practice Bank",
+                                                "questionType": "SAQ / Essay",
+                                                "created by": "Ashraf Begam",
+                                                "last modified by": "SaasQA ApproverTest",
+                                                "status": "Approved",
+                                                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                                                "used in exams": [
+                                                    "demo107919",
+                                                    "exam06112023",
+                                                    "exam06112023- updated",
+                                                    "exam07112023",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "time validation test",
+                                                    "exam06112023"
+                                                ],
+                                                "used in blueprints": [
+                                                    "Blueprint 171023"
+                                                ],
+                                                "no of exams": null,
+                                                "checked": true,
+                                                "page_name": "Page 1",
+                                                "new_version_found": 0,
+                                                "exam_status": "Draft"
+                                            }
+                                        ],
+                                        "data": {
+                                            "page_name": "Page 1"
+                                        },
+                                        "path": "~/0/0/2/0"
+                                    },
+                                    {
+                                        "id": 15296,
+                                        "display_name": "Page 2",
+                                        "type": "page",
+                                        "mode": "write_mode",
+                                        "items": [
+                                            {
+                                                "id": 354,
+                                                "title": "SJT",
+                                                "type": "question",
+                                                "mode": "write_mode",
+                                                "bank": "Practice Bank",
+                                                "questionType": "SJT",
+                                                "created by": "Ashraf Begam",
+                                                "last modified by": "Ashraf Begam",
+                                                "status": "Approved",
+                                                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.?",
+                                                "used in exams": [
+                                                    "demo107919",
+                                                    "exam06112023",
+                                                    "exam06112023- updated",
+                                                    "exam07112023",
+                                                    "exam06112023"
+                                                ],
+                                                "used in blueprints": [
+                                                    "Blueprint 171023"
+                                                ],
+                                                "no of exams": null,
+                                                "checked": true,
+                                                "page_name": "Page 2",
+                                                "new_version_found": 0,
+                                                "exam_status": "Draft"
+                                            }
+                                        ],
+                                        "data": {
+                                            "page_name": "Page 2"
+                                        },
+                                        "path": "~/0/0/2/1"
+                                    }
+                                ],
+                                "data": {
+                                    "section_identifier": "",
+                                    "section_name": "xcer",
+                                    "section_type": "survey",
+                                    "section_description": "<p>xcger</p>",
+                                    "pass_section": "",
+                                    "pass_percentage": 0,
+                                    "time_settings": "{\"duration\":[{\"id\":\"60\",\"name\":\"60\"}],\"remainingTime\":\"41639\",\"totalTime\":100}"
+                                },
+                                "path": "~/0/0/2",
+                                "sessionStart": "2023-11-18 12:04:00",
+                                "sessionEnd": "2023-12-17 12:04:00"
+                            }
+                        ],
+                        "meta": {
+                            "key": "Start Date",
+                            "value": "start_time"
+                        },
+                        "data": {
+                            "session_name": "Exam Main Session",
+                            "session_description": "Exam Main Session Description",
+                            "session_duration": {
+                                "examHours": 696,
+                                "examMinutes": 0,
+                                "examSeconds": 0,
+                                "enableOption": 1
+                            },
+                            "exam_start_time": "2023-11-18 12:04:00",
+                            "exam_end_time": "2023-12-17 12:04:00",
+                            "exam_start_date": "2023-11-18T12:04",
+                            "exam_end_date": "2023-12-17T12:04"
+                        },
+                        "path": "~/0/0"
+                    }
+                ],
+                "path": "~/0"
+            }
+        ]
     }
 }
 }
