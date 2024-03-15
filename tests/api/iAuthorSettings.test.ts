@@ -16920,7 +16920,7 @@ test("Admin_890. @API Admin add the save-Iregistration-List   validation of inva
 
 //Get method
 
-test("Admin_891. @API Admin fetch the iRegistration-List   information", async ({ request }) => {
+test("Admin_884. @API Admin fetch the iRegistration-List   information", async ({ request }) => {
 
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
@@ -16953,7 +16953,7 @@ test("Admin_891. @API Admin fetch the iRegistration-List   information", async (
 })
 
 
-test("Admin_892. @API Endpoint validation for iRegistration-List    information", async ({ request }) => {
+test("Admin_885. @API Endpoint validation for iRegistration-List    information", async ({ request }) => {
 
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
@@ -16984,7 +16984,7 @@ test("Admin_892. @API Endpoint validation for iRegistration-List    information"
 })
 
 
-test("Admin_893. @API Access token validatio iRegistration-List   _information", async ({ request }) => {
+test("Admin_886. @API Access token validatio iRegistration-List   _information", async ({ request }) => {
 
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
@@ -17016,7 +17016,7 @@ test("Admin_893. @API Access token validatio iRegistration-List   _information",
 
 
 
-test("Admin_894. @API Admin add the iRegistration-List    information - invalid", async ({ request }) => {
+test("Admin_887. @API Admin add the iRegistration-List    information - invalid", async ({ request }) => {
 
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
