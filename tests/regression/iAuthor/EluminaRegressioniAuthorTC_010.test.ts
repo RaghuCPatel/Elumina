@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 
 /**Validation of Login using Invalid credentials Scenario 3 */
 
-test(`iAU_TC_ID_10. @RegressionA Validation of Login using Invalid credentials Scenario 3`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, eluminaHomePage, eluminaExamPage, webActions }) => {
+test(`[T2792] @RegressionA Validation of Login using Invalid credentials Scenario 3`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, eluminaHomePage, eluminaExamPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

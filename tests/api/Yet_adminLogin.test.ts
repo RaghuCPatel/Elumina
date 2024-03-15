@@ -6,11 +6,11 @@ import { ValidationResponse } from '../../utils/validationUtiles/ResponseValidat
 import { jsonObject } from 'pageFactory/pageRepository/candidateApiPage';
 
 let verifyResponse = new ValidationResponse;
-const baseURL = "https://api.assessappglobal.com.au"
 
 //export let token;
 var jsonpath;
 jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+const baseURL = jsonpath.url
 
 test("AL_002. @API To verify the response when passing an invalid endpoint.", async ({ request }) => {
     verifyResponse.fetchrequestTime();

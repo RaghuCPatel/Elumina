@@ -1,5 +1,5 @@
 {
-    "responseDuration": 4500,
+    "responseDuration": 8500,
     "Admin_add_user_address_save": {
         "body": {
             "street": "chennai",
