@@ -163,9 +163,10 @@ test("ES_003. @API Validation of Approved Exam  successfull message.", async ({ 
     expect(isValid).toBeTruthy()
 })
 
+
 test("ES_004. @API Validation of add user successful message.", async ({ request }) => {
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))
-    const response = await request.post(baseURL + '/exam-registration-api/v2/existingusersexam',
+    const response = await request.post(baseURL + 'exam-registration-api/v2/existingusersexam',
         {
             data: {
                 "selectedRecord": [
@@ -230,6 +231,7 @@ test("ES_004. @API Validation of add user successful message.", async ({ request
     const isValid = validate(res)
     expect(isValid).toBeTruthy()
 })
+
 
 test("ES_005. @API Validation of Empty Exam name field in Exam Page.", async ({ request }) => {
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('lib/adminCredential.json'), 'utf-8'))
@@ -316,6 +318,7 @@ test("ES_008. @API Exam creation-Header field validation - invalid", async ({ re
     //Verify Response Headers
     expect(response.headers()['content-type']).toBe('application/json')
 })
+
 
 
 
