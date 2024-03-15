@@ -13,6 +13,13 @@ var jsonpath;
 let token;
 let BlueprintID;
 let CartId;
+let ImageID;
+let FileName;
+let FilePath;
+let FileExtension;
+let QunFileName;
+let QunFilePath;
+let QunFileExtension;
 let CartDetails;
 var jschemasonpath;
 jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
@@ -2496,6 +2503,2265 @@ test("[IS_009] @API To verify the response when passing an invalid endpoint for 
 
     //Verify Response Headers
     expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_042] @API To verify  the upload-image-name", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const file = path.resolve("lib/Images/Sunil.jpeg");
+    const image = fs.readFileSync(file);
+    const response = await request.post(baseURL + '/file-api/v1/upload',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            },
+            multipart: {
+                file: {
+                    name: "Sunil.jpeg",
+                    mimeType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    buffer: image
+                }
+
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    FileName = res.Response.ImageDetails.filename
+    FilePath = res.Response.ImageDetails.destination_path
+    FileExtension = res.Response.ImageDetails.extension
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Image Uploaded Successfully")
+
+    //Schema validation
+    const schema = jschemasonpath.upload_image_name
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("[IS_043] @API To verify  the upload-image-name of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/upload',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_044] @API To  verify  the upload-image-name of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const file = path.resolve("lib/Images/kohli.jpeg");
+    const image = fs.readFileSync(file);
+    const response = await request.post(baseURL + '/file-api/v1/uploadIGS',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            },
+            multipart: {
+                file: {
+                    name: "testFile.jpeg",
+                    mimeType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    buffer: image
+                }
+
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_012] @API To verify  the bank-select-image-list", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image-gallery',
+        {
+            data: jsonpath.Image_Service.bank_select_image_list,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    ImageID = res.images.data[0].id
+    console.log("Image id is", ImageID)
+})
+
+test("[IS_013] @API To verify  the bank-select-image-list of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image-gallery',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_014] @API To  verify  the bank-select-image-list of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image-galleryIGS',
+        {
+            data: jsonpath.Image_Service.bank_select_image_list,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_015] @API To verify  the search-image-list", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image-gallery',
+        {
+            data: {
+                "freeText": [FileName],
+                "banks": []
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+})
+
+test("[IS_016] @API To verify  the search-image-list of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image-gallery',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_017] @API To  verify  the search-image-list of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image-galleryIGS',
+        {
+            data: {
+                "freeText": [FileName],
+                "banks": []
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_018] @API To verify the image-filters", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/filters/image',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json();
+})
+
+test("[IS_019] @API To verify the response when passing an invalid endpoint for image-filters", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/filters/imageIGS',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_022] @API To verify  the image-filter-search", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image-gallery',
+        {
+            data: jsonpath.Image_Service.image_filter_search,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+})
+
+test("[IS_023] @API To verify  the image-filter-search of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image-gallery',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_024] @API To  verify  the image-filter-search of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image-galleryIGS',
+        {
+            data: jsonpath.Image_Service.image_filter_search,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_025] @API To verify  the image-custome-filter save public or privet", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/custom-filter',
+        {
+            data: jsonObject.image_custome_filter_save_public_or_privet,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Filter saved successfully!")
+
+    //Schema validation
+    const schema = jschemasonpath.image_custome_filter_save_public_or_privet
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("[IS_026] @API To verify  the image-custome-filter save public or privet of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/custom-filter',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_027] @API To  verify  the image-custome-filter save public or privet of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/custom-filterIGS',
+        {
+            data: jsonObject.image_custome_filter_save_public_or_privet,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_028] @API To verify  the image-pagination", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image-gallery?page=2',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+})
+
+test("[IS_029] @API To verify  the image-pagination of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image-gallery?page=2',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_030] @API To  verify  the image-pagination of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image-galleryIGS?page=2',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_031] @API To verify the image-upload-form", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/upload/form',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json();
+})
+
+test("[IS_032] @API To verify the response when passing an invalid endpoint for image-upload-form", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/upload/formIGS',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_035] @API To verify the image-upload-bank-select-tag-form", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/upload/form/1',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json();
+})
+
+test("[IS_036] @API To verify the response when passing an invalid endpoint for image-upload-bank-select-tag-form", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/upload/form/1/IGS',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_039] @API To verify  the tags-select -tagtype show", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/tags',
+        {
+            data: jsonpath.Image_Service.tags_select_tagtype_show,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+})
+
+test("[IS_040] @API To verify  the tags-select -tagtype show of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/tags',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_041] @API To  verify  the tags-select -tagtype show of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/tagsIGS',
+        {
+            data: jsonpath.Image_Service.tags_select_tagtype_show,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_045] @API To verify  the image-file-save", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image',
+        {
+            data: {
+                "file_name": FileName,
+                "upload_path": FilePath,
+                "extension": FileExtension,
+                "tags": [],
+                "banks": [
+                    {
+                        "id": 1,
+                        "name": "Practice Bank"
+                    }
+                ]
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Image Saved Successfully")
+
+    //Schema validation
+    const schema = jschemasonpath.blueprint_unlock
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("[IS_046] @API To verify  the image-file-save of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_047] @API To  verify  the image-file-save of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/imageIGS',
+        {
+            data: {
+                "file_name": FileName,
+                "upload_path": FilePath,
+                "extension": FileExtension,
+                "tags": [],
+                "banks": [
+                    {
+                        "id": 1,
+                        "name": "Practice Bank"
+                    }
+                ]
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_048] @API To verify the images-edit-form", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/images/' + ImageID,
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json();
+})
+
+test("[IS_049] @API To verify the response when passing an invalid endpoint for images-edit-form", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/images/' + ImageID + '/IGS',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_052] @API To verify  the image-edit-save", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image/' + ImageID,
+        {
+            data: {
+                "banks": [
+                    {
+                        "id": 1,
+                        "name": "Practice Bank"
+                    }
+                ],
+                "tags": [],
+                "questions": [], "file_name": jsonObject.EditFileName, "file_name_old": FileName, "upload_path": FilePath, "extension": FileExtension
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Image Updated Successfully")
+
+    //Schema validation
+    const schema = jschemasonpath.image_edit_save
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("[IS_053] @API To verify  the image-edit-save of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/' + ImageID,
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_054] @API To  verify  the image-edit-save of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image/' + ImageID + '/IGS',
+        {
+            data: {
+                "banks": [
+                    {
+                        "id": 1,
+                        "name": "Practice Bank"
+                    }
+                ],
+                "tags": [],
+                "questions": [], "file_name": jsonObject.EditFileName, "file_name_old": FileName, "upload_path": FilePath, "extension": FileExtension
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_055] @API To verify  the image-versioning", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image/' + ImageID + '/versioning',
+        {
+            data: {
+                "file_name": jsonObject.EditFileName,
+                "upload_path": FilePath,
+                "extension": "png"
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Image Versioned Successfully")
+
+    //Schema validation
+    const schema = jschemasonpath.blueprint_unlock
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("[IS_056] @API To verify  the image-versioning of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/' + ImageID + '/versioning',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_057] @API To  verify  the image-versioning of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image/' + ImageID + '/versioningIGS',
+        {
+            data: {
+                "file_name": jsonObject.EditFileName,
+                "upload_path": FilePath,
+                "extension": "png"
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_058] @API To verify the image-deleted", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.delete(baseURL + '/file-api/v1/image/' + ImageID,
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json();
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Image Deleted Successfully")
+
+    //Schema validation
+    const schema = jschemasonpath.blueprint_unlock
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("[IS_059] @API To verify the response when passing an invalid endpoint for image-deleted", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.delete(baseURL + '/file-api/v1/image/' + ImageID + '/IGS',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_062] @API To verify  the image-list-search", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image-gallery',
+        {
+            data: jsonpath.Image_Service.image_list_search,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+})
+
+test("[IS_063] @API To verify  the image-list-search of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image-gallery',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_064] @API To  verify  the image-list-search of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image-galleryIGS',
+        {
+            data: jsonpath.Image_Service.image_list_search,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_065] @API To verify  the question-image-gallery-list", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image-gallery',
+        {
+            data: jsonpath.Image_Service.image_list_search,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+})
+
+test("[IS_066] @API To verify  the question-image-gallery-list of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image-gallery',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_067] @API To  verify  the question-image-gallery-list of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image-galleryIGS',
+        {
+            data: jsonpath.Image_Service.question_image_gallery_list,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_068] @API To verify the image-upload-form", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/upload/form?showImages=true',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+})
+
+test("[IS_069] @API To verify the response when passing an invalid endpoint for image-upload-form", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/upload/formIGS?showImages=true',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_072] @API To verify  the upload-image-name", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const file = path.resolve("lib/Images/kohli.jpeg");
+    const image = fs.readFileSync(file);
+    const response = await request.post(baseURL + '/file-api/v1/upload',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            },
+            multipart: {
+                file: {
+                    name: "kohli.jpeg",
+                    mimeType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    buffer: image
+                }
+
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json();
+    QunFileName = res.Response.ImageDetails.filename
+    QunFilePath = res.Response.ImageDetails.destination_path
+    QunFileExtension = res.Response.ImageDetails.extension
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Image Uploaded Successfully")
+
+    //Schema validation
+    const schema = jschemasonpath.question_upload_image_name
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("[IS_073] @API To verify  the upload-image-name of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/upload',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_074] @API To  verify  the upload-image-name of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const file = path.resolve("lib/Images/kohli.jpeg");
+    const image = fs.readFileSync(file);
+    const response = await request.post(baseURL + '/file-api/v1/uploadIGS',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            },
+            multipart: {
+                file: {
+                    name: "kohli.jpeg",
+                    mimeType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    buffer: image
+                }
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_075] @API To verify the image-upload-select-bank-tag", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/upload/form/1',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+})
+
+test("[IS_076] @API To verify the response when passing an invalid endpoint for image-upload-select-bank-tag", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/upload/form/1/IGS',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_079] @API To verify  the image-upload-tags-to-tagtype", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/tags',
+        {
+            data: jsonpath.Image_Service.image_upload_tags_to_tagtype,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json();
+
+    //Schema validation
+    const schema = jschemasonpath.image_upload_tags_to_tagtype
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("[IS_080] @API To verify  the image-upload-tags-to-tagtype of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/tags',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_081] @API To  verify  the image-upload-tags-to-tagtype of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/tagsIGS',
+        {
+            data: jsonpath.Image_Service.image_upload_tags_to_tagtype,
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_082] @API To verify  the question-image-save", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/blueprintAndImageSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image',
+        {
+            data: {
+                "file_name": QunFileName,
+                "upload_path": QunFilePath,
+                "extension": QunFileExtension,
+                "tags": [],
+                "banks": [
+                    {
+                        "id": 1,
+                        "name": "Practice Bank"
+                    }
+                ]
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json();
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Image Saved Successfully")
+
+    //Schema validation
+    const schema = jschemasonpath.blueprint_unlock
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("[IS_083] @API To verify  the question-image-save of incorrect HTTP method", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_084] @API To  verify  the question-image-save of invalid endpoint.", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/blueprintAndImageData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/imageIGS',
+        {
+            data: {
+                "file_name": QunFileName,
+                "upload_path": QunFilePath,
+                "extension": QunFileExtension,
+                "tags": [],
+                "banks": [
+                    {
+                        "id": 1,
+                        "name": "Practice Bank"
+                    }
+                ]
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("[IS_077] @API To verify the response when passing empty access token for image-upload-select-bank-tag", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/upload/form/1',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.error_description).toEqual("The access token is missing")
+})
+
+test("AL_001Ac. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+})
+
+test("[IS_078] @API To verify the response on passing invalid 'webreferer' in the header field for image-upload-select-bank-tag", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/upload/form/1',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("AL_001ZAb. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+})
+
+test("[IS_070] @API To verify the response when passing empty access token for image-upload-form", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/upload/form?showImages=true',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.error_description).toEqual("The access token is missing")
+})
+
+test("AL_001Aa. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+})
+
+test("[IS_071] @API To verify the response on passing invalid 'webreferer' in the header field for image-upload-form", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/upload/form?showImages=true',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("AL_001Z. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+})
+
+test("[IS_060] @API To verify the response when passing empty access token for image-deleted", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.delete(baseURL + '/file-api/v1/image/' + ImageID,
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.error_description).toEqual("The access token is missing")
+})
+
+test("AL_001Y. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+})
+
+test("[IS_061] @API To verify the response on passing invalid 'webreferer' in the header field for image-deleted", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.delete(baseURL + '/file-api/v1/image/' + ImageID,
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("AL_001X. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+})
+
+test("[IS_050] @API To verify the response when passing empty access token for images-edit-form", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/images/' + ImageID,
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.error_description).toEqual("The access token is missing")
+})
+
+test("AL_001W. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+})
+
+test("[IS_051] @API To verify the response on passing invalid 'webreferer' in the header field for images-edit-form", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/images/' + ImageID,
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("AL_001V. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+})
+
+test("[IS_037] @API To verify the response when passing empty access token for image-upload-bank-select-tag-form", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/upload/form/1',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.error_description).toEqual("The access token is missing")
+})
+
+test("AL_001U. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+})
+
+test("[IS_038] @API To verify the response on passing invalid 'webreferer' in the header field for image-upload-bank-select-tag-form", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/upload/form/1',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("AL_001T. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+})
+
+test("[IS_033] @API To verify the response when passing empty access token for image-upload-form", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/upload/form',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.error_description).toEqual("The access token is missing")
+})
+
+test("AL_001S. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+})
+
+test("[IS_034] @API To verify the response on passing invalid 'webreferer' in the header field for image-upload-form", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image/upload/form',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("AL_001R. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+})
+
+test("[IS_020] @API To verify the response when passing empty access token for image-filters", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/filters/image',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.error_description).toEqual("The access token is missing")
+})
+
+test("AL_001Q. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+})
+
+test("[IS_021] @API To verify the response on passing invalid 'webreferer' in the header field for image-filters", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/filters/image',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("AL_001P. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
 })
 
 test("[IS_010] @API To verify the response when passing empty access token for tags", async ({ request }) => {
