@@ -1,5 +1,5 @@
 {
-    "responseDuration": 4500,
+    "responseDuration": 7500,
     "BluePrintCreate": {
         "blueprintcreate_body": {
             "title": "test",
@@ -270,15 +270,75 @@
                 }
             ]
         },
-        "required": [
-            "Response"
-        ]
+        "blueprints_list_show_column": {
+            "showColumns": [
+                "TITLE",
+                "mappings",
+                "tags"
+            ]
+        }
     },
-    "blueprints_list_show_column": {
-        "showColumns": [
-            "TITLE",
-            "mappings",
-            "tags"
-        ]
+    "Image_Service": {
+        "bank_select_image_list": {
+            "banks": [
+                "1"
+            ]
+        },
+        "image_filter_search": {
+            "banks": [],
+            "filterArray": [
+                {
+                    "filterId": "Name",
+                    "operator": "like",
+                    "displayText": "Name <span>is like</span> ",
+                    "filterValue1": "image",
+                    "filterValue2": "",
+                    "filterValue3": "",
+                    "operation": ""
+                }
+            ]
+        },
+        "tags_select_tagtype_show": {
+            "tagtype": {
+                "label": "Test tag",
+                "id": 1,
+                "tag_type_id": 1,
+                "tagstatus": true,
+                "tagVal": "",
+                "editor": "",
+                "control_id": 1,
+                "control_name": "input",
+                "status": "updated"
+            },
+            "keyword": ""
+        },
+        "image_list_search": {
+            "freeText": [
+                "data"
+            ],
+            "banks": [
+                1
+            ]
+        },
+        "question_image_gallery_list": {
+            "banks": [
+                1
+            ],
+            "showImages": true
+        },
+        "image_upload_tags_to_tagtype": {
+            "tagtype": {
+                "label": "Test",
+                "id": 10,
+                "tag_type_id": 10,
+                "tagstatus": true,
+                "tagVal": "",
+                "editor": "",
+                "control_id": 1,
+                "control_name": "input",
+                "status": "updated"
+            },
+            "keyword": ""
+        }
     }
 }

@@ -18,6 +18,7 @@ let training_center_name = makeid(10)
 let training_site_name = makeid(9)
 let grade_scale_name = makeid(10)
 let gradeBookName = makeid(12)
+let filename = makeid(10)
 
 export var jsonObject =
 {
@@ -40,5 +41,25 @@ export var jsonObject =
                 "operation": ""
             }
         ]
-    }
+    },
+    "image_custome_filter_save_public_or_privet": {
+        "filterArray": {
+            "filterName": makeid(12),
+            "filterType": "public",
+            "filterPage": "images",
+            "filter_id": ""
+        },
+        "customFilter": [
+            {
+                "filterId": "Name",
+                "operator": "like",
+                "displayText": "Name <span>is like</span> ",
+                "filterValue1": "image",
+                "filterValue2": "",
+                "filterValue3": "",
+                "operation": ""
+            }
+        ]
+    },
+    "EditFileName": filename
 }
