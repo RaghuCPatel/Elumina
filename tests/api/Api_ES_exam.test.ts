@@ -23,8 +23,6 @@ jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.js
 const baseURL = jsonpath.url
 
 test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -58,7 +56,6 @@ test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request 
 
 })
 
-
 test("ES_001. @API Validation of Exam creation successfull message.", async ({ request }) => {
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))
     const response = await request.post(baseURL + '/exam-api/v1.2/exam/save-details',
@@ -66,7 +63,7 @@ test("ES_001. @API Validation of Exam creation successfull message.", async ({ r
             data: jsonObject.createExam,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -105,7 +102,7 @@ test("ES_002. @API Validation of Exam section and add questions successfull mess
             data: jsonObject.addQuestions,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -131,14 +128,13 @@ test("ES_002. @API Validation of Exam section and add questions successfull mess
 })
 
 test("ES_003. @API Validation of Approved Exam  successfull message.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('lib/adminCredential.json'), 'utf-8'))
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))
     const response = await request.post(baseURL + '/exam-api/v1/exam/workflow/save/' + exam_ID,
         {
             data: jsonObject.approveexam,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -163,10 +159,9 @@ test("ES_003. @API Validation of Approved Exam  successfull message.", async ({ 
     expect(isValid).toBeTruthy()
 })
 
-
 test("ES_004. @API Validation of add user successful message.", async ({ request }) => {
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))
-    const response = await request.post(baseURL + 'exam-registration-api/v2/existingusersexam',
+    const response = await request.post(baseURL + '/exam-registration-api/v2/existingusersexam',
         {
             data: {
                 "selectedRecord": [
@@ -207,7 +202,7 @@ test("ES_004. @API Validation of add user successful message.", async ({ request
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -232,15 +227,13 @@ test("ES_004. @API Validation of add user successful message.", async ({ request
     expect(isValid).toBeTruthy()
 })
 
-
 test("ES_005. @API Validation of Empty Exam name field in Exam Page.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('lib/adminCredential.json'), 'utf-8'))
     const response = await request.post(baseURL + '/exam-api/v1.2/exam/save-details',
         {
             data: jsonObject.emptyExamname,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -257,15 +250,13 @@ test("ES_005. @API Validation of Empty Exam name field in Exam Page.", async ({ 
     expect(await res.Response.Message).toEqual("The exam name field is required.")
 })
 
-
 test("ES_006. @API Exam creation-endpoint validation", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('lib/adminCredential.json'), 'utf-8'))
     const response = await request.post(baseURL + '/IGSexam-api/v1.2/exam/save-details',
         {
             data: jsonObject.createExam,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -281,12 +272,11 @@ test("ES_006. @API Exam creation-endpoint validation", async ({ request }) => {
 })
 
 test("ES_007. @API Exam creation-Method validation-  incorrect HTTP method", async ({ request }) => {
-    //jsonpath = JSON.parse(fs.readFileSync(path.resolve('lib/adminCredential.json'), 'utf-8'))
     const response = await request.get(baseURL + '/IGSexam-api/v1.2/exam/save-details',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -300,13 +290,12 @@ test("ES_007. @API Exam creation-Method validation-  incorrect HTTP method", asy
 })
 
 test("ES_008. @API Exam creation-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     const response = await request.post(baseURL + '/exam-api/v1.2/exam/save-details',
         {
             data: jsonObject.createExam,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -318,7 +307,6 @@ test("ES_008. @API Exam creation-Header field validation - invalid", async ({ re
     //Verify Response Headers
     expect(response.headers()['content-type']).toBe('application/json')
 })
-
 
 
 

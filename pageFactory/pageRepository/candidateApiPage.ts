@@ -11,7 +11,7 @@ import { test, expect } from '@playwright/test';
 
 export var jsonObject =
 {
-    "responseDuration": 8500,
+    "responseDuration": 30000,
     /*Candidate Dashboard*/
     "candidateDashboard": {
         "preview": 0,

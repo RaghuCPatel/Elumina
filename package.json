@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:single": "npx playwright test Api_Blueprint_And_Image_Service.test.ts --project=API",
+    "test:single": "npx playwright test Setting_adminApis.test.ts --project=Chrome",
     "test:elumina": "npx playwright test Elumina.test.ts --project=Chrome",
     "test:parallel": "npx playwright test --grep @Smoke --project=Chrome",
     "test:serial": "npx playwright test --grep @LowPriorityiExamCases --workers=1 --project=Chrome",
@@ -32,7 +32,35 @@
     "test:device": "npx playwright test Emulation.test.ts --project=Device",
     "allureReport": "allure generate ./allure-results && allure open",
     "lighthouse": "node tests/lighthouse/Lighthouse.js",
-    "clean": "rimraf allure-report/ && rimraf allure-results && rimraf test-results"
+    "clean": "rimraf allure-report/ && rimraf allure-results && rimraf test-results",
+    "postinstall": "npm update browserstack-node-sdk",
+    "lighthouse-browserstack": "browserstack-node-sdk node tests/lighthouse/Lighthouse.js",
+    "test-browserstack": "npx browserstack-node-sdk playwright test",
+    "test:single-browserstack": "npx browserstack-node-sdk playwright test Api_Blueprint_And_Image_Service.test.ts --project=API",
+    "test:elumina-browserstack": "npx browserstack-node-sdk playwright test Elumina.test.ts --project=Chrome",
+    "test:parallel-browserstack": "npx browserstack-node-sdk playwright test --grep @Smoke --project=Chrome",
+    "test:serial-browserstack": "npx browserstack-node-sdk playwright test --grep @LowPriorityiExamCases --workers=1 --project=Chrome",
+    "test:smoke_Serial-browserstack": "npx browserstack-node-sdk playwright test --grep \"@Smoke|@iProctorlink\" --workers=1 --project=Chrome",
+    "test:iExam_Parallel_Prerequest_Regression-browserstack": "npx browserstack-node-sdk playwright test --grep @Pre-Request --workers=4 --project=Chrome",
+    "test:iExam_Parallel_Regression-browserstack": "npx browserstack-node-sdk playwright test --grep \"@iExamRegression|@LowPriorityiExamCases\" --workers=4 --project=Chrome",
+    "test:iExam_Serial_Regression-browserstack": "npx browserstack-node-sdk playwright test --grep \"@Serial-Pre-Request|@iExamSerialRegression\" --workers=1 --project=Chrome",
+    "test:iProctor_Serial_Regression-browserstack": "npx browserstack-node-sdk playwright test --grep \"@iProctorRegression|@LowPriorityiProctorCases\" --workers=1 --project=Chrome",
+    "test:iAuthor_Parallel_Regession-browserstack": "npx browserstack-node-sdk playwright test --grep @RegressionA1 --workers=2 --project=Chrome",
+    "test:cicd-regression-browserstack": "npx browserstack-node-sdk playwright test --grep \"@iExamRegression|@LowPriorityiExamCases\" --workers=1 --project=Chromium",
+    "test:cicd-smoke-browserstack": "npx browserstack-node-sdk playwright test --grep \"@Smoke|@iProctorlink\" --workers=1 --project=Chromium",
+    "test:smoke_Serial_CICD-browserstack": "npx browserstack-node-sdk playwright test --grep \"@Smoke|@iProctorlink\" --workers=1 --project=Chrome",
+    "test:iExam_Parallel_run_Prerequest_Regression_CICD-browserstack": "npx browserstack-node-sdk playwright test --grep @Pre-Request --workers=4 --project=Chrome",
+    "test:iExam_Parallel_Regression_CICD-browserstack": "npx browserstack-node-sdk playwright test --grep \"@iExamRegression|@LowPriorityiExamCases\" --workers=4 --project=Chrome",
+    "test:iExam_Serial_Regression_CICD-browserstack": "npx browserstack-node-sdk playwright test --grep \"@Serial-Pre-Request|@iExamSerialRegression\" --workers=1 --project=Chrome",
+    "test:iProctor_Serial_Regression_CICD-browserstack": "npx browserstack-node-sdk playwright test --grep \"@iProctorRegression|@LowPriorityiProctorCases\" --workers=1 --project=Chrome",
+    "test:iAuthor_Parallel_Regession_CICD-browserstack": "npx browserstack-node-sdk playwright test --grep @RegressionA --workers=4 --project=Chrome",
+    "test:iAuthor_Parallel_Zephyr_CICD-browserstack": "npx browserstack-node-sdk playwright test --grep @Zephyr --workers=2 --project=Chrome",
+    "test:ui-browserstack": "npx browserstack-node-sdk playwright test --grep @Smoke --ui",
+    "test:api-browserstack": "npx browserstack-node-sdk playwright test --grep @API1 --workers=1 --project=API",
+    "test:db-browserstack": "npx browserstack-node-sdk playwright test DB.test.ts --project=DB",
+    "test:record-browserstack": "npx browserstack-node-sdk playwright codegen",
+    "test:visual-browserstack": "npx browserstack-node-sdk playwright test visualComparision.test.ts --project=Chrome",
+    "test:device-browserstack": "npx browserstack-node-sdk playwright test Emulation.test.ts --project=Device"
   },
   "author": "IGS",
   "license": "MIT",
@@ -60,6 +88,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.42.1",
+    "browserstack-node-sdk": "^1.32.0",
     "playwright-zephyr": "^1.0.3"
   }
 }

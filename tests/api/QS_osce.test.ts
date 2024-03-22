@@ -26,8 +26,6 @@ jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.js
 const baseURL = jsonpath.url
 
 test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -69,7 +67,7 @@ test("QS_099. @API Validation of OSCE -Question Schema", async ({ request }) => 
             data: jsonpath1.OSCE_question.OSCE_question_schema,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -97,7 +95,7 @@ test("QS_100. @API Validation of OSCE question successfull message.", async ({ r
             data: jsonObject.OSCE_question.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -135,7 +133,7 @@ test("QS_101. @API Validation of edit OSCE question successfull message.", async
             data: jsonObject.OSCE_question.editoscebody,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -171,7 +169,7 @@ test("QS_102. @API Validation of OSCE question Approved message.", async ({ requ
             data: jsonpath1.mcq.approvequestion,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -207,7 +205,7 @@ test("QS_103. @API Validation of OSCE question checkout message.", async ({ requ
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -242,7 +240,7 @@ test("QS_102A. @API Validation of OSCE question Approved message (again).", asyn
             data: jsonpath1.mcq.approvequestion,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -272,7 +270,7 @@ test("QS_104. @API OSCE question endpoint validation", async ({ request }) => {
             data: jsonObject.OSCE_question.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -297,7 +295,7 @@ test("QS_105. @API OSCE question Method validation-  incorrect HTTP method", asy
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -319,7 +317,7 @@ test("QS_106. @API Validation of empty title field for OSCE question", async ({ 
             data: jsonObject.OSCE_question.empty_title_body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
