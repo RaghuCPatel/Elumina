@@ -14,6 +14,7 @@ const avj = new Ajv()
 
 //var token;
 var jsonpath;
+var jsonpath1;
 var mcqID: any;
 var schemajsonpath;
 
@@ -24,8 +25,6 @@ jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.js
 const baseURL = jsonpath.url
 
 test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -60,15 +59,15 @@ test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request 
 })
 
 test("QS_059. @API Validation of Scenario question successfull message.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/mcqSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question',
         {
-            data: jsonpath.scenario.body,
+            data: jsonpath1.scenario.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -99,15 +98,15 @@ test("QS_059. @API Validation of Scenario question successfull message.", async 
 })
 
 test("QS_060. @API Validation of edit Scenario question successfull message.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/mcqSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/editquestion/' + mcqID + '/?type=typea',
         {
-            data: jsonpath.scenario.editscenariobody,
+            data: jsonpath1.scenario.editscenariobody,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -136,15 +135,15 @@ test("QS_060. @API Validation of edit Scenario question successfull message.", a
 })
 
 test("QS_061. @API Validation of Scenario question Approved message.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/mcqSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question/workflow/save/' + mcqID,
         {
-            data: jsonpath.mcq.approvequestion,
+            data: jsonpath1.mcq.approvequestion,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -174,14 +173,14 @@ test("QS_061. @API Validation of Scenario question Approved message.", async ({ 
 
 
 test("QS_062. @API Validation of Scenario question checkout message.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/mcqSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/question-api/v1/question/workflow/checkout/' + mcqID,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -210,14 +209,14 @@ test("QS_062. @API Validation of Scenario question checkout message.", async ({ 
 })
 
 test("QS_061A. @API Validation of Scenario question Approved message (again).", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question/workflow/save/' + mcqID,
         {
-            data: jsonpath.mcq.approvequestion,
+            data: jsonpath1.mcq.approvequestion,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -241,14 +240,14 @@ test("QS_061A. @API Validation of Scenario question Approved message (again).", 
 
 
 test("QS_063. @API Scenario question endpoint validation", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/tttquestion-api/v1/question',
         {
-            data: jsonpath.scenario.body,
+            data: jsonpath1.scenario.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -268,13 +267,13 @@ test("QS_063. @API Scenario question endpoint validation", async ({ request }) =
 })
 
 test("QS_064. @API Scenario question- Method validation-  incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/question-api/v1/question',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -290,12 +289,12 @@ test("QS_064. @API Scenario question- Method validation-  incorrect HTTP method"
 })
 
 test("QS_065. @API Scenario question- Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question',
         {
-            data: jsonpath.scenario.body,
-            headers: jsonpath.mcq.invalidheader,
+            data: jsonpath1.scenario.body,
+            headers: jsonpath1.mcq.invalidheader,
         });
     console.log(await response.json())
 
@@ -313,14 +312,14 @@ test("QS_065. @API Scenario question- Header field validation - invalid", async 
 })
 
 test("QS_066. @API Validation of empty title field for Scenario question", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question',
         {
-            data: jsonpath.scenario.emptyTitleBody,
+            data: jsonpath1.scenario.emptyTitleBody,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });

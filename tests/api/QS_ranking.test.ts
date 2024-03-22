@@ -25,8 +25,6 @@ jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.js
 const baseURL = jsonpath.url
 
 test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -68,7 +66,7 @@ test("QS_107. @API Validation of Ranking question successfull message.", async (
             data: jsonpath1.ranking.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -106,7 +104,7 @@ test("QS_108. @API Validation of edit Ranking question successfull message.", as
             data: jsonpath1.ranking.editrankingbody,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -142,7 +140,7 @@ test("QS_109. @API Validation of Ranking question Approved message.", async ({ r
             data: jsonpath1.mcq.approvequestion,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -178,7 +176,7 @@ test("QS_110. @API Validation of Ranking question checkout message.", async ({ r
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -213,7 +211,7 @@ test("QS_109A. @API Validation of Ranking question Approved message (again).", a
             data: jsonpath1.mcq.approvequestion,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -243,7 +241,7 @@ test("QS_111. @API Ranking question endpoint validation", async ({ request }) =>
             data: jsonpath1.ranking.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -268,7 +266,7 @@ test("QS_112. @API Ranking question Method validation-  incorrect HTTP method", 
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -312,7 +310,7 @@ test("QS_114. @API Validation of empty title field for Ranking question", async 
             data: jsonpath1.ranking.emptyTitleBody,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });

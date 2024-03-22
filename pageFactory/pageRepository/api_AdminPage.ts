@@ -18,6 +18,7 @@ let training_center_name = makeid(10)
 let training_site_name = makeid(9)
 let grade_scale_name = makeid(10)
 let gradeBookName = makeid(12)
+let grade_book_filter_name = makeid(12)
 export var jsonObject =
 {
     //User related payload 
@@ -135,7 +136,7 @@ export var jsonObject =
     },
     "customization_email_tempalte": {
         "Admin_email_template_save_body": {
-            "name": emailTemplateName,
+            "name": "Likadfrah123ra",
             "subject": "test subject",
             "content": "<p>test content</p>",
             "event": "[{\"id\":3,\"name\":\"Question Created\"}]",
@@ -491,7 +492,7 @@ export var jsonObject =
         },
         "grade_book_custom_filter_save_public_orprivate": {
             "filterArray": {
-                "filterName": "{{grade_book_filter_name}}",
+                "filterName": grade_book_filter_name,
                 "filterType": "public",
                 "filterPage": "grade-book",
                 "filter_id": ""

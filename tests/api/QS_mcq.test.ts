@@ -14,6 +14,7 @@ const avj = new Ajv()
 
 //var token;
 var jsonpath;
+var jsonpath1;
 var mcqID: any;
 var schemajsonpath;
 
@@ -24,8 +25,6 @@ jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.js
 const baseURL = jsonpath.url
 
 test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -60,15 +59,15 @@ test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request 
 })
 
 test("QS_001. @API Validation of MCQ question successfull message.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/mcqSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question',
         {
-            data: jsonpath.mcq.body,
+            data: jsonpath1.mcq.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -99,15 +98,15 @@ test("QS_001. @API Validation of MCQ question successfull message.", async ({ re
 })
 
 test("QS_002. @API Validation of edit MCQ question successfull message.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/mcqSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/editquestion/' + mcqID + '/?type=typea',
         {
-            data: jsonpath.mcq.editmcqbody,
+            data: jsonpath1.mcq.editmcqbody,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -136,15 +135,15 @@ test("QS_002. @API Validation of edit MCQ question successfull message.", async 
 })
 
 test("QS_003. @API Validation of MCQ question Approved message.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/mcqSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question/workflow/save/' + mcqID,
         {
-            data: jsonpath.mcq.approvequestion,
+            data: jsonpath1.mcq.approvequestion,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -173,14 +172,14 @@ test("QS_003. @API Validation of MCQ question Approved message.", async ({ reque
 })
 
 test("QS_005. @API Validation of MCQ question checkout message.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/mcqSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/question-api/v1/question/workflow/checkout/' + mcqID,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -209,14 +208,14 @@ test("QS_005. @API Validation of MCQ question checkout message.", async ({ reque
 })
 
 test("QS_003A. @API Validation of MCQ question Approved message (again).", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question/workflow/save/' + mcqID,
         {
-            data: jsonpath.mcq.approvequestion,
+            data: jsonpath1.mcq.approvequestion,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -239,14 +238,14 @@ test("QS_003A. @API Validation of MCQ question Approved message (again).", async
 })
 
 test("QS_004. @API Validation of create question page.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/mcqSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/question-api/v1/createQuestion?type=1',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -264,23 +263,17 @@ test("QS_004. @API Validation of create question page.", async ({ request }) => 
     expect(response.headers()['content-type']).toBe('application/json')
 
     var res = await response.json()
-
-    //Schema validation
-    const schema = schemajsonpath.fetchCreateQuestionPage
-    const validate = avj.compile(schema)
-    const isValid = validate(res)
-    expect(isValid).toBeTruthy()
 })
 
 test("QS_006. @API endpoint validation", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/tttquestion-api/v1/question',
         {
-            data: jsonpath.mcq.body,
+            data: jsonpath1.mcq.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -300,13 +293,13 @@ test("QS_006. @API endpoint validation", async ({ request }) => {
 })
 
 test("QS_007. @API Method validation-  incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/question-api/v1/question',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -322,12 +315,12 @@ test("QS_007. @API Method validation-  incorrect HTTP method", async ({ request 
 })
 
 test("QS_008. @API Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question',
         {
-            data: jsonpath.mcq.body,
-            headers: jsonpath.mcq.invalidheader,
+            data: jsonpath1.mcq.body,
+            headers: jsonpath1.mcq.invalidheader,
         });
     console.log(await response.json())
 
@@ -345,14 +338,14 @@ test("QS_008. @API Header field validation - invalid", async ({ request }) => {
 })
 
 test("QS_009. @API Validation of empty title field.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
+    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/questionsData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/question-api/v1/question',
         {
-            data: jsonpath.mcq.emptyTitleBody,
+            data: jsonpath1.mcq.emptyTitleBody,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });

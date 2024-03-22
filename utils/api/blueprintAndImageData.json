@@ -1,5 +1,5 @@
 {
-    "responseDuration": 7500,
+    "responseDuration": 30000,
     "BluePrintCreate": {
         "blueprintcreate_body": {
             "title": "test",

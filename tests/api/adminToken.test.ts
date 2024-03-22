@@ -18,7 +18,7 @@ jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.js
 const baseURL = jsonpath.url
 
 
-test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+test("[T569] @API Admin Login Success with Mandatory Fields", async ({ request }) => {
 
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))

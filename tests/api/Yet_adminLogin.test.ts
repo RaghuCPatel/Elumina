@@ -12,7 +12,7 @@ var jsonpath;
 jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
 const baseURL = jsonpath.url
 
-test("AL_002. @API To verify the response when passing an invalid endpoint.", async ({ request }) => {
+test("[T570] @API To verify the response when passing an invalid endpoint.", async ({ request }) => {
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/tttcommon/v3/authenticationservice/v3/login',
         {
@@ -34,7 +34,7 @@ test("AL_002. @API To verify the response when passing an invalid endpoint.", as
     // token = res.access_token
 })
 
-test("AL_003. @API To verify the response when an incorrect HTTP method is used for a request.", async ({ request }) => {
+test("[T571] @API To verify the response when an incorrect HTTP method is used for a request.", async ({ request }) => {
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/common/v3/authenticationservice/v3/login')
 
@@ -51,7 +51,7 @@ test("AL_003. @API To verify the response when an incorrect HTTP method is used 
 })
 
 
-test("AL_004. @API To verify the response on passing invalid webreferer in the header field.", async ({ request }) => {
+test("[T572] @API To verify the response on passing invalid webreferer in the header field.", async ({ request }) => {
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
         {
@@ -76,7 +76,7 @@ test("AL_004. @API To verify the response on passing invalid webreferer in the h
 })
 
 
-test("AL_005. @API To verify the response on passing empty webreferer in the header field.", async ({ request }) => {
+test("[T573] @API To verify the response on passing empty webreferer in the header field.", async ({ request }) => {
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
         {
@@ -100,7 +100,7 @@ test("AL_005. @API To verify the response on passing empty webreferer in the hea
 
 })
 
-test("AL_006. @API To verify the response on passing invalid username in the request field.", async ({ request }) => {
+test("[T574] @API To verify the response on passing invalid username in the request field.", async ({ request }) => {
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
         {
@@ -111,7 +111,7 @@ test("AL_006. @API To verify the response on passing invalid username in the req
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/"
+                "webreferer": jsonpath.webreferer,
             }
         });
     console.log(await response.json())
@@ -132,7 +132,7 @@ test("AL_006. @API To verify the response on passing invalid username in the req
     expect(res.error).toBe("invalidRequest")
 })
 
-test("AL_007. @API To verify the response on passing empty username in the request field.", async ({ request }) => {
+test("[T575] @API To verify the response on passing empty username in the request field.", async ({ request }) => {
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
         {
@@ -143,7 +143,7 @@ test("AL_007. @API To verify the response on passing empty username in the reque
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/"
+                "webreferer": jsonpath.webreferer,
             }
         });
     console.log(await response.json())
@@ -164,7 +164,7 @@ test("AL_007. @API To verify the response on passing empty username in the reque
     expect(res.error).toBe("invalidRequest")
 })
 
-test("AL_008. @API To verify the response on passing invalid password in the request field.", async ({ request }) => {
+test("[T576] @API To verify the response on passing invalid password in the request field.", async ({ request }) => {
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
         {
@@ -175,7 +175,7 @@ test("AL_008. @API To verify the response on passing invalid password in the req
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/"
+                "webreferer": jsonpath.webreferer,
             }
         });
     console.log(await response.json())
@@ -194,7 +194,7 @@ test("AL_008. @API To verify the response on passing invalid password in the req
     expect(res.error).toBe("invalidRequest")
 })
 
-test("AL_009. @API To verify the response on passing empty password in the request field.", async ({ request }) => {
+test("[T577] @API To verify the response on passing empty password in the request field.", async ({ request }) => {
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
         {
@@ -205,7 +205,7 @@ test("AL_009. @API To verify the response on passing empty password in the reque
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/"
+                "webreferer": jsonpath.webreferer,
             }
         });
     console.log(await response.json())

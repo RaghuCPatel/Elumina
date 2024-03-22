@@ -24,6 +24,7 @@ const avj = new Ajv()
 
 //var token;
 var jsonpath1;
+var jsonpath2;
 var jsonpath;
 var mcqID: any;
 var schemajsonpath;
@@ -45,8 +46,6 @@ jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.js
 const baseURL = jsonpath.url
 
 test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -81,7 +80,6 @@ test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request 
 })
 
 test("Admin_017. @API Admin add the user and save", async ({ request }) => {
-
     jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
@@ -90,7 +88,7 @@ test("Admin_017. @API Admin add the user and save", async ({ request }) => {
             data: jsonObject.Admin_add_user_save.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -124,7 +122,7 @@ test("Admin_001. @API Admin fetch the user-form-information", async ({ request }
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -149,7 +147,7 @@ test("Admin_002. @API Endpoint validation for user-form-information", async ({ r
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -171,7 +169,7 @@ test("Admin_003. @API Access token validation for user_form_information", async 
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": ""
             }
         });
@@ -197,7 +195,7 @@ test("Admin_005. @API Admin fetch the user-address-location", async ({ request }
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             },
             params: {
@@ -225,7 +223,7 @@ test("Admin_006. @API Endpoint validation for user-address-location", async ({ r
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             },
             params: {
@@ -250,7 +248,7 @@ test("Admin_007. @API Access token validation for user-address-location", async 
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": ""
             },
             params: {
@@ -279,7 +277,7 @@ test("Admin_009. @API Admin Admin fetch the user-setting", async ({ request }) =
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             },
             params: {
@@ -307,7 +305,7 @@ test("Admin_010. @API Endpoint validation for user-setting", async ({ request })
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             },
             params: {
@@ -332,7 +330,7 @@ test("Admin_011. @API Access token validation for user-setting", async ({ reques
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": ""
             },
             params: {
@@ -361,7 +359,7 @@ test("Admin_013. @API Admin fetch the user-role", async ({ request }) => {
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             },
             params: {
@@ -389,7 +387,7 @@ test("Admin_014. @API Endpoint validation for user-role", async ({ request }) =>
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             },
             params: {
@@ -414,7 +412,7 @@ test("Admin_015. @API Access token validation for user-role", async ({ request }
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": ""
             },
             params: {
@@ -438,15 +436,13 @@ test("Admin_015. @API Access token validation for user-role", async ({ request }
 })
 
 test("Admin_019. @API Admin add the user-save_validation of incorrect HTTP method", async ({ request }) => {
-
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/user',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -461,8 +457,6 @@ test("Admin_019. @API Admin add the user-save_validation of incorrect HTTP metho
 })
 
 test("Admin_020. @API Admin add the user-save_validation of invalid endpoint.", async ({ request }) => {
-
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/userIGS',
@@ -470,7 +464,7 @@ test("Admin_020. @API Admin add the user-save_validation of invalid endpoint.", 
             data: jsonObject.Admin_add_user_save.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -485,15 +479,15 @@ test("Admin_020. @API Admin add the user-save_validation of invalid endpoint.", 
 })
 
 test("Admin_021. @API Admin add the user-address-save", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user-contact/' + UserId,
         {
-            data: jsonpath.Admin_add_user_address_save.body,
+            data: jsonpath2.Admin_add_user_address_save.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -521,14 +515,13 @@ test("Admin_021. @API Admin add the user-address-save", async ({ request }) => {
 })
 
 test("Admin_023. @API Admin add the user-address-save_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/user-contact/' + UserId,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -543,15 +536,15 @@ test("Admin_023. @API Admin add the user-address-save_validation of incorrect HT
 })
 
 test("Admin_024. @API Admin add the user-address-save_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user-contact/' + UserId + '/IGS',
         {
-            data: jsonpath.Admin_add_user_address_save.body,
+            data: jsonpath2.Admin_add_user_address_save.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -566,13 +559,12 @@ test("Admin_024. @API Admin add the user-address-save_validation of invalid endp
 })
 
 test("Admin_025. @API Admin fetch the user-setting-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-setting/' + UserId,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -589,13 +581,12 @@ test("Admin_025. @API Admin fetch the user-setting-form", async ({ request }) =>
 })
 
 test("Admin_026. @API Endpoint validation for user-setting-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-setting/' + UserId + '/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -610,15 +601,15 @@ test("Admin_026. @API Endpoint validation for user-setting-form", async ({ reque
 })
 
 test("Admin_028. @API Admin_user-setting-save", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user-setting/' + UserId,
         {
-            data: jsonpath.Admin_user_setting_save.body,
+            data: jsonpath2.Admin_user_setting_save.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -646,14 +637,14 @@ test("Admin_028. @API Admin_user-setting-save", async ({ request }) => {
 })
 
 test("Admin_029. @API Admin user-setting-save_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/user-setting/' + UserId,
         {
-            data: jsonpath.Admin_user_setting_save.body,
+            data: jsonpath2.Admin_user_setting_save.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -668,14 +659,14 @@ test("Admin_029. @API Admin user-setting-save_validation of incorrect HTTP metho
 })
 
 test("Admin_030. @API Admin user-setting-savee_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user-setting/' + UserId + '/IGS',
         {
-            data: jsonpath.Admin_user_setting_save.body,
+            data: jsonpath2.Admin_user_setting_save.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -690,13 +681,13 @@ test("Admin_030. @API Admin user-setting-savee_validation of invalid endpoint.",
 })
 
 test("Admin_031. @API Admin fetch theUser-role-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-role/' + UserId,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -713,13 +704,13 @@ test("Admin_031. @API Admin fetch theUser-role-form", async ({ request }) => {
 })
 
 test("Admin_032. @API Endpoint validation for User-role-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-role/' + UserId + '/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -734,15 +725,15 @@ test("Admin_032. @API Endpoint validation for User-role-form", async ({ request 
 })
 
 test("Admin_034. @API Admin_user-role-save", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user-role/' + UserId,
         {
-            data: jsonpath.Admin_user_role_save.body,
+            data: jsonpath2.Admin_user_role_save.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -770,15 +761,15 @@ test("Admin_034. @API Admin_user-role-save", async ({ request }) => {
 })
 
 test("Admin_035. @API Admin user-role-save_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/user-role/' + UserId,
         {
-            data: jsonpath.Admin_user_role_save.body,
+            data: jsonpath2.Admin_user_role_save.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -793,15 +784,15 @@ test("Admin_035. @API Admin user-role-save_validation of incorrect HTTP method",
 })
 
 test("Admin_036. @API Admin user-role-save_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/user-role/' + UserId + '/IGS',
         {
-            data: jsonpath.Admin_user_role_save.body,
+            data: jsonpath2.Admin_user_role_save.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -816,13 +807,13 @@ test("Admin_036. @API Admin user-role-save_validation of invalid endpoint.", asy
 })
 
 test("Admin_037. @API Admin fetch the user-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -839,13 +830,13 @@ test("Admin_037. @API Admin fetch the user-form", async ({ request }) => {
 })
 
 test("Admin_038. @API Endpoint validation for user-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/userIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -860,13 +851,13 @@ test("Admin_038. @API Endpoint validation for user-form", async ({ request }) =>
 })
 
 test("Admin_040. @API Admin fetch the user-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-contact/' + UserId,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -883,13 +874,13 @@ test("Admin_040. @API Admin fetch the user-form", async ({ request }) => {
 })
 
 test("Admin_041. @API Endpoint validation for user-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-contact/' + UserId + '/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -904,13 +895,13 @@ test("Admin_041. @API Endpoint validation for user-form", async ({ request }) =>
 })
 
 test("Admin_043. @API Admin fetch the user-edit-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user/' + UserId + '/edit-form',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -927,13 +918,13 @@ test("Admin_043. @API Admin fetch the user-edit-form", async ({ request }) => {
 })
 
 test("Admin_044. @API Endpoint validation for user-edit-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user/' + UserId + '/edit-formIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -948,7 +939,7 @@ test("Admin_044. @API Endpoint validation for user-edit-form", async ({ request 
 })
 
 test("Admin_046. @API Admin_user-edit-update", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user/' + UserId,
@@ -956,7 +947,7 @@ test("Admin_046. @API Admin_user-edit-update", async ({ request }) => {
             data: jsonObject.Admin_add_user_save.Admin_user_edit_update,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -984,7 +975,7 @@ test("Admin_046. @API Admin_user-edit-update", async ({ request }) => {
 })
 
 test("Admin_047. @API Admin user-edit-update_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.put(baseURL + '/admin-api/v1/user/' + UserId,
@@ -992,7 +983,7 @@ test("Admin_047. @API Admin user-edit-update_validation of incorrect HTTP method
             data: jsonObject.Admin_add_user_save.Admin_user_edit_update,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1007,7 +998,7 @@ test("Admin_047. @API Admin user-edit-update_validation of incorrect HTTP method
 })
 
 test("Admin_048. @API Admin user-edit-update_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user/' + UserId + '/IGS',
@@ -1015,7 +1006,7 @@ test("Admin_048. @API Admin user-edit-update_validation of invalid endpoint.", a
             data: jsonObject.Admin_add_user_save.Admin_user_edit_update,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1030,13 +1021,13 @@ test("Admin_048. @API Admin user-edit-update_validation of invalid endpoint.", a
 })
 
 test("Admin_049. @API Admin fetch the user-address-edit-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-contact/' + UserId + '/form',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1053,13 +1044,13 @@ test("Admin_049. @API Admin fetch the user-address-edit-form", async ({ request 
 })
 
 test("Admin_050. @API Endpoint validation for user-address-edit-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-contact/' + UserId + '/formIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1074,15 +1065,15 @@ test("Admin_050. @API Endpoint validation for user-address-edit-form", async ({ 
 })
 
 test("Admin_052. @API Admin_user-address-edit-update", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user-contact/' + UserId + '/save',
         {
-            data: jsonpath.Admin_user_address_edit_update_body,
+            data: jsonpath2.Admin_user_address_edit_update_body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1110,14 +1101,14 @@ test("Admin_052. @API Admin_user-address-edit-update", async ({ request }) => {
 })
 
 test("Admin_053. @API Admin user-address-edit-update_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-contact/' + UserId + '/save',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1132,15 +1123,15 @@ test("Admin_053. @API Admin user-address-edit-update_validation of incorrect HTT
 })
 
 test("Admin_054. @API Admin user-address-edit-updatee_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user-contact/' + UserId + '/saveIGS',
         {
-            data: jsonpath.Admin_user_address_edit_update_body,
+            data: jsonpath2.Admin_user_address_edit_update_body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1155,13 +1146,13 @@ test("Admin_054. @API Admin user-address-edit-updatee_validation of invalid endp
 })
 
 test("Admin_055. @API Admin fetch the user-setting-edit-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-setting/' + UserId + '/form',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1178,13 +1169,13 @@ test("Admin_055. @API Admin fetch the user-setting-edit-form", async ({ request 
 })
 
 test("Admin_056. @API Endpoint validation for user-setting-edit-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-setting/' + UserId + '/formIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1199,15 +1190,15 @@ test("Admin_056. @API Endpoint validation for user-setting-edit-form", async ({ 
 })
 
 test("Admin_058. @API Admin_user-setting-edit-update", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user-setting/' + UserId + '/save',
         {
-            data: jsonpath.Admin_user_setting_edit_update,
+            data: jsonpath2.Admin_user_setting_edit_update,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1235,14 +1226,14 @@ test("Admin_058. @API Admin_user-setting-edit-update", async ({ request }) => {
 })
 
 test("Admin_059. @API Admin user-setting-edit-update_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-setting/' + UserId + '/save',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1257,15 +1248,15 @@ test("Admin_059. @API Admin user-setting-edit-update_validation of incorrect HTT
 })
 
 test("Admin_060. @API Admin user-setting-edit-update_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user-setting/' + UserId + '/saveIGS',
         {
-            data: jsonpath.Admin_user_setting_edit_update,
+            data: jsonpath2.Admin_user_setting_edit_update,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1280,15 +1271,15 @@ test("Admin_060. @API Admin user-setting-edit-update_validation of invalid endpo
 })
 
 test("Admin_064. @API Admin_user-setting-edit-update", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user-role/' + UserId + '/save',
         {
-            data: jsonpath.Admin_user_role_edit_update,
+            data: jsonpath2.Admin_user_role_edit_update,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1316,14 +1307,14 @@ test("Admin_064. @API Admin_user-setting-edit-update", async ({ request }) => {
 })
 
 test("Admin_065. @API Admin user-setting-edit-update_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-role/' + UserId + '/save',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1338,15 +1329,15 @@ test("Admin_065. @API Admin user-setting-edit-update_validation of incorrect HTT
 })
 
 test("Admin_066. @API Admin user-setting-edit-update_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user-role/' + UserId + '/saveIGS',
         {
-            data: jsonpath.Admin_user_role_edit_update,
+            data: jsonpath2.Admin_user_role_edit_update,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1361,14 +1352,14 @@ test("Admin_066. @API Admin user-setting-edit-update_validation of invalid endpo
 })
 
 test("Admin_067. @API Admin_users-list", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/users',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1388,14 +1379,14 @@ test("Admin_067. @API Admin_users-list", async ({ request }) => {
 })
 
 test("Admin_068. @API Admin users-list_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/users',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1410,14 +1401,14 @@ test("Admin_068. @API Admin users-list_validation of incorrect HTTP method", asy
 })
 
 test("Admin_069. @API Admin users-list_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/usersIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1432,14 +1423,14 @@ test("Admin_069. @API Admin users-list_validation of invalid endpoint.", async (
 })
 
 test("Admin_070. @API Admin_users-login", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/login',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1459,14 +1450,14 @@ test("Admin_070. @API Admin_users-login", async ({ request }) => {
 })
 
 test("Admin_071. @API Admin users-login_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/login',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1481,14 +1472,14 @@ test("Admin_071. @API Admin users-login_validation of incorrect HTTP method", as
 })
 
 test("Admin_072. @API Admin users-login_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/loginIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1503,15 +1494,15 @@ test("Admin_072. @API Admin users-login_validation of invalid endpoint.", async 
 })
 
 test("Admin_076. @API Admin_Save-logout-settings", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-logout-settings',
         {
-            data: jsonpath.Admin_Save_logout_settings,
+            data: jsonpath2.Admin_Save_logout_settings,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1539,14 +1530,14 @@ test("Admin_076. @API Admin_Save-logout-settings", async ({ request }) => {
 })
 
 test("Admin_077. @API Admin Save-logout-settings_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/save-logout-settings',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1561,15 +1552,15 @@ test("Admin_077. @API Admin Save-logout-settings_validation of incorrect HTTP me
 })
 
 test("Admin_078. @API Admin Save-logout-settings_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-logout-settingsIGS',
         {
-            data: jsonpath.Admin_Save_logout_settings,
+            data: jsonpath2.Admin_Save_logout_settings,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1584,15 +1575,15 @@ test("Admin_078. @API Admin Save-logout-settings_validation of invalid endpoint.
 })
 
 test("Admin_079. @API Admin_save-rate-limit-login", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/rate-limit-login',
         {
-            data: jsonpath.Admin_save_rate_limit_login,
+            data: jsonpath2.Admin_save_rate_limit_login,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1620,14 +1611,14 @@ test("Admin_079. @API Admin_save-rate-limit-login", async ({ request }) => {
 })
 
 test("Admin_080. @API Admin save-rate-limit-login_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/rate-limit-login',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1642,15 +1633,15 @@ test("Admin_080. @API Admin save-rate-limit-login_validation of incorrect HTTP m
 })
 
 test("Admin_081. @API Admin save-rate-limit-login_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/rate-limit-loginIGS',
         {
-            data: jsonpath.Admin_save_rate_limit_login,
+            data: jsonpath2.Admin_save_rate_limit_login,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1665,13 +1656,13 @@ test("Admin_081. @API Admin save-rate-limit-login_validation of invalid endpoint
 })
 
 test("Admin_061. @API Admin fetch the user-role-edit-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-role/' + UserId + '/form',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1688,13 +1679,13 @@ test("Admin_061. @API Admin fetch the user-role-edit-form", async ({ request }) 
 })
 
 test("Admin_062. @API Endpoint validation for user-role-edit-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-role/' + UserId + '/formIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1709,13 +1700,13 @@ test("Admin_062. @API Endpoint validation for user-role-edit-form", async ({ req
 })
 
 test("Admin_073. @API Admin fetch the logout-settings-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/get-logout-settings',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1732,13 +1723,13 @@ test("Admin_073. @API Admin fetch the logout-settings-form", async ({ request })
 })
 
 test("Admin_074. @API Endpoint validation for logout-settings-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/get-logout-settingsIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1753,13 +1744,13 @@ test("Admin_074. @API Endpoint validation for logout-settings-form", async ({ re
 })
 
 test("Admin_082. @API Admin fetch the rate-limit-login-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/rate-limit-login',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1776,13 +1767,13 @@ test("Admin_082. @API Admin fetch the rate-limit-login-form", async ({ request }
 })
 
 test("Admin_083. @API Endpoint validation for rate-limit-login-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/rate-limit-loginIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1797,7 +1788,7 @@ test("Admin_083. @API Endpoint validation for rate-limit-login-form", async ({ r
 })
 
 test("Admin_098. @API Admin_role-save", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/role',
@@ -1805,7 +1796,7 @@ test("Admin_098. @API Admin_role-save", async ({ request }) => {
             data: jsonObject.Admin_Role.Admin_role_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1833,14 +1824,14 @@ test("Admin_098. @API Admin_role-save", async ({ request }) => {
 })
 
 test("Admin_099. @API Admin role-save_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/role',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1855,7 +1846,7 @@ test("Admin_099. @API Admin role-save_validation of incorrect HTTP method", asyn
 })
 
 test("Admin_100. @API Admin role-save_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/roleIGS',
@@ -1863,7 +1854,7 @@ test("Admin_100. @API Admin role-save_validation of invalid endpoint.", async ({
             data: jsonObject.Admin_Role.Admin_role_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1878,13 +1869,13 @@ test("Admin_100. @API Admin role-save_validation of invalid endpoint.", async ({
 })
 
 test("Admin_101. @API Admin fetch the role-create-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/role/form',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1901,13 +1892,13 @@ test("Admin_101. @API Admin fetch the role-create-form", async ({ request }) => 
 })
 
 test("Admin_102. @API Endpoint validation for role-create-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/role/form/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1922,14 +1913,14 @@ test("Admin_102. @API Endpoint validation for role-create-form", async ({ reques
 })
 
 test("Admin_104. @API Admin_Role list", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/roles',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1949,14 +1940,14 @@ test("Admin_104. @API Admin_Role list", async ({ request }) => {
 })
 
 test("Admin_105. @API Admin Role list_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/roles',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1971,14 +1962,14 @@ test("Admin_105. @API Admin Role list_validation of incorrect HTTP method", asyn
 })
 
 test("Admin_106. @API Admin Role list_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/rolesIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -1993,13 +1984,13 @@ test("Admin_106. @API Admin Role list_validation of invalid endpoint.", async ({
 })
 
 test("Admin_107. @API Admin fetch the role-filter-list", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/getrolefilter',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2016,13 +2007,13 @@ test("Admin_107. @API Admin fetch the role-filter-list", async ({ request }) => 
 })
 
 test("Admin_108. @API Endpoint validation for role-filter-list", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/getrolefilterIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2037,7 +2028,7 @@ test("Admin_108. @API Endpoint validation for role-filter-list", async ({ reques
 })
 
 test("Admin_110. @API Admin_roles-list-search", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/roles',
@@ -2045,7 +2036,7 @@ test("Admin_110. @API Admin_roles-list-search", async ({ request }) => {
             data: jsonObject.Admin_Role.Admin_roles_list_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2067,14 +2058,14 @@ test("Admin_110. @API Admin_roles-list-search", async ({ request }) => {
 })
 
 test("Admin_111. @API Admin roles-list-search_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/roles',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2089,7 +2080,7 @@ test("Admin_111. @API Admin roles-list-search_validation of incorrect HTTP metho
 })
 
 test("Admin_112. @API Admin roles-list-search_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/rolesIGS',
@@ -2097,7 +2088,7 @@ test("Admin_112. @API Admin roles-list-search_validation of invalid endpoint.", 
             data: jsonObject.Admin_Role.Admin_roles_list_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2112,7 +2103,7 @@ test("Admin_112. @API Admin roles-list-search_validation of invalid endpoint.", 
 })
 
 test("Admin_113. @API Admin_roles-filter-search", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/roles',
@@ -2120,7 +2111,7 @@ test("Admin_113. @API Admin_roles-filter-search", async ({ request }) => {
             data: jsonObject.Admin_Role.Admin_roles_filter_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2140,14 +2131,14 @@ test("Admin_113. @API Admin_roles-filter-search", async ({ request }) => {
 })
 
 test("Admin_114. @API Admin roles-filter-search_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/roles',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2162,7 +2153,7 @@ test("Admin_114. @API Admin roles-filter-search_validation of incorrect HTTP met
 })
 
 test("Admin_115. @API Admin roles-filter-search_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/rolesIGS',
@@ -2170,7 +2161,7 @@ test("Admin_115. @API Admin roles-filter-search_validation of invalid endpoint."
             data: jsonObject.Admin_Role.Admin_roles_filter_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2185,7 +2176,7 @@ test("Admin_115. @API Admin roles-filter-search_validation of invalid endpoint."
 })
 
 test("Admin_116. @API Admin_role-custom-filter-save", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/custom-filter',
@@ -2193,7 +2184,7 @@ test("Admin_116. @API Admin_role-custom-filter-save", async ({ request }) => {
             data: jsonObject.Admin_Role.Admin_role_custom_filter_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2221,14 +2212,14 @@ test("Admin_116. @API Admin_role-custom-filter-save", async ({ request }) => {
 })
 
 test("Admin_117. @API Adminrole-custom-filter-save_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/custom-filter',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2243,7 +2234,7 @@ test("Admin_117. @API Adminrole-custom-filter-save_validation of incorrect HTTP 
 })
 
 test("Admin_118. @API Admin role-custom-filter-save_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/custom-filterIGS',
@@ -2251,7 +2242,7 @@ test("Admin_118. @API Admin role-custom-filter-save_validation of invalid endpoi
             data: jsonObject.Admin_Role.Admin_role_custom_filter_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2265,15 +2256,15 @@ test("Admin_118. @API Admin role-custom-filter-save_validation of invalid endpoi
     expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
 })
 test("Admin_119. @API Admin_role-list-pagination", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/roles?page=2',
         {
-            data: jsonpath.Admin_role_list_pagination,
+            data: jsonpath2.Admin_role_list_pagination,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2293,14 +2284,14 @@ test("Admin_119. @API Admin_role-list-pagination", async ({ request }) => {
 })
 
 test("Admin_120. @API Adminrole-role-list-pagination_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/roles?page=2',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2315,15 +2306,15 @@ test("Admin_120. @API Adminrole-role-list-pagination_validation of incorrect HTT
 })
 
 test("Admin_121. @API Admin role-list-pagination_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/rolesIGS?page=2',
         {
-            data: jsonpath.Admin_role_list_pagination,
+            data: jsonpath2.Admin_role_list_pagination,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2338,15 +2329,15 @@ test("Admin_121. @API Admin role-list-pagination_validation of invalid endpoint.
 })
 
 test("Admin_122. @API Admin_roles-list-column-hiden", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/roles?page=2',
         {
-            data: jsonpath.Admin_roles_list_column_hiden,
+            data: jsonpath2.Admin_roles_list_column_hiden,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2366,14 +2357,14 @@ test("Admin_122. @API Admin_roles-list-column-hiden", async ({ request }) => {
 })
 
 test("Admin_123. @API Adminrole-roles-list-column-hiden_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/roles?page=2',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2388,15 +2379,15 @@ test("Admin_123. @API Adminrole-roles-list-column-hiden_validation of incorrect 
 })
 
 test("Admin_124. @API Admin roles-list-column-hiden_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/rolesIGS?page=2',
         {
-            data: jsonpath.Admin_roles_list_column_hiden,
+            data: jsonpath2.Admin_roles_list_column_hiden,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2411,7 +2402,7 @@ test("Admin_124. @API Admin roles-list-column-hiden_validation of invalid endpoi
 })
 
 test("Admin_125. @API Admin_role-update", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/role/' + roleId,
@@ -2419,7 +2410,7 @@ test("Admin_125. @API Admin_role-update", async ({ request }) => {
             data: jsonObject.Admin_Role.Admin_role_update,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2447,14 +2438,14 @@ test("Admin_125. @API Admin_role-update", async ({ request }) => {
 })
 
 test("Admin_126. @API Adminrole-role-update_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/role/' + roleId,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2469,7 +2460,7 @@ test("Admin_126. @API Adminrole-role-update_validation of incorrect HTTP method"
 })
 
 test("Admin_127. @API Admin role-update_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/role/' + roleId + '/IGS',
@@ -2477,7 +2468,7 @@ test("Admin_127. @API Admin role-update_validation of invalid endpoint.", async 
             data: jsonObject.Admin_Role.Admin_role_update,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2492,13 +2483,13 @@ test("Admin_127. @API Admin role-update_validation of invalid endpoint.", async 
 })
 
 test("Admin_085. @API Admin fetch the role-duplicate", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/duplicateRole/' + roleId,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2525,13 +2516,13 @@ test("Admin_085. @API Admin fetch the role-duplicate", async ({ request }) => {
 })
 
 test("Admin_086. @API Endpoint validation for role-duplicate", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/duplicateRole/' + roleId + '/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2546,13 +2537,13 @@ test("Admin_086. @API Endpoint validation for role-duplicate", async ({ request 
 })
 
 test("Admin_088. @API Admin fetch the delete-role", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/deleterole/' + roleId,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2579,13 +2570,13 @@ test("Admin_088. @API Admin fetch the delete-role", async ({ request }) => {
 })
 
 test("Admin_089. @API Endpoint validation for delete-role", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/deleterole/' + roleId + '/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2600,13 +2591,13 @@ test("Admin_089. @API Endpoint validation for delete-role", async ({ request }) 
 })
 
 test("Admin_091. @API Admin delete-role_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/deleterole/' + roleId,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2621,13 +2612,13 @@ test("Admin_091. @API Admin delete-role_validation of incorrect HTTP method", as
 })
 
 test("Admin_128. @API Admin fetch the user-activities-filter", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/filters/useractivities',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2644,13 +2635,13 @@ test("Admin_128. @API Admin fetch the user-activities-filter", async ({ request 
 })
 
 test("Admin_129. @API Endpoint validation for user-activities-filter", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/filters/useractivitiesIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2665,14 +2656,14 @@ test("Admin_129. @API Endpoint validation for user-activities-filter", async ({ 
 })
 
 test("Admin_131. @API Admin_user-activities-list", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/useractivities',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2692,14 +2683,14 @@ test("Admin_131. @API Admin_user-activities-list", async ({ request }) => {
 })
 
 test("Admin_132. @API Admin user-activities-list_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/useractivities',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2714,14 +2705,14 @@ test("Admin_132. @API Admin user-activities-list_validation of incorrect HTTP me
 })
 
 test("Admin_133. @API Admin user-activities-list_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/useractivitiesIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2736,14 +2727,14 @@ test("Admin_133. @API Admin user-activities-list_validation of invalid endpoint.
 })
 
 test("Admin_134. @API Admin_user-activities-list-pagination", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/useractivities?page=2',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2765,14 +2756,14 @@ test("Admin_134. @API Admin_user-activities-list-pagination", async ({ request }
 })
 
 test("Admin_135. @API Admin user-activities-list-pagination_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/useractivities?page=2',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2787,14 +2778,14 @@ test("Admin_135. @API Admin user-activities-list-pagination_validation of incorr
 })
 
 test("Admin_136. @API Admin user-activities-list-pagination_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/useractivitiesIGS?page=2',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2809,13 +2800,13 @@ test("Admin_136. @API Admin user-activities-list-pagination_validation of invali
 })
 
 test("Admin_092. @API Admin fetch thesecurity-control-privilage-liste", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/securitycontrol/12',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2832,13 +2823,13 @@ test("Admin_092. @API Admin fetch thesecurity-control-privilage-liste", async ({
 })
 
 test("Admin_093. @API Endpoint validation for security-control-privilage-list", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/securitycontrol/12/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2853,15 +2844,15 @@ test("Admin_093. @API Endpoint validation for security-control-privilage-list", 
 })
 
 test("Admin_095. @API Admin_securitycontrol-save", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/securitycontrol/12',
         {
-            data: jsonpath.Admin_securitycontrol_save,
+            data: jsonpath2.Admin_securitycontrol_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2889,14 +2880,14 @@ test("Admin_095. @API Admin_securitycontrol-save", async ({ request }) => {
 })
 
 test("Admin_096. @API Admin securitycontrol-save_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/securitycontrol/12',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2911,15 +2902,15 @@ test("Admin_096. @API Admin securitycontrol-save_validation of incorrect HTTP me
 })
 
 test("Admin_097. @API Admin securitycontrol-save_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/securitycontrol/12/IGS',
         {
-            data: jsonpath.Admin_securitycontrol_save,
+            data: jsonpath2.Admin_securitycontrol_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2934,7 +2925,7 @@ test("Admin_097. @API Admin securitycontrol-save_validation of invalid endpoint.
 })
 
 test("Admin_137. @API Admin_user-activities-search", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/useractivities',
@@ -2946,7 +2937,7 @@ test("Admin_137. @API Admin_user-activities-search", async ({ request }) => {
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2966,14 +2957,14 @@ test("Admin_137. @API Admin_user-activities-search", async ({ request }) => {
 })
 
 test("Admin_138. @API Admin user-activities-search_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/useractivities',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -2988,7 +2979,7 @@ test("Admin_138. @API Admin user-activities-search_validation of incorrect HTTP 
 })
 
 test("Admin_139. @API Admin user-activities-search_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/useractivitiesIGS',
@@ -3000,7 +2991,7 @@ test("Admin_139. @API Admin user-activities-search_validation of invalid endpoin
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3015,15 +3006,15 @@ test("Admin_139. @API Admin user-activities-search_validation of invalid endpoin
 })
 
 test("Admin_140. @API Admin_user-activities-filter-search", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/useractivities',
         {
-            data: jsonpath.Admin_user_activities_filter_search,
+            data: jsonpath2.Admin_user_activities_filter_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3043,14 +3034,14 @@ test("Admin_140. @API Admin_user-activities-filter-search", async ({ request }) 
 })
 
 test("Admin_141. @API Admin user-activities-filter-search_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/useractivities',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3065,15 +3056,15 @@ test("Admin_141. @API Admin user-activities-filter-search_validation of incorrec
 })
 
 test("Admin_142. @API Admin user-activities-filter-search_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/useractivitiesIGS',
         {
-            data: jsonpath.Admin_user_activities_filter_search,
+            data: jsonpath2.Admin_user_activities_filter_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3088,7 +3079,7 @@ test("Admin_142. @API Admin user-activities-filter-search_validation of invalid 
 })
 
 test("Admin_143. @API Admin_custom-filter-save public or privet", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/custom-filter',
@@ -3113,7 +3104,7 @@ test("Admin_143. @API Admin_custom-filter-save public or privet", async ({ reque
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3141,14 +3132,14 @@ test("Admin_143. @API Admin_custom-filter-save public or privet", async ({ reque
 })
 
 test("Admin_144. @API Admin custom-filter-save public or privet_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/custom-filter',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3163,7 +3154,7 @@ test("Admin_144. @API Admin custom-filter-save public or privet_validation of in
 })
 
 test("Admin_145. @API Admin custom-filter-save public or privet_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/custom-filterIGS',
@@ -3188,7 +3179,7 @@ test("Admin_145. @API Admin custom-filter-save public or privet_validation of in
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3203,13 +3194,13 @@ test("Admin_145. @API Admin custom-filter-save public or privet_validation of in
 })
 
 test("Admin_146. @API Admin fetch the email-template-create-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/email-template/form',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3226,13 +3217,13 @@ test("Admin_146. @API Admin fetch the email-template-create-form", async ({ requ
 })
 
 test("Admin_147. @API Endpoint validation for email-template-create-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/email-template/formIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3246,8 +3237,8 @@ test("Admin_147. @API Endpoint validation for email-template-create-form", async
     expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
 })
 
-test("Admin_149. @API Admin_email-template-save", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+/*test("Admin_149. @API Admin_email-template-save", async ({ request }) => {
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/email-template',
@@ -3255,7 +3246,7 @@ test("Admin_149. @API Admin_email-template-save", async ({ request }) => {
             data: jsonObject.customization_email_tempalte.Admin_email_template_save_body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3283,14 +3274,14 @@ test("Admin_149. @API Admin_email-template-save", async ({ request }) => {
 })
 
 test("Admin_150. @API Admin email-template-save_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/email-template',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3305,7 +3296,7 @@ test("Admin_150. @API Admin email-template-save_validation of incorrect HTTP met
 })
 
 test("Admin_151. @API Admin email-template-save_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/email-templateIGS',
@@ -3313,7 +3304,7 @@ test("Admin_151. @API Admin email-template-save_validation of invalid endpoint."
             data: jsonObject.customization_email_tempalte.Admin_email_template_save_body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3328,14 +3319,14 @@ test("Admin_151. @API Admin email-template-save_validation of invalid endpoint."
 })
 
 test("Admin_158. @API Admin_email-templates-list", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/email_templates',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3355,14 +3346,14 @@ test("Admin_158. @API Admin_email-templates-list", async ({ request }) => {
 })
 
 test("Admin_159. @API Admin email-templates-list_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/email_templates',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3377,14 +3368,14 @@ test("Admin_159. @API Admin email-templates-list_validation of incorrect HTTP me
 })
 
 test("Admin_160. @API Admin email-templates-list_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/email_templatesIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3399,7 +3390,7 @@ test("Admin_160. @API Admin email-templates-list_validation of invalid endpoint.
 })
 
 test("Admin_161. @API Admin_email-templates-search", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/email_templates',
@@ -3407,7 +3398,7 @@ test("Admin_161. @API Admin_email-templates-search", async ({ request }) => {
             data: jsonObject.customization_email_tempalte.Admin_email_templates_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3429,14 +3420,14 @@ test("Admin_161. @API Admin_email-templates-search", async ({ request }) => {
 })
 
 test("Admin_162. @API Admin email-templates-searcht_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/email_templates',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3451,7 +3442,7 @@ test("Admin_162. @API Admin email-templates-searcht_validation of incorrect HTTP
 })
 
 test("Admin_163. @API Admin email-templates-search_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/email_templatesIGS',
@@ -3459,7 +3450,7 @@ test("Admin_163. @API Admin email-templates-search_validation of invalid endpoin
             data: jsonObject.customization_email_tempalte.Admin_email_templates_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3474,13 +3465,13 @@ test("Admin_163. @API Admin email-templates-search_validation of invalid endpoin
 })
 
 test("Admin_164. @API Admin fetch the email-template-filter-list", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/getemailtemplatefilter',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3497,13 +3488,13 @@ test("Admin_164. @API Admin fetch the email-template-filter-list", async ({ requ
 })
 
 test("Admin_165. @API Endpoint validation for email-template-filter-list", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/getemailtemplatefilterIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3518,7 +3509,7 @@ test("Admin_165. @API Endpoint validation for email-template-filter-list", async
 })
 
 test("Admin_167. @API Admin_email-templates-pagination", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/email_templates?page=2',
@@ -3526,7 +3517,7 @@ test("Admin_167. @API Admin_email-templates-pagination", async ({ request }) => 
             data: { "freeText": [] },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3546,14 +3537,14 @@ test("Admin_167. @API Admin_email-templates-pagination", async ({ request }) => 
 })
 
 test("Admin_168. @API Admin email-templates-pagination_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/email_templates?page=2',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3568,7 +3559,7 @@ test("Admin_168. @API Admin email-templates-pagination_validation of incorrect H
 })
 
 test("Admin_169. @API Admin email-templates-pagination_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/email_templatesIGS?page=2',
@@ -3576,7 +3567,7 @@ test("Admin_169. @API Admin email-templates-pagination_validation of invalid end
             data: { "freeText": [] },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3591,15 +3582,15 @@ test("Admin_169. @API Admin email-templates-pagination_validation of invalid end
 })
 
 test("Admin_170. @API Admin_email-templates-filter-search", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/email_templates',
         {
-            data: jsonpath.Admin_email_templates_filter_search,
+            data: jsonpath2.Admin_email_templates_filter_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3619,14 +3610,14 @@ test("Admin_170. @API Admin_email-templates-filter-search", async ({ request }) 
 })
 
 test("Admin_171. @API Admin email-templates-filter-search_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/email_templates',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3641,15 +3632,15 @@ test("Admin_171. @API Admin email-templates-filter-search_validation of incorrec
 })
 
 test("Admin_172. @API Admin email-templates-filter-search_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/email_templatesIGS',
         {
-            data: jsonpath.Admin_email_templates_filter_search,
+            data: jsonpath2.Admin_email_templates_filter_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3664,7 +3655,7 @@ test("Admin_172. @API Admin email-templates-filter-search_validation of invalid 
 })
 
 test("Admin_173. @API Admin_custom-filter-save", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/custom-filter',
@@ -3672,7 +3663,7 @@ test("Admin_173. @API Admin_custom-filter-save", async ({ request }) => {
             data: jsonObject.customization_email_tempalte.Admin_custom_filter_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3700,14 +3691,14 @@ test("Admin_173. @API Admin_custom-filter-save", async ({ request }) => {
 })
 
 test("Admin_174. @API Admin custom-filter-save_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/custom-filter',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3722,7 +3713,7 @@ test("Admin_174. @API Admin custom-filter-save_validation of incorrect HTTP meth
 })
 
 test("Admin_175. @API Admin custom-filter-save_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/custom-filterIGS',
@@ -3730,7 +3721,7 @@ test("Admin_175. @API Admin custom-filter-save_validation of invalid endpoint.",
             data: jsonObject.customization_email_tempalte.Admin_custom_filter_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3745,15 +3736,15 @@ test("Admin_175. @API Admin custom-filter-save_validation of invalid endpoint.",
 })
 
 test("Admin_176. @API Admin_email-templates-list-field-column-hide", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/email_templates?page=1',
         {
-            data: jsonpath.Admin_email_templates_list_field_column_hide,
+            data: jsonpath2.Admin_email_templates_list_field_column_hide,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3773,14 +3764,14 @@ test("Admin_176. @API Admin_email-templates-list-field-column-hide", async ({ re
 })
 
 test("Admin_177. @API Admin email-templates-list-field-column-hide_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/email_templates?page=1',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3795,15 +3786,15 @@ test("Admin_177. @API Admin email-templates-list-field-column-hide_validation of
 })
 
 test("Admin_178. @API Admin email-templates-list-field-column-hide_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/email_templatesIGS?page=1',
         {
-            data: jsonpath.Admin_email_templates_list_field_column_hide,
+            data: jsonpath2.Admin_email_templates_list_field_column_hide,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3818,13 +3809,13 @@ test("Admin_178. @API Admin email-templates-list-field-column-hide_validation of
 })
 
 test("Admin_152. @API Admin fetch the email-template-edit-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/email-template/' + email_template_id + '/form',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3841,13 +3832,13 @@ test("Admin_152. @API Admin fetch the email-template-edit-form", async ({ reques
 })
 
 test("Admin_153. @API Endpoint validation for email-template-edit-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/email-template/' + email_template_id + '/formIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3862,15 +3853,15 @@ test("Admin_153. @API Endpoint validation for email-template-edit-form", async (
 })
 
 test("Admin_155. @API Admin_email-template-update", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/email-template/' + email_template_id,
         {
-            data: jsonpath.Admin_email_template_update,
+            data: jsonpath2.Admin_email_template_update,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3898,14 +3889,14 @@ test("Admin_155. @API Admin_email-template-update", async ({ request }) => {
 })
 
 test("Admin_156. @API Admin email-template-update_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/email-template/' + email_template_id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3920,15 +3911,15 @@ test("Admin_156. @API Admin email-template-update_validation of incorrect HTTP m
 })
 
 test("Admin_157. @API Admin email-template-update_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/email-template/' + email_template_id + '/IGS',
         {
-            data: jsonpath.Admin_email_template_update,
+            data: jsonpath2.Admin_email_template_update,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3940,17 +3931,17 @@ test("Admin_157. @API Admin email-template-update_validation of invalid endpoint
 
     //Verify Response Headers
     expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
-})
+}) */
 
 test("Admin_179. @API Admin_create-dashboard-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/createdashboard-schema',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3970,14 +3961,14 @@ test("Admin_179. @API Admin_create-dashboard-form", async ({ request }) => {
 })
 
 test("Admin_180. @API Admin create-dashboard-form_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/createdashboard-schemaIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -3992,7 +3983,7 @@ test("Admin_180. @API Admin create-dashboard-form_validation of invalid endpoint
 })
 
 test("Admin_181. @API Admin_create-dashboard-save", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/createdashboard',
@@ -4000,7 +3991,7 @@ test("Admin_181. @API Admin_create-dashboard-save", async ({ request }) => {
             data: jsonObject.Dashboard.Admin_create_dashboard_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4028,14 +4019,14 @@ test("Admin_181. @API Admin_create-dashboard-save", async ({ request }) => {
 })
 
 test("Admin_182. @API Admin create-dashboard-save_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/createdashboard',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4050,7 +4041,7 @@ test("Admin_182. @API Admin create-dashboard-save_validation of incorrect HTTP m
 })
 
 test("Admin_183. @API Admin create-dashboard-save_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/createdashboardIGS',
@@ -4058,7 +4049,7 @@ test("Admin_183. @API Admin create-dashboard-save_validation of invalid endpoint
             data: jsonObject.Dashboard.Admin_create_dashboard_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4073,14 +4064,14 @@ test("Admin_183. @API Admin create-dashboard-save_validation of invalid endpoint
 })
 
 test("Admin_184. @API Admin_dashboards-list", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/dashboards',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4100,14 +4091,14 @@ test("Admin_184. @API Admin_dashboards-list", async ({ request }) => {
 })
 
 test("Admin_185. @API Admin dashboards-list_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/dashboards',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4122,14 +4113,14 @@ test("Admin_185. @API Admin dashboards-list_validation of incorrect HTTP method"
 })
 
 test("Admin_186. @API Admin dashboards-list_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/dashboardsIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4144,13 +4135,13 @@ test("Admin_186. @API Admin dashboards-list_validation of invalid endpoint.", as
 })
 
 test("Admin_187. @API Admin fetch the dashboard-filter-list", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/dashboardfilter',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4167,13 +4158,13 @@ test("Admin_187. @API Admin fetch the dashboard-filter-list", async ({ request }
 })
 
 test("Admin_188. @API Endpoint validation for dashboard-filter-list", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/dashboardfilterIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4188,7 +4179,7 @@ test("Admin_188. @API Endpoint validation for dashboard-filter-list", async ({ r
 })
 
 test("Admin_190. @API Admin_dashboards-search", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/dashboards',
@@ -4196,7 +4187,7 @@ test("Admin_190. @API Admin_dashboards-search", async ({ request }) => {
             data: jsonObject.Dashboard.Admin_dashboards_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4218,14 +4209,14 @@ test("Admin_190. @API Admin_dashboards-search", async ({ request }) => {
 })
 
 test("Admin_191. @API Admin dashboards-search_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/dashboards',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4240,7 +4231,7 @@ test("Admin_191. @API Admin dashboards-search_validation of incorrect HTTP metho
 })
 
 test("Admin_192. @API Admin dashboards-search_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/dashboardsIGS',
@@ -4248,7 +4239,7 @@ test("Admin_192. @API Admin dashboards-search_validation of invalid endpoint.", 
             data: jsonObject.Dashboard.Admin_dashboards_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4263,15 +4254,15 @@ test("Admin_192. @API Admin dashboards-search_validation of invalid endpoint.", 
 })
 
 test("Admin_193. @API Admin_dashboards-filter-search", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/dashboards',
         {
-            data: jsonpath.Admin_dashboards_filter_search,
+            data: jsonpath2.Admin_dashboards_filter_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4291,14 +4282,14 @@ test("Admin_193. @API Admin_dashboards-filter-search", async ({ request }) => {
 })
 
 test("Admin_194. @API Admin dashboards-filter-search_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/dashboards',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4313,15 +4304,15 @@ test("Admin_194. @API Admin dashboards-filter-search_validation of incorrect HTT
 })
 
 test("Admin_195. @API Admin dashboards-filter-search_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/dashboardsIGS',
         {
-            data: jsonpath.Admin_dashboards_filter_search,
+            data: jsonpath2.Admin_dashboards_filter_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4336,7 +4327,7 @@ test("Admin_195. @API Admin dashboards-filter-search_validation of invalid endpo
 })
 
 test("Admin_196. @API Admin_custom-filter-save public or private", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/custom-filter',
@@ -4344,7 +4335,7 @@ test("Admin_196. @API Admin_custom-filter-save public or private", async ({ requ
             data: jsonObject.Dashboard.Admin_custom_filter_save_public_or_private,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4372,14 +4363,14 @@ test("Admin_196. @API Admin_custom-filter-save public or private", async ({ requ
 })
 
 test("Admin_197. @API Admin custom-filter-save public or private_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/custom-filter',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4394,7 +4385,7 @@ test("Admin_197. @API Admin custom-filter-save public or private_validation of i
 })
 
 test("Admin_198. @API Admin custom-filter-save public or private_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/custom-filterIGS',
@@ -4402,7 +4393,7 @@ test("Admin_198. @API Admin custom-filter-save public or private_validation of i
             data: jsonObject.Dashboard.Admin_custom_filter_save_public_or_private,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4417,15 +4408,15 @@ test("Admin_198. @API Admin custom-filter-save public or private_validation of i
 })
 
 test("Admin_199. @API Admin_dashboards-list-field-column-hide", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/dashboards',
         {
-            data: jsonpath.Admin_dashboards_list_field_column_hide,
+            data: jsonpath2.Admin_dashboards_list_field_column_hide,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4445,14 +4436,14 @@ test("Admin_199. @API Admin_dashboards-list-field-column-hide", async ({ request
 })
 
 test("Admin_200. @API Admin dashboards-list-field-column-hide_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/dashboards',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4467,15 +4458,15 @@ test("Admin_200. @API Admin dashboards-list-field-column-hide_validation of inco
 })
 
 test("Admin_201. @API Admin dashboards-list-field-column-hide_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/dashboardsIGS',
         {
-            data: jsonpath.Admin_dashboards_list_field_column_hide,
+            data: jsonpath2.Admin_dashboards_list_field_column_hide,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4490,13 +4481,13 @@ test("Admin_201. @API Admin dashboards-list-field-column-hide_validation of inva
 })
 
 test("Admin_202. @API Admin fetch the dashboard-list-status-change", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/dashboard/status/1/1',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4513,14 +4504,14 @@ test("Admin_202. @API Admin fetch the dashboard-list-status-change", async ({ re
 })
 
 test("Admin_204. @API Admin_edit-dashboard-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/editdashboard-schema/1',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4540,14 +4531,14 @@ test("Admin_204. @API Admin_edit-dashboard-form", async ({ request }) => {
 })
 
 test("Admin_205 @API Admin edit-dashboard-form_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/editdashboard-schema/1/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4562,7 +4553,7 @@ test("Admin_205 @API Admin edit-dashboard-form_validation of invalid endpoint.",
 })
 
 test("Admin_206. @API Admin_dashboard-update", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/editdashboard/' + dashboard_id,
@@ -4570,7 +4561,7 @@ test("Admin_206. @API Admin_dashboard-update", async ({ request }) => {
             data: jsonObject.Dashboard.Admin_dashboard_update,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4598,14 +4589,14 @@ test("Admin_206. @API Admin_dashboard-update", async ({ request }) => {
 })
 
 test("Admin_207. @API Admin dashboard-update_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/editdashboard/' + dashboard_id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4620,7 +4611,7 @@ test("Admin_207. @API Admin dashboard-update_validation of incorrect HTTP method
 })
 
 test("Admin_208. @API Admin dashboard-update_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/editdashboard/' + dashboard_id + '/IGS',
@@ -4628,7 +4619,7 @@ test("Admin_208. @API Admin dashboard-update_validation of invalid endpoint.", a
             data: jsonObject.Dashboard.Admin_dashboard_update,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4643,14 +4634,14 @@ test("Admin_208. @API Admin dashboard-update_validation of invalid endpoint.", a
 })
 
 test("Admin_209. @API Admin fetch the duplicate-dashboard", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/duplicatedashboard/' + dashboard_id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4677,13 +4668,13 @@ test("Admin_209. @API Admin fetch the duplicate-dashboard", async ({ request }) 
 })
 
 test("Admin_210. @API Endpoint validation for duplicate-dashboard", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/duplicatedashboard/' + dashboard_id + '/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4698,14 +4689,14 @@ test("Admin_210. @API Endpoint validation for duplicate-dashboard", async ({ req
 })
 
 test("Admin_212. @API Admin fetch the delete-dashboard", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/deletedashboard/' + dashboard_id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4732,13 +4723,13 @@ test("Admin_212. @API Admin fetch the delete-dashboard", async ({ request }) => 
 })
 
 test("Admin_213. @API Endpoint validation for delete-dashboard", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/deletedashboard/' + dashboard_id + '/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4753,13 +4744,13 @@ test("Admin_213. @API Endpoint validation for delete-dashboard", async ({ reques
 })
 
 test("Admin_215. @API Admin fetch the chat-settings-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/chat-settings',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4778,13 +4769,13 @@ test("Admin_215. @API Admin fetch the chat-settings-form", async ({ request }) =
 })
 
 test("Admin_216. @API Endpoint validation for chat-settings-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/chat-settingsIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4799,15 +4790,15 @@ test("Admin_216. @API Endpoint validation for chat-settings-form", async ({ requ
 })
 
 test("Admin_218. @API Admin_chat-settings-save", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/chat-settings',
         {
-            data: jsonpath.Admin_chat_settings_save,
+            data: jsonpath2.Admin_chat_settings_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4835,14 +4826,14 @@ test("Admin_218. @API Admin_chat-settings-save", async ({ request }) => {
 })
 
 test("Admin_219. @API Admin chat-settings-save_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/chat-settings',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4857,15 +4848,15 @@ test("Admin_219. @API Admin chat-settings-save_validation of incorrect HTTP meth
 })
 
 test("Admin_220. @API Admin chat-settings-save_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/chat-settingsIGS',
         {
-            data: jsonpath.Admin_chat_settings_save,
+            data: jsonpath2.Admin_chat_settings_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4880,13 +4871,13 @@ test("Admin_220. @API Admin chat-settings-save_validation of invalid endpoint.",
 })
 
 test("Admin_221. @API Admin fetch the training_centre-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_centre',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4905,13 +4896,13 @@ test("Admin_221. @API Admin fetch the training_centre-form", async ({ request })
 })
 
 test("Admin_222. @API Endpoint validation for training_centre-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_centreIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4926,7 +4917,7 @@ test("Admin_222. @API Endpoint validation for training_centre-form", async ({ re
 })
 
 test("Admin_224. @API Admin_training_centre-save", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_centre',
@@ -4934,7 +4925,7 @@ test("Admin_224. @API Admin_training_centre-save", async ({ request }) => {
             data: jsonObject.Training_Center.Admin_training_centre_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4964,14 +4955,14 @@ test("Admin_224. @API Admin_training_centre-save", async ({ request }) => {
 })
 
 test("Admin_225. @API Admin training_centre-save_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/training_centre',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -4986,7 +4977,7 @@ test("Admin_225. @API Admin training_centre-save_validation of incorrect HTTP me
 })
 
 test("Admin_226. @API Admin training_centre-save_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_centreIGS',
@@ -4994,7 +4985,7 @@ test("Admin_226. @API Admin training_centre-save_validation of invalid endpoint.
             data: jsonObject.Training_Center.Admin_training_centre_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5009,13 +5000,13 @@ test("Admin_226. @API Admin training_centre-save_validation of invalid endpoint.
 })
 
 test("Admin_227. @API Admin fetch the training_centre-edit-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_centre/1',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5034,13 +5025,13 @@ test("Admin_227. @API Admin fetch the training_centre-edit-form", async ({ reque
 })
 
 test("Admin_228. @API Endpoint validation for training_centre-edit-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_centre/1/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5055,7 +5046,7 @@ test("Admin_228. @API Endpoint validation for training_centre-edit-form", async 
 })
 
 test("Admin_230. @API Admin_training_centre-update", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_centre/' + training_center__id,
@@ -5063,7 +5054,7 @@ test("Admin_230. @API Admin_training_centre-update", async ({ request }) => {
             data: jsonObject.Training_Center.Admin_training_centre_update,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5091,14 +5082,14 @@ test("Admin_230. @API Admin_training_centre-update", async ({ request }) => {
 })
 
 test("Admin_231. @API Admin training_centre-update_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.put(baseURL + '/admin-api/v1/training_centre/' + training_center__id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5113,7 +5104,7 @@ test("Admin_231. @API Admin training_centre-update_validation of incorrect HTTP 
 })
 
 test("Admin_232. @API Admin training_centre-update_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_centre/' + training_center__id + '/IGS',
@@ -5121,7 +5112,7 @@ test("Admin_232. @API Admin training_centre-update_validation of invalid endpoin
             data: jsonObject.Training_Center.Admin_training_centre_update,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5136,14 +5127,14 @@ test("Admin_232. @API Admin training_centre-update_validation of invalid endpoin
 })
 
 test("Admin_233. @API Admin_training_centres-list", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_centres',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5163,14 +5154,14 @@ test("Admin_233. @API Admin_training_centres-list", async ({ request }) => {
 })
 
 test("Admin_234. @API Admin training_centres-list_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_centres',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5185,14 +5176,14 @@ test("Admin_234. @API Admin training_centres-list_validation of incorrect HTTP m
 })
 
 test("Admin_235. @API Admin training_centres-list_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_centresIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5207,13 +5198,13 @@ test("Admin_235. @API Admin training_centres-list_validation of invalid endpoint
 })
 
 test("Admin_236. @API Admin fetch the training_centres-filters", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/filters/training_centres',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5232,13 +5223,13 @@ test("Admin_236. @API Admin fetch the training_centres-filters", async ({ reques
 })
 
 test("Admin_237. @API Endpoint validation for training_centres-filters", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/filters/training_centresIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5253,14 +5244,14 @@ test("Admin_237. @API Endpoint validation for training_centres-filters", async (
 })
 
 test("Admin_240. @API Admin training_centres-search_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_centres',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5275,7 +5266,7 @@ test("Admin_240. @API Admin training_centres-search_validation of incorrect HTTP
 })
 
 test("Admin_241. @API Admin training_centres-search_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_centresIGS',
@@ -5283,7 +5274,7 @@ test("Admin_241. @API Admin training_centres-search_validation of invalid endpoi
             data: jsonObject.Training_Center.Admin_training_centres_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5298,14 +5289,14 @@ test("Admin_241. @API Admin training_centres-search_validation of invalid endpoi
 })
 
 test("Admin_243. @API Admin training_centres-filter-search_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_centres',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5320,7 +5311,7 @@ test("Admin_243. @API Admin training_centres-filter-search_validation of incorre
 })
 
 test("Admin_244. @API Admin training_centres-filter-search_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_centresIGS',
@@ -5328,7 +5319,7 @@ test("Admin_244. @API Admin training_centres-filter-search_validation of invalid
             data: jsonObject.Training_Center.Admin_training_centres_filter_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5343,7 +5334,7 @@ test("Admin_244. @API Admin training_centres-filter-search_validation of invalid
 })
 
 test("Admin_245. @API Admin_training_centre-custom-filter-save", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_centre-custom-filter',
@@ -5351,7 +5342,7 @@ test("Admin_245. @API Admin_training_centre-custom-filter-save", async ({ reques
             data: jsonObject.Training_Center.Admin_training_centre_custom_filter_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5379,14 +5370,14 @@ test("Admin_245. @API Admin_training_centre-custom-filter-save", async ({ reques
 })
 
 test("Admin_246. @API Admin training_centre-custom-filter-save_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_centre-custom-filter',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5401,7 +5392,7 @@ test("Admin_246. @API Admin training_centre-custom-filter-save_validation of inc
 })
 
 test("Admin_247. @API Admin training_centre-custom-filter-save-search_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_centre-custom-filterIGS',
@@ -5409,7 +5400,7 @@ test("Admin_247. @API Admin training_centre-custom-filter-save-search_validation
             data: jsonObject.Training_Center.Admin_training_centre_custom_filter_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5424,14 +5415,14 @@ test("Admin_247. @API Admin training_centre-custom-filter-save-search_validation
 })
 
 test("Admin_249. @API Admin training_centres-field-column-show and hide_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_centres',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5446,15 +5437,15 @@ test("Admin_249. @API Admin training_centres-field-column-show and hide_validati
 })
 
 test("Admin_250. @API Admin training_centres-field-column-show and hide_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_centresIGS',
         {
-            data: jsonpath.Admin_training_centres_field_column_show_and_hide,
+            data: jsonpath2.Admin_training_centres_field_column_show_and_hide,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5469,14 +5460,14 @@ test("Admin_250. @API Admin training_centres-field-column-show and hide_validati
 })
 
 test("Admin_252. @API Admin training_centres-pagination_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_centres?page=2',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5491,15 +5482,15 @@ test("Admin_252. @API Admin training_centres-pagination_validation of incorrect 
 })
 
 test("Admin_253. @API Admin training_centres-pagination_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_centresIGS?page=2',
         {
-            data: jsonpath.Admin_training_centres_pagination,
+            data: jsonpath2.Admin_training_centres_pagination,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5514,13 +5505,13 @@ test("Admin_253. @API Admin training_centres-pagination_validation of invalid en
 })
 
 test("Admin_254. @API Admin fetch the deactivate_training_centre", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/deactivate_training_centre/' + training_center__id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5539,13 +5530,13 @@ test("Admin_254. @API Admin fetch the deactivate_training_centre", async ({ requ
 })
 
 test("Admin_255. @API Endpoint validation for deactivate_training_centre", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/deactivate_training_centre/' + training_center__id + '/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5560,13 +5551,13 @@ test("Admin_255. @API Endpoint validation for deactivate_training_centre", async
 })
 
 test("Admin_257. @API Admin fetch the activate_training_centre", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/activate_training_centre/' + training_center__id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5585,13 +5576,13 @@ test("Admin_257. @API Admin fetch the activate_training_centre", async ({ reques
 })
 
 test("Admin_258. @API Endpoint validation for activate_training_centre", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/activate_training_centre/' + training_center__id + '/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5606,13 +5597,13 @@ test("Admin_258. @API Endpoint validation for activate_training_centre", async (
 })
 
 test("Admin_260. @API Admin fetch the training_centre-delete", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/training_centre/' + training_center__id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5631,13 +5622,13 @@ test("Admin_260. @API Admin fetch the training_centre-delete", async ({ request 
 })
 
 test("Admin_261. @API Endpoint validation for training_centre-delete", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/training_centre/' + training_center__id + '/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5652,13 +5643,13 @@ test("Admin_261. @API Endpoint validation for training_centre-delete", async ({ 
 })
 
 test("Admin_263. @API Admin fetch the training_site-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_site',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5677,13 +5668,13 @@ test("Admin_263. @API Admin fetch the training_site-form", async ({ request }) =
 })
 
 test("Admin_264. @API Endpoint validation for training_site-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_siteIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5698,7 +5689,7 @@ test("Admin_264. @API Endpoint validation for training_site-form", async ({ requ
 })
 
 test("Admin_266. @API Admin_training_site-save", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_site',
@@ -5706,7 +5697,7 @@ test("Admin_266. @API Admin_training_site-save", async ({ request }) => {
             data: jsonObject.Training_Site.Admin_training_site_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5736,14 +5727,14 @@ test("Admin_266. @API Admin_training_site-save", async ({ request }) => {
 })
 
 test("Admin_267. @API Admin training_site-save_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/training_site',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5758,7 +5749,7 @@ test("Admin_267. @API Admin training_site-save_validation of incorrect HTTP meth
 })
 
 test("Admin_268. @API Admin training_site-save_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_siteIGS',
@@ -5766,7 +5757,7 @@ test("Admin_268. @API Admin training_site-save_validation of invalid endpoint.",
             data: jsonObject.Training_Site.Admin_training_site_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5781,13 +5772,13 @@ test("Admin_268. @API Admin training_site-save_validation of invalid endpoint.",
 })
 
 test("Admin_269. @API Admin fetch the training_site-edit-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_site/' + training_site_id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5806,13 +5797,13 @@ test("Admin_269. @API Admin fetch the training_site-edit-form", async ({ request
 })
 
 test("Admin_270. @API Endpoint validation for training_site-edit-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_site/' + training_site_id + '/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5827,14 +5818,14 @@ test("Admin_270. @API Endpoint validation for training_site-edit-form", async ({
 })
 
 test("Admin_272. @API Admin_training_sites-list", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_sites',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5854,14 +5845,14 @@ test("Admin_272. @API Admin_training_sites-list", async ({ request }) => {
 })
 
 test("Admin_273. @API Admin training_sites-list_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_sites',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5876,14 +5867,14 @@ test("Admin_273. @API Admin training_sites-list_validation of incorrect HTTP met
 })
 
 test("Admin_274. @API Admin training_sites-list_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_sitesIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5898,14 +5889,14 @@ test("Admin_274. @API Admin training_sites-list_validation of invalid endpoint."
 })
 
 test("Admin_276. @API Admin training_sites-search_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_sites',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5920,7 +5911,7 @@ test("Admin_276. @API Admin training_sites-search_validation of incorrect HTTP m
 })
 
 test("Admin_277. @API Admin training_sites-search_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_sitesIGS',
@@ -5928,7 +5919,7 @@ test("Admin_277. @API Admin training_sites-search_validation of invalid endpoint
             data: jsonObject.Training_Site.Admin_training_site_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5943,14 +5934,14 @@ test("Admin_277. @API Admin training_sites-search_validation of invalid endpoint
 })
 
 test("Admin_279. @API Admin training_sites-filter-search_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_sites',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5965,7 +5956,7 @@ test("Admin_279. @API Admin training_sites-filter-search_validation of incorrect
 })
 
 test("Admin_280. @API Admin training_sites-filter-search_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_sitesIGS',
@@ -5973,7 +5964,7 @@ test("Admin_280. @API Admin training_sites-filter-search_validation of invalid e
             data: jsonObject.Training_Site.Admin_training_site_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -5988,7 +5979,7 @@ test("Admin_280. @API Admin training_sites-filter-search_validation of invalid e
 })
 
 test("Admin_281. @API Admin_training_site-custom-filter-save", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_site-custom-filter',
@@ -5996,7 +5987,7 @@ test("Admin_281. @API Admin_training_site-custom-filter-save", async ({ request 
             data: jsonObject.Training_Site.Admin_training_site_custom_filter_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6024,14 +6015,14 @@ test("Admin_281. @API Admin_training_site-custom-filter-save", async ({ request 
 })
 
 test("Admin_282. @API Admin training_site-custom-filter-save_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_site-custom-filter',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6046,7 +6037,7 @@ test("Admin_282. @API Admin training_site-custom-filter-save_validation of incor
 })
 
 test("Admin_283. @API Admin training_site-custom-filter-save_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_site-custom-filterIGS',
@@ -6054,7 +6045,7 @@ test("Admin_283. @API Admin training_site-custom-filter-save_validation of inval
             data: jsonObject.Training_Site.Admin_training_site_custom_filter_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6069,14 +6060,14 @@ test("Admin_283. @API Admin training_site-custom-filter-save_validation of inval
 })
 
 test("Admin_285. @API Admin training_sites-field-cloumn-hide and show_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_sites',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6091,15 +6082,15 @@ test("Admin_285. @API Admin training_sites-field-cloumn-hide and show_validation
 })
 
 test("Admin_286. @API Admin training_sites-field-cloumn-hide and show_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_sitesIGS',
         {
-            data: jsonpath.Admin_training_sites_field_cloumn_hide_and_show,
+            data: jsonpath2.Admin_training_sites_field_cloumn_hide_and_show,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6114,14 +6105,14 @@ test("Admin_286. @API Admin training_sites-field-cloumn-hide and show_validation
 })
 
 test("Admin_288. @API Admin training_sites-pagination_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_sites?page=2',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6136,15 +6127,15 @@ test("Admin_288. @API Admin training_sites-pagination_validation of incorrect HT
 })
 
 test("Admin_289. @API Admin training_sites-pagination_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_sitesIGS?page=2',
         {
-            data: jsonpath.Admin_training_sites_pagination,
+            data: jsonpath2.Admin_training_sites_pagination,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6159,13 +6150,13 @@ test("Admin_289. @API Admin training_sites-pagination_validation of invalid endp
 })
 
 test("Admin_290. @API Admin fetch the deactivate_training_site", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/deactivate_training_site/' + training_site_id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6184,13 +6175,13 @@ test("Admin_290. @API Admin fetch the deactivate_training_site", async ({ reques
 })
 
 test("Admin_291. @API Endpoint validation for deactivate_training_site", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/deactivate_training_site/' + training_site_id + '/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6205,13 +6196,13 @@ test("Admin_291. @API Endpoint validation for deactivate_training_site", async (
 })
 
 test("Admin_293. @API Admin fetch the activate_training_site", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/activate_training_site/' + training_site_id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6230,13 +6221,13 @@ test("Admin_293. @API Admin fetch the activate_training_site", async ({ request 
 })
 
 test("Admin_294. @API Endpoint validation for activate_training_site", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/activate_training_site/' + training_site_id + '/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6251,13 +6242,13 @@ test("Admin_294. @API Endpoint validation for activate_training_site", async ({ 
 })
 
 test("Admin_296. @API Admin fetch the training_site-delete", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/training_site/' + training_site_id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6276,13 +6267,13 @@ test("Admin_296. @API Admin fetch the training_site-delete", async ({ request })
 })
 
 test("Admin_297. @API Endpoint validation for training_site-delete", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/training_site/' + training_site_id + '/IGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6297,7 +6288,7 @@ test("Admin_297. @API Endpoint validation for training_site-delete", async ({ re
 })
 
 test("Admin_299. @API Admin_save-grade-scale", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-grade-scale',
@@ -6305,7 +6296,7 @@ test("Admin_299. @API Admin_save-grade-scale", async ({ request }) => {
             data: jsonObject.Grade_Scale.Admin_save_grade_scale,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6333,14 +6324,14 @@ test("Admin_299. @API Admin_save-grade-scale", async ({ request }) => {
 })
 
 test("Admin_300. @API Admin save-grade-scale_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/save-grade-scale',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6355,7 +6346,7 @@ test("Admin_300. @API Admin save-grade-scale_validation of incorrect HTTP method
 })
 
 test("Admin_301. @API Admin save-grade-scale_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-grade-scaleIGS',
@@ -6363,7 +6354,7 @@ test("Admin_301. @API Admin save-grade-scale_validation of invalid endpoint.", a
             data: jsonObject.Grade_Scale.Admin_save_grade_scale,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6378,7 +6369,7 @@ test("Admin_301. @API Admin save-grade-scale_validation of invalid endpoint.", a
 })
 
 test("Admin_314. @API Admin_grade-scale-search", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-scale',
@@ -6386,7 +6377,7 @@ test("Admin_314. @API Admin_grade-scale-search", async ({ request }) => {
             data: jsonObject.Grade_Scale.Admin_grade_scale_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6409,14 +6400,14 @@ test("Admin_314. @API Admin_grade-scale-search", async ({ request }) => {
 })
 
 test("Admin_315. @API Admin grade-scale-search_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-scale',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6431,7 +6422,7 @@ test("Admin_315. @API Admin grade-scale-search_validation of incorrect HTTP meth
 })
 
 test("Admin_316. @API Admin grade-scale-search_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-scaleIGS',
@@ -6439,7 +6430,7 @@ test("Admin_316. @API Admin grade-scale-search_validation of invalid endpoint.",
             data: jsonObject.Grade_Scale.Admin_grade_scale_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6454,7 +6445,7 @@ test("Admin_316. @API Admin grade-scale-search_validation of invalid endpoint.",
 })
 
 test("Admin_302. @API Admin_grade-scale-edit-form", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/manage-grade-scale',
@@ -6464,7 +6455,7 @@ test("Admin_302. @API Admin_grade-scale-edit-form", async ({ request }) => {
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6484,14 +6475,14 @@ test("Admin_302. @API Admin_grade-scale-edit-form", async ({ request }) => {
 })
 
 test("Admin_303. @API Admin grade-scale-edit-form_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/manage-grade-scale',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6506,7 +6497,7 @@ test("Admin_303. @API Admin grade-scale-edit-form_validation of incorrect HTTP m
 })
 
 test("Admin_304. @API Admin grade-scale-edit-form_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/manage-grade-scaleIGS',
@@ -6516,7 +6507,7 @@ test("Admin_304. @API Admin grade-scale-edit-form_validation of invalid endpoint
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6531,7 +6522,7 @@ test("Admin_304. @API Admin grade-scale-edit-form_validation of invalid endpoint
 })
 
 test("Admin_305. @API Admin_save-grade-scale", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-grade-scale',
@@ -6559,7 +6550,7 @@ test("Admin_305. @API Admin_save-grade-scale", async ({ request }) => {
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6587,14 +6578,14 @@ test("Admin_305. @API Admin_save-grade-scale", async ({ request }) => {
 })
 
 test("Admin_306. @API Admin save-grade-scale_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/save-grade-scale',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6609,7 +6600,7 @@ test("Admin_306. @API Admin save-grade-scale_validation of incorrect HTTP method
 })
 
 test("Admin_307. @API Admin save-grade-scale_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-grade-scaleIGS',
@@ -6637,7 +6628,7 @@ test("Admin_307. @API Admin save-grade-scale_validation of invalid endpoint.", a
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6652,15 +6643,15 @@ test("Admin_307. @API Admin save-grade-scale_validation of invalid endpoint.", a
 })
 
 test("Admin_308. @API Admin_grade-scale-list", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-scale',
         {
-            data: jsonpath.Admin_grade_scale_list,
+            data: jsonpath2.Admin_grade_scale_list,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6680,14 +6671,14 @@ test("Admin_308. @API Admin_grade-scale-list", async ({ request }) => {
 })
 
 test("Admin_309. @API Admin grade-scale-list_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-scale',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6702,15 +6693,15 @@ test("Admin_309. @API Admin grade-scale-list_validation of incorrect HTTP method
 })
 
 test("Admin_310. @API Admin grade-scale-list_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-scaleIGS',
         {
-            data: jsonpath.Admin_grade_scale_list,
+            data: jsonpath2.Admin_grade_scale_list,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6725,13 +6716,13 @@ test("Admin_310. @API Admin grade-scale-list_validation of invalid endpoint.", a
 })
 
 test("Admin_311. @API Admin fetch the grade-scale-filters", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-scale-filters',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6750,13 +6741,13 @@ test("Admin_311. @API Admin fetch the grade-scale-filters", async ({ request }) 
 })
 
 test("Admin_312. @API Endpoint validation for grade-scale-filters", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-scale-filtersIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6771,7 +6762,7 @@ test("Admin_312. @API Endpoint validation for grade-scale-filters", async ({ req
 })
 
 test("Admin_317. @API Admin_grade-scale-filter-search", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-scale',
@@ -6779,7 +6770,7 @@ test("Admin_317. @API Admin_grade-scale-filter-search", async ({ request }) => {
             data: jsonObject.Grade_Scale.Admin_grade_scale_filter_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6799,14 +6790,14 @@ test("Admin_317. @API Admin_grade-scale-filter-search", async ({ request }) => {
 })
 
 test("Admin_318. @API Admin grade-scale-filter-search_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-scale',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6821,7 +6812,7 @@ test("Admin_318. @API Admin grade-scale-filter-search_validation of incorrect HT
 })
 
 test("Admin_319. @API Admin grade-scale-filter-search_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-scaleIGS',
@@ -6829,7 +6820,7 @@ test("Admin_319. @API Admin grade-scale-filter-search_validation of invalid endp
             data: jsonObject.Grade_Scale.Admin_grade_scale_filter_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6844,7 +6835,7 @@ test("Admin_319. @API Admin grade-scale-filter-search_validation of invalid endp
 })
 
 test("Admin_320. @API Admin_grade-scale-custom-filter-save", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-scale-custom-filter',
@@ -6852,7 +6843,7 @@ test("Admin_320. @API Admin_grade-scale-custom-filter-save", async ({ request })
             data: jsonObject.Grade_Scale.Admin_grade_scale_custom_filter_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6880,14 +6871,14 @@ test("Admin_320. @API Admin_grade-scale-custom-filter-save", async ({ request })
 })
 
 test("Admin_321. @API Admin grade-scale-custom-filter-save_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-scale-custom-filter',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6902,7 +6893,7 @@ test("Admin_321. @API Admin grade-scale-custom-filter-save_validation of incorre
 })
 
 test("Admin_322. @API Admin grade-scale-custom-filter-save_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-scale-custom-filterIGS',
@@ -6910,7 +6901,7 @@ test("Admin_322. @API Admin grade-scale-custom-filter-save_validation of invalid
             data: jsonObject.Grade_Scale.Admin_grade_scale_custom_filter_save,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6925,15 +6916,15 @@ test("Admin_322. @API Admin grade-scale-custom-filter-save_validation of invalid
 })
 
 test("Admin_323. @API Admin_grade-scale-field-column-hide", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-scale',
         {
-            data: jsonpath.Admin_grade_scale_field_column_hide,
+            data: jsonpath2.Admin_grade_scale_field_column_hide,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6953,14 +6944,14 @@ test("Admin_323. @API Admin_grade-scale-field-column-hide", async ({ request }) 
 })
 
 test("Admin_324. @API Admin grade-scale-field-column-hide_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-scale',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6975,15 +6966,15 @@ test("Admin_324. @API Admin grade-scale-field-column-hide_validation of incorrec
 })
 
 test("Admin_325. @API Admin grade-scale-field-column-hide_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-scaleIGS',
         {
-            data: jsonpath.Admin_grade_scale_field_column_hide,
+            data: jsonpath2.Admin_grade_scale_field_column_hide,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -6998,15 +6989,15 @@ test("Admin_325. @API Admin grade-scale-field-column-hide_validation of invalid 
 })
 
 test("Admin_326. @API Admin_grade-scale-pagination", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-scale?page=2',
         {
-            data: jsonpath.Admin_grade_scale_pagination,
+            data: jsonpath2.Admin_grade_scale_pagination,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7026,14 +7017,14 @@ test("Admin_326. @API Admin_grade-scale-pagination", async ({ request }) => {
 })
 
 test("Admin_327. @API Admin grade-scale-pagination_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-scale?page=2',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7048,15 +7039,15 @@ test("Admin_327. @API Admin grade-scale-pagination_validation of incorrect HTTP 
 })
 
 test("Admin_328. @API Admin grade-scale-pagination_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-scaleIGS?page=2',
         {
-            data: jsonpath.Admin_grade_scale_pagination,
+            data: jsonpath2.Admin_grade_scale_pagination,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7071,7 +7062,7 @@ test("Admin_328. @API Admin grade-scale-pagination_validation of invalid endpoin
 })
 
 test("Admin_329. @API Admin_duplicate-grade-scale", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/duplicate-grade-scale?gradeScaleId=' + grade_scale_id,
@@ -7079,7 +7070,7 @@ test("Admin_329. @API Admin_duplicate-grade-scale", async ({ request }) => {
             data: {},
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7099,14 +7090,14 @@ test("Admin_329. @API Admin_duplicate-grade-scale", async ({ request }) => {
 })
 
 test("Admin_330. @API Admin duplicate-grade-scale_validation of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/duplicate-grade-scale?gradeScaleId=' + grade_scale_id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7121,7 +7112,7 @@ test("Admin_330. @API Admin duplicate-grade-scale_validation of incorrect HTTP m
 })
 
 test("Admin_331. @API Admin duplicate-grade-scale_validation of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/duplicate-grade-scaleIGS?gradeScaleId=' + grade_scale_id,
@@ -7129,7 +7120,7 @@ test("Admin_331. @API Admin duplicate-grade-scale_validation of invalid endpoint
             data: {},
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7144,7 +7135,7 @@ test("Admin_331. @API Admin duplicate-grade-scale_validation of invalid endpoint
 })
 
 test("Admin_332. @API Admin duplicate-grade-scale_validation of invalid grade scale id", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/duplicate-grade-scale?gradeScaleId=' + grade_scale_id + 'igs',
@@ -7152,7 +7143,7 @@ test("Admin_332. @API Admin duplicate-grade-scale_validation of invalid grade sc
             data: {},
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7167,15 +7158,15 @@ test("Admin_332. @API Admin duplicate-grade-scale_validation of invalid grade sc
 })
 
 test("Admin_522. @API Admin add the user and save_validate invalid_userId", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user-contact/' + UserId + 'abs',
         {
-            data: jsonpath.Admin_add_user_address_save.body,
+            data: jsonpath2.Admin_add_user_address_save.body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7190,7 +7181,7 @@ test("Admin_522. @API Admin add the user and save_validate invalid_userId", asyn
 })
 
 test("Admin_525. @API Admin_roles-list-search_empty access token", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/roles',
@@ -7198,7 +7189,7 @@ test("Admin_525. @API Admin_roles-list-search_empty access token", async ({ requ
             data: jsonObject.Admin_Role.Admin_roles_list_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": ""
             }
         });
@@ -7218,14 +7209,14 @@ test("Admin_525. @API Admin_roles-list-search_empty access token", async ({ requ
 })
 
 test("Admin_526. @API Admin fetch the user-activities-filter_invalid access token", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/filters/useractivities',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token + "IGS"
             }
         });
@@ -7245,14 +7236,14 @@ test("Admin_526. @API Admin fetch the user-activities-filter_invalid access toke
 })
 
 test("Admin_527. @API Admin fetch the email-template-edit-form_invalid access token", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/email-template/' + email_template_id + '/form',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token + "IGS"
             }
         });
@@ -7272,14 +7263,14 @@ test("Admin_527. @API Admin fetch the email-template-edit-form_invalid access to
 })
 
 test("Admin_528. @API Admin fetch the email-template-create-form_invalid access token", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/email-template/form',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token + "IGS"
             }
         });
@@ -7299,14 +7290,14 @@ test("Admin_528. @API Admin fetch the email-template-create-form_invalid access 
 })
 
 test("Admin_529. @API Admin fetch the email-template-filter-list_invalid access token", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/getemailtemplatefilter',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token + "IGS"
             }
         });
@@ -7326,14 +7317,14 @@ test("Admin_529. @API Admin fetch the email-template-filter-list_invalid access 
 })
 
 test("Admin_530. @API Admin fetch the duplicate-dashboard_invalid access token", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/duplicatedashboard/1',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token + "IGS"
             }
         });
@@ -7353,14 +7344,14 @@ test("Admin_530. @API Admin fetch the duplicate-dashboard_invalid access token",
 })
 
 test("Admin_531. @API Admin fetch the delete-dashboard_invalid access token", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/deletedashboard/' + dashboard_id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token + "IGS"
             }
         });
@@ -7380,14 +7371,14 @@ test("Admin_531. @API Admin fetch the delete-dashboard_invalid access token", as
 })
 
 test("Admin_532. @API Admin fetch the chat-settings-form_invalid access token", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/chat-settings',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token + "IGS"
             }
         });
@@ -7407,14 +7398,14 @@ test("Admin_532. @API Admin fetch the chat-settings-form_invalid access token", 
 })
 
 test("Admin_533. @API Admin fetch the training_centre-form_invalid access token", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_centre',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token + "IGS"
             }
         });
@@ -7434,14 +7425,14 @@ test("Admin_533. @API Admin fetch the training_centre-form_invalid access token"
 })
 
 test("Admin_534. @API Admin fetch the training_centre-edit-form_invalid access token", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_centre/1',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token + "IGS"
             }
         });
@@ -7461,14 +7452,14 @@ test("Admin_534. @API Admin fetch the training_centre-edit-form_invalid access t
 })
 
 test("Admin_535. @API Admin fetch the training_centres-filters_invalid access token", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/filters/training_centres',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token + "IGS"
             }
         });
@@ -7488,14 +7479,14 @@ test("Admin_535. @API Admin fetch the training_centres-filters_invalid access to
 })
 
 test("Admin_536. @API Admin fetch the deactivate_training_centre_invalid access token", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/deactivate_training_centre/' + training_center__id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token + "IGS"
             }
         });
@@ -7515,14 +7506,14 @@ test("Admin_536. @API Admin fetch the deactivate_training_centre_invalid access 
 })
 
 test("Admin_537. @API Admin fetch the activate_training_centre_invali access token", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/activate_training_centre/' + training_center__id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token + "IGS"
             }
         });
@@ -7542,14 +7533,14 @@ test("Admin_537. @API Admin fetch the activate_training_centre_invali access tok
 })
 
 test("Admin_538. @API Admin fetch the training_site-form_invalid access token", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_site',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token + "IGS"
             }
         });
@@ -7569,14 +7560,14 @@ test("Admin_538. @API Admin fetch the training_site-form_invalid access token", 
 })
 
 test("Admin_539. @API Admin fetch the grade-scale-filters_invalid access token", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-scale-filters',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token + "IGS"
             }
         });
@@ -7596,15 +7587,15 @@ test("Admin_539. @API Admin fetch the grade-scale-filters_invalid access token",
 })
 
 test("Admin_540. @API Admin verify  the save-auth-methods information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-auth-methods',
         {
-            data: jsonpath1.Common_Setting_Authentication_Simple_Authentication,
+            data: jsonpath2.Common_Setting_Authentication_Simple_Authentication,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7633,14 +7624,14 @@ test("Admin_540. @API Admin verify  the save-auth-methods information", async ({
 })
 
 test("Admin_541. @API Admin add  the  verify  the save-auth-methods of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/save-auth-methods',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7655,15 +7646,15 @@ test("Admin_541. @API Admin add  the  verify  the save-auth-methods of incorrect
 })
 
 test("Admin_542. @API Admin add the  verify  the save-auth-methods  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-auth-methodsIGS',
         {
-            data: jsonpath.Common_Setting_Authentication_Simple_Authentication,
+            data: jsonpath2.Common_Setting_Authentication_Simple_Authentication,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7678,13 +7669,13 @@ test("Admin_542. @API Admin add the  verify  the save-auth-methods  of invalid e
 })
 
 test("Admin_543. @API To verify the AuthMethods-list-simple aut  informations", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/getAuthMethods',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7703,13 +7694,13 @@ test("Admin_543. @API To verify the AuthMethods-list-simple aut  informations", 
 })
 
 test("Admin_544. @API To verify the response when passing an invalid endpoint for AuthMethods-list-simple aut.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/getAuthMethodsIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7724,14 +7715,14 @@ test("Admin_544. @API To verify the response when passing an invalid endpoint fo
 })
 
 test("Admin_545. @API To verify the response when passing empty access token for AuthMethods-list-simple aut.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/getAuthMethods',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": ""
             }
         });
@@ -7751,13 +7742,13 @@ test("Admin_545. @API To verify the response when passing empty access token for
 })
 
 test("Admin_547. @API To verify the multifactor - auth - form  informations", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/multifactor-authentication',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7776,13 +7767,13 @@ test("Admin_547. @API To verify the multifactor - auth - form  informations", as
 })
 
 test("Admin_548. @API To verify the response of multifactor-auth-form  when passing an invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/multifactor-authenticationIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7797,14 +7788,14 @@ test("Admin_548. @API To verify the response of multifactor-auth-form  when pass
 })
 
 test("Admin_549. @API To verify the response of multifactor-auth-form when passing empty access token.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/multifactor-authentication',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": ""
             }
         });
@@ -7824,15 +7815,15 @@ test("Admin_549. @API To verify the response of multifactor-auth-form when passi
 })
 
 test("Admin_551. @API Admin verify  the save-auth-methods information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-auth-methods',
         {
-            data: jsonpath1.Comman_Setting_Authentication_Multi_factor_Auth,
+            data: jsonpath2.Comman_Setting_Authentication_Multi_factor_Auth,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7861,14 +7852,14 @@ test("Admin_551. @API Admin verify  the save-auth-methods information", async ({
 })
 
 test("Admin_552. @API Admin add  the  verify  the save-auth-methods of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/save-auth-methods',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7883,15 +7874,15 @@ test("Admin_552. @API Admin add  the  verify  the save-auth-methods of incorrect
 })
 
 test("Admin_553. @API Admin add the  verify  the save-auth-methods  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-auth-methodsIGS',
         {
-            data: jsonpath.Comman_Setting_Authentication_Multi_factor_Auth,
+            data: jsonpath2.Comman_Setting_Authentication_Multi_factor_Auth,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7906,13 +7897,13 @@ test("Admin_553. @API Admin add the  verify  the save-auth-methods  of invalid e
 })
 
 test("Admin_554. @API To verify the saml-auth-form  informations", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/saml-authentication',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7931,13 +7922,13 @@ test("Admin_554. @API To verify the saml-auth-form  informations", async ({ requ
 })
 
 test("Admin_555. @API To verify the response of saml-auth-form when passing an invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/saml-authenticationIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -7952,14 +7943,14 @@ test("Admin_555. @API To verify the response of saml-auth-form when passing an i
 })
 
 test("Admin_556. @API To verify the response of saml-auth-form when passing empty access token.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/saml-authentication',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": ""
             }
         });
@@ -7979,15 +7970,15 @@ test("Admin_556. @API To verify the response of saml-auth-form when passing empt
 })
 
 test("Admin_558. @API Admin verify  the save-auth-methods information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-auth-methods',
         {
-            data: jsonpath1.Comman_Setting_Authentication_Azure_saml,
+            data: jsonpath2.Comman_Setting_Authentication_Azure_saml,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8016,14 +8007,14 @@ test("Admin_558. @API Admin verify  the save-auth-methods information", async ({
 })
 
 test("Admin_559. @API Admin add  the  verify  the save-auth-methods of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/save-auth-methods',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8038,15 +8029,15 @@ test("Admin_559. @API Admin add  the  verify  the save-auth-methods of incorrect
 })
 
 test("Admin_560. @API Admin add the  verify  the save-auth-methods  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-auth-methodsIGS',
         {
-            data: jsonpath.Comman_Setting_Authentication_Azure_saml,
+            data: jsonpath2.Comman_Setting_Authentication_Azure_saml,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8061,13 +8052,13 @@ test("Admin_560. @API Admin add the  verify  the save-auth-methods  of invalid e
 })
 
 test("Admin_561. @API To verify the azure-open-auth-form informations", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/azure-authentication',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8086,13 +8077,13 @@ test("Admin_561. @API To verify the azure-open-auth-form informations", async ({
 })
 
 test("Admin_562. @API To verify the response of azure-open-auth-form when passing an invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/azure-authenticationIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8107,14 +8098,14 @@ test("Admin_562. @API To verify the response of azure-open-auth-form when passin
 })
 
 test("Admin_563. @API To verify the response of azure-open-auth-form when passing empty access token.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/azure-authentication',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": ""
             }
         });
@@ -8134,14 +8125,14 @@ test("Admin_563. @API To verify the response of azure-open-auth-form when passin
 })
 
 test("Admin_566. @API Admin add  the  verify  the save-auth-methods of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/save-auth-methods',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8156,15 +8147,15 @@ test("Admin_566. @API Admin add  the  verify  the save-auth-methods of incorrect
 })
 
 test("Admin_567. @API Admin add the  verify  the save-auth-methods  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-auth-methodsIGS',
         {
-            data: jsonpath.Comman_Setting_Authentication_Azure_Open,
+            data: jsonpath2.Comman_Setting_Authentication_Azure_Open,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8179,13 +8170,13 @@ test("Admin_567. @API Admin add the  verify  the save-auth-methods  of invalid e
 })
 
 test("Admin_568. @API To verify the portal-sso-auth-form informations", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/portal-sso-authentication',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8204,13 +8195,13 @@ test("Admin_568. @API To verify the portal-sso-auth-form informations", async ({
 })
 
 test("Admin_569. @API To verify the response of portal-sso-auth-form when passing an invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/portal-sso-authenticationIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8225,14 +8216,14 @@ test("Admin_569. @API To verify the response of portal-sso-auth-form when passin
 })
 
 test("Admin_570. @API To verify the response of portal-sso-auth-form when passing empty access token.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/portal-sso-authentication',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": ""
             }
         });
@@ -8252,15 +8243,15 @@ test("Admin_570. @API To verify the response of portal-sso-auth-form when passin
 })
 
 test("Admin_572. @API Admin verify  the save-auth-methods information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-auth-methods',
         {
-            data: jsonpath1.Comman_Setting_Authentication_portal_sso_auth,
+            data: jsonpath2.Comman_Setting_Authentication_portal_sso_auth,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8289,14 +8280,14 @@ test("Admin_572. @API Admin verify  the save-auth-methods information", async ({
 })
 
 test("Admin_573. @API Admin add  the  verify  the save-auth-methods of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/save-auth-methods',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8311,15 +8302,15 @@ test("Admin_573. @API Admin add  the  verify  the save-auth-methods of incorrect
 })
 
 test("Admin_574. @API Admin add the  verify  the save-auth-methods  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-auth-methodsIGS',
         {
-            data: jsonpath.Comman_Setting_Authentication_portal_sso_auth,
+            data: jsonpath2.Comman_Setting_Authentication_portal_sso_auth,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8334,15 +8325,15 @@ test("Admin_574. @API Admin add the  verify  the save-auth-methods  of invalid e
 })
 
 test("Admin_583. @API Admin verify  the grade-book-create-form  information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/manage-grade-book',
         {
-            data: jsonpath1.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create,
+            data: jsonpath2.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8362,14 +8353,14 @@ test("Admin_583. @API Admin verify  the grade-book-create-form  information", as
 })
 
 test("Admin_584. @API Admin add  the  verify  the grade-book-create-form  of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/manage-grade-book',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8384,15 +8375,15 @@ test("Admin_584. @API Admin add  the  verify  the grade-book-create-form  of inc
 })
 
 test("Admin_585. @API Admin add the  verify  the grade-book-create-form  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/manage-grade-bookIGS',
         {
-            data: jsonpath.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create,
+            data: jsonpath2.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8407,15 +8398,15 @@ test("Admin_585. @API Admin add the  verify  the grade-book-create-form  of inva
 })
 
 test("Admin_592. @API Admin verify  the get-ExamSession information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/exam-registration-api/v2/getExamSession',
         {
-            data: jsonpath1.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_get_ExamSession,
+            data: jsonpath2.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_get_ExamSession,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8442,14 +8433,14 @@ test("Admin_592. @API Admin verify  the get-ExamSession information", async ({ r
 })
 
 test("Admin_593. @API Admin add  the  verify  the get-ExamSession of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/exam-registration-api/v2/getExamSession',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8464,15 +8455,15 @@ test("Admin_593. @API Admin add  the  verify  the get-ExamSession of incorrect H
 })
 
 test("Admin_594. @API Admin add the  verify  the get-ExamSession  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/exam-registration-api/v2/getExamSessionIGS',
         {
-            data: jsonpath.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_get_ExamSession,
+            data: jsonpath2.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_get_ExamSession,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8487,15 +8478,15 @@ test("Admin_594. @API Admin add the  verify  the get-ExamSession  of invalid end
 })
 
 test("Admin_586. @API Admin verify  the grade-book-create-form -exam-select  information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/manage-grade-book',
         {
-            data: jsonpath1.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_grade_book_create_form_exam_select,
+            data: jsonpath2.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_grade_book_create_form_exam_select,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8515,14 +8506,14 @@ test("Admin_586. @API Admin verify  the grade-book-create-form -exam-select  inf
 })
 
 test("Admin_587. @API Admin add  the  verify  the grade-book-create-form -exam-select  of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/manage-grade-book',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8537,15 +8528,15 @@ test("Admin_587. @API Admin add  the  verify  the grade-book-create-form -exam-s
 })
 
 test("Admin_588. @API Admin add the  verify  the grade-book-create-form -exam-select  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/manage-grade-bookIGS',
         {
-            data: jsonpath.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_grade_book_create_form_exam_select,
+            data: jsonpath2.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_grade_book_create_form_exam_select,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8560,15 +8551,15 @@ test("Admin_588. @API Admin add the  verify  the grade-book-create-form -exam-se
 })
 
 test("Admin_589. @API Admin verify  the grade-book-create-form session-select  information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/manage-grade-book',
         {
-            data: jsonpath1.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_grade_book_create_form_session_select,
+            data: jsonpath2.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_grade_book_create_form_session_select,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8588,14 +8579,14 @@ test("Admin_589. @API Admin verify  the grade-book-create-form session-select  i
 })
 
 test("Admin_590. @API Admin add  the  verify  the grade-book-create-form session-select of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/manage-grade-book',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8610,15 +8601,15 @@ test("Admin_590. @API Admin add  the  verify  the grade-book-create-form session
 })
 
 test("Admin_591. @API Admin add the  verify  the grade-book-create-form session-select  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/manage-grade-bookIGS',
         {
-            data: jsonpath.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_grade_book_create_form_session_select,
+            data: jsonpath2.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_grade_book_create_form_session_select,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8633,7 +8624,7 @@ test("Admin_591. @API Admin add the  verify  the grade-book-create-form session-
 })
 
 test("Admin_595. @API Admin verify  the save-grade-book information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-grade-book',
@@ -8641,7 +8632,7 @@ test("Admin_595. @API Admin verify  the save-grade-book information", async ({ r
             data: jsonObject.Grade_Book.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_save_grade_book,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8669,14 +8660,14 @@ test("Admin_595. @API Admin verify  the save-grade-book information", async ({ r
 })
 
 test("Admin_596. @API Admin add  the  verify  the save-grade-book of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/save-grade-book',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8691,7 +8682,7 @@ test("Admin_596. @API Admin add  the  verify  the save-grade-book of incorrect H
 })
 
 test("Admin_597. @API Admin add the  verify  the save-grade-book  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-grade-bookIGS',
@@ -8699,7 +8690,7 @@ test("Admin_597. @API Admin add the  verify  the save-grade-book  of invalid end
             data: jsonObject.Grade_Book.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_save_grade_book,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8714,15 +8705,15 @@ test("Admin_597. @API Admin add the  verify  the save-grade-book  of invalid end
 })
 
 test("Admin_598. @API Admin verify  the grade-book-list information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-book',
         {
-            data: jsonpath1.grade_book_list,
+            data: jsonpath2.grade_book_list,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8742,14 +8733,14 @@ test("Admin_598. @API Admin verify  the grade-book-list information", async ({ r
 })
 
 test("Admin_599. @API Admin add  the  verify  the grade-book-list  of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-book',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8764,15 +8755,15 @@ test("Admin_599. @API Admin add  the  verify  the grade-book-list  of incorrect 
 })
 
 test("Admin_600. @API Admin add the  verify  the grade-book-list  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-bookIGS',
         {
-            data: jsonpath1.grade_book_list,
+            data: jsonpath2.grade_book_list,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8787,13 +8778,13 @@ test("Admin_600. @API Admin add the  verify  the grade-book-list  of invalid end
 })
 
 test("Admin_601. @API To verify the grade-book-filters  informations", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-book-filters',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8812,13 +8803,13 @@ test("Admin_601. @API To verify the grade-book-filters  informations", async ({ 
 })
 
 test("Admin_602. @API To verify the grade-book-filters response when passing an invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-book-filtersIGS',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8833,14 +8824,14 @@ test("Admin_602. @API To verify the grade-book-filters response when passing an 
 })
 
 test("Admin_603. @API To verify grade-book-filters the response when passing empty access token.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-book-filters',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": ""
             }
         });
@@ -8860,7 +8851,7 @@ test("Admin_603. @API To verify grade-book-filters the response when passing emp
 })
 
 test("Admin_605. @API Admin verify  the grade-book-search information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-book',
@@ -8868,7 +8859,7 @@ test("Admin_605. @API Admin verify  the grade-book-search information", async ({
             data: jsonObject.Grade_Book.grade_book_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8890,14 +8881,14 @@ test("Admin_605. @API Admin verify  the grade-book-search information", async ({
 })
 
 test("Admin_606. @API Admin add  the  verify  the grade-book-search of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-book',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8912,7 +8903,7 @@ test("Admin_606. @API Admin add  the  verify  the grade-book-search of incorrect
 })
 
 test("Admin_607. @API Admin add the  verify  the grade-book-search  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-bookIGS',
@@ -8920,7 +8911,7 @@ test("Admin_607. @API Admin add the  verify  the grade-book-search  of invalid e
             data: jsonObject.Grade_Book.grade_book_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8935,7 +8926,7 @@ test("Admin_607. @API Admin add the  verify  the grade-book-search  of invalid e
 })
 
 test("Admin_575. @API Admin verify  the grade-book-edit-form  information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/manage-grade-book',
@@ -8946,7 +8937,7 @@ test("Admin_575. @API Admin verify  the grade-book-edit-form  information", asyn
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8966,7 +8957,7 @@ test("Admin_575. @API Admin verify  the grade-book-edit-form  information", asyn
 })
 
 test("Admin_576. @API Admin verify  the grade-book-edit-form  with empty gradebook ID", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/manage-grade-book',
@@ -8977,7 +8968,7 @@ test("Admin_576. @API Admin verify  the grade-book-edit-form  with empty gradebo
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -8992,7 +8983,7 @@ test("Admin_576. @API Admin verify  the grade-book-edit-form  with empty gradebo
 })
 
 test("Admin_577. @API Admin verify  the grade-book-edit-form  if invalid ID", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/manage-grade-book',
@@ -9003,7 +8994,7 @@ test("Admin_577. @API Admin verify  the grade-book-edit-form  if invalid ID", as
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9018,14 +9009,14 @@ test("Admin_577. @API Admin verify  the grade-book-edit-form  if invalid ID", as
 })
 
 test("Admin_578. @API Admin add  the  verify  the grade-book-edit-form of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/manage-grade-book',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9040,7 +9031,7 @@ test("Admin_578. @API Admin add  the  verify  the grade-book-edit-form of incorr
 })
 
 test("Admin_579. @API Admin add the  verify  the grade-book-edit-form  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/manage-grade-bookIGS',
@@ -9051,7 +9042,7 @@ test("Admin_579. @API Admin add the  verify  the grade-book-edit-form  of invali
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9066,7 +9057,7 @@ test("Admin_579. @API Admin add the  verify  the grade-book-edit-form  of invali
 })
 
 test("Admin_580. @API Admin verify  the grade-book-update information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-grade-book',
@@ -9198,7 +9189,7 @@ test("Admin_580. @API Admin verify  the grade-book-update information", async ({
             },
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9226,14 +9217,14 @@ test("Admin_580. @API Admin verify  the grade-book-update information", async ({
 })
 
 test("Admin_581. @API Admin add  the  verify  the grade-book-update of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/save-grade-book',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9248,7 +9239,7 @@ test("Admin_581. @API Admin add  the  verify  the grade-book-update of incorrect
 })
 
 test("Admin_582. @API Admin add the  verify  the grade-book-update  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-grade-bookIGS',
@@ -9256,7 +9247,7 @@ test("Admin_582. @API Admin add the  verify  the grade-book-update  of invalid e
             data: jsonObject.Grade_Book.Comman_Setting_Grade_Settings_Grade_Book_Grade_Create_save_grade_book,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9271,15 +9262,15 @@ test("Admin_582. @API Admin add the  verify  the grade-book-update  of invalid e
 })
 
 test("Admin_608. @API Admin verify  the grade-book-filter-search  information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-book',
         {
-            data: jsonpath1.grade_book_filter_search,
+            data: jsonpath2.grade_book_filter_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9297,14 +9288,14 @@ test("Admin_608. @API Admin verify  the grade-book-filter-search  information", 
 })
 
 test("Admin_609. @API Admin add  the  verify  the grade-book-filter-search of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-book',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9319,15 +9310,15 @@ test("Admin_609. @API Admin add  the  verify  the grade-book-filter-search of in
 })
 
 test("Admin_610. @API Admin add the  verify  the grade-book-filter-search  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-bookIGS',
         {
-            data: jsonpath1.grade_book_filter_search,
+            data: jsonpath2.grade_book_filter_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9342,14 +9333,14 @@ test("Admin_610. @API Admin add the  verify  the grade-book-filter-search  of in
 })
 
 test("Admin_611. @API Admin verify  the activate-grade-book  information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/activate-grade-book?gradeBookId=' + Grade_Book_Id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9377,14 +9368,14 @@ test("Admin_611. @API Admin verify  the activate-grade-book  information", async
 })
 
 test("Admin_612. @API Admin add  the  verify  the activate-grade-book  of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/activate-grade-book?gradeBookId=' + Grade_Book_Id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9399,14 +9390,14 @@ test("Admin_612. @API Admin add  the  verify  the activate-grade-book  of incorr
 })
 
 test("Admin_613. @API Admin add the  verify  the activate-grade-book  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/activate-grade-bookIGS?gradeBookId=' + Grade_Book_Id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9421,14 +9412,14 @@ test("Admin_613. @API Admin add the  verify  the activate-grade-book  of invalid
 })
 
 test("Admin_614. @API Admin verify  the deactivate-grade-book  information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/deactivate-grade-book?gradeBookId=' + Grade_Book_Id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9456,14 +9447,14 @@ test("Admin_614. @API Admin verify  the deactivate-grade-book  information", asy
 })
 
 test("Admin_615. @API Admin add  the  verify  the deactivate-grade-book  of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/deactivate-grade-book?gradeBookId=' + Grade_Book_Id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9478,14 +9469,14 @@ test("Admin_615. @API Admin add  the  verify  the deactivate-grade-book  of inco
 })
 
 test("Admin_616. @API Admin add the  verify  the deactivate-grade-book  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/deactivate-grade-bookIGS?gradeBookId=' + Grade_Book_Id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9500,15 +9491,15 @@ test("Admin_616. @API Admin add the  verify  the deactivate-grade-book  of inval
 })
 
 test("Admin_617. @API Admin verify  the grade-book-field-column-hide  information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-book?page=2',
         {
-            data: jsonpath1.grade_book_field_column_hide,
+            data: jsonpath2.grade_book_field_column_hide,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9526,14 +9517,14 @@ test("Admin_617. @API Admin verify  the grade-book-field-column-hide  informatio
 })
 
 test("Admin_618. @API Admin add  the  verify  the grade-book-field-column-hide of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-book?page=2',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9548,15 +9539,15 @@ test("Admin_618. @API Admin add  the  verify  the grade-book-field-column-hide o
 })
 
 test("Admin_619. @API Admin add the  verify  the grade-book-field-column-hide  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-bookIGS?page=2',
         {
-            data: jsonpath1.grade_book_field_column_hide,
+            data: jsonpath2.grade_book_field_column_hide,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9571,15 +9562,15 @@ test("Admin_619. @API Admin add the  verify  the grade-book-field-column-hide  o
 })
 
 test("Admin_620. @API Admin verify  the grade-book-pagination  information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-book?page=2',
         {
-            data: jsonpath1.grade_book_pagination,
+            data: jsonpath2.grade_book_pagination,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9597,14 +9588,14 @@ test("Admin_620. @API Admin verify  the grade-book-pagination  information", asy
 })
 
 test("Admin_621. @API Admin add  the  verify  the grade-book-pagination of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-book?page=2',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9619,15 +9610,15 @@ test("Admin_621. @API Admin add  the  verify  the grade-book-pagination of incor
 })
 
 test("Admin_622. @API Admin add the  verify  the grade-book-pagination  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-bookIGS?page=2',
         {
-            data: jsonpath1.grade_book_pagination,
+            data: jsonpath2.grade_book_pagination,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9642,7 +9633,7 @@ test("Admin_622. @API Admin add the  verify  the grade-book-pagination  of inval
 })
 
 test("Admin_623. @API Admin verify  the grade-book-custom-filter-save public or private  information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-book-custom-filter',
@@ -9650,7 +9641,7 @@ test("Admin_623. @API Admin verify  the grade-book-custom-filter-save public or 
             data: jsonObject.Grade_Book.grade_book_custom_filter_save_public_orprivate,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9678,14 +9669,14 @@ test("Admin_623. @API Admin verify  the grade-book-custom-filter-save public or 
 })
 
 test("Admin_624. @API Admin add  the  verify  the grade-book-custom-filter-save public or private of incorrect HTTP method", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-book-custom-filter',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9700,7 +9691,7 @@ test("Admin_624. @API Admin add  the  verify  the grade-book-custom-filter-save 
 })
 
 test("Admin_625. @API Admin add the  verify  the grade-book-custom-filter-save public or private  of invalid endpoint.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/grade-book-custom-filterIGS',
@@ -9708,7 +9699,7 @@ test("Admin_625. @API Admin add the  verify  the grade-book-custom-filter-save p
             data: jsonObject.Grade_Book.grade_book_custom_filter_save_public_orprivate,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -9723,13 +9714,13 @@ test("Admin_625. @API Admin add the  verify  the grade-book-custom-filter-save p
 })
 
 test("Admin_604. @API To verify the grade-book-filters response on passing invalid webreferer in the header field.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-book-filters',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -9744,7 +9735,6 @@ test("Admin_604. @API To verify the grade-book-filters response on passing inval
 })
 
 test("AL_001g. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -9772,13 +9762,13 @@ test("AL_001g. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_571. @API To verify the response of portal-sso-auth-form when passing invalid webreferer in the header field.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/portal-sso-authentication',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -9793,7 +9783,6 @@ test("Admin_571. @API To verify the response of portal-sso-auth-form when passin
 })
 
 test("AL_001f. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -9821,21 +9810,20 @@ test("AL_001f. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_565. @API Admin verify  the save-auth-methods information", async ({ request }) => {
-    jsonpath1 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/save-auth-methods',
         {
-            data: jsonpath1.Comman_Setting_Authentication_Azure_Open,
+            data: jsonpath2.Comman_Setting_Authentication_Azure_Open,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
     //Validation of response time
     verifyResponse.validateTime(jsonpath.responseDuration);
-    console.log(await response.json())
 
     //Status code validation
     expect(response.status()).toBe(200);
@@ -9858,7 +9846,6 @@ test("Admin_565. @API Admin verify  the save-auth-methods information", async ({
 })
 
 test("AL_001e. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -9886,13 +9873,13 @@ test("AL_001e. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_564. @API To verify the response of azure-open-auth-form when passing invalid webreferer in the header field.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/azure-authentication',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -9907,7 +9894,6 @@ test("Admin_564. @API To verify the response of azure-open-auth-form when passin
 })
 
 test("AL_001d. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -9935,13 +9921,13 @@ test("AL_001d. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_557. @API To verify the response of saml-auth-form on passing invalid webreferer in the header field.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/saml-authentication',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -9956,7 +9942,6 @@ test("Admin_557. @API To verify the response of saml-auth-form on passing invali
 })
 
 test("AL_001c. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -9984,13 +9969,13 @@ test("AL_001c. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_550. @API To verify the response of multifactor-auth-form when passing invalid webreferer in the header field.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/multifactor-authentication',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10004,7 +9989,6 @@ test("Admin_550. @API To verify the response of multifactor-auth-form when passi
     expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
 })
 test("AL_001b. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10032,13 +10016,13 @@ test("AL_001b. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_546. @API To verify the response on passing invalid webreferer in the header field for AuthMethods-list-simple aut.", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/getAuthMethods',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10053,7 +10037,6 @@ test("Admin_546. @API To verify the response on passing invalid webreferer in th
 })
 
 test("AL_001a. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10081,7 +10064,7 @@ test("AL_001a. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_520. @API Admin add the user-save_empty username,email and phone", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user',
@@ -10089,7 +10072,7 @@ test("Admin_520. @API Admin add the user-save_empty username,email and phone", a
             data: jsonObject.Admin_add_user_save.empty_username_email_password_body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10108,7 +10091,6 @@ test("Admin_520. @API Admin add the user-save_empty username,email and phone", a
 })
 
 test("AL_001Zz. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10136,7 +10118,7 @@ test("AL_001Zz. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_521. @API Admin add the user and save_empty first_name", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user',
@@ -10144,7 +10126,7 @@ test("Admin_521. @API Admin add the user and save_empty first_name", async ({ re
             data: jsonObject.Admin_add_user_save.empty_first_name_body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10163,7 +10145,6 @@ test("Admin_521. @API Admin add the user and save_empty first_name", async ({ re
 })
 
 test("AL_001Zy. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10191,7 +10172,7 @@ test("AL_001Zy. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_523. @API Admin_role-save_empty name", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/role',
@@ -10199,7 +10180,7 @@ test("Admin_523. @API Admin_role-save_empty name", async ({ request }) => {
             data: jsonObject.Admin_Role.Admin_role_save_empty_name,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10218,7 +10199,6 @@ test("Admin_523. @API Admin_role-save_empty name", async ({ request }) => {
 })
 
 test("AL_001Zxa. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10246,7 +10226,7 @@ test("AL_001Zxa. @API Admin Login Success with Mandatory Fields", async ({ reque
 })
 
 test("Admin_524. @API Admin_roles-list-search_invalid name", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/roles',
@@ -10254,7 +10234,7 @@ test("Admin_524. @API Admin_roles-list-search_invalid name", async ({ request })
             data: jsonObject.Admin_Role.Admin_roles_list_search_with_invalid_name,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10270,7 +10250,6 @@ test("Admin_524. @API Admin_roles-list-search_invalid name", async ({ request })
 })
 
 test("AL_001Zx. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10298,13 +10277,13 @@ test("AL_001Zx. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_313. @API Admin grade-scale-filters-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/grade-scale-filters',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10319,7 +10298,6 @@ test("Admin_313. @API Admin grade-scale-filters-Header field validation - invali
 })
 
 test("AL_001Zw. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10347,13 +10325,13 @@ test("AL_001Zw. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_298. @API Admin training_site-delete-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/training_site/' + training_site_id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10368,7 +10346,6 @@ test("Admin_298. @API Admin training_site-delete-Header field validation - inval
 })
 
 test("AL_001Zv. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10396,13 +10373,13 @@ test("AL_001Zv. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_295. @API Admin activate_training_site-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/activate_training_site/' + training_site_id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10417,7 +10394,6 @@ test("Admin_295. @API Admin activate_training_site-Header field validation - inv
 })
 
 test("AL_001Zu. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10445,13 +10421,13 @@ test("AL_001Zu. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_292. @API Admin deactivate_training_site-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/deactivate_training_site/' + training_site_id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10466,7 +10442,6 @@ test("Admin_292. @API Admin deactivate_training_site-Header field validation - i
 })
 
 test("AL_001Zt. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10494,15 +10469,15 @@ test("AL_001Zt. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_287. @API Admin_training_sites-pagination", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_sites?page=2',
         {
-            data: jsonpath.Admin_training_sites_pagination,
+            data: jsonpath2.Admin_training_sites_pagination,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10521,7 +10496,6 @@ test("Admin_287. @API Admin_training_sites-pagination", async ({ request }) => {
 })
 
 test("AL_001Zs. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10549,15 +10523,15 @@ test("AL_001Zs. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_284. @API Admin_training_sites-field-cloumn-hide and show", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_sites',
         {
-            data: jsonpath.Admin_training_sites_field_cloumn_hide_and_show,
+            data: jsonpath2.Admin_training_sites_field_cloumn_hide_and_show,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10576,7 +10550,6 @@ test("Admin_284. @API Admin_training_sites-field-cloumn-hide and show", async ({
 })
 
 test("AL_001Zr. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10604,7 +10577,7 @@ test("AL_001Zr. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_278. @API Admin_training_sites-filter-search", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_sites',
@@ -10612,7 +10585,7 @@ test("Admin_278. @API Admin_training_sites-filter-search", async ({ request }) =
             data: jsonObject.Training_Site.Admin_training_sites_filter_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10631,7 +10604,6 @@ test("Admin_278. @API Admin_training_sites-filter-search", async ({ request }) =
 })
 
 test("AL_001Zq. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10659,7 +10631,7 @@ test("AL_001Zq. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_275. @API Admin_training_sites-search", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_sites',
@@ -10667,7 +10639,7 @@ test("Admin_275. @API Admin_training_sites-search", async ({ request }) => {
             data: jsonObject.Training_Site.Admin_training_site_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10686,7 +10658,6 @@ test("Admin_275. @API Admin_training_sites-search", async ({ request }) => {
 })
 
 test("AL_001Zp. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10714,13 +10685,13 @@ test("AL_001Zp. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_271. @API Admin training_site-edit-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_site/' + training_site_id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10735,7 +10706,6 @@ test("Admin_271. @API Admin training_site-edit-form-Header field validation - in
 })
 
 test("AL_001Zo. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10763,13 +10733,13 @@ test("AL_001Zo. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_265. @API Admin training_site-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_site',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10784,7 +10754,6 @@ test("Admin_265. @API Admin training_site-form-Header field validation - invalid
 })
 
 test("AL_001Zn. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10812,13 +10781,13 @@ test("AL_001Zn. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_262. @API Admin training_centre-delete-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/training_centre/' + training_center__id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10833,7 +10802,6 @@ test("Admin_262. @API Admin training_centre-delete-Header field validation - inv
 })
 
 test("AL_001Zm. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10861,13 +10829,13 @@ test("AL_001Zm. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_259. @API Admin activate_training_centre-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/deactivate_training_centre/' + training_center__id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10882,7 +10850,6 @@ test("Admin_259. @API Admin activate_training_centre-Header field validation - i
 })
 
 test("AL_001Zl. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -10910,13 +10877,13 @@ test("AL_001Zl. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_256. @API Admin deactivate_training_centre-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/deactivate_training_centre/' + training_center__id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -10959,15 +10926,15 @@ test("AL_001Zk. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_251. @API Admin_training_centres-pagination", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_centres?page=2',
         {
-            data: jsonpath.Admin_training_centres_pagination,
+            data: jsonpath2.Admin_training_centres_pagination,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -10986,7 +10953,6 @@ test("Admin_251. @API Admin_training_centres-pagination", async ({ request }) =>
 })
 
 test("AL_001Zj. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11014,15 +10980,15 @@ test("AL_001Zj. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_248. @API Admin_training_centres-field-column-show and hide", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_centres',
         {
-            data: jsonpath.Admin_training_centres_field_column_show_and_hide,
+            data: jsonpath2.Admin_training_centres_field_column_show_and_hide,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -11041,7 +11007,6 @@ test("Admin_248. @API Admin_training_centres-field-column-show and hide", async 
 })
 
 test("AL_001Zi. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11069,7 +11034,7 @@ test("AL_001Zi. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_242. @API Admin_training_centres-filter-search", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_centres',
@@ -11077,7 +11042,7 @@ test("Admin_242. @API Admin_training_centres-filter-search", async ({ request })
             data: jsonObject.Training_Center.Admin_training_centres_filter_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -11096,7 +11061,6 @@ test("Admin_242. @API Admin_training_centres-filter-search", async ({ request })
 })
 
 test("AL_001Zh. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11124,7 +11088,7 @@ test("AL_001Zh. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_239. @API Admin_training_centres-search", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/training_centres',
@@ -11132,7 +11096,7 @@ test("Admin_239. @API Admin_training_centres-search", async ({ request }) => {
             data: jsonObject.Training_Center.Admin_training_centres_search,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.webreferer,
                 "authorization": token
             }
         });
@@ -11151,7 +11115,6 @@ test("Admin_239. @API Admin_training_centres-search", async ({ request }) => {
 })
 
 test("AL_001Zg. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11179,13 +11142,13 @@ test("AL_001Zg. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_238. @API Admin training_centres-filters-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/filters/training_centres',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11200,7 +11163,6 @@ test("Admin_238. @API Admin training_centres-filters-Header field validation - i
 })
 
 test("AL_001Zf. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11228,13 +11190,13 @@ test("AL_001Zf. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_229. @API Admin training_centre-edit-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_centre/1',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11249,7 +11211,6 @@ test("Admin_229. @API Admin training_centre-edit-form-Header field validation - 
 })
 
 test("AL_001Ze. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11277,13 +11238,13 @@ test("AL_001Ze. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_223. @API Admin training_centre-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/training_centre',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11298,7 +11259,6 @@ test("Admin_223. @API Admin training_centre-form-Header field validation - inval
 })
 
 test("AL_001Zd. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11326,13 +11286,13 @@ test("AL_001Zd. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_217. @API Admin chat-settings-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/chat-settings',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11347,7 +11307,6 @@ test("Admin_217. @API Admin chat-settings-form-Header field validation - invalid
 })
 
 test("AL_001Zc. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11375,13 +11334,13 @@ test("AL_001Zc. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_214. @API Admin delete-dashboard-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/deletedashboard/' + dashboard_id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11396,7 +11355,6 @@ test("Admin_214. @API Admin delete-dashboard-Header field validation - invalid",
 })
 
 test("AL_001Zb. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11424,13 +11382,13 @@ test("AL_001Zb. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_211. @API Admin duplicate-dashboard-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/duplicatedashboard/' + dashboard_id,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11445,7 +11403,6 @@ test("Admin_211. @API Admin duplicate-dashboard-Header field validation - invali
 })
 
 test("AL_001Za. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11473,13 +11430,13 @@ test("AL_001Za. @API Admin Login Success with Mandatory Fields", async ({ reques
 })
 
 test("Admin_203. @API Admin dashboard-list-status-change-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/dashboard/status/1/1',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11494,7 +11451,6 @@ test("Admin_203. @API Admin dashboard-list-status-change-Header field validation
 })
 
 test("AL_001Z. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11522,13 +11478,13 @@ test("AL_001Z. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_189. @API Admin dashboard-filter-list-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/dashboardfilter',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11543,7 +11499,6 @@ test("Admin_189. @API Admin dashboard-filter-list-Header field validation - inva
 })
 
 test("AL_001Y. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11571,13 +11526,13 @@ test("AL_001Y. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_154. @API Admin email-template-edit-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/email-template/' + email_template_id + '/form',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11592,7 +11547,6 @@ test("Admin_154. @API Admin email-template-edit-form-Header field validation - i
 })
 
 test("AL_001X. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11620,13 +11574,13 @@ test("AL_001X. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_166. @API Admin email-template-filter-list-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/getemailtemplatefilter',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11641,7 +11595,6 @@ test("Admin_166. @API Admin email-template-filter-list-Header field validation -
 })
 
 test("AL_001W. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11669,13 +11622,13 @@ test("AL_001W. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_148. @API Admin email-template-create-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/email-template/form',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11690,7 +11643,6 @@ test("Admin_148. @API Admin email-template-create-form-Header field validation -
 })
 
 test("AL_001V. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11718,13 +11670,13 @@ test("AL_001V. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_094. @API Admin security-control-privilage-list-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/securitycontrol/12',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11739,7 +11691,6 @@ test("Admin_094. @API Admin security-control-privilage-list-Header field validat
 })
 
 test("AL_001U. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11767,13 +11718,13 @@ test("AL_001U. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_130. @API Admin user-activities-filter-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/filters/useractivities',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11788,7 +11739,6 @@ test("Admin_130. @API Admin user-activities-filter-Header field validation - inv
 })
 
 test("AL_001T. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11816,13 +11766,13 @@ test("AL_001T. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_090. @API Admin delete-role-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.delete(baseURL + '/admin-api/v1/deleterole/' + roleId,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11837,7 +11787,6 @@ test("Admin_090. @API Admin delete-role-Header field validation - invalid", asyn
 })
 
 test("AL_001S. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11865,13 +11814,13 @@ test("AL_001S. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_087. @API Admin role-duplicate-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/duplicateRole/' + roleId,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11886,7 +11835,6 @@ test("Admin_087. @API Admin role-duplicate-Header field validation - invalid", a
 })
 
 test("AL_001R. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11914,13 +11862,13 @@ test("AL_001R. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_109. @API Admin role-filter-list-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/getrolefilter',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11935,7 +11883,6 @@ test("Admin_109. @API Admin role-filter-list-Header field validation - invalid",
 })
 
 test("AL_001Q. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -11963,13 +11910,13 @@ test("AL_001Q. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_103. @API Admin role-create-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/role/form',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -11984,7 +11931,6 @@ test("Admin_103. @API Admin role-create-form-Header field validation - invalid",
 })
 
 test("AL_001P. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -12012,13 +11958,13 @@ test("AL_001P. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_084. @API Admin rate-limit-login-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/rate-limit-login',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -12033,7 +11979,6 @@ test("Admin_084. @API Admin rate-limit-login-form-Header field validation - inva
 })
 
 test("AL_001O. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -12061,13 +12006,13 @@ test("AL_001O. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_075. @API Admin logout-settings-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/get-logout-settings',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -12082,7 +12027,6 @@ test("Admin_075. @API Admin logout-settings-form-Header field validation - inval
 })
 
 test("AL_001N. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -12110,13 +12054,13 @@ test("AL_001N. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_063. @API Admin user-role-edit-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-role/' + UserId + '/form',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -12131,7 +12075,6 @@ test("Admin_063. @API Admin user-role-edit-form-Header field validation - invali
 })
 
 test("AL_001M. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -12159,13 +12102,13 @@ test("AL_001M. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_057. @API Admin user-setting-edit-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-setting/' + UserId + '/form',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -12180,7 +12123,6 @@ test("Admin_057. @API Admin user-setting-edit-form-Header field validation - inv
 })
 
 test("AL_001L. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -12208,13 +12150,13 @@ test("AL_001L. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_051. @API Admin user-address-edit-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-contact/' + UserId + '/form',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -12229,7 +12171,6 @@ test("Admin_051. @API Admin user-address-edit-form-Header field validation - inv
 })
 
 test("AL_001K. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -12257,13 +12198,13 @@ test("AL_001K. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_045. @API Admin user-edit-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user/' + UserId + '/edit-form',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -12278,7 +12219,6 @@ test("Admin_045. @API Admin user-edit-form-Header field validation - invalid", a
 })
 
 test("AL_001J. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -12306,13 +12246,13 @@ test("AL_001J. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_042. @API Admin user-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-contact/' + UserId,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -12327,7 +12267,6 @@ test("Admin_042. @API Admin user-form-Header field validation - invalid", async 
 })
 
 test("AL_001I. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -12355,13 +12294,13 @@ test("AL_001I. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_039. @API Admin user-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user',
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -12376,7 +12315,6 @@ test("Admin_039. @API Admin user-form-Header field validation - invalid", async 
 })
 
 test("AL_001H. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -12404,13 +12342,13 @@ test("AL_001H. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_033. @API Admin User-role-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-role/' + UserId,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -12425,7 +12363,6 @@ test("Admin_033. @API Admin User-role-form-Header field validation - invalid", a
 })
 
 test("AL_001G. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -12453,13 +12390,13 @@ test("AL_001G. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_027. @API Admin user-setting-form-Header field validation - invalid", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.get(baseURL + '/admin-api/v1/user-setting/' + UserId,
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -12474,7 +12411,6 @@ test("Admin_027. @API Admin user-setting-form-Header field validation - invalid"
 })
 
 test("AL_001F. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -12502,15 +12438,15 @@ test("AL_001F. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_022. @API Admin add theuser-address-save_empty state_id", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
+    jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user-contact/' + UserId,
         {
-            data: jsonpath.Admin_add_user_address_save.empty_state_idbody,
+            data: jsonpath2.Admin_add_user_address_save.empty_state_idbody,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
@@ -12525,7 +12461,6 @@ test("Admin_022. @API Admin add theuser-address-save_empty state_id", async ({ r
 })
 
 test("AL_001E. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -12565,7 +12500,7 @@ test("Admin_016. @API user-role-Header field validation - invalid", async ({ req
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             },
             params: {
@@ -12574,7 +12509,7 @@ test("Admin_016. @API user-role-Header field validation - invalid", async ({ req
         });
 
     //Validation of response time
-    verifyResponse.validateTime(jsonpath1.responseDuration);
+    verifyResponse.validateTime(jsonpath.responseDuration);
 
     //Status code validation
     expect(response.status()).toBe(401);
@@ -12587,7 +12522,6 @@ test("Admin_016. @API user-role-Header field validation - invalid", async ({ req
 })
 
 test("AL_001D. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -12622,7 +12556,6 @@ test("AL_001D. @API Admin Login Success with Mandatory Fields", async ({ request
 })
 
 test("Admin_018. @API Admin add the user-save_empty username", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/settingAdminShema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/admin-api/v1/user',
@@ -12630,13 +12563,12 @@ test("Admin_018. @API Admin add the user-save_empty username", async ({ request 
             data: jsonObject.Admin_add_user_save.empty_username_body,
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
     //Validation of response time
     verifyResponse.validateTime(jsonpath.responseDuration);
-    console.log(await response.json())
 
     //Status code validation
     expect(response.status()).toBe(401);
@@ -12652,7 +12584,6 @@ test("Admin_018. @API Admin add the user-save_empty username", async ({ request 
 })
 
 test("AL_001C. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -12692,7 +12623,7 @@ test("Admin_012. @API user-setting-Header field validation - invalid", async ({ 
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             },
             params: {
@@ -12701,7 +12632,7 @@ test("Admin_012. @API user-setting-Header field validation - invalid", async ({ 
         });
 
     //Validation of response time
-    verifyResponse.validateTime(jsonpath1.responseDuration);
+    verifyResponse.validateTime(jsonpath.responseDuration);
 
     //Status code validation
     expect(response.status()).toBe(401);
@@ -12714,7 +12645,6 @@ test("Admin_012. @API user-setting-Header field validation - invalid", async ({ 
 })
 
 test("AL_001A. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -12754,7 +12684,7 @@ test("Admin_008. @API user address location-Header field validation - invalid", 
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             },
             params: {
@@ -12763,7 +12693,7 @@ test("Admin_008. @API user address location-Header field validation - invalid", 
         });
 
     //Validation of response time
-    verifyResponse.validateTime(jsonpath1.responseDuration);
+    verifyResponse.validateTime(jsonpath.responseDuration);
 
     //Status code validation
     expect(response.status()).toBe(401);
@@ -12776,7 +12706,6 @@ test("Admin_008. @API user address location-Header field validation - invalid", 
 })
 
 test("AL_001B. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
-    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -12816,13 +12745,13 @@ test("Admin_004. @API Admin user information-Header field validation - invalid",
         {
             headers: {
                 "accept": "application/json",
-                "webreferer": "https://sandbox-staging.assessappglobal.com.auIGS/",
+                "webreferer": jsonpath.Invalid_webreferer,
                 "authorization": token
             }
         });
 
     //Validation of response time
-    verifyResponse.validateTime(jsonpath1.responseDuration);
+    verifyResponse.validateTime(jsonpath.responseDuration);
 
     //Status code validation
     expect(response.status()).toBe(401);
