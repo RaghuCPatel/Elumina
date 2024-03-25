@@ -316,9 +316,12 @@ test("CS_001A. @API Candidate Login Success with Mandatory Fields", async ({ req
     candidatetoken = res.data.access_token
     activeExamID = res.data.activeExams[0].examId
     activeSessionID = res.data.activeExams[0].sessionId
+
     //Verify Response Payload
     console.log("Access token is:", candidatetoken, " and Exam ID is:", activeExamID, " and Session ID is:", activeSessionID)
     expect(await res.data.message).toEqual("Login Successful")
+
+    
     //Schema validation
     // const schema = jschemasonpath
     // const validate = avj.compile(schema)
