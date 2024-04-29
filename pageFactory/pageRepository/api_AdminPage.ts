@@ -112,7 +112,7 @@ export var jsonObject =
         },
         "Admin_role_custom_filter_save": {
             "filterArray": {
-                "filterName": "OE Fiend" + makeid(2),
+                "filterName": "OE Fiend" + makeid(12),
                 "filterType": "public",
                 "filterPage": "view-roles",
                 "filter_id": ""

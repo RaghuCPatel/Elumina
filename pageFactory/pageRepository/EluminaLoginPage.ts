@@ -88,7 +88,8 @@ export class EluminaLoginPage {
 
     /**Navigate to login URL */
     async navigateToURL(): Promise<void> {
-        await this.page.goto("/");
+        //await this.page.goto("/");
+        await this.page.goto(stagingTestData.baseURL);
     }
 
     async enterModuleURL() {

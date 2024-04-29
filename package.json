@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:single": "npx playwright test iAuthorSettings.test.ts --project=Chrome",
+    "test:single": "npx playwright test Delivery.test.ts --project=API",
     "test:elumina": "npx playwright test Elumina.test.ts --project=Chrome",
     "test:parallel": "npx playwright test --grep @Smoke --project=Chrome",
     "test:serial": "npx playwright test --grep @LowPriorityiExamCases --workers=1 --project=Chrome",
@@ -36,7 +36,7 @@
     "postinstall": "npm update browserstack-node-sdk",
     "lighthouse-browserstack": "browserstack-node-sdk node tests/lighthouse/Lighthouse.js",
     "test-browserstack": "npx browserstack-node-sdk playwright test",
-    "test:single-browserstack": "npx browserstack-node-sdk playwright test Api_Blueprint_And_Image_Service.test.ts --project=API",
+    "test:single-browserstack": "npx browserstack-node-sdk playwright test iAuthorSettings.test.ts --project=Chrome",
     "test:elumina-browserstack": "npx browserstack-node-sdk playwright test Elumina.test.ts --project=Chrome",
     "test:parallel-browserstack": "npx browserstack-node-sdk playwright test --grep @Smoke --project=Chrome",
     "test:serial-browserstack": "npx browserstack-node-sdk playwright test --grep @LowPriorityiExamCases --workers=1 --project=Chrome",
@@ -56,7 +56,7 @@
     "test:iAuthor_Parallel_Regession_CICD-browserstack": "npx browserstack-node-sdk playwright test --grep @RegressionA --workers=4 --project=Chrome",
     "test:iAuthor_Parallel_Zephyr_CICD-browserstack": "npx browserstack-node-sdk playwright test --grep @Zephyr --workers=2 --project=Chrome",
     "test:ui-browserstack": "npx browserstack-node-sdk playwright test --grep @Smoke --ui",
-    "test:api-browserstack": "npx browserstack-node-sdk playwright test --grep @API1 --workers=1 --project=API",
+    "test:api-browserstack": "npx browserstack-node-sdk playwright test --grep @API --workers=1 --project=API",
     "test:db-browserstack": "npx browserstack-node-sdk playwright test DB.test.ts --project=DB",
     "test:record-browserstack": "npx browserstack-node-sdk playwright codegen",
     "test:visual-browserstack": "npx browserstack-node-sdk playwright test visualComparision.test.ts --project=Chrome",
@@ -80,6 +80,7 @@
     "exceljs": "^4.3.0",
     "i": "^0.3.7",
     "lighthouse": "^9.6.8",
+    "node-jsencrypt": "^1.0.0",
     "npm": "^9.6.4",
     "pdfjs-dist-es5": "^2.13.216",
     "pg": "^8.10.0",
@@ -87,8 +88,8 @@
     "winston": "^3.8.2"
   },
   "devDependencies": {
-    "@playwright/test": "^1.42.1",
-    "browserstack-node-sdk": "^1.32.0",
+    "@playwright/test": "^1.43.1",
+    "browserstack-node-sdk": "^1.32.7",
     "playwright-zephyr": "^1.0.3"
   }
 }

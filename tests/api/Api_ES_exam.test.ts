@@ -9,8 +9,17 @@ import { ValidationResponse } from '../../utils/validationUtiles/ResponseValidat
 
 let verifyResponse = new ValidationResponse;
 
-//const apiActions = new APIActions();
-
+// function makeid(length) {
+//     let result = '';
+//     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+//     const charactersLength = characters.length;
+//     let counter = 0;
+//     while (counter < length) {
+//         result += characters.charAt(Math.floor(Math.random() * charactersLength));
+//         counter += 1;
+//     }
+//     return result;
+// }
 const Ajv = require('ajv')
 const avj = new Ajv()
 
@@ -158,6 +167,71 @@ test("ES_003. @API Validation of Approved Exam  successfull message.", async ({ 
     const isValid = validate(res)
     expect(isValid).toBeTruthy()
 })
+
+// test("Delivery_0077. @API To verify  the New User Save", async ({ request }) => {
+//     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))
+//     verifyResponse.fetchrequestTime();
+//     console.log(exam_ID)
+//     const response = await request.post(baseURL + '/exam-registration-api/v2/saveuser',
+//         {
+//             data: {
+//                 "data": [
+
+//                     {
+//                         "client_id": makeid(8),
+//                         "title": "MR",
+//                         "user_name": makeid(12),
+//                         "first_name": "Shiva",
+//                         "last_name": "J",
+//                         "email": makeid(5) + "cd121@test.com",
+//                         "phone": "9986600567",
+//                         "role": "9",
+//                         "eligible": "1",
+//                         "venue_id": "3",
+//                         "booking_status_id": "1",
+//                         "profile_image": ""
+//                     },
+
+//                     {
+//                         "client_id": makeid(9),
+//                         "title": "MR",
+//                         "user_name": makeid(13),
+//                         "first_name": makeid(7),
+//                         "last_name": "d",
+//                         "email": makeid(4) + "cd121@yopmail.com",
+//                         "phone": "9876543210",
+//                         "role": "10",
+//                         "eligible": "1",
+//                         "venue_id": "3",
+//                         "booking_status_id": "1",
+//                         "profile_image": ""
+//                     }
+//                 ],
+//                 "userId": "28",
+//                 "examId": exam_ID
+//             },
+//             headers: {
+//                 "accept": "application/json",
+//                 "webreferer": jsonpath.webreferer,
+//                 "authorization": token
+//             }
+//         });
+//     //Validation of response time
+//     verifyResponse.validateTime(jsonpath.responseDuration);
+//     console.log(await response.json())
+
+//     //Status code validation
+//     expect(response.status()).toBe(200);
+//     expect(response.ok()).toBeTruthy()
+//     expect(response.statusText()).toBe("OK");
+
+//     //Verify Response Headers
+//     expect(response.headers()['content-type']).toBe('application/json')
+
+//     var res = await response.json()
+//     //Verify Response Payload
+//     expect(await res.Response.Message).toEqual("User(s) added to the Automation Feasibility successfully")
+// })
 
 test("ES_004. @API Validation of add user successful message.", async ({ request }) => {
     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))

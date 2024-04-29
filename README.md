@@ -250,6 +250,17 @@ c.Update 'webreferer' as per execution environment.
 d.Update 'authorization' based on the “API keys” available under zyphr scale.
 e.Import the variable and call the variable for reaspective tests file if any new test files created.
 
+# Browser Stack Integration
+To execute the automatin scripts in Browserstack follow the below steps
+a.Execute the following commands to install BrowserStack NodeJS SDK for plug-and-play       integration of your test suite with BrowserStack.
+   - npm i -D browserstack-node-sdk@latest
+   - npx setup --username "BROWSERSTACK_USERNAME" --key "BROWSERSTACK_ACCESS_KEY"
+b.When you install the SDK, a browserstack.yml config file is created at the root level of your project. This file holds all the required capabilities to run tests on BrowserStack.
+c.Update browserstack.yml file with selected capabilities.
+d.Use the following command to execute your tests on BrowserStack using the NodeJS SDK.
+   - npx browserstack-node-sdk <Your existing command for running your test suite>
+      Ex: npx cross-env ENV=sandbox npm run test:parallel-browserstack
+
 ## SonarQube
 
 Once you have completed setup for SonarQube given in Prerequisites section, configure SonarQube as given below
