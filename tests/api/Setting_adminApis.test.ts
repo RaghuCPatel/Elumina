@@ -3316,7 +3316,7 @@ test("Admin_151. @API Admin email-template-save_validation of invalid endpoint."
 
     //Verify Response Headers
     expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
-})
+})*/
 
 test("Admin_158. @API Admin_email-templates-list", async ({ request }) => {
     jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))
@@ -3931,7 +3931,7 @@ test("Admin_157. @API Admin email-template-update_validation of invalid endpoint
 
     //Verify Response Headers
     expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
-}) */
+})
 
 test("Admin_179. @API Admin_create-dashboard-form", async ({ request }) => {
     jsonpath2 = JSON.parse(fs.readFileSync(path.resolve('utils/api/commonSettingData.json'), 'utf-8'))

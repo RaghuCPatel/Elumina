@@ -5,8 +5,26 @@ import path from 'path';
 import { jsonObject } from 'pageFactory/pageRepository/candidateApiPage';
 import { ValidationResponse } from '../../utils/validationUtiles/ResponseValidation';
 
-//const apiActions = new APIActions();
+const JSEncrypt = require('node-jsencrypt');
+let utcTime;
 
+function apiKeyEncrypt(): string {
+    var utcTime = new Date();
+    let currentTime = utcTime.getUTCFullYear() + "-" + (utcTime.getUTCMonth() + 1) + "-" + utcTime.getUTCDate() + " " + utcTime.getUTCHours() + ":" + utcTime.getUTCMinutes() + ":" + utcTime.getUTCSeconds()
+    // Define the public key (replace with your actual public key)
+    const publicKey = "-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCazzOD7DHaA1JQugT5Mp44jKaT\nHsGb0nlticr1dUhzRx4pK1rdF9DLDiBIVXWeBqGZQtM/Tgc+aRu7HGPbXtRji+id\nl7A+RqchjpFQkyoJQRrsW+I7oFJLqxa7AFFC6JfIAVgs0LyM0gxdC+mAkwX8yS8L\nvRAle6cPopmgeefUjQIDAQAB\n-----END PUBLIC KEY-----";
+    // Data to encrypt
+    const dataToEncrypt = '482B4D6251655468576D5A7133743677397A24432646294A404E635266556A58' + '*' + currentTime;
+
+    //Create a new instance of JSEncrypt
+    const encryptor = new JSEncrypt();
+    encryptor.setPublicKey(publicKey);  //2024-04-25 09:59:46   2024-3-25 10:23:31   2024-04-25 10:25:25
+
+    // Encrypt the data
+    let encryptedData = encryptor.encrypt(dataToEncrypt).toString();
+    console.log('Encrypted data:', encryptedData, "and", currentTime, "and", typeof currentTime);
+    return encryptedData;
+}
 const Ajv = require('ajv')
 const avj = new Ajv()
 
@@ -321,7 +339,7 @@ test("CS_001A. @API Candidate Login Success with Mandatory Fields", async ({ req
     console.log("Access token is:", candidatetoken, " and Exam ID is:", activeExamID, " and Session ID is:", activeSessionID)
     expect(await res.data.message).toEqual("Login Successful")
 
-    
+
     //Schema validation
     // const schema = jschemasonpath
     // const validate = avj.compile(schema)
@@ -457,7 +475,9 @@ test("CS_015. @API Validation of successful message for invigilator password.", 
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
+                //'X-Exam-Signature': 'your_signature_here'
             }
         });
     console.log(await response.json())
@@ -495,7 +515,9 @@ test("CS_016. @API Validation of invalid invigilator password.", async ({ reques
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
+
             }
         });
     console.log(await response.json())
@@ -523,7 +545,9 @@ test("CS_017. @API Validation of empty invigilator password.", async ({ request 
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
+
             }
         });
     console.log(await response.json())
@@ -614,7 +638,9 @@ test("CS_015A. @API Validation of successful message for invigilator password.",
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
+
             }
         });
     console.log(await response.json())
@@ -647,7 +673,8 @@ test("CS_018. @API Validation of Candiate Exam status- Before exam start", async
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
             }
         });
     console.log(await response.json())
@@ -678,7 +705,8 @@ test("CS_019. @API Before exam star-Method validation-  incorrect HTTP method", 
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
             }
         });
     //Validation of response time
@@ -700,7 +728,8 @@ test("CS_020. @API Validation of Candiate Exam status- After exam start", async 
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
             }
         });
     console.log(await response.json())
@@ -731,7 +760,8 @@ test("CS_021. @API After exam star-Method validation-  incorrect HTTP method", a
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
             }
         });
     //Validation of response time
@@ -753,7 +783,8 @@ test("CS_024. @API Validation of Candiate info.", async ({ request }) => {
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
             }
         });
     console.log(await response.json())
@@ -784,7 +815,8 @@ test("CS_025. @API  Candiate info-Method validation-  incorrect HTTP method", as
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
             }
         });
     //Validation of response time
@@ -805,7 +837,8 @@ test("CS_026. @API  Candiate info-endpoint validation", async ({ request }) => {
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
             }
         });
     console.log(await response.json())
@@ -834,7 +867,8 @@ test("CS_027. @API Validation of candidate events.", async ({ request }) => {
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
             }
         });
     console.log(await response.json())
@@ -865,7 +899,8 @@ test("CS_028. @API candidate events-Method validation-  incorrect HTTP method", 
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
             }
         });
     //Validation of response time
@@ -886,7 +921,8 @@ test("CS_029. @API candidate events-endpoint validation", async ({ request }) =>
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
             }
         });
     console.log(await response.json())
@@ -915,7 +951,8 @@ test("CS_030. @API Validation of candidate instruction.", async ({ request }) =>
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
             }
         });
     console.log(await response.json())
@@ -946,7 +983,8 @@ test("CS_031. @API  candidate instruction-Method validation-  incorrect HTTP met
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
             }
         });
     //Validation of response time
@@ -967,7 +1005,8 @@ test("CS_032. @API  candidate instruction-endpoint validation", async ({ request
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
             }
         });
     console.log(await response.json())
@@ -996,7 +1035,8 @@ test("CS_033. @API Validation of download exam content page.", async ({ request 
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
             }
         });
     console.log(await response.json())
@@ -1027,7 +1067,8 @@ test("CS_034. @API exam content page-Method validation-  incorrect HTTP method",
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
             }
         });
     //Validation of response time
@@ -1048,7 +1089,8 @@ test("CS_035. @API exam content page-endpoint validation", async ({ request }) =
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt(),
             }
         });
     console.log(await response.json())
@@ -1078,7 +1120,8 @@ test("CS_036. @API Validation of Candidate exam page download.", async ({ reques
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1109,7 +1152,8 @@ test("CS_037. @API  Candidate exam page download-Method validation-  incorrect H
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     //Validation of response time
@@ -1130,7 +1174,8 @@ test("CS_038. @API  Candidate exam page download-endpoint validation", async ({ 
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1157,7 +1202,8 @@ test("CS_039. @API Validation of candidate all notes.", async ({ request }) => {
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1189,7 +1235,8 @@ test("CS_040. @API candidate all notes-Method validation-  incorrect HTTP method
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     //Validation of response time
@@ -1210,7 +1257,8 @@ test("CS_041. @API candidate all notes-endpoint validation", async ({ request })
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1239,7 +1287,8 @@ test("CS_042. @API Validation of question download status.", async ({ request })
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1270,7 +1319,8 @@ test("CS_043. @API question download status-Method validation-  incorrect HTTP m
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     //Validation of response time
@@ -1291,7 +1341,8 @@ test("CS_044. @API question download status-endpoint validation", async ({ reque
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1322,7 +1373,8 @@ test("CS_045. @API Validation of candidate save notes.", async ({ request }) => 
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1353,7 +1405,8 @@ test("CS_046. @API candidate save notes-Method validation-  incorrect HTTP metho
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     //Validation of response time
@@ -1374,7 +1427,8 @@ test("CS_047. @API candidate save notes-endpoint validation", async ({ request }
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1405,7 +1459,8 @@ test("CS_048. @API Validaton of Save highlight text.", async ({ request }) => {
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1436,7 +1491,8 @@ test("CS_049. @API Save highlight text-Method validation-  incorrect HTTP method
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     //Validation of response time
@@ -1457,7 +1513,8 @@ test("CS_050. @API Save highlight text-endpoint validation", async ({ request })
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1485,7 +1542,8 @@ test("CS_051. @API Validaton of remove saved highlight text.", async ({ request 
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1516,7 +1574,8 @@ test("CS_052. @API remove saved highlight text-Method validation-  incorrect HTT
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     //Validation of response time
@@ -1537,7 +1596,8 @@ test("CS_053. @API remove saved highlight text-endpoint validation", async ({ re
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1565,7 +1625,8 @@ test("CS_054. @API Validation of Exam survey page.", async ({ request }) => {
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1586,7 +1647,8 @@ test("CS_055. @API Exam survey page-Method validation-  incorrect HTTP method", 
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     //Validation of response time
@@ -1613,7 +1675,8 @@ test("CS_056. @API Exam survey page-endpoint validation", async ({ request }) =>
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1642,7 +1705,8 @@ test("CS_057. @API Validation of Exam Practice Result", async ({ request }) => {
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1673,7 +1737,8 @@ test("CS_058. @API  Exam Practice Result-Method validation-  incorrect HTTP meth
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     //Validation of response time
@@ -1694,7 +1759,8 @@ test("CS_059. @API  Exam Practice Result-endpoint validation", async ({ request 
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1724,7 +1790,8 @@ test("CS_060. @API Validation of Exam Practice Question Result", async ({ reques
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1755,7 +1822,8 @@ test("CS_061. @API Exam Practice Question Result-Method validation-  incorrect H
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     //Validation of response time
@@ -1776,7 +1844,8 @@ test("CS_062. @API Exam Practice Question Result-endpoint validation", async ({ 
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1821,7 +1890,8 @@ test("CS_066. @API Validation of Candidate question response save.", async ({ re
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1852,7 +1922,8 @@ test("CS_067. @API Candidate question response save-Method validation-  incorrec
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     //Validation of response time
@@ -1873,7 +1944,8 @@ test("CS_068. @API Candidate question response save-endpoint validation", async 
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     console.log(await response.json())
@@ -1894,7 +1966,8 @@ test("CS_069. @API Validation of candidate current time.", async ({ request }) =
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     //Validation of response time
@@ -1918,7 +1991,8 @@ test("CS_070. @API candidate current time-endpoint validation", async ({ request
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     //Validation of response time
@@ -1938,7 +2012,8 @@ test("CS_071. @API Validation of candidate chat setting.", async ({ request }) =
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     //Validation of response time
@@ -1958,7 +2033,8 @@ test("CS_072. @API candidate chat setting endpoint validation", async ({ request
             headers: {
                 "accept": "application/json",
                 "webreferer": "https://sandbox-staging.assessappglobal.com.au/",
-                "authorization": candidatetoken
+                "authorization": candidatetoken,
+                "X-Exam-Signature": apiKeyEncrypt()
             }
         });
     //Validation of response time
