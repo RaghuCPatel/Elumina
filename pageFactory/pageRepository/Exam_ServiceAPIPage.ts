@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { exam_ID } from 'tests/api/Delivery.test';
+import { exam_ID } from 'tests/api/ExamService_QunHist.test';
 import { token } from 'tests/api/adminToken.test';
 
 function makeid(length) {

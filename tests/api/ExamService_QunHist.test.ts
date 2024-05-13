@@ -22,7 +22,7 @@ var jschemasonpath;
 jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
 const baseURL = jsonpath.url
 
-test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+test("AL_001. @API Admin Login Success with Mandatory Field", async ({ request }) => {
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',

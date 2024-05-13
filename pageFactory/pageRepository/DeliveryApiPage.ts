@@ -387,106 +387,6 @@ export var jsonObject =
                                         "type": "page",
                                         "items": [
                                             {
-                                                "id": "432",
-                                                "title": "TEST MCQ Questions",
-                                                "text": "TEST MCQ Questions",
-                                                "type": "MCQ",
-                                                "description": "TEST MCQ Questions",
-                                                "station type": "",
-                                                "bank": "Practice Bank",
-                                                "created by": "IGS user",
-                                                "created by id": "28",
-                                                "last modified by": "IGS user",
-                                                "status": "Approved",
-                                                "tag": [],
-                                                "tags": "",
-                                                "tag dates": [],
-                                                "tag nested": [],
-                                                "tag date nested": [],
-                                                "created date": "18-10-2023",
-                                                "last date updated": "18-10-2023",
-                                                "last exam name": "",
-                                                "no of exams": "0",
-                                                "correct %": "0",
-                                                "used in exams": [],
-                                                "exam name": [],
-                                                "used in blueprints": [],
-                                                "updated datetime": "1697646848",
-                                                "exam date": [],
-                                                "total mark": "1",
-                                                "no of attempts": "0",
-                                                "discriminator": "",
-                                                "percentage": "",
-                                                "legacy item id": "",
-                                                "checked": true,
-                                                "questionType": "MCQ",
-                                                "page_name": "Page 1",
-                                                "error": false,
-                                                "items": [],
-                                                "mode": "write_mode"
-                                            }
-                                        ],
-                                        "data": {},
-                                        "isDrag": true,
-                                        "path": "~/0/0/0/0"
-                                    },
-                                    {
-                                        "id": null,
-                                        "display_name": "Page 2",
-                                        "mode": "write_mode",
-                                        "type": "page",
-                                        "items": [
-                                            {
-                                                "id": "433",
-                                                "title": "SAQ Automation TEST Question",
-                                                "text": "SAQ TEST Question",
-                                                "type": "SAQ",
-                                                "description": "SAQ TEST Question",
-                                                "station type": "",
-                                                "bank": "Practice Bank",
-                                                "created by": "IGS user",
-                                                "created by id": "28",
-                                                "last modified by": "IGS user",
-                                                "status": "Approved",
-                                                "tag": [],
-                                                "tags": "",
-                                                "tag dates": [],
-                                                "tag nested": [],
-                                                "tag date nested": [],
-                                                "created date": "18-10-2023",
-                                                "last date updated": "18-10-2023",
-                                                "last exam name": "",
-                                                "no of exams": "0",
-                                                "correct %": "0",
-                                                "used in exams": [],
-                                                "exam name": [],
-                                                "used in blueprints": [],
-                                                "updated datetime": "1697648150",
-                                                "exam date": [],
-                                                "total mark": "5",
-                                                "no of attempts": "0",
-                                                "discriminator": "",
-                                                "percentage": "",
-                                                "legacy item id": "",
-                                                "checked": true,
-                                                "questionType": "SAQ",
-                                                "page_name": "Page 2",
-                                                "error": false,
-                                                "items": [],
-                                                "mode": "write_mode"
-                                            }
-                                        ],
-                                        "data": {},
-                                        "isDrag": true,
-                                        "path": "~/0/0/0/1"
-                                    },
-                                    {
-                                        "id": null,
-                                        "display_name": "Page 3",
-                                        "mode": "write_mode",
-                                        "type": "page",
-                                        "items": [
-                                            {
                                                 "id": "445",
                                                 "title": "Automation VSAQ test",
                                                 "text": "question test",
@@ -528,7 +428,7 @@ export var jsonObject =
                                         ],
                                         "data": {},
                                         "isDrag": true,
-                                        "path": "~/0/0/0/2"
+                                        "path": "~/0/0/0/0"
                                     }
                                 ],
                                 "mode": "write_mode",
@@ -1376,5 +1276,44 @@ export var jsonObject =
         "examId": "{{Active_examId}}", "session": [{
             "id": "{{ sessionID }}", "name": "Exam Main Session"
         }], "candidateId": ["{{candidateID}}"], "questionId": ["000"], "markerId": "[{{ markerID }}]"
-    }
+    },
+    "Markers_dashboard_Search": { "freeText": ["{{markername}}"], "pagination": 5, "examId": "{{Active_examId}}", "examSession": ["{{sessionID}}"] },
+    "Markers_dashboard_Pagination": { "freeText": ["{{markername}}"], "pagination": 25, "showColumns": null, "examId": "{{Active_examId}}", "examSession": ["{{sessionID}}"] },
+    "Marker_Responce_left_site_menu": { "examId": "{{Active_examId}}", "candidateId": "{{candidateID}}", "markerId": "{{markerID}}", "session": "{{sessionID}}", "markingStatusId": [], "questionId": null, "viewBy": "candidate", "role": "marker" },
+    "Markers_report_Paginaion": {
+        "examId": "{{Active_examId}}", "pagination": 50, "markersArray": [{
+            "id": "{{ markerID }}", "name": "{{markername}}"
+        }], "markerId": "{ { markerID } }", "session": [{ "id": "{{ sessionID }}", "name": "Exam Main Session" }], "markingStatusId": []
+    },
+    "markers_report_show_column": {
+        "examId": "{{Active_examId}}", "showColumns": ["client id", "mappings"], "pagination": 50, "markersArray": [{
+            "id": "{{ markerID }}", "name": "{{markername}}"
+        }], "markerId": "{ { markerID } }", "session": [{ "id": "{{ sessionID }}", "name": "Exam Main Session" }], "markingStatusId": []
+    },
+    "MarkersBySession_List": { "examId": "{{Active_examId}}", "session": [{ "id": "{{sessionID}}", "name": "Exam Main Session" }] },
+    "Markers_Report_List": { "examId": "{{Active_examId}}", "markersArray": [{ "id": "{{markerID}}", "name": "{{markername}}" }], "session": [{ "id": "{{sessionID}}", "name": "Exam Main Session" }], "markingStatusId": [] },
+    "Reset_Marking": { "examId": "{{Active_examId}}", "candidateId": [], "markerId": "{{markerID}}" },
+    "Open_or_Close_Marking_All": { "examId": "{{Active_examId}}", "markerId": "", "markingEnabled": false },
+    "workflow_create_page": { "exam_id": exam_ID, "workflow": { "name": "No Workflow" }, "Authorization": "{\"COPEM Module 1\":{\"Question\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"View\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Public Filter\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"}],\"Images\":[{\"Upload\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Exam\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Export\":\"FALSE\"},{\"Preview (PDF)\":\"TRUE\"},{\"Public Filter\":\"FALSE\"},{\"View\":\"TRUE\"}],\"Blueprint\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Unlock\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Registration\":[{\"Adduser\":\"TRUE\"},{\"Updateuser\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Generate Temp ID\":\"TRUE\"},{\"Assign Venue And Booking Status\":\"TRUE\"},{\"Markers Report Download\":\"TRUE\"},{\"Bulk Assign Invigilator\":\"TRUE\"},{\"Manage Special Consideration\":\"TRUE\"},{\"Manage Booking\":\"TRUE\"},{\"Live Monitor\":\"TRUE\"},{\"Marking\":\"TRUE\"},{\"Marker View Next\":\"TRUE\"},{\"Marker View Prev\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Venue Summary\":\"TRUE\"},{\"Download Exam\":\"TRUE\"},{\"Live Monitor Exam Action\":\"TRUE\"},{\"Live Monitor Questions\":\"TRUE\"},{\"Live Monitor Timer\":\"TRUE\"},{\"Reset Password\":\"TRUE\"},{\"Reopen Exam\":\"TRUE\"},{\"Open All Marking\":\"TRUE\"},{\"Open Marking\":\"TRUE\"},{\"Reset Marking\":\"TRUE\"},{\"Un Assign All Markers\":\"TRUE\"},{\"Download All Exam users\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Gradebook\":[{\"View\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Publish\":\"TRUE\"},{\"Unpublish\":\"TRUE\"},{\"Add Comment\":\"TRUE\"},{\"Public Filter\":\"FALSE\"}],\"Reports\":[{\"View\":\"FALSE\"},{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}]},\"LIV Test Bank\":{\"Question\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"View\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Public Filter\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"}],\"Images\":[{\"Upload\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Exam\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Export\":\"FALSE\"},{\"Preview (PDF)\":\"TRUE\"},{\"Public Filter\":\"FALSE\"},{\"View\":\"TRUE\"}],\"Blueprint\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Unlock\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Registration\":[{\"Adduser\":\"TRUE\"},{\"Updateuser\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Generate Temp ID\":\"TRUE\"},{\"Assign Venue And Booking Status\":\"TRUE\"},{\"Markers Report Download\":\"TRUE\"},{\"Bulk Assign Invigilator\":\"TRUE\"},{\"Manage Special Consideration\":\"TRUE\"},{\"Manage Booking\":\"TRUE\"},{\"Live Monitor\":\"TRUE\"},{\"Marking\":\"TRUE\"},{\"Marker View Next\":\"TRUE\"},{\"Marker View Prev\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Venue Summary\":\"TRUE\"},{\"Download Exam\":\"TRUE\"},{\"Live Monitor Exam Action\":\"TRUE\"},{\"Live Monitor Questions\":\"TRUE\"},{\"Live Monitor Timer\":\"TRUE\"},{\"Reset Password\":\"TRUE\"},{\"Reopen Exam\":\"TRUE\"},{\"Open All Marking\":\"TRUE\"},{\"Open Marking\":\"TRUE\"},{\"Reset Marking\":\"TRUE\"},{\"Un Assign All Markers\":\"TRUE\"},{\"Download All Exam users\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Gradebook\":[{\"View\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Publish\":\"TRUE\"},{\"Unpublish\":\"TRUE\"},{\"Add Comment\":\"TRUE\"},{\"Public Filter\":\"FALSE\"}],\"Reports\":[{\"View\":\"FALSE\"},{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}]},\"QA Bank\":{\"Question\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"View\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Public Filter\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"}],\"Images\":[{\"Upload\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Exam\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Export\":\"FALSE\"},{\"Preview (PDF)\":\"TRUE\"},{\"Public Filter\":\"FALSE\"},{\"View\":\"TRUE\"}],\"Blueprint\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Unlock\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Registration\":[{\"Adduser\":\"TRUE\"},{\"Updateuser\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Generate Temp ID\":\"TRUE\"},{\"Assign Venue And Booking Status\":\"TRUE\"},{\"Markers Report Download\":\"TRUE\"},{\"Bulk Assign Invigilator\":\"TRUE\"},{\"Manage Special Consideration\":\"TRUE\"},{\"Manage Booking\":\"TRUE\"},{\"Live Monitor\":\"TRUE\"},{\"Marking\":\"TRUE\"},{\"Marker View Next\":\"TRUE\"},{\"Marker View Prev\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Venue Summary\":\"TRUE\"},{\"Download Exam\":\"TRUE\"},{\"Live Monitor Exam Action\":\"TRUE\"},{\"Live Monitor Questions\":\"TRUE\"},{\"Live Monitor Timer\":\"TRUE\"},{\"Reset Password\":\"TRUE\"},{\"Reopen Exam\":\"TRUE\"},{\"Open All Marking\":\"TRUE\"},{\"Open Marking\":\"TRUE\"},{\"Reset Marking\":\"TRUE\"},{\"Un Assign All Markers\":\"TRUE\"},{\"Download All Exam users\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Gradebook\":[{\"View\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Publish\":\"TRUE\"},{\"Unpublish\":\"TRUE\"},{\"Add Comment\":\"TRUE\"},{\"Public Filter\":\"FALSE\"}],\"Reports\":[{\"View\":\"FALSE\"},{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}]},\"banks\":{\"1\":[\"Administrator\"],\"5\":[\"Administrator\"],\"42\":[\"Administrator\"]},\"user\":\"2638\"}" },
+    "Exam_admin_marking_view_response": { "questionId": "{{ questionID }}", "examId": "{{Created_Exam_ID}}", "candidateId": "{{candidateID}}", "markingStatusId": [], "markerId": "{{markerID}}", "session": "{ { sessionID } }" },
+    "Exam_admin_marking_viewresponse_save": {
+        "examId": "{{Created_Exam_ID}}",
+        "markerId": "{{markerID}}",
+        "candidateId": "{{candidateID}}",
+        "mainquestionId": "{{questionID}}",
+        "subQuestion": false,
+        "questionType": "common",
+        "markerData": {
+            "markerScore": "1",
+            "markerFeedback": "<p>marker one feedback</p>",
+            "markerRating": 2,
+            "isChanged": false,
+            "formValid": true,
+            "markedAnswerKeys": []
+        }
+    },
+    "Final_or_submit_as_final_submited": { "candidateId": "{{candidateID}}", "markerId": "{{ markerID }}", "examId": "{ { Created_Exam_ID } }", "session": [{ "id": "{{ sessionID }}", "name": "Exam Main Session" }], "markingStatusId": [], "markersArray": [{ "id": 3740, "name": "Marker One" }] },
+    "Reopen_marking": { "candidateId": "{{candidateID}}", "markerId": "{{markerID}}", "examId": "{{Created_Exam_ID}}", "session": [{ "id": "{{sessionID}}", "name": "Exam Main Session" }], "markingStatusId": [], "markersArray": [{ "id": "{{markerID}}", "name": "{{markername}}" }] }
+
+
 }

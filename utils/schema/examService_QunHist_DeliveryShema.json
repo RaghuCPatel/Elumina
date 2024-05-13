@@ -111,6 +111,81 @@
             "required": [
                 "Response"
             ]
+        },
+        "Reset_Marking": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "Response": {
+                    "type": "object",
+                    "properties": {
+                        "Message": {
+                            "type": "string",
+                            "minLength": 1
+                        },
+                        "Success": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "Message",
+                        "Success"
+                    ]
+                }
+            },
+            "required": [
+                "Response"
+            ]
+        },
+        "Reopen_marking": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "status": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "message",
+                "status"
+            ]
+        },
+        "Download_exam_file_name": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "Response": {
+                    "type": "object",
+                    "properties": {
+                        "Message": {
+                            "type": "string",
+                            "minLength": 1
+                        },
+                        "Success": {
+                            "type": "number"
+                        },
+                        "filename": {
+                            "type": "string",
+                            "minLength": 1
+                        }
+                    },
+                    "required": [
+                        "Message",
+                        "Success",
+                        "filename"
+                    ]
+                }
+            },
+            "required": [
+                "Response"
+            ]
         }
     }
 }
