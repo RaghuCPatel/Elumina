@@ -26,6 +26,8 @@ const avj = new Ajv()
 var jsonpath;
 var jsonpath1;
 let candidateID;
+let candidateID1;
+let questionID;
 let markerID;
 let markername;
 let existing_user_data;
@@ -175,77 +177,77 @@ test("ExamService_032A. @API To verify  the save-ExamSessions-Questions", async 
     expect(isValid).toBeTruthy()
 })
 
-test("ExamService_035A. @API To verify  the Save-content and Exam sessions", async ({ request }) => {
-    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))
-    verifyResponse.fetchrequestTime();
-    const response = await request.post(baseURL + '/exam-api/v1.2/exam/save-sessions/' + exam_ID,
-        {
-            data: jsonObject.addQuestions_ContentPage,
-            headers: {
-                "accept": "application/json",
-                "webreferer": jsonpath.webreferer,
-                "authorization": token
-            }
-        });
-    //Validation of response time
-    verifyResponse.validateTime(jsonpath.responseDuration);
-    console.log(await response.json())
+// test("ExamService_035A. @API To verify  the Save-content and Exam sessions", async ({ request }) => {
+//     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))
+//     verifyResponse.fetchrequestTime();
+//     const response = await request.post(baseURL + '/exam-api/v1.2/exam/save-sessions/' + exam_ID,
+//         {
+//             data: jsonObject.addQuestions_ContentPage,
+//             headers: {
+//                 "accept": "application/json",
+//                 "webreferer": jsonpath.webreferer,
+//                 "authorization": token
+//             }
+//         });
+//     //Validation of response time
+//     verifyResponse.validateTime(jsonpath.responseDuration);
+//     console.log(await response.json())
 
-    //Status code validation
-    expect(response.status()).toBe(200);
-    expect(response.ok()).toBeTruthy()
-    expect(response.statusText()).toBe("OK");
+//     //Status code validation
+//     expect(response.status()).toBe(200);
+//     expect(response.ok()).toBeTruthy()
+//     expect(response.statusText()).toBe("OK");
 
-    //Verify Response Headers
-    expect(response.headers()['content-type']).toBe('application/json')
+//     //Verify Response Headers
+//     expect(response.headers()['content-type']).toBe('application/json')
 
-    var res = await response.json()
+//     var res = await response.json()
 
-    //Verify Response Payload
-    expect(await res.message).toEqual("Session(s) Updated successfully")
+//     //Verify Response Payload
+//     expect(await res.message).toEqual("Session(s) Updated successfully")
 
-    //Schema validation
-    const schema = jschemasonpath.editExam
-    const validate = avj.compile(schema)
-    const isValid = validate(res)
-    expect(isValid).toBeTruthy()
-})
+//     //Schema validation
+//     const schema = jschemasonpath.editExam
+//     const validate = avj.compile(schema)
+//     const isValid = validate(res)
+//     expect(isValid).toBeTruthy()
+// })
 
-test("ExamService_038A. @API To verify  the Save-content, Exam and Survey-sessions", async ({ request }) => {
-    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))
-    verifyResponse.fetchrequestTime();
-    const response = await request.post(baseURL + '/exam-api/v1.2/exam/save-sessions/' + exam_ID,
-        {
-            data: jsonObject.addQuestions_Surveypage,
-            headers: {
-                "accept": "application/json",
-                "webreferer": jsonpath.webreferer,
-                "authorization": token
-            }
-        });
-    //Validation of response time
-    verifyResponse.validateTime(jsonpath.responseDuration);
-    console.log(await response.json())
+// test("ExamService_038A. @API To verify  the Save-content, Exam and Survey-sessions", async ({ request }) => {
+//     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))
+//     verifyResponse.fetchrequestTime();
+//     const response = await request.post(baseURL + '/exam-api/v1.2/exam/save-sessions/' + exam_ID,
+//         {
+//             data: jsonObject.addQuestions_Surveypage,
+//             headers: {
+//                 "accept": "application/json",
+//                 "webreferer": jsonpath.webreferer,
+//                 "authorization": token
+//             }
+//         });
+//     //Validation of response time
+//     verifyResponse.validateTime(jsonpath.responseDuration);
+//     console.log(await response.json())
 
-    //Status code validation
-    expect(response.status()).toBe(200);
-    expect(response.ok()).toBeTruthy()
-    expect(response.statusText()).toBe("OK");
+//     //Status code validation
+//     expect(response.status()).toBe(200);
+//     expect(response.ok()).toBeTruthy()
+//     expect(response.statusText()).toBe("OK");
 
-    //Verify Response Headers
-    expect(response.headers()['content-type']).toBe('application/json')
+//     //Verify Response Headers
+//     expect(response.headers()['content-type']).toBe('application/json')
 
-    var res = await response.json()
+//     var res = await response.json()
 
-    //Verify Response Payload
-    expect(await res.message).toEqual("Session(s) Updated successfully")
+//     //Verify Response Payload
+//     expect(await res.message).toEqual("Session(s) Updated successfully")
 
-    //Schema validation
-    const schema = jschemasonpath.editExam
-    const validate = avj.compile(schema)
-    const isValid = validate(res)
-    expect(isValid).toBeTruthy()
-})
+//     //Schema validation
+//     const schema = jschemasonpath.editExam
+//     const validate = avj.compile(schema)
+//     const isValid = validate(res)
+//     expect(isValid).toBeTruthy()
+// })
 
 test("ExamService_026A. @API To verify  the Exam-workflow-save", async ({ request }) => {
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))
@@ -2338,6 +2340,7 @@ test("Delivery_094. @API To verify theMarking-Exam Session response", async ({ r
 
     var res = await response.json()
     sessionID = res.data[0].id;
+    console.log("Session Id is", sessionID)
 })
 
 test("Delivery_095. @API To verify the response when passing an invalid endpoint for Marking-Exam Session", async ({ request }) => {
@@ -2480,7 +2483,8 @@ test("Delivery_098. @API To verify  the Marking-Session-By Search", async ({ req
 
     var res = await response.json()
     candidateID = res["manage-marking"].data[0]["exam id"];
-    console.log("candidateID is-", candidateID);
+    candidateID1 = res["manage-marking"].data[1]["exam id"];
+    console.log("candidateID is-", candidateID, "and", candidateID1);
 })
 
 test("Delivery_099. @API To verify  the Marking-Session-By Search of incorrect HTTP method", async ({ request }) => {
@@ -2600,7 +2604,7 @@ test("Delivery_104. @API To verify  the marker-name-assign", async ({ request })
     const response = await request.post(baseURL + '/exam-registration-api/v1/markerassignfilter',
         {
             data: {
-                "examId": exam_ID, "candidateId": [candidateID], "questionId": ["000"], "session": [{
+                "examId": exam_ID, "candidateId": [candidateID, candidateID1], "questionId": ["000"], "session": [{
                     "id": sessionID, "name": "Exam Main Session"
                 }]
             },
@@ -2679,7 +2683,7 @@ test("Delivery_107. @API To verify  the Marker-assign-save", async ({ request })
             data: {
                 "examId": exam_ID, "session": [{
                     "id": sessionID, "name": "Exam Main Session"
-                }], "candidateId": [candidateID], "questionId": ["000"], "markerId": [markerID]
+                }], "candidateId": [candidateID, candidateID1], "questionId": ["000"], "markerId": [markerID]
             },
             headers: {
                 "accept": "application/json",
@@ -2698,6 +2702,394 @@ test("Delivery_107. @API To verify  the Marker-assign-save", async ({ request })
 
     //Verify Response Headers
     expect(response.headers()['content-type']).toBe('application/json')
+})
+
+test("Delivery_128. @API To verify  the Marker Responce left site menu", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/examadminmarkingquestionlist',
+        {
+            data: { "examId": exam_ID, "candidateId": candidateID, "markerId": markerID, "session": sessionID, "markingStatusId": [], "questionId": null, "viewBy": "candidate", "role": "marker" },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    questionID = res.parts[0].data[0].question_id;
+    console.log('questionID is-', questionID)
+})
+
+test("Delivery_129. @API To verify  the Marker Responce left site menu of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/examadminmarkingquestionlist',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_130. @API To  verify  the Marker Responce left site menu of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/examadminmarkingquestionlistIGS',
+        {
+            data: jsonObject.Marker_Responce_left_site_menu,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
+})
+
+test("Delivery_131. @API To verify  the Exam-admin-marking-view-response", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/examadminmarkingviewresponse',
+        {
+            data: { "questionId": questionID, "examId": exam_ID, "candidateId": candidateID, "markingStatusId": [], "markerId": markerID, "session": sessionID },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+})
+
+test("Delivery_132. @API To verify  the Exam-admin-marking-view-response of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/examadminmarkingviewresponse',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_133. @API To  verify  the Exam-admin-marking-view-response of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/examadminmarkingviewresponseIGS',
+        {
+            data: jsonObject.Exam_admin_marking_view_response,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
+})
+
+test("Delivery_134. @API To verify  the Exam-admin-marking-viewresponse-save", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/examadminmarkingviewresponsesave',
+        {
+            data: {
+                "examId": exam_ID,
+                "markerId": markerID,
+                "candidateId": candidateID,
+                "mainquestionId": questionID,
+                "subQuestion": false,
+                "questionType": "common",
+                "markerData": {
+                    "markerScore": "1",
+                    "markerFeedback": "<p>marker one feedback</p>",
+                    "markerRating": 2,
+                    "isChanged": false,
+                    "formValid": true,
+                    "markedAnswerKeys": []
+                }
+            }
+            ,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Marks saved successfully")
+
+    //Schema validation
+    const schema = jschemasonpath.Delivery.Reset_Marking
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("Delivery_135. @API To verify  the Exam-admin-marking-viewresponse-save of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/examadminmarkingviewresponsesave',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_136. @API To  verify  the Exam-admin-marking-viewresponse-save of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/examadminmarkingviewresponsesaveIGS',
+        {
+            data: jsonObject.Exam_admin_marking_viewresponse_save,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
+})
+
+test("Delivery_137. @API To verify  the Final or submit-as-final  submited", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/submitfinal',
+        {
+            data: { "candidateId": candidateID, "markerId": markerID, "examId": exam_ID, "session": [{ "id": sessionID, "name": "Exam Main Session" }], "markingStatusId": [], "markersArray": [{ "id": 3740, "name": "Marker One" }] },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Final marks submitted sucessfully")
+
+    //Schema validation
+    const schema = jschemasonpath.Delivery.Reset_Marking
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("Delivery_138. @API To verify  the Final or submit-as-final  submited of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/submitfinal',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_139. @API To  verify  the Final or submit-as-final  submited of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/submitfinalIGS',
+        {
+            data: jsonObject.Final_or_submit_as_final_submited,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
+})
+
+
+test("Delivery_140. @API To verify  the Reopen-marking", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/reopen-marking',
+        {
+            data: { "candidateId": candidateID, "markerId": markerID, "examId": exam_ID, "session": [{ "id": sessionID, "name": "Exam Main Session" }], "markingStatusId": [], "markersArray": [{ "id": markerID, "name": markername }] },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.message).toEqual("Marking has been Reopened sucessfully")
+
+    //Schema validation
+    const schema = jschemasonpath.Delivery.Reopen_marking
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("Delivery_141. @API To verify  the Reopen-marking of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/reopen-marking',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_142. @API To  verify  the Reopen-marking of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/reopen-markingIGS',
+        {
+            data: jsonObject.Reopen_marking,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
 })
 
 test("Delivery_108. @API To verify  the Marker-assign-save of incorrect HTTP method", async ({ request }) => {
@@ -2895,17 +3287,17 @@ test("Delivery_115. @API To  verify  the Marker-unassign-reset-check of invalid 
 //             data: {
 //                 "examId": exam_ID, "session": [{
 //                     "id": sessionID, "name": "Exam Main Session"
-//                 }], "candidateId": [candidateID], "questionId": ["000"], "markerId": [markerID]
+//                 }], "candidateId": [candidateID, candidateID1], "questionId": ["000"], "markerId": [markerID]
 //             },
 //             headers: {
-//                 "accept": "application/json",
+//                 "Content-Type": "application/json",
 //                 "webreferer": jsonpath.webreferer,
 //                 "authorization": token
 //             }
 //         });
 //     //Validation of response time
 //     verifyResponse.validateTime(jsonpath.responseDuration);
-//     console.log(await response.json())
+//     //console.log(await response.json())
 
 //     //Status code validation
 //     expect(response.status()).toBe(200);
@@ -2957,6 +3349,1155 @@ test("Delivery_115. @API To  verify  the Marker-unassign-reset-check of invalid 
 //     //Verify Response Headers
 //     expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
 // })
+
+// test("Delivery_107a. @API To verify  the Marker-assign-save", async ({ request }) => {
+//     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+//     verifyResponse.fetchrequestTime();
+//     console.log(exam_ID)
+//     const response = await request.post(baseURL + '/exam-registration-api/v1/markerassignsave',
+//         {
+//             data: {
+//                 "examId": exam_ID, "session": [{
+//                     "id": sessionID, "name": "Exam Main Session"
+//                 }], "candidateId": [candidateID, candidateID1], "questionId": ["000"], "markerId": [markerID]
+//             },
+//             headers: {
+//                 "accept": "application/json",
+//                 "webreferer": jsonpath.webreferer,
+//                 "authorization": token
+//             }
+//         });
+//     //Validation of response time
+//     verifyResponse.validateTime(jsonpath.responseDuration);
+//     console.log(await response.json())
+
+//     //Status code validation
+//     expect(response.status()).toBe(200);
+//     expect(response.ok()).toBeTruthy()
+//     expect(response.statusText()).toBe("OK");
+
+//     //Verify Response Headers
+//     expect(response.headers()['content-type']).toBe('application/json')
+// })
+
+test("Delivery_119. @API To verify  the Markers-Dashboard", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/markers-dashboard',
+        {
+            data: { "examId": exam_ID },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+})
+
+test("Delivery_120. @API To verify  the Markers-Dashboard of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/markers-dashboard',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_121. @API To  verify  the Markers-Dashboard of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/markers-dashboardIGS',
+        {
+            data: { "examId": exam_ID },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
+})
+
+test("Delivery_122. @API To verify  the Markers-dashboard-Search", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/markers-dashboard',
+        {
+            data: { "freeText": [markername], "pagination": 5, "examId": exam_ID, "examSession": [sessionID] },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+})
+
+test("Delivery_123. @API To verify  the Markers-dashboard-Search of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/markers-dashboard',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_124. @API To  verify  the Markers-dashboard-Search of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/markers-dashboardIGS',
+        {
+            data: jsonObject.Markers_dashboard_Search,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
+})
+
+test("Delivery_125. @API To verify  the Markers-dashboard-Pagination", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/markers-dashboard?page=2',
+        {
+            data: { "freeText": [markername], "pagination": 25, "showColumns": null, "examId": exam_ID, "examSession": [sessionID] },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+})
+
+test("Delivery_126. @API To verify  the Markers-dashboard-Pagination of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/markers-dashboard?page=2',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_127. @API To  verify  the Markers-dashboard-Pagination of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/markers-dashboardIGS?page=2',
+        {
+            data: jsonObject.Markers_dashboard_Pagination,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
+})
+
+// test("Delivery_128. @API To verify  the Marker Responce left site menu", async ({ request }) => {
+//     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+//     verifyResponse.fetchrequestTime();
+//     console.log(exam_ID)
+//     const response = await request.post(baseURL + '/exam-registration-api/v1/examadminmarkingquestionlist',
+//         {
+//             data: { "examId": exam_ID, "candidateId": candidateID, "markerId": markerID, "session": sessionID, "markingStatusId": [], "questionId": null, "viewBy": "candidate", "role": "marker" },
+//             headers: {
+//                 "accept": "application/json",
+//                 "webreferer": jsonpath.webreferer,
+//                 "authorization": token
+//             }
+//         });
+//     //Validation of response time
+//     verifyResponse.validateTime(jsonpath.responseDuration);
+//     console.log(await response.json())
+
+//     //Status code validation
+//     expect(response.status()).toBe(200);
+//     expect(response.ok()).toBeTruthy()
+//     expect(response.statusText()).toBe("OK");
+
+//     //Verify Response Headers
+//     expect(response.headers()['content-type']).toBe('application/json')
+
+//     var res = await response.json()
+//     questionID = res.parts[0].data[0];
+//     console.log('questionID is-', questionID)
+// })
+
+// test("Delivery_129. @API To verify  the Marker Responce left site menu of incorrect HTTP method", async ({ request }) => {
+//     verifyResponse.fetchrequestTime();
+//     const response = await request.get(baseURL + '/exam-registration-api/v1/examadminmarkingquestionlist',
+//         {
+//             headers: {
+//                 "accept": "application/json",
+//                 "webreferer": jsonpath.webreferer,
+//                 "authorization": token
+//             }
+//         });
+//     //Validation of response time
+//     verifyResponse.validateTime(jsonpath.responseDuration);
+
+//     //Status code validation
+//     expect(response.status()).toBe(405);
+
+//     //Verify Response Headers
+//     expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+// })
+
+// test("Delivery_130. @API To  verify  the Marker Responce left site menu of invalid endpoint.", async ({ request }) => {
+//     verifyResponse.fetchrequestTime();
+//     const response = await request.post(baseURL + '/exam-registration-api/v1/examadminmarkingquestionlistIGS',
+//         {
+//             data: jsonObject.Marker_Responce_left_site_menu,
+//             headers: {
+//                 "accept": "application/json",
+//                 "webreferer": jsonpath.webreferer,
+//                 "authorization": token
+//             }
+//         });
+
+//     //Validation of response time
+//     verifyResponse.validateTime(jsonpath.responseDuration);
+
+//     //Status code validation
+//     expect(response.status()).toBe(404);
+
+//     //Verify Response Headers
+//     expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
+// })
+
+test("Delivery_143. @API To verify  the Markers-report Paginaion", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/markers-report?page=2',
+        {
+            data: { "examId": exam_ID, "pagination": 50, "markersArray": [{ "id": markerID, "name": "{{markername}}" }], "markerId": markerID, "session": [{ "id": sessionID, "name": "Exam Main Session" }], "markingStatusId": [] },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+})
+
+test("Delivery_144. @API To verify  the Markers-report Paginaion of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/markers-report?page=2',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_145. @API To  verify  the Markers-report Paginaion of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/markers-reportIGS?page=2',
+        {
+            data: jsonObject.Markers_report_Paginaion,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
+})
+
+test("Delivery_146. @API To verify  the markers-report-show column", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/markers-report',
+        {
+            data: { "examId": exam_ID, "showColumns": ["client id", "mappings"], "pagination": 50, "markersArray": [{ "id": markerID, "name": markername }], "markerId": markerID, "session": [{ "id": sessionID, "name": "Exam Main Session" }], "markingStatusId": [] },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+})
+
+test("Delivery_147. @API To verify  the markers-report-show column of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/markers-report',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_148. @API To  verify  the markers-report-show column of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/markers-reportIGS',
+        {
+            data: jsonObject.markers_report_show_column,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
+})
+
+test("Delivery_149. @API To verify theMarkingStatus-List response", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/getMarkingStatus',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    console.log(await response.json())
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json');
+})
+
+test("Delivery_150. @API To verify the response when passing an invalid endpoint for MarkingStatus-List", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/getMarkingStatusIGS',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_151. @API To verify the response when passing empty access token for MarkingStatus-List", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/getMarkingStatus',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.error_description).toEqual("The access token is missing");
+})
+
+test("Delivery_153. @API To verify  the MarkersBySession-List", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/getMarkersBySession',
+        {
+            data: { "examId": exam_ID, "session": [{ "id": sessionID, "name": "Exam Main Session" }] },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.Message).toEqual("Success");
+})
+
+test("Delivery_154. @API To verify  the MarkersBySession-List of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/getMarkersBySession',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_155. @API To  verify  the MarkersBySession-List of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/getMarkersBySessionIGS',
+        {
+            data: jsonObject.MarkersBySession_List,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
+})
+
+test("Delivery_156. @API To verify  the Markers-Report-List", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/markers-report',
+        {
+            data: { "examId": exam_ID, "markersArray": [{ "id": markerID, "name": markername }], "session": [{ "id": sessionID, "name": "Exam Main Session" }], "markingStatusId": [] },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+})
+
+test("Delivery_157. @API To verify  the Markers-Report-List of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/markers-report',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_158. @API To  verify  the Markers-Report-List of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/markers-reportIGS',
+        {
+            data: jsonObject.Markers_Report_List,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
+})
+
+test("Delivery_159. @API To verify  the markers-report-filters", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/markers-report',
+        {
+            data: { "examId": exam_ID, "markersArray": [{ "id": markerID, "name": markername }], "session": [{ "id": sessionID, "name": "Exam Main Session" }], "markingStatusId": [1] },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+})
+
+test("Delivery_160. @API To verify  the markers-report-filters of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/markers-report',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_161. @API To  verify  the markers-report-filters of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/markers-reportIGS',
+        {
+            data: jsonObject.Markers_Report_List,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
+})
+
+test("Delivery_162. @API To verify  the Reset-Marking", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/reset-marking',
+        {
+            data: { "examId": exam_ID, "candidateId": [], "markerId": markerID },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Marking has been reset")
+
+    //Schema validation
+    const schema = jschemasonpath.Delivery.Reset_Marking
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("Delivery_163. @API To  verify  the Reset-Marking of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/reset-marking',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_164. @API To  verify  the markers-report-filters of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/reset-markingIGS',
+        {
+            data: jsonObject.Reset_Marking,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
+})
+
+test("Delivery_165. @API To verify  the Open or Close Marking-All", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/open-marking',
+        {
+            data: { "examId": exam_ID, "markerId": "", "markingEnabled": false },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Marking has been closed for all markers")
+
+    //Schema validation
+    const schema = jschemasonpath.Delivery.Reset_Marking
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("Delivery_166. @API To verify  the Open or Close Marking-All of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/open-marking',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_167. @API To  verify  the Open or Close Marking-All of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/open-markingIGS',
+        {
+            data: jsonObject.Open_or_Close_Marking_All,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
+})
+
+test("Delivery_168. @API To verify  the workflow-create-page", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/marking/workflow/create',
+        {
+            data: { "exam_id": exam_ID, "workflow": { "name": "No Workflow" }, "Authorization": "{\"COPEM Module 1\":{\"Question\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"View\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Public Filter\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"}],\"Images\":[{\"Upload\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Exam\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Export\":\"FALSE\"},{\"Preview (PDF)\":\"TRUE\"},{\"Public Filter\":\"FALSE\"},{\"View\":\"TRUE\"}],\"Blueprint\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Unlock\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Registration\":[{\"Adduser\":\"TRUE\"},{\"Updateuser\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Generate Temp ID\":\"TRUE\"},{\"Assign Venue And Booking Status\":\"TRUE\"},{\"Markers Report Download\":\"TRUE\"},{\"Bulk Assign Invigilator\":\"TRUE\"},{\"Manage Special Consideration\":\"TRUE\"},{\"Manage Booking\":\"TRUE\"},{\"Live Monitor\":\"TRUE\"},{\"Marking\":\"TRUE\"},{\"Marker View Next\":\"TRUE\"},{\"Marker View Prev\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Venue Summary\":\"TRUE\"},{\"Download Exam\":\"TRUE\"},{\"Live Monitor Exam Action\":\"TRUE\"},{\"Live Monitor Questions\":\"TRUE\"},{\"Live Monitor Timer\":\"TRUE\"},{\"Reset Password\":\"TRUE\"},{\"Reopen Exam\":\"TRUE\"},{\"Open All Marking\":\"TRUE\"},{\"Open Marking\":\"TRUE\"},{\"Reset Marking\":\"TRUE\"},{\"Un Assign All Markers\":\"TRUE\"},{\"Download All Exam users\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Gradebook\":[{\"View\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Publish\":\"TRUE\"},{\"Unpublish\":\"TRUE\"},{\"Add Comment\":\"TRUE\"},{\"Public Filter\":\"FALSE\"}],\"Reports\":[{\"View\":\"FALSE\"},{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}]},\"LIV Test Bank\":{\"Question\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"View\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Public Filter\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"}],\"Images\":[{\"Upload\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Exam\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Export\":\"FALSE\"},{\"Preview (PDF)\":\"TRUE\"},{\"Public Filter\":\"FALSE\"},{\"View\":\"TRUE\"}],\"Blueprint\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Unlock\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Registration\":[{\"Adduser\":\"TRUE\"},{\"Updateuser\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Generate Temp ID\":\"TRUE\"},{\"Assign Venue And Booking Status\":\"TRUE\"},{\"Markers Report Download\":\"TRUE\"},{\"Bulk Assign Invigilator\":\"TRUE\"},{\"Manage Special Consideration\":\"TRUE\"},{\"Manage Booking\":\"TRUE\"},{\"Live Monitor\":\"TRUE\"},{\"Marking\":\"TRUE\"},{\"Marker View Next\":\"TRUE\"},{\"Marker View Prev\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Venue Summary\":\"TRUE\"},{\"Download Exam\":\"TRUE\"},{\"Live Monitor Exam Action\":\"TRUE\"},{\"Live Monitor Questions\":\"TRUE\"},{\"Live Monitor Timer\":\"TRUE\"},{\"Reset Password\":\"TRUE\"},{\"Reopen Exam\":\"TRUE\"},{\"Open All Marking\":\"TRUE\"},{\"Open Marking\":\"TRUE\"},{\"Reset Marking\":\"TRUE\"},{\"Un Assign All Markers\":\"TRUE\"},{\"Download All Exam users\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Gradebook\":[{\"View\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Publish\":\"TRUE\"},{\"Unpublish\":\"TRUE\"},{\"Add Comment\":\"TRUE\"},{\"Public Filter\":\"FALSE\"}],\"Reports\":[{\"View\":\"FALSE\"},{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}]},\"QA Bank\":{\"Question\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"View\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Public Filter\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"}],\"Images\":[{\"Upload\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Exam\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Export\":\"FALSE\"},{\"Preview (PDF)\":\"TRUE\"},{\"Public Filter\":\"FALSE\"},{\"View\":\"TRUE\"}],\"Blueprint\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Unlock\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Registration\":[{\"Adduser\":\"TRUE\"},{\"Updateuser\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Generate Temp ID\":\"TRUE\"},{\"Assign Venue And Booking Status\":\"TRUE\"},{\"Markers Report Download\":\"TRUE\"},{\"Bulk Assign Invigilator\":\"TRUE\"},{\"Manage Special Consideration\":\"TRUE\"},{\"Manage Booking\":\"TRUE\"},{\"Live Monitor\":\"TRUE\"},{\"Marking\":\"TRUE\"},{\"Marker View Next\":\"TRUE\"},{\"Marker View Prev\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Venue Summary\":\"TRUE\"},{\"Download Exam\":\"TRUE\"},{\"Live Monitor Exam Action\":\"TRUE\"},{\"Live Monitor Questions\":\"TRUE\"},{\"Live Monitor Timer\":\"TRUE\"},{\"Reset Password\":\"TRUE\"},{\"Reopen Exam\":\"TRUE\"},{\"Open All Marking\":\"TRUE\"},{\"Open Marking\":\"TRUE\"},{\"Reset Marking\":\"TRUE\"},{\"Un Assign All Markers\":\"TRUE\"},{\"Download All Exam users\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Gradebook\":[{\"View\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Publish\":\"TRUE\"},{\"Unpublish\":\"TRUE\"},{\"Add Comment\":\"TRUE\"},{\"Public Filter\":\"FALSE\"}],\"Reports\":[{\"View\":\"FALSE\"},{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}]},\"banks\":{\"1\":[\"Administrator\"],\"5\":[\"Administrator\"],\"42\":[\"Administrator\"]},\"user\":\"2638\"}" },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy();
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+})
+
+test("Delivery_169. @API To verify  the workflow-create-page of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/marking/workflow/create',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_170. @API To  verify  the workflow-create-page of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/marking/workflow/createIGS',
+        {
+            data: jsonObject.workflow_create_page,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8');
+})
+
+test("Delivery_173. @API To verify  the Workflow-save", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/exam-registration-api/v1/marking/workflow/save/' + exam_ID,
+        {
+            data: { "workflow": { "id": "1", "name": "No Workflow" }, "exam_id": exam_ID, "transition": "Approve", "Authorization": "{\"COPEM Module 1\":{\"Question\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"View\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Public Filter\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"}],\"Images\":[{\"Upload\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Exam\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Export\":\"FALSE\"},{\"Preview (PDF)\":\"TRUE\"},{\"Public Filter\":\"FALSE\"},{\"View\":\"TRUE\"}],\"Blueprint\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Unlock\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Registration\":[{\"Adduser\":\"TRUE\"},{\"Updateuser\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Generate Temp ID\":\"TRUE\"},{\"Assign Venue And Booking Status\":\"TRUE\"},{\"Markers Report Download\":\"TRUE\"},{\"Bulk Assign Invigilator\":\"TRUE\"},{\"Manage Special Consideration\":\"TRUE\"},{\"Manage Booking\":\"TRUE\"},{\"Live Monitor\":\"TRUE\"},{\"Marking\":\"TRUE\"},{\"Marker View Next\":\"TRUE\"},{\"Marker View Prev\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Venue Summary\":\"TRUE\"},{\"Download Exam\":\"TRUE\"},{\"Live Monitor Exam Action\":\"TRUE\"},{\"Live Monitor Questions\":\"TRUE\"},{\"Live Monitor Timer\":\"TRUE\"},{\"Reset Password\":\"TRUE\"},{\"Reopen Exam\":\"TRUE\"},{\"Open All Marking\":\"TRUE\"},{\"Open Marking\":\"TRUE\"},{\"Reset Marking\":\"TRUE\"},{\"Un Assign All Markers\":\"TRUE\"},{\"Download All Exam users\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Gradebook\":[{\"View\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Publish\":\"TRUE\"},{\"Unpublish\":\"TRUE\"},{\"Add Comment\":\"TRUE\"},{\"Public Filter\":\"FALSE\"}],\"Reports\":[{\"View\":\"FALSE\"},{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}]},\"LIV Test Bank\":{\"Question\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"View\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Public Filter\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"}],\"Images\":[{\"Upload\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Exam\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Export\":\"FALSE\"},{\"Preview (PDF)\":\"TRUE\"},{\"Public Filter\":\"FALSE\"},{\"View\":\"TRUE\"}],\"Blueprint\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Unlock\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Registration\":[{\"Adduser\":\"TRUE\"},{\"Updateuser\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Generate Temp ID\":\"TRUE\"},{\"Assign Venue And Booking Status\":\"TRUE\"},{\"Markers Report Download\":\"TRUE\"},{\"Bulk Assign Invigilator\":\"TRUE\"},{\"Manage Special Consideration\":\"TRUE\"},{\"Manage Booking\":\"TRUE\"},{\"Live Monitor\":\"TRUE\"},{\"Marking\":\"TRUE\"},{\"Marker View Next\":\"TRUE\"},{\"Marker View Prev\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Venue Summary\":\"TRUE\"},{\"Download Exam\":\"TRUE\"},{\"Live Monitor Exam Action\":\"TRUE\"},{\"Live Monitor Questions\":\"TRUE\"},{\"Live Monitor Timer\":\"TRUE\"},{\"Reset Password\":\"TRUE\"},{\"Reopen Exam\":\"TRUE\"},{\"Open All Marking\":\"TRUE\"},{\"Open Marking\":\"TRUE\"},{\"Reset Marking\":\"TRUE\"},{\"Un Assign All Markers\":\"TRUE\"},{\"Download All Exam users\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Gradebook\":[{\"View\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Publish\":\"TRUE\"},{\"Unpublish\":\"TRUE\"},{\"Add Comment\":\"TRUE\"},{\"Public Filter\":\"FALSE\"}],\"Reports\":[{\"View\":\"FALSE\"},{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}]},\"QA Bank\":{\"Question\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"\":\"FALSE\"},{\"View\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Public Filter\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"}],\"Images\":[{\"Upload\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Exam\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview (WEB)\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Checkout\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Export\":\"FALSE\"},{\"Preview (PDF)\":\"TRUE\"},{\"Public Filter\":\"FALSE\"},{\"View\":\"TRUE\"}],\"Blueprint\":[{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Unlock\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Registration\":[{\"Adduser\":\"TRUE\"},{\"Updateuser\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Generate Temp ID\":\"TRUE\"},{\"Assign Venue And Booking Status\":\"TRUE\"},{\"Markers Report Download\":\"TRUE\"},{\"Bulk Assign Invigilator\":\"TRUE\"},{\"Manage Special Consideration\":\"TRUE\"},{\"Manage Booking\":\"TRUE\"},{\"Live Monitor\":\"TRUE\"},{\"Marking\":\"TRUE\"},{\"Marker View Next\":\"TRUE\"},{\"Marker View Prev\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"\":\"TRUE\"},{\"Venue Summary\":\"TRUE\"},{\"Download Exam\":\"TRUE\"},{\"Live Monitor Exam Action\":\"TRUE\"},{\"Live Monitor Questions\":\"TRUE\"},{\"Live Monitor Timer\":\"TRUE\"},{\"Reset Password\":\"TRUE\"},{\"Reopen Exam\":\"TRUE\"},{\"Open All Marking\":\"TRUE\"},{\"Open Marking\":\"TRUE\"},{\"Reset Marking\":\"TRUE\"},{\"Un Assign All Markers\":\"TRUE\"},{\"Download All Exam users\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}],\"Gradebook\":[{\"View\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"View\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Download\":\"TRUE\"},{\"Publish\":\"TRUE\"},{\"Unpublish\":\"TRUE\"},{\"Add Comment\":\"TRUE\"},{\"Public Filter\":\"FALSE\"}],\"Reports\":[{\"View\":\"FALSE\"},{\"Create\":\"TRUE\"},{\"Search\":\"TRUE\"},{\"Edit\":\"TRUE\"},{\"Preview\":\"TRUE\"},{\"Duplicate\":\"TRUE\"},{\"Delete\":\"TRUE\"},{\"Print\":\"TRUE\"},{\"Export\":\"TRUE\"},{\"Archive\":\"TRUE\"},{\"Public Filter\":\"TRUE\"}]},\"banks\":{\"1\":[\"Administrator\"],\"5\":[\"Administrator\"],\"42\":[\"Administrator\"]},\"user\":\"28\"}" },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy();
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+})
+
+test("Delivery_174. @API To verify  the Workflow-save of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/marking/workflow/save/' + exam_ID,
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_171. @API To verify the Workflow-checkout response", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/marking/workflow/checkout/' + exam_ID,
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    console.log(await response.json())
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json');
+})
+
+test("Delivery_172. @API To verify the response when passing an invalid endpoint for Workflow-checkout", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/marking/workflow/checkout/' + exam_ID + '/IGS',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("Delivery_175. @API To verify  the Download exam file name", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examService_QunHist_DeliveryShema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    console.log(exam_ID)
+    const response = await request.post(baseURL + '/iexam/candidate-api/v2/downloadexam',
+        {
+            data: { "examId": exam_ID },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy();
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json');
+
+    var res = await response.json()
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Your exam details is being currently prepared to download. Please wait ....")
+
+    //Schema validation
+    const schema = jschemasonpath.Delivery.Download_exam_file_name
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+test("Delivery_176. @API To verify  the Download exam file name of incorrect HTTP method", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/iexam/candidate-api/v2/downloadexam',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+})
+
+test("Delivery_177. @API To  verify  the Download exam file name of invalid endpoint.", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/iexam/candidate-api/v2/downloadexamIGS',
+        {
+            data: { "examId": exam_ID },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json');
+})
+
+test("Delivery_152. @API To verify the response on passing invalid 'webreferer' in the header field for MarkingStatus-List", async ({ request }) => {
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/getMarkingStatus',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.Invalid_webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+})
+
+test("AL_001h. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+})
 
 test("Delivery_097. @API To verify the response on passing invalid 'webreferer' in the header field for Marking-Exam Session", async ({ request }) => {
     verifyResponse.fetchrequestTime();
