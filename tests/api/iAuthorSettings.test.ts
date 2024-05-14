@@ -5,7 +5,7 @@ import path from 'path';
 import { jsonObject } from 'pageFactory/pageRepository/Api_iAuthorPage';
 import { ValidationResponse } from '../../utils/validationUtiles/ResponseValidation';
 import { Console } from 'winston/lib/winston/transports';
-import { exam_ID } from './Api_ES_exam.test';
+//import { exam_ID } from './Api_ES_exam.test';
 
 
 
@@ -29,8 +29,17 @@ let verifyResponse = new ValidationResponse;
 const Ajv = require('ajv')
 const avj = new Ajv()
 
+
+
+export let activeExamID1;
+export let activeSessionID1;
+let candidatetoken1
+export let exam_ID1;
+
+
+var schemajsonpath;
 export let token;
-var jsonpath;
+//var jsonpath;
 var jschemasonpath;
 var BankId;
 var TagId;
@@ -41,11 +50,20 @@ let bankName = makeid(8);
 var NotificationId;
 var VenueId;
 var iExamId
-jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+var examlistId
+var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
 const baseURL = jsonpath.url
+var exam_ID;
+
+var examTest;
+var sessionId;
+var userId;
+var examIdNum;
+var candidateId;
+var sessID
 
 
-test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+test("AL_001m. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
     const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
@@ -79,7 +97,7 @@ test("AL_001. @API Admin Login Success with Mandatory Fields", async ({ request 
 
 })
 
-
+/*
 test("Admin_333. @API Admin create the Bank-list information", async ({ request }) => {
     jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
     verifyResponse.fetchrequestTime();
@@ -19748,5 +19766,8468 @@ test("Admin_981. @API Admin add the save-custom-filter-save-privet  of invalid e
 
 })
 
+*/
 
+////////////////////////Exam List///////////////////////////
+
+
+//Get method
+
+test("Exam List_001. @API Admin fetch the Exam-Details-dublicate  response information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/details/1309',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+
+})
+
+
+test("Exam List_002: @API Endpoint validation for Exam-Details-dublicate  response  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/detailsIGS/1309',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+   
+    
+
+})
+
+
+test("Exam List_003. @API Access token validation  Exam-Details-dublicate  response_information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/details/1309',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+ 
+    
+
+})
+
+
+
+test("Exam List_004. @API Admin add the Exam-Details-dublicate  response  information - invalid", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/details/1309',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.Invalid_webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fpe. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Get method
+
+test("Exam List_005. @API Admin fetch the Exam-duplicate-save  response information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/duplicate/1309',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+
+})
+
+
+test("Exam List_006: @API Endpoint validation for Exam-duplicate-save  response  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/duplicateIGS/1309',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Exam List_007. @API Access token validation  Exam-duplicate-save  response_information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/duplicate/1309',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Exam List_008. @API Admin add the Exam-duplicate-save  response  information - invalid", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/duplicate/1309',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.Invalid_webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001f4e. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Get method
+
+test("Exam List_009. @API Admin fetch the Exam-preview-pdf  response information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/preview/1313',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+
+})
+
+
+test("Exam List_010: @API Endpoint validation for Exam-preview-pdf  response  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/preview/1313/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Exam List_011. @API Access token validation  Exam-preview-pdf  response_information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/preview/1313',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Exam List_012. @API Admin add the Exam-preview-pdf  response  information - invalid", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/preview/1313',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.Invalid_webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001f1e. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+
+test("Exam List_016. @API Admin create the Exam-list information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/exams',
+        {
+            // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+
+test("Exam List_017. @API Admin add  the Exam-list of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exams',
+        {
+            // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+
+
+})
+
+
+test("Exam List_018. @API Admin add the Exam-list  of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/exams/IGS',
+        {
+            // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+
+//Get method
+
+test("Exam List_019. @API Admin fetch the Exam-filters response information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/filters',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+
+})
+
+
+test("Exam List_020: @API Endpoint validation for Exam-filters   response  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/filters/IGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Exam List_021. @API Access token validation  Exam-filters   response_information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/filters',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Exam List_022. @API Admin add the Exam-filters  response  information - invalid", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/filters',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.Invalid_webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_00151e. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+/////////////Search Exam////////////////////
+
+test("Exam List_023. @API Admin add the Exam search information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/exams',
+        {
+            data:jsonObject.Admin_exam_search.body,
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+
+    var res = await response.json()
+    examlistId = res.exams.data[0].id
+    console.log("examlistId  is" + examlistId)
+
+
+})
+
+
+test("Exam List_024. @API Admin add the Exam search _validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exams',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Exam List_025. @API Admin add the Exam search _validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exams/IGS',
+        {
+             data:{
+                "freeText": [
+                    "Examname"
+                ]
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Exam List_026. @API Admin add the exam-pagination information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/exams?page=2',
+        {
+            data: jsonObject.examlist_Pagination.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+
+test("Exam List_027. @API Admin add the Exam-pagination_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exams?page=2',
+        {
+            data: jsonObject.examlist_Pagination.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Exam List_028. @API Admin add the exam-pagination _validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/exams/IGS?page=2',
+        {
+            data: jsonObject.examlist_Pagination.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Exam List_029. @API Admin add the Exam-filter-search information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/exams',
+        {
+            data: jsonObject.examlist_filter_search.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+
+test("Exam List_030. @API Admin add the Exam-filter-search_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exams',
+        {
+            data: jsonObject.examlist_filter_search.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Exam List_031. @API Admin add the Exam-filter-search_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/exams/IGS',
+        {
+            data: jsonObject.examlist_filter_search.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+
+test("Exam List_032. @API Admin add the custom-filter-save  public or privet information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/blueprint-api/v1/custom-filter',
+        {
+            data: jsonObject.examlist_custom_filter.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Filter saved successfully!")
+
+    //Schema validation
+    const schema = jschemasonpath.custom_filter_save
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+
+test("Exam List_033. @API Admin add the custom-filter-save  public or privet_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/blueprint-api/v1/custom-filter',
+        {
+           // data: jsonObject.examlist_custom_filter.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Exam List_034. @API Admin add the custom-filter-save  public or privet_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/blueprint-api/v1/custom-filter/IGS',
+        {
+            data: jsonObject.examlist_custom_filter.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Exam List_035. @API Admin add the Exam-list-show column information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/exams',
+        {
+            data: jsonObject.examlist_custom_showcolumn.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+
+test("Exam List_036. @API Admin add the Exam-list-show column of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exams',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Exam List_037. @API Admin add the Exam-list-show column of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-api/v1.2/exams/IGS',
+        {
+            data: jsonObject.examlist_custom_showcolumn.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("ES_001d. @API Validation of Exam creation successfull message.", async ({ request }) => {
+     schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))
+     const response = await request.post(baseURL + '/exam-api/v1.2/exam/save-details',
+         {
+             data: jsonObject.createExam,
+             headers: {
+                 "accept": "application/json",
+                 "webreferer": jsonpath.webreferer,
+                 "authorization": token
+             }
+         });
+     console.log(await response.json())
+     //Status code validation
+     expect(response.status()).toBe(200);
+     expect(response.ok()).toBeTruthy()
+     expect(response.statusText()).toBe("OK");
+ 
+     //Verify Response Headers
+     expect(response.headers()['content-type']).toBe('application/json')
+ 
+     var res = await response.json()
+     var res1 = res.Response
+     var resarry = [];
+     for (var i in res1)
+         resarry.push([i, res1[i]]);
+ 
+     exam_ID = (resarry[2])[1];
+     console.log("Exam id is:", exam_ID)
+ 
+     //Verify Response Payload
+     expect(await res.Response.Message).toEqual("Exam created successfully")
+ 
+     //Schema validation
+     const schema = jschemasonpath.Create_Exam
+     const validate = avj.compile(schema)
+     const isValid = validate(res)
+     expect(isValid).toBeTruthy()
+ })
+ 
+
+
+//Delete Exam list
+
+//Delete Exam Template
+
+test("Exam_List_013. @API Admin fetch the Exam-delete", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.delete(baseURL + '/exam-api/v1.2/exam/'+exam_ID+'/delete',
+        {   
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+  
+    
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Exam deleted successfully.")
+
+
+    //Schema validation
+    const schema = jschemasonpath.Exam_List_Delete
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+
+test("Exam_List_015. @API Admin Exam-delete validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-api/v1.2/exam/'+exam_ID+'/delete',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Exam_List_014. @API Endpoint validation for Exam-delete", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.delete(baseURL + '/exam-api/v1.2/exam/'+exam_ID+'/delete/IGS',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()List_019
+    
+
+})
+
+
+
+/////////////////////Question list Api////////////////////////////
+
+
+test("Question List_038. @API Admin add the Question-Types-list  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questiontypes',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+
+test("Question List_039. @API Admin add the Question-Types-list  of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/questiontypes',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Question List_040. @API Admin add the Question-Types-list  of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questiontypes/IGS',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Question List_041. @API Admin add the create-question-page-image-gallery information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image-gallery',
+        {
+            data: {
+                "banks": [
+                    1
+                ],
+                "showImages": true
+            }       ,
+            //jsonObject.examlist_custom_showcolumn.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+
+test("Question List_042. @API Admin add the create-question-page-image-gallery of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/image-gallery',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Question List_043. @API Admin add the create-question-page-image-gallery of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/file-api/v1/image-gallery/IGS',
+        {
+            data: {
+                "banks": [
+                    1
+                ],
+                "showImages": true
+            }       ,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Question List_044. @API Admin add the Create-Question-page-bank-question_type information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/createQuestion?bank=1&type=1',
+        {
+            data: {"type":"VSAQ","bank":1},
+            //jsonObject.examlist_custom_showcolumn.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+
+test("Question List_045. @API Admin add the Create-Question-page-bank-question_type of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/question-api/v1/createQuestion?bank=1&type=1',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Question List_046. @API Admin add the Create-Question-page-bank-question_type of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/createQuestionIGS?bank=1&type=1',
+        {
+            data: {"type":"VSAQ","bank":1},
+            //jsonObject.examlist_custom_showcolumn.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+
+
+test("Question List_051. @API Admin add the Question-types-page-search information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questiontypes',
+        {
+            data: {"freeText":["mcq"]},
+            //jsonObject.examlist_custom_showcolumn.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+
+test("Question List_052. @API Admin add the Question-types-page-search of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/question-api/v1/questiontypes',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Question List_053. @API Admin add the Question-types-page-search of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questiontypesIGS',
+        {
+            data: {"freeText":["mcq"]},
+            //jsonObject.examlist_custom_showcolumn.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Question List_058. @API Admin add the Question-List information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questions',
+        {
+            data: {"type":"VSAQ","bank":1},
+            //jsonObject.examlist_custom_showcolumn.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+
+test("Question List_059. @API Admin add the Question-List of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/question-api/v1/questions',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Question List_060. @API Admin add the Question-List of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questionsIGS',
+        {
+            data: {"type":"VSAQ","bank":1},
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Question List_065. @API Admin add the Questions - search information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questions',
+        {
+            data: {
+                "freeText": [
+                    "isawe"
+                ]
+            },
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+
+test("Question List_066. @API Admin add the Questions - search of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/question-api/v1/questions',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Question List_067. @API Admin add the Questions - search of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questionsIGS',
+        {
+            data: {
+                "freeText": [
+                    "isawe"
+                ]
+            },
+            //jsonObject.examlist_custom_showcolumn.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Question List_068. @API Admin add the Questions-filter-search information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questions',
+        {
+            data: {
+                "freeText": [
+                    "isawe"
+                ],
+                "filterArray": [
+                    {
+                        "filterId": "Title",
+                        "operator": "like",
+                        "displayText": "Title <span>is like</span> ",
+                        "filterValue1": "isawe",
+                        "filterValue2": "",
+                        "filterValue3": "",
+                        "operation": ""
+                    }
+                ]
+            },
+            //jsonObject.examlist_custom_showcolumn.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+
+test("Question List_069. @API Admin add the Questions-filter-search of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/question-api/v1/questions',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Question List_070. @API Admin add the Questions-filter-search of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questionsIGS',
+        {
+            data: {
+                "freeText": [
+                    "isawe"
+                ],
+                "filterArray": [
+                    {
+                        "filterId": "Title",
+                        "operator": "like",
+                        "displayText": "Title <span>is like</span> ",
+                        "filterValue1": "isawe",
+                        "filterValue2": "",
+                        "filterValue3": "",
+                        "operation": ""
+                    }
+                ]
+            },
+            //jsonObject.examlist_custom_showcolumn.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Question List_071. @API Admin add the Question-custom-filter-save public or privet information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/custom-filter',
+        {
+            data:jsonObject.questionlist_custom_filter.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Filter saved successfully!")
+
+
+    //Schema validation
+    const schema = jschemasonpath.Question_custom_filter
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+
+})
+
+
+
+test("Question List_072. @API Admin add the Question-custom-filter-save public or privet of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/question-api/v1/custom-filter',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Question List_073. @API Admin add the Question-custom-filter-save public or privet of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/custom-filterIGS',
+        {
+            data: {
+                "filterArray": {
+                    "filterName": "pri titleqa",
+                    "filterType": "private",
+                    "filterPage": "showquestions",
+                    "filter_id": ""
+                },
+                "customFilter": [
+                    {
+                        "filterId": "Title",
+                        "operator": "like",
+                        "displayText": "Title <span>is like</span> ",
+                        "filterValue1": "isawe",
+                        "filterValue2": "",
+                        "filterValue3": "",
+                        "operation": ""
+                    }
+                ]
+            },
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Question List_074. @API Admin add the Questions-pagination information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questions?page=2',
+        {
+            data: {
+                "freeText": [
+                    "isawe"
+                ]
+            },
+            //jsonObject.examlist_custom_showcolumn.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+
+test("Question List_075. @API Admin add the Questions-pagination of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/question-api/v1/questions?page=2',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Question List_076. @API Admin add the Questions-pagination of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questionsIGS?page=2',
+        {
+            data: {
+                "freeText": [
+                    "isawe"
+                ]
+            },
+            //jsonObject.examlist_custom_showcolumn.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Question List_077. @API Admin add the Questions-list-show-column information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questions',
+        {
+            data: {
+                "showColumns": [
+                    "TAG",
+                    "BANK",
+                    "mappings",
+                    "tags"
+                ]
+            },
+            //jsonObject.examlist_custom_showcolumn.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+
+
+test("Question List_078. @API Admin add the Questions-list-show-column of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.put(baseURL + '/question-api/v1/questions',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Question List_079. @API Admin add the Questions-list-show-column of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/question-api/v1/questionsIGS',
+        {
+            data: {
+                "showColumns": [
+                    "TAG",
+                    "BANK",
+                    "mappings",
+                    "tags"
+                ]
+            },
+            //jsonObject.examlist_custom_showcolumn.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+
+//Get method
+
+test("Question List_047. @API Admin fetch the create-question-Tags-list  response information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/get-image/tags',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+
+})
+
+
+test("Question List_048: @API Endpoint validation for create-question-Tags-list  response  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/get-image/tagsIGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Question List_049. @API Access token validation  create-question-Tags-list  response_information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/get-image/tags',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Question List_050. @API Admin add the create-question-Tags-list  response  information - invalid", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/get-image/tags',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.Invalid_webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fpee. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Get method
+
+test("Question List_054. @API Admin fetch the create-question-get-banks  response information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/get-image/banks',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+
+})
+
+
+test("Question List_055: @API Endpoint validation for create-question-get-banks  response  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/get-image/banksIGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Question List_056. @API Access token validation  create-question-get-banks  response_information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/get-image/banks',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Question List_057. @API Admin add the create-question-get-banks  response  information - invalid", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/file-api/v1/get-image/banks',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.Invalid_webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fped. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+//Get method
+
+test("Question List_061. @API Admin fetch the Question-Filters  response information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/question-filters',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    //console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+
+})
+
+
+test("Question List_062: @API Endpoint validation for Question-Filters  response  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/question-filtersIGS',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+test("Question List_063. @API Access token validation Question-Filters  response_information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/question-filters',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer":  jsonpath.webreferer,
+                "authorization": ""
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json; charset=utf-8')
+
+    // var res = await response.json()
+    
+
+})
+
+
+
+test("Question List_064. @API Admin add the Question-Filters  response  information - invalid", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/question-api/v1/question-filters',
+        {
+           // data: jsonpath.adminLogin.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.Invalid_webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(401);
+ 
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+     var res = await response.json()
+     console.log(res);
+    
+
+})
+
+
+test("AL_001fied. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+            data: jsonpath.adminLogin.body,
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+
+
+
+test("ES_001k. @API Validation of Exam creation successfull message.", async ({ request }) => {
+    schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))
+    const response = await request.post(baseURL + '/exam-api/v1.2/exam/save-details',
+        {
+            data: jsonObject.createExam,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+
+            }
+        });
+    console.log(await response.json())
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    var res1 = res.Response
+    var resarry = [];
+    for (var i in res1)
+        resarry.push([i, res1[i]]);
+
+    exam_ID = (resarry[2])[1];
+    console.log("Exam id is:", exam_ID)
+
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Exam created successfully")
+
+    //Schema validation
+    const schema = schemajsonpath.createExam
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+
+test("ES_002g. @API Validation of Exam section and add questions successfull message.", async ({ request }) => {
+    schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))
+    const response = await request.post(baseURL + '/exam-api/v1.2/exam/save-sessions/' + exam_ID,
+        {
+            data: jsonObject.addQuestions,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    console.log(await response.json())
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+    expect(await res.message).toEqual("Session(s) Updated successfully")
+
+    //Schema validation
+    const schema = schemajsonpath.editExam
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("ES_003l. @API Validation of Approved Exam  successfull message.", async ({ request }) => {
+    schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))
+    const response = await request.post(baseURL + '/exam-api/v1/exam/workflow/save/' + exam_ID,
+        {
+            data: jsonObject.approveexam,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    console.log(await response.json())
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Status has been updated successfuly.")
+
+    //Schema validation
+    const schema = schemajsonpath.approveexam
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("ES_004t. @API Validation of add user successful message.", async ({ request }) => {
+    schemajsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/examSchema.json'), 'utf-8'))
+    const response = await request.post(baseURL + '/exam-registration-api/v2/existingusersexam',
+        {
+            data: {
+                "selectedRecord": [
+                    {
+                        "id": "45",
+                        "upload image": {
+                            "imgURL": "",
+                            "isUploading": false,
+                            "columnName": "upload image",
+                            "isExisting": true,
+                            "placeholder": "upload image",
+                            "isUploadingEnable": true
+                        },
+                        "client id": "123008",
+                        "first name": "Shiva",
+                        "last name": "J",
+                        "email": "abcd@test.com",
+                        "phone": "",
+                        "selected": true
+                    }
+                ],
+                "roleId": 9,
+                "eligible": "1",
+                "examId": exam_ID,
+                "userId": "28",
+                "booking_status_id": [
+                    {
+                        "id": 1,
+                        "name": "Booked"
+                    }
+                ],
+                "venue_id": [
+                    {
+                        "id": 3,
+                        "name": "Elumina Chennai"
+                    }
+                ]
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    console.log(await response.json())
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Users have been added to the Automation Feasibility Successfully")
+
+    //Schema validation
+    const schema = schemajsonpath.addUser
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+
+
+ test("CS_001a. @API Candidate Login Success with Mandatory Fields", async ({ request }) => {
+    jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/candidateData.json'), 'utf-8'))
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v2/candidate/login',
+        {
+            data: jsonpath.candidateLogin.body,
+            headers: jsonpath.candidateLogin.header
+
+        });
+    
+//Validation of response time
+  verifyResponse.validateTime(jsonObject.responseDuration);
+  console.log(await response.json())
+
+
+//Status code validation
+expect(response.status()).toBe(200);
+expect(response.ok()).toBeTruthy()
+expect(response.statusText()).toBe("OK");
+
+
+//Verify Response Headers
+expect(response.headers()['content-type']).toBe('application/json')
+ 
+    var res = await response.json()
+    candidatetoken1 = res.data.access_token
+    activeExamID1 = res.data.activeExams[0].examId
+    activeSessionID1 = res.data.activeExams[0].sessionId
+
+
+    //Verify Response Payload
+    console.log("Access token is:", candidatetoken1, " and Exam ID is:", activeExamID1, " and Session ID is:", activeSessionID1)
+    expect(await res.data.message).toEqual("Login Successful")
+
+
+    })
+
+
+
+
+    test("AL_001i. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+        jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+        var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+        verifyResponse.fetchrequestTime();
+        const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+            {
+
+                data: jsonpath.adminLogin.body,
+                
+                headers: jsonpath.adminLogin.header
+            });
+        //Validation of response time
+        verifyResponse.validateTime(jsonpath.responseDuration);
+        console.log(await response.json())
+    
+        //Status code validation
+        expect(response.status()).toBe(200);
+        expect(response.ok()).toBeTruthy()
+        expect(response.statusText()).toBe("OK");
+    
+        //Verify Response Headers
+        expect(response.headers()['content-type']).toBe('application/json')
+    
+        var res = await response.json()
+        token = res.access_token
+        //Verify Response Payload
+        console.log("Access token is:", token)
+        expect(await res.message).toEqual("Login Successful")
+    
+        //Schema validation
+        const schema = jschemasonpath
+        const validate = avj.compile(schema)
+        const isValid = validate(res)
+        expect(isValid).toBeTruthy()
+    
+    })
+
+
+
+//start//pause//resume//lock//resume//terminate//
+
+test("Delivery_235. @API Admin add the Start-exam   information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/exam-actions/start-exam',
+        {
+            data: {
+                "examId": activeExamID1,
+                "candidateId": [
+                    candidateId
+                ],
+                "sessionId": [
+                    {
+                        "id": activeSessionID1,
+                        "name": "Exam Main Session"
+                    }
+                ]
+            },
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    // //Verify Response Payload
+    // expect(await res.Response.Message).toEqual("")
+
+    // //Schema validation
+    // const schema = jschemasonpath.BankCreate_Schema
+    // const validate = avj.compile(schema)
+    // const isValid = validate(res)
+    // expect(isValid).toBeTruthy()
+
+})
+
+test("Delivery_236. @API Admin add the  Start-exam  _validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/exam-actions/start-exam',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_237. @API Admin add the Start-exam  _validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/exam-actions/start-examIGS',
+        {
+            data: {
+                "examId": activeExamID1,
+                "candidateId": [
+                    candidateId
+                ],
+                "sessionId": [
+                    {
+                        "id": sessionId,
+                        "name": "Exam Main Session"
+                    }
+                ]
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+   //  var res = await response.json()
+
+})
+
+
+
+
+test("Delivery_226. @API Admin add the Pause-exam  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/exam-actions/pause-exam',
+        {
+            data: {
+                "examId": activeExamID1,
+                "candidateId": [
+                    candidateId
+                ],
+                "sessionId": [
+                    {
+                        "id": activeSessionID1,
+                        "name": "Exam Main Session45"
+                    }
+                ]
+            },
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+test("Delivery_227. @API Admin add the  Pause-exam _validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/exam-actions/pause-exam',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_228. @API Admin add the Pause-exam _validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/exam-actions/pause-exam/IGS',
+        {
+            data: {
+                "examId": activeExamID1,
+                "candidateId": [
+                    candidateId
+                ],
+                "sessionId": [
+                    {
+                        "id": activeSessionID1,
+                        "name": "Exam Main Session45"
+                    }
+                ]
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Delivery_223a. @API Admin add the Resume-exam  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/exam-actions/resume-exam',
+        {
+            data: {
+                "examId": activeExamID1,
+                "candidateId": [
+                    candidateId
+                ],
+                "sessionId": [
+                    {
+                        "id": activeSessionID1,
+                        "name": "Exam Main Session"
+                    }
+                ]
+            },
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+
+test("Delivery_224b. @API Admin add the  Resume-exam _validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/exam-actions/resume-exam',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+
+test("Delivery_225c. @API Admin add the Resume-exam _validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/exam-actions/resume-exam/IGS',
+        {
+            data:{
+                "examId": activeExamID1,
+                "candidateId": [
+                    candidateId
+                ],
+                "sessionId": [
+                    {
+                        "id": activeSessionID1,
+                        "name": "Exam Main Session"
+                    }
+                ]
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+
+test("Delivery_229. @API Admin add the Lock-exam information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/exam-actions/lock-exam',
+        {
+            data: {
+                "examId": activeExamID1,
+                "candidateId": [
+                    candidateId
+                ],
+                "sessionId": [
+                    {
+                        "id": activeSessionID1,
+                        "name": "Exam Main Session"
+                    }
+                ]
+            },
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+test("Delivery_230. @API Admin add the  Lock-exam_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/exam-actions/lock-exam',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_231. @API Admin add the Lock-exam _validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/exam-actions/lock-exam/IGS',
+        {
+            data: {
+                "examId": activeExamID1,
+                "candidateId": [
+                    candidateId
+                ],
+                "sessionId": [
+                    {
+                        "id": activeSessionID1,
+                        "name": "Exam Main Session"
+                    }
+                ]
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_223. @API Admin add the Resume-exam  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/exam-actions/resume-exam',
+        {
+            data: {
+                "examId": activeExamID1,
+                "candidateId": [
+                    candidateId
+                ],
+                "sessionId": [
+                    {
+                        "id": activeSessionID1,
+                        "name": "Exam Main Session"
+                    }
+                ]
+            },
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+test("Delivery_224. @API Admin add the  Resume-exam _validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/exam-actions/resume-exam',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_225. @API Admin add the Resume-exam _validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/exam-actions/resume-exam/IGS',
+        {
+            data: {
+                "examId": activeExamID1,
+                "candidateId": [
+                    candidateId
+                ],
+                "sessionId": [
+                    {
+                        "id": activeSessionID1,
+                        "name": "Exam Main Session"
+                    }
+                ]
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Delivery_232. @API Admin add the  Terminate-exam  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/exam-actions/terminate-exam',
+        {
+            data: {
+                "examId": activeExamID1,
+                "candidateId": [
+                    candidateId
+                ],
+                "sessionId": [
+                    {
+                        "id": activeSessionID1,
+                        "name": "Exam Main Session"
+                    }
+                ]
+            },
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+test("Delivery_233. @API Admin add the Terminate-exam  _validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/exam-actions/terminate-exam',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);   
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Delivery_234. @API Admin add the Terminate-exam _validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/exam-actions/terminate-exam/IGS',
+        {
+            data: {
+                "examId": activeExamID1,
+                "candidateId": [
+                    candidateId
+                ],
+                "sessionId": [
+                    {
+                        "id": activeSessionID1,
+                        "name": "Exam Main Session"
+                    }
+                ]
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_238. @API Admin add the Livemonitor-list  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/livemonitor',
+        {
+            data: {
+                "examId": activeExamID1,
+                "sessionId": activeSessionID1,
+            },
+        
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+
+        console.log(await response.json())
+        
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+  //  console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+     examTest = res.data.candidateList.candidateList[0].candidateId,
+    
+     sessionId =res.data.candidateList.sessionId,
+   
+     candidateId =res.data.candidateList.candidateList[0].candidateId,
+    
+     userId = res.data.candidateList.candidateList[0].moreActions[1].userId,
+    
+     examIdNum= res.data.candidateList.examId,
+
+     console.log("examTest is:", examTest, " and sessionId is:", sessionId, " and candidateId is:", candidateId,"and userId is:", userId, "and  examIdNum is:", examIdNum,)
+
+
+})
+
+
+test("Delivery_239. @API Admin add the  Livemonitor-list _validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/livemonitor',
+        {
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Delivery_240. @API Admin add the Livemonitor-list _validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/livemonitorIGS',
+        {
+            data: {
+                "examId": exam_ID,
+                "sessionId": activeSessionID1,
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Delivery_181. @API Admin add the Update-user information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/updateuser',
+        {
+            data:{
+                "client_id": "43112",
+                "title": [
+                    {
+                        "id": "MR",
+                        "name": "Mr",
+                        "value": "Mr",
+                        "displayName": "Mr"
+                    }
+                ],
+                "user_name": "randomcandidate",
+                "first_name": "Candidate",
+                "last_name": "abc",
+                "email": "autotest43112@a.com",
+                "phone": "9876543201",
+                "role": [
+                    {
+                        "id": 9,
+                        "name": "Candidate",
+                        "value": "Candidate",
+                        "displayName": "Candidate"
+                    }
+                ],
+                "eligible": [
+                    {
+                        "id": 1,
+                        "name": "Yes",
+                        "value": "Yes",
+                        "displayName": "Yes"
+                    }
+                ],
+                "venue_id": [
+                    {"id":3,
+                    "name":"Chennai, India",
+                    "location_id": 1
+                    }
+                ],
+                "booking_status_id": [
+                    {"id":1,
+                    "name":"Booked"}
+                ],
+                "upload": "liv-qa.assessappglobal.com.au/registration/1302/2012227/6305d7568fc95.jpg",
+                "examId": examIdNum,
+                "candidateId": candidateId,
+                "user_id": userId
+            },
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+test("Delivery_182. @API Admin add the Update-user_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/updateuser',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_183. @API Admin add the Update-user of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/updateuserIGS',
+        {
+            data: {
+                "client_id": "43112",
+                "title": [
+                    {
+                        "id": "MR",
+                        "name": "Mr",
+                        "value": "Mr",
+                        "displayName": "Mr"
+                    }
+                ],
+                "user_name": "randomcandidate",
+                "first_name": "Candidate",
+                "last_name": "abc",
+                "email": "autotest43112@a.com",
+                "phone": "9876543201",
+                "role": [
+                    {
+                        "id": 9,
+                        "name": "Candidate",
+                        "value": "Candidate",
+                        "displayName": "Candidate"
+                    }
+                ],
+                "eligible": [
+                    {
+                        "id": 1,
+                        "name": "Yes",
+                        "value": "Yes",
+                        "displayName": "Yes"
+                    }
+                ],
+                "venue_id": [
+                    {
+                        "id": 36,
+                        "name": "Chennai Test Venue",
+                        "location_id": 1
+                    }
+                ],
+                "booking_status_id": [
+                    {
+                        "id": 1,
+                        "name": "Booked"
+                    }
+                ],
+                "upload": "liv-qa.assessappglobal.com.au/registration/1302/2012227/6305d7568fc95.jpg",
+                "examId": "1625",
+                "candidateId": "2012322",
+                "user_id": "45"
+            },
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_184. @API Admin add the Generate-temp-id information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/generatetempid/',
+        {
+            data: {
+    "temp_user_details": [
+        {
+            "id": "45",
+            "upload image": {
+                "imgURL": "liv-qa.assessappglobal.com.au/registration/1302/2012227/6305d7568fc95.jpg",
+                "isUploading": false,
+                "columnName": "upload image",
+                "isExisting": true,
+                "placeholder": "upload image",
+                "isUploadingEnable": false
+            },
+            "exam id": "2012322",
+            "name": "Shiva J",
+            "role": "Candidate",
+            "status": "Active",
+            "eligible": "Yes",
+            "invigilator": "",
+            "selected": false
+        }
+    ],
+    "examId": examIdNum
+},
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Exam id already generated for this User")
+
+    //Schema validation
+    const schema = jschemasonpath.generate_temp_id_Schema
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+test("Delivery_185. @API Admin add the  Generate-temp-id of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/generatetempid/',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Delivery_186. @API Admin add the Generate-temp-id of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/generatetempid/IGS',
+        {
+            data: {
+                "temp_user_details": [
+                    {
+                        "id": "1625",
+                        "upload image": {
+                            "imgURL": "liv-qa.assessappglobal.com.au/registration/1302/2012227/6305d7568fc95.jpg",
+                            "isUploading": false,
+                            "columnName": "upload image",
+                            "isExisting": true,
+                            "placeholder": "upload image",
+                            "isUploadingEnable": false
+                        },
+                        "exam id": "2012322",
+                        "name": "Candidate abc2",
+                        "role": "Candidate",
+                        "status": "Active",
+                        "eligible": "Yes",
+                        "invigilator": "",
+                        "selected": false
+                    }
+                ],
+                "examId": "1625"
+            },
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_187. @API Admin add the Special-consider-details-popup information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/special-consider-details',
+        {
+            data: {
+                "examId": examIdNum,
+                "candidateId": candidateId
+            },
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+
+})
+
+test("Delivery_188. @API Admin add the  Special-consider-details-popup of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/special-consider-details',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_189. @API Admin add the Special-consider-details-popup of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/special-consider-detailsIGS',
+        {
+            data: {
+                "examId": examIdNum,
+                "candidateId": candidateId
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_190. @API Admin add the Registration List information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/save-special-consider',
+        {
+            data: {
+                "manage": [
+                    {
+                        "title": "Candidate Name",
+                        "value": "Candidate abc",
+                        "type": "label"
+                    },
+                    {
+                        "title": "Special Consideration",
+                        "value": true,
+                        "type": "checkbox"
+                    },
+                    {
+                        "title": "Notes",
+                        "value": "",
+                        "type": "textarea"
+                    },
+                    {
+                        "title": "Attach supporting documentation (optional)",
+                        "value": [],
+                        "type": "attachment",
+                        "format": ""
+                    }
+                ],
+                "examId": examIdNum,
+                "candidateId": candidateId
+            },
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Special Consideration has been updated successfully")
+
+    //Schema validation
+    const schema = jschemasonpath.Registration_List_Schema
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+test("Delivery_191. @API Admin add the  Registration List of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/save-special-consider',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_192. @API Admin add the Registration List of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/save-special-considerIGS',
+        {
+            data: {
+                "manage": [
+                    {
+                        "title": "Candidate Name",
+                        "value": "Candidate abc",
+                        "type": "label"
+                    },
+                    {
+                        "title": "Special Consideration",
+                        "value": true,
+                        "type": "checkbox"
+                    },
+                    {
+                        "title": "Notes",
+                        "value": "",
+                        "type": "textarea"
+                    },
+                    {
+                        "title": "Attach supporting documentation (optional)",
+                        "value": [],
+                        "type": "attachment",
+                        "format": ""
+                    }
+                ],
+                "examId": examIdNum,
+                "candidateId": candidateId
+            },
+
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_193. @API Admin add the Live Dashboard  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/total-candidates-statuses',
+        {
+            data: {
+                "examId": examIdNum
+            },
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+
+})
+
+test("Delivery_194. @API Admin add the  Live Dashboard  of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/total-candidates-statuses',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_195. @API Admin add the Live Dashboard  of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/total-candidates-statusesIGS',
+        {
+            data: {
+                "examId": examIdNum
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_196. @API Admin add the Live Dashboard List-pagination information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/total-candidates-statuses?page=2',
+        {
+            data:{
+                "examId": examIdNum
+            },
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+ 
+
+})
+
+test("Delivery_197. @API Admin add the  Live Dashboard List-pagination of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/total-candidates-statuses?page=2',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_198. @API Admin add the Live Dashboard List-pagination of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/total-candidates-statusesIGS?page=2',
+        {
+            data: {
+                "examId": examIdNum
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_199. @API Admin add the Live Dashboard search information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/total-candidates-statuses',
+        {
+            data: {
+                "examId": examIdNum,
+                "sessionId": sessionId,
+                "locationId": 1,
+                "venueId": [
+                    {
+                        "id": 36,
+                        "name": "Chennai Test Venue"
+                    }
+                ],
+                "pagination": 25
+            },
+            
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+
+})
+
+test("Delivery_200. @API Admin add the  Live Dashboard search of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/total-candidates-statuses',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_201. @API Admin add the Live Dashboard search of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/total-candidates-statusesIGS',
+        {
+            data: {
+                "examId": examIdNum,
+                "sessionId": sessionId,
+                "locationId": 1,
+                "venueId": [
+                    {
+                        "id": 36,
+                        "name": "Chennai Test Venue"
+                    }
+                ],
+                "pagination": 25
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_202. @API Admin add the Reset-password  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/resetpassword',
+        {
+            data: {
+                "examId": examIdNum,
+                "candidateId": candidateId,
+                "userId": userId,
+                "reset_user_details": [
+                    {
+                        "id": 45,
+                        "exam id": "2012322"
+                    }
+                ]
+            },
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Password has been reset successfully")
+
+    //Schema validation
+    const schema = jschemasonpath.password_reset_schema
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+test("Delivery_203. @API Admin add the  Reset-password _validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/resetpassword',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_204. @API Admin add the Reset-password _validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/resetpasswordIGS',
+        {
+            data: {
+                "examId": examIdNum,
+                "candidateId": candidateId,
+                "userId": userId,
+                "reset_user_details": [
+                    {
+                        "id": 45,
+                        "exam id": examTest
+                    }
+                ]
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Delivery_208. @API Admin add the Special-consider-details-popup information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/special-consider-details',
+        {
+            data: {
+                "examId": examIdNum,
+                "candidateId": candidateId,
+            },
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+})
+
+test("Delivery_209. @API Admin add the  Special-consider-details-popup_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/special-consider-details',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_210. @API Admin add the Special-consider-details-popup_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/special-consider-detailsIGS',
+        {
+            data: {
+                "examId": examIdNum,
+                "candidateId": candidateId,
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_211. @API Admin add the Save-special-consider information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/save-special-consider',
+        {
+            data: {
+                "manage": [
+                    {
+                        "title": "Candidate Name",
+                        "value": "PFCandidateER8101101017 PFCandidateER8101101017",
+                        "type": "label"
+                    },
+                    {
+                        "title": "Special Consideration",
+                        "value": true,
+                        "type": "checkbox"
+                    },
+                    {
+                        "title": "Notes",
+                        "value": "",
+                        "type": "textarea"
+                    },
+                    {
+                        "title": "Attach supporting documentation (optional)",
+                        "value": [],
+                        "type": "attachment",
+                        "format": ""
+                    }
+                ],
+                "examId": examIdNum,
+                "candidateId": candidateId,
+            },
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Special Consideration has been updated successfully")
+
+    //Schema validation
+    const schema = jschemasonpath.Save_Special_Schema
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+test("Delivery_212. @API Admin add the  Save-special-consider_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/save-special-consider',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_213. @API Admin add the Save-special-consider_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/save-special-considerIGS',
+        {
+            data: {
+                "manage": [
+                    {
+                        "title": "Candidate Name",
+                        "value": "PFCandidateER8101101017 PFCandidateER8101101017",
+                        "type": "label"
+                    },
+                    {
+                        "title": "Special Consideration",
+                        "value": true,
+                        "type": "checkbox"
+                    },
+                    {
+                        "title": "Notes",
+                        "value": "",
+                        "type": "textarea"
+                    },
+                    {
+                        "title": "Attach supporting documentation (optional)",
+                        "value": [],
+                        "type": "attachment",
+                        "format": ""
+                    }
+                ],
+                "examId": examIdNum,
+                "candidateId": candidateId,
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_214. @API Admin add the Get-user-notes-popup information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/get-user-notes',
+        {
+            data:{
+                "examId": examIdNum,
+                "candidateId": candidateId,
+                "sessionId": sessionId,
+                "userId": userId,
+            },
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+   
+
+})
+
+test("Delivery_215. @API Admin add the  Get-user-notes-popup_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/get-user-notes',
+        {
+            data: jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_216. @API Admin add the Get-user-notes-popup_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/get-user-notesIGS',
+        {
+            data: {
+                "examId": examIdNum,
+                "candidateId": candidateId,
+                "sessionId": sessionId,
+                "userId": userId,
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Delivery_217. @API Admin add the Save-user-notes information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/save-user-notes',
+        {
+            data: {
+                "manage": [
+                    {
+                        "title": "Candidate Name",
+                        "value": "Shiva J",
+                        "type": "label"
+                    },
+                    {
+                        "title": "Notes",
+                        "value": "test not12",
+                        "type": "textarea"
+                    }
+                ],
+                "examId": examIdNum,
+                "candidateId": candidateId,
+                "userId": userId,
+                "sessionId": sessionId,
+            },
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Notes has been updated successfully")
+
+    //Schema validation
+    const schema = jschemasonpath.SaveUserNotes_Schema
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+test("Delivery_218. @API Admin add the  Save-user-notes_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/save-user-notes',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_219. @API Admin add the Save-user-notes_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/save-user-notesIGS',
+        {
+            data: {
+                "manage": [
+                    {
+                        "title": "Candidate Name",
+                        "value": "Shiva J",
+                        "type": "label"
+                    },
+                    {
+                        "title": "Notes",
+                        "value": "test not12",
+                        "type": "textarea"
+                    }
+                ],
+                "examId": examIdNum,
+                "candidateId": candidateId,
+                "userId": userId,
+                "sessionId": sessionId,
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Delivery_220. @API Admin add the Reset-login   information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/exam-actions/reset-login',
+        {
+            data: {
+                "candidateId": [
+                    candidateId
+                ],
+                "sessionId": [
+                    {
+                        "id": sessionId,
+                        "name": "Exam Main Session"
+                    }
+                ],
+                "examId": examIdNum
+            },
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Login reset successfully for candidate(s) (Candidate abc)")
+
+    //Schema validation
+    const schema = jschemasonpath.ResetLogin_Schema
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+test("Delivery_221. @API Admin add the  Reset-login   _validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/exam-actions/reset-login',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_222. @API Admin add the Reset-login_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/exam-actions/reset-loginIGS',
+        {
+            data:  {
+                "candidateId": [
+                    candidateId
+                ],
+                "sessionId": [
+                    {
+                        "id": sessionId,
+                        "name": "Exam Main Session"
+                    }
+                ],
+                "examId": examIdNum
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+
+test("Delivery_241. @API Admin add the Exam-actions  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/exam-actions',
+        {
+            data: {"examId":examIdNum},
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+
+})
+
+
+
+test("Delivery_242. @API Admin add the  Exam-actions_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/exam-actions',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_243. @API Admin add the Exam-actions_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/exam-actionsIGS',
+        {
+            data: {"examId":examIdNum},
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_244. @API Admin add the Livemonitor-Show column information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/livemonitor',
+        {
+            data: {
+                "examId": examIdNum,
+                "sessionId": sessionId,
+                "showColumns": [
+                    "client_id",
+                    "mappings"
+                ]
+            },
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+})
+
+test("Delivery_245. @API Admin add the  Livemonitor-Show column of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/livemonitor',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_246. @API Admin add the Livemonitor-Show column_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/livemonitorIGS',
+        {
+            data: {
+                "examId": examIdNum,
+                "sessionId": sessionId,
+                "showColumns": [
+                    "client_id",
+                    "mappings"
+                ]
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_247. @API Admin add the Livemonitor-Filter information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/livemonitor',
+        {
+            data: {
+                "examId": examIdNum,
+                "sessionId": sessionId,
+                "locationId": 1,
+                "venueId": [
+                    {
+                        "id": 36,
+                        "name": "Chennai Test Venue"
+                    }
+                ],
+                "examStatusId": [
+                    {
+                        "id": 14,
+                        "name": "Exam Completed"
+                    }
+                ]
+            },
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+test("Delivery_248. @API Admin add the  Livemonitor-Filter of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/livemonitor',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_249. @API Admin add the Livemonitor-Filter of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/livemonitorIGS',
+        {
+            data: {
+                "examId": examIdNum,
+                "sessionId": sessionId,
+                "locationId": 1,
+                "venueId": [
+                    {
+                        "id": 36,
+                        "name": "Chennai Test Venue"
+                    }
+                ],
+                "examStatusId": [
+                    {
+                        "id": 14,
+                        "name": "Exam Completed"
+                    }
+                ]
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_250. @API Admin add the Livemonitor-search  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/livemonitor',
+        {
+            data: {
+                "examId": examIdNum,
+                "sessionId": sessionId,
+                "freeText": "grace"
+            },
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+})
+
+test("Delivery_251. @API Admin add the  Livemonitor-search _validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/livemonitor',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_252. @API Admin add the Livemonitor-search_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/livemonitorIGS',
+        {
+            data: {
+                "examId": examIdNum,
+                "sessionId": sessionId,
+                "freeText": "grace"
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Delivery_253. @API Admin add the Registration List information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/manage-registration',
+        {
+            data: {
+                "filterArray": [],
+                "pagination": null,
+                "showColumns": [],
+                "examId": examIdNum
+            },
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+
+})
+
+test("Delivery_254. @API Admin add the  Registration List_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/manage-registration',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_255. @API Admin add the Registration List_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/manage-registrationIGS',
+        {
+            data: {
+                "filterArray": [],
+                "pagination": null,
+                "showColumns": [],
+                "examId": examIdNum
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_256. @API Admin add the Registration Search information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/manage-registration',
+        {
+            data: {
+                "filterArray": [],
+                "freeText": [
+                    "Candidate"
+                ],
+                "pagination": 25,
+                "showColumns": null,
+                "examId": examIdNum
+            },
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+   
+
+})
+
+test("Delivery_257. @API Admin add the  Registration Search_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/manage-registration',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_258. @API Admin add the Registration Search_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/manage-registrationIGS',
+        {
+            data: {
+                "filterArray": [],
+                "freeText": [
+                    "Candidate"
+                ],
+                "pagination": 25,
+                "showColumns": null,
+                "examId": examIdNum
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_259. @API Admin add the Registration pagination  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/manage-registration?page=2',
+        {
+            data: {
+                "filterArray": [],
+                "freeText": [
+                    ""
+                ],
+                "pagination": 10,
+                "showColumns": null,
+                "examId": examIdNum
+            },
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+
+})
+
+test("Delivery_260. @API Admin add the  Registration pagination_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/manage-registration?page=2',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_261. @API Admin add the Registration pagination_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/manage-registrationIGS?page=2',
+        {
+            data: {
+                "filterArray": [],
+                "freeText": [
+                    ""
+                ],
+                "pagination": 10,
+                "showColumns": null,
+                "examId": examIdNum
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_262. @API Admin add the Registration Filter information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/manage-registration',
+        {
+            data: {
+                "filterArray": [
+                    {
+                        "filterId": "Role",
+                        "operator": "eq",
+                        "displayText": "Type<span> is equal to</span> ",
+                        "filterValue1": "Candidate",
+                        "filterValue2": "select6",
+                        "filterValue3": "",
+                        "operation": ""
+                    }
+                ],
+                "freeText": [
+                    ""
+                ],
+                "pagination": 10,
+                "showColumns": null,
+                "examId": examIdNum
+            },
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+})
+
+test("Delivery_263. @API Admin add the  Registration Filter_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/manage-registration',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_264. @API Admin add the Registration Filter_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/manage-registrationIGS',
+        {
+            data: {
+                "filterArray": [
+                    {
+                        "filterId": "Role",
+                        "operator": "eq",
+                        "displayText": "Type<span> is equal to</span> ",
+                        "filterValue1": "Candidate",
+                        "filterValue2": "select6",
+                        "filterValue3": "",
+                        "operation": ""
+                    }
+                ],
+                "freeText": [
+                    ""
+                ],
+                "pagination": 10,
+                "showColumns": null,
+                "examId": examIdNum
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_265. @API Admin add the Userpage-moreoption-menu List information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/userpage-moreoption-menu',
+        {
+            data: {"pageName":"users"},
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+
+})
+
+test("Delivery_266. @API Admin add the  Userpage-moreoption-menu List _validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/userpage-moreoption-menu',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_267. @API Admin add the Userpage-moreoption-menu List_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/userpage-moreoption-menuIGS',
+        {
+            data: {"pageName":"users"},
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_268. @API Admin add the Registration left menu list information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/exam-details',
+        {
+            data: {"examId":examIdNum},
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+})
+
+test("Delivery_269. @API Admin add the  Registration left menu list_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/exam-details',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Delivery_270. @API Admin add the Registration left menu list_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/exam-detailsIGS',
+        {
+            data: {"examId":examIdNum},
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_271. @API Admin add the show column registration list information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/manage-registration',
+        {
+            data: {"examId":examIdNum},
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+
+})
+
+test("Delivery_272. @API Admin add the  show column registration list_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/manage-registration',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_273. @API Admin add the show column registration list _validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/manage-registrationIGS',
+        {
+            data: {"examId":examIdNum},
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_274. @API Admin add the Delivery list information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/registration',
+        {
+           
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+test("Delivery_275. @API Admin add the Delivery list_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/registration',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_276. @API Admin add the Delivery list_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/registrationIGS',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_277. @API Admin add the Delivery Pagination information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/registration?page=2',
+        {
+            data: {"pagination":25},
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+})
+
+test("Delivery_278. @API Admin add the Delivery Pagination_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/registration?page=2',
+        {
+          
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_279. @API Admin add the Delivery Pagination_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/registrationIGS?page=2',
+        {
+            data: {"pagination":25},
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Delivery_280. @API Admin add the Delivery Search information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/registration',
+        {
+            data: {"freeText":["test"]},
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+
+})
+
+test("Delivery_281. @API Admin add the  Delivery Search_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/registration',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_282. @API Admin add the Delivery Search_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/registrationIGS',
+        {
+            data: {"freeText":["test"]},
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Delivery_283. @API Admin add the Delivery Filter information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/registration',
+        {
+            data: {
+                "filterArray": [
+                    {
+                        "filterId": "ID",
+                        "operator": "eq",
+                        "displayText": "ID <span> is equal to</span> ",
+                        "filterValue1": 1297,
+                        "filterValue2": "",
+                        "filterValue3": "",
+                        "operation": ""
+                    }
+                ],
+                "pagination": 25
+            },
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+})
+
+
+test("Delivery_284. @API Admin add the  Delivery Filter_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/registration',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+
+test("Delivery_285. @API Admin add the Delivery Filter_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/registration/IGS',
+        {
+            data: {
+                "filterArray": [
+                    {
+                        "filterId": "ID",
+                        "operator": "eq",
+                        "displayText": "ID <span> is equal to</span> ",
+                        "filterValue1": 1297,
+                        "filterValue2": "",
+                        "filterValue3": "",
+                        "operation": ""
+                    }
+                ],
+                "pagination": 25
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Delivery_286. @API Admin add the delivery Showcolumn information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/registration',
+        {
+            data: {
+                "showColumns": [
+                    "STATUS",
+                    "CANDIDATE #",
+                    "EXAM NAME",
+                    "mappings",
+                    "tags"
+                ]
+            },
+            //jsonObject.Admin_Bank_Create_Form.body,
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+
+})
+
+test("Delivery_287. @API Admin add the  delivery Showcolumn_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/registration',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Delivery_288. @API Admin add the delivery Showcolumn_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/registrationIGS',
+        {
+            data: {
+                "showColumns": [
+                    "STATUS",
+                    "CANDIDATE #",
+                    "EXAM NAME",
+                    "mappings",
+                    "tags"
+                ]
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Delivery_289. @API Admin add the Assing Venue And Booking Status information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/examBookingStatusAndVenues',
+        {
+            data:{
+                "examId": examIdNum
+            },
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+ 
+
+})
+
+test("Delivery_290. @API Admin add the  Assing Venue And Booking Status_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/examBookingStatusAndVenues',
+        {
+          
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Delivery_291. @API Admin add the Assing Venue And Booking Status_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/examBookingStatusAndVenuesIGS',
+        {
+            data:{
+                "examId": examIdNum
+            },
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Delivery_292. @API Admin add the Assing Venue and Booking Status Save information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/assign-venue-booking-status',
+        {
+            data: {"selected":[ {
+                "id": "45",
+                "upload image": {
+                    "imgURL": "",
+                    "isUploading": false,
+                    "columnName": "upload image",
+                    "isExisting": true,
+                    "placeholder": "upload image",
+                    "isUploadingEnable": false
+                },
+                "exam id": examTest,
+                "name": "Shiva J",
+                "role": "Candidate",
+                "status": "Active",
+                "eligible": "Yes",
+                "invigilator": ""
+            }],"examId":examIdNum,"venue_id":[{"id":3,"name":"Chennai, India"}],"booking_status_id":[{"id":1,"name":"Booked"}]},
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+test("Delivery_293. @API Admin add the  Assing Venue and Booking Status Save_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/assign-venue-booking-status',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_294. @API Admin add the Assing Venue and Booking Status Save_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/assign-venue-booking-status/IGS',
+        {
+            data: {"selected":[ {
+                "id": "45",
+                "upload image": {
+                    "imgURL": "",
+                    "isUploading": false,
+                    "columnName": "upload image",
+                    "isExisting": true,
+                    "placeholder": "upload image",
+                    "isUploadingEnable": false
+                },
+                "exam id": examTest,
+                "name": "Shiva J",
+                "role": "Candidate",
+                "status": "Active",
+                "eligible": "Yes",
+                "invigilator": ""
+            }],"examId":examIdNum,"venue_id":[{"id":3,"name":"Chennai, India"}],"booking_status_id":[{"id":1,"name":"Booked"}]},
+        
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Delivery_295. @API Admin add the Bulk-assign-invigilator popup information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/bulk-assign-invigilator',
+        {
+            data: {
+                "examId": examIdNum,
+                "candidateId": candidateId,
+            },
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+test("Delivery_296. @API Admin add the  Bulk-assign-invigilator popup_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/bulk-assign-invigilator',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_297. @API Admin add the Bulk-assign-invigilator popup_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/bulk-assign-invigilator/IGS',
+        {
+            data: {
+                "examId": examIdNum,
+                "candidateId": candidateId,
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Delivery_298. @API Admin add the Save bulk assign invigilator information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/save-bulk-assign-invigilator',
+        {
+            data: {
+                "venue_id": [
+                    {
+                        "id": 3,
+                        "name": "Chennai, India",
+                        "location_id": 1
+                    }
+                ],
+                "tabFrm": {
+                    "candidate": {
+                        "Candidate": [
+                            candidateId
+                        ],
+                        "user": [
+                            {
+                                "id": 45,
+                                "name": "Invigilator Examincharge"
+                            }
+                        ]
+                    },
+                    "invigilator": {}
+                },
+                "examId": examIdNum,
+                "candidateId": candidateId,
+            },
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Invigilator has been assigned successfully")
+
+    //Schema validation
+    const schema = jschemasonpath.Invigilator_Schema
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+
+test("Delivery_299. @API Admin add the  Save bulk assign invigilator_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/save-bulk-assign-invigilator',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+
+test("Delivery_300. @API Admin add the Save bulk assign invigilator_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/save-bulk-assign-invigilatorIGS',
+        {
+            data: {
+                "venue_id": [
+                    {
+                        "id": 3,
+                        "name": "Chennai, India",
+                        "location_id": 1
+                    }
+                ],
+                "tabFrm": {
+                    "candidate": {
+                        "Candidate": [
+                            candidateId
+                        ],
+                        "user": [
+                            {
+                                "id": 45,
+                                "name": "Invigilator Examincharge"
+                            }
+                        ]
+                    },
+                    "invigilator": {}
+                },
+                "examId": examIdNum,
+                "candidateId": candidateId,
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+
+test("Delivery_304. @API Admin add the Bulk Download User Details information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/downloadBulkUserDetails/1299',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+ //   console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Your file is being currently prepared. Please wait ....")
+
+    //Schema validation
+    const schema = jschemasonpath.bulkdownload_Schema
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+})
+
+test("Delivery_305. @API Admin add the  Bulk Download User Details_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/downloadBulkUserDetails/1299',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_306. @API Admin add the Bulk Download User Details_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/downloadBulkUserDetails/1299/IGS',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+test("Delivery_307. @API Admin add the Download All Users Details information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/downloadAllUsersDetails/1299',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Your file is being currently prepared. Please wait ....")
+
+    //Schema validation
+    const schema = jschemasonpath.downloaduser_Schema
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+test("Delivery_308. @API Admin add the  Download All Users Details_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/downloadAllUsersDetails/1299',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_309. @API Admin add the Download All Users Details_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/downloadAllUsersDetails/1299/IGS',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_313. @API Admin add the Resetpassword  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/resetpassword/',
+        {
+            data: {"reset_user_details":[ {
+                "id": "45",
+                "upload image": {
+                    "imgURL": "",
+                    "isUploading": false,
+                    "columnName": "upload image",
+                    "isExisting": true,
+                    "placeholder": "upload image",
+                    "isUploadingEnable": false
+                },
+                "exam id": examTest,
+                "name": "Shiva J",
+                "role": "Candidate",
+                "status": "Active",
+                "eligible": "Yes",
+                "invigilator": ""
+            }],"examId":exam_ID,"userId":userId},
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    //Verify Response Payload
+    expect(await res.Response.Message).toEqual("Password has been reset successfully")
+
+    //Schema validation
+    const schema = jschemasonpath.passwordreset_Schema
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+test("Delivery_314. @API Admin add the  Resetpassword _validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/resetpassword/',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_315. @API Admin add the Resetpassword _validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/resetpassword/IGS',
+        {
+            data: {"reset_user_details":[ {
+                "id": "45",
+                "upload image": {
+                    "imgURL": "",
+                    "isUploading": false,
+                    "columnName": "upload image",
+                    "isExisting": true,
+                    "placeholder": "upload image",
+                    "isUploadingEnable": false
+                },
+                "exam id": examTest,
+                "name": "Shiva J",
+                "role": "Candidate",
+                "status": "Active",
+                "eligible": "Yes",
+                "invigilator": ""
+            }],"examId":examIdNum,"userId":userId},
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_301. @API Admin add the Download User Details information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/downloaduserdetails/'+exam_ID,
+        {
+            data:{"user_details":[ {
+                "id": userId,
+                "upload image": {
+                    "imgURL": "",
+                    "isUploading": false,
+                    "columnName": "upload image",
+                    "isExisting": true,
+                    "placeholder": "upload image",
+                    "isUploadingEnable": false
+                },
+                "exam id": examTest,
+                "name": "Shiva J",
+                "role": "Candidate",
+                "status": "Active",
+                "eligible": "Yes",
+                "invigilator": ""
+            }]},
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+
+})
+
+test("Delivery_302. @API Admin add the  Download User Details_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/downloaduserdetails/1299',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_303. @API Admin add the Download User Details_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/downloaduserdetails/1299/IGS',
+        {
+            data: {"user_details":[ {
+                "id": "45",
+                "upload image": {
+                    "imgURL": "",
+                    "isUploading": false,
+                    "columnName": "upload image",
+                    "isExisting": true,
+                    "placeholder": "upload image",
+                    "isUploadingEnable": false
+                },
+                "exam id": "2012322",
+                "name": "Shiva J",
+                "role": "Candidate",
+                "status": "Active",
+                "eligible": "Yes",
+                "invigilator": ""
+            }]},
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+test("Delivery_310. @API Admin add the Markers Report Download information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/download-markers-report',
+        {
+            data: {"examId":exam_ID},
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    
+
+})
+
+test("Delivery_311. @API Admin add the  Markers Report Download_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/download-markers-report',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_312. @API Admin add the Markers Report Download_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/download-markers-report/IGS',
+        {
+            data: {"examId":examIdNum},
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+
+
+
+test("Delivery_316. @API Admin add the Bulk-Candidate Responses information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/bulk-downloadresponses-pdf/1956',
+        {
+            data: {"user_details":[]},
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+    expect(await res.Response.Message).toEqual("Your file is being currently prepared. Please wait ....")
+
+
+    
+})
+
+
+test("Delivery_317. @API Admin add the  Bulk-Candidate Responses_validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/bulk-downloadresponses-pdf/1956',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    //var res = await response.json()
+
+
+})
+
+test("Delivery_318. @API Admin add the Bulk-Candidate Responses_validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/bulk-downloadresponses-pdf/1956/IGS',
+        {
+            data: {"user_details":[]},
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+test("AL_001h. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+
+            data: jsonpath.adminLogin.body,
+            
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+
+test("Delivery_319. @API Admin add the Delete-user  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v2/deleteuser/',
+        {
+            data: {"delete_user_details":[{
+                "id": userId,
+                "upload image": {
+                    "imgURL": "",
+                    "isUploading": false,
+                    "columnName": "upload image",
+                    "isExisting": true,
+                    "placeholder": "upload image",
+                    "isUploadingEnable": false
+                },
+                "exam id": examTest,
+                "name": "Shiva J",
+                "role": "Candidate",
+                "status": "Active",
+                "eligible": "Yes",
+                "invigilator": ""
+            }],"examId":exam_ID},
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+
+})
+
+test("Delivery_320. @API Admin add the  Delete-user  _validation of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/deleteuser/',
+        {
+           
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_321. @API Admin add theDelete-user  _validation of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v2/deleteuser/IGS',
+        {
+            data:  {"delete_user_details":[{
+                "id": "45",
+                "upload image": {
+                    "imgURL": "",
+                    "isUploading": false,
+                    "columnName": "upload image",
+                    "isExisting": true,
+                    "placeholder": "upload image",
+                    "isUploadingEnable": false
+                },
+                "exam id": examTest,
+                "name": "Shiva J",
+                "role": "Candidate",
+                "status": "Active",
+                "eligible": "Yes",
+                "invigilator": ""
+            }],"examId":exam_ID},
+
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
+
+test("AL_001t. @API Admin Login Success with Mandatory Fields", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/adminSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/common/v3/authenticationservice/v3/login',
+        {
+
+            data: jsonpath.adminLogin.body,
+            
+            headers: jsonpath.adminLogin.header
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+    token = res.access_token
+    //Verify Response Payload
+    console.log("Access token is:", token)
+    expect(await res.message).toEqual("Login Successful")
+
+    //Schema validation
+    const schema = jschemasonpath
+    const validate = avj.compile(schema)
+    const isValid = validate(res)
+    expect(isValid).toBeTruthy()
+
+})
+
+test("Delivery_205. @API Admin add the Download-candiate-response-pdf  information", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.post(baseURL + '/exam-registration-api/v1/download-candiate-response-pdf',
+        {
+            data:{
+                "examId": examIdNum,
+                "candidateId": candidateId,
+                "sessionId": sessionId,
+            },
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+    console.log(await response.json())
+
+    //Status code validation
+    expect(response.status()).toBe(200);
+    expect(response.ok()).toBeTruthy()
+    expect(response.statusText()).toBe("OK");
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('application/json')
+
+    var res = await response.json()
+
+})
+
+test("Delivery_206. @API Admin add the  Download-candiate-response-pdf  of incorrect HTTP method", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/download-candiate-response-pdf',
+        {
+            
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(405);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+
+})
+
+test("Delivery_207. @API Admin add the Download-candiate-response-pdf  of invalid endpoint", async ({ request }) => {
+    jschemasonpath = JSON.parse(fs.readFileSync(path.resolve('utils/schema/iAuthorSchema.json'), 'utf-8'))
+    var jsonpath = JSON.parse(fs.readFileSync(path.resolve('utils/api/adminCredential.json'), 'utf-8'))
+    verifyResponse.fetchrequestTime();
+    const response = await request.get(baseURL + '/exam-registration-api/v1/download-candiate-response-pdfIGS',
+        {
+            data: {
+                "examId": examIdNum,
+                "candidateId": candidateId,
+                "sessionId": sessionId,
+            },
+            headers: {
+                "accept": "application/json",
+                "webreferer": jsonpath.webreferer,
+                "authorization": token
+            }
+        });
+    //Validation of response time
+    verifyResponse.validateTime(jsonpath.responseDuration);
+
+
+    //Status code validation
+    expect(response.status()).toBe(404);
+
+
+    //Verify Response Headers
+    expect(response.headers()['content-type']).toBe('text/html; charset=UTF-8')
+
+    // var res = await response.json()
+
+})
 
