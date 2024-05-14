@@ -8784,6 +8784,382 @@
   "required": [
     "Response"
   ]
+},
+"Exam_List_Delete":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Message",
+        "Success"
+      ]
+    },
+    "Deleted": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "Response",
+    "Deleted"
+  ]
+},
+"custom_filter_save":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        },
+        "filter_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Message",
+        "Success",
+        "filter_id"
+      ]
+    }
+  },
+  "required": [
+    "Response"
+  ]
+},
+"Create_Exam":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        },
+        "Exam ID": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Message",
+        "Success",
+        "Exam ID"
+      ]
+    }
+  },
+  "required": [
+    "Response"
+  ]
+},
+"Question_custom_filter":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        },
+        "filter_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Message",
+        "Success",
+        "filter_id"
+      ]
+    }
+  },
+  "required": [
+    "Response"
+  ]
+},
+"generate_temp_id_Schema":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Message",
+        "Success"
+      ]
+    }
+  },
+  "required": [
+    "Response"
+  ]
+},
+"Registration_List_Schema":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Message",
+        "Success"
+      ]
+    }
+  },
+  "required": [
+    "Response"
+  ]
+},
+"password_reset_schema":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Message",
+        "Success",
+        "password"
+      ]
+    }
+  },
+  "required": [
+    "Response"
+  ]
+},
+"Save_Special_Schema":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Message",
+        "Success"
+      ]
+    }
+  },
+  "required": [
+    "Response"
+  ]
+},
+"SaveUserNotes_Schema":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Message",
+        "Success"
+      ]
+    }
+  },
+  "required": [
+    "Response"
+  ]
+},
+"ResetLogin_Schema":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Message",
+        "Success"
+      ]
+    }
+  },
+  "required": [
+    "Response"
+  ]
+},
+"Invigilator_Schema":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Message",
+        "Success"
+      ]
+    }
+  },
+  "required": [
+    "Response"
+  ]
+},
+"passwordreset_Schema":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Message",
+        "Success",
+        "password"
+      ]
+    }
+  },
+  "required": [
+    "Response"
+  ]
+},
+"bulkdownload_Schema":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "jobId": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Message",
+        "Success",
+        "filename",
+        "jobId"
+      ]
+    }
+  },
+  "required": [
+    "Response"
+  ]
+},
+"downloaduser_Schema":{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Response": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Success": {
+          "type": "integer"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "jobId": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Message",
+        "Success",
+        "filename",
+        "jobId"
+      ]
+    }
+  },
+  "required": [
+    "Response"
+  ]
 }
 }
 

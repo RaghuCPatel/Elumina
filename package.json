@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:single": "npx playwright test ExamService_QunHist.test.ts --project=API",
+    "test:single": "npx playwright test iAuthorSettings.test.ts --project=API",
     "test:elumina": "npx playwright test Elumina.test.ts --project=Chrome",
     "test:parallel": "npx playwright test --grep @Smoke --project=Chrome",
     "test:serial": "npx playwright test --grep @LowPriorityiExamCases --workers=1 --project=Chrome",
@@ -88,7 +88,7 @@
     "winston": "^3.8.2"
   },
   "devDependencies": {
-    "@playwright/test": "^1.43.1",
+    "@playwright/test": "^1.44.0",
     "browserstack-node-sdk": "^1.32.7",
     "playwright-zephyr": "^1.0.3"
   }
