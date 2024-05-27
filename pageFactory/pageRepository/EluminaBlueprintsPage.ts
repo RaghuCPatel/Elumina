@@ -2346,6 +2346,22 @@ export class EluminaBlueprintsPage {
         await expect(this.workflowSuccessMessage).toHaveText("Workflow has been created successfuly");
     }
 
+    /**
+     * Method to verify Live Dashboard all exam status count
+     */
+    async verifyLiveDashboardExamStatus() {
+        await this.DeliveryMenu.click();
+        await this.ClickOnQuestionID.click()
+        await this.page.waitForTimeout(5000);
+        await this.clickOnLiveDashboard.click()
+        await this.page.waitForTimeout(2000);
+        let liveDashboardItems = await this.page.$$('//table[@class="table table-spacing"]//thead//tr//th//div');
+        for (let i = 1; i <= liveDashboardItems.length - 1; i++) {
+            let itemstext = await liveDashboardItems[i].textContent();
+            console.log(itemstext);
+        }
+    }
+
     async searchDraftBlueprintQueation() {
         // await this.SearchDraftQuestions.type('Draft')
         // await this.page.waitForTimeout(3000)

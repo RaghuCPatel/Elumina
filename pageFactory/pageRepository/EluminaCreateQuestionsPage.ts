@@ -1,6 +1,8 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
 import { isArrayEqual } from 'pdfjs-dist-es5/types/src/shared/util';
+import { TextHighlighter } from 'pdfjs-dist-es5/types/web/text_highlighter';
+import path = require('path')
 
 const devTestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/dev/testData.json')));
 const p7TestData = JSON.parse(JSON.stringify(require('../../enviroment-variables/p7/testData.json')));
@@ -336,7 +338,74 @@ export class EluminaCreateQuestionsPage {
     readonly clickYesDelete: Locator;
     readonly clickOnYes: Locator;
     readonly YesBtnClick: Locator;
-
+    readonly clickOnSpotQtn: Locator
+    readonly enterAnsKeyForSpot: Locator;
+    readonly clickOnScenarioQtn: Locator;
+    readonly clickOn_ISAWE_CASE_Qun: Locator;
+    readonly clickOnPlusIcon: Locator;
+    readonly subQunTopic: Locator;
+    readonly clickOnsubQun: Locator;
+    readonly Optional2: Locator;
+    readonly clickRightIcon: Locator;
+    readonly clickOnSelectAns: Locator;
+    readonly selectAnsFromDrpdown: Locator;
+    readonly verifyErrorSubQunMsg: Locator;
+    readonly clickOnOSCEQun: Locator;
+    readonly stationTitletxtField: Locator;
+    readonly stationTypetxtField: Locator;
+    readonly clickOnExamination: Locator;
+    readonly clickOnMarkingCheckList: Locator;
+    readonly headingTxtField: Locator;
+    readonly titleTxtField: Locator;
+    readonly clickOnProcessQun: Locator;
+    readonly processQunTitle: Locator;
+    readonly clickOnLongAnswerQun: Locator;
+    readonly clickOnRankingQun: Locator;
+    readonly defaultMarktxtField: Locator;
+    readonly clickOnTranslationQun: Locator;
+    readonly clickOnSourceLanguage: Locator;
+    readonly chooseEnglishLanguage: Locator;
+    readonly clickOnTranslationLanguage: Locator;
+    readonly chooseKannadaLanguage: Locator;
+    readonly clickOnRevisionQun: Locator;
+    readonly clickOnImageIcon: Locator;
+    readonly searchImagestxtfield: Locator;
+    readonly filterButton: Locator;
+    readonly uploadImageBtn: Locator;
+    readonly verifytotalCount: Locator;
+    readonly filterPlusIcon: Locator;
+    readonly selectfilterID: Locator;
+    readonly enterIDtxtfield: Locator;
+    readonly clickOnRightMark: Locator;
+    readonly clearAllBtn: Locator;
+    readonly clickOnImageForPriview: Locator;
+    readonly clickOnCloseIconForPreview: Locator;
+    readonly clickOnQaTestBank: Locator;
+    readonly clickOnLeftrArrow: Locator;
+    readonly clickOnUploadImageBtn: Locator;
+    readonly clickOnInsertImageBtn: Locator;
+    readonly clickOnSelectBank: Locator;
+    readonly verifyImageSavedMessage: Locator;
+    readonly deleteImageBtn: Locator;
+    readonly clickOnImageYesBtn: Locator;
+    readonly verifyDeleteImageMessage: Locator;
+    readonly editImageBtn: Locator;
+    readonly editFileName: Locator;
+    readonly clickEditIcon: Locator;
+    readonly clickOnExpandIcon: Locator;
+    readonly clickEditYesBtn: Locator;
+    readonly verifyUpdateMessage: Locator;
+    readonly clickOnMoreOption: Locator;
+    readonly clickOnDownload: Locator;
+    readonly clickOnDuplicate: Locator;
+    readonly clickDuplicateYesBtn: Locator;
+    readonly verifyDuplicateImageMessage: Locator;
+    readonly clickOnUploadNewVesionBtn: Locator;
+    readonly verifyUploadMessage: Locator;
+    readonly selectFiveAnsFromDropdown: Locator;
+    readonly verifyisawecaseerrormessage: Locator;
+    readonly clickOnDistractorPlusIcon: Locator;
+    readonly verifydistractorErrorMessage: Locator;
 
 
     constructor(page: Page, context: BrowserContext) {
@@ -362,6 +431,7 @@ export class EluminaCreateQuestionsPage {
         this.OptionD = page.frameLocator('(//iframe[@title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help"])[6]').locator('html');
         this.OptionE = page.frameLocator('(//iframe[@title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help"])[7]').locator('html');
         this.Optional = page.frameLocator('(//iframe[@title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help"])[8]').locator('html');
+        this.Optional2 = page.frameLocator('(//iframe[@title="Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help"])[9]').locator('html');
         this.ControlIndicator = page.locator('(//div[@class="control__indicator"])[2]');
         this.ControlIndicator1 = page.locator('(//div[@class="control__indicator"])[3]');
         this.SubmitAndApprove = page.locator('//button[text()="Submit & Approve"]');
@@ -643,7 +713,72 @@ export class EluminaCreateQuestionsPage {
         this.clickOnStatusTitle = page.locator('(//label[@class="accordian-none"])[2]')
         this.clickOnCloseIcon = page.locator('(//button[@class="close"])[1]');
         this.clickYesDelete = page.locator('(//button[@class="theme-button-blue"])[9]')
-
+        this.clickOnSpotQtn = page.locator('//p[normalize-space()="Spot Question"]');
+        this.enterAnsKeyForSpot = page.locator('//div[@class="rich-text--container"]//input');
+        this.clickOnScenarioQtn = page.locator('//p[normalize-space()="Scenario"]');
+        this.clickOn_ISAWE_CASE_Qun = page.locator('//p[text()="ISAWE-CASE"]');
+        this.clickOnPlusIcon = page.locator('(//span[@class="plus-btn"])[1]');
+        this.subQunTopic = page.locator('(//input[@name="inputbox"])[2]');
+        this.clickOnsubQun = page.locator('(//div[@class="icwc-list-item ng-star-inserted"])[1]');
+        this.clickRightIcon = page.locator('(//span[@class="checkmark"])[2]');
+        this.clickOnSelectAns = page.locator('(//div[@class="btn-selected-list"])[3]');
+        this.selectAnsFromDrpdown = page.locator('(//li[@class="open ng-star-inserted"]//div)[5]');
+        this.selectFiveAnsFromDropdown = page.locator('(//li[@class="open ng-star-inserted"]//div)[9]');
+        this.verifyErrorSubQunMsg = page.locator('//div[@class="content-side"]//span');
+        this.clickOnOSCEQun = page.locator('//p[text()="OSCE Question"]');
+        this.stationTitletxtField = page.locator('//div[@id="station_title"]//input');
+        this.stationTypetxtField = page.locator('(//div[@class="input-wrap"]//input)[1]');
+        this.clickOnExamination = page.locator('//span[text()="Examination"]');
+        this.clickOnMarkingCheckList = page.locator('//label[text()="Marking Checklist"]');
+        this.headingTxtField = page.locator('//span[@class="txtLbl"]//input');
+        this.titleTxtField = page.locator('//span[@class="txtLbl ng-star-inserted"]//input');
+        this.clickOnProcessQun = page.locator('//label[text()="Process Question"]');
+        this.processQunTitle = page.locator('(//span[@class="txtLbl"]//input)[2]')
+        this.clickOnRankingQun = page.locator('//p[text()="Ranking Question"]');
+        this.defaultMarktxtField = page.locator('//div[@id="question_mark"]//input');
+        this.clickOnTranslationQun = page.locator('//p[text()="Translation Question"]');
+        this.clickOnSourceLanguage = page.locator('//input[@placeholder="Select Source Language"]');
+        this.chooseEnglishLanguage = page.locator('(//span[text()="English"])[1]');
+        this.clickOnTranslationLanguage = page.locator('//input[@placeholder="Select Translation Language"]');
+        this.chooseKannadaLanguage = page.locator('(//span[text()="Kannada"])[2]');
+        this.clickOnRevisionQun = page.locator('//p[text()="Revision Question"]');
+        this.clickOnImageIcon = page.locator('//i[@class="menuIcons image-Icon"]');
+        this.searchImagestxtfield = page.locator('//input[@placeholder=" Search Image(s)/File(s)"]');
+        this.filterButton = page.locator('//span[@class="filtertext"]');
+        this.uploadImageBtn = page.locator('//button[contains(text(),"Upload Image/File")] ');
+        this.verifytotalCount = page.locator('(//div[@class="tablefooter-left"])[2]');
+        this.filterPlusIcon = page.locator('//button[@class="add-filter-button"]');
+        this.selectfilterID = page.locator('(//select[@name="operation"])[2]');
+        this.enterIDtxtfield = page.locator('//input[@type="number"]');
+        this.clickOnRightMark = page.locator('//i[@class="tick-icon"]');
+        this.clearAllBtn = page.locator('//button[text()="Clear All"]');
+        this.clickOnImageForPriview = page.locator('(//div[@class="image-block"])[1]');
+        this.clickOnCloseIconForPreview = page.locator('(//button[@class="close"])[6]');
+        this.clickOnQaTestBank = page.locator('(//input[@type="checkbox"])[2]');
+        this.clickOnLeftrArrow = page.locator('//div[@class="sh-icon sh--left"]');
+        this.clickOnUploadImageBtn = page.locator('//button[contains(text(),"Upload Image/File ")]');
+        this.clickOnInsertImageBtn = page.locator('//div[@class="dz-text"]');
+        this.clickOnSelectBank = page.locator('//input[@placeholder="Select Bank"]');
+        this.verifyImageSavedMessage = page.locator('//span[text()="Image Saved Successfully"]');
+        this.deleteImageBtn = page.locator('(//div[@class="image-block--bottom"]//div[2]//qms-button[2]//button)[1]');
+        this.clickOnImageYesBtn = page.locator('(//button[text()="Yes"])[3]');
+        this.verifyDeleteImageMessage = page.locator('//span[text()="Image Deleted Successfully"]');
+        this.editImageBtn = page.locator('(//div[@class="image-block--bottom"]//div[2]//qms-button[1]//button)[1]');
+        this.editFileName = page.locator('//input[@name="imgNameInput"]');
+        this.clickEditIcon = page.locator('//i[@class="editIcon"]');
+        this.clickOnExpandIcon = page.locator('//i[@class="fullScreen"]');
+        this.clickEditYesBtn = page.locator('(//button[text()="Yes"])[2]');
+        this.verifyUpdateMessage = page.locator('//span[text()="Image Updated Successfully"]');
+        this.clickOnMoreOption = page.locator('(//button[@type="button"])[5]');
+        this.clickOnDownload = page.locator('//a[text()="Download"]');
+        this.clickOnDuplicate = page.locator('//a[text()="Duplicate"]');
+        this.clickDuplicateYesBtn = page.locator('(//button[text()="Yes"])[1]');
+        this.verifyDuplicateImageMessage = page.locator('//span[text()="Image Duplicated Successfully"]');
+        this.clickOnUploadNewVesionBtn = page.locator('//button[contains(text(),"New Version")]');
+        this.verifyUploadMessage = page.locator('//span[text()="Image Updated Successfully"]');
+        this.verifyisawecaseerrormessage = page.locator('//span[text()="Correct Answers Should be Equal or greater than answer Selection"]');
+        this.clickOnDistractorPlusIcon = page.locator('(//span[@class="plus-btn"])[2]');
+        this.verifydistractorErrorMessage = page.locator('//span[text()="Maximum 10 Answer Key allowed"]');
 
     }
 
@@ -1003,6 +1138,130 @@ export class EluminaCreateQuestionsPage {
     async QuestionsMenuClick(): Promise<void> {
         await this.Questions.click();
         await this.page.waitForTimeout(3000);
+    }
+
+    /**Method for Click on Image icon*/
+    async ImageIconClick(): Promise<void> {
+        await this.clickOnImageIcon.click();
+        await this.page.waitForTimeout(3000);
+        await expect(this.searchImagestxtfield).toBeVisible();
+        await expect(this.filterButton).toBeVisible();
+        await expect(this.uploadImageBtn).toBeVisible();
+        await expect(this.verifytotalCount).toBeVisible();
+    }
+
+    /**Method for Click on Image icon*/
+    async verifyImage(): Promise<void> {
+        await this.clickOnImageIcon.click();
+        await this.page.waitForTimeout(6000);
+        await this.searchImagestxtfield.type("iAuthor");
+        await this.page.waitForTimeout(6000);
+        await this.searchImagestxtfield.clear();
+        await this.page.waitForTimeout(6000);
+        await this.filterPlusIcon.click();
+        await this.page.waitForTimeout(1000);
+        await this.selectfilterID.selectOption('ID');
+        await this.enterIDtxtfield.type('446');
+        await this.clickOnRightMark.click();
+        await this.page.waitForTimeout(3000);
+        await this.clearAllBtn.click();
+        await this.page.waitForTimeout(6000);
+        await this.clickOnImageForPriview.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickOnCloseIconForPreview.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickOnQaTestBank.check();
+        await this.page.waitForTimeout(5000);
+        await this.clickOnLeftrArrow.click()
+        await this.page.waitForTimeout(1000);
+    }
+
+    /**Method for upload Image*/
+    async uploadImage(): Promise<void> {
+        await this.clickOnImageIcon.click();
+        await this.page.waitForTimeout(6000);
+        await this.clickOnUploadImageBtn.click();
+        await this.page.waitForTimeout(6000);
+        const fileChooserPromise = this.page.waitForEvent('filechooser')
+        await this.clickOnInsertImageBtn.click()
+        const fileChooser = await fileChooserPromise
+        await fileChooser.setFiles('lib/Images/Capture.png');
+        await this.page.waitForTimeout(6000);
+        await this.clickOnSelectBank.click();
+        await this.clickOnSelectBank.type(testData.TestBank2);
+        await this.SelectTestBank.click();
+        await this.saveButtonClick.click();
+        await this.page.waitForTimeout(3000);
+        await expect(this.verifyImageSavedMessage).toBeVisible();
+    }
+
+    /**Method for delete Image*/
+    async deleteImage(): Promise<void> {
+        await this.clickOnImageIcon.click();
+        await this.page.waitForTimeout(6000);
+        await this.deleteImageBtn.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickOnImageYesBtn.click();
+        await this.page.waitForTimeout(1000);
+        await expect(this.verifyDeleteImageMessage).toBeVisible()
+    }
+
+    /**Method for Edit Image*/
+    async editImage(): Promise<void> {
+        await this.clickOnImageIcon.click();
+        await this.page.waitForTimeout(6000);
+        await this.editImageBtn.click();
+        await this.page.waitForTimeout(3000);
+        await this.editFileName.clear();
+        await this.editFileName.type('Image' + Math.floor(Math.random() * 899 + 100));
+        await this.clickEditIcon.click();
+        await this.page.waitForTimeout(1000);
+        await this.clickOnExpandIcon.click();
+        await this.page.waitForTimeout(1000);
+        await this.clickOnCloseIcon.click();
+        await this.saveButtonClick.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickEditYesBtn.click();
+        await this.page.waitForTimeout(30000);
+        await expect(this.verifyUploadMessage).toBeVisible()
+    }
+
+    /**Method for click download and duplicate*/
+    async clickOnDownloadAndDuplicate(): Promise<void> {
+        await this.clickOnImageIcon.click();
+        await this.page.waitForTimeout(6000);
+        await this.editImageBtn.click();
+        await this.page.waitForTimeout(3000);
+        await this.clickOnMoreOption.click();
+        await this.clickOnDownload.click();
+        await this.page.waitForTimeout(2000);
+        await this.clickOnMoreOption.click();
+        await this.clickOnDuplicate.click();
+        await this.page.waitForTimeout(1000);
+        await this.clickDuplicateYesBtn.click();
+        await this.page.waitForTimeout(1000);
+        await expect(this.verifyDuplicateImageMessage).toBeVisible()
+    }
+
+    /**Method for Image upload new version*/
+    async verifyImageVersion(): Promise<void> {
+        await this.clickOnImageIcon.click();
+        await this.page.waitForTimeout(6000);
+        await this.editImageBtn.click();
+        await this.page.waitForTimeout(3000);
+        await this.editFileName.clear();
+        await this.editFileName.type('Image' + Math.floor(Math.random() * 899 + 100));
+        await this.saveButtonClick.click();
+        await this.page.waitForTimeout(1000);
+        await this.clickOnUploadNewVesionBtn.click();
+        await this.page.waitForTimeout(1000);
+        const fileChooserPromise = this.page.waitForEvent('filechooser')
+        await this.clickOnInsertImageBtn.click()
+        const fileChooser = await fileChooserPromise
+        await fileChooser.setFiles('lib/Images/Capture.png');
+        await this.page.waitForTimeout(3000);
+        await this.saveButtonClick.click();
+        await this.page.waitForTimeout(2000);
     }
 
     /**Method for Exams Menu click on Menu bar */
@@ -1511,6 +1770,638 @@ export class EluminaCreateQuestionsPage {
         await this.OptionE.type(testData.OptionE);
         await this.ClickOnRadioButton5.click();
         await this.page.waitForTimeout(2000);
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveDraft.click();
+        await this.ClickOnEditQuestion.click();
+        await this.ClickOnWorkFlow.click()
+        await this.ClickOnApprove.click()
+        await this.page.waitForTimeout(3000);
+        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+    }
+
+    /**Methods to create Spot Question */
+    async createSpotQuestion() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.clickOnSpotQtn.click();
+        await this.NextButtonClick.click();
+        await this.SelectQuestionBank.click();
+        await this.SelectQuestionBank.type(testData.TestBank2);
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample Spot Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.page.waitForTimeout(2000);
+        await this.QuestionsText.click();
+        await this.QuestionsText.type(testData.OptionA);
+        await this.EnterMarks.click()
+        await this.EnterMarks.clear()
+        await this.EnterMarks.type('2');
+        await this.page.waitForTimeout(2000);
+        await this.enterAnsKeyForSpot.click();
+        await this.enterAnsKeyForSpot.type(testData.AnswerKey);
+        await this.page.waitForTimeout(2000);
+        await this.EnterMarksInAns.click()
+        await this.EnterMarksInAns.clear()
+        await this.EnterMarksInAns.type("2");
+        await this.page.waitForTimeout(2000);
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveDraft.click();
+        await this.ClickOnEditQuestion.click();
+        await this.ClickOnWorkFlow.click()
+        await this.ClickOnApprove.click()
+        await this.page.waitForTimeout(3000);
+        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+    }
+
+    /**Method to validate Spot Question */
+    async validationOfSpot() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.clickOnSpotQtn.click();
+        await this.NextButtonClick.click();
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(1000);
+        await expect(this.EmptyFieldErrorMessage).toBeVisible()
+    }
+
+    /**Method to validate Spot fields */
+    async enterRemainingSpotField() {
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample Spot Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.page.waitForTimeout(2000);
+        await this.QuestionsText.click();
+        await this.QuestionsText.type(testData.OptionA);
+        await this.EnterMarks.click()
+        await this.EnterMarks.clear()
+        await this.EnterMarks.type('2');
+        await this.page.waitForTimeout(2000);
+        await this.enterAnsKeyForSpot.click();
+        await this.enterAnsKeyForSpot.type(testData.AnswerKey);
+        await this.page.waitForTimeout(2000);
+        await this.EnterMarksInAns.click()
+        await this.EnterMarksInAns.clear()
+        await this.EnterMarksInAns.type("2");
+        await this.ClickOnMarkinGuide.click()
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+    }
+
+    /**Methods to create ISAWE-CASE Question */
+    async createISAWE_CASEQuestion() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.clickOn_ISAWE_CASE_Qun.click();
+        await this.NextButtonClick.click();
+        await this.SelectQuestionBank.click();
+        await this.SelectQuestionBank.type(testData.TestBank2);
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample ISAWE-CASE Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.page.waitForTimeout(2000);
+        await this.clickOnPlusIcon.click();
+        await this.clickOnsubQun.click();
+        await this.subQunTopic.type('Sample MCQ-MSMG Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.QuestionsText.click();
+        await this.QuestionsText.type(testData.OptionA);
+        await this.Answer.click();
+        await this.Answer.type(testData.AnswerISAWE);
+        await this.clickOnSelectAns.click();
+        await this.selectAnsFromDrpdown.click();
+        await this.OptionC.click();
+        await this.OptionC.type(testData.OptionC);
+        await this.clickRightIcon.click();
+        await this.page.waitForTimeout(2000);
+        await this.OptionD.click();
+        await this.OptionD.type(testData.OptionD);
+        await this.page.waitForTimeout(2000);
+        await this.OptionE.click();
+        await this.OptionE.type(testData.OptionE);
+        await this.page.waitForTimeout(2000);
+        await this.Optional.click();
+        await this.Optional.type(testData.OptionE);
+        await this.page.waitForTimeout(2000);
+        await this.Optional2.click();
+        await this.Optional2.type(testData.OptionE);
+        await this.page.waitForTimeout(2000);
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveDraft.click();
+        await this.ClickOnEditQuestion.click();
+        await this.ClickOnWorkFlow.click()
+        await this.ClickOnApprove.click()
+        await this.page.waitForTimeout(3000);
+        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+    }
+
+    /**Methods to verify ISAWE-CASE Question error message */
+    async verifyISAWE_CASEQuestionerrormessage() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.clickOn_ISAWE_CASE_Qun.click();
+        await this.NextButtonClick.click();
+        await this.SelectQuestionBank.click();
+        await this.SelectQuestionBank.type(testData.TestBank2);
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample ISAWE-CASE Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.page.waitForTimeout(2000);
+        await this.clickOnPlusIcon.click();
+        await this.clickOnsubQun.click();
+        await this.subQunTopic.type('Sample MCQ-MSMG Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.QuestionsText.click();
+        await this.QuestionsText.type(testData.OptionA);
+        await this.Answer.click();
+        await this.Answer.type(testData.AnswerISAWE);
+        await this.clickOnSelectAns.click();
+        await this.selectFiveAnsFromDropdown.click();
+        await this.OptionC.click();
+        await this.OptionC.type(testData.OptionC);
+        await this.clickRightIcon.click();
+        await this.page.waitForTimeout(2000);
+        await this.OptionD.click();
+        await this.OptionD.type(testData.OptionD);
+        await this.page.waitForTimeout(2000);
+        await this.OptionE.click();
+        await this.OptionE.type(testData.OptionE);
+        await this.page.waitForTimeout(2000);
+        await this.Optional.click();
+        await this.Optional.type(testData.OptionE);
+        await this.page.waitForTimeout(2000);
+        await this.Optional2.click();
+        await this.Optional2.type(testData.OptionE);
+        await this.page.waitForTimeout(2000);
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(1000);
+        await expect(this.verifyisawecaseerrormessage).toBeVisible();
+    }
+
+    /**Methods to verify ISAWE-CASE Question error message For Distractor */
+    async verifyISAWE_CASEQuestionerrormessageForDistractor() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.clickOn_ISAWE_CASE_Qun.click();
+        await this.NextButtonClick.click();
+        await this.SelectQuestionBank.click();
+        await this.SelectQuestionBank.type(testData.TestBank2);
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample ISAWE-CASE Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.page.waitForTimeout(2000);
+        await this.clickOnPlusIcon.click();
+        await this.clickOnsubQun.click();
+        await this.subQunTopic.type('Sample MCQ-MSMG Questions' + Math.floor(Math.random() * 899 + 100));
+        for (let i = 1; i <= 10; i++) {
+            await this.clickOnDistractorPlusIcon.click()
+        }
+        await expect(this.verifydistractorErrorMessage).toBeVisible();
+    }
+
+    /**Method to validate ISAWE_CASE Question */
+    async validationOfISAWE_CASEQuestion() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.clickOn_ISAWE_CASE_Qun.click();
+        await this.NextButtonClick.click();
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(1000);
+        await expect(this.EmptyFieldErrorMessage).toBeVisible()
+    }
+
+    /**Method to validate ISAWE_CASE fields */
+    async enterRemainingISAWE_CASEField() {
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample ISAWE-CASE Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.page.waitForTimeout(2000);
+        await this.clickOnPlusIcon.click();
+        await this.clickOnsubQun.click();
+        await this.subQunTopic.type('Sample MCQ-MSMG Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.QuestionsText.click();
+        await this.QuestionsText.type(testData.OptionA);
+        await this.Answer.click();
+        await this.Answer.type(testData.AnswerISAWE);
+        await this.clickOnSelectAns.click();
+        await this.selectAnsFromDrpdown.click();
+        await this.OptionC.click();
+        await this.OptionC.type(testData.OptionC);
+        await this.clickRightIcon.click();
+        await this.page.waitForTimeout(2000);
+        await this.OptionD.click();
+        await this.OptionD.type(testData.OptionD);
+        await this.page.waitForTimeout(2000);
+        await this.OptionE.click();
+        await this.OptionE.type(testData.OptionE);
+        await this.page.waitForTimeout(2000);
+        await this.Optional.click();
+        await this.Optional.type(testData.OptionE);
+        await this.page.waitForTimeout(2000);
+        await this.Optional2.click();
+        await this.Optional2.type(testData.OptionE);
+        await this.ClickOnMarkinGuide.click()
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+    }
+
+    /**Method to validate ISAWE_CASE fields without sub qun */
+    async enterRemainingISAWE_CASEFieldWithoutSubQun() {
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample ISAWE-CASE Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(1000);
+        await expect(this.verifyErrorSubQunMsg).toBeVisible()
+    }
+
+    /**Method to validate ISAWE_CASE fields */
+    async addSubQunWithoutMandatoryField() {
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample ISAWE-CASE Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.page.waitForTimeout(2000);
+        await this.clickOnPlusIcon.click();
+        await this.clickOnsubQun.click();
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(1000);
+        await expect(this.verifyErrorSubQunMsg).toBeVisible()
+    }
+
+    /**Methods to create OSCE Question */
+    async createOSCEQuestion() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.clickOnOSCEQun.click();
+        await this.NextButtonClick.click();
+        await this.SelectQuestionBank.click();
+        await this.SelectQuestionBank.type(testData.TestBank2);
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample OSCE Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.stationTitletxtField.type('OSCE Question');
+        await this.stationTypetxtField.click();
+        await this.page.waitForTimeout(1000);
+        await this.clickOnExamination.click();
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.page.waitForTimeout(2000);
+        await this.QuestionsText.click();
+        await this.QuestionsText.type(testData.OptionA);
+        await this.Answer.click();
+        await this.Answer.type(testData.AnswerISAWE);
+        await this.OptionC.click();
+        await this.OptionC.type(testData.OptionC);
+        await this.page.waitForTimeout(2000);
+        await this.OptionD.click();
+        await this.OptionD.type(testData.OptionD);
+        await this.page.waitForTimeout(2000);
+        await this.clickOnMarkingCheckList.click()
+        await this.headingTxtField.fill('question');
+        await this.titleTxtField.fill('oscequestion');
+        await this.EnterMarks.click()
+        await this.EnterMarks.clear()
+        await this.EnterMarks.type("2")
+        await this.page.waitForTimeout(2000);
+        await this.clickOnProcessQun.click();
+        await this.processQunTitle.type('process question')
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveDraft.click();
+        await this.ClickOnEditQuestion.click();
+        await this.ClickOnWorkFlow.click()
+        await this.ClickOnApprove.click()
+        await this.page.waitForTimeout(3000);
+        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+    }
+
+    /**Method to validate OSCE Question */
+    async validationOfOSCEuestion() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.clickOnOSCEQun.click();
+        await this.NextButtonClick.click();
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(1000);
+        await expect(this.EmptyFieldErrorMessage).toBeVisible()
+    }
+
+    /**Method to validate OSCE fields */
+    async enterRemainingOSCEField() {
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample OSCE Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.stationTitletxtField.type('OSCE Question');
+        await this.stationTypetxtField.click();
+        await this.page.waitForTimeout(1000);
+        await this.clickOnExamination.click();
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.page.waitForTimeout(2000);
+        await this.QuestionsText.click();
+        await this.QuestionsText.type(testData.OptionA);
+        await this.Answer.click();
+        await this.Answer.type(testData.AnswerISAWE);
+        await this.OptionC.click();
+        await this.OptionC.type(testData.OptionC);
+        await this.page.waitForTimeout(2000);
+        await this.OptionD.click();
+        await this.OptionD.type(testData.OptionD);
+        await this.page.waitForTimeout(2000);
+        await this.clickOnMarkingCheckList.click()
+        await this.headingTxtField.fill('question');
+        await this.titleTxtField.fill('oscequestion');
+        await this.EnterMarks.click()
+        await this.EnterMarks.clear()
+        await this.EnterMarks.type("2")
+        await this.page.waitForTimeout(2000);
+        await this.clickOnProcessQun.click();
+        await this.processQunTitle.type('process question')
+        await this.ClickOnMarkinGuide.click()
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+    }
+
+    /**Method to validate OSCE Question */
+    async validationOfScenariouestion() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.clickOnScenarioQtn.click();
+        await this.NextButtonClick.click();
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(1000);
+        await expect(this.EmptyFieldErrorMessage).toBeVisible()
+    }
+
+    /**Method to validate OSCE fields */
+    async enterRemainingScenarioField() {
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample Scenario Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.page.waitForTimeout(2000);
+        await this.QuestionsText.click();
+        await this.QuestionsText.type(testData.OptionA);
+        await this.Answer.click();
+        await this.Answer.type(testData.AnswerISAWE);
+        await this.EnterMarks.click()
+        await this.EnterMarks.clear()
+        await this.EnterMarks.type("2")
+        await this.EnterAnsKey.type('Marking Guide')
+        await this.OptionC.click();
+        await this.OptionC.type(testData.OptionC);
+        await this.EnterMarksInAns.click()
+        await this.EnterMarksInAns.clear()
+        await this.EnterMarksInAns.type("2")
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnMarkinGuide.click()
+    }
+
+    /**Methods to create Long Answer Question */
+    async createLongAnswerQuestion() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.clickOnLongAnswerQun.click();
+        await this.NextButtonClick.click();
+        await this.SelectQuestionBank.click();
+        await this.SelectQuestionBank.type(testData.TestBank2);
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample Long Answer Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.page.waitForTimeout(2000);
+        await this.QuestionsText.click();
+        await this.QuestionsText.type(testData.OptionA);
+        await this.EnterMarks.click()
+        await this.EnterMarks.clear()
+        await this.EnterMarks.type("2")
+        await this.EnterAnsKey.type('Long Answer')
+        await this.Answer.click();
+        await this.Answer.type(testData.AnswerISAWE);
+        await this.EnterMarksInAns.click()
+        await this.EnterMarksInAns.clear()
+        await this.EnterMarksInAns.type("2")
+        await this.page.waitForTimeout(2000);
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveDraft.click();
+        await this.ClickOnEditQuestion.click();
+        await this.ClickOnWorkFlow.click()
+        await this.ClickOnApprove.click()
+        await this.page.waitForTimeout(3000);
+        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+    }
+
+    /**Methods to create Ranking Question */
+    async createRankingQuestion() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.clickOnRankingQun.click();
+        await this.NextButtonClick.click();
+        await this.SelectQuestionBank.click();
+        await this.SelectQuestionBank.type(testData.TestBank2);
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample Ranking Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.page.waitForTimeout(2000);
+        await this.defaultMarktxtField.click()
+        await this.page.waitForTimeout(1000);
+        try {
+            await this.defaultMarktxtField.fill('question');
+            await this.page.waitForTimeout(2000);
+        } catch (error) {
+            console.log(error);
+        };
+        await this.QuestionsText.click();
+        await this.QuestionsText.type(testData.OptionA);
+        await this.page.waitForTimeout(2000);
+        await this.Answer.click();
+        await this.Answer.type(testData.AnswerISAWE);
+        await this.page.waitForTimeout(2000);
+        await this.OptionC.click();
+        await this.OptionC.type(testData.OptionC);
+        await this.page.waitForTimeout(2000);
+        await this.OptionD.click();
+        await this.OptionD.type(testData.OptionD);
+        await this.page.waitForTimeout(2000);
+        await this.OptionE.click();
+        await this.OptionE.type(testData.OptionE);
+        await this.page.waitForTimeout(2000);;
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveDraft.click();
+        await this.ClickOnEditQuestion.click();
+        await this.ClickOnWorkFlow.click()
+        await this.ClickOnApprove.click()
+        await this.page.waitForTimeout(3000);
+        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+    }
+
+    /**Methods to create Translation Question */
+    async createTranslationQuestion() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.clickOnTranslationQun.click();
+        await this.NextButtonClick.click();
+        await this.SelectQuestionBank.click();
+        await this.SelectQuestionBank.type(testData.TestBank2);
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample Translation Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.clickOnSourceLanguage.click();
+        await this.chooseEnglishLanguage.click();
+        await this.page.waitForTimeout(1000);
+        await this.clickOnTranslationLanguage.click();
+        await this.chooseKannadaLanguage.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionsText.click();
+        await this.QuestionsText.type(testData.OptionA);
+        await this.Answer.click();
+        await this.Answer.type(testData.AnswerISAWE);
+        await this.EnterMarks.click()
+        await this.EnterMarks.clear()
+        await this.EnterMarks.type("2")
+        await this.EnterAnsKey.type(testData.AnswerKeyISAWE)
+        await this.OptionC.click();
+        await this.OptionC.type(testData.OptionC);
+        await this.page.waitForTimeout(2000);
+        await this.EnterMarksInAns.click()
+        await this.EnterMarksInAns.clear()
+        await this.EnterMarksInAns.type("2")
+        await this.NextButtonClick.click();
+        await this.page.waitForTimeout(2000);
+        await this.ClickOnSaveDraft.click();
+        await this.ClickOnEditQuestion.click();
+        await this.ClickOnWorkFlow.click()
+        await this.ClickOnApprove.click()
+        await this.page.waitForTimeout(3000);
+        console.log(await this.ValidateSuccessfulPopMessage.textContent());
+    }
+
+    /**Methods to create Revision Question */
+    async createRevisionQuestion() {
+        await expect(this.CreateQuestion).toBeVisible();
+        await this.CreateQuestion.click();
+        await this.clickOnRevisionQun.click();
+        await this.NextButtonClick.click();
+        await this.SelectQuestionBank.click();
+        await this.SelectQuestionBank.type(testData.TestBank2);
+        await this.SelectTestBank.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionTopic.type('Sample Revision Questions' + Math.floor(Math.random() * 899 + 100));
+        await this.page.waitForTimeout(5000);
+        await this.QuestionAims.click();
+        await this.QuestionAims.type(testData.Question);
+        await this.page.waitForTimeout(2000);
+        await this.Question.click();
+        await this.Question.type(testData.Subquestion);
+        await this.clickOnSourceLanguage.click();
+        await this.chooseEnglishLanguage.click();
+        await this.page.waitForTimeout(1000);
+        await this.clickOnTranslationLanguage.click();
+        await this.chooseKannadaLanguage.click();
+        await this.page.waitForTimeout(2000);
+        await this.QuestionsText.click();
+        await this.QuestionsText.type(testData.OptionA);
+        await this.Answer.click();
+        await this.Answer.type(testData.AnswerISAWE);
+        await this.OptionC.click();
+        await this.page.waitForTimeout(2000);
+        await this.OptionC.type(testData.OptionC);
+        await this.EnterMarks.click()
+        await this.EnterMarks.clear()
+        await this.EnterMarks.type("2")
+        await this.EnterAnsKey.type(testData.AnswerKeyISAWE)
+        await this.OptionD.click();
+        await this.OptionD.type(testData.OptionD);
+        await this.page.waitForTimeout(2000);
+        await this.EnterMarksInAns.click()
+        await this.EnterMarksInAns.clear()
+        await this.EnterMarksInAns.type("2")
         await this.NextButtonClick.click();
         await this.page.waitForTimeout(2000);
         await this.ClickOnSaveDraft.click();

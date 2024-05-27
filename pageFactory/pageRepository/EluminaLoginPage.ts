@@ -53,6 +53,9 @@ export class EluminaLoginPage {
     readonly ClickonContinueBtn: Locator;
     readonly OfflineMessage: Locator;
     readonly sessionExpireMsg: Locator;
+    readonly uneditableEmailTxt: Locator;
+    readonly clickOnEditIcon: Locator;
+    readonly verifyForgotPswTitle: Locator;
 
 
 
@@ -82,6 +85,9 @@ export class EluminaLoginPage {
         this.ClickonContinueBtn = page.locator('//div[@class="submit-btn"]')
         this.OfflineMessage = page.locator('//div[text()="You are offline!"]')
         this.sessionExpireMsg = page.locator('//div[@class="message-txt"]');
+        this.uneditableEmailTxt = page.locator('(//div[@class="input-group"]//input)[1]');
+        this.clickOnEditIcon = page.locator('//span[@class="editIcon"]');
+        this.verifyForgotPswTitle = page.locator('//div[text()="Forgot Password"]')
 
 
     }
@@ -152,6 +158,17 @@ export class EluminaLoginPage {
         await this.USERNAME_EDITBOX.fill(testData.InvalidAdminUserEmail);
         await this.ClickonContinueBtn.click();
         await expect(this.ValidateErrorMessageInForgotPswd).toBeVisible()
+
+    }
+
+    /**Method to validate Forgot Password */
+    async Validation_of_Forgot_Password_Email() {
+        await this.ClickOnForgotPswd.click()
+        await this.USERNAME_EDITBOX.fill(testData.InvalidAdminUserEmail);
+        await this.ClickonContinueBtn.click();
+        await expect(this.uneditableEmailTxt).toBeVisible();
+        await this.clickOnEditIcon.click();
+        await expect(this.verifyForgotPswTitle).toBeVisible()
 
     }
 

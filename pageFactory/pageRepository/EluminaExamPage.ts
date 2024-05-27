@@ -1046,6 +1046,46 @@ export class EluminaExamPage {
     await this.ClickOnSave.click();
   }
 
+  /**Method to Add Ranking Questions in Exam */
+  async addRankingQuestions(): Promise<void> {
+    await this.ClickOnAddQuestion.click();
+    await this.ClickOnSearchQuestion.click()
+    await this.ClickOnSearchQuestion.type('Ranking question');
+    await this.page.waitForTimeout(10000);
+    await this.page.waitForSelector('//div[@class="eqc-question-info"]//input', { timeout: 10000 });
+    const McqQuestions = await this.page.$$('//div[@class="eqc-question-info"]//input');
+    for (let i = 1; i <= 4; i++) {
+      await McqQuestions[i].click();
+    }
+    await this.ClickOnAddBtn.click()
+    await this.ClickOnSave.click();
+    await this.ClickOnNextBtn.click();
+    await this.page.waitForTimeout(5000);
+    await this.ClickOnSubmitAndApproveBtn.click();
+    await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+    await this.page.waitForTimeout(5000);
+  }
+
+  /**Method to Add ISAWE-CASE Questions in Exam */
+  async addISAWE_CASEQuestions(): Promise<void> {
+    await this.ClickOnAddQuestion.click();
+    await this.ClickOnSearchQuestion.click()
+    await this.ClickOnSearchQuestion.type('ISAWE-CASE');
+    await this.page.waitForTimeout(10000);
+    await this.page.waitForSelector('//div[@class="eqc-question-info"]//input', { timeout: 10000 });
+    const McqQuestions = await this.page.$$('//div[@class="eqc-question-info"]//input');
+    for (let i = 1; i <= 4; i++) {
+      await McqQuestions[i].click();
+    }
+    await this.ClickOnAddBtn.click()
+    await this.ClickOnSave.click();
+    await this.ClickOnNextBtn.click();
+    await this.page.waitForTimeout(5000);
+    await this.ClickOnSubmitAndApproveBtn.click();
+    await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+    await this.page.waitForTimeout(5000);
+  }
+
   /**Method for Logout */
   async logoutClick() {
     await this.MenuIconClick.click();

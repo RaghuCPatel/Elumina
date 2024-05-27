@@ -234,11 +234,11 @@ export class EluminaCandidatePage {
         this.flagForReviewColor = page.locator('(//p[@class="parent-body-container menuColor3"])[3]');
         this.notAnweredQuestion = page.locator('//p[@class="parent-body-container menuColor1"]');
 
-        this.ClickOnNotepad = page.locator('(//div[@class="toolIcon"])[2]');
+        this.ClickOnNotepad = page.locator('(//div[@class="toolIcon"])[2]//em');
         this.ClickOnCalculator = page.locator('(//div[@class="toolIcon"])[1]');
         this.ClickOnHighlighter = page.locator('(//div[@class="toolIcon"])[3]');
 
-        this.ClickOnNotepadOne = page.locator('(//div[@class="toolIcon"])[2]');
+        this.ClickOnNotepadOne = page.locator('(//div[@class="toolIcon"])[2]//em');
         this.HighlightQuestion = page.locator('//div[@class="question-content clearfix"]');
         this.HighlightQuestions = page.locator('//p[@class="earseM-0 inner-question-section marker highlighter-context"]')
         this.textareafill = page.locator('//div[@class="notepad-content"]//textarea');
@@ -929,6 +929,25 @@ export class EluminaCandidatePage {
 
     }
 
+    /**Method to Answer the Ranking questions and click on review button */
+    async candidateStartRankingQuestion() {
+        await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
+        const qutns = await this.page.$$('//div[@class="question-number-container"]//div//p');
+        console.log('Number of questions-' + qutns.length);
+        const Ttl = qutns.length - 1;
+        for (let i = 0; i < 2; i++) {
+            await qutns[i].click();
+            //await this.ansMCQQuestions.click();
+            await this.ClickOnNextBtn.click();
+        }
+        await this.page.locator('(//div[@class="question-number-container"]//div//p)[3]').click();
+        await this.flagForReviewQuestions.click();
+        await this.ClickOnNextBtn.click();
+        await this.page.locator('//div[@class="question-number-container"]//div//p').last().click();
+        await this.ClickOnRevieweBtn.click();
+
+    }
+
     /**Method to Answer the MCQ questions and click on review & submit button */
     async candidateStartMCQAndSubmit() {
         await this.page.waitForSelector('//div[@class="question-number-container"]//div//p', { timeout: 10000 });
@@ -1372,6 +1391,7 @@ export class EluminaCandidatePage {
      */
     async AddingNotesToAllQuestion() {
         {
+            await this.page.waitForTimeout(1000);
             await this.ClickOnNotepad.click();
             await this.page.waitForTimeout(1000);
             await this.textareafill.type('abc');

@@ -371,7 +371,7 @@ export class EluminaRegistrationPage {
         this.SelectVenue = page.locator('//table[@class="table"]//tbody//tr[1]//td[11]//select');
         this.SpecialArrangement = page.locator('//table[@class="table"]//tbody//tr[1]//td[12]//select');
         this.BookingStatus1 = page.locator('//table[@class="table"]//tbody//tr[1]//td[14]//select');
-        this.SelectBookingStatus = page.locator('//table[@class="table"]//tbody//tr[1]//td[12]//select');
+        this.SelectBookingStatus = page.locator('//table[@class="table"]//tbody//tr[1]//td[14]//select');
         this.ClickOnSaveBtn = page.locator('//button[@class="theme-btn theme-primary-btn"]');
         this.LeftArrow = page.locator('//i[@class="iconBg leftArrow"]');
         this.searchExam = page.locator('//input[@placeholder="Search Exam(s)"]');
@@ -879,7 +879,7 @@ export class EluminaRegistrationPage {
             await this.SelectEligible.selectOption('Yes');
             await this.page.waitForTimeout(1000);
             await this.SelectVenue.click();
-            await this.SelectVenue.type('Elumina Chennai');
+            await this.SelectVenue.selectOption('Chennai, India');
             await this.page.waitForTimeout(1000);
             await this.SelectBookingStatus.click();
             await this.SelectBookingStatus.selectOption('Booked');
