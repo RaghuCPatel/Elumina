@@ -221,7 +221,7 @@ test(`iAU_TC_ID_56. @RegressionA Validation of Create Question (OSCE Question)-N
 });
 
 /**Validation of Create Question (Scenario) - Negative Scenario.*/
-test(`iAU_TC_ID_57. @RegressionA Validation of Create Question (Scenario) - Negative Scenario.`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
+test(`iAU_TC_ID_58. @RegressionA Validation of Create Question (Scenario) - Negative Scenario.`, async ({ eluminaLoginPage, eluminaCreateQuestionsPage, webActions }) => {
     await test.step(`Navigate to Application`, async () => {
         await eluminaLoginPage.navigateToURL();
     });

@@ -61,7 +61,7 @@ test(`iEX_TC_ID_104. @iExamRegression Validation of Exam Section > Ranking Quest
         await eluminaCandPage.candidateNavigateToURL();
     });
     await test.step(`Candidate Login to application`, async () => {
-        await eluminaCandPage.candidateLoginToApplication(3, "rankingquestion_user_details.xlsx");
+        await eluminaCandPage.candidateLoginToApplication(2, "rankingquestion_user_details.xlsx");
     });
     await test.step('Candidate start the exam', async () => {
         await eluminaCandPage.UsingCalculatorForQuestions();

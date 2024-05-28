@@ -779,6 +779,7 @@ export class EluminaCreateQuestionsPage {
         this.verifyisawecaseerrormessage = page.locator('//span[text()="Correct Answers Should be Equal or greater than answer Selection"]');
         this.clickOnDistractorPlusIcon = page.locator('(//span[@class="plus-btn"])[2]');
         this.verifydistractorErrorMessage = page.locator('//span[text()="Maximum 10 Answer Key allowed"]');
+        this.clickOnLongAnswerQun = page.locator('//p[text()="Long Answer"]');
 
     }
 
@@ -2228,6 +2229,7 @@ export class EluminaCreateQuestionsPage {
     async createLongAnswerQuestion() {
         await expect(this.CreateQuestion).toBeVisible();
         await this.CreateQuestion.click();
+        await this.page.waitForTimeout(2000);
         await this.clickOnLongAnswerQun.click();
         await this.NextButtonClick.click();
         await this.SelectQuestionBank.click();
