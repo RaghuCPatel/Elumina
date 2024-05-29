@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:single": "npx playwright test iAuthorSettings.test.ts --project=API",
+    "test:single": "npx playwright test EluminaRegressioniExamTC_052.test.ts --project=Chrome",
     "test:elumina": "npx playwright test Elumina.test.ts --project=Chrome",
     "test:parallel": "npx playwright test --grep @Smoke --project=Chrome",
     "test:serial": "npx playwright test --grep @LowPriorityiExamCases --workers=1 --project=Chrome",
@@ -14,7 +14,7 @@
     "test:iExam_Parallel_Regression": "npx playwright test --grep \"@iExamRegression|@LowPriorityiExamCases\" --workers=4 --project=Chrome",
     "test:iExam_Serial_Regression": "npx playwright test --grep \"@Serial-Pre-Request|@iExamSerialRegression\" --workers=1 --project=Chrome",
     "test:iProctor_Serial_Regression": "npx playwright test --grep \"@iProctorRegression|@LowPriorityiProctorCases\" --workers=1 --project=Chrome",
-    "test:iAuthor_Parallel_Regession": "npx playwright test --grep @RegressionA1 --workers=2 --project=Chrome",
+    "test:iAuthor_Parallel_Regession": "npx playwright test --grep @RegressionA11 --workers=2 --project=Chrome",
     "test:cicd-regression": "npx playwright test --grep \"@iExamRegression|@LowPriorityiExamCases\" --workers=1 --project=Chromium",
     "test:cicd-smoke": "npx playwright test --grep \"@Smoke|@iProctorlink\" --workers=1 --project=Chromium",
     "test:smoke_Serial_CICD": "npx playwright test --grep \"@Smoke|@iProctorlink\" --workers=1 --project=Chrome",
